@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6229BF6-071F-4F6C-9996-8A6C17B2972D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grundfos.WG.PostCalc</RootNamespace>
+    <AssemblyName>SCADAPostCalculationDataExchanger</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Program Files %28x86%29\Bentley\WaterGEMS\x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\Program Files %28x86%29\Bentley\WaterGEMS\x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Calculations.Pressure.Domain, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Calculations.Pressure.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Calculations.Support, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Calculations.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.DataIntegration.CLR2, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.DataIntegration.CLR2.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Domain, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Domain.DataObjects, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Domain.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Domain.DataObjects.Water, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Domain.DataObjects.Water.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Domain.ModelingObjects, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Domain.ModelingObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Domain.ModelingObjects.Water, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Domain.ModelingObjects.Water.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.SQLite, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Support, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Support.OOP, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Support.OOP.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Support.OOP.Data, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Support.OOP.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Haestad.Support.OOP.log4net, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WG\Haestad.Support.OOP.log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.111.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataExchangers\DataExchangerBase.cs" />
+    <Compile Include="DataExchangers\DataExchangerConfiguration.cs" />
+    <Compile Include="DataExchangers\DataExchangerContext.cs" />
+    <Compile Include="DataExchangers\DemandSetting.cs" />
+    <Compile Include="DataExchangers\GenericDataExchanger.cs" />
+    <Compile Include="DemandCalculation\WaterDemandDataWriter.cs" />
+    <Compile Include="DemandCalculation\WaterDemandDataReaderConfiguration.cs" />
+    <Compile Include="DemandCalculation\WaterDemandDataWriterConfiguration.cs" />
+    <Compile Include="DemandCalculation\ZoneDemandData.cs" />
+    <Compile Include="Exceptions\DataExchangerException.cs" />
+    <Compile Include="PressureCalculation\ZonePressureData.cs" />
+    <Compile Include="PressureCalculation\ZonePressurePublisher.cs" />
+    <Compile Include="PressureCalculation\ZonePressurePublisherConfiguration.cs" />
+    <Compile Include="ProcessInfoService.cs" />
+    <Compile Include="SCADAPostCalculationDataExchanger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grundfos.OPC\Grundfos.OPC.csproj">
+      <Project>{e7f47b21-fffc-4004-9ec4-3fb6efcc436f}</Project>
+      <Name>Grundfos.OPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WaterDemandCalculation\Grundfos.WaterDemandCalculation.csproj">
+      <Project>{e6617cd4-b3ea-4862-b59a-838745aba3a7}</Project>
+      <Name>Grundfos.WaterDemandCalculation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.ObjectReaders\Grundfos.WG.ObjectReaders.csproj">
+      <Project>{0B2D4FA7-A4B2-4527-A7C7-2B0436B9FA2E}</Project>
+      <Name>Grundfos.WG.ObjectReaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.OPC.Publisher\Grundfos.WG.OPC.Publisher.csproj">
+      <Project>{5F8B376B-36E0-4C0D-9142-8D6C401008E5}</Project>
+      <Name>Grundfos.WG.OPC.Publisher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.PostCalc.Persistence\Grundfos.WG.PostCalc.Persistence.csproj">
+      <Project>{D08E3712-4132-44CC-BA29-04C1D945DF26}</Project>
+      <Name>Grundfos.WG.PostCalc.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.PostCalc.SQLiteEf\Grundfos.WG.PostCalc.SQLiteEf.csproj">
+      <Project>{80E8C326-4A17-4655-9EEB-42528CFD925A}</Project>
+      <Name>Grundfos.WG.PostCalc.SQLiteEf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
+      <Project>{72312FB8-0EA0-4E29-8D99-EA9CF6C1CCCA}</Project>
+      <Name>Grundfos.Workbooks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="ResultCache.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SCADAPostCalculationDataExchanger.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Zones\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release if not exist "$(TargetDir)Deploy\" MkDir "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release if not exist "$(TargetDir)Deploy\x64" MkDir "$(TargetDir)Deploy\x64"
+if $(ConfigurationName) == Release if not exist "$(TargetDir)Deploy\x86" MkDir "$(TargetDir)Deploy\x86"
+
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.OPC.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WaterDemandCalculation.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.PostCalc.Persistence.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.PostCalc.Persistence.dll.config" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.PostCalc.SQLiteEf.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.PostCalc.SQLiteEf.dll.config" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)SCADAPostCalculationDataExchanger.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)SCADAPostCalculationDataExchanger.dll.config" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.Workbooks.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.OPC.Publisher.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.ObjectReaders.dll" "$(TargetDir)Deploy\"
+
+if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.dll.config" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.EF6.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.Linq.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)x64\SQLite.Interop.dll" "$(TargetDir)Deploy\x64"
+if $(ConfigurationName) == Release copy "$(TargetDir)x86\SQLite.Interop.dll" "$(TargetDir)Deploy\x86"
+if $(ConfigurationName) == Release copy "$(TargetDir)AutoMapper.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)EntityFramework.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)EntityFramework.SqlServer.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)NPOI.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)NPOI.OOXML.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)NPOI.OpenXml4Net.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)NPOI.OpenXmlFormats.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)TitaniumAS.Opc.Client.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)ICSharpCode.SharpZipLib.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Common.Logging.Core.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Common.Logging.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)h-opc.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Opc.Ua.Client.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Opc.Ua.Configuration.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Opc.Ua.Core.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)OpcComRcw.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)OpcNetApi.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)OpcNetApi.Com.dll" "$(TargetDir)Deploy\"
+
+if $(ConfigurationName) == Release copy "$(TargetDir)SCADAPostCalculationDataExchanger.ini" "$(TargetDir)Deploy\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
