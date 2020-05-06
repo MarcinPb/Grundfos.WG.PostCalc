@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml.Schema;
+using Grundfos.WG.PostCalc.DataExchangers;
 //using Grundfos.WaterDemandCalculation.Model;
 using Haestad.Domain;
 using Haestad.Domain.ModelingObjects;
@@ -14,35 +16,49 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
     public class WaterDemandDataWriter
     {
         private string _testedZoneName = "1 - Przybków";
+        private string _logFolder = @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10";
+        //private string _logFolder = @"C:\WG2TW\Grundfos.WG.PostCalc";
+        private string dateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
 
         public WaterDemandDataWriter(
             ActionLogger logger,
             IDomainDataSet domainDataSet,
-            WaterDemandDataWriterConfiguration configuration)
+            WaterDemandDataWriterConfiguration configuration,
+            DataExchangerContext dataExchangerContext)
         {
             this.Logger = logger;
             this.DomainDataSet = domainDataSet;
             this.Configuration = configuration;
+            this.DataExchangerContext = dataExchangerContext;
         }
 
         public ActionLogger Logger { get; }
         public IDomainDataSet DomainDataSet { get; }
         public WaterDemandDataWriterConfiguration Configuration { get; }
+        public DataExchangerContext DataExchangerContext { get; }
 
         public bool WriteDemands(ZoneDemandData zoneDemandData)
         {
-            // My:
-            if (zoneDemandData.ZoneName == _testedZoneName)
-            {
-                this.Logger?.WriteMessage(OutputLevel.Info, $"# Updating water demands for '{zoneDemandData.ZoneName}' zone.");
-            }
-
             try
             {
+                if (zoneDemandData.ZoneName == _testedZoneName)
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"# Start updating '{zoneDemandData.ZoneName}' zone.");
+                    Helper.DumpToFile(zoneDemandData, Path.Combine(_logFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+                }
+
                 var domainDataSet = this.DomainDataSet as IdahoDomainDataSet;
                 this.UpdateCollectionDemands(Constants.NodeID, zoneDemandData);
                 this.UpdateCollectionDemands(Constants.HydrantID, zoneDemandData);
                 this.UpdateCustomerNodeMeterDemands(zoneDemandData);
+
+                if (zoneDemandData.ZoneName == _testedZoneName)
+                {
+                    //this.Logger?.WriteMessage(OutputLevel.Info, $"# Path: '{Path.Combine(_logFolder, "DumpZoneDemandData.xml")}'");
+                    Helper.DumpToFile(zoneDemandData, Path.Combine(_logFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+                    //Helper.DumpToFile(zoneDemandData, Path.Combine(_logFolder, "DumpZoneDemandData.xml"));
+                }
+
                 return true;
             }
             catch (Exception e)

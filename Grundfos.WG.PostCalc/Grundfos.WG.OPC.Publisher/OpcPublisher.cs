@@ -42,12 +42,14 @@ namespace Grundfos.WG.OPC.Publisher
                 IResultTimeVariantField timeVariantField = domainDataSet.FieldManager.ResultField(
                     this.Configuration.ResultAttributeRecordName,
                     engineName,
-                    this.Configuration.ResultRecordName) as IResultTimeVariantField;
+                    this.Configuration.ResultRecordName
+                ) as IResultTimeVariantField;
 
                 double[] timeSteps = domainDataSet.NumericalEngine(engineName).ResultDataConnection.TimeStepsInSeconds(scenario.Id);
 
                 var elementTypes = new HmIDCollection(this.Configuration.ElementTypes.Select(x => (int)x).ToArray());
 
+                // Dictionary<int, double> (ObjectID, Value) ??? 
                 var simulationValues = this.GetSimulationValues(timeVariantField, timeSteps, elementTypes, scenario.Id);
 
                 this.PublishValuesToOpc(simulationValues);
@@ -63,6 +65,7 @@ namespace Grundfos.WG.OPC.Publisher
 
         protected virtual void PublishValuesToOpc(Dictionary<int, double> simulationValues)
         {
+            // List<OpcWriteValue>
             var writeValues = this.BuildRequests(simulationValues);
             publisher.Publish(writeValues.ToArray());
         }

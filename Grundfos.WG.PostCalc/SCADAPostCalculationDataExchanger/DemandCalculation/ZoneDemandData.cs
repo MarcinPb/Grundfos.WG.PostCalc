@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Grundfos.WaterDemandCalculation.Model;
 
 namespace Grundfos.WG.PostCalc.DemandCalculation
 {
+    [Serializable]
     public class ZoneDemandData
     {
         public ZoneDemandData()
@@ -10,7 +12,8 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
             this.Demands = new List<WaterDemandData>();
         }
         public string ZoneName { get; set; }
-        public string OpcTag { get; internal set; }
+        //public string OpcTag { get; internal set; }
+        public string OpcTag { get; set; }
         public List<WaterDemandData> Demands { get; set; }
         public double WgDemand { get; set; }
         public double ScadaDemand { get; set; }

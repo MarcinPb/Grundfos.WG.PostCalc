@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using AutoMapper;
@@ -56,6 +58,8 @@ namespace SCADAPostCalculationDataExchanger
 
         public string RepositoryPath { get; set; }
         public string DemandConfigurationWorkbook { get; private set; }
+        public string DumpOption { get; private set; }
+        public string DumpFolder { get; private set; }
 
         public override bool BeforeDoDataExchange(object dataExchangeContext)
         {
@@ -64,12 +68,23 @@ namespace SCADAPostCalculationDataExchanger
             this.RepositoryPath = exchangeContext.GetString("ResultCacheDb", @"C:\WG2TW\Grundfos.WG.PostCalc\ResultCache.sqlite");
             this.DemandConfigurationWorkbook = exchangeContext.GetString("DemandConfigurationWorkbook", @"C:\WG2TW\Grundfos.WG.PostCalc\WaterDemandSettings.xlsx");
 
+            // My
+            this.DumpOption = exchangeContext.GetString("DumpOption", @"1");
+            this.Logger.WriteMessage(OutputLevel.Info, $"# DumpOption = {DumpOption}.");
+            this.DumpFolder = exchangeContext.GetString("DumpFolder", @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10");
+            this.Logger.WriteMessage(OutputLevel.Info, $"# DumpFolder = {DumpFolder}.");
+            var paramDict = new Dictionary<string, string>();
+            paramDict.Add("DumpOption", DumpOption);
+            paramDict.Add("DumpFolder", DumpFolder);
+            exchangeContext.Tag = paramDict;
+
             return true;
         }
 
         public override bool DoDataExchange(object dataExchangeContext)
         {
             var zoneReader = new ZoneReader(this.DomainDataSet);
+            // Dictionary<int, string> <- WaterGEMS {{n, "1 - Przybków"},... {n, "16 - Pompownia"}}
             var wgZones = zoneReader.GetZones();
 
             var excelReader = new ExcelReader(this.DemandConfigurationWorkbook);
@@ -77,8 +92,12 @@ namespace SCADAPostCalculationDataExchanger
             // dataExchangeContext <- ResultCache.sqlite
             this.PassQualityResults(dataExchangeContext);
 
+            // 
             this.PublishOpcResults(dataExchangeContext, excelReader, wgZones);
+            
+            //
             this.ExchangeWaterDemands(dataExchangeContext, excelReader, wgZones);
+
             return true;
         }
 
@@ -87,14 +106,17 @@ namespace SCADAPostCalculationDataExchanger
             try
             {
                 var mappingReader = new OpcMappingReader(this.Logger, excelReader);
+                // ICollection<OpcMapping> <- excel.OpcMapping group by FieldName without "Result Attribute Label" column.
                 var mappings = mappingReader.ReadMappings();
+
+                // List<OpcPublisher> <- ICollection<OpcMapping> * Dictionary<int, string>
                 var publishers = this.BuildPublishers(mappings, wgZones);
+
                 this.Logger.WriteMessage(OutputLevel.Info, "Start writing results to OPC.");
                 foreach (var publisher in publishers)
                 {
                     publisher.PublishResults(this.DomainDataSet, this.Scenario);
                 }
-
                 this.Logger.WriteMessage(OutputLevel.Info, "Finished writing results to OPC.");
             }
             catch (Exception ex)
@@ -176,6 +198,8 @@ namespace SCADAPostCalculationDataExchanger
                 var db = new DatabaseContext(this.RepositoryPath);
                 var mapper = BuildMapper();
                 var repo = new PostCalcRepository(db, mapper);
+                
+                // List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
                 var dataExchangers = this.BuildDataExchangers(repo);
                 dataExchangers.ForEach(x => x.DoDataExchange(dataExchangeContext));
             }
@@ -199,14 +223,15 @@ namespace SCADAPostCalculationDataExchanger
                 //var demandData = demandDataReader.GetWaterDemands();
 
                 this.Logger.WriteMessage(OutputLevel.Info, $"{wgZones.Count} zones have been read from WaterGEMS model.");
+                this.Logger.WriteMessage(OutputLevel.Debug, "Test of OutputLevel.Debug");
 
                 var objectDataReader = new ObjectDataExcelReader(excelReader);
-                // List<WaterDemandData> = Excel.ObjectData
+                // List<WaterDemandData> = Excel.ObjectData {{6871, 73, "Mw", [DemandPatternID], 0.0470416666666677, "1 - Przybków", [ZoneID], },... }
                 var objectDemandData = objectDataReader.ReadObjects();
                 this.Logger.WriteMessage(OutputLevel.Info, $"{objectDemandData.Count} objects with demand information have been read from Excel file.");
 
                 var patternReader = new WaterDemandPatternReader(this.DomainDataSet);
-                // Dictionary<string, int> = WaterGEMS->DemandPattern
+                // Dictionary<string, int> = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
                 var patterns = patternReader.GetPatterns();
                 this.Logger.WriteMessage(OutputLevel.Info, $"{patterns.Count} demand patterns have been read from WaterGEMS model.");
 
@@ -229,10 +254,10 @@ namespace SCADAPostCalculationDataExchanger
                     this.Logger.WriteMessage(OutputLevel.Info, message);
                 }
 
-                // Two arrays: "Excluded Object IDs" and "Excluded Demand Patterns"
+                // Two arrays of int: "Excluded Object IDs" and "Excluded Demand Patterns"
                 var demandConfig = this.GetDemandWriterConfig(patterns, waterDemandExcelReader);
 
-                var demandWriter = new WaterDemandDataWriter(this.Logger, this.DomainDataSet, demandConfig);
+                var demandWriter = new WaterDemandDataWriter(this.Logger, this.DomainDataSet, demandConfig, (DataExchangerContext)dataExchangeContext);
 
                 foreach (var zoneDemand in zoneDemands.Where(x => x.ScadaDemand > 0.001))
                 {

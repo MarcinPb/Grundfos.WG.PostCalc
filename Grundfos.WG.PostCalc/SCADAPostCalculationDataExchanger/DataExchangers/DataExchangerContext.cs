@@ -4,7 +4,7 @@ using Haestad.Support.OOP.Logging;
 
 namespace Grundfos.WG.PostCalc.DataExchangers
 {
-    class DataExchangerContext : DataExchangeContextBase
+    public class DataExchangerContext : DataExchangeContextBase
     {
         public DataExchangerContext(ActionLogger logger, IConfigurationReader configurationReader)
             : base(logger, configurationReader)
@@ -36,5 +36,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
         {
             return this.ConfigurationReader.ReadRealNumber(key, defaultValue);
         }
+
+        public object Tag { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 ﻿
+using System;
+
 namespace Grundfos.WaterDemandCalculation.Model
 {
+    [Serializable]
     public class WaterDemandData
     {
         public int ObjectID { get; set; }
@@ -11,7 +14,8 @@ namespace Grundfos.WaterDemandCalculation.Model
         public string ZoneName { get; set; }
         public double BaseDemandValue { get; set; }
         public int AssociatedElementID { get; set; }
-        public double ActualDemandValue { get; internal set; }
+        //public double ActualDemandValue { get; internal set; }
+        public double ActualDemandValue { get; set; }
 
         public override string ToString()
         {

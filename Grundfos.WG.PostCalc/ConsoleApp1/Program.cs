@@ -64,12 +64,15 @@ namespace ConsoleApp1
 
                 //Console.Write(ObjectToXml(zone1));
                 Console.Write($"{ObjectToXml(zoneList)}\n\n");
-                DumpToFile(ObjectToXml(zoneList), @"aaa\DumpFile");
+                DumpToFile(ObjectToXml(zoneList), @"DumpFile");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+            Console.WriteLine($"ggggggggggg_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-fffffff")}_ggggg");
+
             Console.ReadKey();
         }
 
@@ -81,19 +84,19 @@ namespace ConsoleApp1
             }
         }
 
-        private static string ObjectToXml(object output)
+        private static string ObjectToXml(object inputObject)
         {
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("", "");
 
             string objectAsXmlString;
 
-            System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(output.GetType());
-            using (System.IO.StringWriter sw = new System.IO.StringWriter())
+            XmlSerializer xs = new XmlSerializer(inputObject.GetType());
+            using (StringWriter sw = new StringWriter())
             {
                 try
                 {
-                    xs.Serialize(sw, output, ns);
+                    xs.Serialize(sw, inputObject, ns);
                     objectAsXmlString = sw.ToString();
                 }
                 catch (Exception ex)

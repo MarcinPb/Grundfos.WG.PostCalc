@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Grundfos.WG.PostCalc.Persistence.Model;
+﻿using Grundfos.WG.PostCalc.Persistence.Model;
 using Grundfos.WG.PostCalc.Persistence.Repositories;
 using Haestad.Domain;
 using Haestad.Support.OOP.Logging;
 using Haestad.Support.Support;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Grundfos.WG.PostCalc.DataExchangers
 {
@@ -27,37 +27,81 @@ namespace Grundfos.WG.PostCalc.DataExchangers
         public IPostCalcRepository Repository { get; }
         public DataExchangerConfiguration Configuration { get; }
 
+        /// <summary>
+        /// 1. Save last WG simulation to simulationValues dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
+        /// 2. Load simulation from SQLite Results table to storedValues dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
+        /// 3. Check if current process runs first time after a break by comparison current process info to process info saved in SQLite ResultTimestamps table.
+        ///     if true:
+        ///         1. Update (or insert) current process info to SQLite ResultTimestamps table.
+        ///         2. Update WG based on storedValues provided ObjectID exists in simulationValues. WG.Field = storedValues["ObjectID"].Value * Configuration.ConversionFactor.
+        ///     else
+        ///         1. Replace (or insert) content of SQLite Results table with WG simulationValues dictionary.
+        ///         2. Update WG based on simulationValues. WG.Field = simulationValues["ObjectID"].Value * Configuration.ConversionFactor.
+        /// </summary>
+        /// <param name="dataExchangeContext">WG: IdahoWaterQualityResults_Calculated[Age|Trace|Concentration]</param>
+        /// <returns></returns>
         public override bool DoDataExchange(object dataExchangeContext)
         {
             try
             {
+                this.Logger?.WriteMessage(OutputLevel.Info, $"DataExchangerConfiguration = '{this.Configuration}'");
+
                 // Log the start of the process with the "Info" level priority.
                 // (Users can control the verbosity of log output to only see the level of detail they want).
-                this.Logger?.WriteMessage(OutputLevel.Info, $"Reading {this.Configuration.ResultAttributeRecordName} ...");
+                // ex.: StandardResultRecordName.IdahoWaterQualityResults_CalculatedAge
+                this.Logger?.WriteMessage(OutputLevel.Info, $"Reading {this.Configuration.ResultAttributeRecordName}...");
 
                 // Acquire the numerical engine name that supports Water Quality results.
                 // This could also be hard coded as: StandardCalculationOptionFieldName.EpaNetEngine
+                // ex.: StandardResultRecordName.IdahoWaterQualityResults
                 string engineName = this.Scenario.GetActiveNumericalEngineTypeName(this.Configuration.ResultRecordName);
 
                 // Acquire the relevant field or fields that we want to read results for.
                 IResultTimeVariantField timeVariantField = this.DomainDataSet.FieldManager.ResultField(
-                    this.Configuration.ResultAttributeRecordName,
-                    engineName,
-                    this.Configuration.ResultRecordName) as IResultTimeVariantField;
+                    this.Configuration.ResultAttributeRecordName,   // ex.: StandardResultRecordName.IdahoWaterQualityResults_CalculatedAge 
+                    engineName,                                     
+                    this.Configuration.ResultRecordName             // ex.: StandardResultRecordName.IdahoWaterQualityResults
+                ) as IResultTimeVariantField;
 
                 // Acquire the "look ahead" time steps that have been simulated (we want to use the last time step).
                 double[] timeSteps = this.DomainDataSet.NumericalEngine(engineName).ResultDataConnection.TimeStepsInSeconds(this.Scenario.Id);
+                // My
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# WG timeSteps.Count = {timeSteps.Length}");
+                foreach (var item in timeSteps.Take(10))
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"\t{item}");
+                }
 
-                // Sspecify the element types that we want to load WQ data for.
+                // Specify the element types that we want to load WQ data for.
                 var elementTypes = new HmIDCollection
                 {
                     (int)DomainElementType.IdahoJunctionElementManager,
                     (int)DomainElementType.IdahoTankElementManager
                 };
 
+                // Dictionary<int, double> simulationValues <- WaterGames todo: which elements on WaterGEMS UI?
                 var simulationValues = this.GetSimulationValues(timeVariantField, timeSteps, elementTypes);
+                // My
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# WG simulationValues.Count = {simulationValues.Count}");
+                foreach (var keyValuePair in simulationValues.Take(10))
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"\t{keyValuePair.Key} - {keyValuePair.Value}");                    
+                }
+
+                // Dictionary<int, double> storedValues <- SQLite: SELECT ObjectID, Value FROM Results WHERE Attribute = 'IdahoWaterQualityResults_CalculatedAge' 
                 var storedValues = this.Repository.GetResultsByAttribute(this.Configuration.ResultAttributeRecordName).ToDictionary(x => x.ObjectID, x => x.Value);
+                // My
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# SQLite storedValues.Count = {storedValues.Count}");
+                foreach (var keyValuePair in storedValues.Take(10))
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"\t{keyValuePair.Key} - {keyValuePair.Value}");                    
+                }
+
+                // Checks if the current process exists in the SQLite processes table (ResultTimestamps). Return true if not exists.
                 bool processWasInterrupted = this.ProcessWasInterrupted(this.Configuration.ResultAttributeRecordName, out ProcessInfo processInfo);
+                // My
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# SQLite processWasInterrupted = {processWasInterrupted}");
+
                 if (!processWasInterrupted)
                 {
                     var data = simulationValues
@@ -79,7 +123,9 @@ namespace Grundfos.WG.PostCalc.DataExchangers
 
                 this.Repository.SaveChanges();
 
+
                 // WRITING THE DATA ----
+
                 this.Logger?.WriteMessage(OutputLevel.Info, $"Writing {this.Configuration.ResultAttributeRecordName}...");
 
                 // Acquire the alternative (or alternatives) that we want to write the WQ data back to.
@@ -89,7 +135,8 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 IEditField field = DomainDataSet.AlternativeManager((int)this.Configuration.Alternative).AlternativeField(
                     this.Configuration.FieldName,
                     (int)DomainElementType.BaseIdahoNodeElementManager,
-                    alternativeId) as IEditField;
+                    alternativeId
+                ) as IEditField;
 
                 int valuesWrittenCount = 0;
 
@@ -100,6 +147,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                     double doubleValue;
                     if (processWasInterrupted)
                     {
+                        // doubleValue is taken from SQLite storedValues.
                         if (!storedValues.TryGetValue(elementID, out doubleValue))
                         {
                             continue;
@@ -107,6 +155,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                     }
                     else
                     {
+                        // doubleValue is taken from current WG simulationValues.
                         doubleValue = item.Value;
                     }
 
@@ -117,6 +166,12 @@ namespace Grundfos.WG.PostCalc.DataExchangers
 
                     // Count the value
                     valuesWrittenCount++;
+
+                    // My
+                    if (valuesWrittenCount <= 10)
+                    {
+                        this.Logger?.WriteMessage(OutputLevel.Info, $"\tID={elementID}, Value={doubleValue}, {doubleValue}*{this.Configuration.ConversionFactor}={valueToWrite}");
+                    }
                 }
 
                 this.Logger?.WriteMessage(OutputLevel.Info, $"Wrote {valuesWrittenCount} {this.Configuration.ResultAttributeRecordName} values.");
@@ -158,9 +213,17 @@ namespace Grundfos.WG.PostCalc.DataExchangers
             return result;
         }
 
+        /// <summary>
+        /// Checks if the current process exists in the SQLite processes table (ResultTimestamps). Return true if not exists.  
+        /// </summary>
+        /// <param name="attribute">ex.: "IdahoWaterQualityResults_CalculatedAge"</param>
+        /// <param name="currentProcessInfo">Current process info: System.Diagnostics.ProcessID and System.Diagnostics.StartTime.</param>
+        /// <returns></returns>
         private bool ProcessWasInterrupted(string attribute, out ProcessInfo currentProcessInfo)
         {
             currentProcessInfo = ProcessInfoService.GetCurrentProcessInfo();
+            // My
+            this.Logger?.WriteMessage(OutputLevel.Info, $"# currentProcessInfo = '{currentProcessInfo}'");
             var dbProcessInfo = this.Repository.GetResultTimestamp(attribute);
             if (dbProcessInfo == null)
             {

@@ -26,8 +26,10 @@ namespace Grundfos.WG.OPC.Publisher.Configuration
             {
                 return new List<OpcMapping>();
             }
-
+            
+            // List<RawMappingEntry> <- excel.OpcMapping
             var rawMappings = GetRawMappings(sheet);
+            // List<OpcMapping> <- List<RawMappingEntry>
             List<OpcMapping> mappings = GetMappings(rawMappings);
 
             return mappings;
