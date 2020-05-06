@@ -30,6 +30,10 @@ namespace SCADAPostCalculationDataExchanger
 {
     public class SCADAPostCalculationDataExchanger : ToFileDataExchangerBase, IInProcessPluginDataExchanger
     {
+        private IScenario Scenario { get; set; }
+        private IDomainDataSet DomainDataSet { get; set; }
+        private int ScenarioID { get; set; }
+
         public SCADAPostCalculationDataExchanger()
         {
         }
@@ -61,6 +65,16 @@ namespace SCADAPostCalculationDataExchanger
         public string DumpOption { get; private set; }
         public string DumpFolder { get; private set; }
 
+        public override object NewDataExchangeContext(string[] arguments)
+        {
+            const string SETTINGS_FILE_KEY = "INI";
+            CommandLineArgumentsHelper commandLineArgumentsHelper = new CommandLineArgumentsHelper(arguments, new string[] { SETTINGS_FILE_KEY });
+            string settingsFileName = commandLineArgumentsHelper.GetCommandLineValue(SETTINGS_FILE_KEY);
+            IConfigurationReader configurationReader = new SettingsFileReader(Logger, new FilePath(settingsFileName));
+
+            return new DataExchangerContext(Logger, configurationReader);
+        }
+
         public override bool BeforeDoDataExchange(object dataExchangeContext)
         {
             // exchangeContext already contains ResultCacheDb and DemandConfigurationWorkbook keyValues taken from *.ini file.
@@ -83,8 +97,8 @@ namespace SCADAPostCalculationDataExchanger
 
         public override bool DoDataExchange(object dataExchangeContext)
         {
-            var zoneReader = new ZoneReader(this.DomainDataSet);
             // Dictionary<int, string> <- WaterGEMS {{n, "1 - Przybków"},... {n, "16 - Pompownia"}}
+            var zoneReader = new ZoneReader(this.DomainDataSet);
             var wgZones = zoneReader.GetZones();
 
             var excelReader = new ExcelReader(this.DemandConfigurationWorkbook);
@@ -100,6 +114,80 @@ namespace SCADAPostCalculationDataExchanger
 
             return true;
         }
+
+        #region PassQualityResults
+
+        private void PassQualityResults(object dataExchangeContext)
+        {
+            try
+            {
+                var db = new DatabaseContext(this.RepositoryPath);
+                var mapper = BuildMapper();
+                var repo = new PostCalcRepository(db, mapper);
+
+                // List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
+                var dataExchangers = this.BuildDataExchangers(repo);
+                dataExchangers.ForEach(x => x.DoDataExchange(dataExchangeContext));
+            }
+            catch (Exception ex)
+            {
+                this.Logger.WriteMessage(OutputLevel.Errors, "Errors occured when passing quality results.");
+                this.Logger.WriteException(ex, true);
+            }
+        }
+
+        private static IMapper BuildMapper()
+        {
+            var mapperConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.AddMaps(typeof(ResultProfile).Assembly);
+            });
+            var mapper = new Mapper(mapperConfig);
+            return mapper;
+        }
+
+        private List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase> BuildDataExchangers(IPostCalcRepository repository)
+        {
+            var ageConfig = new DataExchangerConfiguration
+            {
+                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
+                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedAge,
+                Alternative = AlternativeType.AgeAlternative,
+                FieldName = StandardFieldName.Age_InitialAge,
+                ConversionFactor = 3600,
+            };
+
+            var traceConfig = new DataExchangerConfiguration
+            {
+                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
+                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedTrace,
+                Alternative = AlternativeType.TraceAlternative,
+                FieldName = StandardFieldName.Trace_InitialTrace,
+                ConversionFactor = 0.01,
+            };
+
+            var concentrationConfig = new DataExchangerConfiguration
+            {
+                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
+                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedConcentration,
+                Alternative = AlternativeType.ConstituentAlternative,
+                FieldName = StandardFieldName.Constituent_InitialConcentration,
+                ConversionFactor = 1,
+            };
+
+            var dataExchangers = new List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
+            {
+                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, ageConfig),
+                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, traceConfig),
+                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, concentrationConfig),
+            };
+
+            return dataExchangers;
+        }
+
+        #endregion
+
+        #region PublishOpcResults
 
         private void PublishOpcResults(object dataExchangeContext, ExcelReader excelReader, Dictionary<int, string> wgZones)
         {
@@ -191,24 +279,9 @@ namespace SCADAPostCalculationDataExchanger
             return publishers;
         }
 
-        private void PassQualityResults(object dataExchangeContext)
-        {
-            try
-            {
-                var db = new DatabaseContext(this.RepositoryPath);
-                var mapper = BuildMapper();
-                var repo = new PostCalcRepository(db, mapper);
-                
-                // List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
-                var dataExchangers = this.BuildDataExchangers(repo);
-                dataExchangers.ForEach(x => x.DoDataExchange(dataExchangeContext));
-            }
-            catch (Exception ex)
-            {
-                this.Logger.WriteMessage(OutputLevel.Errors, "Errors occured when passing quality results.");
-                this.Logger.WriteException(ex, true);
-            }
-        }
+        #endregion
+
+        #region ExchangeWaterDemands
 
         private void ExchangeWaterDemands(object dataExchangeContext, ExcelReader excelReader, Dictionary<int, string> wgZones)
         {
@@ -409,69 +482,6 @@ namespace SCADAPostCalculationDataExchanger
             }
         }
 
-        private List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase> BuildDataExchangers(IPostCalcRepository repository)
-        {
-            var ageConfig = new DataExchangerConfiguration
-            {
-                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
-                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedAge,
-                Alternative = AlternativeType.AgeAlternative,
-                FieldName = StandardFieldName.Age_InitialAge,
-                ConversionFactor = 3600,
-            };
-
-            var traceConfig = new DataExchangerConfiguration
-            {
-                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
-                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedTrace,
-                Alternative = AlternativeType.TraceAlternative,
-                FieldName = StandardFieldName.Trace_InitialTrace,
-                ConversionFactor = 0.01,
-            };
-
-            var concentrationConfig = new DataExchangerConfiguration
-            {
-                ResultRecordName = StandardResultRecordName.IdahoWaterQualityResults,
-                ResultAttributeRecordName = StandardResultRecordName.IdahoWaterQualityResults_CalculatedConcentration,
-                Alternative = AlternativeType.ConstituentAlternative,
-                FieldName = StandardFieldName.Constituent_InitialConcentration,
-                ConversionFactor = 1,
-            };
-
-            var dataExchangers = new List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
-            {
-                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, ageConfig),
-                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, traceConfig),
-                new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, concentrationConfig),
-            };
-
-            return dataExchangers;
-        }
-
-        public override object NewDataExchangeContext(string[] arguments)
-        {
-            const string SETTINGS_FILE_KEY = "INI";
-            CommandLineArgumentsHelper commandLineArgumentsHelper = new CommandLineArgumentsHelper(arguments, new string[] { SETTINGS_FILE_KEY });
-            string settingsFileName = commandLineArgumentsHelper.GetCommandLineValue(SETTINGS_FILE_KEY);
-            IConfigurationReader configurationReader = new SettingsFileReader(Logger, new FilePath(settingsFileName));
-
-            return new DataExchangerContext(Logger, configurationReader);
-        }
-
-        private IScenario Scenario { get; set; }
-
-        private IDomainDataSet DomainDataSet { get; set; }
-
-        private int ScenarioID { get; set; }
-
-        private static IMapper BuildMapper()
-        {
-            var mapperConfig = new MapperConfiguration(cfg =>
-            {
-                cfg.AddMaps(typeof(ResultProfile).Assembly);
-            });
-            var mapper = new Mapper(mapperConfig);
-            return mapper;
-        }
+        #endregion
     }
 }
