@@ -30,14 +30,11 @@ namespace SCADAPostCalculationDataExchanger
 {
     public class SCADAPostCalculationDataExchanger : ToFileDataExchangerBase, IInProcessPluginDataExchanger
     {
-        private IScenario Scenario { get; set; }
         private IDomainDataSet DomainDataSet { get; set; }
+        private IScenario Scenario { get; set; }
         private int ScenarioID { get; set; }
 
-        public SCADAPostCalculationDataExchanger()
-        {
-        }
-
+        public SCADAPostCalculationDataExchanger() {}
         public void SetDomainDataSet(IDomainDataSet domainDataSet)
         {
             DomainDataSet = domainDataSet;
@@ -45,20 +42,9 @@ namespace SCADAPostCalculationDataExchanger
             Scenario = DomainDataSet.ScenarioManager.Element(ScenarioID) as IScenario;
         }
 
-        public override string DataExchangerTitle
-        {
-            get { return "SCADAPostCalculationDataExchanger"; }
-        }
-
-        public override Version DataExchangerVersion
-        {
-            get { return new Version(1, 0, 0, 0); }
-        }
-
-        public override string DataExchangerCopyright
-        {
-            get { return "Copyright (c) Grundfos"; }
-        }
+        public override string DataExchangerTitle => "SCADAPostCalculationDataExchanger";
+        public override Version DataExchangerVersion => new Version(1, 0, 0, 0);
+        public override string DataExchangerCopyright => "Copyright (c) Grundfos";
 
         public string RepositoryPath { get; set; }
         public string DemandConfigurationWorkbook { get; private set; }
@@ -101,6 +87,7 @@ namespace SCADAPostCalculationDataExchanger
             var zoneReader = new ZoneReader(this.DomainDataSet);
             var wgZones = zoneReader.GetZones();
 
+            // XSSFWorkbook excelReader.Workbook <- Waterdemandsettings.xlsx
             var excelReader = new ExcelReader(this.DemandConfigurationWorkbook);
 
             // dataExchangeContext <- ResultCache.sqlite
@@ -146,7 +133,15 @@ namespace SCADAPostCalculationDataExchanger
             return mapper;
         }
 
-        private List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase> BuildDataExchangers(IPostCalcRepository repository)
+        // WG: .ResultField(string name, string numericalEngineType, string resultRecordTypeName)
+        //  ResultRecordName = IdahoWaterQualityResults                 resultRecordTypeName    
+        //      IdahoWaterQualityResults_CalculatedAge - 3600               name
+        //      IdahoWaterQualityResults_CalculatedTrace - 0.01             name
+        //      IdahoWaterQualityResults_CalculatedConcentration - 1        name
+        //  DomainElementType:
+        //      IdahoJunctionElementManager
+        //      IdahoTankElementManager
+        private List<Grundfos.WG.PostCalc.DataExchangers.GenericDataExchanger> BuildDataExchangers(IPostCalcRepository repository)
         {
             var ageConfig = new DataExchangerConfiguration
             {
@@ -175,7 +170,7 @@ namespace SCADAPostCalculationDataExchanger
                 ConversionFactor = 1,
             };
 
-            var dataExchangers = new List<Grundfos.WG.PostCalc.DataExchangers.DataExchangerBase>
+            var dataExchangers = new List<Grundfos.WG.PostCalc.DataExchangers.GenericDataExchanger>
             {
                 new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, ageConfig),
                 new GenericDataExchanger(this.Logger, this.Scenario, this.DomainDataSet, repository, traceConfig),
@@ -193,12 +188,12 @@ namespace SCADAPostCalculationDataExchanger
         {
             try
             {
+                // ICollection<OpcMapping> mappings <- excel.OpcMapping group by FieldName without "Result Attribute Label" column.
                 var mappingReader = new OpcMappingReader(this.Logger, excelReader);
-                // ICollection<OpcMapping> <- excel.OpcMapping group by FieldName without "Result Attribute Label" column.
-                var mappings = mappingReader.ReadMappings();
+                ICollection<OpcMapping> mappings = mappingReader.ReadMappings();
 
-                // List<OpcPublisher> <- ICollection<OpcMapping> * Dictionary<int, string>
-                var publishers = this.BuildPublishers(mappings, wgZones);
+                // List<OpcPublisher> publishers <- ICollection<OpcMapping> * Dictionary<int, string>
+                List<OpcPublisher> publishers = this.BuildPublishers(mappings, wgZones);
 
                 this.Logger.WriteMessage(OutputLevel.Info, "Start writing results to OPC.");
                 foreach (var publisher in publishers)
@@ -292,30 +287,68 @@ namespace SCADAPostCalculationDataExchanger
 
             try
             {
+                // Step 1.
+                // Fill List<WaterDemandData> based on excel.ObjectData (11004), WG.Zones (16) and WG.DemandPatterns (51 with "Fixed").
+                // Fields AssociatedElementID and ActualDemandValue are not filled.
+
                 //var demandDataReader = new WaterDemandDataReader(this.Logger, this.Scenario, this.DomainDataSet, new WaterDemandDataReaderConfiguration());
                 //var demandData = demandDataReader.GetWaterDemands();
 
+                // log: 16 zones have been read from WaterGEMS model.
                 this.Logger.WriteMessage(OutputLevel.Info, $"{wgZones.Count} zones have been read from WaterGEMS model.");
-                this.Logger.WriteMessage(OutputLevel.Debug, "Test of OutputLevel.Debug");
+                foreach (var zone in wgZones)
+                {
+                    this.Logger.WriteMessage(OutputLevel.Info, $"\t{zone.Key}, \"{zone.Value}\"");                    
+                }
 
+                // List<WaterDemandData> objectDemandData (11004 rec.) = Excel.ObjectData  (2986 rec. ???)
+                //  ObjectID=6871,
+                //  ObjectTypeID=73,
+                //  DemandPatternName="Mw",
+                //  DemandPatternID=,
+                //  ZoneName="1 - Przybków",
+                //  ZoneID=,
+                //  BaseDemandValue=0.0470416666666677,
+                //  AssociatedElementID=,
+                //  ActualDemandValue=,
                 var objectDataReader = new ObjectDataExcelReader(excelReader);
-                // List<WaterDemandData> = Excel.ObjectData {{6871, 73, "Mw", [DemandPatternID], 0.0470416666666677, "1 - Przybków", [ZoneID], },... }
                 var objectDemandData = objectDataReader.ReadObjects();
+                // log: 11004 objects with demand information have been read from Excel file.
                 this.Logger.WriteMessage(OutputLevel.Info, $"{objectDemandData.Count} objects with demand information have been read from Excel file.");
 
+                // Dictionary<string, int> patterns (51 rec.) = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
                 var patternReader = new WaterDemandPatternReader(this.DomainDataSet);
-                // Dictionary<string, int> = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
                 var patterns = patternReader.GetPatterns();
                 this.Logger.WriteMessage(OutputLevel.Info, $"{patterns.Count} demand patterns have been read from WaterGEMS model.");
+                foreach (var pattern in patterns)
+                {
+                    this.Logger.WriteMessage(OutputLevel.Info, $"\t\"{pattern.Key}\", {pattern.Value}");
+                }
 
                 // Fills objectDemandData DemandPatternID: objectDemandData[n].DemandPatternID <- patterns[where Name==Name].ID
                 this.FillPatternIds(objectDemandData, patterns);
                 // Fills objectDemandData ZoneID 
                 this.FillZoneIdsInWaterDemands(objectDemandData, wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase));
+                // List<WaterDemandData> = Excel.ObjectData
+                //  ObjectID=6871,
+                //  ObjectTypeID=73,
+                //  DemandPatternName="Mw",
+                //  DemandPatternID=6842,               <--
+                //  ZoneName="1 - Przybków",
+                //  ZoneID=6773,                        <--
+                //  BaseDemandValue=0.0470416666666677,
+                //  AssociatedElementID=,
+                //  ActualDemandValue=,
+
+                // List<WaterDemandData> objectDemandData (2986 rec.) = Excel.ObjectData {{6871, 73, "Mw", 3333, 0.0470416666666677, "1 - Przybków", 2222, },... }
                 //DumpWaterDemandData(objectDemandData.ToList());
+
+                // Step 2.
+                // Prepare TotalDemandCalculation demandTotalizer
 
                 var waterDemandExcelReader = new DemandPatternExcelReader(excelReader);
                 var demandTotalizer = BuildDemandTotalizer(waterDemandExcelReader, excelReader);
+
                 var now = DateTime.Now;
                 // List<ZoneDemandData>
                 var zoneDemands = this.GetZoneDemands(wgZones, objectDemandData, waterDemandExcelReader, demandTotalizer, now);
@@ -449,7 +482,9 @@ namespace SCADAPostCalculationDataExchanger
             var demandService = new DemandService(interpolator, patternService);
             var settings = new SimulationTimeResolverConfiguration
             {
+                // 30.09.2019  12:15:00
                 SimulationStartTime = excelReader.ReadSetting<DateTime>(Grundfos.WG.PostCalc.Constants.ApplicationSetting_SimulationStartDate),
+                // 10
                 SimulationIntervalMinutes = excelReader.ReadSetting<int>(Grundfos.WG.PostCalc.Constants.ApplicationSetting_SimulationIntervalMinutes)
             };
             var demandTotalizer = new TotalDemandCalculation(demandService, new SimulationTimeResolver(settings));

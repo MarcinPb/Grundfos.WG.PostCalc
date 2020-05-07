@@ -40,7 +40,7 @@ namespace Grundfos.WaterDemandCalculation
         }
 
 
-        public double Interpolate(double x0, double y0, double x1, double y1, double x)
+        private double Interpolate(double x0, double y0, double x1, double y1, double x)
         {
             if ((x1 - x0) == 0)
             {

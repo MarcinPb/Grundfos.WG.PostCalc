@@ -79,15 +79,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeExtensionsTests.cs" />
     <Compile Include="DemandPatternServiceTests.cs" />
-    <Compile Include="DemandServiceTests.cs" />
     <Compile Include="ExcelReaderTests.cs" />
     <Compile Include="InterpolatorTests.cs" />
     <Compile Include="SimulationStartTimeResolverTests.cs" />
     <Compile Include="SimulationTimeResolverTests.cs" />
     <Compile Include="TestData\WaterDemandPatterns.cs" />
+    <Compile Include="TestData\WgObjects.cs" />
     <Compile Include="TimeshiftAdjusterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TotalDemandCalculationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

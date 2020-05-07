@@ -28,12 +28,12 @@ namespace Grundfos.WG.PostCalc.DataExchangers
         public DataExchangerConfiguration Configuration { get; }
 
         /// <summary>
-        /// 1. Save last WG simulation to simulationValues dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
-        /// 2. Load simulation from SQLite Results table to storedValues dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
+        /// 1. Save last WG simulation to 'simulationValues' dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
+        /// 2. Load simulation from SQLite Results table to 'storedValues' dictionary (ObjectID, Value) for a particular attribute (ex: IdahoWaterQualityResults_CalculatedAge).
         /// 3. Check if current process runs first time after a break by comparison current process info to process info saved in SQLite ResultTimestamps table.
-        ///     if true:
+        ///     if true (process runs first time after a break):
         ///         1. Update (or insert) current process info to SQLite ResultTimestamps table.
-        ///         2. Update WG based on storedValues provided ObjectID exists in simulationValues. WG.Field = storedValues["ObjectID"].Value * Configuration.ConversionFactor.
+        ///         2. Update WG based on 'storedValues' provided ObjectID exists in simulationValues. WG.Field = storedValues["ObjectID"].Value * Configuration.ConversionFactor.
         ///     else
         ///         1. Replace (or insert) content of SQLite Results table with WG simulationValues dictionary.
         ///         2. Update WG based on simulationValues. WG.Field = simulationValues["ObjectID"].Value * Configuration.ConversionFactor.
@@ -57,6 +57,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 string engineName = this.Scenario.GetActiveNumericalEngineTypeName(this.Configuration.ResultRecordName);
 
                 // Acquire the relevant field or fields that we want to read results for.
+                // .ResultField(string name, string numericalEngineType, string resultRecordTypeName)
                 IResultTimeVariantField timeVariantField = this.DomainDataSet.FieldManager.ResultField(
                     this.Configuration.ResultAttributeRecordName,   // ex.: StandardResultRecordName.IdahoWaterQualityResults_CalculatedAge 
                     engineName,                                     

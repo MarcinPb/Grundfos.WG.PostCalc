@@ -52,13 +52,6 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                 this.UpdateCollectionDemands(Constants.HydrantID, zoneDemandData);
                 this.UpdateCustomerNodeMeterDemands(zoneDemandData);
 
-                if (zoneDemandData.ZoneName == _testedZoneName)
-                {
-                    //this.Logger?.WriteMessage(OutputLevel.Info, $"# Path: '{Path.Combine(_logFolder, "DumpZoneDemandData.xml")}'");
-                    Helper.DumpToFile(zoneDemandData, Path.Combine(_logFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
-                    //Helper.DumpToFile(zoneDemandData, Path.Combine(_logFolder, "DumpZoneDemandData.xml"));
-                }
-
                 return true;
             }
             catch (Exception e)

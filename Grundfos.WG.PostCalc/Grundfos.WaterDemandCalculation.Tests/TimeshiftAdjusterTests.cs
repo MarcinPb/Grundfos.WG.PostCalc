@@ -7,7 +7,7 @@ namespace Grundfos.WaterDemandCalculation.Tests
     {
         public const double Period = 10d;
 
-        [TestCase(0.1, ExpectedResult = 0.1d)]
+        [TestCase(0.1,   ExpectedResult = 0.1d)]
         [TestCase(Period, ExpectedResult = 0d)]
         [TestCase(2 * Period, ExpectedResult = 0d)]
         [TestCase(Period + 1, ExpectedResult = 1d)]

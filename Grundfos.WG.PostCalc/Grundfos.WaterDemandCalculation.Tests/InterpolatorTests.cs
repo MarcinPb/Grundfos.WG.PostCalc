@@ -30,5 +30,18 @@ namespace Grundfos.WaterDemandCalculation.Tests
             var result = interpolator.GetValueAt(shift, pattern);
             Assert.AreEqual(expected, result, 0.0000001);
         }
+
+        [TestCase(120, 80)]
+        [TestCase(320, 80)]
+        public void GetValueAt_Tests_Triangular(double shift, double expected)
+        {
+            var adjuster = new TimeshiftAdjuster(200);
+            var interpolator = new Interpolator(adjuster);
+
+            var pattern = WaterDemandPatterns.GetTriangularPattern();
+
+            var result = interpolator.GetValueAt(shift, pattern);
+            Assert.AreEqual(expected, result, 0.0000001);
+        }
     }
 }

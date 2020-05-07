@@ -10,7 +10,8 @@ namespace Grundfos.WaterDemandCalculation
             this.DemandPatterns = excelReader.ReadDemands();
         }
 
-        public Dictionary<string, WaterDemandPattern> DemandPatterns { get; private set; }
+        //public Dictionary<string, WaterDemandPattern> DemandPatterns { get; private set; }
+        private Dictionary<string, WaterDemandPattern> DemandPatterns;
 
         public WaterDemandPattern GetWaterDemandPattern(string patternName)
         {

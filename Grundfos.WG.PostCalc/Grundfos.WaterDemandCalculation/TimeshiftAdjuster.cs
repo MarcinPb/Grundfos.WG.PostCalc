@@ -2,6 +2,7 @@
 {
     public class TimeshiftAdjuster
     {
+        // ex.: periodMinutes = 7 * 24 * 60
         public TimeshiftAdjuster(double periodMinutes)
         {
             this.PeriodMinutes = periodMinutes;
