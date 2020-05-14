@@ -291,14 +291,20 @@ namespace SCADAPostCalculationDataExchanger
                 // Fill List<WaterDemandData> based on excel.ObjectData (11004), WG.Zones (16) and WG.DemandPatterns (51 with "Fixed").
                 // Fields AssociatedElementID and ActualDemandValue are not filled.
 
-                //var demandDataReader = new WaterDemandDataReader(this.Logger, this.Scenario, this.DomainDataSet, new WaterDemandDataReaderConfiguration());
-                //var demandData = demandDataReader.GetWaterDemands();
-
-                // log: 16 zones have been read from WaterGEMS model.
+                // Get zones (16 rec.) from WaterGEMS model.
                 this.Logger.WriteMessage(OutputLevel.Info, $"{wgZones.Count} zones have been read from WaterGEMS model.");
                 foreach (var zone in wgZones)
                 {
                     this.Logger.WriteMessage(OutputLevel.Info, $"\t{zone.Key}, \"{zone.Value}\"");                    
+                }
+
+                // Dictionary<string, int> patterns (51 rec.) = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
+                var patternReader = new WaterDemandPatternReader(this.DomainDataSet);
+                var patterns = patternReader.GetPatterns();
+                this.Logger.WriteMessage(OutputLevel.Info, $"{patterns.Count} demand patterns have been read from WaterGEMS model.");
+                foreach (var pattern in patterns)
+                {
+                    this.Logger.WriteMessage(OutputLevel.Info, $"\t\"{pattern.Key}\", {pattern.Value}");
                 }
 
                 // List<WaterDemandData> objectDemandData (11004 rec.) = Excel.ObjectData  (2986 rec. ???)
@@ -316,19 +322,6 @@ namespace SCADAPostCalculationDataExchanger
                 // log: 11004 objects with demand information have been read from Excel file.
                 this.Logger.WriteMessage(OutputLevel.Info, $"{objectDemandData.Count} objects with demand information have been read from Excel file.");
 
-                // Dictionary<string, int> patterns (51 rec.) = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
-                var patternReader = new WaterDemandPatternReader(this.DomainDataSet);
-                var patterns = patternReader.GetPatterns();
-                this.Logger.WriteMessage(OutputLevel.Info, $"{patterns.Count} demand patterns have been read from WaterGEMS model.");
-                foreach (var pattern in patterns)
-                {
-                    this.Logger.WriteMessage(OutputLevel.Info, $"\t\"{pattern.Key}\", {pattern.Value}");
-                }
-
-                // Fills objectDemandData DemandPatternID: objectDemandData[n].DemandPatternID <- patterns[where Name==Name].ID
-                this.FillPatternIds(objectDemandData, patterns);
-                // Fills objectDemandData ZoneID 
-                this.FillZoneIdsInWaterDemands(objectDemandData, wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase));
                 // List<WaterDemandData> = Excel.ObjectData
                 //  ObjectID=6871,
                 //  ObjectTypeID=73,
@@ -339,12 +332,16 @@ namespace SCADAPostCalculationDataExchanger
                 //  BaseDemandValue=0.0470416666666677,
                 //  AssociatedElementID=,
                 //  ActualDemandValue=,
+                // Fills objectDemandData DemandPatternID: objectDemandData[n].DemandPatternID <- patterns[where Name==Name].ID
+                this.FillPatternIds(objectDemandData, patterns);
+                // Fills objectDemandData ZoneID 
+                this.FillZoneIdsInWaterDemands(objectDemandData, wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase));
 
                 // List<WaterDemandData> objectDemandData (2986 rec.) = Excel.ObjectData {{6871, 73, "Mw", 3333, 0.0470416666666677, "1 - Przybków", 2222, },... }
                 //DumpWaterDemandData(objectDemandData.ToList());
 
                 // Step 2.
-                // Prepare TotalDemandCalculation demandTotalizer
+                // Get List<ZoneDemandData>. Prepare TotalDemandCalculation demandTotalizer 
 
                 var waterDemandExcelReader = new DemandPatternExcelReader(excelReader);
                 var demandTotalizer = BuildDemandTotalizer(waterDemandExcelReader, excelReader);
@@ -359,6 +356,33 @@ namespace SCADAPostCalculationDataExchanger
                     string message = $"Total demand for zone {item.ZoneName}: WaterGEMS = {item.WgDemand}, SCADA: {item.ScadaDemand}, ratio: {item.DemandAdjustmentRatio}.";
                     this.Logger.WriteMessage(OutputLevel.Info, message);
                 }
+
+
+                #region ZoneDemandDataListCreator.Create
+
+                ZoneDemandDataListCreator.DataContext dataContext = new ZoneDemandDataListCreator.DataContext()
+                {
+                    WgZoneDict = wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase),
+                    WgDemandPatternDict = patterns,
+                    ExcelFileName = this.DemandConfigurationWorkbook,
+                    OpcServerAddress = "Kepware.KEPServerEX.V6",
+
+                    StartComputeTime = DateTime.UtcNow,    //new DateTime(2020, 05, 04, 0, 46, 32),
+                };
+
+                ZoneDemandDataListCreator zoneDemandDataListCreator = new ZoneDemandDataListCreator(dataContext, this.Logger);
+                List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
+
+                zoneDemandDataList.ForEach(x => this.Logger.WriteMessage(
+                    OutputLevel.Info,
+                    $"# tal demand for zone {x.ZoneName}: WaterGEMS = {x.WgDemand}, SCADA: {x.ScadaDemand}, ratio: {x.DemandAdjustmentRatio}."
+                    ));
+
+                #endregion
+
+
+                // Step 3.
+                // Write data to WG.
 
                 // Two arrays of int: "Excluded Object IDs" and "Excluded Demand Patterns"
                 var demandConfig = this.GetDemandWriterConfig(patterns, waterDemandExcelReader);

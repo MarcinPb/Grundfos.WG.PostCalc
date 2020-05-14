@@ -142,7 +142,6 @@
     <Compile Include="DemandCalculation\WaterDemandDataWriter.cs" />
     <Compile Include="DemandCalculation\WaterDemandDataReaderConfiguration.cs" />
     <Compile Include="DemandCalculation\WaterDemandDataWriterConfiguration.cs" />
-    <Compile Include="DemandCalculation\ZoneDemandData.cs" />
     <Compile Include="Exceptions\DataExchangerException.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="PressureCalculation\ZonePressureData.cs" />

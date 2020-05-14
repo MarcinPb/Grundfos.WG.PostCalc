@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Grundfos.WaterDemandCalculation.ExtensionMethods;
 using Grundfos.WaterDemandCalculation.Model;
 
@@ -22,6 +23,7 @@ namespace Grundfos.WaterDemandCalculation
             var minutesFromMonday = simulationTimestamp.MinutesFromMonday();
             double totalDemand = 0;
             foreach (var item in demands)
+            //foreach (var item in demands.Where(x => x.ObjectTypeID==55))
             {
                 double baseDemand = item.BaseDemandValue;
                 double demandFactor = this.DemandService.GetDemandAt(item.DemandPatternName, minutesFromMonday);

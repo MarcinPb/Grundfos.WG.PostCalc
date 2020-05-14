@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Schema;
+using Grundfos.WaterDemandCalculation.Model;
 using Grundfos.WG.PostCalc.DataExchangers;
 //using Grundfos.WaterDemandCalculation.Model;
 using Haestad.Domain;
@@ -65,6 +66,10 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
 
         private void UpdateCollectionDemands(int elementTypeID, ZoneDemandData zoneDemandData)
         {
+            if (zoneDemandData.ZoneName == _testedZoneName)
+            {
+                Logger.WriteMessage(OutputLevel.Info, $"## UpdateCollectionDemands for zone='{zoneDemandData.ZoneName}' and ElementTypeID={elementTypeID}");
+            }
             var elements = zoneDemandData.Demands.Where(x => x.ObjectTypeID == elementTypeID).GroupBy(x => x.ObjectID).ToDictionary(x => x.Key, x => x.ToList());
 
             // elementTypeID = Constants.NodeID = 55 (Junction) or 54 (Hydrant) 
@@ -75,63 +80,98 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
 
             foreach (var element in elements)
             {
-                if (this.Configuration.ExcludedObjectIDs.Contains(element.Key))
-                {
-                    continue;
-                }
-
-                bool wasModified = false;
-                DomainElementCollectionFieldListManager demandCollection;
                 try
                 {
-                    demandCollection = editableDemandField.GetValue(element.Key) as DomainElementCollectionFieldListManager;
-                }
-                catch (ArgumentException)
-                {
-                    this.Logger.WriteMessage(OutputLevel.Errors, $"The object {element.Key} does not exist in the model.");
-                    continue;
-                }
-
-                foreach (var row in demandCollection.DataTable.Rows.Cast<System.Data.DataRow>())
-                {
-                    // Constants.DemandCollectionPatternFieldName = "DemandCollection_DemandPattern"
-                    var rawPatternID = row[Constants.DemandCollectionPatternFieldName];
-                    // Constants.FixedPatternID = -1
-                    int patternID = rawPatternID is int ? (int)rawPatternID : Constants.FixedPatternID;
-                    if (this.Configuration.ExcludedDemandPatterns.Contains(patternID))
-                    {
-                        continue;
-                    }
-
-                    var demandItem = element.Value.FirstOrDefault(x => x.DemandPatternID == patternID);
-                    if (demandItem == null)
-                    {
-                        continue;
-                    }
-
-                    double value = demandItem.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
-
-                    // My: 
                     //if (zoneDemandData.ZoneName == _testedZoneName)
                     //{
-                    //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow of object {element.Key} was modified: {row[Constants.DemandCollectionBaseFlowFieldName]} <-- {value} .");
-                    //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow value: {value} = {demandItem.ActualDemandValue} * {zoneDemandData.DemandAdjustmentRatio} * {Constants.Flow_M3H_2_WG} .");
+                    //    Logger.WriteMessage(OutputLevel.Info, $"## \telement: {element.Value.FirstOrDefault()}");
                     //}
 
-                    // Constants.DemandCollectionBaseFlowFieldName = "DemandCollection_BaseFlow"
-                    row[Constants.DemandCollectionBaseFlowFieldName] = value;
-                    wasModified = true;
-                }
+                    if (this.Configuration.ExcludedObjectIDs.Contains(element.Key))
+                    {
+                        if (zoneDemandData.ZoneName == _testedZoneName)
+                        {
+                            Logger.WriteMessage(OutputLevel.Info, $"## \tExcludedObjectID: {element.Value.FirstOrDefault()?.ObjectID}");
+                        }
+                        continue;
+                    }
 
-                if (wasModified)
+                    bool wasModified = false;
+                    DomainElementCollectionFieldListManager demandCollection;
+                    try
+                    {
+                        demandCollection = editableDemandField.GetValue(element.Key) as DomainElementCollectionFieldListManager;
+                    }
+                    catch (ArgumentException)
+                    {
+                        this.Logger.WriteMessage(OutputLevel.Errors, $"The object {element.Key} does not exist in the model.");
+                        continue;
+                    }
+
+                    foreach (var row in demandCollection.DataTable.Rows.Cast<System.Data.DataRow>())
+                    {
+                        // Constants.DemandCollectionPatternFieldName = "DemandCollection_DemandPattern"
+                        var rawPatternID = row[Constants.DemandCollectionPatternFieldName];
+                        // Constants.FixedPatternID = -1
+                        int patternID = rawPatternID is int ? (int)rawPatternID : Constants.FixedPatternID;
+                        if (this.Configuration.ExcludedDemandPatterns.Contains(patternID))
+                        {
+                            if (zoneDemandData.ZoneName == _testedZoneName)
+                            {
+                                Logger.WriteMessage(OutputLevel.Info, $"## \tExcludedDemandPatterns: {rawPatternID}");
+                            }
+                            continue;
+                        }
+
+                        var demandItem = element.Value.FirstOrDefault(x => x.DemandPatternID == patternID);
+                        //var demandItem = element.Value.FirstOrDefault(x => x.DemandPatternID == 19126); // "Straty"
+                        if (demandItem == null)
+                        {
+                            if (zoneDemandData.ZoneName == _testedZoneName)
+                            {
+                                Logger.WriteMessage(OutputLevel.Info, $"## \tdemandItem == null");
+                            }
+                            continue;
+                        }
+
+                        double value = demandItem.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                        if (zoneDemandData.ZoneName == _testedZoneName)
+                        {
+                            Logger.WriteMessage(OutputLevel.Info, $"\t{element.Value.FirstOrDefault()?.ObjectID, 6}\t{demandItem.DemandPatternName,15}\t{value, 20}\t=\t{demandItem.ActualDemandValue, 20}\t*\t{zoneDemandData.DemandAdjustmentRatio, 20}\t*\t{Constants.Flow_M3H_2_WG, 20}");
+                        }
+
+                        // My: 
+                        //if (zoneDemandData.ZoneName == _testedZoneName)
+                        //{
+                        //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow of object {element.Key} was modified: {row[Constants.DemandCollectionBaseFlowFieldName]} <-- {value} .");
+                        //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow value: {value} = {demandItem.ActualDemandValue} * {zoneDemandData.DemandAdjustmentRatio} * {Constants.Flow_M3H_2_WG} .");
+                        //}
+
+                        // Constants.DemandCollectionBaseFlowFieldName = "DemandCollection_BaseFlow"
+                        row[Constants.DemandCollectionBaseFlowFieldName] = value;
+                        wasModified = true;
+                    }
+
+                    if (wasModified)
+                    {
+                        editableDemandField.SetValue(element.Key, demandCollection);
+                    }
+
+                }
+                catch (Exception e)
                 {
-                    editableDemandField.SetValue(element.Key, demandCollection);
+                    Logger.WriteMessage(OutputLevel.Info, $"## \terror: {e.Message}");
+                    throw;
                 }
             }
         }
 
         private void UpdateCustomerNodeMeterDemands(ZoneDemandData zoneDemandData)
         {
+            if (zoneDemandData.ZoneName == _testedZoneName)
+            {
+                Logger.WriteMessage(OutputLevel.Info, $"## UpdateCustomerNodeMeterDemands for zone='{zoneDemandData.ZoneName}'.");
+            }
             var elements = zoneDemandData.Demands.Where(x => x.ObjectTypeID == Constants.CustomerNodeMeterID).ToList();
 
             // domainElementTypeID = Constants.CustomerNodeMeterID = 73(Customer Node)
@@ -168,6 +208,10 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                 }
 
                 double value = element.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                if (zoneDemandData.ZoneName == _testedZoneName)
+                {
+                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{value,20}\t=\t{element.ActualDemandValue,20}\t*\t{zoneDemandData.DemandAdjustmentRatio,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
+                }
 
                 // My: 
                 //if (zoneDemandData.ZoneName == _testedZoneName)

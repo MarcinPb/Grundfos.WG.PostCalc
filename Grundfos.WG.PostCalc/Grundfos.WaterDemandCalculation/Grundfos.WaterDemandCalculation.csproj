@@ -49,6 +49,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Haestad.Support.OOP">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Bentley\WaterGEMS\Haestad.Support.OOP.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -76,6 +79,7 @@
   <ItemGroup>
     <Compile Include="DemandPatternService.cs" />
     <Compile Include="DemandService.cs" />
+    <Compile Include="Model\ZoneDemandData.cs" />
     <Compile Include="ObjectDataExcelReader.cs" />
     <Compile Include="SimulationStartTimeResolver.cs" />
     <Compile Include="SimulationTimeResolver.cs" />
@@ -92,11 +96,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeshiftAdjuster.cs" />
     <Compile Include="TotalDemandCalculation.cs" />
+    <Compile Include="ZoneDemandDataListCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Grundfos.OPC\Grundfos.OPC.csproj">
+      <Project>{E7F47B21-FFFC-4004-9EC4-3FB6EFCC436F}</Project>
+      <Name>Grundfos.OPC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
       <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
       <Name>Grundfos.Workbooks</Name>

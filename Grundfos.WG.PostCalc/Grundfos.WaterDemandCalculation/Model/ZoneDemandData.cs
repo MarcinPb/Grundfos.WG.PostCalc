@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grundfos.WaterDemandCalculation.Model;
 
-namespace Grundfos.WG.PostCalc.DemandCalculation
+namespace Grundfos.WaterDemandCalculation.Model
 {
     [Serializable]
     public class ZoneDemandData
