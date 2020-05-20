@@ -11,6 +11,7 @@ using Grundfos.WaterDemandCalculation.Model;
 using Grundfos.WG.ObjectReaders;
 using Grundfos.WG.OPC.Publisher;
 using Grundfos.WG.OPC.Publisher.Configuration;
+using Grundfos.WG.PostCalc;
 using Grundfos.WG.PostCalc.DataExchangers;
 using Grundfos.WG.PostCalc.DemandCalculation;
 using Grundfos.WG.PostCalc.Exceptions;
@@ -278,6 +279,9 @@ namespace SCADAPostCalculationDataExchanger
 
         #region ExchangeWaterDemands
 
+        private string _testedZoneName = "1 - Przybków";
+        private string _dumpFolder = @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10";
+        private string dateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
         private void ExchangeWaterDemands(object dataExchangeContext, ExcelReader excelReader, Dictionary<int, string> wgZones)
         {
             if (excelReader == null)
@@ -356,6 +360,7 @@ namespace SCADAPostCalculationDataExchanger
                     string message = $"Total demand for zone {item.ZoneName}: WaterGEMS = {item.WgDemand}, SCADA: {item.ScadaDemand}, ratio: {item.DemandAdjustmentRatio}.";
                     this.Logger.WriteMessage(OutputLevel.Info, message);
                 }
+                Helper.DumpToFile(zoneDemands.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(_dumpFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData_1.xml"));
 
 
                 #region ZoneDemandDataListCreator.Create
@@ -367,16 +372,18 @@ namespace SCADAPostCalculationDataExchanger
                     ExcelFileName = this.DemandConfigurationWorkbook,
                     OpcServerAddress = "Kepware.KEPServerEX.V6",
 
-                    StartComputeTime = DateTime.UtcNow,    //new DateTime(2020, 05, 04, 0, 46, 32),
+                    StartComputeTime = DateTime.Now,    //new DateTime(2020, 05, 04, 0, 46, 32),
                 };
 
                 ZoneDemandDataListCreator zoneDemandDataListCreator = new ZoneDemandDataListCreator(dataContext, this.Logger);
                 List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
 
+                // Log only
                 zoneDemandDataList.ForEach(x => this.Logger.WriteMessage(
                     OutputLevel.Info,
                     $"# tal demand for zone {x.ZoneName}: WaterGEMS = {x.WgDemand}, SCADA: {x.ScadaDemand}, ratio: {x.DemandAdjustmentRatio}."
                     ));
+                Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(_dumpFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData_2.xml"));
 
                 #endregion
 
@@ -389,7 +396,8 @@ namespace SCADAPostCalculationDataExchanger
 
                 var demandWriter = new WaterDemandDataWriter(this.Logger, this.DomainDataSet, demandConfig, (DataExchangerContext)dataExchangeContext);
 
-                foreach (var zoneDemand in zoneDemands.Where(x => x.ScadaDemand > 0.001))
+                //foreach (var zoneDemand in zoneDemands.Where(x => x.ScadaDemand > 0.001))
+                foreach (var zoneDemand in zoneDemandDataList.Where(x => x.ScadaDemand > 0.001))
                 {
                     demandWriter.WriteDemands(zoneDemand);
                 }

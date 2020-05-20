@@ -23,7 +23,6 @@ namespace Grundfos.WaterDemandCalculation
             var minutesFromMonday = simulationTimestamp.MinutesFromMonday();
             double totalDemand = 0;
             foreach (var item in demands)
-            //foreach (var item in demands.Where(x => x.ObjectTypeID==55))
             {
                 double baseDemand = item.BaseDemandValue;
                 double demandFactor = this.DemandService.GetDemandAt(item.DemandPatternName, minutesFromMonday);
@@ -32,6 +31,16 @@ namespace Grundfos.WaterDemandCalculation
             }
 
             return totalDemand;            
+        }
+        public void UpdateDemandFactorValue(IList<WaterDemandData> demands, DateTime time)
+        {
+            var simulationTimestamp = this.SimulationTimeResolver.GetSimulationTimestamp(time);
+            var minutesFromMonday = simulationTimestamp.MinutesFromMonday();
+            foreach (var item in demands)
+            {
+                double demandFactor = this.DemandService.GetDemandAt(item.DemandPatternName, minutesFromMonday);
+                item.DemandFactorValue = demandFactor;
+            }
         }
     }
 }

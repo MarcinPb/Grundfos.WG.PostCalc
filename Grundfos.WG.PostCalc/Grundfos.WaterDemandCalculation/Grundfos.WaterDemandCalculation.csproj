@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="DemandPatternService.cs" />
     <Compile Include="DemandService.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Model\ZoneDemandData.cs" />
     <Compile Include="ObjectDataExcelReader.cs" />
     <Compile Include="SimulationStartTimeResolver.cs" />

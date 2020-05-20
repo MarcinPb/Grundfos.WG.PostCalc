@@ -34,6 +34,16 @@ namespace Grundfos.WaterDemandCalculation
                 // Fill ICollection<WaterDemandData> objectDemandData
                 var objectDataExcelReader = new ObjectDataExcelReader(excelReader);
                 ICollection<WaterDemandData> objectDemandData = objectDataExcelReader.ReadObjects(); // Excel.ObjectData
+
+                var demandPatternExcelReader = new DemandPatternExcelReader(excelReader);
+                // List<string> <- Excel.ExcludedItems["Excluded Object IDs"].
+                // {257=PC, 2719=S5, 518=CP1, 701=CP2, 1323=CP3, 1336=CP4, 2255=S6, 2780=S7, 1247=W1, 1239=W2, 1548=CP6}    
+                var excludedObjectList = demandPatternExcelReader.ReadExcludedObjects();
+                this.UpdateObjectIsExcluded(objectDemandData, excludedObjectList);
+                // List<string> <- Excel.ExcludedItems["Excluded Demand Patterns"]. {"nieaktywni", "Straty"}.    
+                var excludedDemandPatternList = demandPatternExcelReader.ReadExcludedPatterns();
+                this.UpdateDemandPatternIsExcluded(objectDemandData, excludedDemandPatternList);
+
                 this.FillPatternIds(objectDemandData, _dataContext.WgDemandPatternDict);
                 this.FillZoneIdsInWaterDemands(objectDemandData, _dataContext.WgZoneDict);
 
@@ -72,30 +82,67 @@ namespace Grundfos.WaterDemandCalculation
                 };
                 var totalDemandCalculation = new TotalDemandCalculation(demandService, new SimulationTimeResolver(settings));
 
-                foreach (var zoneDemandData in zoneDemandDataList)
-                {
-                    // Inside GetTotalDemand method: zoneDemandData.Demands.ActualDemandValue <- baseDemand * demandFactor.
-                    // The demandFactor is taken from DemandPattern curve.
-                    zoneDemandData.WgDemand = totalDemandCalculation.GetTotalDemand(zoneDemandData.Demands, _dataContext.StartComputeTime);
-                }
+                // Update zoneDemandData.Demands.DemandFactorValue <- Excel.DemandPatterns.Value
+                //foreach (var zoneDemandData in zoneDemandDataList)
+                //{
+                //    // Inside GetTotalDemand method: zoneDemandData.Demands.ActualDemandValue <- baseDemand * demandFactor.
+                //    // The demandFactor is taken from DemandPattern curve.
+                //    zoneDemandData.WgDemand = totalDemandCalculation.GetTotalDemand(zoneDemandData.Demands, _dataContext.StartComputeTime);
+                //}
+                zoneDemandDataList.ForEach(x => totalDemandCalculation.UpdateDemandFactorValue(x.Demands, _dataContext.StartComputeTime));
 
+                // Update zoneDemandData.ScadaDemand <- OPC.10MinValue
                 using (var opc = new OpcReader(_dataContext.OpcServerAddress))
                 {
-                    foreach (var zoneDemandData in zoneDemandDataList)
-                    {
-                        zoneDemandData.ScadaDemand = opc.GetDouble(zoneDemandData.OpcTag);
-                        zoneDemandData.DemandAdjustmentRatio = zoneDemandData.WgDemand == 0 ? 0 : zoneDemandData.ScadaDemand / zoneDemandData.WgDemand;
-                    }
+                    //foreach (var zoneDemandData in zoneDemandDataList)
+                    //{
+                    //    zoneDemandData.ScadaDemand = opc.GetDouble(zoneDemandData.OpcTag);
+                    //    zoneDemandData.DemandAdjustmentRatio = zoneDemandData.WgDemand == 0 ? 0 : zoneDemandData.ScadaDemand / zoneDemandData.WgDemand;
+                    //}
+                    zoneDemandDataList.ForEach(x => x.ScadaDemand = opc.GetDouble(x.OpcTag));
                 }
 
-                return zoneDemandDataList;
+                // Calculate and update:
+                //  zone.demand.ActualDemandValue
+                //  zone.WgDemand
+                //  zone.ExcludedDemand
+                //  zone.DemandAdjustmentRatio
+                zoneDemandDataList.ForEach(zone =>
+                {
+                    zone.Demands
+                        .ForEach(demand => demand.ActualDemandValue = demand.BaseDemandValue * demand.DemandFactorValue);
+                    zone.WgDemand = 
+                        zone.Demands
+                        .Sum(demand => demand.ActualDemandValue);
+                    //zone.DemandAdjustmentRatio = 
+                    //    zone.ScadaDemand / zone.WgDemand;
+                    zone.ExcludedDemand =
+                        zone.Demands
+                        .Where(demand => demand.ObjectIsExcluded || demand.DemandPatternIsExcluded)
+                        .Sum(demand => demand.ActualDemandValue);
+                    zone.DemandAdjustmentRatio =
+                        Math.Abs(zone.WgDemand - zone.ExcludedDemand) < 0.01 ?
+                        0 :
+                        (zone.ScadaDemand - zone.ExcludedDemand) / (zone.WgDemand - zone.ExcludedDemand);
+                });
 
+                return zoneDemandDataList;
             }
             catch (Exception e)
             {
                 _logger?.WriteMessage(OutputLevel.Errors, e.Message);
                 throw;
             }
+        }
+
+        private void UpdateObjectIsExcluded(ICollection<WaterDemandData> objectDemandData, List<int> excludedObjectList)
+        {
+            objectDemandData.ToList().ForEach(x => x.ObjectIsExcluded = excludedObjectList.Any(y => x.ObjectID==y));
+        }
+
+        private void UpdateDemandPatternIsExcluded(ICollection<WaterDemandData> objectDemandData, List<string> excludedDemandPatternList)
+        {
+            objectDemandData.ToList().ForEach(x => x.DemandPatternIsExcluded = excludedDemandPatternList.Any(y => x.DemandPatternName==y));
         }
 
         public class DataContext
