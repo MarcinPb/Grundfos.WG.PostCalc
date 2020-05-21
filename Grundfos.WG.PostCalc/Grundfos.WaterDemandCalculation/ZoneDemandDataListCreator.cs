@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,7 +52,7 @@ namespace Grundfos.WaterDemandCalculation
                 // List<ZoneDemandData> zoneDemandDataList <-- group by <-- ICollection<WaterDemandData> objectDemandData 
                 List<ZoneDemandData> zoneDemandDataList = objectDemandData
                     .GroupBy(x => x.ZoneName)
-                    .Select(x => new ZoneDemandData { ZoneName = x.Key, Demands = x.ToList() })
+                    .Select(x => new ZoneDemandData { ZoneId = x.FirstOrDefault()==null ? 0 : x.FirstOrDefault().ZoneID, ZoneName = x.Key, Demands = x.ToList() })
                     .ToList();
                 var noZoneDemands = zoneDemandDataList.Where(x => string.IsNullOrEmpty(x.ZoneName)).ToList();
                 if (noZoneDemands.Count > 0)
@@ -130,7 +132,7 @@ namespace Grundfos.WaterDemandCalculation
             }
             catch (Exception e)
             {
-                _logger?.WriteMessage(OutputLevel.Errors, e.Message);
+                _logger?.WriteMessage(OutputLevel.Errors, $"Creating data.\n{e.Message}");
                 throw;
             }
         }
@@ -198,5 +200,123 @@ namespace Grundfos.WaterDemandCalculation
 
             return missingZones;
         }
+
+
+        private string _conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True";
+        public void SaveToDatabase(List<ZoneDemandData> zoneDemandDataList)
+        {
+            try
+            {
+                //string query = "SELECT * FROM dbo.ZoneFlowComparison ORDER BY D_TIME DESC";
+                using (SqlConnection sqlConn = new SqlConnection(_conStr))
+                {
+                    int logHeaderId;
+
+                    using (SqlCommand cmd = new SqlCommand("SaveLogHeader", sqlConn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.Add("@DateTimeIn", SqlDbType.DateTime).Value = DateTime.Now;
+                        cmd.Parameters.Add("@DateTimeUtcIn", SqlDbType.DateTime).Value = DateTime.UtcNow;
+
+                        cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.Parameters["@LogId"].Value = 0;
+
+                        sqlConn.Open();
+                        cmd.ExecuteNonQuery();
+                        logHeaderId = Convert.ToInt32(cmd.Parameters["@LogId"].Value);
+                        sqlConn.Close();
+                    }
+
+                    foreach (var zone in zoneDemandDataList)
+                    {
+                        int logZonetId;
+
+                        using (SqlCommand cmd = new SqlCommand("SaveLogZone", sqlConn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.Add("@LogHeaderId", SqlDbType.Int).Value = logHeaderId;
+                            cmd.Parameters.Add("@AutoZoneId", SqlDbType.Int).Value = zone.ZoneId;
+                            cmd.Parameters.Add("@DemandScada", SqlDbType.Float).Value = zone.ScadaDemand;
+                            cmd.Parameters.Add("@DemandWg", SqlDbType.Float).Value = zone.WgDemand;
+                            cmd.Parameters.Add("@DemandExcluded", SqlDbType.Float).Value = zone.ExcludedDemand;
+
+                            cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                            cmd.Parameters["@LogId"].Value = 0;
+
+                            sqlConn.Open();
+                            cmd.ExecuteNonQuery();
+                            sqlConn.Close();
+                            logZonetId = Convert.ToInt32(cmd.Parameters["@LogId"].Value);
+                        }
+
+                        var objectList = zone
+                            .Demands.GroupBy(
+                                o1 => new { o1.ObjectID, o1.ObjectTypeID, o1.ObjectIsExcluded },
+                                o1 => o1,
+                                (key, g) => new { Object1 = key, DemandList = g.ToList() }
+                            )
+                            .Select(o2 => new {
+                                o2.Object1.ObjectID,
+                                o2.Object1.ObjectTypeID,
+                                o2.Object1.ObjectIsExcluded,
+                                BaseDemandValue = o2.DemandList.Sum(d => d.BaseDemandValue),
+                                o2.DemandList
+                            });
+
+                        foreach (var obj in objectList)
+                        {
+                            int logObjectId;
+
+                            using (SqlCommand cmd = new SqlCommand("SaveLogObject", sqlConn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                cmd.Parameters.Add("@LogZoneId", SqlDbType.Int).Value = logZonetId;
+                                cmd.Parameters.Add("@AutoObjectId", SqlDbType.Int).Value = obj.ObjectID;
+                                cmd.Parameters.Add("@Demand", SqlDbType.Float).Value = obj.BaseDemandValue;
+                                cmd.Parameters.Add("@IsExcluded", SqlDbType.Bit).Value = obj.ObjectIsExcluded;
+
+                                cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                                cmd.Parameters["@LogId"].Value = 0;
+
+                                sqlConn.Open();
+                                cmd.ExecuteNonQuery();
+                                sqlConn.Close();
+                                logObjectId = Convert.ToInt32(cmd.Parameters["@LogId"].Value);
+                            }
+
+
+                            foreach (var demand in obj.DemandList)
+                            {
+                                using (SqlCommand cmd = new SqlCommand("SaveLogDemand", sqlConn))
+                                {
+                                    cmd.CommandType = CommandType.StoredProcedure;
+
+                                    cmd.Parameters.Add("@LogObjectId", SqlDbType.Int).Value = logObjectId;
+                                    cmd.Parameters.Add("@AutoDemandId", SqlDbType.Int).Value = demand.DemandPatternID;
+                                    cmd.Parameters.Add("@DemandBase", SqlDbType.Float).Value = demand.BaseDemandValue;
+                                    cmd.Parameters.Add("@IsExcluded", SqlDbType.Bit).Value = demand.DemandPatternIsExcluded;
+
+                                    cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                                    cmd.Parameters["@LogId"].Value = 0;
+
+                                    sqlConn.Open();
+                                    cmd.ExecuteNonQuery();
+                                    sqlConn.Close();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                _logger?.WriteMessage(OutputLevel.Errors, $"Saving data to database.\n{e.Message}");
+                throw;
+            }
+        }
+
     }
 }

@@ -40,6 +40,8 @@ namespace Grundfos.WaterDemandCalculation.Tests
             List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
 
             Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+
+            zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList);
         }
     }
 }
