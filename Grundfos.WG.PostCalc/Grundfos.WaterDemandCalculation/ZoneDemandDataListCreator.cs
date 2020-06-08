@@ -107,7 +107,7 @@ namespace Grundfos.WaterDemandCalculation
                 // Calculate and update:
                 //  zone.demand.ActualDemandValue
                 //  zone.WgDemand
-                //  zone.ExcludedDemand
+                //  zone.DemandWgExcluded
                 //  zone.DemandAdjustmentRatio
                 zoneDemandDataList.ForEach(zone =>
                 {
@@ -118,14 +118,18 @@ namespace Grundfos.WaterDemandCalculation
                         .Sum(demand => demand.ActualDemandValue);
                     //zone.DemandAdjustmentRatio = 
                     //    zone.ScadaDemand / zone.WgDemand;
-                    zone.ExcludedDemand =
+                    zone.DemandWgExcluded =
                         zone.Demands
-                        .Where(demand => demand.ObjectIsExcluded || demand.DemandPatternIsExcluded)
+                        .Where(demand => demand.ObjectIsExcluded || demand.DemandIsExcluded)
                         .Sum(demand => demand.ActualDemandValue);
                     zone.DemandAdjustmentRatio =
-                        Math.Abs(zone.WgDemand - zone.ExcludedDemand) < 0.01 ?
+                        Math.Abs(zone.WgDemand - zone.DemandWgExcluded) < 0.000001 ?
                         0 :
-                        (zone.ScadaDemand - zone.ExcludedDemand) / (zone.WgDemand - zone.ExcludedDemand);
+                        (zone.ScadaDemand - zone.DemandWgExcluded) / (zone.WgDemand - zone.DemandWgExcluded);
+                    foreach (var demand in zone.Demands)
+                    {
+                        demand.DemandCalculatedValue = demand.ActualDemandValue * zone.DemandAdjustmentRatio; // * Constants.Flow_M3H_2_WG;
+                    }
                 });
 
                 return zoneDemandDataList;
@@ -144,7 +148,7 @@ namespace Grundfos.WaterDemandCalculation
 
         private void UpdateDemandPatternIsExcluded(ICollection<WaterDemandData> objectDemandData, List<string> excludedDemandPatternList)
         {
-            objectDemandData.ToList().ForEach(x => x.DemandPatternIsExcluded = excludedDemandPatternList.Any(y => x.DemandPatternName==y));
+            objectDemandData.ToList().ForEach(x => x.DemandIsExcluded = excludedDemandPatternList.Any(y => x.DemandPatternName==y));
         }
 
         public class DataContext
@@ -201,14 +205,12 @@ namespace Grundfos.WaterDemandCalculation
             return missingZones;
         }
 
-
-        private string _conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True";
-        public void SaveToDatabase(List<ZoneDemandData> zoneDemandDataList)
+        public void SaveToDatabase(List<ZoneDemandData> zoneDemandDataList, string conStr, string ratioFormula = null)
         {
             try
             {
                 //string query = "SELECT * FROM dbo.ZoneFlowComparison ORDER BY D_TIME DESC";
-                using (SqlConnection sqlConn = new SqlConnection(_conStr))
+                using (SqlConnection sqlConn = new SqlConnection(conStr))
                 {
                     int logHeaderId;
 
@@ -218,6 +220,7 @@ namespace Grundfos.WaterDemandCalculation
 
                         cmd.Parameters.Add("@DateTimeIn", SqlDbType.DateTime).Value = DateTime.Now;
                         cmd.Parameters.Add("@DateTimeUtcIn", SqlDbType.DateTime).Value = DateTime.UtcNow;
+                        cmd.Parameters.Add("@RatioFormula", SqlDbType.NVarChar, 4000).Value = ratioFormula ?? string.Empty;
 
                         cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                         cmd.Parameters["@LogId"].Value = 0;
@@ -240,7 +243,8 @@ namespace Grundfos.WaterDemandCalculation
                             cmd.Parameters.Add("@AutoZoneId", SqlDbType.Int).Value = zone.ZoneId;
                             cmd.Parameters.Add("@DemandScada", SqlDbType.Float).Value = zone.ScadaDemand;
                             cmd.Parameters.Add("@DemandWg", SqlDbType.Float).Value = zone.WgDemand;
-                            cmd.Parameters.Add("@DemandExcluded", SqlDbType.Float).Value = zone.ExcludedDemand;
+                            cmd.Parameters.Add("@DemandExcluded", SqlDbType.Float).Value = zone.DemandWgExcluded;
+                            cmd.Parameters.Add("@DemandRatio", SqlDbType.Float).Value = zone.DemandAdjustmentRatio;
 
                             cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                             cmd.Parameters["@LogId"].Value = 0;
@@ -257,13 +261,15 @@ namespace Grundfos.WaterDemandCalculation
                                 o1 => o1,
                                 (key, g) => new { Object1 = key, DemandList = g.ToList() }
                             )
-                            .Select(o2 => new {
+                            .Select(o2 => new
+                            {
                                 o2.Object1.ObjectID,
                                 o2.Object1.ObjectTypeID,
                                 o2.Object1.ObjectIsExcluded,
-                                BaseDemandValue = o2.DemandList.Sum(d => d.BaseDemandValue),
+                                //BaseDemandValue = o2.DemandList.Sum(d => d.BaseDemandValue),
                                 o2.DemandList
-                            });
+                            })
+                            ;
 
                         foreach (var obj in objectList)
                         {
@@ -275,7 +281,7 @@ namespace Grundfos.WaterDemandCalculation
 
                                 cmd.Parameters.Add("@LogZoneId", SqlDbType.Int).Value = logZonetId;
                                 cmd.Parameters.Add("@AutoObjectId", SqlDbType.Int).Value = obj.ObjectID;
-                                cmd.Parameters.Add("@Demand", SqlDbType.Float).Value = obj.BaseDemandValue;
+                                //cmd.Parameters.Add("@Demand", SqlDbType.Float).Value = obj.BaseDemandValue;
                                 cmd.Parameters.Add("@IsExcluded", SqlDbType.Bit).Value = obj.ObjectIsExcluded;
 
                                 cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -297,7 +303,10 @@ namespace Grundfos.WaterDemandCalculation
                                     cmd.Parameters.Add("@LogObjectId", SqlDbType.Int).Value = logObjectId;
                                     cmd.Parameters.Add("@AutoDemandId", SqlDbType.Int).Value = demand.DemandPatternID;
                                     cmd.Parameters.Add("@DemandBase", SqlDbType.Float).Value = demand.BaseDemandValue;
-                                    cmd.Parameters.Add("@IsExcluded", SqlDbType.Bit).Value = demand.DemandPatternIsExcluded;
+                                    cmd.Parameters.Add("@DemandFactor", SqlDbType.Float).Value = demand.DemandFactorValue;
+                                    cmd.Parameters.Add("@DemandActual", SqlDbType.Float).Value = demand.ActualDemandValue;
+                                    cmd.Parameters.Add("@IsExcluded", SqlDbType.Bit).Value = demand.DemandIsExcluded;
+                                    cmd.Parameters.Add("@DemandCalculated", SqlDbType.Float).Value = demand.DemandCalculatedValue;
 
                                     cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                                     cmd.Parameters["@LogId"].Value = 0;
@@ -318,5 +327,67 @@ namespace Grundfos.WaterDemandCalculation
             }
         }
 
+        public void UpdateAndLoadFromDatabase(List<ZoneDemandData> zoneDemandDataList, string conStr)
+        {
+            try
+            {
+                using (SqlConnection sqlConn = new SqlConnection(conStr))
+                {
+                    DataSet dataSet = new DataSet();
+                    SqlDataAdapter adapter = new SqlDataAdapter
+                    {
+                        SelectCommand = new SqlCommand("CalcLastDemand", sqlConn)
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        }
+                    };
+                    adapter.Fill(dataSet);
+
+                    var dtZoneList = dataSet.Tables[0].AsEnumerable().Select(x => new
+                    {
+                        AutoZoneId = x.Field<int>("AutoZoneId"),
+                        DemandRatioDb = x.Field<double>("DemandRatioDb"),
+                    });
+                    var dtDemandList = dataSet.Tables[1].AsEnumerable().Select(x => new
+                    {
+                        AutoZoneId = x.Field<int>("AutoZoneId"),
+                        AutoObjectId = x.Field<int>("AutoObjectId"),
+                        AutoDemandId = x.Field<int>("AutoDemandId"),
+                        DemandCalculatedDb = x.Field<double>("DemandCalculatedDb"),
+                    });
+                    foreach (var zone in zoneDemandDataList)
+                    {
+                        var dtZone = dtZoneList.FirstOrDefault(x => x.AutoZoneId == zone.ZoneId);
+                        if (dtZone != null)
+                        {
+                            zone.DemandAdjustmentRatioDb = dtZone.DemandRatioDb;
+                            foreach (var demand in zone.Demands)
+                            {
+                                var dtDemand = dtDemandList.FirstOrDefault(x =>
+                                    x.AutoZoneId == zone.ZoneId && x.AutoObjectId == demand.ObjectID &&
+                                    x.AutoDemandId == demand.DemandPatternID);
+                                if (dtDemand != null)
+                                {
+                                    demand.DemandCalculatedValueDb = dtDemand.DemandCalculatedDb;
+                                }
+                                else
+                                {
+                                    _logger?.WriteMessage(OutputLevel.Warnings, $"Missing demand pattern: {demand.DemandPatternName}");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            _logger?.WriteMessage(OutputLevel.Warnings, $"Missing zone: {zone.ZoneName}");
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                _logger?.WriteMessage(OutputLevel.Errors, $"Calculating and loading data from database.\n{e.Message}");
+                throw;
+            }
+        }
     }
 }

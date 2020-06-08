@@ -19,6 +19,7 @@ namespace Grundfos.WaterDemandCalculation.Tests
         private string _testedZoneName = "1 - Przybków";
         private string _logFolder = Path.Combine(TestContext.CurrentContext.TestDirectory, @"ZoneDemandDataListCreatorTest.log");
         private string dateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
+        private string _conStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True";
 
         [TestCase("2019-09-10 12:24:30", "2019-09-10 12:20:00")]
         public void Create_Tests(DateTime input, DateTime output)
@@ -41,7 +42,11 @@ namespace Grundfos.WaterDemandCalculation.Tests
 
             Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
 
-            zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList);
+            string ratioFormula = "IIF(DemandWg-DemandExcluded<0.000001, 0, (DemandScada-DemandExcluded)/(DemandWg-DemandExcluded))";
+            zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList, _conStr, ratioFormula);
+            zoneDemandDataListCreator.UpdateAndLoadFromDatabase(zoneDemandDataList, _conStr);
+
+            Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
         }
     }
 }

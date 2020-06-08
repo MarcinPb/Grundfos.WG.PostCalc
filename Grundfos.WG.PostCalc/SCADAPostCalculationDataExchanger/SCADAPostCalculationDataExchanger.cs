@@ -49,6 +49,11 @@ namespace SCADAPostCalculationDataExchanger
 
         public string RepositoryPath { get; set; }
         public string DemandConfigurationWorkbook { get; private set; }
+        public bool IsLogToDb { get; set; }
+        public string LogDbConnString { get; set; }
+        public bool IsCalculationOnDb { get; set; }
+        public string RatioFormula { get; set; }
+
         public string DumpOption { get; private set; }
         public string DumpFolder { get; private set; }
 
@@ -78,6 +83,15 @@ namespace SCADAPostCalculationDataExchanger
             paramDict.Add("DumpOption", DumpOption);
             paramDict.Add("DumpFolder", DumpFolder);
             exchangeContext.Tag = paramDict;
+
+            this.IsLogToDb = bool.Parse(exchangeContext.GetString("IsLogToDb", "false"));
+            this.Logger.WriteMessage(OutputLevel.Info, $"# IsLogToDb = {IsLogToDb}.");
+            this.LogDbConnString = exchangeContext.GetString("LogDbConnString", @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True").Replace(":",";");
+            this.Logger.WriteMessage(OutputLevel.Info, $"# LogDbConnString = \"{LogDbConnString}\".");
+            this.IsCalculationOnDb = bool.Parse(exchangeContext.GetString("IsCalculationOnDb", "false"));
+            this.Logger.WriteMessage(OutputLevel.Info, $"# IsCalculationOnDb = {IsCalculationOnDb}.");
+            this.RatioFormula = exchangeContext.GetString("RatioFormula", string.Empty);
+            this.Logger.WriteMessage(OutputLevel.Info, $"# RatioFormula = \"{RatioFormula}\".");
 
             return true;
         }
@@ -291,6 +305,8 @@ namespace SCADAPostCalculationDataExchanger
 
             try
             {
+                var dd = ((DataExchangerContext) dataExchangeContext).Tag;
+                
                 // Step 1.
                 // Fill List<WaterDemandData> based on excel.ObjectData (11004), WG.Zones (16) and WG.DemandPatterns (51 with "Fixed").
                 // Fields AssociatedElementID and ActualDemandValue are not filled.
@@ -378,6 +394,18 @@ namespace SCADAPostCalculationDataExchanger
                 ZoneDemandDataListCreator zoneDemandDataListCreator = new ZoneDemandDataListCreator(dataContext, this.Logger);
                 List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
 
+
+                if (this.IsLogToDb)
+                {
+                    //string conStr = @"Data Source=WIN-6SC244KSC3K\SQL2017;Initial Catalog=WG;Integrated Security=True";
+                    string conStr = this.LogDbConnString;
+                    zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList, conStr, RatioFormula);
+                    if (this.IsCalculationOnDb)
+                    {
+                        zoneDemandDataListCreator.UpdateAndLoadFromDatabase(zoneDemandDataList, conStr);
+                    }
+                }
+
                 // Log only
                 zoneDemandDataList.ForEach(x => this.Logger.WriteMessage(
                     OutputLevel.Info,
@@ -393,6 +421,7 @@ namespace SCADAPostCalculationDataExchanger
 
                 // Two arrays of int: "Excluded Object IDs" and "Excluded Demand Patterns"
                 var demandConfig = this.GetDemandWriterConfig(patterns, waterDemandExcelReader);
+                demandConfig.IsCalculationOnDb = IsCalculationOnDb;
 
                 var demandWriter = new WaterDemandDataWriter(this.Logger, this.DomainDataSet, demandConfig, (DataExchangerContext)dataExchangeContext);
 

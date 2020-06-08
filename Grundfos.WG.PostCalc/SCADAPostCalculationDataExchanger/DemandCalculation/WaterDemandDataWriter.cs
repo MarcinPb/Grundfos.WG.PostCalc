@@ -134,10 +134,15 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                             continue;
                         }
 
-                        double value = demandItem.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                        double valueOld = demandItem.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                        double demandCalculated = this.Configuration.IsCalculationOnDb
+                            ? demandItem.DemandCalculatedValueDb
+                            : demandItem.DemandCalculatedValue;
+                        double value = demandCalculated * Constants.Flow_M3H_2_WG;
                         if (zoneDemandData.ZoneName == _testedZoneName)
                         {
-                            Logger.WriteMessage(OutputLevel.Info, $"\t{element.Value.FirstOrDefault()?.ObjectID, 6}\t{demandItem.DemandPatternName,15}\t{value, 20}\t=\t{demandItem.ActualDemandValue, 20}\t*\t{zoneDemandData.DemandAdjustmentRatio, 20}\t*\t{Constants.Flow_M3H_2_WG, 20}");
+                            Logger.WriteMessage(OutputLevel.Info, $"\t{element.Value.FirstOrDefault()?.ObjectID,6}\t{demandItem.DemandPatternName,15}\t{valueOld, 20}\t=\t{demandItem.ActualDemandValue, 20}\t*\t{zoneDemandData.DemandAdjustmentRatio, 20}\t*\t{Constants.Flow_M3H_2_WG, 20}");
+                            Logger.WriteMessage(OutputLevel.Info, $"\t{element.Value.FirstOrDefault()?.ObjectID,6}\t{demandItem.DemandPatternName,15}\t{value    ,20}\t=\t{demandCalculated,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
                         }
 
                         // My: 
@@ -207,10 +212,15 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                     continue;
                 }
 
-                double value = element.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                double valueOld = element.ActualDemandValue * zoneDemandData.DemandAdjustmentRatio * Constants.Flow_M3H_2_WG;
+                double demandCalculated = this.Configuration.IsCalculationOnDb
+                    ? element.DemandCalculatedValueDb
+                    : element.DemandCalculatedValue;
+                double value = demandCalculated * Constants.Flow_M3H_2_WG;
                 if (zoneDemandData.ZoneName == _testedZoneName)
                 {
-                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{value,20}\t=\t{element.ActualDemandValue,20}\t*\t{zoneDemandData.DemandAdjustmentRatio,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
+                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{valueOld,20}\t=\t{element.ActualDemandValue,20}\t*\t{zoneDemandData.DemandAdjustmentRatio,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
+                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{value   ,20}\t=\t{demandCalculated         ,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
                 }
 
                 // My: 
