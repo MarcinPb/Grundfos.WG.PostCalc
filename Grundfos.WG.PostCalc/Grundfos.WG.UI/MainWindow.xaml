@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="Helper" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" IsEnabled="False"/>
+                <MenuItem Header="Open" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Exit" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="Reports">
+                <MenuItem Header="Zone Flow Comparison" Click="button_Click03"/>
+                <MenuItem Header="Zone Flow Comparison - Przybkow" Click="button_Click"/>
+                <MenuItem Header="WaterGEMS Data Exchanger" Click="button_Click02"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
