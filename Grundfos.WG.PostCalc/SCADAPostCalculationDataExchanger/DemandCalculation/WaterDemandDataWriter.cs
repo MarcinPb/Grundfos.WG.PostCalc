@@ -171,6 +171,13 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
             }
         }
 
+        /// <summary>
+        /// For each CustomerMeter in particular zone taken from 'zoneDemandData' parameter:
+        ///     omit CustomerMeter ID (ObjectID) if it exists on Excel.ExcludedItems.[Excluded Object IDs]
+        ///     omit CustomerMeter Pattern (DemandPatternName) if it exists on Excel.ExcludedItems.[Excluded Demand Patterns]
+        ///     modify CustomerMeter BaseDemand based on its DemandCalculatedValue or DemandCalculatedValueDb property
+        /// </summary>
+        /// <param name="zoneDemandData"></param>
         private void UpdateCustomerNodeMeterDemands(ZoneDemandData zoneDemandData)
         {
             if (zoneDemandData.ZoneName == _testedZoneName)
@@ -189,6 +196,11 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
 
             foreach (var element in elements)
             {
+                if (zoneDemandData.ZoneName == _testedZoneName)
+                {
+                    Logger.WriteMessage(OutputLevel.Info, $"\tCustomerMeter={element.ObjectID}");
+                }
+
                 if (this.Configuration.ExcludedObjectIDs.Contains(element.ObjectID))
                 {
                     continue;
@@ -197,8 +209,12 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                 object rawPatternID;
                 try
                 {
-                    // "Demand_DemandPattern"
+                    // Get demand pattern from model. "Demand_DemandPattern"
                     rawPatternID = patternField.GetValue(element.ObjectID);
+                    if (zoneDemandData.ZoneName == _testedZoneName)
+                    {
+                        Logger.WriteMessage(OutputLevel.Info, $"\t\tModel DemanadPattern={rawPatternID}");
+                    }
                 }
                 catch (Exception)
                 {
@@ -207,6 +223,10 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                 }
 
                 int patternID = rawPatternID is int ? (int)rawPatternID : Constants.FixedPatternID;
+                if (zoneDemandData.ZoneName == _testedZoneName)
+                {
+                    Logger.WriteMessage(OutputLevel.Info, $"\t\tExcel DemanadPattern={patternID}");
+                }
                 if (this.Configuration.ExcludedDemandPatterns.Contains(patternID))
                 {
                     continue;
@@ -219,16 +239,9 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                 double value = demandCalculated * Constants.Flow_M3H_2_WG;
                 if (zoneDemandData.ZoneName == _testedZoneName)
                 {
-                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{valueOld,20}\t=\t{element.ActualDemandValue,20}\t*\t{zoneDemandData.DemandAdjustmentRatio,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
-                    Logger.WriteMessage(OutputLevel.Info, $"\t{element.ObjectID,6}\t{value   ,20}\t=\t{demandCalculated         ,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
+                    //Logger.WriteMessage(OutputLevel.Info, $"\t\t{element.ObjectID,6}\t{valueOld,20}\t=\t{element.ActualDemandValue,20}\t*\t{zoneDemandData.DemandAdjustmentRatio,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
+                    Logger.WriteMessage(OutputLevel.Info, $"\t\t{element.ObjectID,6}\t{value   ,20}\t=\t{demandCalculated         ,20}\t*\t{Constants.Flow_M3H_2_WG,20}");
                 }
-
-                // My: 
-                //if (zoneDemandData.ZoneName == _testedZoneName)
-                //{
-                //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow of object {element.ObjectID} was modified: oldValue <-- {value} .");
-                //    this.Logger.WriteMessage(OutputLevel.Info, $"# BaseFlow value: {value} = {element.ActualDemandValue} * {zoneDemandData.DemandAdjustmentRatio} * {Constants.Flow_M3H_2_WG} .");
-                //}
 
                 baseFlowField.SetValue(element.ObjectID, value);
             }
