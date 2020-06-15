@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Haestad.Domain;
 using Haestad.Domain.ModelingObjects;
 using Haestad.Support.Support;
@@ -38,8 +38,12 @@ namespace Grundfos.WG.ObjectReaders
             var editableDemandField = demandCollectionField as IEditField;
             var zoneField = supportedFields["Physical_Zone"];
 
+            var isActiveField = supportedFields["HMIActiveTopologyIsActive"];
+
             foreach (var elementID in elementIDs)
             {
+                var isActive = bool.Parse(isActiveField.GetValue(elementID).ToString());
+
                 var rawZoneID = zoneField.GetValue(elementID);
                 int zoneID = rawZoneID is int ? (int)rawZoneID : -1;
 
@@ -71,6 +75,7 @@ namespace Grundfos.WG.ObjectReaders
                             BaseDemandValue = baseDemand * Constants.Flow_WG_2_M3H,
                             DemandPatternID = patternID,
                             ZoneID = zoneID,
+                            IsActive= isActive,
                         };
 
                         result.Add(demandInfo);
@@ -94,8 +99,12 @@ namespace Grundfos.WG.ObjectReaders
             var patternField = supportedFields[Constants.DemandPatternFieldName];
             var associatedElementField = supportedFields[Constants.DemandAssociatedElementFieldName];
 
+            var isActiveField = supportedFields["HMIActiveTopologyIsActive"];
+
             foreach (var elementID in elementIDs)
             {
+                var isActive = bool.Parse(isActiveField.GetValue(elementID).ToString());
+
                 var rawPatternID = patternField.GetValue(elementID);
                 int patternID = rawPatternID is int ? (int)rawPatternID : -1;
 
@@ -112,6 +121,7 @@ namespace Grundfos.WG.ObjectReaders
                     BaseDemandValue = baseDemand * Constants.Flow_WG_2_M3H,
                     DemandPatternID = patternID,
                     AssociatedElementID = associatedElementID,
+                    IsActive = isActive
                 };
 
                 result.Add(demandInfo);

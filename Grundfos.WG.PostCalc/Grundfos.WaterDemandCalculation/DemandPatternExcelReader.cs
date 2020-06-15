@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG;
+using Grundfos.WG.Model;
 using Grundfos.Workbooks;
 using NPOI.SS.UserModel;
 

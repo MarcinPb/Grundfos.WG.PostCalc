@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Grundfos.WaterDemandCalculation.Model
+namespace Grundfos.WG.Model
 {
     [Serializable]
     public class ZoneDemandData
@@ -20,6 +20,9 @@ namespace Grundfos.WaterDemandCalculation.Model
         public double DemandAdjustmentRatio { get; set; }
         public double DemandAdjustmentRatioDb { get; set; }
         public List<WaterDemandData> Demands { get; set; }
+
+        public double DemandScadaElement { get; set; }
+
         public override string ToString()
         {
             return $"{this.ZoneName} {nameof(WgDemand)}:{WgDemand}, {nameof(ScadaDemand)}:{ScadaDemand}, {nameof(DemandAdjustmentRatio)}:{DemandAdjustmentRatio}";

@@ -95,6 +95,10 @@
       <Project>{E6617CD4-B3EA-4862-B59A-838745ABA3A7}</Project>
       <Name>Grundfos.WaterDemandCalculation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
+      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
+      <Name>Grundfos.WG.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Grundfos.WG.ObjectReaders\Grundfos.WG.ObjectReaders.csproj">
       <Project>{0B2D4FA7-A4B2-4527-A7C7-2B0436B9FA2E}</Project>
       <Name>Grundfos.WG.ObjectReaders</Name>

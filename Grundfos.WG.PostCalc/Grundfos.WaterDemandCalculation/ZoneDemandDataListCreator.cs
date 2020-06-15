@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grundfos.OPC;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Grundfos.Workbooks;
 using Haestad.Support.OOP.Logging;
 
@@ -94,6 +94,8 @@ namespace Grundfos.WaterDemandCalculation
                 zoneDemandDataList.ForEach(x => totalDemandCalculation.UpdateDemandFactorValue(x.Demands, _dataContext.StartComputeTime));
 
                 // Update zoneDemandData.ScadaDemand <- OPC.10MinValue
+                double demandScadaElement_05;
+                double demandScadaElement_06;
                 using (var opc = new OpcReader(_dataContext.OpcServerAddress))
                 {
                     //foreach (var zoneDemandData in zoneDemandDataList)
@@ -102,6 +104,13 @@ namespace Grundfos.WaterDemandCalculation
                     //    zoneDemandData.DemandAdjustmentRatio = zoneDemandData.WgDemand == 0 ? 0 : zoneDemandData.ScadaDemand / zoneDemandData.WgDemand;
                     //}
                     zoneDemandDataList.ForEach(x => x.ScadaDemand = opc.GetDouble(x.OpcTag));
+
+                    demandScadaElement_05 = opc.GetDouble("Control.DEV.NodeDemand_j-5-094_1548");   // 6777
+                    zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6777).DemandScadaElement = demandScadaElement_05;
+                    _logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6777] = {demandScadaElement_05}");
+                    demandScadaElement_06 = opc.GetDouble("Control.DEV.NodeDemand_j-6-025_2719");   // 6778
+                    zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6778).DemandScadaElement = demandScadaElement_06;
+                    _logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6778] = {demandScadaElement_06}");
                 }
 
                 // Calculate and update:
@@ -245,6 +254,7 @@ namespace Grundfos.WaterDemandCalculation
                             cmd.Parameters.Add("@DemandWg", SqlDbType.Float).Value = zone.WgDemand;
                             cmd.Parameters.Add("@DemandExcluded", SqlDbType.Float).Value = zone.DemandWgExcluded;
                             cmd.Parameters.Add("@DemandRatio", SqlDbType.Float).Value = zone.DemandAdjustmentRatio;
+                            cmd.Parameters.Add("@DemandScadaElement", SqlDbType.Float).Value = zone.DemandScadaElement;
 
                             cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                             cmd.Parameters["@LogId"].Value = 0;
@@ -347,14 +357,14 @@ namespace Grundfos.WaterDemandCalculation
                     {
                         AutoZoneId = x.Field<int>("AutoZoneId"),
                         DemandRatioDb = x.Field<double>("DemandRatioDb"),
-                    });
+                    }).ToList();
                     var dtDemandList = dataSet.Tables[1].AsEnumerable().Select(x => new
                     {
                         AutoZoneId = x.Field<int>("AutoZoneId"),
                         AutoObjectId = x.Field<int>("AutoObjectId"),
                         AutoDemandId = x.Field<int>("AutoDemandId"),
                         DemandCalculatedDb = x.Field<double>("DemandCalculatedDb"),
-                    });
+                    }).ToList();
                     foreach (var zone in zoneDemandDataList)
                     {
                         var dtZone = dtZoneList.FirstOrDefault(x => x.AutoZoneId == zone.ZoneId);

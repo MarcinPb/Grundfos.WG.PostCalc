@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Grundfos.WaterDemandCalculation.Model
+namespace Grundfos.WG.Model
 {
     public class WaterDemandPattern
     {

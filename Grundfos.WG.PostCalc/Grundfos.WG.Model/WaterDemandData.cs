@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Grundfos.WaterDemandCalculation.Model
+namespace Grundfos.WG.Model
 {
     [Serializable]
     public class WaterDemandData
@@ -24,6 +24,7 @@ namespace Grundfos.WaterDemandCalculation.Model
 
         public int AssociatedElementID { get; set; }
 
+        public bool IsActive { get; set; }
 
         public override string ToString()
         {

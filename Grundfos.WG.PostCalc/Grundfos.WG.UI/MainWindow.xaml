@@ -20,6 +20,9 @@
                 <Separator/>
                 <MenuItem Header="Exit" IsEnabled="False"/>
             </MenuItem>
+            <MenuItem Header="Data">
+                <MenuItem Header="Create Excel File" Click="CreateExcelFile"/>
+            </MenuItem>
             <MenuItem Header="Reports">
                 <MenuItem Header="Zone Flow Comparison" Click="button_Click03"/>
                 <MenuItem Header="Zone Flow Comparison - Przybkow" Click="button_Click"/>

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WpfApp1</RootNamespace>
     <AssemblyName>WpfApp1</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -183,6 +183,20 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
+      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
+      <Name>Grundfos.WG.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.ObjectReaders\Grundfos.WG.ObjectReaders.csproj">
+      <Project>{0b2d4fa7-a4b2-4527-a7c7-2b0436b9fa2e}</Project>
+      <Name>Grundfos.WG.ObjectReaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
+      <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
+      <Name>Grundfos.Workbooks</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

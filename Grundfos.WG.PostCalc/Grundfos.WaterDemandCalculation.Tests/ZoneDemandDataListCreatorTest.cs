@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Grundfos.WaterDemandCalculation.Tests.TestData;
 using Grundfos.WG.PostCalc;
 using Haestad.Support.OOP.FileSystem;

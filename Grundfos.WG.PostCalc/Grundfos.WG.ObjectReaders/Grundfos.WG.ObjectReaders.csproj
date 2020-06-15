@@ -55,8 +55,9 @@
     <Reference Include="Haestad.Domain.ModelingObjects.Water">
       <HintPath>..\Libraries\WG\Haestad.Domain.ModelingObjects.Water.dll</HintPath>
     </Reference>
-    <Reference Include="Haestad.SQLite">
-      <HintPath>..\Libraries\WG\Haestad.SQLite.dll</HintPath>
+    <Reference Include="Haestad.SQLite, Version=10.2.1.10, Culture=neutral, PublicKeyToken=b4db808388021f6e, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Bentley\WaterGEMS\Haestad.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="Haestad.Support">
       <HintPath>..\Libraries\WG\Haestad.Support.dll</HintPath>
@@ -81,15 +82,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="DomainDataSetProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqliteProxy.cs" />
     <Compile Include="WaterDemandDataReader.cs" />
-    <Compile Include="WaterDemandPatternReader.cs" />
+    <Compile Include="WaterDemandPatternCurveReader.cs" />
     <Compile Include="ZoneReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Grundfos.WaterDemandCalculation\Grundfos.WaterDemandCalculation.csproj">
       <Project>{e6617cd4-b3ea-4862-b59a-838745aba3a7}</Project>
       <Name>Grundfos.WaterDemandCalculation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
+      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
+      <Name>Grundfos.WG.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

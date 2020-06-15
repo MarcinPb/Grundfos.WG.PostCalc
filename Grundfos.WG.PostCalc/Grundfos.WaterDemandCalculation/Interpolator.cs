@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Grundfos.WaterDemandCalculation.ExtensionMethods;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 
 namespace Grundfos.WaterDemandCalculation
 {

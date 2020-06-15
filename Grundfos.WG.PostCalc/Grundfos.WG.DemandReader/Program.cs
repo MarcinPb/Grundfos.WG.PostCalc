@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Grundfos.WG.ObjectReaders;
 
 namespace Grundfos.WG.DemandReader
@@ -53,7 +53,7 @@ namespace Grundfos.WG.DemandReader
                 var zoneReader = new ZoneReader(dataSet);
                 var zones = zoneReader.GetZones();
 
-                var demandPatternReader = new WaterDemandPatternReader(dataSet);
+                var demandPatternReader = new WaterDemandPatternCurveReader(dataSet);
                 var patterns = demandPatternReader.GetPatterns();
 
                 FillPatternNames(demands, patterns.ToDictionary(x => x.Value, x => x.Key));

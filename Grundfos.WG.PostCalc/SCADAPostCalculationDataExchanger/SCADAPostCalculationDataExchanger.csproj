@@ -159,6 +159,10 @@
       <Project>{e6617cd4-b3ea-4862-b59a-838745aba3a7}</Project>
       <Name>Grundfos.WaterDemandCalculation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
+      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
+      <Name>Grundfos.WG.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Grundfos.WG.ObjectReaders\Grundfos.WG.ObjectReaders.csproj">
       <Project>{0B2D4FA7-A4B2-4527-A7C7-2B0436B9FA2E}</Project>
       <Name>Grundfos.WG.ObjectReaders</Name>
@@ -217,6 +221,7 @@ if $(ConfigurationName) == Release copy "$(TargetDir)SCADAPostCalculationDataExc
 if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.Workbooks.dll" "$(TargetDir)Deploy\"
 if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.OPC.Publisher.dll" "$(TargetDir)Deploy\"
 if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.ObjectReaders.dll" "$(TargetDir)Deploy\"
+if $(ConfigurationName) == Release copy "$(TargetDir)Grundfos.WG.Model.dll" "$(TargetDir)Deploy\"
 
 if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.dll" "$(TargetDir)Deploy\"
 if $(ConfigurationName) == Release copy "$(TargetDir)System.Data.SQLite.dll.config" "$(TargetDir)Deploy\"

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Grundfos.OPC;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Grundfos.WaterDemandCalculation.Tests.TestData;
 using Grundfos.Workbooks;
 using NUnit.Framework;

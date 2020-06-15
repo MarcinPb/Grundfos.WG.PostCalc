@@ -1,4 +1,4 @@
-﻿namespace Grundfos.WaterDemandCalculation.Model
+﻿namespace Grundfos.WG.Model
 {
     public class ZoneMapping
     {

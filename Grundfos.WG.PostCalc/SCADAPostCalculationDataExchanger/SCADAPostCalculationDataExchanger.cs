@@ -7,7 +7,7 @@ using System.Linq;
 using AutoMapper;
 using Grundfos.OPC;
 using Grundfos.WaterDemandCalculation;
-using Grundfos.WaterDemandCalculation.Model;
+using Grundfos.WG.Model;
 using Grundfos.WG.ObjectReaders;
 using Grundfos.WG.OPC.Publisher;
 using Grundfos.WG.OPC.Publisher.Configuration;
@@ -319,7 +319,7 @@ namespace SCADAPostCalculationDataExchanger
                 }
 
                 // Dictionary<string, int> patterns (51 rec.) = WaterGEMS->DemandPattern {{"Urz", 1}, {"Mw", 2},... {"Fixed", -1}}
-                var patternReader = new WaterDemandPatternReader(this.DomainDataSet);
+                var patternReader = new WaterDemandPatternCurveReader(this.DomainDataSet);
                 var patterns = patternReader.GetPatterns();
                 this.Logger.WriteMessage(OutputLevel.Info, $"{patterns.Count} demand patterns have been read from WaterGEMS model.");
                 foreach (var pattern in patterns)

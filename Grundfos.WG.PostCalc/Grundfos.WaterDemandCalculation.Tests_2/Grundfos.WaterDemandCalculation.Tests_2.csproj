@@ -62,6 +62,10 @@
       <Project>{e6617cd4-b3ea-4862-b59a-838745aba3a7}</Project>
       <Name>Grundfos.WaterDemandCalculation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
+      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
+      <Name>Grundfos.WG.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
