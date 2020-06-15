@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Grundfos.WG.Model;
@@ -134,28 +135,40 @@ namespace Grundfos.WG.ObjectReaders
 
         public void UpdateCustomerMeterZones(IList<WaterDemandData> customerMeterDemands, IList<WaterDemandData> nodeDemands)
         {
-            var nodeDictionary = new Dictionary<int, int>();
-            foreach (var item in nodeDemands)
-            {
-                if (!nodeDictionary.ContainsKey(item.ObjectID))
-                {
-                    nodeDictionary[item.ObjectID] = item.ZoneID;
-                }
-            }
+            //var nodeDictionary = new Dictionary<int, int>();
+            //foreach (var item in nodeDemands)
+            //{
+            //    if (!nodeDictionary.ContainsKey(item.ObjectID))
+            //    {
+            //        nodeDictionary[item.ObjectID] = item.ZoneID;
+            //    }
+            //}
 
-            foreach (var customerMeter in customerMeterDemands)
+            //foreach (var customerMeter in customerMeterDemands)
+            //{
+            //    if (nodeDictionary.TryGetValue(customerMeter.AssociatedElementID, out int zoneID))
+            //    {
+            //        customerMeter.ZoneID = zoneID;
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //} 
+
+            customerMeterDemands.ToList().ForEach(x =>
             {
-                if (nodeDictionary.TryGetValue(customerMeter.AssociatedElementID, out int zoneID))
+                var obj = nodeDemands.FirstOrDefault(y => x.AssociatedElementID == y.ObjectID);
+                if (obj == null)
                 {
-                    customerMeter.ZoneID = zoneID;
+                    throw new Exception($"Could not find Junction ID: {x.AssociatedElementID} for CustomerMeter ID: {x.ObjectID}.");
                 }
                 else
                 {
-
+                    x.ZoneID = obj.ZoneID;
+                    x.ZoneName = obj.ZoneName;
                 }
-            }
+            });
         }
-
-
     }
 }

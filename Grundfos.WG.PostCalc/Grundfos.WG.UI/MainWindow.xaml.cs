@@ -33,24 +33,34 @@ namespace WpfApp1
             //ReportViewer1.Load += ReportViewer_Load;
         }
         private string _sqliteDbFile = @"C:\WG2TW\WGModel\testOPC.wtg.sqlite";
+        private string _excelFile = @"C:\WG2TW\Grundfos.WG.PostCalc\GeneratedSettings.xlsx";
 
         private void CreateExcelFile(object sender, RoutedEventArgs e)
         {
-            SqliteProxy sqliteProxy = new SqliteProxy(_sqliteDbFile);
-            var zoneList = sqliteProxy.GetZoneList();
-            var idahoPatternList = sqliteProxy.GetIdahoPatternList();
-            var idahoPatternPatternCurveList = sqliteProxy.GetIdahoPatternPatternCurveList();
+            try
+            {
+                SqliteProxy sqliteProxy = new SqliteProxy(_sqliteDbFile);
+                var zoneList = sqliteProxy.GetZoneList();
+                var idahoPatternList = sqliteProxy.GetIdahoPatternList();
+                var idahoPatternPatternCurveList = sqliteProxy.GetIdahoPatternPatternCurveList();
 
-            var customerMeterList = sqliteProxy.GetCustomerMeterList();
+                var junctionList = sqliteProxy.GetJunctionList();
+                var hydrantList = sqliteProxy.GetHydrantList();
+                var customerMeterList = sqliteProxy.GetCustomerMeterList();
 
-            var objectList = sqliteProxy.GetJunctionList().Union(sqliteProxy.GetHydrantList()).ToList();
-            sqliteProxy.FillZoneNamesInWaterDemands(objectList, zoneList);
-            sqliteProxy.UpdateCustomerMeterZones(customerMeterList, objectList);
-            objectList = objectList.Union(customerMeterList).ToList();
-            sqliteProxy.FillPatternNames(objectList, idahoPatternList);
+                var objectList = junctionList.Union(hydrantList).ToList();
+                sqliteProxy.FillZoneNamesInWaterDemands(objectList, zoneList);
+                sqliteProxy.UpdateCustomerMeterZones(customerMeterList, objectList);
+                objectList = objectList.Union(customerMeterList).ToList();
+                sqliteProxy.FillPatternNames(objectList, idahoPatternList);
 
-            ExcelWriter.Write(@"C:\WG2TW\Grundfos.WG.PostCalc\newbook.core.xlsx", idahoPatternPatternCurveList, objectList);
-            MessageBox.Show("File was created successfully.");
+                ExcelWriter.Write(_excelFile, idahoPatternPatternCurveList, idahoPatternList, objectList);
+                MessageBox.Show("File was created successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {

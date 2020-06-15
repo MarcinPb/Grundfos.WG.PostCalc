@@ -20,6 +20,7 @@ namespace Grundfos.Workbooks
         public static void Write(
             string excelFileName, 
             IList<IdahoPatternPatternCurve> idahoPatternPatternCurveList,
+            Dictionary<int, string> idahoPatternList,
             IList<WaterDemandData> waterDemandDataList
             )
         {
@@ -36,13 +37,30 @@ namespace Grundfos.Workbooks
                 row.CreateCell(0).SetCellValue("Pattern Name");
                 row.CreateCell(1).SetCellValue("Start (min)");
                 row.CreateCell(2).SetCellValue("Value");
-                foreach (var item in idahoPatternPatternCurveList)
+
+                int? missingSupportElementId = idahoPatternPatternCurveList
+                    .FirstOrDefault(x => idahoPatternList.All(y => x.SupportElementId != y.Key))?.SupportElementId;
+                if (missingSupportElementId.HasValue)
+                {
+                    throw new Exception($"Could not find DemandPattern for DemandPatternCurve ID: {missingSupportElementId}.");
+                }
+
+                var list = idahoPatternPatternCurveList.Join(
+                    idahoPatternList,
+                    l => l.SupportElementId,
+                    r => r.Key,
+                    (l, r) => new { IdahoPatternPatternCurve = l, IdahoPatternName = r.Value }
+                );
+
+
+
+                foreach (var item in list)
                 {
                     rowIndex++;
                     row = sheet1.CreateRow(rowIndex);
-                    row.CreateCell(0).SetCellValue(item.SupportElementId);
-                    row.CreateCell(1).SetCellValue(item.PatternCurveTimeFromStart/60);
-                    row.CreateCell(2).SetCellValue(item.PatternCurveMultiplier);
+                    row.CreateCell(0).SetCellValue(item.IdahoPatternName);
+                    row.CreateCell(1).SetCellValue(item.IdahoPatternPatternCurve.PatternCurveTimeFromStart/60);
+                    row.CreateCell(2).SetCellValue(item.IdahoPatternPatternCurve.PatternCurveMultiplier);
                 }
 
                 ISheet sheet2 = workbook.CreateSheet("ObjectData");
