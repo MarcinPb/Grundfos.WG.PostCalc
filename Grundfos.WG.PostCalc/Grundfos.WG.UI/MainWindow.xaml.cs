@@ -47,6 +47,8 @@ namespace WpfApp1
                 var junctionList = sqliteProxy.GetJunctionList();
                 var hydrantList = sqliteProxy.GetHydrantList();
                 var customerMeterList = sqliteProxy.GetCustomerMeterList();
+                var pipeList = sqliteProxy.GetPipeList();
+
 
                 var objectList = junctionList.Union(hydrantList).ToList();
                 sqliteProxy.FillZoneNamesInWaterDemands(objectList, zoneList);
@@ -54,7 +56,7 @@ namespace WpfApp1
                 objectList = objectList.Union(customerMeterList).ToList();
                 sqliteProxy.FillPatternNames(objectList, idahoPatternList);
 
-                ExcelWriter.Write(_excelFile, idahoPatternPatternCurveList, idahoPatternList, objectList);
+                ExcelWriter.Write(_excelFile, idahoPatternList, idahoPatternPatternCurveList, objectList, pipeList, zoneList);
                 MessageBox.Show("File was created successfully.");
             }
             catch (Exception ex)

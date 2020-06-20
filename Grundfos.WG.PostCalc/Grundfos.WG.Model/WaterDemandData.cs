@@ -10,6 +10,7 @@ namespace Grundfos.WG.Model
         public string ZoneName { get; set; }
 
         public int ObjectID { get; set; }
+        public string ObjectName { get; set; }
         public int ObjectTypeID { get; set; }
         public bool ObjectIsExcluded { get; set; }
 

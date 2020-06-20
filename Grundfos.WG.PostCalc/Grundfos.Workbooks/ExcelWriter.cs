@@ -19,13 +19,16 @@ namespace Grundfos.Workbooks
 
         public static void Write(
             string excelFileName, 
-            IList<IdahoPatternPatternCurve> idahoPatternPatternCurveList,
             Dictionary<int, string> idahoPatternList,
-            IList<WaterDemandData> waterDemandDataList
+            IList<IdahoPatternPatternCurve> idahoPatternPatternCurveList,
+            IList<WaterDemandData> waterDemandDataList,
+            IList<Pipe> pipeList,
+            Dictionary<int, string> zoneList
             )
         {
             using (var fs = new FileStream(excelFileName, FileMode.Create, FileAccess.Write))
             {
+                string[] strArr = { " - " };
                 int rowIndex;
                 IRow row;
 
@@ -51,9 +54,6 @@ namespace Grundfos.Workbooks
                     r => r.Key,
                     (l, r) => new { IdahoPatternPatternCurve = l, IdahoPatternName = r.Value }
                 );
-
-
-
                 foreach (var item in list)
                 {
                     rowIndex++;
@@ -63,9 +63,74 @@ namespace Grundfos.Workbooks
                     row.CreateCell(2).SetCellValue(item.IdahoPatternPatternCurve.PatternCurveMultiplier);
                 }
 
-                ISheet sheet2 = workbook.CreateSheet("ObjectData");
+                ISheet sheet2 = workbook.CreateSheet("ExcludedItems");
                 rowIndex = 0;
                 row = sheet2.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("Excluded Object IDs");
+                row.CreateCell(1).SetCellValue("Excluded Demand Patterns");
+
+                ISheet sheet3 = workbook.CreateSheet("Zones");
+                rowIndex = 0;
+                row = sheet3.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("Zone Name");
+                row.CreateCell(1).SetCellValue("OPC Zone Demand Tag");
+                foreach (var item in zoneList)
+                {
+                    rowIndex++;
+                    row = sheet3.CreateRow(rowIndex);
+                    row.CreateCell(0).SetCellValue(item.Value);
+                    row.CreateCell(1).SetCellValue($"Control.DEV.ZoneDemand_{item.Value.Split(strArr, StringSplitOptions.None)[1]}");
+                }
+
+                ISheet sheet4 = workbook.CreateSheet("OpcMapping");
+                rowIndex = 0;
+                row = sheet4.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("FieldName");
+                row.CreateCell(1).SetCellValue("Element ID");
+                row.CreateCell(2).SetCellValue("Element Label");
+                row.CreateCell(3).SetCellValue("Enabled");
+                row.CreateCell(4).SetCellValue("OPC Tag");
+                row.CreateCell(5).SetCellValue("Result Attribute Label");
+                // Pipe
+                foreach (var item in pipeList)
+                {
+                    rowIndex++;
+                    row = sheet4.CreateRow(rowIndex);
+                    row.CreateCell(0).SetCellValue("PipeStatus");
+                    row.CreateCell(1).SetCellValue(item.Id);
+                    row.CreateCell(2).SetCellValue(item.Label);
+                    row.CreateCell(3).SetCellValue(item.IsActive);
+                    row.CreateCell(4).SetCellValue($"PipeIsOpen.DEV.{item.Label}_{item.Id}");
+                    row.CreateCell(5).SetCellValue("Is Open?");
+                }
+                // Hydrant
+                foreach (var item in waterDemandDataList.Where(x => x.ObjectTypeID == 54))
+                {
+                    rowIndex++;
+                    row = sheet4.CreateRow(rowIndex);
+                    row.CreateCell(0).SetCellValue("TankPercentFull");
+                    row.CreateCell(1).SetCellValue(item.ObjectID);
+                    row.CreateCell(2).SetCellValue(item.ObjectName);
+                    row.CreateCell(3).SetCellValue(item.IsActive);
+                    row.CreateCell(4).SetCellValue($"Other.DEV.TankPrcFul_{item.ObjectName}_{item.ObjectID}");
+                    row.CreateCell(5).SetCellValue("Percent Full");
+                }
+                // Zone
+                foreach (var item in zoneList)
+                {
+                    rowIndex++;
+                    row = sheet4.CreateRow(rowIndex);
+                    row.CreateCell(0).SetCellValue("ZoneAveragePressure");
+                    row.CreateCell(1).SetCellValue(item.Key);
+                    row.CreateCell(2).SetCellValue(item.Value);
+                    row.CreateCell(3).SetCellValue(true);
+                    row.CreateCell(4).SetCellValue($"Other.DEV.ZoneAvgPrs_{item.Value.Split(strArr, StringSplitOptions.None)[1]}");
+                    row.CreateCell(5).SetCellValue("None");
+                }
+
+                ISheet sheet5 = workbook.CreateSheet("ObjectData");
+                rowIndex = 0;
+                row = sheet5.CreateRow(rowIndex);
                 row.CreateCell(0).SetCellValue("ObjectID");
                 row.CreateCell(1).SetCellValue("ObjectTypeID");
                 row.CreateCell(2).SetCellValue("DemandPatternName");
@@ -75,7 +140,7 @@ namespace Grundfos.Workbooks
                 foreach (var item in waterDemandDataList)
                 {
                     rowIndex++;
-                    row = sheet2.CreateRow(rowIndex);
+                    row = sheet5.CreateRow(rowIndex);
                     row.CreateCell(0).SetCellValue(item.ObjectID);
                     row.CreateCell(1).SetCellValue(item.ObjectTypeID);
                     row.CreateCell(2).SetCellValue(item.DemandPatternName);
@@ -83,6 +148,20 @@ namespace Grundfos.Workbooks
                     row.CreateCell(4).SetCellValue(item.ZoneName);
                     row.CreateCell(5).SetCellValue(item.IsActive);
                 }
+
+                ISheet sheet6 = workbook.CreateSheet("ApplicationSettings");
+                rowIndex = 0;
+                row = sheet6.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("Name");
+                row.CreateCell(1).SetCellValue("Value");
+                rowIndex++;
+                row = sheet6.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("SimulationStartDate");
+                row.CreateCell(1).SetCellValue(new DateTime(2019, 9, 30, 12, 15, 0));
+                rowIndex++;
+                row = sheet6.CreateRow(rowIndex);
+                row.CreateCell(0).SetCellValue("SimulationIntervalMinutes");
+                row.CreateCell(1).SetCellValue(10);
 
                 workbook.Write(fs);
             }

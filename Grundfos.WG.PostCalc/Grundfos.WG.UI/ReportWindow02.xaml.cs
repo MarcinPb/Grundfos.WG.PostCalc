@@ -37,50 +37,58 @@ namespace WpfApp1
         private List<Item> _demandList;
         private void ReportViewer_Load(object sender, EventArgs e)
         {
-            TopQtyTextBox.Text = "5";
-
-            DataTable dtZoneList = GetZoneList();
-            var optionList1 = new List<Item>() { new Item(){ Value=SelectAllOption, Name="<Select All>", Selected=true}};
-            var optionList2 = dtZoneList.AsEnumerable().Select(x => new Item()
+            try
             {
-                Value= Convert.ToInt32(x["AutoZoneId"]),
-                Name = Convert.ToString(x["ZoneName"]),
-                Selected = true
-            });
-            _optionList = optionList1.Union(optionList2).ToList();
+                TopQtyTextBox.Text = "5";
 
-            CheckComboBox1.ItemsSource = _optionList;
-            CheckComboBox1.DisplayMemberPath = "Name";
-            CheckComboBox1.SelectedMemberPath = "Selected";
-            CheckComboBox1.ValueMemberPath = "Value";
-            CheckComboBox1.ItemSelectionChanged += CheckComboBox1_ItemSelectionChanged;
+                DataTable dtZoneList = GetZoneList();
+                var optionList1 = new List<Item>() { new Item() { Value = SelectAllOption, Name = "<Select All>", Selected = true } };
+                var optionList2 = dtZoneList.AsEnumerable().Select(x => new Item()
+                {
+                    Value = Convert.ToInt32(x["AutoZoneId"]),
+                    Name = Convert.ToString(x["ZoneName"]),
+                    Selected = true
+                });
+                _optionList = optionList1.Union(optionList2).ToList();
 
-            DataTable dtDemandList = GetDemandList();
-            var demandList1 = new List<Item>() { new Item(){ Value=SelectAllOption, Name="<Select All>", Selected=true}};
-            var demandList2 = dtDemandList.AsEnumerable().Select(x => new Item()
+                CheckComboBox1.ItemsSource = _optionList;
+                CheckComboBox1.DisplayMemberPath = "Name";
+                CheckComboBox1.SelectedMemberPath = "Selected";
+                CheckComboBox1.ValueMemberPath = "Value";
+                CheckComboBox1.ItemSelectionChanged += CheckComboBox1_ItemSelectionChanged;
+
+                DataTable dtDemandList = GetDemandList();
+                var demandList1 = new List<Item>() { new Item() { Value = SelectAllOption, Name = "<Select All>", Selected = true } };
+                var demandList2 = dtDemandList.AsEnumerable().Select(x => new Item()
+                {
+                    Value = Convert.ToInt32(x["AutoDemandId"]),
+                    Name = Convert.ToString(x["DemandName"]),
+                    Selected = true
+                });
+                _demandList = demandList1.Union(demandList2).ToList();
+
+                CheckComboBox2.ItemsSource = _demandList;
+                CheckComboBox2.DisplayMemberPath = "Name";
+                CheckComboBox2.SelectedMemberPath = "Selected";
+                CheckComboBox2.ValueMemberPath = "Value";
+                CheckComboBox2.ItemSelectionChanged += CheckComboBox2_ItemSelectionChanged;
+
+                _reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource
+                {
+                    Name = "DataSet1",
+                    Value = FillDataTable(_conStr)
+                };
+                //ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/ReportWg02_02.rdlc";
+                ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/ReportWg02_03.rdlc";
+                ReportViewer1.LocalReport.DataSources.Add(_reportDataSource1);
+                //ReloadData();
+                ReportViewer1.RefreshReport();
+
+            }
+            catch (Exception exception)
             {
-                Value= Convert.ToInt32(x["AutoDemandId"]),
-                Name = Convert.ToString(x["DemandName"]),
-                Selected = true
-            });
-            _demandList = demandList1.Union(demandList2).ToList();
-
-            CheckComboBox2.ItemsSource = _demandList;
-            CheckComboBox2.DisplayMemberPath = "Name";
-            CheckComboBox2.SelectedMemberPath = "Selected";
-            CheckComboBox2.ValueMemberPath = "Value";
-            CheckComboBox2.ItemSelectionChanged += CheckComboBox2_ItemSelectionChanged;
-
-            _reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource
-            {
-                Name = "DataSet1",
-                Value = FillDataTable(_conStr)
-            };
-            //ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/ReportWg02_02.rdlc";
-            ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/ReportWg02_03.rdlc";
-            ReportViewer1.LocalReport.DataSources.Add(_reportDataSource1);
-            //ReloadData();
-            ReportViewer1.RefreshReport();
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void CheckComboBox2_ItemSelectionChanged(object sender, ItemSelectionChangedEventArgs e)
@@ -117,8 +125,15 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CheckComboBox1.ItemsSource = _optionList;
-            ReloadData();
+            try
+            {
+                CheckComboBox1.ItemsSource = _optionList;
+                ReloadData();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private void ReloadData()
         {

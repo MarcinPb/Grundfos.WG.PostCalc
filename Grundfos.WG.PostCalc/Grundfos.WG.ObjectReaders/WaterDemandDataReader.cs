@@ -95,6 +95,7 @@ namespace Grundfos.WG.ObjectReaders
             var elementIDs = manager.ElementIDs();
 
             var supportedFields = manager.SupportedFields().Cast<IField>().ToDictionary(x => x.Name, x => x);
+            var labelField = supportedFields["Label"];
             var baseDemandField = supportedFields[Constants.DemandBaseFlowFieldName];
             var patternField = supportedFields[Constants.DemandPatternFieldName];
             var associatedElementField = supportedFields[Constants.DemandAssociatedElementFieldName];
@@ -104,6 +105,7 @@ namespace Grundfos.WG.ObjectReaders
             foreach (var elementID in elementIDs)
             {
                 var isActive = bool.Parse(isActiveField.GetValue(elementID).ToString());
+                var label = labelField.GetValue(elementID).ToString();
 
                 var rawPatternID = patternField.GetValue(elementID);
                 int patternID = rawPatternID is int ? (int)rawPatternID : -1;
@@ -117,6 +119,7 @@ namespace Grundfos.WG.ObjectReaders
                 var demandInfo = new WaterDemandData
                 {
                     ObjectID = elementID,
+                    ObjectName = label,
                     ObjectTypeID = elementTypeID,
                     BaseDemandValue = baseDemand * Constants.Flow_WG_2_M3H,
                     DemandPatternID = patternID,

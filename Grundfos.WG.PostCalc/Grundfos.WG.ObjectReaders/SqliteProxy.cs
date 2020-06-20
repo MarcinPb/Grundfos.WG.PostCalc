@@ -5,6 +5,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Grundfos.WG.Model;
+using Haestad.Domain.ModelingObjects;
+using Haestad.Domain.ModelingObjects.Water;
+using Haestad.Support.Support;
 
 namespace Grundfos.WG.ObjectReaders
 {
@@ -169,6 +172,90 @@ namespace Grundfos.WG.ObjectReaders
                     x.ZoneName = obj.ZoneName;
                 }
             });
+        }
+        public IList<WaterDemandData> GetPipeList1()
+        {
+            var result = new List<WaterDemandData>();
+            using (var dataSetProvider = new DomainDataSetProxy(_sqliteFileName))
+            using (var dataSet = dataSetProvider.OpenDomainDataSet())
+            {
+                int elementTypeID = 69;     // Pipe //Constants.CustomerNodeMeterID;
+                var manager = dataSet.DomainElementManager(elementTypeID);
+                var elementIDs = manager.ElementIDs();
+
+                var supportedFields = manager.SupportedFields().Cast<IField>().ToDictionary(x => x.Name, x => x);
+                //var baseDemandField = supportedFields[Constants.DemandBaseFlowFieldName];
+                //var patternField = supportedFields[Constants.DemandPatternFieldName];
+
+                var associatedElementField = supportedFields[Constants.DemandAssociatedElementFieldName];
+
+                var isActiveField = supportedFields["HMIActiveTopologyIsActive"];
+
+                foreach (var elementID in elementIDs)
+                {
+                    var isActive = bool.Parse(isActiveField.GetValue(elementID).ToString());
+
+                    //var rawPatternID = patternField.GetValue(elementID);
+                    //int patternID = rawPatternID is int ? (int)rawPatternID : -1;
+
+                    //var rawBaseDemand = baseDemandField.GetValue(elementID);
+                    //double baseDemand = rawBaseDemand is double ? (double)rawBaseDemand : 0.0d;
+
+                    var rawAssociatedElementID = associatedElementField.GetValue(elementID);
+                    int associatedElementID = rawAssociatedElementID is int ? (int)rawAssociatedElementID : -1;
+
+
+                    var demandInfo = new WaterDemandData
+                    {
+                        ObjectID = elementID,
+                        ObjectTypeID = elementTypeID,
+                        //BaseDemandValue = baseDemand * Constants.Flow_WG_2_M3H,
+                        //DemandPatternID = patternID,
+                        AssociatedElementID = associatedElementID,
+                        IsActive = isActive
+                    };
+
+                    result.Add(demandInfo);
+                }
+            }
+            return result;
+        }
+
+        public IList<Pipe> GetPipeList()
+        {
+            List<Pipe> result = new List<Pipe>();
+            using (var dataSetProvider = new DomainDataSetProxy(_sqliteFileName))
+            using (var dataSet = dataSetProvider.OpenDomainDataSet())
+            {
+                Dictionary<int, string> ids;
+                ids = ((IdahoDomainDataSet)dataSet).IdahoPipeElementManager.Elements()
+                    .Cast<ModelingElementBase>()
+                    .ToDictionary(x => x.Id, x => x.Label);
+
+                int elementTypeID = 69;     // Pipe //Constants.CustomerNodeMeterID;
+                var manager = dataSet.DomainElementManager(elementTypeID);
+                var elementIDs = manager.ElementIDs();
+
+                var supportedFields = manager.SupportedFields().Cast<IField>().ToDictionary(x => x.Name, x => x);
+                var pipeStatus = supportedFields["PipeStatus"];
+                var isActiveField = supportedFields["HMIActiveTopologyIsActive"];
+
+                foreach (var elementId in elementIDs)
+                {
+                    var isActive = bool.Parse(isActiveField.GetValue(elementId).ToString());
+                    var pipeStatusValue = pipeStatus.GetValue(elementId);
+
+                    result.Add(new Pipe()
+                    {
+                        Id = elementId,
+                        Label = ids[elementId],
+                        PipeStatus = pipeStatusValue.ToString(),
+                        IsActive = isActive,
+                    });
+                }
+            }
+
+            return result;
         }
     }
 }
