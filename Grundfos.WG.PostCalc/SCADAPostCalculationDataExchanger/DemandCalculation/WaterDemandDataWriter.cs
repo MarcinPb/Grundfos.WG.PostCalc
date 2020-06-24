@@ -118,9 +118,9 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
                         {
                             if (zoneDemandData.ZoneName == _testedZoneName)
                             {
-                                Logger.WriteMessage(OutputLevel.Info, $"## \tExcludedDemandPatterns: {rawPatternID}");
+                                Logger.WriteMessage(OutputLevel.Info, $"## \tExcludedDemandPatterns: {element.Key,6}-{rawPatternID}");
                             }
-                            continue;
+                            //continue;
                         }
 
                         var demandItem = element.Value.FirstOrDefault(x => x.DemandPatternID == patternID);
