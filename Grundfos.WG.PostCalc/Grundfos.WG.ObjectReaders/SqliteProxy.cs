@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Grundfos.WG.Model;
+using Haestad.Domain;
 using Haestad.Domain.ModelingObjects;
 using Haestad.Domain.ModelingObjects.Water;
 using Haestad.Support.Support;
@@ -257,5 +258,105 @@ namespace Grundfos.WG.ObjectReaders
 
             return result;
         }
+
+
+
+
+        public void GetNode(int nodeId)
+        {
+            var result = new List<WaterDemandData>();
+
+            using (var dataSetProvider = new DomainDataSetProxy(_sqliteFileName))
+            using (var dataSet = dataSetProvider.OpenDomainDataSet())
+            {
+                GetNodePropertyList(dataSet, nodeId);
+            }
+        }
+
+        private void GetNodePropertyList(IDomainDataSet dataSet, int nodeId)
+        {
+            int elementTypeID = 23;
+            var result = new List<WaterDemandData>();
+
+            var manager = dataSet.DomainElementManager(elementTypeID);
+            var elementIDs = manager.ElementIDs();
+
+            var supportedFields1 = manager.SupportedFields().Cast<IField>().ToList();
+            //var supportedFields = manager.SupportedFields().Cast<IField>().ToDictionary(x => x.Name, x => x);
+            //var demandCollectionField = supportedFields["DemandCollection"];
+            //var editableDemandField = demandCollectionField as IEditField;
+            //var zoneField = supportedFields["Physical_Zone"];
+
+            //var isActiveField = supportedFields["HMIActiveTopologyIsActive"];
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            foreach (var supportedField in supportedFields1)
+            {
+                string suppFieldName = supportedField.Name;
+                var val = supportedField.GetValue(nodeId)?.ToString();
+                dict.Add(suppFieldName, val);
+            }
+
+            IDomainElementManager conduitManager = dataSet.DomainElementManager((int)DomainElementType.ConduitElementManager);
+            // Todo: here I get error.
+            IResultTimeVariantField flowField = conduitManager.ResultField(
+                    StandardResultRecordName.IdahoDemandNodeResults_NodeDemand,
+                    //StandardCalculationOptionFieldName.SCADASimulationMode, 
+                    StandardResultRecordName.IdahoDemandNodeResults
+                ) as IResultTimeVariantField;
+
+            ////Flows over time:
+            //double[] flows = (double[])flowField.GetValuesOverTime(nodeId, dataSet.ScenarioManager.ActiveScenarioID);
+
+            ////Flow for a specific time step of 5.The actual time for timeStepIndex 5 depends on the output increment and whether or not the scenario has pressure elements that could compute at “non - standard” time increments or what are called” intermediate” time steps.
+            ////double flow = (double)flowField.GetValue(conduitID, dataSet.ScenarioManager.ActiveScenarioID, 5);
+
+
+            var elementID = nodeId;
+            //foreach (var elementID in elementIDs)
+            //{
+
+                //var isActive = bool.Parse(isActiveField.GetValue(elementID).ToString());
+
+                //var rawZoneID = zoneField.GetValue(elementID);
+                //int zoneID = rawZoneID is int ? (int)rawZoneID : -1;
+
+                //var demandCollection = editableDemandField.GetValue(elementID) as DomainElementCollectionFieldListManager;
+                //if (demandCollection.Count == 0)
+                //{
+                //    var demandInfo = new WaterDemandData
+                //    {
+                //        ObjectID = elementID,
+                //        ObjectTypeID = elementTypeID,
+                //        BaseDemandValue = 0,
+                //        DemandPatternID = -1,
+                //        ZoneID = zoneID,
+                //    };
+                //    result.Add(demandInfo);
+                //}
+                //else
+                //{
+                //    foreach (var row in demandCollection.DataTable.Rows.Cast<System.Data.DataRow>())
+                //    {
+                //        var rawPatternID = row[Constants.DemandCollectionPatternFieldName];
+                //        int patternID = rawPatternID is int ? (int)rawPatternID : -1;
+                //        var rawBaseDemand = row[Constants.DemandCollectionBaseFlowFieldName];
+                //        double baseDemand = rawBaseDemand is double ? (double)rawBaseDemand : 0.0d;
+                //        var demandInfo = new WaterDemandData
+                //        {
+                //            ObjectID = elementID,
+                //            ObjectTypeID = elementTypeID,
+                //            BaseDemandValue = baseDemand * Constants.Flow_WG_2_M3H,
+                //            DemandPatternID = patternID,
+                //            ZoneID = zoneID,
+                //            IsActive = isActive,
+                //        };
+
+                //        result.Add(demandInfo);
+                //    }
+                //}
+            //}
+        }
+
     }
 }

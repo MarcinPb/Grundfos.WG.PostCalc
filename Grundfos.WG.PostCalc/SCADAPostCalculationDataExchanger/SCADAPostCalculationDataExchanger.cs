@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using AutoMapper;
 using Grundfos.OPC;
 using Grundfos.WaterDemandCalculation;
@@ -98,6 +101,7 @@ namespace SCADAPostCalculationDataExchanger
 
         public override bool DoDataExchange(object dataExchangeContext)
         {
+
             // Dictionary<int, string> <- WaterGEMS {{n, "1 - Przybków"},... {n, "16 - Pompownia"}}
             var zoneReader = new ZoneReader(this.DomainDataSet);
             var wgZones = zoneReader.GetZones();
@@ -112,7 +116,17 @@ namespace SCADAPostCalculationDataExchanger
             this.PublishOpcResults(dataExchangeContext, excelReader, wgZones);
             
             //
+            if (IsLogToDb)
+            {
+                int seconds = GetDelayTimeFromSql();
+                this.Logger.WriteMessage(OutputLevel.Info, $"SCADAPostCalculationDataExchanger started waiting for {seconds} seconds.");
+                Thread.Sleep(seconds*1000);
+                this.Logger.WriteMessage(OutputLevel.Info, $"SCADAPostCalculationDataExchanger finished waiting.");
+            }
             this.ExchangeWaterDemands(dataExchangeContext, excelReader, wgZones);
+
+
+            //StandardResultRecordName.ScadaElementData_SignalValueRealtime
 
             return true;
         }
@@ -579,5 +593,35 @@ namespace SCADAPostCalculationDataExchanger
         }
 
         #endregion
+
+        private int GetDelayTimeFromSql()
+        {
+            try
+            {
+                int delayTime;
+                using (SqlConnection sqlConn = new SqlConnection(LogDbConnString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("spGetDelayTime", sqlConn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.Add("@Seconds", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.Parameters["@Seconds"].Value = 0;
+
+                        sqlConn.Open();
+                        cmd.ExecuteNonQuery();
+                        delayTime = Convert.ToInt32(cmd.Parameters["@Seconds"].Value);
+                        sqlConn.Close();
+                    }
+                }
+
+                return delayTime;
+            }
+            catch (Exception e)
+            {
+                this.Logger.WriteMessage(OutputLevel.Errors, $"Saving data to database.\n{e.Message}");
+                throw;
+            }
+        }
     }
 }
