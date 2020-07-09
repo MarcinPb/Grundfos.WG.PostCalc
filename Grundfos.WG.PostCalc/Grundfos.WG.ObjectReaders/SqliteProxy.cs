@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -262,20 +263,20 @@ namespace Grundfos.WG.ObjectReaders
 
 
 
-        public void GetNode(int nodeId)
+        public void GetNode(int nodeId, int nodeType)
         {
             var result = new List<WaterDemandData>();
 
             using (var dataSetProvider = new DomainDataSetProxy(_sqliteFileName))
             using (var dataSet = dataSetProvider.OpenDomainDataSet())
             {
-                GetNodePropertyList(dataSet, nodeId);
+                GetNodePropertyList(dataSet, nodeId, nodeType);
             }
         }
 
-        private void GetNodePropertyList(IDomainDataSet dataSet, int nodeId)
+        private void GetNodePropertyList(IDomainDataSet dataSet, int nodeId, int nodeType)
         {
-            int elementTypeID = 23;
+            int elementTypeID = nodeType;   // 23
             var result = new List<WaterDemandData>();
 
             var manager = dataSet.DomainElementManager(elementTypeID);
@@ -356,6 +357,71 @@ namespace Grundfos.WG.ObjectReaders
                 //    }
                 //}
             //}
+        }
+
+        // Made based on GetSimulationResult method.
+        public void GetSimulationResult()
+        {
+            try
+            {
+                var ResultRecordName = StandardResultRecordName.IdahoPipeResults;
+                var ResultAttributeRecordName = StandardResultRecordName.PipeResultControlStatus;
+                var FieldName = StandardFieldName.PipeStatus;
+                //ConversionFactor = 1,
+                var ElementTypes = new DomainElementType[]
+                {
+                    DomainElementType.IdahoPipeElementManager,
+                };
+
+                using (var dataSetProvider = new DomainDataSetProxy(_sqliteFileName))
+                using (var domainDataSet = dataSetProvider.OpenDomainDataSet())
+                {
+                    int scenarioId = domainDataSet.ScenarioManager.ActiveScenarioID;
+                    IScenario scenario = domainDataSet.ScenarioManager.Element(scenarioId) as IScenario;
+
+                    // Log the start of the process with the "Info" level priority.
+                    // (Users can control the verbosity of log output to only see the level of detail they want).
+                    //this.Logger?.WriteMessage(OutputLevel.Info, $"Reading {this.Configuration.ResultAttributeRecordName} ...");
+
+                    // Acquire the numerical engine name that supports Water Quality results.
+                    // This could also be hard coded as: StandardCalculationOptionFieldName.EpaNetEngine
+                    string engineName = scenario.GetActiveNumericalEngineTypeName(ResultRecordName);
+
+                    // Acquire the relevant field or fields that we want to read results for.
+                    IResultTimeVariantField timeVariantField = domainDataSet.FieldManager.ResultField(
+                        ResultAttributeRecordName,
+                        engineName,
+                        //StandardCalculationOptionFieldName.EpaNetEngine,
+                        ResultRecordName
+                    ) as IResultTimeVariantField;
+
+                    double[] timeSteps = domainDataSet.NumericalEngine(engineName).ResultDataConnection.TimeStepsInSeconds(scenario.Id);
+
+                    var elementTypes = new HmIDCollection(ElementTypes.Select(x => (int)x).ToArray());
+
+                    var simulationValues = this.GetSimulationValues(timeVariantField, timeSteps, elementTypes, scenario.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error encountered when publishing results.");
+                //this.Logger?.WriteException(e, true);
+            }
+        }
+
+        private Dictionary<int, double> GetSimulationValues(IResultTimeVariantField timeVariantField, double[] timeSteps, HmIDCollection elementTypes, int scenarioID)
+        {
+            var result = new Dictionary<int, double>();
+            var values = timeVariantField.GetValues(elementTypes, scenarioID, timeSteps.Length - 1);
+            IDictionaryEnumerator enumerator = values.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                int elementID = (int)enumerator.Key;
+                double doubleValue = Convert.ToDouble(enumerator.Value);
+                result[elementID] = doubleValue;
+            }
+
+            return result;
         }
 
     }

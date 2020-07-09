@@ -53,13 +53,14 @@ namespace Grundfos.WG.ObjectReaders.Tests
         [TestCase]
         public void Read_Tests02()
         {
-
             SqliteProxy sqliteProxy = new SqliteProxy(_sqliteDbFile);
             //var idahoPatternList = sqliteProxy.GetIdahoPatternList();
             //var idahoPatternPatternCurveList = sqliteProxy.GetIdahoPatternPatternCurveList();
 
             //sqliteProxy.GetNode(518);
-            sqliteProxy.GetNode(147655);
+            //sqliteProxy.GetNode(147655, 23);
+            //sqliteProxy.GetNode(5516, 69);
+            sqliteProxy.GetSimulationResult();
         }
 
         //private static IList<WaterDemandData> GetWgObjects(string waterGemsFileName)

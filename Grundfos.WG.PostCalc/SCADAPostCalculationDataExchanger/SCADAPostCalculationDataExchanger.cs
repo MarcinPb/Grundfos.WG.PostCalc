@@ -72,35 +72,32 @@ namespace SCADAPostCalculationDataExchanger
 
         public override bool BeforeDoDataExchange(object dataExchangeContext)
         {
+            this.Logger.WriteMessage(OutputLevel.Info, "-- BeforeDoDataExchange started --------------------------------------------------------------");
+
             // exchangeContext already contains ResultCacheDb and DemandConfigurationWorkbook keyValues taken from *.ini file.
             var exchangeContext = (DataExchangerContext)dataExchangeContext;
             this.RepositoryPath = exchangeContext.GetString("ResultCacheDb", @"C:\WG2TW\Grundfos.WG.PostCalc\ResultCache.sqlite");
             this.DemandConfigurationWorkbook = exchangeContext.GetString("DemandConfigurationWorkbook", @"C:\WG2TW\Grundfos.WG.PostCalc\WaterDemandSettings.xlsx");
 
-            // My
+            // Rest of *.ini file parameters.
             this.DumpOption = exchangeContext.GetString("DumpOption", @"1");
-            this.Logger.WriteMessage(OutputLevel.Info, $"# DumpOption = {DumpOption}.");
             this.DumpFolder = exchangeContext.GetString("DumpFolder", @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10");
-            this.Logger.WriteMessage(OutputLevel.Info, $"# DumpFolder = {DumpFolder}.");
-            var paramDict = new Dictionary<string, string>();
-            paramDict.Add("DumpOption", DumpOption);
-            paramDict.Add("DumpFolder", DumpFolder);
-            exchangeContext.Tag = paramDict;
-
             this.IsLogToDb = bool.Parse(exchangeContext.GetString("IsLogToDb", "false"));
-            this.Logger.WriteMessage(OutputLevel.Info, $"# IsLogToDb = {IsLogToDb}.");
             this.LogDbConnString = exchangeContext.GetString("LogDbConnString", @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True").Replace(":",";");
-            this.Logger.WriteMessage(OutputLevel.Info, $"# LogDbConnString = \"{LogDbConnString}\".");
             this.IsCalculationOnDb = bool.Parse(exchangeContext.GetString("IsCalculationOnDb", "false"));
-            this.Logger.WriteMessage(OutputLevel.Info, $"# IsCalculationOnDb = {IsCalculationOnDb}.");
-            this.RatioFormula = exchangeContext.GetString("RatioFormula", string.Empty);
-            this.Logger.WriteMessage(OutputLevel.Info, $"# RatioFormula = \"{RatioFormula}\".");
+            //this.RatioFormula = exchangeContext.GetString("RatioFormula", string.Empty);
+
+            //this.Logger.WriteMessage(OutputLevel.Info, $"# IsLogToDb = {IsLogToDb}.");
+            //this.Logger.WriteMessage(OutputLevel.Info, $"# LogDbConnString = \"{LogDbConnString}\".");
+            //this.Logger.WriteMessage(OutputLevel.Info, $"# IsCalculationOnDb = {IsCalculationOnDb}.");
+            //this.Logger.WriteMessage(OutputLevel.Info, $"# RatioFormula = \"{RatioFormula}\".");
 
             return true;
         }
 
         public override bool DoDataExchange(object dataExchangeContext)
         {
+            this.Logger.WriteMessage(OutputLevel.Info, "-- DoDataExchange started --------------------------------------------------------------------");
 
             // Dictionary<int, string> <- WaterGEMS {{n, "1 - Przybków"},... {n, "16 - Pompownia"}}
             var zoneReader = new ZoneReader(this.DomainDataSet);
@@ -115,18 +112,17 @@ namespace SCADAPostCalculationDataExchanger
             // 
             this.PublishOpcResults(dataExchangeContext, excelReader, wgZones);
             
-            //
+            // Wait for time in seconds taken from SQL.
             if (IsLogToDb)
             {
                 int seconds = GetDelayTimeFromSql();
-                this.Logger.WriteMessage(OutputLevel.Info, $"SCADAPostCalculationDataExchanger started waiting for {seconds} seconds.");
+                this.Logger.WriteMessage(OutputLevel.Info, $"-- SCADAPostCalculationDataExchanger started waiting for {seconds} seconds.");
                 Thread.Sleep(seconds*1000);
-                this.Logger.WriteMessage(OutputLevel.Info, $"SCADAPostCalculationDataExchanger finished waiting.");
+                this.Logger.WriteMessage(OutputLevel.Info, $"-- SCADAPostCalculationDataExchanger finished waiting.");
             }
+
+            // 
             this.ExchangeWaterDemands(dataExchangeContext, excelReader, wgZones);
-
-
-            //StandardResultRecordName.ScadaElementData_SignalValueRealtime
 
             return true;
         }
@@ -137,6 +133,8 @@ namespace SCADAPostCalculationDataExchanger
         {
             try
             {
+                this.Logger.WriteMessage(OutputLevel.Info, "-- PassQualityResults started -------------------------------------------");
+
                 var db = new DatabaseContext(this.RepositoryPath);
                 var mapper = BuildMapper();
                 var repo = new PostCalcRepository(db, mapper);
@@ -170,7 +168,7 @@ namespace SCADAPostCalculationDataExchanger
         //  DomainElementType:
         //      IdahoJunctionElementManager
         //      IdahoTankElementManager
-        private List<Grundfos.WG.PostCalc.DataExchangers.GenericDataExchanger> BuildDataExchangers(IPostCalcRepository repository)
+        private List<GenericDataExchanger> BuildDataExchangers(IPostCalcRepository repository)
         {
             var ageConfig = new DataExchangerConfiguration
             {
@@ -217,6 +215,8 @@ namespace SCADAPostCalculationDataExchanger
         {
             try
             {
+                this.Logger.WriteMessage(OutputLevel.Info, "-- PublishOpcResults started --------------------------------------------");
+
                 // ICollection<OpcMapping> mappings <- excel.OpcMapping group by FieldName without "Result Attribute Label" column.
                 var mappingReader = new OpcMappingReader(this.Logger, excelReader);
                 ICollection<OpcMapping> mappings = mappingReader.ReadMappings();
@@ -307,20 +307,18 @@ namespace SCADAPostCalculationDataExchanger
 
         #region ExchangeWaterDemands
 
-        private string _testedZoneName = "1 - Przybków";
-        private string _dumpFolder = @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10";
-        private string dateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
+        private const string TestedZoneName = "1 - Przybków";
+        private const string DateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
         private void ExchangeWaterDemands(object dataExchangeContext, ExcelReader excelReader, Dictionary<int, string> wgZones)
         {
+            this.Logger.WriteMessage(OutputLevel.Info, "-- ExchangeWaterDemands started -----------------------------------------");
             if (excelReader == null)
             {
                 throw new ArgumentNullException(nameof(excelReader));
             }
 
             try
-            {
-                var dd = ((DataExchangerContext) dataExchangeContext).Tag;
-                
+            {               
                 // Step 1.
                 // Fill List<WaterDemandData> based on excel.ObjectData (11004), WG.Zones (16) and WG.DemandPatterns (51 with "Fixed").
                 // Fields AssociatedElementID and ActualDemandValue are not filled.
@@ -390,7 +388,7 @@ namespace SCADAPostCalculationDataExchanger
                     string message = $"Total demand for zone {item.ZoneName}: WaterGEMS = {item.WgDemand}, SCADA: {item.ScadaDemand}, ratio: {item.DemandAdjustmentRatio}.";
                     this.Logger.WriteMessage(OutputLevel.Info, message);
                 }
-                Helper.DumpToFile(zoneDemands.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(_dumpFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData_1.xml"));
+                Helper.DumpToFile(zoneDemands.FirstOrDefault(x => x.ZoneName == TestedZoneName), Path.Combine(DumpFolder, $"Dump_{DateTime.Now.ToString(DateFormat)}_ZoneDemandData_1.xml"));
 
 
                 #region ZoneDemandDataListCreator.Create
@@ -408,11 +406,12 @@ namespace SCADAPostCalculationDataExchanger
                 ZoneDemandDataListCreator zoneDemandDataListCreator = new ZoneDemandDataListCreator(dataContext, this.Logger);
                 List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
 
-
                 if (this.IsLogToDb)
                 {
                     //string conStr = @"Data Source=WIN-6SC244KSC3K\SQL2017;Initial Catalog=WG;Integrated Security=True";
                     string conStr = this.LogDbConnString;
+                    zoneDemandDataListCreator.SavePipeMeterListToDatabase(conStr);
+
                     zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList, conStr, RatioFormula);
                     if (this.IsCalculationOnDb)
                     {
@@ -425,7 +424,7 @@ namespace SCADAPostCalculationDataExchanger
                     OutputLevel.Info,
                     $"# tal demand for zone {x.ZoneName}: WaterGEMS = {x.WgDemand}, SCADA: {x.ScadaDemand}, ratio: {x.DemandAdjustmentRatio}."
                     ));
-                Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(_dumpFolder, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData_2.xml"));
+                Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == TestedZoneName), Path.Combine(DumpFolder, $"Dump_{DateTime.Now.ToString(DateFormat)}_ZoneDemandData_2.xml"));
 
                 #endregion
 
