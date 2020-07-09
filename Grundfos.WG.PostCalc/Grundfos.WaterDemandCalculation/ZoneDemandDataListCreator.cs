@@ -9,6 +9,7 @@ using Grundfos.OPC;
 using Grundfos.WG.Model;
 using Grundfos.Workbooks;
 using Haestad.Support.OOP.Logging;
+using Grundfos.WaterDemandCalculation.ExtensionMethods;
 
 namespace Grundfos.WaterDemandCalculation
 {
@@ -16,6 +17,8 @@ namespace Grundfos.WaterDemandCalculation
     {
         private readonly DataContext _dataContext;
         private readonly ActionLogger _logger;
+
+        public double GetMinutesFromMonday { get; set; }
 
         public ZoneDemandDataListCreator(DataContext dataContext, ActionLogger logger = null)
         {
@@ -72,6 +75,7 @@ namespace Grundfos.WaterDemandCalculation
                     _logger?.WriteMessage(OutputLevel.Warnings, message);
                 }
 
+
                 // Demand patterns and interpolation
                 var adjuster = new TimeshiftAdjuster(7 * 24 * 60);
                 var interpolator = new Interpolator(adjuster);
@@ -83,19 +87,17 @@ namespace Grundfos.WaterDemandCalculation
                     SimulationIntervalMinutes = excelSettingSimulationIntervalMinutes,  // 10
                 };
                 var totalDemandCalculation = new TotalDemandCalculation(demandService, new SimulationTimeResolver(settings));
-
                 // Update zoneDemandData.Demands.DemandFactorValue <- Excel.DemandPatterns.Value
-                //foreach (var zoneDemandData in zoneDemandDataList)
-                //{
-                //    // Inside GetTotalDemand method: zoneDemandData.Demands.ActualDemandValue <- baseDemand * demandFactor.
-                //    // The demandFactor is taken from DemandPattern curve.
-                //    zoneDemandData.WgDemand = totalDemandCalculation.GetTotalDemand(zoneDemandData.Demands, _dataContext.StartComputeTime);
-                //}
                 zoneDemandDataList.ForEach(x => totalDemandCalculation.UpdateDemandFactorValue(x.Demands, _dataContext.StartComputeTime));
+                // Set up MinutesFromMonday.
+                var simulationTimeResolver = new SimulationTimeResolver(settings);
+                var simulationTimestamp = simulationTimeResolver.GetSimulationTimestamp(_dataContext.StartComputeTime);
+                GetMinutesFromMonday = simulationTimestamp.MinutesFromMonday();
+
 
                 // Update zoneDemandData.ScadaDemand <- OPC.10MinValue
-                double demandScadaElement_05;
-                double demandScadaElement_06;
+                //double demandScadaElement_05;
+                //double demandScadaElement_06;
                 using (var opc = new OpcReader(_dataContext.OpcServerAddress))
                 {
                     //foreach (var zoneDemandData in zoneDemandDataList)
@@ -105,12 +107,12 @@ namespace Grundfos.WaterDemandCalculation
                     //}
                     zoneDemandDataList.ForEach(x => x.ScadaDemand = opc.GetDouble(x.OpcTag));
 
-                    demandScadaElement_05 = opc.GetDouble("Control.DEV.NodeDemand_j-5-094_1548");   // 6777
-                    zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6777).DemandScadaElement = demandScadaElement_05;
-                    _logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6777] = {demandScadaElement_05}");
-                    demandScadaElement_06 = opc.GetDouble("Control.DEV.NodeDemand_j-6-025_2719");   // 6778
-                    zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6778).DemandScadaElement = demandScadaElement_06;
-                    _logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6778] = {demandScadaElement_06}");
+                    //demandScadaElement_05 = opc.GetDouble("Control.DEV.NodeDemand_j-5-094_1548");   // 6777
+                    //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6777).DemandScadaElement = demandScadaElement_05;
+                    //_logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6777] = {demandScadaElement_05}");
+                    //demandScadaElement_06 = opc.GetDouble("Control.DEV.NodeDemand_j-6-025_2719");   // 6778
+                    //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6778).DemandScadaElement = demandScadaElement_06;
+                    //_logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6778] = {demandScadaElement_06}");
 
                     //var flowP2 = opc.GetDouble("PipeFlow.DEV.p-7-003-S-P2_5097");                   // 6773
                     //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6773).DemandScadaElement = flowP2;
@@ -227,13 +229,15 @@ namespace Grundfos.WaterDemandCalculation
                 {
                     int logHeaderId;
 
-                    using (SqlCommand cmd = new SqlCommand("SaveLogHeader", sqlConn))
+                    using (SqlCommand cmd = new SqlCommand("spSaveLogHeader", sqlConn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.Add("@DateTimeIn", SqlDbType.DateTime).Value = DateTime.Now;
                         cmd.Parameters.Add("@DateTimeUtcIn", SqlDbType.DateTime).Value = DateTime.UtcNow;
+                        cmd.Parameters.Add("@LogTypeId", SqlDbType.Int).Value = 3;  // Set up demands
                         cmd.Parameters.Add("@RatioFormula", SqlDbType.NVarChar, 4000).Value = ratioFormula ?? string.Empty;
+                        cmd.Parameters.Add("@MinutesFromMonday", SqlDbType.Float).Value = GetMinutesFromMonday;  // Calculated by last Create method.
 
                         cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                         cmd.Parameters["@LogId"].Value = 0;
@@ -442,13 +446,15 @@ namespace Grundfos.WaterDemandCalculation
 
                     int logHeaderId;
 
-                    using (SqlCommand cmd = new SqlCommand("SaveLogHeader", sqlConn))
+                    using (SqlCommand cmd = new SqlCommand("spSaveLogHeader", sqlConn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.Add("@DateTimeIn", SqlDbType.DateTime).Value = DateTime.Now;
                         cmd.Parameters.Add("@DateTimeUtcIn", SqlDbType.DateTime).Value = DateTime.UtcNow;
+                        cmd.Parameters.Add("@LogTypeId", SqlDbType.Int).Value = 2;  // Save PipeMeter list
                         cmd.Parameters.Add("@RatioFormula", SqlDbType.NVarChar, 4000).Value = string.Empty;
+                        cmd.Parameters.Add("@MinutesFromMonday", SqlDbType.Float).Value = 0;  // Calculated by last Create method.
 
                         cmd.Parameters.Add("@LogId", SqlDbType.Int).Direction = ParameterDirection.Output;
                         cmd.Parameters["@LogId"].Value = 0;
