@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="DbConnector.cs" />
     <Compile Include="DemandPatternService.cs" />
     <Compile Include="DemandService.cs" />
     <Compile Include="Helper.cs" />

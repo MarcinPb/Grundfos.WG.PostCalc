@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using AutoMapper;
 using Grundfos.OPC;
@@ -56,6 +57,7 @@ namespace SCADAPostCalculationDataExchanger
         public string LogDbConnString { get; set; }
         public bool IsCalculationOnDb { get; set; }
         public string RatioFormula { get; set; }
+        public string OpcServerAddress { get; set; }
 
         public string DumpOption { get; private set; }
         public string DumpFolder { get; private set; }
@@ -85,6 +87,8 @@ namespace SCADAPostCalculationDataExchanger
             this.IsLogToDb = bool.Parse(exchangeContext.GetString("IsLogToDb", "false"));
             this.LogDbConnString = exchangeContext.GetString("LogDbConnString", @"Data Source=.\SQLEXPRESS;Initial Catalog=WG;Integrated Security=True").Replace(":",";");
             this.IsCalculationOnDb = bool.Parse(exchangeContext.GetString("IsCalculationOnDb", "false"));
+            this.OpcServerAddress = "Kepware.KEPServerEX.V6";
+
             //this.RatioFormula = exchangeContext.GetString("RatioFormula", string.Empty);
 
             //this.Logger.WriteMessage(OutputLevel.Info, $"# IsLogToDb = {IsLogToDb}.");
@@ -109,9 +113,15 @@ namespace SCADAPostCalculationDataExchanger
             // dataExchangeContext <- ResultCache.sqlite
             this.PassQualityResults(dataExchangeContext);
 
-            // 
+            // publish results to OPC server
             this.PublishOpcResults(dataExchangeContext, excelReader, wgZones);
-            
+
+            // Take PipeMeterFlowList from OPC and save to database. 
+            if (IsLogToDb)
+            {
+                DbConnector.SavePipeMeterListToDatabase(LogDbConnString, OpcServerAddress);
+            }
+
             // Wait for time in seconds taken from SQL.
             if (IsLogToDb)
             {
@@ -398,7 +408,7 @@ namespace SCADAPostCalculationDataExchanger
                     WgZoneDict = wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase),
                     WgDemandPatternDict = patterns,
                     ExcelFileName = this.DemandConfigurationWorkbook,
-                    OpcServerAddress = "Kepware.KEPServerEX.V6",
+                    OpcServerAddress = this.OpcServerAddress,
 
                     StartComputeTime = DateTime.Now,    //new DateTime(2020, 05, 04, 0, 46, 32),
                 };
@@ -410,7 +420,7 @@ namespace SCADAPostCalculationDataExchanger
                 {
                     //string conStr = @"Data Source=WIN-6SC244KSC3K\SQL2017;Initial Catalog=WG;Integrated Security=True";
                     string conStr = this.LogDbConnString;
-                    zoneDemandDataListCreator.SavePipeMeterListToDatabase(conStr);
+                    //zoneDemandDataListCreator.SavePipeMeterListToDatabase(conStr);
 
                     zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList, conStr, RatioFormula);
                     if (this.IsCalculationOnDb)
@@ -517,7 +527,7 @@ namespace SCADAPostCalculationDataExchanger
                 this.Logger.WriteMessage(OutputLevel.Warnings, message);
             }
 
-            using (var opc = new OpcReader("Kepware.KEPServerEX.V6"))
+            using (var opc = new OpcReader(this.OpcServerAddress))
             {
                 foreach (var item in zoneDemands)
                 {
