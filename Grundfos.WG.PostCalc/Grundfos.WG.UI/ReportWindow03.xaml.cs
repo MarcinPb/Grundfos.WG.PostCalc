@@ -26,17 +26,25 @@ namespace WpfApp1
     {
         private Microsoft.Reporting.WinForms.ReportDataSource _reportDataSource1;
         private string _conStr = ConfigurationManager.ConnectionStrings["WpfApp1.Properties.Settings.Setting"].ConnectionString;
+
+        public string WindowTitle { get; set; }
+        public string ReportFileName { get; set; }
+        public string StoredProcedureName { get; set; }
+
         public ReportWindow03()
         {
             InitializeComponent();
             ReportViewer1.Load += ReportViewer_Load;
         }
 
+
+
         private const int SelectAllOption = -2;
         private List<Item> _optionList;
         private List<Item> _demandList;
         private void ReportViewer_Load(object sender, EventArgs e)
         {
+            Title = WindowTitle;
             TopQtyTextBox.Text = "5";
 
             DataTable dtZoneList = GetZoneList();
@@ -76,8 +84,10 @@ namespace WpfApp1
                 Name = "DataSet1",
                 Value = FillDataTable(_conStr)
             };
-            //ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/ReportWg02_02.rdlc";
-            ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/WgZoneFlowComparison.rdlc";
+            //ReportViewer1.LocalReport.ReportPath = "Data/Rdlc/WgZoneFlowComparison.rdlc";
+            ReportViewer1.LocalReport.ReportPath = ReportFileName;
+
+
             ReportViewer1.LocalReport.DataSources.Add(_reportDataSource1);
             //ReloadData();
             ReportViewer1.RefreshReport();
@@ -105,10 +115,7 @@ namespace WpfApp1
             //throw new NotImplementedException();
             foreach (Item item in _optionList)
             {
-                //if (item.Value != 6773)
-                //{
-                    item.Selected = !selected;
-                //}
+                item.Selected = !selected;
             }
 
             CheckComboBox1.ItemsSource = null;
@@ -124,18 +131,14 @@ namespace WpfApp1
         {
             DataTable dt = FillDataTable(_conStr);
 
-            // Create ReportDataSource
-            //Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            //reportDataSource1.Name = "DataSet1";
-            //reportDataSource1.Value = dt;
-
             //ReportViewer
             _reportDataSource1.Value = dt;
             ReportViewer1.RefreshReport();
         }
         public DataTable FillDataTable(string conStr)
         {
-            string query = "spReportZoneComparison";
+            //string query = "spReportZoneComparison";
+            string query = StoredProcedureName;
 
             var optionListStr = _optionList
                 .Where(x => x.Value!= SelectAllOption && x.Selected)

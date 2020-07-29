@@ -64,6 +64,14 @@ namespace WpfApp1
                 MessageBox.Show(ex.Message);
             }
         }
+        private void button_Click03(object sender, RoutedEventArgs e)
+        {
+            new ReportWindow03{ WindowTitle = "Zone Flow Comparison from SCADA", ReportFileName = "Data/Rdlc/WgZoneFlowComparisonScada.rdlc", StoredProcedureName = "spReportZoneComparisonScada" }.Show();
+        }
+        private void button_Click04(object sender, RoutedEventArgs e)
+        {
+            new ReportWindow03 { WindowTitle = "Zone Flow Comparison from OPC", ReportFileName = "Data/Rdlc/WgZoneFlowComparisonOpc.rdlc", StoredProcedureName = "spReportZoneComparisonOpc" }.Show();
+        }
         private void button_Click(object sender, RoutedEventArgs e)
         {
             new ReportWindow{}.Show();
@@ -71,10 +79,6 @@ namespace WpfApp1
         private void button_Click02(object sender, RoutedEventArgs e)
         {
             new ReportWindow02{}.Show();
-        }
-        private void button_Click03(object sender, RoutedEventArgs e)
-        {
-            new ReportWindow03{}.Show();
         }
     }
 }

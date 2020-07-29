@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="Helper" Height="450" Width="800">
+        Title="Water Utility" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -24,7 +24,8 @@
                 <MenuItem Header="Create Excel File" Click="CreateExcelFile"/>
             </MenuItem>
             <MenuItem Header="Reports">
-                <MenuItem Header="Zone Flow Comparison" Click="button_Click03"/>
+                <MenuItem Header="Zone Flow Comparison from SCADA" Click="button_Click03"/>
+                <MenuItem Header="Zone Flow Comparison from OPC" Click="button_Click04"/>
                 <MenuItem Header="Zone Flow Comparison - Przybkow" Click="button_Click"/>
                 <MenuItem Header="WaterGEMS Data Exchanger" Click="button_Click02"/>
             </MenuItem>
