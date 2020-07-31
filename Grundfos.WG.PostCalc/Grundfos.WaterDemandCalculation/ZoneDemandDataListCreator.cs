@@ -41,11 +41,14 @@ namespace Grundfos.WaterDemandCalculation
                 ICollection<WaterDemandData> objectDemandData = objectDataExcelReader.ReadObjects(); // Excel.ObjectData
 
                 var demandPatternExcelReader = new DemandPatternExcelReader(excelReader);
+
                 // List<string> <- Excel.ExcludedItems["Excluded Object IDs"].
                 // {257=PC, 2719=S5, 518=CP1, 701=CP2, 1323=CP3, 1336=CP4, 2255=S6, 2780=S7, 1247=W1, 1239=W2, 1548=CP6}    
                 var excludedObjectList = demandPatternExcelReader.ReadExcludedObjects();
                 this.UpdateObjectIsExcluded(objectDemandData, excludedObjectList);
-                // List<string> <- Excel.ExcludedItems["Excluded Demand Patterns"]. {"nieaktywni", "Straty"}.    
+
+                // List<string> <- Excel.ExcludedItems["Excluded Demand Patterns"].
+                // {"nieaktywni", "Straty"}.    
                 var excludedDemandPatternList = demandPatternExcelReader.ReadExcludedPatterns();
                 this.UpdateDemandPatternIsExcluded(objectDemandData, excludedDemandPatternList);
 
@@ -100,23 +103,7 @@ namespace Grundfos.WaterDemandCalculation
                 //double demandScadaElement_06;
                 using (var opc = new OpcReader(_dataContext.OpcServerAddress))
                 {
-                    //foreach (var zoneDemandData in zoneDemandDataList)
-                    //{
-                    //    zoneDemandData.ScadaDemand = opc.GetDouble(zoneDemandData.OpcTag);
-                    //    zoneDemandData.DemandAdjustmentRatio = zoneDemandData.WgDemand == 0 ? 0 : zoneDemandData.ScadaDemand / zoneDemandData.WgDemand;
-                    //}
                     zoneDemandDataList.ForEach(x => x.ScadaDemand = opc.GetDouble(x.OpcTag));
-
-                    //demandScadaElement_05 = opc.GetDouble("Control.DEV.NodeDemand_j-5-094_1548");   // 6777
-                    //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6777).DemandScadaElement = demandScadaElement_05;
-                    //_logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6777] = {demandScadaElement_05}");
-                    //demandScadaElement_06 = opc.GetDouble("Control.DEV.NodeDemand_j-6-025_2719");   // 6778
-                    //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6778).DemandScadaElement = demandScadaElement_06;
-                    //_logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6778] = {demandScadaElement_06}");
-
-                    //var flowP2 = opc.GetDouble("PipeFlow.DEV.p-7-003-S-P2_5097");                   // 6773
-                    //zoneDemandDataList.FirstOrDefault(x => x.ZoneId == 6773).DemandScadaElement = flowP2;
-                    //_logger?.WriteMessage(OutputLevel.Info, $"DemandScadaElement[6773] = {flowP2}");
                 }
 
                 // Calculate and update:
@@ -124,10 +111,17 @@ namespace Grundfos.WaterDemandCalculation
                 //  zone.WgDemand
                 //  zone.DemandWgExcluded
                 //  zone.DemandAdjustmentRatio
+                //  zone.demand.ActualDemandValue
                 zoneDemandDataList.ForEach(zone =>
                 {
                     zone.Demands
-                        .ForEach(demand => demand.ActualDemandValue = demand.BaseDemandValue * demand.DemandFactorValue);
+                        .ForEach(
+                            demand =>
+                            demand.ActualDemandValue = 
+                                demand.ObjectIsExcluded || demand.DemandIsExcluded ? 
+                                demand.BaseDemandValue : 
+                                demand.BaseDemandValue * demand.DemandFactorValue
+                         );
                     zone.WgDemand = 
                         zone.Demands
                         .Sum(demand => demand.ActualDemandValue);
@@ -143,7 +137,11 @@ namespace Grundfos.WaterDemandCalculation
                         (zone.ScadaDemand - zone.DemandWgExcluded) / (zone.WgDemand - zone.DemandWgExcluded);
                     foreach (var demand in zone.Demands)
                     {
-                        demand.DemandCalculatedValue = demand.ActualDemandValue * zone.DemandAdjustmentRatio; // * Constants.Flow_M3H_2_WG;
+                        demand.DemandCalculatedValue =
+                            demand.ObjectIsExcluded || demand.DemandIsExcluded ?
+                            demand.ActualDemandValue :
+                            demand.ActualDemandValue * zone.DemandAdjustmentRatio; 
+                            // * Constants.Flow_M3H_2_WG;
                     }
                 });
 
@@ -168,36 +166,34 @@ namespace Grundfos.WaterDemandCalculation
 
         public class DataContext
         {
-            public Dictionary<string, int> WgZoneDict { get; set; }
-            public Dictionary<string, int> WgDemandPatternDict { get; set; }
+            public Dictionary<int, string> WgZoneDict { get; set; }
+            public Dictionary<int, string> WgDemandPatternDict { get; set; }
             public string ExcelFileName { get; set; }
             public string OpcServerAddress { get; set; }
             public DateTime StartComputeTime { get; set; }
         }
 
-        private void FillPatternIds(ICollection<WaterDemandData> demands, Dictionary<string, int> patterns)
+        private void FillPatternIds(ICollection<WaterDemandData> demands, Dictionary<int, string> patterns)
         {
             foreach (var item in demands)
             {
-                if (!patterns.TryGetValue(item.DemandPatternName, out int patternId))
+                if (patterns.All(x => x.Value != item.DemandPatternName))
                 {
                     throw new Exception($"Could not find pattern definition for pattern ID: {item.DemandPatternName}.");
                 }
-
-                item.DemandPatternID = patternId;
+                item.DemandPatternID = patterns.FirstOrDefault(x => x.Value == item.DemandPatternName).Key;
             }
         }
 
-        private void FillZoneIdsInWaterDemands(ICollection<WaterDemandData> demands, Dictionary<string, int> zones)
+        private void FillZoneIdsInWaterDemands(ICollection<WaterDemandData> demands, Dictionary<int, string> zones)
         {
             foreach (var item in demands.Where(x => !string.IsNullOrWhiteSpace(x.ZoneName)))
             {
-                if (!zones.TryGetValue(item.ZoneName, out int zoneId))
+                if (zones.All(x => x.Value != item.ZoneName))
                 {
                     throw new Exception($"Could not find zone definition for zone name: {item.ZoneName}.");
                 }
-
-                item.ZoneID = zoneId;
+                item.ZoneID = zones.FirstOrDefault(x => x.Value == item.ZoneName).Key;
             }
         }
 

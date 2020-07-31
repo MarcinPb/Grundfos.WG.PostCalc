@@ -405,8 +405,8 @@ namespace SCADAPostCalculationDataExchanger
 
                 ZoneDemandDataListCreator.DataContext dataContext = new ZoneDemandDataListCreator.DataContext()
                 {
-                    WgZoneDict = wgZones.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase),
-                    WgDemandPatternDict = patterns,
+                    WgZoneDict = wgZones,
+                    WgDemandPatternDict = patterns.ToDictionary(x => x.Value, x => x.Key),
                     ExcelFileName = this.DemandConfigurationWorkbook,
                     OpcServerAddress = this.OpcServerAddress,
 

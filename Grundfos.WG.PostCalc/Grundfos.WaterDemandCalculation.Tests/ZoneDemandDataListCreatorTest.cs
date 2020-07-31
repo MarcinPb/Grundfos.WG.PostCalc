@@ -29,9 +29,9 @@ namespace Grundfos.WaterDemandCalculation.Tests
             
             ZoneDemandDataListCreator.DataContext dataContext = new ZoneDemandDataListCreator.DataContext()
             {
-                WgZoneDict = WgObjects.ZoneDict.ToDictionary(x => x.Value, x => x.Key, StringComparer.OrdinalIgnoreCase),
-                WgDemandPatternDict = WgObjects.DemandPatternDict, 
-                ExcelFileName = Path.Combine(TestContext.CurrentContext.TestDirectory, @"TestData\WaterDemandSettings.xlsx"),
+                WgZoneDict = WgObjects.ZoneDict,
+                WgDemandPatternDict = WgObjects.DemandPatternDict.ToDictionary(x => x.Value, x => x.Key), 
+                ExcelFileName = Path.Combine(TestContext.CurrentContext.TestDirectory, @"TestData\WaterDemandSettingsTest_01.xlsx"),
                 OpcServerAddress = "Kepware.KEPServerEX.V6",
 
                 StartComputeTime = new DateTime(2020, 05, 04,    0, 46, 32),
@@ -40,7 +40,9 @@ namespace Grundfos.WaterDemandCalculation.Tests
             ZoneDemandDataListCreator zoneDemandDataListCreator = new ZoneDemandDataListCreator(dataContext, logger);
             List<ZoneDemandData> zoneDemandDataList = zoneDemandDataListCreator.Create();
 
-            Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == _testedZoneName), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+            Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == "1 - Przybków"), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+            Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == "6 - ZPW"), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
+            Helper.DumpToFile(zoneDemandDataList.FirstOrDefault(x => x.ZoneName == "7 - Tranzyt"), Path.Combine(TestContext.CurrentContext.TestDirectory, $"Dump_{DateTime.Now.ToString(dateFormat)}_ZoneDemandData.xml"));
 
             string ratioFormula = "IIF(DemandWg-DemandExcluded<0.000001, 0, (DemandScada-DemandExcluded)/(DemandWg-DemandExcluded))";
             zoneDemandDataListCreator.SaveToDatabase(zoneDemandDataList, _conStr, ratioFormula);

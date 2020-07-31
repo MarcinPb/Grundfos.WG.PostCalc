@@ -88,7 +88,9 @@
     <Compile Include="InterpolatorTests.cs" />
     <Compile Include="SimulationStartTimeResolverTests.cs" />
     <Compile Include="SimulationTimeResolverTests.cs" />
-    <Compile Include="TestData\WaterDemandPatterns.cs" />
+    <Compile Include="TestData\WaterDemandPatterns.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="TestData\WgObjects.cs" />
     <Compile Include="TimeshiftAdjusterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +100,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="TestData\WaterDemandSettings.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\WaterDemandSettingsTest_01.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
