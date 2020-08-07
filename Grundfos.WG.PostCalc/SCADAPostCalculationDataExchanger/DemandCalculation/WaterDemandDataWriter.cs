@@ -16,7 +16,7 @@ namespace Grundfos.WG.PostCalc.DemandCalculation
 {
     public class WaterDemandDataWriter
     {
-        private string _testedZoneName = "1 - Przybków";
+        private string _testedZoneName = "7 - Tranzyt";
         private string _logFolder = @"C:\Users\Administrator\AppData\Local\Bentley\SCADAConnect\10";
         //private string _logFolder = @"C:\WG2TW\Grundfos.WG.PostCalc";
         private string dateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";

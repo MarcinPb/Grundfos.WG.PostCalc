@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using AutoMapper;
 using Grundfos.OPC;
@@ -317,7 +318,7 @@ namespace SCADAPostCalculationDataExchanger
 
         #region ExchangeWaterDemands
 
-        private const string TestedZoneName = "1 - Przybków";
+        private const string TestedZoneName = "7 - Tranzyt";
         private const string DateFormat = "yyyy-MM-dd_HH-mm-ss_fffffff";
         private void ExchangeWaterDemands(object dataExchangeContext, ExcelReader excelReader, Dictionary<int, string> wgZones)
         {
@@ -449,7 +450,7 @@ namespace SCADAPostCalculationDataExchanger
                 var demandWriter = new WaterDemandDataWriter(this.Logger, this.DomainDataSet, demandConfig, (DataExchangerContext)dataExchangeContext);
 
                 //foreach (var zoneDemand in zoneDemands.Where(x => x.ScadaDemand > 0.001))
-                foreach (var zoneDemand in zoneDemandDataList.Where(x => x.ScadaDemand > 0.001))
+                foreach (var zoneDemand in zoneDemandDataList.Where(x => Math.Abs(x.ScadaDemand) > 0.001))
                 {
                     demandWriter.WriteDemands(zoneDemand);
                 }

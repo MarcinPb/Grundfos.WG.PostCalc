@@ -171,6 +171,7 @@ namespace Grundfos.WaterDemandCalculation
             public string ExcelFileName { get; set; }
             public string OpcServerAddress { get; set; }
             public DateTime StartComputeTime { get; set; }
+            //public Dictionary<string, float> OpcZonesDict { get; set; }
         }
 
         private void FillPatternIds(ICollection<WaterDemandData> demands, Dictionary<int, string> patterns)
