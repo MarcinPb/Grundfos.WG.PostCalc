@@ -77,7 +77,9 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 var elementTypes = new HmIDCollection
                 {
                     (int)DomainElementType.IdahoJunctionElementManager,
-                    (int)DomainElementType.IdahoTankElementManager
+                    (int)DomainElementType.IdahoTankElementManager,
+                    (int)DomainElementType.IdahoHydrantElementManager,
+                    (int)DomainElementType.IdahoReservoirElementManager
                 };
 
                 // Dictionary<int, double> simulationValues <- WaterGames todo: which elements on WaterGEMS UI?
@@ -94,6 +96,16 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 // My
                 this.Logger?.WriteMessage(OutputLevel.Info, $"# SQLite storedValues.Count = {storedValues.Count}");
                 foreach (var keyValuePair in storedValues.Take(10))
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"\t{keyValuePair.Key} - {keyValuePair.Value}");                    
+                }
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# simulationValues not found in storedValues:");
+                foreach (var keyValuePair in simulationValues.Where(x => storedValues.All(y => x.Key != y.Key)))
+                {
+                    this.Logger?.WriteMessage(OutputLevel.Info, $"\t{keyValuePair.Key} - {keyValuePair.Value}");                    
+                }
+                this.Logger?.WriteMessage(OutputLevel.Info, $"# storedValues not found in simulationValues:");
+                foreach (var keyValuePair in storedValues.Where(x => simulationValues.All(y => x.Key != y.Key)))
                 {
                     this.Logger?.WriteMessage(OutputLevel.Info, $"\t{keyValuePair.Key} - {keyValuePair.Value}");                    
                 }
@@ -130,14 +142,16 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 this.Logger?.WriteMessage(OutputLevel.Info, $"Writing {this.Configuration.ResultAttributeRecordName}...");
 
                 // Acquire the alternative (or alternatives) that we want to write the WQ data back to.
-                int alternativeId = this.Scenario.AlternativeID((int)this.Configuration.Alternative);
+                int alternativeId = this.Scenario.AlternativeID((int)this.Configuration.Alternative);   // Alternative = AlternativeType.AgeAlternative
 
                 // Acquired the input field (or input fields) that we want to write the WQ data to.
-                IEditField field = DomainDataSet.AlternativeManager((int)this.Configuration.Alternative).AlternativeField(
-                    this.Configuration.FieldName,
-                    (int)DomainElementType.BaseIdahoNodeElementManager,
-                    alternativeId
-                ) as IEditField;
+                IEditField field = DomainDataSet
+                    .AlternativeManager((int)this.Configuration.Alternative)    // Alternative = AlternativeType.AgeAlternative
+                    .AlternativeField(
+                        this.Configuration.FieldName,                           // FieldName = StandardFieldName.Age_InitialAge,
+                        (int)DomainElementType.BaseIdahoNodeElementManager,
+                        alternativeId
+                    ) as IEditField;
 
                 int valuesWrittenCount = 0;
 
@@ -146,7 +160,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 {
                     int elementID = item.Key;
                     double doubleValue;
-                    if (processWasInterrupted)
+                    if (!processWasInterrupted)
                     {
                         // doubleValue is taken from SQLite storedValues.
                         if (!storedValues.TryGetValue(elementID, out doubleValue))
