@@ -160,7 +160,7 @@ namespace Grundfos.WG.PostCalc.DataExchangers
                 {
                     int elementID = item.Key;
                     double doubleValue;
-                    if (!processWasInterrupted)
+                    if (processWasInterrupted)
                     {
                         // doubleValue is taken from SQLite storedValues.
                         if (!storedValues.TryGetValue(elementID, out doubleValue))
