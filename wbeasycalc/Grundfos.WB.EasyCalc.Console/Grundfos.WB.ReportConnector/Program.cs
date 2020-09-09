@@ -22,7 +22,7 @@ namespace Grundfos.WB.ReportConnector
         {
             try
             {
-                string mode = args.FirstOrDefault();
+                string mode = args.FirstOrDefault() ?? string.Empty;
                 bool diagnosticMode = args.Any(x => x.Equals("-diag"));
                 LogLevel logLevel = diagnosticMode ? LogLevel.Info : LogLevel.Trace;
 
@@ -58,10 +58,16 @@ namespace Grundfos.WB.ReportConnector
 
         private static void RunOpcPublish(ZoneDataReader zoneDataReader)
         {
-            var values = zoneDataReader.Get();
+            var values = zoneDataReader.Get().Take(3).ToList();
             string opcAddress = ConfigurationManager.AppSettings[Constants.OpcAddress];
             using (var client = new OpcReader(opcAddress))
             {
+                log.Log(LogLevel.Info, "OpcValue start ---------------------------");
+                foreach (var opcValue in values)
+                {
+                    log.Log(LogLevel.Info, opcValue);
+                }
+                log.Log(LogLevel.Info, "OpcValue end -----------------------------");
                 client.WriteValues(values);
             }
         }
@@ -76,7 +82,7 @@ namespace Grundfos.WB.ReportConnector
                 .Entries.Cast<MappingConfigurationElement>()
                 .Select(x => (IMappingDefinition)x)
                 .ToList();
-            string zoneNameColumn = ConfigurationManager.AppSettings[Constants.ZoneNameColumn];
+            string zoneNameColumn = ConfigurationManager.AppSettings[Constants.ZoneColumnName];
             var mapper = new ZoneDataMapper(zoneMappings, zoneFieldMappings, zoneNameColumn);
             var repository = new ZoneRepository(da);
             var zoneDataReader = new ZoneDataReader(repository, mapper);
@@ -93,7 +99,7 @@ namespace Grundfos.WB.ReportConnector
                 .Entries.Cast<MappingConfigurationElement>()
                 .Select(x => (IMappingDefinition)x)
                 .ToList();
-            string zoneNameColumn = ConfigurationManager.AppSettings[Constants.ZoneNameColumn];
+            string zoneNameColumn = ConfigurationManager.AppSettings[Constants.ZoneColumnName];
             var mapper = new ZoneDataMapper(zoneMappings, zoneFieldMappings, zoneNameColumn);
             var repository = new ZoneRepositoryMoq();
             var zoneDataReader = new ZoneDataReader(repository, mapper);

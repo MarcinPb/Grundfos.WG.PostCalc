@@ -9,15 +9,15 @@ namespace Grundfos.WB.ReportConnector.Mapping
 {
     public class ZoneDataMapper : IMapper<ICollection<DataRow>, ICollection<OpcValue>>
     {
-        private readonly Dictionary<string, string> zoneMappings;
-        private readonly Dictionary<string, string> fieldMappings;
-        private readonly string zoneNameColumn;
+        private readonly Dictionary<string, string> _zoneMappings;
+        private readonly Dictionary<string, string> _zoneFieldMappings;
+        private readonly string _zoneColumnName;
 
-        public ZoneDataMapper(IList<IMappingDefinition> zoneMappings, IList<IMappingDefinition> fieldMappings, string zoneNameColumn)
+        public ZoneDataMapper(IList<IMappingDefinition> zoneMappings, IList<IMappingDefinition> fieldMappings, string zoneColumnName)
         {
-            this.zoneMappings = zoneMappings.ToDictionary(x => x.Source, x => x.Destination, StringComparer.OrdinalIgnoreCase);
-            this.fieldMappings = fieldMappings.ToDictionary(x => x.Source, x => x.Destination, StringComparer.OrdinalIgnoreCase);
-            this.zoneNameColumn = zoneNameColumn;
+            _zoneMappings = zoneMappings.ToDictionary(x => x.Source, x => x.Destination, StringComparer.OrdinalIgnoreCase);
+            _zoneFieldMappings = fieldMappings.ToDictionary(x => x.Source, x => x.Destination, StringComparer.OrdinalIgnoreCase);
+            _zoneColumnName = zoneColumnName;
         }
 
         public ICollection<OpcValue> Map(ICollection<DataRow> source)
@@ -30,13 +30,13 @@ namespace Grundfos.WB.ReportConnector.Mapping
 
             foreach (var row in source)
             {
-                if (!this.zoneMappings.TryGetValue((string)row[this.zoneNameColumn], out string zoneName))
+                if (!this._zoneMappings.TryGetValue((string)row[_zoneColumnName], out string zoneName))
                 {
                     continue;
                 }
 
 
-                foreach (var field in this.fieldMappings)
+                foreach (var field in this._zoneFieldMappings)
                 {
                     var fieldValue = row[field.Key];
                     string tag = string.Format(field.Value, zoneName);

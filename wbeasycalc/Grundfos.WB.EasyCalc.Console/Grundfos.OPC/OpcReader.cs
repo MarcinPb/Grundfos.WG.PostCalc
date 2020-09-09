@@ -14,6 +14,7 @@ namespace Grundfos.OPC
 
         public OpcReader(string address)
         {
+            //Uri url = UrlBuilder.Build("opc.tcp://ip:4840");        //"ip" is the raspberry pi ip-adress
             Uri url = UrlBuilder.Build(address);
             this.server = new OpcDaServer(url);
             server.Connect();
@@ -54,7 +55,7 @@ namespace Grundfos.OPC
 
             if (join.Count != values.Count)
             {
-                throw new Exception("The number of OPC group items did not match the number of requests.");
+                throw new Exception($"The number of OPC group items did not match the number of requests: {values.Count} == {join.Count}");
             }
 
             OpcDaItem[] items = join.Select(x => x.Item).ToArray();
