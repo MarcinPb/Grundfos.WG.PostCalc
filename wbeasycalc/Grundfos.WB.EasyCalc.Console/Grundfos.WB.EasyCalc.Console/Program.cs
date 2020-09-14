@@ -54,7 +54,7 @@ namespace Grundfos.WB.EasyCalc.Console
                 var reader = new DbEasyCalcSheetDataReader(connection, configurationReader);
                 foreach (var zone in zoneConfiguration.Zones.Cast<ZoneConfigurationElement>())
                 {
-                    reader.ReadSheetData(zone.Name)
+                    reader.ReadSheetData(zone.Name, new DateTime());
                 }
 
             }
@@ -106,7 +106,7 @@ namespace Grundfos.WB.EasyCalc.Console
         private static void ProcessZone(IEasyCalcDataReader opcDataReader, Configuration.ZoneConfigurationElement zone)
         {
             log.Trace("Reading input data for zone {0}.", zone.Name);
-            var data = opcDataReader.ReadSheetData(zone.Name);
+            var data = opcDataReader.ReadSheetData(zone.Name, new DateTime());
 
             log.Trace("Calculating Water Balance for zone {0}.", zone.Name);
             EasyCalcRefactored.GetWaterLosses(data);

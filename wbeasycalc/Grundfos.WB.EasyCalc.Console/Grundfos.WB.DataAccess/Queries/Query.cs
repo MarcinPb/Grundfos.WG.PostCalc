@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,18 +30,19 @@ order by a.D_TIME desc";
             string tableName = this.tableNameBuilder.GetTableName(yearMonth);
             string sql = string.Format(Sql, tableName);
 
-            cmd.Parameters.AddWithValue("destName", configuration.ZoneBalanceVariableName);
-            cmd.Parameters.AddWithValue("timeFrom", start);
-            cmd.Parameters.AddWithValue("timeTo", end);
+            //cmd.Parameters.AddWithValue("destName", configuration.ZoneBalanceVariableName);
+            //cmd.Parameters.AddWithValue("timeFrom", start);
+            //cmd.Parameters.AddWithValue("timeTo", end);
 
-            var dt = new DataTable();
-            using (var adapter = new SqlDataAdapter(cmd))
-            {
-                adapter.Fill(dt);
-            }
+            //var dt = new DataTable();
+            //using (var adapter = new SqlDataAdapter(cmd))
+            //{
+            //    adapter.Fill(dt);
+            //}
 
+            return null;
         }
 
-        private 
+        //private 
     }
 }

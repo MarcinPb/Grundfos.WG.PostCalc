@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Grundfos.OPC;
 using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.WB.EasyCalc.Calculations.Model;
@@ -19,7 +20,7 @@ namespace Grundfos.WB.EasyCalc.Console
             this.tagFormat = tagFormat;
         }
 
-        public EasyCalcSheetData ReadSheetData(string zone)
+        public EasyCalcSheetData ReadSheetData(string zone, DateTime yearMonth)
         {
             var zoneTags = Configuration.OpcTagNames.OpcRequestTags.Select(x => this.GetTagFormat(zone, x)).ToArray();
             var values = this.client.GetValues(zoneTags);

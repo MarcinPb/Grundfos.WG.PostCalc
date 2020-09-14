@@ -58,7 +58,7 @@ namespace Grundfos.WB.ReportConnector
 
         private static void RunOpcPublish(ZoneDataReader zoneDataReader)
         {
-            var values = zoneDataReader.Get().Take(3).ToList();
+            var values = zoneDataReader.Get();
             string opcAddress = ConfigurationManager.AppSettings[Constants.OpcAddress];
             using (var client = new OpcReader(opcAddress))
             {
@@ -68,8 +68,14 @@ namespace Grundfos.WB.ReportConnector
                     log.Log(LogLevel.Info, opcValue);
                 }
                 log.Log(LogLevel.Info, "OpcValue end -----------------------------");
+                //client.WriteValues(values);
+
+                foreach (var opcValue in values)
+                {
+                    opcValue.Value = 0;
+                }
                 client.WriteValues(values);
-            }
+           }
         }
 
         private static ZoneDataReader BuildZoneDataReader(IDataAdapter da)

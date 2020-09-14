@@ -58,21 +58,21 @@ from
             throw new NotImplementedException();
         }
 
-        public async Task<double> Get(string name, DateTime yearMonth)
-        {
-            var cmd = new SqlCommand(Query, this.connection);
+        //public async Task<double> Get(string name, DateTime yearMonth)
+        //{
+        //    var cmd = new SqlCommand(Query, this.connection);
 
-            var start = new DateTime(yearMonth.Year, yearMonth.Month, 1);
-            var end = start.AddMonths(1);
-            cmd.Parameters.AddWithValue("destName", configuration.ZoneBalanceVariableName);
-            cmd.Parameters.AddWithValue("timeFrom", start);
-            cmd.Parameters.AddWithValue("timeTo", end);
+        //    var start = new DateTime(yearMonth.Year, yearMonth.Month, 1);
+        //    var end = start.AddMonths(1);
+        //    cmd.Parameters.AddWithValue("destName", configuration.ZoneBalanceVariableName);
+        //    cmd.Parameters.AddWithValue("timeFrom", start);
+        //    cmd.Parameters.AddWithValue("timeTo", end);
 
-            var dt = new DataTable();
-            using (var adapter = new SqlDataAdapter(cmd))
-            {
-                adapter.Fill(dt);
-            }
-        }
+        //    var dt = new DataTable();
+        //    using (var adapter = new SqlDataAdapter(cmd))
+        //    {
+        //        adapter.Fill(dt);
+        //    }
+        //}
     }
 }

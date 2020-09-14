@@ -89,6 +89,8 @@ namespace Grundfos.WB.EasyCalc.Calculations
                 return;
             }
 
+            data.WaterBalanceSheet.UnauthorizedConsumptionErrorMargin_AO25 = data.UnauthorizedConsumptionSheet.ErrorMargin_F24;
+
             data.WaterBalanceSheet.SystemInputVolumeErrorMargin_B21 = data.SystemInputSheet.ErrorMargin_F72;
 
             data.WaterBalanceSheet.AuthorizedConsumptionErrorMargin_K15 =
@@ -117,11 +119,7 @@ namespace Grundfos.WB.EasyCalc.Calculations
             data.WaterBalanceSheet.CommercialLossesErrorMargin_T29 = data.WaterBalanceSheet.CommercialLosses_T26 == 0d ?
                 0d : bj32 * Constants.StandardDistributionFactor / data.WaterBalanceSheet.CommercialLosses_T26;
 
-            data.WaterBalanceSheet.UnbilledUnmeteredConsumptionErrorMargin_AO20 =
-                data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25;
-
-            data.WaterBalanceSheet.UnauthorizedConsumptionErrorMargin_AO25 =
-                data.UnauthorizedConsumptionSheet.ErrorMargin_F24;
+            data.WaterBalanceSheet.UnbilledUnmeteredConsumptionErrorMargin_AO20 = data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25;
 
             data.WaterBalanceSheet.PhyscialLossesErrorMargin_AH35 = data.WaterBalanceSheet.PhysicalLossesM3_T34 == 0 ?
                 0d : data.WaterBalanceSheet.PhyscialLossesErrorMarginFactor_BL35 * Constants.StandardDistributionFactor / data.WaterBalanceSheet.PhysicalLossesM3_T34;

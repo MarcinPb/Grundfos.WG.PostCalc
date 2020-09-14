@@ -26,9 +26,11 @@ namespace Grundfos.WB.EasyCalc.Console
             var now = DateTime.UtcNow;
             var zoneConfiguration = new DataAccess.Configuration
             {
-                TimeFrom = new DateTime(now.Year, now.Month, 1),
-                TimeTo = 
-            }
+                //TimeFrom = new DateTime(now.Year, now.Month, 1),
+                //TimeTo =
+            };
+
+            return zoneConfiguration;
         }
     }
 }

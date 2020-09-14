@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Grundfos.WB.EasyCalc.Calculations.Model;
 
 namespace Grundfos.WB.EasyCalc.Calculations
@@ -9,7 +10,7 @@ namespace Grundfos.WB.EasyCalc.Calculations
         {
         }
 
-        public EasyCalcSheetData ReadSheetData(string zone)
+        public EasyCalcSheetData ReadSheetData(string zone, DateTime yearMonth)
         {
             var data = new EasyCalcSheetData();
             data.StartSheet = new StartSheet
