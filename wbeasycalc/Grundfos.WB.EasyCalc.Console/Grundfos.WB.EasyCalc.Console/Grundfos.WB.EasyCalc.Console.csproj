@@ -71,7 +71,9 @@
     <None Include="packages.config" />
     <None Include="TestData\WB-EasyCalc - open.xlsm" />
     <None Include="TestData\WB-EasyCalc - original.xlsm" />
-    <None Include="TestData\WB-EasyCalc - sample from GM.xlsm" />
+    <None Include="TestData\WB-EasyCalc - sample from GM.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -86,6 +88,10 @@
     <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj">
       <Project>{9AE2BB62-74D4-449E-B531-505BA70FBA14}</Project>
       <Name>Grundfos.WB.EasyCalc.Calculations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
+      <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
+      <Name>Grundfos.Workbooks</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

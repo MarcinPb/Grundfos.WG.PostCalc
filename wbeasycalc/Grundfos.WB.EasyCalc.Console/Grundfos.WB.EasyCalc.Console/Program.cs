@@ -6,6 +6,7 @@ using Grundfos.OPC;
 using Grundfos.WB.DataAccess;
 using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.WB.EasyCalc.Console.Configuration;
+using Grundfos.Workbooks;
 using NLog;
 
 namespace Grundfos.WB.EasyCalc.Console
@@ -18,6 +19,44 @@ namespace Grundfos.WB.EasyCalc.Console
         {
             try
             {
+                var excelReader = new ExcelReader(@"TestData\WB-EasyCalc - sample from GM.xlsm");
+
+                EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
+                {
+                    Start_PeriodDays_M21 = excelReader.ReadCell<int>("Start", "M21"),
+                    SysInput_SystemInputVolumeM3_D6 = excelReader.ReadCell<double>("Sys. Input", "D6"),
+                    SysInput_SystemInputVolumeError_F6 = excelReader.ReadCell<double>("Sys. Input", "F6"),
+                    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Billed Cons", "D6"),
+                    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6"),
+                    UnbilledCons_MetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Unb. Cons.", "D6"),
+                    UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6"),
+                    UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6"),
+                    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = excelReader.ReadCell<double>("Unauth. Cons.", "J6"),
+                    UnauthCons_IllegalConnDomErrorMargin_F6 = excelReader.ReadCell<double>("Unauth. Cons.", "F6"),
+                    UnauthCons_IllegalConnOthersErrorMargin_F10 = excelReader.ReadCell<double>("Unauth. Cons.", "F10"),
+                    UnauthCons_MeterTampBypEtcEstNo_D14 = excelReader.ReadCell<double>("Unauth. Cons.", "D14"),
+                    UnauthCons_MeterTampBypEtcErrorMargin_F14 = excelReader.ReadCell<double>("Unauth. Cons.", "F14"),
+                    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = excelReader.ReadCell<double>("Unauth. Cons.", "J14"),
+                    MetErrors_DetailedManualSpec_J6 = excelReader.ReadCell<int>("Meter Errors", "J6")==2,
+                    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = excelReader.ReadCell<double>("Meter Errors", "H8"),
+                    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = excelReader.ReadCell<double>("Meter Errors", "N8"),
+                    MetErrors_MetBulkSupExpMetUnderreg_H32 = excelReader.ReadCell<double>("Meter Errors", "H32"),
+                    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = excelReader.ReadCell<double>("Meter Errors", "H34"),
+                    MetErrors_CorruptMetReadPractMetUndrreg_H38 = excelReader.ReadCell<double>("Meter Errors", "H38"),
+                    Network_DistributionAndTransmissionMains_D7 = excelReader.ReadCell<double>("Network", "D7"),
+                    Network_NoOfConnOfRegCustomers_H10 = excelReader.ReadCell<double>("Network", "H10"),
+                    Network_NoOfInactAccountsWSvcConns_H18 = excelReader.ReadCell<double>("Network", "H18"),
+                    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = excelReader.ReadCell<double>("Network", "H32"),
+                    Prs_ApproxNoOfConn_D7 = excelReader.ReadCell<double>("Pressure", "D7"),
+                    Prs_DailyAvgPrsM_F7 = excelReader.ReadCell<double>("Pressure", "F7")
+                };
+
+                EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
+                EasyCalcDataOutput readEasyCalcDataOutput = easyCalcDataReaderMoq.ReadEasyCalcDataOutput(easyCalcDataInput);
+
+
+
+
                 string address = ConfigurationManager.AppSettings[Constants.OpcAddress];
                 string tagFormat = ConfigurationManager.AppSettings[Constants.OpcTagFormat];
                 var zoneConfiguration = (Configuration.ZoneConfigurationSection)ConfigurationManager.GetSection("zoneConfiguration");
