@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FloatConverter.cs" />
+    <Compile Include="PercentageConverter.cs" />
     <Compile Include="Utility\DialogUtility.cs" />
     <Compile Include="Utility\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>

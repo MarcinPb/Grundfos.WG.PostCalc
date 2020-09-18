@@ -8,6 +8,9 @@ using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.Workbooks;
 using WpfApp1.Utility;
 
+// User can't type '.' in the textbox that have been bound to a float value while UpdateSourceTrigger is PropertyChanged in WPF
+// https://stackoverflow.com/questions/17142217/user-cant-type-in-the-textbox-that-have-been-bound-to-a-float-value-while-u
+
 namespace WpfApp1
 {
     public class MainWindowViewModel : ViewModelBase
@@ -396,22 +399,69 @@ namespace WpfApp1
         public RelayCommand CountBaseOnExcelCmd { get; }
         private void CountBaseOnExcelExecute()
         {
-            CountBaseOnExcel();
+            ImportFromExcel();
         }
         public bool CountBaseOnExcelCanExecute()
         {
             return !string.IsNullOrEmpty(ExcelFileName);
         }
 
+        public RelayCommand ExportToExcelCmd { get; }
+        private void ExportToExcelExecute()
+        {
+            ExportToExcel();
+        }
+
+        public bool ExportToExcelCanExecute()
+        {
+            return !string.IsNullOrEmpty(ExcelFileName);
+        }
+
+        private void ExportToExcel()
+        {
+            EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
+            {
+                Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6 - 2) < 0.1,
+                MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
+            };
+
+            var ddddd = easyCalcDataInput;
+        }
+
         public MainWindowViewModel()
         {
             CountBaseOnExcelCmd = new RelayCommand(CountBaseOnExcelExecute, CountBaseOnExcelCanExecute);
+            ExportToExcelCmd = new RelayCommand(ExportToExcelExecute, ExportToExcelCanExecute);
             ExcelFileName = @"TestData\WB-EasyCalc - sample from GM.xlsm";
             //SystemInputVolume_B19 = 7234234.23;
             //AuthorizedConsumption_K12 = 0.0;
         }
 
-        private void CountBaseOnExcel()
+        private void ImportFromExcel()
         {
             try
             {
@@ -521,9 +571,9 @@ namespace WpfApp1
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
                     UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
                     UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
                     UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
-                    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
                     UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
                     UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
                     UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
