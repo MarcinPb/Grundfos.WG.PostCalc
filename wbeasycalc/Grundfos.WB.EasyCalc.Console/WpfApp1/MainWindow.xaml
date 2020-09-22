@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1705">
+        Title="MainWindow" Height="800" Width="1705">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -60,7 +60,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Text ="System Input Volume [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
                     <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
                     <TextBox Grid.Column="3" Width="100" Text="{Binding Path=SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
                 </Grid>
@@ -77,9 +77,9 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Text ="Billed Metered Consumption [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"  />
                     <TextBlock Grid.Column="2" Text ="  Billed Unmetered Consumption [m3]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
                 </Grid>
             </TabItem>
             <TabItem Header="Unb. Cons." >
@@ -253,13 +253,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
-                    <TextBox Grid.Column="1" Grid.Row="0" Width="100" Text="{Binding Path=Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
                     <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
-                    <TextBox Grid.Column="1" Grid.Row="1" Width="100" Text="{Binding Path=Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
                     <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
-                    <TextBox Grid.Column="1" Grid.Row="2" Width="100" Text="{Binding Path=Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
                     <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
-                    <TextBox Grid.Column="1" Grid.Row="3" Width="100" Text="{Binding Path=Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
                 </Grid>
             </TabItem>
             <TabItem Header="Pressure" >
@@ -533,22 +533,63 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="0 0 0 10">
+            <Grid Grid.Row="0" Margin="0 0 0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Command="{Binding CountBaseOnExcelCmd}" Content="Import from Excel" Padding="5 0 5 0"/>
-                <TextBox Grid.Column="1" Text="{Binding Path=ExcelFileName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  Margin="10 0 0 0"/>
+                <Button Grid.Column="0" Command="{Binding CountBaseOnExcelCmd}" Content="Load from Excel File" Padding="5 0 5 0" Height="18" VerticalAlignment="Top" />
+                <Button Grid.Column="1" Command="{Binding ExportToExcelCmd}" Content="Save to Excel File" Padding="5 0 5 0" Margin="1 0 0 0"/>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Margin="0 0 0 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+               <TextBlock Grid.Row="0" Grid.Column="0" Text="Year" />
+               <TextBlock Grid.Row="0" Grid.Column="1" Text="Month" />
+               <TextBlock Grid.Row="0" Grid.Column="2" Text="Zone" />
+               <!--<TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=SelectedMonth}" />-->
+               <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=YearList}" SelectedValue="{Binding Path=SelectedYear}" />
+               <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=MonthList}" SelectedValue="{Binding Path=SelectedMonth}" />
+               <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneList}" SelectedValue="{Binding Path=SelectedZoneId}" />
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0 0 0 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Command="{Binding ExportToExcelCmd}" Content="Export to Excel" Padding="5 0 5 0"/>
-                <TextBox Grid.Column="1" Text="{Binding Path=ExcelFileName, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  Margin="10 0 0 0"/>
+                <Button Grid.Column="0" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
+            </Grid>
+            <Grid Grid.Row="3" Margin="0 0 0 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Command="{Binding LoadDataFromSystemCmd}" Content="Load Data from SCADA" Padding="5 0 5 0"/>
+                <Button Grid.Column="2" Command="{Binding LoadDataFromSystemCmd}" Content="Save Data to SCADA" Padding="5 0 5 0" Margin="1 0 0 0"/>
             </Grid>
        </Grid>
     </Grid>

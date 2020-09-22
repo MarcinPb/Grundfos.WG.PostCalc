@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.Workbooks;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using WpfApp1.Utility;
 
 // User can't type '.' in the textbox that have been bound to a float value while UpdateSourceTrigger is PropertyChanged in WPF
@@ -383,27 +384,68 @@ namespace WpfApp1
 
         #endregion
 
-        private string _excelFileName;
-        public string ExcelFileName
+        public List<string> YearList { get; set; }
+        private string _selectedYear;
+        public string SelectedYear
         {
-            get => _excelFileName;
+            get => _selectedYear;
             set
             {
-                _excelFileName = value;
-                RaisePropertyChanged(nameof(ExcelFileName));
-                CountBaseOnExcelCmd.RaiseCanExecuteChanged();
+                _selectedYear = value;
+                RaisePropertyChanged(nameof(SelectedYear));
             }
         }
 
+        public List<string> MonthList { get; set; }
+        private string _selectedMonth;
+        public string SelectedMonth
+        {
+            get => _selectedMonth;
+            set
+            {
+                _selectedMonth = value;
+                RaisePropertyChanged(nameof(SelectedMonth));
+            }
+        }
+
+        public List<string> ZoneList { get; set; }
+        private string _selectedZoneId;
+        public string SelectedZoneId
+        {
+            get => _selectedZoneId;
+            set
+            {
+                _selectedZoneId = value;
+                RaisePropertyChanged(nameof(SelectedZoneId));
+            }
+        }
 
         public RelayCommand CountBaseOnExcelCmd { get; }
         private void CountBaseOnExcelExecute()
         {
-            ImportFromExcel();
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
+            {
+                //IsFolderPicker = true,
+                //InitialDirectory = folderName
+                EnsurePathExists = true,
+                EnsureFileExists = true,
+                Filters =
+                {
+                    new CommonFileDialogFilter("Excel Files", "*.xls,*.xlsm"),
+                    //new CommonFileDialogFilter("XML Files", "*.xml"),
+                }
+            };
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if (result == CommonFileDialogResult.Ok)
+            {
+                string fileName = dialog.FileName;
+                ImportFromExcel(fileName);
+            }
+
         }
         public bool CountBaseOnExcelCanExecute()
         {
-            return !string.IsNullOrEmpty(ExcelFileName);
+            return true;
         }
 
         public RelayCommand ExportToExcelCmd { get; }
@@ -411,10 +453,74 @@ namespace WpfApp1
         {
             ExportToExcel();
         }
-
         public bool ExportToExcelCanExecute()
         {
-            return !string.IsNullOrEmpty(ExcelFileName);
+            return true;
+        }
+
+        public RelayCommand LoadDataFromSystemCmd { get; }
+        private void LoadDataFromSystemExecute()
+        {
+            LoadDataFromSystem();
+        }
+        public bool LoadDataFromSystemCanExecute()
+        {
+            return true;
+        }
+        private void LoadDataFromSystem()
+        {
+            try
+            {
+                SystemDataRepo systemDataRepo = new SystemDataRepo();
+                var dt = systemDataRepo.GetSystemData(Convert.ToInt32(SelectedYear), Convert.ToInt32(SelectedMonth), Convert.ToInt32(SelectedZoneId.Substring(0,1)));
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data for this zone in this time period.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                SysInput_SystemInputVolumeM3_D6 = Convert.ToInt32(dt.Rows[0][6].ToString());
+                BilledCons_BilledMetConsBulkWatSupExpM3_D6 = Convert.ToInt32(dt.Rows[0][3].ToString());
+                Network_DistributionAndTransmissionMains_D7 = (double)Convert.ToDecimal(dt.Rows[0][4].ToString());
+                Network_NoOfConnOfRegCustomers_H10 = Convert.ToInt32(dt.Rows[0][5].ToString());
+
+                CalculateExcel();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public MainWindowViewModel()
+        {
+            CountBaseOnExcelCmd = new RelayCommand(CountBaseOnExcelExecute, CountBaseOnExcelCanExecute);
+            ExportToExcelCmd = new RelayCommand(ExportToExcelExecute, ExportToExcelCanExecute);
+            LoadDataFromSystemCmd = new RelayCommand(LoadDataFromSystemExecute, LoadDataFromSystemCanExecute);
+
+            YearList = new List<string>() {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025",};
+            SelectedYear = "2020";
+            MonthList = new List<string>() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+            SelectedMonth = "9";
+
+            ZoneList = new List<string>()
+            {
+                "1 - Przybków",
+                "2 - Stare Miasto",
+                "3 - Kopernik",
+                "4 - Piekary",
+                "5 - Północna",
+                "6 - ZPW",
+                "7 - Tranzyt",
+                "8 - Zbiorniki",
+                "9 - Huta",
+            };
+            SelectedZoneId = "1 - Przybków";
+
+
+            //SystemInputVolume_B19 = 7234234.23;
+            //AuthorizedConsumption_K12 = 0.0;
         }
 
         private void ExportToExcel()
@@ -452,20 +558,11 @@ namespace WpfApp1
             var ddddd = easyCalcDataInput;
         }
 
-        public MainWindowViewModel()
-        {
-            CountBaseOnExcelCmd = new RelayCommand(CountBaseOnExcelExecute, CountBaseOnExcelCanExecute);
-            ExportToExcelCmd = new RelayCommand(ExportToExcelExecute, ExportToExcelCanExecute);
-            ExcelFileName = @"TestData\WB-EasyCalc - sample from GM.xlsm";
-            //SystemInputVolume_B19 = 7234234.23;
-            //AuthorizedConsumption_K12 = 0.0;
-        }
-
-        private void ImportFromExcel()
+        private void ImportFromExcel(string excelFileName)
         {
             try
             {
-                var excelReader = new ExcelReader(ExcelFileName);
+                var excelReader = new ExcelReader(excelFileName);
 
                 EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
                 {
