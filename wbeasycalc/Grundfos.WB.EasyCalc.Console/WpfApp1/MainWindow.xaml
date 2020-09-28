@@ -556,6 +556,7 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="300"/>
                     <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
                <TextBlock Grid.Row="0" Grid.Column="0" Text="Year" />
                <TextBlock Grid.Row="0" Grid.Column="1" Text="Month" />
@@ -563,7 +564,8 @@
                <!--<TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=SelectedMonth}" />-->
                <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=YearList}" SelectedValue="{Binding Path=SelectedYear}" />
                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=MonthList}" SelectedValue="{Binding Path=SelectedMonth}" />
-               <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneList}" SelectedValue="{Binding Path=SelectedZoneId}" />
+               <!--<ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneList}" SelectedValue="{Binding Path=SelectedZoneId}" />-->
+               <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneItemList}" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=SelectedZoneItem}" />
             </Grid>
 
             <Grid Grid.Row="2" Margin="0 0 0 5">
@@ -588,8 +590,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Command="{Binding LoadDataFromSystemCmd}" Content="Load Data from SCADA" Padding="5 0 5 0"/>
-                <Button Grid.Column="2" Command="{Binding LoadDataFromSystemCmd}" Content="Save Data to SCADA" Padding="5 0 5 0" Margin="1 0 0 0"/>
+                <Button Grid.Column="1" Command="{Binding LoadDataFromScadaCmd}" Content="Load Data from SCADA" Padding="5 0 5 0"/>
+                <Button Grid.Column="2" Command="{Binding SaveDataToScadaCmd}" Content="Save Data to SCADA" Padding="5 0 5 0" Margin="1 0 0 0"/>
             </Grid>
        </Grid>
     </Grid>

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Grundfos.OPC;
+using Grundfos.OPC.Model;
 using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.Workbooks;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -16,6 +20,35 @@ namespace WpfApp1
 {
     public class MainWindowViewModel : ViewModelBase
     {
+
+        private ICollection<string> _opcTagList = new List<string>()
+        {
+            "SysInput_SystemInputVolumeM3_D6",
+            "SysInput_SystemInputVolumeError_F6",
+            "BilledCons_BilledMetConsBulkWatSupExpM3_D6",
+            "BilledCons_BilledUnmetConsBulkWatSupExpM3_H6",
+            "UnbilledCons_MetConsBulkWatSupExpM3_D6",
+            "UnauthCons_IllegalConnDomEstNo_D6",
+            "UnauthCons_IllegalConnDomPersPerHouse_H6",
+            "UnauthCons_IllegalConnDomConsLitPerPersDay_J6",
+            "UnauthCons_IllegalConnDomErrorMargin_F6",
+            "UnauthCons_IllegalConnOthersErrorMargin_F10",
+            "UnauthCons_MeterTampBypEtcEstNo_D14",
+            "UnauthCons_MeterTampBypEtcErrorMargin_F14",
+            "UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14",
+            "MetErrors_DetailedManualSpec_J6",
+            "MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8",
+            "MetErrors_BilledMetConsWoBulkSupErrorMargin_N8",
+            "MetErrors_MetBulkSupExpMetUnderreg_H32",
+            "MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34",
+            "MetErrors_CorruptMetReadPractMetUndrreg_H38",
+            "Network_DistributionAndTransmissionMains_D7",
+            "Network_NoOfConnOfRegCustomers_H10",
+            "Network_NoOfInactAccountsWSvcConns_H18",
+            "Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32",
+            "Prs_ApproxNoOfConn_D7",
+            "Prs_DailyAvgPrsM_F7",
+        };
 
         #region Props input 
 
@@ -408,15 +441,27 @@ namespace WpfApp1
             }
         }
 
-        public List<string> ZoneList { get; set; }
-        private string _selectedZoneId;
-        public string SelectedZoneId
+        //public List<string> ZoneList { get; set; }
+        //private string _selectedZoneId;
+        //public string SelectedZoneId
+        //{
+        //    get => _selectedZoneId;
+        //    set
+        //    {
+        //        _selectedZoneId = value;
+        //        RaisePropertyChanged(nameof(SelectedZoneId));
+        //    }
+        //}
+
+        public List<ZoneItem> ZoneItemList { get; set; }
+        private ZoneItem _selectedZoneItem;
+        public ZoneItem SelectedZoneItem
         {
-            get => _selectedZoneId;
+            get => _selectedZoneItem;
             set
             {
-                _selectedZoneId = value;
-                RaisePropertyChanged(nameof(SelectedZoneId));
+                _selectedZoneItem = value;
+                RaisePropertyChanged(nameof(SelectedZoneItem));
             }
         }
 
@@ -467,12 +512,122 @@ namespace WpfApp1
         {
             return true;
         }
+
+        public RelayCommand LoadDataFromScadaCmd { get; }
+        private void LoadDataFromScadaExecute()
+        {
+            MessageBox.Show("Not implemented yet.", "Info");
+        }
+        public bool LoadDataFromScadaCanExecute()
+        {
+            return true;
+        }
+
+        public RelayCommand SaveDataToScadaCmd { get; }
+        private void SaveDataToScadaExecute()
+        {
+            SaveDataToScada();
+        }
+        public bool SaveDataToScadaCanExecute()
+        {
+            return true;
+        }
+
+        private void SaveDataToScada()
+        {
+            RunOpcPublish();
+        }
+        private void RunOpcPublish()
+        {
+            try
+            {
+                string zoneId = SelectedZoneItem.ZoneRomanNo;
+                ICollection<OpcValue> values = new List<OpcValue>()
+                {
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.SysInput_SystemInputVolumeM3_D6", Value = SysInput_SystemInputVolumeM3_D6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.SysInput_SystemInputVolumeError_F6", Value = SysInput_SystemInputVolumeError_F6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.BilledCons_BilledMetConsBulkWatSupExpM3_D6", Value = BilledCons_BilledMetConsBulkWatSupExpM3_D6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", Value = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnbilledCons_MetConsBulkWatSupExpM3_D6", Value = UnbilledCons_MetConsBulkWatSupExpM3_D6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomEstNo_D6", Value = UnauthCons_IllegalConnDomEstNo_D6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomPersPerHouse_H6", Value = UnauthCons_IllegalConnDomPersPerHouse_H6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomConsLitPerPersDay_J6", Value = UnauthCons_IllegalConnDomConsLitPerPersDay_J6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomErrorMargin_F6", Value = UnauthCons_IllegalConnDomErrorMargin_F6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnOthersErrorMargin_F10", Value = UnauthCons_IllegalConnOthersErrorMargin_F10},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcEstNo_D14", Value = UnauthCons_MeterTampBypEtcEstNo_D14},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcErrorMargin_F14", Value = UnauthCons_MeterTampBypEtcErrorMargin_F14},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14", Value = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_DetailedManualSpec_J6", Value = MetErrors_DetailedManualSpec_J6},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", Value = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", Value = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_MetBulkSupExpMetUnderreg_H32", Value = MetErrors_MetBulkSupExpMetUnderreg_H32},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", Value = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_CorruptMetReadPractMetUndrreg_H38", Value = MetErrors_CorruptMetReadPractMetUndrreg_H38},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_DistributionAndTransmissionMains_D7", Value = Network_DistributionAndTransmissionMains_D7},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_NoOfConnOfRegCustomers_H10", Value = Network_NoOfConnOfRegCustomers_H10},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_NoOfInactAccountsWSvcConns_H18", Value = Network_NoOfInactAccountsWSvcConns_H18},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", Value = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Prs_ApproxNoOfConn_D7", Value = Prs_ApproxNoOfConn_D7},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Prs_DailyAvgPrsM_F7", Value = Prs_DailyAvgPrsM_F7},
+
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_SystemInputVolume_B19", Value = SystemInputVolume_B19},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_SystemInputVolumeErrorMargin_B21", Value = SystemInputVolumeErrorMargin_B21},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_AuthorizedConsumption_K12", Value = AuthorizedConsumption_K12},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_AuthorizedConsumptionErrorMargin_K15", Value = AuthorizedConsumptionErrorMargin_K15},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_WaterLosses_K29", Value = WaterLosses_K29},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_WaterLossesErrorMargin_K31", Value = WaterLossesErrorMargin_K31},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledAuthorizedConsumption_T8", Value = BilledAuthorizedConsumption_T8},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledAuthorizedConsumption_T16", Value = UnbilledAuthorizedConsumption_T16},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CommercialLosses_T26", Value = CommercialLosses_T26},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CommercialLossesErrorMargin_T29", Value = CommercialLossesErrorMargin_T29},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_PhysicalLossesM3_T34", Value = PhysicalLossesM3_T34},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_PhyscialLossesErrorMargin_AH35", Value = PhyscialLossesErrorMargin_AH35},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledMeteredConsumption_AC4", Value = BilledMeteredConsumption_AC4},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledUnmeteredConsumption_AC9", Value = BilledUnmeteredConsumption_AC9},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledMeteredConsumption_AC14", Value = UnbilledMeteredConsumption_AC14},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledUnmeteredConsumption_AC19", Value = UnbilledUnmeteredConsumption_AC19},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledUnmeteredConsumptionErrorMargin_AO20", Value = UnbilledUnmeteredConsumptionErrorMargin_AO20},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnauthorizedConsumption_AC24", Value = UnauthorizedConsumption_AC24},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnauthorizedConsumptionErrorMargin_AO25", Value = UnauthorizedConsumptionErrorMargin_AO25},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CustomerMeterInaccuraciesAndErrorsM3_AC29", Value = CustomerMeterInaccuraciesAndErrorsM3_AC29},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", Value = CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_RevenueWaterM3_AY8", Value = RevenueWaterM3_AY8},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_NonRevenueWaterM3_AY24", Value = NonRevenueWaterM3_AY24},
+                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_NonRevenueWaterErrorMargin_AY26", Value = NonRevenueWaterErrorMargin_AY26},
+                };
+                string opcAddress = ConfigurationManager.AppSettings["opcAddress"];
+                using (var client = new OpcReader(opcAddress))
+                {
+                    //log.Log(LogLevel.Info, "OpcValue start ---------------------------");
+                    //foreach (var opcValue in values)
+                    //{
+                    //    log.Log(LogLevel.Info, opcValue);
+                    //}
+                    //log.Log(LogLevel.Info, "OpcValue end -----------------------------");
+                    ////client.WriteValues(values);
+     
+                    //foreach (var opcValue in values)
+                    //{
+                    //    opcValue.Value = 0;
+                    //}
+                    client.WriteValues(values);
+                    MessageBox.Show("Data were saved in SCADA.","Info");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "OPC Error",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
+        }
+
+
         private void LoadDataFromSystem()
         {
             try
             {
                 SystemDataRepo systemDataRepo = new SystemDataRepo();
-                var dt = systemDataRepo.GetSystemData(Convert.ToInt32(SelectedYear), Convert.ToInt32(SelectedMonth), Convert.ToInt32(SelectedZoneId.Substring(0,1)));
+                //var dt = systemDataRepo.GetSystemData(Convert.ToInt32(SelectedYear), Convert.ToInt32(SelectedMonth), Convert.ToInt32(SelectedZoneId.Substring(0,1)));
+                var dt = systemDataRepo.GetSystemData(Convert.ToInt32(SelectedYear), Convert.ToInt32(SelectedMonth), SelectedZoneItem.ZoneId);
 
                 if (dt.Rows.Count == 0)
                 {
@@ -498,30 +653,46 @@ namespace WpfApp1
             CountBaseOnExcelCmd = new RelayCommand(CountBaseOnExcelExecute, CountBaseOnExcelCanExecute);
             ExportToExcelCmd = new RelayCommand(ExportToExcelExecute, ExportToExcelCanExecute);
             LoadDataFromSystemCmd = new RelayCommand(LoadDataFromSystemExecute, LoadDataFromSystemCanExecute);
+            LoadDataFromScadaCmd = new RelayCommand(LoadDataFromScadaExecute, LoadDataFromScadaCanExecute);
+            SaveDataToScadaCmd = new RelayCommand(SaveDataToScadaExecute, SaveDataToScadaCanExecute);
 
             YearList = new List<string>() {"2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025",};
             SelectedYear = "2020";
             MonthList = new List<string>() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
             SelectedMonth = "9";
 
-            ZoneList = new List<string>()
-            {
-                "1 - Przybków",
-                "2 - Stare Miasto",
-                "3 - Kopernik",
-                "4 - Piekary",
-                "5 - Północna",
-                "6 - ZPW",
-                "7 - Tranzyt",
-                "8 - Zbiorniki",
-                "9 - Huta",
-            };
-            SelectedZoneId = "1 - Przybków";
+            //ZoneList = new List<string>()
+            //{
+            //    "1 - Przybków",
+            //    "2 - Stare Miasto",
+            //    "3 - Kopernik",
+            //    "4 - Piekary",
+            //    "5 - Północna",
+            //    "6 - ZPW",
+            //    "7 - Tranzyt",
+            //    "8 - Zbiorniki",
+            //    "9 - Huta",
+            //};
+            //SelectedZoneId = "1 - Przybków";
 
+            ZoneItemList = new List<ZoneItem>()
+            {
+                new ZoneItem(){ZoneId=1,ZoneName = "1 - Przybków", ZoneRomanNo="I"},
+                new ZoneItem(){ZoneId=1,ZoneName = "2 - Stare Miasto", ZoneRomanNo="II"},
+                new ZoneItem(){ZoneId=1,ZoneName = "3 - Kopernik", ZoneRomanNo="III"},
+                new ZoneItem(){ZoneId=1,ZoneName = "4 - Piekary", ZoneRomanNo="IV"},
+                new ZoneItem(){ZoneId=1,ZoneName = "5 - Północna", ZoneRomanNo="V"},
+                new ZoneItem(){ZoneId=1,ZoneName = "6 - ZPW", ZoneRomanNo="VI"},
+                new ZoneItem(){ZoneId=1,ZoneName = "7 - Tranzyt", ZoneRomanNo="VII"},
+                new ZoneItem(){ZoneId=1,ZoneName = "8 - Zbiorniki", ZoneRomanNo="VIII"},
+                new ZoneItem(){ZoneId=1,ZoneName = "9 - Huta", ZoneRomanNo="IX"},
+            };
+            SelectedZoneItem = ZoneItemList[0];
 
             //SystemInputVolume_B19 = 7234234.23;
             //AuthorizedConsumption_K12 = 0.0;
         }
+
 
         private void ExportToExcel()
         {
