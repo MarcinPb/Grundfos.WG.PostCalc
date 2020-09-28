@@ -67,8 +67,6 @@
     </ApplicationDefinition>
     <Compile Include="Converters\FloatConverter.cs" />
     <Compile Include="Converters\PercentageConverter.cs" />
-    <Compile Include="FloatConverter.cs" />
-    <Compile Include="PercentageConverter.cs" />
     <Compile Include="SystemDataRepo.cs" />
     <Compile Include="Utility\DialogUtility.cs" />
     <Compile Include="Utility\DialogWindow.xaml.cs">
