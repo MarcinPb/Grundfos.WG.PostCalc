@@ -67,6 +67,8 @@
     </ApplicationDefinition>
     <Compile Include="Converters\FloatConverter.cs" />
     <Compile Include="Converters\PercentageConverter.cs" />
+    <Compile Include="DataAccess\Opc.cs" />
+    <Compile Include="DataAccess\WbEasyCalcExcel.cs" />
     <Compile Include="SystemDataRepo.cs" />
     <Compile Include="Utility\DialogUtility.cs" />
     <Compile Include="Utility\DialogWindow.xaml.cs">
@@ -120,6 +122,7 @@
     </None>
     <None Include="TestData\WB-EasyCalc - open.xlsm" />
     <None Include="TestData\WB-EasyCalc - original.xlsm" />
+    <None Include="TestData\WB-EasyCalc - sample from GM to override.xlsm" />
     <None Include="TestData\WB-EasyCalc - sample from GM.xlsm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

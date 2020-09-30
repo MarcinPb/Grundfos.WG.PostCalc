@@ -12,6 +12,7 @@ using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.Workbooks;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using WpfApp1.Utility;
+using WpfApp1.DataAccess;
 
 // User can't type '.' in the textbox that have been bound to a float value while UpdateSourceTrigger is PropertyChanged in WPF
 // https://stackoverflow.com/questions/17142217/user-cant-type-in-the-textbox-that-have-been-bound-to-a-float-value-while-u
@@ -21,34 +22,34 @@ namespace WpfApp1
     public class MainWindowViewModel : ViewModelBase
     {
 
-        private ICollection<string> _opcTagList = new List<string>()
-        {
-            "SysInput_SystemInputVolumeM3_D6",
-            "SysInput_SystemInputVolumeError_F6",
-            "BilledCons_BilledMetConsBulkWatSupExpM3_D6",
-            "BilledCons_BilledUnmetConsBulkWatSupExpM3_H6",
-            "UnbilledCons_MetConsBulkWatSupExpM3_D6",
-            "UnauthCons_IllegalConnDomEstNo_D6",
-            "UnauthCons_IllegalConnDomPersPerHouse_H6",
-            "UnauthCons_IllegalConnDomConsLitPerPersDay_J6",
-            "UnauthCons_IllegalConnDomErrorMargin_F6",
-            "UnauthCons_IllegalConnOthersErrorMargin_F10",
-            "UnauthCons_MeterTampBypEtcEstNo_D14",
-            "UnauthCons_MeterTampBypEtcErrorMargin_F14",
-            "UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14",
-            "MetErrors_DetailedManualSpec_J6",
-            "MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8",
-            "MetErrors_BilledMetConsWoBulkSupErrorMargin_N8",
-            "MetErrors_MetBulkSupExpMetUnderreg_H32",
-            "MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34",
-            "MetErrors_CorruptMetReadPractMetUndrreg_H38",
-            "Network_DistributionAndTransmissionMains_D7",
-            "Network_NoOfConnOfRegCustomers_H10",
-            "Network_NoOfInactAccountsWSvcConns_H18",
-            "Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32",
-            "Prs_ApproxNoOfConn_D7",
-            "Prs_DailyAvgPrsM_F7",
-        };
+        //private ICollection<string> _opcTagList = new List<string>()
+        //{
+        //    "SysInput_SystemInputVolumeM3_D6",
+        //    "SysInput_SystemInputVolumeError_F6",
+        //    "BilledCons_BilledMetConsBulkWatSupExpM3_D6",
+        //    "BilledCons_BilledUnmetConsBulkWatSupExpM3_H6",
+        //    "UnbilledCons_MetConsBulkWatSupExpM3_D6",
+        //    "UnauthCons_IllegalConnDomEstNo_D6",
+        //    "UnauthCons_IllegalConnDomPersPerHouse_H6",
+        //    "UnauthCons_IllegalConnDomConsLitPerPersDay_J6",
+        //    "UnauthCons_IllegalConnDomErrorMargin_F6",
+        //    "UnauthCons_IllegalConnOthersErrorMargin_F10",
+        //    "UnauthCons_MeterTampBypEtcEstNo_D14",
+        //    "UnauthCons_MeterTampBypEtcErrorMargin_F14",
+        //    "UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14",
+        //    "MetErrors_DetailedManualSpec_J6",
+        //    "MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8",
+        //    "MetErrors_BilledMetConsWoBulkSupErrorMargin_N8",
+        //    "MetErrors_MetBulkSupExpMetUnderreg_H32",
+        //    "MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34",
+        //    "MetErrors_CorruptMetReadPractMetUndrreg_H38",
+        //    "Network_DistributionAndTransmissionMains_D7",
+        //    "Network_NoOfConnOfRegCustomers_H10",
+        //    "Network_NoOfInactAccountsWSvcConns_H18",
+        //    "Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32",
+        //    "Prs_ApproxNoOfConn_D7",
+        //    "Prs_DailyAvgPrsM_F7",
+        //};
 
         #region Props input 
 
@@ -496,7 +497,26 @@ namespace WpfApp1
         public RelayCommand ExportToExcelCmd { get; }
         private void ExportToExcelExecute()
         {
-            ExportToExcel();
+            CommonSaveFileDialog dialog = new CommonSaveFileDialog
+            {
+                //IsFolderPicker = true,
+                //InitialDirectory = folderName
+                EnsurePathExists = true,
+                EnsureFileExists = true,
+                DefaultExtension= ".xlsm",
+                AlwaysAppendDefaultExtension = true,
+                Filters =
+                {
+                    //new CommonFileDialogFilter("Excel Files", "*.xls,*.xlsm"),
+                    new CommonFileDialogFilter("Excel Files", "*.xlsm"),
+                }
+            };
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if (result == CommonFileDialogResult.Ok)
+            {
+                string fileName = dialog.FileName;
+                ExportToExcel(fileName);
+            }
         }
         public bool ExportToExcelCanExecute()
         {
@@ -535,88 +555,17 @@ namespace WpfApp1
 
         private void SaveDataToScada()
         {
-            RunOpcPublish();
-        }
-        private void RunOpcPublish()
-        {
             try
             {
-                string zoneId = SelectedZoneItem.ZoneRomanNo;
-                ICollection<OpcValue> values = new List<OpcValue>()
-                {
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.SysInput_SystemInputVolumeM3_D6", Value = SysInput_SystemInputVolumeM3_D6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.SysInput_SystemInputVolumeError_F6", Value = SysInput_SystemInputVolumeError_F6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.BilledCons_BilledMetConsBulkWatSupExpM3_D6", Value = BilledCons_BilledMetConsBulkWatSupExpM3_D6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", Value = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnbilledCons_MetConsBulkWatSupExpM3_D6", Value = UnbilledCons_MetConsBulkWatSupExpM3_D6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomEstNo_D6", Value = UnauthCons_IllegalConnDomEstNo_D6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomPersPerHouse_H6", Value = UnauthCons_IllegalConnDomPersPerHouse_H6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomConsLitPerPersDay_J6", Value = UnauthCons_IllegalConnDomConsLitPerPersDay_J6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnDomErrorMargin_F6", Value = UnauthCons_IllegalConnDomErrorMargin_F6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_IllegalConnOthersErrorMargin_F10", Value = UnauthCons_IllegalConnOthersErrorMargin_F10},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcEstNo_D14", Value = UnauthCons_MeterTampBypEtcEstNo_D14},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcErrorMargin_F14", Value = UnauthCons_MeterTampBypEtcErrorMargin_F14},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14", Value = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_DetailedManualSpec_J6", Value = MetErrors_DetailedManualSpec_J6},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", Value = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", Value = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_MetBulkSupExpMetUnderreg_H32", Value = MetErrors_MetBulkSupExpMetUnderreg_H32},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", Value = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.MetErrors_CorruptMetReadPractMetUndrreg_H38", Value = MetErrors_CorruptMetReadPractMetUndrreg_H38},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_DistributionAndTransmissionMains_D7", Value = Network_DistributionAndTransmissionMains_D7},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_NoOfConnOfRegCustomers_H10", Value = Network_NoOfConnOfRegCustomers_H10},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_NoOfInactAccountsWSvcConns_H18", Value = Network_NoOfInactAccountsWSvcConns_H18},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", Value = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Prs_ApproxNoOfConn_D7", Value = Prs_ApproxNoOfConn_D7},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.Prs_DailyAvgPrsM_F7", Value = Prs_DailyAvgPrsM_F7},
-
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_SystemInputVolume_B19", Value = SystemInputVolume_B19},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_SystemInputVolumeErrorMargin_B21", Value = SystemInputVolumeErrorMargin_B21},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_AuthorizedConsumption_K12", Value = AuthorizedConsumption_K12},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_AuthorizedConsumptionErrorMargin_K15", Value = AuthorizedConsumptionErrorMargin_K15},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_WaterLosses_K29", Value = WaterLosses_K29},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_WaterLossesErrorMargin_K31", Value = WaterLossesErrorMargin_K31},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledAuthorizedConsumption_T8", Value = BilledAuthorizedConsumption_T8},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledAuthorizedConsumption_T16", Value = UnbilledAuthorizedConsumption_T16},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CommercialLosses_T26", Value = CommercialLosses_T26},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CommercialLossesErrorMargin_T29", Value = CommercialLossesErrorMargin_T29},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_PhysicalLossesM3_T34", Value = PhysicalLossesM3_T34},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_PhyscialLossesErrorMargin_AH35", Value = PhyscialLossesErrorMargin_AH35},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledMeteredConsumption_AC4", Value = BilledMeteredConsumption_AC4},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_BilledUnmeteredConsumption_AC9", Value = BilledUnmeteredConsumption_AC9},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledMeteredConsumption_AC14", Value = UnbilledMeteredConsumption_AC14},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledUnmeteredConsumption_AC19", Value = UnbilledUnmeteredConsumption_AC19},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnbilledUnmeteredConsumptionErrorMargin_AO20", Value = UnbilledUnmeteredConsumptionErrorMargin_AO20},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnauthorizedConsumption_AC24", Value = UnauthorizedConsumption_AC24},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_UnauthorizedConsumptionErrorMargin_AO25", Value = UnauthorizedConsumptionErrorMargin_AO25},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CustomerMeterInaccuraciesAndErrorsM3_AC29", Value = CustomerMeterInaccuraciesAndErrorsM3_AC29},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", Value = CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_RevenueWaterM3_AY8", Value = RevenueWaterM3_AY8},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_NonRevenueWaterM3_AY24", Value = NonRevenueWaterM3_AY24},
-                    new OpcValue(){Tag=$"WbEasyCalc_{zoneId}.DEV.WatBal_NonRevenueWaterErrorMargin_AY26", Value = NonRevenueWaterErrorMargin_AY26},
-                };
-                string opcAddress = ConfigurationManager.AppSettings["opcAddress"];
-                using (var client = new OpcReader(opcAddress))
-                {
-                    //log.Log(LogLevel.Info, "OpcValue start ---------------------------");
-                    //foreach (var opcValue in values)
-                    //{
-                    //    log.Log(LogLevel.Info, opcValue);
-                    //}
-                    //log.Log(LogLevel.Info, "OpcValue end -----------------------------");
-                    ////client.WriteValues(values);
-     
-                    //foreach (var opcValue in values)
-                    //{
-                    //    opcValue.Value = 0;
-                    //}
-                    client.WriteValues(values);
-                    MessageBox.Show("Data were saved in SCADA.","Info");
-                }
+                string zoneRomanNo = SelectedZoneItem.ZoneRomanNo;
+                EasyCalcDataInput easyCalcDataInput = MapEasyCalcDataInput();
+                EasyCalcDataOutput easyCalcDataOutput = MapEasyCalcDataOutput();
+                Opc.RunOpcPublish(zoneRomanNo, easyCalcDataInput, easyCalcDataOutput);
+                MessageBox.Show("Data were saved in OPC server.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "OPC Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show(e.Message, "OPC Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -694,7 +643,202 @@ namespace WpfApp1
         }
 
 
-        private void ExportToExcel()
+        private void ExportToExcel(string excelFileName)
+        {
+            try
+            {
+                EasyCalcDataInput easyCalcDataInput = MapEasyCalcDataInput();
+                //EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
+                //{
+                //    Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                //    SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                //    SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                //    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                //    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                //    UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                //    UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                //    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                //    UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                //    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                //    UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                //    UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                //    UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                //    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                //    MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6 - 2) < 0.1,
+                //    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                //    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                //    MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                //    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                //    MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                //    Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                //    Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                //    Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                //    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                //    Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                //    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
+                //};
+                WbEasyCalcExcel.SaveToExcelFile(excelFileName, easyCalcDataInput);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void ImportFromExcel(string excelFileName)
+        {
+            try
+            {
+                EasyCalcDataInput easyCalcDataInput = WbEasyCalcExcel.LoadFromExcelFile(excelFileName);
+                MapEasyCalcDataInput(easyCalcDataInput);
+
+                //Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
+                //SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
+                //SysInput_SystemInputVolumeError_F6 = easyCalcDataInput.SysInput_SystemInputVolumeError_F6;
+                //BilledCons_BilledMetConsBulkWatSupExpM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
+                //BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
+                //UnbilledCons_MetConsBulkWatSupExpM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6;
+                //UnauthCons_IllegalConnDomEstNo_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6;
+                //UnauthCons_IllegalConnDomPersPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6;
+                //UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
+                //UnauthCons_IllegalConnDomErrorMargin_F6 = easyCalcDataInput.UnauthCons_IllegalConnDomErrorMargin_F6;
+                //UnauthCons_IllegalConnOthersErrorMargin_F10 = easyCalcDataInput.UnauthCons_IllegalConnOthersErrorMargin_F10;
+                //UnauthCons_MeterTampBypEtcEstNo_D14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14;
+                //UnauthCons_MeterTampBypEtcErrorMargin_F14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14;
+                //UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
+                //MetErrors_DetailedManualSpec_J6 = easyCalcDataInput.MetErrors_DetailedManualSpec_J6 ? 2 :1;
+                //MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
+                //MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+                //MetErrors_MetBulkSupExpMetUnderreg_H32 = easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32;
+                //MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
+                //MetErrors_CorruptMetReadPractMetUndrreg_H38 = easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38;
+                //Network_DistributionAndTransmissionMains_D7 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D7;
+                //Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
+                //Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
+                //Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+                //Prs_ApproxNoOfConn_D7 = easyCalcDataInput.Prs_ApproxNoOfConn_D7;
+                //Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
+
+                CalculateExcel();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        private void CalculateExcel()
+        {
+            try
+            {
+                //EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
+                //{
+                //    Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                //    SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                //    SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                //    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                //    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                //    UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                //    UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                //    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                //    UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                //    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                //    UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                //    UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                //    UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                //    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                //    MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6 - 2) < 0.1,
+                //    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                //    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                //    MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                //    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                //    MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                //    Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                //    Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                //    Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                //    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                //    Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                //    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
+                //};
+                EasyCalcDataInput easyCalcDataInput = MapEasyCalcDataInput();
+
+                EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
+                EasyCalcDataOutput easyCalcDataOutput = easyCalcDataReaderMoq.ReadEasyCalcDataOutput(easyCalcDataInput);  
+
+                //SystemInputVolume_B19 = easyCalcDataOutput.SystemInputVolume_B19;
+                //SystemInputVolumeErrorMargin_B21 = easyCalcDataOutput.SystemInputVolumeErrorMargin_B21;
+
+                //AuthorizedConsumption_K12 = easyCalcDataOutput.AuthorizedConsumption_K12;
+                //AuthorizedConsumptionErrorMargin_K15 = easyCalcDataOutput.AuthorizedConsumptionErrorMargin_K15;
+                //WaterLosses_K29 = easyCalcDataOutput.WaterLosses_K29;
+                //WaterLossesErrorMargin_K31 = easyCalcDataOutput.WaterLossesErrorMargin_K31;
+
+                //BilledAuthorizedConsumption_T8 = easyCalcDataOutput.BilledAuthorizedConsumption_T8;
+                //UnbilledAuthorizedConsumption_T16 = easyCalcDataOutput.UnbilledAuthorizedConsumption_T16;
+                //UnbilledAuthorizedConsumptionErrorMargin_T20 = easyCalcDataOutput.UnbilledAuthorizedConsumptionErrorMargin_T20;
+                //CommercialLosses_T26 = easyCalcDataOutput.CommercialLosses_T26;
+                //CommercialLossesErrorMargin_T29 = easyCalcDataOutput.CommercialLossesErrorMargin_T29;
+                //PhysicalLossesM3_T34 = easyCalcDataOutput.PhysicalLossesM3_T34;
+                //PhyscialLossesErrorMargin_AH35 = easyCalcDataOutput.PhyscialLossesErrorMargin_AH35;
+
+                //BilledMeteredConsumption_AC4 = easyCalcDataOutput.BilledMeteredConsumption_AC4;
+                //BilledUnmeteredConsumption_AC9 = easyCalcDataOutput.BilledUnmeteredConsumption_AC9;
+                //UnbilledMeteredConsumption_AC14 = easyCalcDataOutput.UnbilledMeteredConsumption_AC14;
+
+                //UnbilledUnmeteredConsumption_AC19 = easyCalcDataOutput.UnbilledUnmeteredConsumption_AC19;
+                //UnbilledUnmeteredConsumptionErrorMargin_AO20 = easyCalcDataOutput.UnbilledUnmeteredConsumptionErrorMargin_AO20;
+                //UnauthorizedConsumption_AC24 = easyCalcDataOutput.UnauthorizedConsumption_AC24;
+                //UnauthorizedConsumptionErrorMargin_AO25 = easyCalcDataOutput.UnauthorizedConsumptionErrorMargin_AO25;
+                //CustomerMeterInaccuraciesAndErrorsM3_AC29 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsM3_AC29;
+                //CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
+
+                //RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
+                //NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
+                //NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
+
+                MapEasyCalcDataOutput(easyCalcDataOutput);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        #region Mappings
+
+        private void MapEasyCalcDataInput(EasyCalcDataInput easyCalcDataInput)
+        {
+            Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
+            SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
+            SysInput_SystemInputVolumeError_F6 = easyCalcDataInput.SysInput_SystemInputVolumeError_F6;
+            BilledCons_BilledMetConsBulkWatSupExpM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
+            BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
+            UnbilledCons_MetConsBulkWatSupExpM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6;
+            UnauthCons_IllegalConnDomEstNo_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6;
+            UnauthCons_IllegalConnDomPersPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6;
+            UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
+            UnauthCons_IllegalConnDomErrorMargin_F6 = easyCalcDataInput.UnauthCons_IllegalConnDomErrorMargin_F6;
+            UnauthCons_IllegalConnOthersErrorMargin_F10 = easyCalcDataInput.UnauthCons_IllegalConnOthersErrorMargin_F10;
+            UnauthCons_MeterTampBypEtcEstNo_D14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14;
+            UnauthCons_MeterTampBypEtcErrorMargin_F14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14;
+            UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
+            MetErrors_DetailedManualSpec_J6 = easyCalcDataInput.MetErrors_DetailedManualSpec_J6 ? 2 : 1;
+            MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
+            MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+            MetErrors_MetBulkSupExpMetUnderreg_H32 = easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32;
+            MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
+            MetErrors_CorruptMetReadPractMetUndrreg_H38 = easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38;
+            Network_DistributionAndTransmissionMains_D7 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D7;
+            Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
+            Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
+            Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+            Prs_ApproxNoOfConn_D7 = easyCalcDataInput.Prs_ApproxNoOfConn_D7;
+            Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
+        }
+
+        private EasyCalcDataInput MapEasyCalcDataInput()
         {
             EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
             {
@@ -725,179 +869,84 @@ namespace WpfApp1
                 Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                 Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
             };
-
-            var ddddd = easyCalcDataInput;
+            return easyCalcDataInput;
         }
 
-        private void ImportFromExcel(string excelFileName)
+        private void MapEasyCalcDataOutput(EasyCalcDataOutput easyCalcDataOutput)
         {
-            try
-            {
-                var excelReader = new ExcelReader(excelFileName);
+            SystemInputVolume_B19 = easyCalcDataOutput.SystemInputVolume_B19;
+            SystemInputVolumeErrorMargin_B21 = easyCalcDataOutput.SystemInputVolumeErrorMargin_B21;
 
-                EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
-                {
-                    Start_PeriodDays_M21 = excelReader.ReadCell<int>("Start", "M21"),
-                    SysInput_SystemInputVolumeM3_D6 = excelReader.ReadCell<double>("Sys. Input", "D6"),
-                    SysInput_SystemInputVolumeError_F6 = excelReader.ReadCell<double>("Sys. Input", "F6"),
-                    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Billed Cons", "D6"),
-                    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6"),
-                    UnbilledCons_MetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Unb. Cons.", "D6"),
-                    UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6"),
-                    UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6"),
-                    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = excelReader.ReadCell<double>("Unauth. Cons.", "J6"),
-                    UnauthCons_IllegalConnDomErrorMargin_F6 = excelReader.ReadCell<double>("Unauth. Cons.", "F6"),
-                    UnauthCons_IllegalConnOthersErrorMargin_F10 = excelReader.ReadCell<double>("Unauth. Cons.", "F10"),
-                    UnauthCons_MeterTampBypEtcEstNo_D14 = excelReader.ReadCell<double>("Unauth. Cons.", "D14"),
-                    UnauthCons_MeterTampBypEtcErrorMargin_F14 = excelReader.ReadCell<double>("Unauth. Cons.", "F14"),
-                    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = excelReader.ReadCell<double>("Unauth. Cons.", "J14"),
-                    MetErrors_DetailedManualSpec_J6 = excelReader.ReadCell<int>("Meter Errors", "J6") == 2,
-                    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = excelReader.ReadCell<double>("Meter Errors", "H8"),
-                    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = excelReader.ReadCell<double>("Meter Errors", "N8"),
-                    MetErrors_MetBulkSupExpMetUnderreg_H32 = excelReader.ReadCell<double>("Meter Errors", "H32"),
-                    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = excelReader.ReadCell<double>("Meter Errors", "H34"),
-                    MetErrors_CorruptMetReadPractMetUndrreg_H38 = excelReader.ReadCell<double>("Meter Errors", "H38"),
-                    Network_DistributionAndTransmissionMains_D7 = excelReader.ReadCell<double>("Network", "D7"),
-                    Network_NoOfConnOfRegCustomers_H10 = excelReader.ReadCell<double>("Network", "H10"),
-                    Network_NoOfInactAccountsWSvcConns_H18 = excelReader.ReadCell<double>("Network", "H18"),
-                    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = excelReader.ReadCell<double>("Network", "H32"),
-                    Prs_ApproxNoOfConn_D7 = excelReader.ReadCell<double>("Pressure", "D7"),
-                    Prs_DailyAvgPrsM_F7 = excelReader.ReadCell<double>("Pressure", "F7")
-                };
+            AuthorizedConsumption_K12 = easyCalcDataOutput.AuthorizedConsumption_K12;
+            AuthorizedConsumptionErrorMargin_K15 = easyCalcDataOutput.AuthorizedConsumptionErrorMargin_K15;
+            WaterLosses_K29 = easyCalcDataOutput.WaterLosses_K29;
+            WaterLossesErrorMargin_K31 = easyCalcDataOutput.WaterLossesErrorMargin_K31;
 
-                //Start_PeriodDays_M21 = excelReader.ReadCell<int>("Start", "M21");
-                //SysInput_SystemInputVolumeM3_D6 = excelReader.ReadCell<double>("Sys. Input", "D6");
-                //SysInput_SystemInputVolumeError_F6 = excelReader.ReadCell<double>("Sys. Input", "F6");
-                //BilledCons_BilledMetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Billed Cons", "D6");
-                //BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6");
-                //UnbilledCons_MetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Unb. Cons.", "D6");
-                //UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6");
-                //UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6");
-                //UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = excelReader.ReadCell<double>("Unauth. Cons.", "J6");
-                //UnauthCons_IllegalConnDomErrorMargin_F6 = excelReader.ReadCell<double>("Unauth. Cons.", "F6");
-                //UnauthCons_IllegalConnOthersErrorMargin_F10 = excelReader.ReadCell<double>("Unauth. Cons.", "F10");
-                //UnauthCons_MeterTampBypEtcEstNo_D14 = excelReader.ReadCell<double>("Unauth. Cons.", "D14");
-                //UnauthCons_MeterTampBypEtcErrorMargin_F14 = excelReader.ReadCell<double>("Unauth. Cons.", "F14");
-                //UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = excelReader.ReadCell<double>("Unauth. Cons.", "J14");
-                //MetErrors_DetailedManualSpec_J6 = excelReader.ReadCell<int>("Meter Errors", "J6");
-                //MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = excelReader.ReadCell<double>("Meter Errors", "H8");
-                //MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = excelReader.ReadCell<double>("Meter Errors", "N8");
-                //MetErrors_MetBulkSupExpMetUnderreg_H32 = excelReader.ReadCell<double>("Meter Errors", "H32");
-                //MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = excelReader.ReadCell<double>("Meter Errors", "H34");
-                //MetErrors_CorruptMetReadPractMetUndrreg_H38 = excelReader.ReadCell<double>("Meter Errors", "H38");
-                //Network_DistributionAndTransmissionMains_D7 = excelReader.ReadCell<double>("Network", "D7");
-                //Network_NoOfConnOfRegCustomers_H10 = excelReader.ReadCell<double>("Network", "H10");
-                //Network_NoOfInactAccountsWSvcConns_H18 = excelReader.ReadCell<double>("Network", "H18");
-                //Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = excelReader.ReadCell<double>("Network", "H32");
-                //Prs_ApproxNoOfConn_D7 = excelReader.ReadCell<double>("Pressure", "D7");
-                //Prs_DailyAvgPrsM_F7 = excelReader.ReadCell<double>("Pressure", "F7");
+            BilledAuthorizedConsumption_T8 = easyCalcDataOutput.BilledAuthorizedConsumption_T8;
+            UnbilledAuthorizedConsumption_T16 = easyCalcDataOutput.UnbilledAuthorizedConsumption_T16;
+            UnbilledAuthorizedConsumptionErrorMargin_T20 = easyCalcDataOutput.UnbilledAuthorizedConsumptionErrorMargin_T20;
+            CommercialLosses_T26 = easyCalcDataOutput.CommercialLosses_T26;
+            CommercialLossesErrorMargin_T29 = easyCalcDataOutput.CommercialLossesErrorMargin_T29;
+            PhysicalLossesM3_T34 = easyCalcDataOutput.PhysicalLossesM3_T34;
+            PhyscialLossesErrorMargin_AH35 = easyCalcDataOutput.PhyscialLossesErrorMargin_AH35;
 
-                Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
-                SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
-                SysInput_SystemInputVolumeError_F6 = easyCalcDataInput.SysInput_SystemInputVolumeError_F6;
-                BilledCons_BilledMetConsBulkWatSupExpM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
-                BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
-                UnbilledCons_MetConsBulkWatSupExpM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6;
-                UnauthCons_IllegalConnDomEstNo_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6;
-                UnauthCons_IllegalConnDomPersPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6;
-                UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
-                UnauthCons_IllegalConnDomErrorMargin_F6 = easyCalcDataInput.UnauthCons_IllegalConnDomErrorMargin_F6;
-                UnauthCons_IllegalConnOthersErrorMargin_F10 = easyCalcDataInput.UnauthCons_IllegalConnOthersErrorMargin_F10;
-                UnauthCons_MeterTampBypEtcEstNo_D14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14;
-                UnauthCons_MeterTampBypEtcErrorMargin_F14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14;
-                UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
-                MetErrors_DetailedManualSpec_J6 = easyCalcDataInput.MetErrors_DetailedManualSpec_J6 ? 2 :1;
-                MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
-                MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
-                MetErrors_MetBulkSupExpMetUnderreg_H32 = easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32;
-                MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
-                MetErrors_CorruptMetReadPractMetUndrreg_H38 = easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38;
-                Network_DistributionAndTransmissionMains_D7 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D7;
-                Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
-                Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
-                Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
-                Prs_ApproxNoOfConn_D7 = easyCalcDataInput.Prs_ApproxNoOfConn_D7;
-                Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
+            BilledMeteredConsumption_AC4 = easyCalcDataOutput.BilledMeteredConsumption_AC4;
+            BilledUnmeteredConsumption_AC9 = easyCalcDataOutput.BilledUnmeteredConsumption_AC9;
+            UnbilledMeteredConsumption_AC14 = easyCalcDataOutput.UnbilledMeteredConsumption_AC14;
 
-                CalculateExcel();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            UnbilledUnmeteredConsumption_AC19 = easyCalcDataOutput.UnbilledUnmeteredConsumption_AC19;
+            UnbilledUnmeteredConsumptionErrorMargin_AO20 = easyCalcDataOutput.UnbilledUnmeteredConsumptionErrorMargin_AO20;
+            UnauthorizedConsumption_AC24 = easyCalcDataOutput.UnauthorizedConsumption_AC24;
+            UnauthorizedConsumptionErrorMargin_AO25 = easyCalcDataOutput.UnauthorizedConsumptionErrorMargin_AO25;
+            CustomerMeterInaccuraciesAndErrorsM3_AC29 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsM3_AC29;
+            CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
+
+            RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
+            NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
+            NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
         }
-        private void CalculateExcel()
+
+        private EasyCalcDataOutput MapEasyCalcDataOutput()
         {
-            try
+            EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
             {
-                EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
-                {
-                    Start_PeriodDays_M21 = Start_PeriodDays_M21,
-                    SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
-                    SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
-                    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
-                    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
-                    UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
-                    UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
-                    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
-                    UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
-                    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
-                    UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
-                    UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
-                    UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
-                    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
-                    MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6 - 2) < 0.1,
-                    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
-                    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
-                    MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
-                    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
-                    MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
-                    Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
-                    Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
-                    Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
-                    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
-                    Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
-                    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
-                };
+                SystemInputVolume_B19 = SystemInputVolume_B19,
+                SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
 
-                EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
-                EasyCalcDataOutput easyCalcDataOutput = easyCalcDataReaderMoq.ReadEasyCalcDataOutput(easyCalcDataInput);
+                AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
+                AuthorizedConsumptionErrorMargin_K15 = AuthorizedConsumptionErrorMargin_K15,
+                WaterLosses_K29 = WaterLosses_K29,
+                WaterLossesErrorMargin_K31 = WaterLossesErrorMargin_K31,
 
-                SystemInputVolume_B19 = easyCalcDataOutput.SystemInputVolume_B19;
-                SystemInputVolumeErrorMargin_B21 = easyCalcDataOutput.SystemInputVolumeErrorMargin_B21;
+                BilledAuthorizedConsumption_T8 = BilledAuthorizedConsumption_T8,
+                UnbilledAuthorizedConsumption_T16 = UnbilledAuthorizedConsumption_T16,
+                UnbilledAuthorizedConsumptionErrorMargin_T20 =
+                UnbilledAuthorizedConsumptionErrorMargin_T20,
+                CommercialLosses_T26 = CommercialLosses_T26,
+                CommercialLossesErrorMargin_T29 = CommercialLossesErrorMargin_T29,
+                PhysicalLossesM3_T34 = PhysicalLossesM3_T34,
+                PhyscialLossesErrorMargin_AH35 = PhyscialLossesErrorMargin_AH35,
 
-                AuthorizedConsumption_K12 = easyCalcDataOutput.AuthorizedConsumption_K12;
-                AuthorizedConsumptionErrorMargin_K15 = easyCalcDataOutput.AuthorizedConsumptionErrorMargin_K15;
-                WaterLosses_K29 = easyCalcDataOutput.WaterLosses_K29;
-                WaterLossesErrorMargin_K31 = easyCalcDataOutput.WaterLossesErrorMargin_K31;
+                BilledMeteredConsumption_AC4 = BilledMeteredConsumption_AC4,
+                BilledUnmeteredConsumption_AC9 = BilledUnmeteredConsumption_AC9,
+                UnbilledMeteredConsumption_AC14 = UnbilledMeteredConsumption_AC14,
 
-                BilledAuthorizedConsumption_T8 = easyCalcDataOutput.BilledAuthorizedConsumption_T8;
-                UnbilledAuthorizedConsumption_T16 = easyCalcDataOutput.UnbilledAuthorizedConsumption_T16;
-                UnbilledAuthorizedConsumptionErrorMargin_T20 = easyCalcDataOutput.UnbilledAuthorizedConsumptionErrorMargin_T20;
-                CommercialLosses_T26 = easyCalcDataOutput.CommercialLosses_T26;
-                CommercialLossesErrorMargin_T29 = easyCalcDataOutput.CommercialLossesErrorMargin_T29;
-                PhysicalLossesM3_T34 = easyCalcDataOutput.PhysicalLossesM3_T34;
-                PhyscialLossesErrorMargin_AH35 = easyCalcDataOutput.PhyscialLossesErrorMargin_AH35;
+                UnbilledUnmeteredConsumption_AC19 = UnbilledUnmeteredConsumption_AC19,
+                UnbilledUnmeteredConsumptionErrorMargin_AO20 =
+                UnbilledUnmeteredConsumptionErrorMargin_AO20,
+                UnauthorizedConsumption_AC24 = UnauthorizedConsumption_AC24,
+                UnauthorizedConsumptionErrorMargin_AO25 = UnauthorizedConsumptionErrorMargin_AO25,
+                CustomerMeterInaccuraciesAndErrorsM3_AC29 =
+                CustomerMeterInaccuraciesAndErrorsM3_AC29,
+                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 =
+                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
 
-                BilledMeteredConsumption_AC4 = easyCalcDataOutput.BilledMeteredConsumption_AC4;
-                BilledUnmeteredConsumption_AC9 = easyCalcDataOutput.BilledUnmeteredConsumption_AC9;
-                UnbilledMeteredConsumption_AC14 = easyCalcDataOutput.UnbilledMeteredConsumption_AC14;
-
-                UnbilledUnmeteredConsumption_AC19 = easyCalcDataOutput.UnbilledUnmeteredConsumption_AC19;
-                UnbilledUnmeteredConsumptionErrorMargin_AO20 = easyCalcDataOutput.UnbilledUnmeteredConsumptionErrorMargin_AO20;
-                UnauthorizedConsumption_AC24 = easyCalcDataOutput.UnauthorizedConsumption_AC24;
-                UnauthorizedConsumptionErrorMargin_AO25 = easyCalcDataOutput.UnauthorizedConsumptionErrorMargin_AO25;
-                CustomerMeterInaccuraciesAndErrorsM3_AC29 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsM3_AC29;
-                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
-
-                RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
-                NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
-                NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
+                NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
+                NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
+            };
+            return easyCalcDataOutput;
         }
+        #endregion
     }
 }

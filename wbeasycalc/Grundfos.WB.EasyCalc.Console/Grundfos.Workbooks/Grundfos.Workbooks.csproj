@@ -58,16 +58,12 @@
   <ItemGroup>
     <Compile Include="ExcelReader.cs" />
     <Compile Include="ExcelWriter.cs" />
+    <Compile Include="Model\CellByRowColumnNo.cs" />
+    <Compile Include="Model\CellByName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Grundfos.WG.Model\Grundfos.WG.Model.csproj">
-      <Project>{c93e4127-d77c-4818-9100-e5c2c459eb9f}</Project>
-      <Name>Grundfos.WG.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
