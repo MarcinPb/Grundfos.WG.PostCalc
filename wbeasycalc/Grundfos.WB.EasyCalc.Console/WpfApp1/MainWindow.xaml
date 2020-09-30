@@ -538,15 +538,17 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
+
             <Grid Grid.Row="0" Margin="0 0 0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Command="{Binding CountBaseOnExcelCmd}" Content="Load from Excel File" Padding="5 0 5 0" Height="18" VerticalAlignment="Top" />
+                <Button Grid.Column="0" Command="{Binding ImportFromExcelCmd}" Content="Load from Excel File" Padding="5 0 5 0" Height="18" VerticalAlignment="Top" />
                 <Button Grid.Column="1" Command="{Binding ExportToExcelCmd}" Content="Save to Excel File" Padding="5 0 5 0" Margin="1 0 0 0"/>
             </Grid>
+
             <Grid Grid.Row="1" Margin="0 0 0 10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -556,20 +558,22 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-               <TextBlock Grid.Row="0" Grid.Column="0" Text="Year" />
-               <TextBlock Grid.Row="0" Grid.Column="1" Text="Month" />
-               <TextBlock Grid.Row="0" Grid.Column="2" Text="Zone" />
-               <!--<TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=SelectedMonth}" />-->
-               <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=YearList}" SelectedValue="{Binding Path=SelectedYear}" />
-               <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=MonthList}" SelectedValue="{Binding Path=SelectedMonth}" />
-               <!--<ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneList}" SelectedValue="{Binding Path=SelectedZoneId}" />-->
-               <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneItemList}" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=SelectedZoneItem}" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Year" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Month" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Zone" />
+                <!--<TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=SelectedMonth}" />-->
+                <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=YearList}" SelectedValue="{Binding Path=SelectedYear}" />
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=MonthList}" SelectedValue="{Binding Path=SelectedMonth}" />
+                <!--<ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneList}" SelectedValue="{Binding Path=SelectedZoneId}" />-->
+                <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=ZoneItemList}" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=SelectedZoneItem}" />
+                <Button Grid.Row="1" Grid.Column="3" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
             </Grid>
 
-            <Grid Grid.Row="2" Margin="0 0 0 5">
+            <!--<Grid Grid.Row="2" Margin="0 0 0 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -580,20 +584,16 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
-            </Grid>
-            <Grid Grid.Row="3" Margin="0 0 0 5">
+            </Grid>-->
+
+            <Grid Grid.Row="2" Margin="0 0 0 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Command="{Binding LoadDataFromScadaCmd}" Content="Load Data from SCADA" Padding="5 0 5 0"/>
-                <Button Grid.Column="2" Command="{Binding SaveDataToScadaCmd}" Content="Save Data to SCADA" Padding="5 0 5 0" Margin="1 0 0 0"/>
+                <!--<Button Grid.Column="1" Command="{Binding LoadDataFromScadaCmd}" Content="Load Data from SCADA" Padding="5 0 5 0"/>-->
+                <Button Grid.Column="0" Command="{Binding SaveDataToScadaCmd}" Content="Save Data to SCADA" Padding="5 0 5 0"  />
             </Grid>
-       </Grid>
+        </Grid>
     </Grid>
 </Window>
