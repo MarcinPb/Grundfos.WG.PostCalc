@@ -60,6 +60,8 @@
     <Compile Include="Controls\FilteredDataGridCtrl.cs" />
     <Compile Include="Controls\UiHelper.cs" />
     <Compile Include="Controls\TextHeaderToBooleanConverter.cs" />
+    <Compile Include="Converters\FloatConverter.cs" />
+    <Compile Include="Converters\PercentageConverter.cs" />
     <Compile Include="Ui\WbEasyCalcData\ItemViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
@@ -136,13 +138,15 @@
       <Project>{ba9d1b4b-4f94-466a-b5e9-2b8d21d6e941}</Project>
       <Name>DataRepository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj">
+      <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
+      <Name>Grundfos.WB.EasyCalc.Calculations</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Controls\filter.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

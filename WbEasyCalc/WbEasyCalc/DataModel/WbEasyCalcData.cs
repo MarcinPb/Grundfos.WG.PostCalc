@@ -23,7 +23,7 @@
         public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
         public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
         public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
-        public bool   MetErrors_DetailedManualSpec_J6 { get; set; }
+        public double MetErrors_DetailedManualSpec_J6 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
         public double MetErrors_MetBulkSupExpMetUnderreg_H32 { get; set; }

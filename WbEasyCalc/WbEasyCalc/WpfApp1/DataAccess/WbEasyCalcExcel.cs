@@ -27,23 +27,19 @@ namespace WpfApp1.DataAccess
             excelReader.WriteToCell("Unauth. Cons.", "J6", easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6);
             excelReader.WriteToCell("Unauth. Cons.", "F6", easyCalcDataInput.UnauthCons_IllegalConnDomErrorMargin_F6);
             excelReader.WriteToCell("Unauth. Cons.", "F10", easyCalcDataInput.UnauthCons_IllegalConnOthersErrorMargin_F10);
-
             excelReader.WriteToCell("Unauth. Cons.", "D14", easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14);
             excelReader.WriteToCell("Unauth. Cons.", "F14", easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14);
             excelReader.WriteToCell("Unauth. Cons.", "J14", easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14);
-
             excelReader.WriteToCell("Meter Errors", "J6", easyCalcDataInput.MetErrors_DetailedManualSpec_J6);
             excelReader.WriteToCell("Meter Errors", "H8", easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8);
             excelReader.WriteToCell("Meter Errors", "N8", easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8);
             excelReader.WriteToCell("Meter Errors", "H32", easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32);
             excelReader.WriteToCell("Meter Errors", "H34", easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34);
             excelReader.WriteToCell("Meter Errors", "H38", easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38);
-
             excelReader.WriteToCell("Network", "D7", easyCalcDataInput.Network_DistributionAndTransmissionMains_D7);
             excelReader.WriteToCell("Network", "H10", easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10);
             excelReader.WriteToCell("Network", "H18", easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18);
             excelReader.WriteToCell("Network", "H32", easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
-
             excelReader.WriteToCell("Pressure", "D7", easyCalcDataInput.Prs_ApproxNoOfConn_D7);
             excelReader.WriteToCell("Pressure", "F7", easyCalcDataInput.Prs_DailyAvgPrsM_F7);
 
