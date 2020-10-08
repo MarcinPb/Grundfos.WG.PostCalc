@@ -38,7 +38,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
                 OpenRowCmd.RaiseCanExecuteChanged();
                 RemoveRowCmd.RaiseCanExecuteChanged();
-                SetUpRankCmd.RaiseCanExecuteChanged();
+                CloneCmd.RaiseCanExecuteChanged();
 
                 //WbEasyCalcDataEditedViewModel?.Close();
                 WbEasyCalcDataEditedViewModel = null;
@@ -138,24 +138,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
-        public RelayCommand SetUpRankCmd { get; }
+        public RelayCommand CloneCmd { get; }
 
-        private void SetUpRankCmdExecute()
+        private void CloneCmdExecute()
         {
             if (SelectedRow == null) return;
-            var res = MessageBox.Show(
-                "Are you sure to set up Description?",
-                "Question",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question
-            );
-            if (res == MessageBoxResult.Yes)
-            {
-                GlobalConfig.WbEasyCalcDataRepo.SetUpRank(SelectedRow.WbEasyCalcDataId);
-            }
+            int id = GlobalConfig.WbEasyCalcDataRepo.Clone(SelectedRow.WbEasyCalcDataId);
+            LoadData();
+            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcDataId == id);
         }
 
-        public bool SetUpRankCmdCanExecute()
+        public bool CloneCmdCanExecute()
         {
             return SelectedRow != null;
         }
@@ -167,7 +160,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             AddRowCmd = new RelayCommand(AddRowCmdExecute, AddRowCmdCanExecute);
             OpenRowCmd = new RelayCommand(OpenRowCmdExecute, OpenRowCmdCanExecute);
             RemoveRowCmd = new RelayCommand(RemoveRowCmdExecute, RemoveRowCmdCanExecute);
-            SetUpRankCmd = new RelayCommand(SetUpRankCmdExecute, SetUpRankCmdCanExecute);
+            CloneCmd = new RelayCommand(CloneCmdExecute, CloneCmdCanExecute);
             SaveRowCmd = new RelayCommand(SaveRowCmdExecute, SaveRowCmdCanExecute);
 
             LoadData();

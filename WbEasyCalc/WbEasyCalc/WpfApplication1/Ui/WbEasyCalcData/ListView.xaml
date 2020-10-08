@@ -7,10 +7,10 @@
              xmlns:utility="clr-namespace:WpfApplication1.Utility"
              xmlns:controls="clr-namespace:WpfApplication1.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="990" Width="1760">
+             d:DesignHeight="990" Width="1700">
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="250"/>
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -26,9 +26,11 @@
                 <!--
                 <Button Command="{Binding OpenRowCmd}" Content="Open"/>
                 -->
-                <Button Command="{Binding RemoveRowCmd}" Content="Remove"/>
                 <Separator/>
-                <Button Command="{Binding SetUpRankCmd}" Content="Set up Description"/>
+                <Button Command="{Binding RemoveRowCmd}" Content="Delete"/>
+                <Separator/>
+                <Button Command="{Binding CloneCmd}" Content="Clone"/>
+                <Separator/>
             </ToolBar>
             <controls:FilteredDataGridCtrl Grid.Row="1"
                 ItemsSource="{Binding List}" 
@@ -43,10 +45,14 @@
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding WbEasyCalcDataId}"/>
                     <DataGridTextColumn Header="ZoneId" Width="150" IsReadOnly="True" Binding="{Binding ZoneId}"/>
-                    <DataGridTextColumn Header="YearNo" Width="200" IsReadOnly="True" Binding="{Binding YearNo}"/>
-                    <DataGridTextColumn Header="MonthNo" Width="100" IsReadOnly="True" Binding="{Binding MonthNo }" />
-                    <DataGridTextColumn Header="Description" Width="100" IsReadOnly="True" Binding="{Binding Description}"/>
-                    <DataGridTextColumn Header="Start_PeriodDays_M21" Width="100" IsReadOnly="True" Binding="{Binding Start_PeriodDays_M21}" />
+                    <DataGridTextColumn Header="YearNo" Width="150" IsReadOnly="True" Binding="{Binding YearNo}"/>
+                    <DataGridTextColumn Header="MonthNo" Width="150" IsReadOnly="True" Binding="{Binding MonthNo }" />
+                    <DataGridTextColumn Header="Description" Width="400" IsReadOnly="True" Binding="{Binding Description}"/>
+                    <DataGridTextColumn Header="Start_PeriodDays_M21" Width="150" IsReadOnly="True" Binding="{Binding Start_PeriodDays_M21}" />
+                    <DataGridTextColumn Header="SystemInputVolume_B19" Width="170" IsReadOnly="True" Binding="{Binding SystemInputVolume_B19}" />
+                    <DataGridTextColumn Header="SystemInputVolumeErrorMargin_B21" Width="220" IsReadOnly="True" Binding="{Binding SystemInputVolumeErrorMargin_B21}" />
+                    <DataGridTextColumn Header="WaterLosses_K29" Width="130" IsReadOnly="True" Binding="{Binding WaterLosses_K29}" />
+                    <DataGridTextColumn Header="WaterLossesErrorMargin_K31" Width="200" IsReadOnly="True" Binding="{Binding WaterLossesErrorMargin_K31}" />
                 </DataGrid.Columns>
             </controls:FilteredDataGridCtrl>
             <StatusBar Grid.Row="2">

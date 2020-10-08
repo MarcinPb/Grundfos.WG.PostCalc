@@ -4,601 +4,554 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              mc:Ignorable="d" 
-             Height="750" Width="1700"
+             Height="590" Width="1700"
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
     </UserControl.Resources>
+    <Border BorderThickness="1" BorderBrush="Gray">
+        <Grid Margin="20 0 20 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition Width="860"/>
+            </Grid.ColumnDefinitions>
 
-    <Grid Margin="20 20 20 20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <TabControl Grid.Column="0" Grid.Row="0" Margin="0 0 10 0" TabStripPlacement="Bottom">
-            <TabItem Header="Start" >
-                <Grid Grid.Row="0" Background="LightBlue">
-                    <Grid Grid.Row="0" Margin="20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text ="The volumes used this water balance arre for a period of [days]: " />
-                        <TextBox Grid.Column="1" Width="40" Text="{Binding Path=Model.Start_PeriodDays_M21, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
-                    </Grid>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Sys.Input" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0 0 0 10">
+                <Grid Margin="0 10 0 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="System Input Volume [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-                    <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Billed Cons" >
-                <Grid Grid.Row="0" Margin="10" >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="680" />
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="110"/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Billed Metered Consumption [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"  />
-                    <TextBlock Grid.Column="2" Text ="  Billed Unmetered Consumption [m3]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Unb. Cons." >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Unauth. Cons." >
-                <Grid Grid.Row="0" Background="LightBlue">
-                    <Grid Grid.Row="0" Margin="10" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="290"/>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="110"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="170"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="70"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="70"/>
-                        </Grid.RowDefinitions>
+                    <TextBlock Text="Id" Grid.Row="0" Grid.Column="0" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Margin="7 0 0 0" Text="Year" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Month" />
+                    <TextBlock Grid.Row="0" Grid.Column="3" Text="Zone" />
+                    <TextBlock Grid.Row="0" Grid.Column="5" Margin="7 0 0 0" Text="Description"/>
 
-                        <Label Grid.Column="0" Grid.Row="0" Content ="Description" BorderBrush="White" BorderThickness="1" Foreground="White" FontWeight="Bold" Background="SteelBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 0 10 10"/>
-                        <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Estimated" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Number" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-                        <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[+/-%]" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-                        <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Person per" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="House" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-                        <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/person/day]" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-
-
-                        <Border Grid.Column="0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - domestic" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
-                        </Border>
-                        <TextBox Grid.Column="1" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
-                        <TextBox Grid.Column="2" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomErrorMargin_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
-                        <TextBox Grid.Column="3" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomPersPerHouse_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                        <TextBox Grid.Column="4" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-
-                        <Border Grid.Column="4" Grid.Row="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/connection/day]" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-
-                        <Border Grid.Column="0" Grid.Row="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - others" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
-                        </Border>
-                        <TextBox Grid.Column="1" Grid.Row="3" Margin="0 0 10 10" IsEnabled="False"/>
-                        <TextBox Grid.Column="2" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnOthersErrorMargin_F10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
-                        <TextBox Grid.Column="4" Grid.Row="3" Margin="0 0 10 10" IsEnabled="False" />
-
-                        <Border Grid.Column="4" Grid.Row="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/customer/day]" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                        </Border>
-
-                        <Border Grid.Row="5" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                            <Grid VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Meater tampering, bypasses, etc. at registered" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
-                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="customers" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
-                            </Grid>
-                        </Border>
-                        <TextBox Grid.Column="1" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcEstNo_D14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
-                        <TextBox Grid.Column="2" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcErrorMargin_F14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
-                        <TextBox Grid.Column="4" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
-
-                    </Grid>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Meter Errors" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text ="Enter 1 to use an overall for meter or 2 for manual: " />
-                    <TextBox Grid.Column="1" Grid.Row="0" Width="100" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text ="Billed Metered Consumption [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }"  TextAlignment="Right"/>
-                    <TextBlock Grid.Column="2" Grid.Row="1" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="0" Grid.Row="2" Text ="Metered Bulk Supply [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="2" Width="100" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text ="Unbilled Metered Consumption [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="3" Width="100" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="0" Grid.Row="4" Text ="Corrupt Meter Reading Practices [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="4" Width="100" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Network" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
-                    <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
-                    <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
-                    <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
-                    <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Pressure" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Approximate Number of Connections: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=Model.Id, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=YearList}" DisplayMemberPath="Name" SelectedValue="{Binding Path=SelectedYear}" />
+                    <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=MonthList}" DisplayMemberPath="Name" SelectedValue="{Binding Path=SelectedMonth}" />
+                    <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
+                    <Button Grid.Row="1" Grid.Column="4" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
+                    <TextBox Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Command="{Binding ImportFromExcelCmd}" Content="Load from Excel File" />
+                    <Button Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" Command="{Binding ExportToExcelCmd}" Content="Save to Excel File" />
                 </Grid>
 
-            </TabItem>
-        </TabControl>
+            </Grid>
 
-
-        <TabControl Grid.Column="1" Grid.Row="0" Margin="0 0 20 0" TabStripPlacement="Bottom">
-            <TabItem Header="Water Balance m3" >
-                <Grid Background="AliceBlue">
-                    <Grid Margin="10 0 10 10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Row="0" Margin="0 0 0 2" Width="Auto" HorizontalAlignment="Center">
+            <TabControl Grid.Column="0" Grid.Row="1" Margin="0 0 0 0" TabStripPlacement="Bottom">
+                <TabItem Header="Start" >
+                    <Grid Grid.Row="0" Background="LightBlue">
+                        <Grid Grid.Row="0" Margin="20">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text ="The volumes used this water balance arre for a period of [days]: " />
+                            <TextBox Grid.Column="1" Width="40" Text="{Binding Path=Model.Start_PeriodDays_M21, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Sys.Input" >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Text ="System Input Volume [m3]: " />
+                        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
+                        <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
+                        <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Billed Cons" >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Text ="Billed Metered Consumption [m3]: " />
+                        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"  />
+                        <TextBlock Grid.Column="2" Text ="  Billed Unmetered Consumption [m3]: " />
+                        <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Unb. Cons." >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
+                        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Unauth. Cons." >
+                    <Grid Grid.Row="0" Background="LightBlue">
+                        <Grid Grid.Row="0" Margin="10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="290"/>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="170"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="70"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Content ="Description" BorderBrush="White" BorderThickness="1" Foreground="White" FontWeight="Bold" Background="SteelBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 0 10 10"/>
+                            <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Estimated" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Number" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[+/-%]" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Person per" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="House" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/person/day]" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+
+
+                            <Border Grid.Column="0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - domestic" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
+                            </Border>
+                            <TextBox Grid.Column="1" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
+                            <TextBox Grid.Column="2" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomErrorMargin_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
+                            <TextBox Grid.Column="3" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomPersPerHouse_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                            <TextBox Grid.Column="4" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+
+                            <Border Grid.Column="4" Grid.Row="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/connection/day]" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Column="0" Grid.Row="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - others" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
+                            </Border>
+                            <TextBox Grid.Column="1" Grid.Row="3" Margin="0 0 10 10" IsEnabled="False"/>
+                            <TextBox Grid.Column="2" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnOthersErrorMargin_F10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
+                            <TextBox Grid.Column="4" Grid.Row="3" Margin="0 0 10 10" IsEnabled="False" />
+
+                            <Border Grid.Column="4" Grid.Row="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/customer/day]" FontWeight="Bold" Foreground="White"/>
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Row="5" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Meater tampering, bypasses, etc. at registered" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="customers" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
+                                </Grid>
+                            </Border>
+                            <TextBox Grid.Column="1" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcEstNo_D14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Column="2" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcErrorMargin_F14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Column="4" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
+
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Meter Errors" >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text ="Enter 1 to use an overall for meter or 2 for manual: " />
+                        <TextBox Grid.Column="1" Grid.Row="0" Width="100" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text ="Billed Metered Consumption [%]: " />
+                        <TextBox Grid.Column="1" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }"  TextAlignment="Right"/>
+                        <TextBlock Grid.Column="2" Grid.Row="1" Text ="  Error Margin [+/-%]: " />
+                        <TextBox Grid.Column="3" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                        <TextBlock Grid.Column="0" Grid.Row="2" Text ="Metered Bulk Supply [%]: " />
+                        <TextBox Grid.Column="1" Grid.Row="2" Width="100" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                        <TextBlock Grid.Column="0" Grid.Row="3" Text ="Unbilled Metered Consumption [%]: " />
+                        <TextBox Grid.Column="1" Grid.Row="3" Width="100" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                        <TextBlock Grid.Column="0" Grid.Row="4" Text ="Corrupt Meter Reading Practices [%]: " />
+                        <TextBox Grid.Column="1" Grid.Row="4" Width="100" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Network" >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
+                        <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
+                        <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
+                        <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
+                        <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                        <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
+                        <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Pressure" >
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Text ="Approximate Number of Connections: " />
+                        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                        <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
+                        <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+
+            <TabControl Grid.Column="1" Grid.Row="1" Margin="10 0 0 0" TabStripPlacement="Bottom">
+                <TabItem Header="Water Balance m3" >
+                    <Grid Background="AliceBlue">
+                        <Grid Margin="10 0 10 10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Water Balance in m3 for a period of " FontWeight="Bold" FontSize="14"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="30" FontWeight="Bold" FontSize="14" Foreground="Red"/>
-                            <TextBlock Grid.Row="0" Grid.Column="2" Text=" days" FontWeight="Bold" FontSize="14" />
-                        </Grid>
-                        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <Grid >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="0 0 0 2" Width="Auto" HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-
-                                <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="7" Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="System Input Volume" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.SystemInputVolume_B19, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
-
-                                <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="4" Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Authorized Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.AuthorizedConsumption_K12, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.AuthorizedConsumptionErrorMargin_K15, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLosses_K29, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
-
-                                <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Authorized" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledAuthorizedConsumption_T8, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Authorized" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledAuthorizedConsumption_T16, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledAuthorizedConsumptionErrorMargin_T20, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Commercial Loses" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CommercialLosses_T26, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CommercialLossesErrorMargin_T29, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Physical Loses" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.PhysicalLossesM3_T34, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.PhyscialLossesErrorMargin_AH35, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                                    </Grid>
-                                </Border>
-
-                                <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Metered Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledMeteredConsumption_AC4, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Unmetered Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledUnmeteredConsumption_AC9, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Metered Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledMeteredConsumption_AC14, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Unmetered Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledUnmeteredConsumption_AC19, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledUnmeteredConsumptionErrorMargin_AO20, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unauthorized Consumption" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnauthorizedConsumption_AC24, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnauthorizedConsumptionErrorMargin_AO25, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Customer Meter Inaccuracies and Data" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Handling Errors" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CustomerMeterInaccuraciesAndErrorsM3_AC29, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                                    </Grid>
-                                </Border>
-
-                                <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Revenue Water" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.RevenueWaterM3_AY8, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                    </Grid>
-                                </Border>
-                                <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="5" Background="Plum" Padding="10">
-                                    <Grid VerticalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Non-Revenue Water" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.NonRevenueWaterM3_AY24, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
-                                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                                        <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.NonRevenueWaterErrorMargin_AY26, StringFormat={}{0:P1}}" />
-                                    </Grid>
-                                </Border>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Water Balance in m3 for a period of " FontWeight="Bold" FontSize="14"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="30" FontWeight="Bold" FontSize="14" Foreground="Red"/>
+                                <TextBlock Grid.Row="0" Grid.Column="2" Text=" days" FontWeight="Bold" FontSize="14" />
                             </Grid>
-                        </Border>
+                            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="7" Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="System Input Volume" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.SystemInputVolume_B19, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="4" Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Authorized Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.AuthorizedConsumption_K12, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.AuthorizedConsumptionErrorMargin_K15, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLosses_K29, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Authorized" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledAuthorizedConsumption_T8, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Authorized" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledAuthorizedConsumption_T16, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledAuthorizedConsumptionErrorMargin_T20, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Commercial Loses" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CommercialLosses_T26, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CommercialLossesErrorMargin_T29, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Physical Loses" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.PhysicalLossesM3_T34, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.PhyscialLossesErrorMargin_AH35, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Metered Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledMeteredConsumption_AC4, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Unmetered Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.BilledUnmeteredConsumption_AC9, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Metered Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledMeteredConsumption_AC14, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Unmetered Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledUnmeteredConsumption_AC19, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnbilledUnmeteredConsumptionErrorMargin_AO20, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unauthorized Consumption" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnauthorizedConsumption_AC24, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.UnauthorizedConsumptionErrorMargin_AO25, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Customer Meter Inaccuracies and Data" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Handling Errors" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CustomerMeterInaccuraciesAndErrorsM3_AC29, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Revenue Water" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.RevenueWaterM3_AY8, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                        </Grid>
+                                    </Border>
+                                    <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="5" Background="Plum" Padding="10">
+                                        <Grid VerticalAlignment="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Non-Revenue Water" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.NonRevenueWaterM3_AY24, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.NonRevenueWaterErrorMargin_AY26, StringFormat={}{0:P1}}" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </TabItem>
-        </TabControl>
+                </TabItem>
+            </TabControl>
 
-        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 20 0 0">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="1" Margin="0 0 0 10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Id" Grid.Row="0" Grid.Column="0" />
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="Year" />
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Month" />
-                <TextBlock Grid.Row="0" Grid.Column="3" Text="Zone" />
-                <TextBlock Grid.Row="0" Grid.Column="5" Margin="7 0 0 0" Text="Description"/>
-
-                <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=Model.Id, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
-                <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=YearList}" DisplayMemberPath="Name" SelectedValue="{Binding Path=SelectedYear}" />
-                <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=MonthList}" DisplayMemberPath="Name" SelectedValue="{Binding Path=SelectedMonth}" />
-                <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
-                <Button Grid.Row="1" Grid.Column="4" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
-                <TextBox Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Command="{Binding ImportFromExcelCmd}" Content="Load from Excel File" />
-                <Button Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" Command="{Binding ExportToExcelCmd}" Content="Save to Excel File" />
-            </Grid>
-
-            <!--<Grid Grid.Row="2" Margin="0 0 0 5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0 5 0" />
-            </Grid>-->
 
         </Grid>
-
-
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"   />
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="222.709" />
-                <ColumnDefinition Width="78.291"/>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="150" />
-                <ColumnDefinition Width="150" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Margin="7,8,7,0" Text="ZoneId" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBlock Margin="7,8,7,0" Text="YearNo" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-            <TextBlock Margin="7,8,7,0" Text="MonthNo" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center"/>
-
-            <TextBox Margin="7" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Model.ZoneId, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Margin="7" Grid.Column="2" Grid.Row="1" Text="{Binding Path=Model.YearNo, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
-            <TextBox Margin="7" Grid.Column="4" Grid.Row="1" Text="{Binding Path=Model.MonthNo, UpdateSourceTrigger=PropertyChanged}"/>
-        </Grid>
-
-    </Grid>
+    </Border>
 </UserControl>

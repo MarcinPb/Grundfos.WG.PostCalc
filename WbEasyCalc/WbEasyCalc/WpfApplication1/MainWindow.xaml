@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="1000" Width="1800"
+        Height="950" Width="1760"
         
         xmlns:local="clr-namespace:WpfApplication1"
         >

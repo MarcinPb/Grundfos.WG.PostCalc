@@ -125,11 +125,19 @@ namespace DataRepository.WbEasyCalcData
             throw new NotImplementedException();
         }
 
-        public void SetUpRank(int id)
+        public int Clone(int id)
         {
-            DataModel.WbEasyCalcData model = GetItem(id);
-            // model.Rank = 999;
-            // todo Update(model);
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@id", id, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+
+                connection.Execute("dbo.spWbEasyCalcDataClone", p, commandType: CommandType.StoredProcedure);
+
+                var wbEasyCalcDataId = p.Get<int>("@id");
+
+                return wbEasyCalcDataId;
+            }
         }
     }
 }
