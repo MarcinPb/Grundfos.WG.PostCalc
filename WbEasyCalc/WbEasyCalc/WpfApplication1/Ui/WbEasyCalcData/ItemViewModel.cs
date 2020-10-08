@@ -592,7 +592,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
         }
 
-        private void CalculateExcel()
+        public void CalculateExcel()
         {
             try
             {
@@ -618,7 +618,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         #region Mappings
 
-        private void MapEasyCalcDataInput(EasyCalcDataInput easyCalcDataInput)
+        public void MapEasyCalcDataInput(EasyCalcDataInput easyCalcDataInput)
         {
             Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
             SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
@@ -648,7 +648,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
         }
 
-        private EasyCalcDataInput MapEasyCalcDataInput()
+        public EasyCalcDataInput MapEasyCalcDataInput()
         {
             EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
             {

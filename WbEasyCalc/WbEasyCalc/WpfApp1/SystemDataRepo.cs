@@ -22,20 +22,13 @@ namespace WpfApp1
             try
             {
                 string sqlQueryString = $"SELECT * FROM [dbo].[vw_zuzycia_stref_2] WHERE [year] = {year} AND [month] = {month} AND ZoneId = {zoneId}";
-                    //@"
-                    //SELECT 
-                    //  [id_strefy]
-                    // ,[nazwa_strefy]
-                    // ,CAST(REPLACE([dlugosc_sieci], ',','.') AS FLOAT) AS dlugosc_sieci
-                    // ,[ilosc_przylaczy]
-                    // ,[sprzedaz_w_strefie]
-                    // ,[year]
-                    // ,[month]
-                    //FROM 
-                    // [dbo].[vw_zuzycia_stref]
-                    //WHERE 
-                    // [year] >= 2020
-                    //";
+                    //[year]
+                    //[month]
+                    //[ZoneId]
+                    //[sprzedaz_w_strefie]          // BilledCons_BilledMetConsBulkWatSupExpM3_D6
+                    //[dlugosc_sieci]               // Network_DistributionAndTransmissionMains_D7
+                    //[ilosc_przylaczy]             // Network_NoOfConnOfRegCustomers_H10
+                    //[SystemImputVolume]           // SysInput_SystemInputVolumeM3_D6                  
                 return FillDataTable(sqlQueryString);
             }
             catch (Exception e)

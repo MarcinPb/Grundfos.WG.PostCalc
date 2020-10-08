@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GisModelScadaData.cs" />
     <Compile Include="IdNamePair.cs" />
     <Compile Include="WbEasyCalcData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

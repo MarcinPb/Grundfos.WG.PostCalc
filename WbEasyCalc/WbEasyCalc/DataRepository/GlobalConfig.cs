@@ -6,12 +6,24 @@ using System.Linq;
 using Dapper;
 using DataModel;
 using DataRepository.WbEasyCalcData;
+using Grundfos.WB.EasyCalc.Calculations;
+using DataRepository.DataAccess;
 
 namespace DataRepository
 {
     public static class GlobalConfig
     {
-        public static IWbEasyCalcDataListRepository WbEasyCalcDataRepo { get; private set; }
+        // ex: GlobalConfig.Opc.RunOpcPublish(zoneRomanNo, easyCalcDataInput, easyCalcDataOutput); 
+        public static Opc Opc { get; set; } = new Opc();
+
+        public static WbEasyCalcExcel WbEasyCalcExcel { get; set; } = new WbEasyCalcExcel();
+
+
+
+
+
+
+
 
 
         private static List<ZoneItem> _zoneList;
@@ -67,6 +79,47 @@ namespace DataRepository
             }
             set => throw new System.NotImplementedException();
         }
+
+        public static IWbEasyCalcDataListRepository WbEasyCalcDataRepo { get; private set; }
+
+        public static GisModelScadaData GetGisModelScadaData(int yearNo, int monthNo, int zoneId)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@YearNo", yearNo);
+                p.Add("@MonthNo", monthNo);
+                p.Add("@ZoneId", zoneId);
+                p.Add("@ZoneSale", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@NetworkLength", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@CustomersQuantity", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SystemInputVolume", dbType: DbType.Double, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spGisModelScadaData", p, commandType: CommandType.StoredProcedure);
+
+                return new GisModelScadaData()
+                {
+                    ZoneSale = p.Get<double>("@ZoneSale"),
+                    NetworkLength = p.Get<double>("@NetworkLength"),
+                    CustomersQuantity = p.Get<double>("@CustomersQuantity"),
+                    SystemInputVolume = p.Get<double>("@SystemInputVolume"),
+                };
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

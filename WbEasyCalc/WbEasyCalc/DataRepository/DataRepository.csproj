@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Opc.cs" />
+    <Compile Include="DataAccess\WbEasyCalcExcel.cs" />
     <Compile Include="IBaseItemRepository.cs" />
     <Compile Include="WbEasyCalcData\WbEasyCalcDataListRepository.cs" />
     <Compile Include="WbEasyCalcData\IWbEasyCalcDataListRepository.cs" />
@@ -61,6 +63,18 @@
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{84e205eb-b5e5-4e14-8f6b-bd3284d48e73}</Project>
       <Name>DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.OPC\Grundfos.OPC.csproj">
+      <Project>{ec4ad061-40ea-4bff-811e-fd01b81f3382}</Project>
+      <Name>Grundfos.OPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj">
+      <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
+      <Name>Grundfos.WB.EasyCalc.Calculations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
+      <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
+      <Name>Grundfos.Workbooks</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
