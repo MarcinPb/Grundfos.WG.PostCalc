@@ -15,9 +15,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             WbEasyCalcDataId = this.Id,
 
-            ZoneId = this.ZoneId,
             YearNo = this.YearNo,
             MonthNo = this.MonthNo,
+            ZoneId = this.ZoneId,
             Description = this.Description,
 
             Start_PeriodDays_M21 = this.Start_PeriodDays_M21,
@@ -114,6 +114,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _yearNo = value;
                 RaisePropertyChanged("YearNo");
+                CalculateDaysQty();
             }
         }
 
@@ -128,6 +129,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _monthNo = value;
                 RaisePropertyChanged("MonthNo");
+                CalculateDaysQty();
             }
         }
 
@@ -145,21 +147,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
-
-
-        //private int _startPeriodDaysM21;
-        //public int Start_PeriodDays_M21
-        //{
-        //    get
-        //    {
-        //        return _startPeriodDaysM21;
-        //    }
-        //    set
-        //    {
-        //        _startPeriodDaysM21 = value;
-        //        RaisePropertyChanged("Start_PeriodDays_M21");
-        //    }
-        //}
         #endregion
 
         #region Props input 
@@ -618,6 +605,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void CalculateDaysQty()
+        {
+            if (MonthNo == 0 || YearNo == 0)
+            {
+                return;
+            }
+            Start_PeriodDays_M21 = MonthNo == 13 ? new DateTime(YearNo, 12, 31).DayOfYear : DateTime.DaysInMonth(YearNo, MonthNo);
         }
 
         #region Mappings

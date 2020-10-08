@@ -19,6 +19,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _model = value; RaisePropertyChanged(); }
         }
 
+        
         public List<IdNamePair> YearList { get; set; }
         private IdNamePair _selectedYear;
         public IdNamePair SelectedYear
@@ -55,16 +56,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
+
         public EditedViewModel(int id)
         {
             Model = new ItemViewModel(GlobalConfig.WbEasyCalcDataRepo.GetItem(id));
 
             YearList = GlobalConfig.YearList;
-            SelectedYear = YearList.FirstOrDefault(x => x.Id==DateTime.Now.Year);
+            //SelectedYear = YearList.FirstOrDefault(x => x.Id==DateTime.Now.Year);
             MonthList = GlobalConfig.MonthList;
-            SelectedMonth = MonthList.FirstOrDefault(x => x.Id==DateTime.Now.Month);
+            //SelectedMonth = MonthList.FirstOrDefault(x => x.Id==DateTime.Now.Month);
             ZoneItemList = GlobalConfig.ZoneList;
-            SelectedZoneItem = ZoneItemList.FirstOrDefault(x =>x.ZoneId==Model.Model.ZoneId);
+            //SelectedZoneItem = ZoneItemList.FirstOrDefault(x =>x.ZoneId==Model.Model.ZoneId);
         }
 
     }
