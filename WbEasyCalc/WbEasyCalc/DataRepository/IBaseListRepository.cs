@@ -6,8 +6,8 @@ namespace DataRepository
     {
         List<T> GetList();
 
-        T GetItem(int id);
-        T SaveItem(T model);
-        bool DeleteItem(int id);
+        //T GetItem(int id);
+        //T SaveItem(T model);
+        //bool DeleteItem(int id);
     }
 }

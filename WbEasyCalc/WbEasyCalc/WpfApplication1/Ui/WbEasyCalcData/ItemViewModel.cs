@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
+using DataRepository;
 using Grundfos.WB.EasyCalc.Calculations;
 using WpfApplication1.Utility;
 
@@ -530,9 +532,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public ItemViewModel(DataModel.WbEasyCalcData model)
         {
             Id = model.WbEasyCalcDataId;
-            ZoneId = model.ZoneId;
-            YearNo = model.YearNo;
-            MonthNo = model.MonthNo;
+
+            if (model.WbEasyCalcDataId != 0)
+            {
+                ZoneId = model.ZoneId;
+                YearNo = model.YearNo;
+                MonthNo = model.MonthNo;
+            }
+            else
+            {
+                ZoneId = GlobalConfig.ZoneList.First().ZoneId;
+                YearNo = DateTime.Now.Year;
+                MonthNo = DateTime.Now.Month;
+            }
+
             Description = model.Description;
 
             Start_PeriodDays_M21 = model.Start_PeriodDays_M21;

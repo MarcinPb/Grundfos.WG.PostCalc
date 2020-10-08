@@ -3,10 +3,10 @@
     public class WbEasyCalcData
     {
         public int WbEasyCalcDataId { get; set; }
-        public int ZoneId { get; set; }
         public int YearNo { get; set; }
         public int MonthNo { get; set; }
-        public string Description { get; set; }
+        public int ZoneId { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         // input
         public int Start_PeriodDays_M21 { get; set; }

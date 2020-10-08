@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBaseItemRepository.cs" />
     <Compile Include="WbEasyCalcData\WbEasyCalcDataListRepository.cs" />
     <Compile Include="WbEasyCalcData\IWbEasyCalcDataListRepository.cs" />
     <Compile Include="Enums.cs" />
