@@ -89,20 +89,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
-        private int _zoneId;
-        public int ZoneId 
-        {
-            get
-            {
-                return _zoneId;
-            }
-            set
-            {
-                _zoneId = value;
-                RaisePropertyChanged("ZoneId");
-            }
-        }
-
         private int _yearNo;
         public int YearNo
         {
@@ -114,9 +100,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _yearNo = value;
                 RaisePropertyChanged("YearNo");
-                CalculateDaysQty();
+                CalculateDaysNumber();
             }
         }
+        public string YearName => GlobalConfig.YearList.FirstOrDefault(x => x.Id == YearNo)?.Name;
 
         private int _monthNo;
         public int MonthNo
@@ -129,7 +116,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _monthNo = value;
                 RaisePropertyChanged("MonthNo");
-                CalculateDaysQty();
+                CalculateDaysNumber();
+            }
+        }
+
+        private int _zoneId;
+        public int ZoneId 
+        {
+            get
+            {
+                return _zoneId;
+            }
+            set
+            {
+                _zoneId = value;
+                RaisePropertyChanged("ZoneId");
             }
         }
 
@@ -607,7 +608,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
-        private void CalculateDaysQty()
+        private void CalculateDaysNumber()
         {
             if (MonthNo == 0 || YearNo == 0)
             {
