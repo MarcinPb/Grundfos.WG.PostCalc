@@ -5,11 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-//using DataRepository;
-//using DataRepository.WbEasyCalcData;
 using DataModel;
 using DataRepository;
-using WpfApplication1.Ui.WbEasyCalcData;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1
