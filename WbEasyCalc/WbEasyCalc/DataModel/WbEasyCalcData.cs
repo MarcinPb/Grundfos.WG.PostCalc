@@ -6,6 +6,7 @@
         public int YearNo { get; set; }
         public int MonthNo { get; set; }
         public int ZoneId { get; set; }
+        public bool IsArchive { get; set; }
         public string Description { get; set; } = string.Empty;
 
         // input
@@ -74,6 +75,7 @@
                 YearNo  = YearNo,
                 MonthNo  = MonthNo, 
                 Description  = Description, 
+                IsArchive  = IsArchive, 
 
                 // input
                 Start_PeriodDays_M21  = Start_PeriodDays_M21,

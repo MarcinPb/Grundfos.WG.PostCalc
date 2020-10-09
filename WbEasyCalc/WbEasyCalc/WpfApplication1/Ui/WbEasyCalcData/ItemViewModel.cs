@@ -19,6 +19,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MonthNo = this.MonthNo,
             ZoneId = this.ZoneId,
             Description = this.Description,
+            IsArchive = this.IsArchive,
 
             Start_PeriodDays_M21 = this.Start_PeriodDays_M21,
             SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
@@ -131,6 +132,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _zoneId = value;
                 RaisePropertyChanged("ZoneId");
+            }
+        }
+
+        private bool _isArchive;
+        public bool IsArchive
+        {
+            get
+            {
+                return _isArchive;
+            }
+            set
+            {
+                _isArchive = value;
+                RaisePropertyChanged();
             }
         }
 
@@ -534,6 +549,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 MonthNo = DateTime.Now.Month;
             }
 
+            IsArchive = model.IsArchive;
             Description = model.Description;
 
             Start_PeriodDays_M21 = model.Start_PeriodDays_M21;

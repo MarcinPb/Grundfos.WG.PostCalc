@@ -48,6 +48,7 @@
                     <DataGridTextColumn Header="YearNo" Width="150" IsReadOnly="True" Binding="{Binding YearNo}"/>
                     <DataGridTextColumn Header="MonthNo" Width="150" IsReadOnly="True" Binding="{Binding MonthNo }" />
                     <DataGridTextColumn Header="ZoneId" Width="150" IsReadOnly="True" Binding="{Binding ZoneId}"/>
+                    <DataGridCheckBoxColumn Header="Archive in SCADA" Width="130" IsReadOnly="True" Binding="{Binding IsArchive}"/>
                     <DataGridTextColumn Header="Description" Width="400" IsReadOnly="True" Binding="{Binding Description}"/>
                     <DataGridTextColumn Header="Start Period Days" Width="150" IsReadOnly="True" Binding="{Binding Start_PeriodDays_M21}" />
                     <DataGridTextColumn Header="System Input Volume " Width="170" IsReadOnly="True" Binding="{Binding SystemInputVolume_B19}" />
