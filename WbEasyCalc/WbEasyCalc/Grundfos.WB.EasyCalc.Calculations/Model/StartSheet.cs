@@ -1,4 +1,4 @@
-﻿namespace Grundfos.WB.EasyCalc.Calculations.Model
+﻿namespace WbEasyCalc.Model
 {
     public class StartSheet
     {

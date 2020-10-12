@@ -62,13 +62,13 @@
       <Project>{84e205eb-b5e5-4e14-8f6b-bd3284d48e73}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj">
+    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\WbEasyCalc.csproj">
       <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
-      <Name>Grundfos.WB.EasyCalc.Calculations</Name>
+      <Name>WbEasyCalc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grundfos.Workbooks\Grundfos.Workbooks.csproj">
+    <ProjectReference Include="..\Grundfos.Workbooks\ExcelNpoi.csproj">
       <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
-      <Name>Grundfos.Workbooks</Name>
+      <Name>ExcelNpoi</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

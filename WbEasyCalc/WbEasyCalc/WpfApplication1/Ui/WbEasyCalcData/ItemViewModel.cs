@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using DataRepository;
 using GlobalRepository;
-using Grundfos.WB.EasyCalc.Calculations;
+using WbEasyCalc;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData

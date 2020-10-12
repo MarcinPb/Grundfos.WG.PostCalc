@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Grundfos.Workbooks.Model;
+﻿using System.Collections.Generic;
+using ExcelNpoi.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Grundfos.Workbooks.Test
+namespace ExcelNpoi.Test
 {
     [TestClass]
     public class UnitTest1

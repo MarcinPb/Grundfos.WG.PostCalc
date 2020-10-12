@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
-using Grundfos.WB.EasyCalc.Calculations;
-using Grundfos.Workbooks;
+using ExcelNpoi;
+using WbEasyCalc;
 
 namespace GlobalRepository
 {

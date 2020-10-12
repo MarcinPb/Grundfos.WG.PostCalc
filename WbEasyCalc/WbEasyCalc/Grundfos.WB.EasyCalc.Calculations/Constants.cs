@@ -1,4 +1,4 @@
-﻿namespace Grundfos.WB.EasyCalc.Calculations
+﻿namespace WbEasyCalc
 {
     public static class Constants
     {

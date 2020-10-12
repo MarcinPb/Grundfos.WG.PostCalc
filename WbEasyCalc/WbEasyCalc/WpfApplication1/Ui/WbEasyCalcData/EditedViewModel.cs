@@ -5,8 +5,8 @@ using System.Windows;
 using DataModel;
 using DataRepository;
 using GlobalRepository;
-using Grundfos.WB.EasyCalc.Calculations;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using WbEasyCalc;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData

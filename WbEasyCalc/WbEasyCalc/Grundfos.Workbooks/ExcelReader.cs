@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using Grundfos.Workbooks.Model;
+using ExcelNpoi.Model;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 
-namespace Grundfos.Workbooks
+namespace ExcelNpoi
 {
     public class ExcelReader
     {

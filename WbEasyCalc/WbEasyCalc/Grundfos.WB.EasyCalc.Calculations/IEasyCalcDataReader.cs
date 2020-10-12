@@ -1,7 +1,7 @@
 ﻿using System;
-using Grundfos.WB.EasyCalc.Calculations.Model;
+using WbEasyCalc.Model;
 
-namespace Grundfos.WB.EasyCalc.Calculations
+namespace WbEasyCalc
 {
     public interface IEasyCalcDataReader
     {

@@ -1,4 +1,4 @@
-﻿using Grundfos.WB.EasyCalc.Calculations;
+﻿using WbEasyCalc;
 
 namespace GlobalRepository
 {

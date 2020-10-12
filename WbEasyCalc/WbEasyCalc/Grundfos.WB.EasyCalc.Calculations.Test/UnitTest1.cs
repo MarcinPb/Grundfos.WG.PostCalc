@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Grundfos.WB.EasyCalc.Calculations;
-using Grundfos.WB.EasyCalc.Calculations.Model;
+using WbEasyCalc.Model;
 
-namespace Grundfos.WB.EasyCalc.Calculations.Test
+namespace WbEasyCalc.Test
 {
     [TestClass]
     public class UnitTest1

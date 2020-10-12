@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Grundfos.WB.EasyCalc.Calculations.Model
+namespace WbEasyCalc.Model
 {
     public class MeterErrorsSheet
     {

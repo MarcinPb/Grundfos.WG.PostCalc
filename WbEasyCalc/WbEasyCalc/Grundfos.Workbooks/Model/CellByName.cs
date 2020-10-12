@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Grundfos.Workbooks.Model
+namespace ExcelNpoi.Model
 {
     public class CellByName<T>
     {

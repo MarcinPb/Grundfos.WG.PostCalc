@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using Grundfos.WB.EasyCalc.Calculations;
 using Opc;
 using Opc.Model;
+using WbEasyCalc;
 
 namespace GlobalRepository
 {

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WB.EasyCalc.Calculations", "Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj", "{9AE2BB62-74D4-449E-B531-505BA70FBA14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WbEasyCalc", "Grundfos.WB.EasyCalc.Calculations\WbEasyCalc.csproj", "{9AE2BB62-74D4-449E-B531-505BA70FBA14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WB.EasyCalc.Calculations.Test", "Grundfos.WB.EasyCalc.Calculations.Test\Grundfos.WB.EasyCalc.Calculations.Test.csproj", "{C1736354-FD91-42BD-AB13-6B3E7AF36701}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WbEasyCalc.Test", "Grundfos.WB.EasyCalc.Calculations.Test\WbEasyCalc.Test.csproj", "{C1736354-FD91-42BD-AB13-6B3E7AF36701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.Workbooks", "Grundfos.Workbooks\Grundfos.Workbooks.csproj", "{72312FB8-0EA0-4E29-8D99-EA9CF6C1CCCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNpoi", "Grundfos.Workbooks\ExcelNpoi.csproj", "{72312FB8-0EA0-4E29-8D99-EA9CF6C1CCCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.Workbooks.Test", "Grundfos.Workbooks.Test\Grundfos.Workbooks.Test.csproj", "{D5EA8D42-A176-42D5-9400-E3A961D53BEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNpoi.Test", "Grundfos.Workbooks.Test\ExcelNpoi.Test.csproj", "{D5EA8D42-A176-42D5-9400-E3A961D53BEF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{84E205EB-B5E5-4E14-8F6B-BD3284D48E73}"
 EndProject

@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1736354-FD91-42BD-AB13-6B3E7AF36701}</ProjectGuid>
+    <ProjectGuid>{D5EA8D42-A176-42D5-9400-E3A961D53BEF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grundfos.WB.EasyCalc.Calculations.Test</RootNamespace>
-    <AssemblyName>Grundfos.WB.EasyCalc.Calculations.Test</AssemblyName>
+    <RootNamespace>ExcelNpoi.Test</RootNamespace>
+    <AssemblyName>ExcelNpoi.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,12 +53,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\TestFile.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\Grundfos.WB.EasyCalc.Calculations.csproj">
-      <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
-      <Name>Grundfos.WB.EasyCalc.Calculations</Name>
+    <ProjectReference Include="..\Grundfos.Workbooks\ExcelNpoi.csproj">
+      <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
+      <Name>ExcelNpoi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
