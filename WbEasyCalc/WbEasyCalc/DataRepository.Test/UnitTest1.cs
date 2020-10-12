@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using DataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,10 +8,14 @@ namespace DataRepository.Test
     [TestClass]
     public class UnitTest1
     {
+        string _cnnString = ConfigurationManager.ConnectionStrings["TWDB"].ConnectionString;
+
         [TestMethod]
         public void TestMethod1()
         {
-            GlobalConfig.InitializeConnection(DatabaseType.Sql);
+            DataRepository dataRepository = new DataRepository(_cnnString);
+
+            //GlobalConfig.InitializeConnection(DatabaseType.Sql);
             DataModel.WbEasyCalcData model = new DataModel.WbEasyCalcData()
             {
                 WbEasyCalcDataId = 0,
@@ -22,15 +27,16 @@ namespace DataRepository.Test
                 Start_PeriodDays_M21 = 30,
                 SysInput_SystemInputVolumeM3_D6 = 111111
             };
-            GlobalConfig.WbEasyCalcDataRepo.SaveItem(model);
+            dataRepository.WbEasyCalcDataListRepository.SaveItem(model);
             var id = model.WbEasyCalcDataId;
         }
 
         [TestMethod]
         public void TestMethod2()
         {
-            GlobalConfig.InitializeConnection(DatabaseType.Sql);
-            var list = GlobalConfig.WbEasyCalcDataRepo.GetList();
+            DataRepository dataRepository = new DataRepository("_cnnString");
+            //GlobalConfig.InitializeConnection(DatabaseType.Sql);
+            var list = dataRepository.WbEasyCalcDataListRepository.GetList();
         }
     }
 }

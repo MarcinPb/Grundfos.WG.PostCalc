@@ -4,11 +4,9 @@ using System.Linq;
 using System.Windows;
 using DataModel;
 using DataRepository;
-using DataRepository.DataAccess;
+using GlobalRepository;
 using Grundfos.WB.EasyCalc.Calculations;
 using Microsoft.WindowsAPICodePack.Dialogs;
-//using DataRepository;
-//using DataRepository.WbEasyCalcData;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData
@@ -96,18 +94,18 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         public EditedViewModel(int id)
         {
-            Model = new ItemViewModel(GlobalConfig.WbEasyCalcDataRepo.GetItem(id));
+            Model = new ItemViewModel(GlobalConfig.DataRepository.WbEasyCalcDataListRepository.GetItem(id));
 
-            YearList = GlobalConfig.YearList;
-            MonthList = GlobalConfig.MonthList;
-            ZoneItemList = GlobalConfig.ZoneList;
+            YearList = GlobalConfig.DataRepository.YearList;
+            MonthList = GlobalConfig.DataRepository.MonthList;
+            ZoneItemList = GlobalConfig.DataRepository.ZoneList;
         }
 
         private void LoadDataFromSystem()
         {
             try
             {
-                var gisModelScadaData = GlobalConfig.GetGisModelScadaData(Model.YearNo, Model.MonthNo, Model.ZoneId);
+                var gisModelScadaData = GlobalConfig.DataRepository.GetGisModelScadaData(Model.YearNo, Model.MonthNo, Model.ZoneId);
 
                 Model.SysInput_SystemInputVolumeM3_D6 = gisModelScadaData.SystemInputVolume;
                 Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = gisModelScadaData.ZoneSale;

@@ -1,4 +1,4 @@
-﻿namespace Grundfos.OPC.Model
+﻿namespace Opc.Model
 {
     public class OpcValue
     {

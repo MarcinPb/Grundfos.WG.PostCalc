@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using Grundfos.WB.EasyCalc.Calculations;
 using Grundfos.Workbooks;
 
-namespace WpfApp1.DataAccess
+namespace GlobalRepository
 {
-    public class WbEasyCalcExcel
+    public class WbEasyCalcExcel : IWbEasyCalcExcel
     {
-        public static void SaveToExcelFile(string excelFileName, EasyCalcDataInput easyCalcDataInput)
+        public void SaveToExcelFile(string excelFileName, EasyCalcDataInput easyCalcDataInput)
         {
-            string excelTemplateFileName = ConfigurationManager.AppSettings["ExcelTemplateFileName"];
-            var excelReader = new ExcelReader(excelTemplateFileName);
+            var excelReader = new ExcelReader(_excelTemplateFileName);
 
             excelReader.WriteToCell("Start", "M21", easyCalcDataInput.Start_PeriodDays_M21);
             excelReader.WriteToCell("Sys. Input", "D6", easyCalcDataInput.SysInput_SystemInputVolumeM3_D6);
@@ -46,7 +40,7 @@ namespace WpfApp1.DataAccess
             excelReader.WriteToFile(excelFileName);
         }
 
-        public static EasyCalcDataInput LoadFromExcelFile(string excelFileName)
+        public EasyCalcDataInput LoadFromExcelFile(string excelFileName)
         {
             var excelReader = new ExcelReader(excelFileName);
 
@@ -81,6 +75,12 @@ namespace WpfApp1.DataAccess
             };
 
             return easyCalcDataInput;
+        }
+
+        private readonly string _excelTemplateFileName;
+        public WbEasyCalcExcel(string excelTemplateFileName)
+        {
+            _excelTemplateFileName = excelTemplateFileName;
         }
 
     }

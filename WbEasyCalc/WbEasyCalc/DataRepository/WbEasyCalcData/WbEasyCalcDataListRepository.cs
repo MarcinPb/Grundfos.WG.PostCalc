@@ -13,7 +13,7 @@ namespace DataRepository.WbEasyCalcData
         private List<DataModel.WbEasyCalcData> _list;  
         public List<DataModel.WbEasyCalcData> GetList()
         {
-            using (IDbConnection cnn = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            using (IDbConnection cnn = new SqlConnection(_cnnString))
             {
                 string sql = "dbo.spWbEasyCalcDataList";
                 _list = cnn.Query<DataModel.WbEasyCalcData>(sql, commandType: CommandType.StoredProcedure).ToList();
@@ -36,12 +36,13 @@ namespace DataRepository.WbEasyCalcData
 
         public DataModel.WbEasyCalcData SaveItem(DataModel.WbEasyCalcData model)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
                 p.Add("@ZoneId", model.ZoneId);
                 p.Add("@YearNo", model.YearNo);
                 p.Add("@MonthNo", model.MonthNo);
+                p.Add("@IsArchive", model.IsArchive);
                 p.Add("@Description", model.Description);
                 // input
                 p.Add("@Start_PeriodDays_M21", model.Start_PeriodDays_M21);
@@ -110,7 +111,7 @@ namespace DataRepository.WbEasyCalcData
 
         public bool DeleteItem(int id)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
                 p.Add("@id", id);
@@ -127,7 +128,7 @@ namespace DataRepository.WbEasyCalcData
 
         public int Clone(int id)
         {
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString("TWDB")))
+            using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
                 p.Add("@id", id, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
@@ -138,6 +139,12 @@ namespace DataRepository.WbEasyCalcData
 
                 return wbEasyCalcDataId;
             }
+        }
+
+        private readonly string _cnnString;
+        public WbEasyCalcDataListRepository(string cnnString)
+        {
+            _cnnString = cnnString;
         }
     }
 }

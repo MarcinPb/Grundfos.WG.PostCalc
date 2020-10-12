@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using Grundfos.OPC;
-using Grundfos.OPC.Model;
 using Grundfos.WB.EasyCalc.Calculations;
+using Opc;
+using Opc.Model;
 
-namespace DataRepository.DataAccess
+namespace GlobalRepository
 {
-    public class Opc
+    public class OpcServer : IOpcServer
     {
         //private ICollection<string> _opcTagList = new List<string>()
         //{
@@ -37,7 +37,7 @@ namespace DataRepository.DataAccess
         //    "Prs_DailyAvgPrsM_F7",
         //};
 
-        internal void RunOpcPublish(string zoneRomanNo, EasyCalcDataInput easyCalcDataInput, EasyCalcDataOutput easyCalcDataOutput)
+        public void RunOpcPublish(string zoneRomanNo, EasyCalcDataInput easyCalcDataInput, EasyCalcDataOutput easyCalcDataOutput)
         {
             ICollection<OpcValue> values = new List<OpcValue>()
             {
@@ -93,11 +93,18 @@ namespace DataRepository.DataAccess
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.WatBal_NonRevenueWaterErrorMargin_AY26", Value = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26},
             };
 
-            string opcAddress = ConfigurationManager.AppSettings["opcAddress"];
-            using (var client = new OpcReader(opcAddress))
+            string opcAddress = _opcAddress;    
+            using (var client = new Server(opcAddress))
             {
                 client.WriteValues(values);
             }
+
+        }
+
+        private readonly string _opcAddress;
+        public OpcServer(string address)
+        {
+            _opcAddress = address;
         }
     }
 }

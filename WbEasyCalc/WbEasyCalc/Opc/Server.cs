@@ -1,29 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Grundfos.OPC.Model;
+using Opc.Model;
 using TitaniumAS.Opc.Client.Common;
 using TitaniumAS.Opc.Client.Da;
 using TitaniumAS.Opc.Client.Da.Browsing;
 
-namespace Grundfos.OPC
+namespace Opc
 {
-    public class OpcReader : IDisposable
+    public class Server : IDisposable
     {
-        OpcDaServer server;
+        readonly OpcDaServer _server;
 
-        public OpcReader(string address)
+        public Server(string address)
         {
             //Uri url = UrlBuilder.Build("opc.tcp://ip:4840");        //"ip" is the raspberry pi ip-adress
             Uri url = UrlBuilder.Build(address);
-            this.server = new OpcDaServer(url);
-            server.Connect();
+            _server = new OpcDaServer(url);
+            _server.Connect();
         }
 
         public ICollection<OpcValue> GetValues(ICollection<string> tags)
         {
             var guid = Guid.NewGuid();
-            OpcDaGroup group = server.AddGroup(guid.ToString());
+            OpcDaGroup group = _server.AddGroup(guid.ToString());
             group.IsActive = true;
 
             var requests = tags.Select(x => new OpcDaItemDefinition { ItemId = x, IsActive = true }).ToArray();
@@ -38,7 +38,7 @@ namespace Grundfos.OPC
         public void WriteValues(ICollection<OpcValue> values)
         {
             var guid = Guid.NewGuid();
-            OpcDaGroup group = server.AddGroup(guid.ToString());
+            OpcDaGroup group = _server.AddGroup(guid.ToString());
             group.IsActive = true;
 
             var requests = values.Select(x => new OpcDaItemDefinition { ItemId = x.Tag, IsActive = true }).ToArray();
@@ -64,13 +64,13 @@ namespace Grundfos.OPC
             HRESULT[] result = group.Write(items, vals);
             if (result == null || result.Length != values.Count || result.Any(x => x.Failed))
             {
-                throw new Exception("Could not write values to OPC server.");
+                throw new Exception("Could not write values to OPC _server.");
             }
         }
 
         public List<string> Browse(string node = null, int depth = int.MaxValue)
         {
-            var browser = new OpcDaBrowserAuto(server);
+            var browser = new OpcDaBrowserAuto(_server);
             var items = BrowseChildren(browser, node, depth);
             return items;
         }
@@ -121,7 +121,7 @@ namespace Grundfos.OPC
             {
                 if (disposing)
                 {
-                    this.server.Dispose();
+                    this._server.Dispose();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
@@ -132,7 +132,7 @@ namespace Grundfos.OPC
         }
 
         // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~OpcReader() {
+        // ~Server() {
         //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
         //   Dispose(false);
         // }

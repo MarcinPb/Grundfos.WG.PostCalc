@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using DataRepository;
+using GlobalRepository;
 using Grundfos.WB.EasyCalc.Calculations;
 using WpfApplication1.Utility;
 
@@ -104,7 +105,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 CalculateDaysNumber();
             }
         }
-        public string YearName => GlobalConfig.YearList.FirstOrDefault(x => x.Id == YearNo)?.Name;
+        public string YearName => GlobalConfig.DataRepository.YearList.FirstOrDefault(x => x.Id == YearNo)?.Name;
 
         private int _monthNo;
         public int MonthNo
@@ -544,7 +545,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
             else
             {
-                ZoneId = GlobalConfig.ZoneList.First().ZoneId;
+                ZoneId = GlobalConfig.DataRepository.ZoneList.First().ZoneId;
                 YearNo = DateTime.Now.Year;
                 MonthNo = DateTime.Now.Month;
             }

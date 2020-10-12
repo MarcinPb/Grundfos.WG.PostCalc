@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using DataRepository;
+using GlobalRepository;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData
@@ -115,7 +116,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             );
             if (res == MessageBoxResult.Yes)
             {
-                GlobalConfig.WbEasyCalcDataRepo.DeleteItem(SelectedRow.WbEasyCalcDataId);
+                GlobalConfig.DataRepository.WbEasyCalcDataListRepository.DeleteItem(SelectedRow.WbEasyCalcDataId);
                 LoadData();
                 SelectedRow = null;
             }
@@ -128,7 +129,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public RelayCommand SaveRowCmd { get; }
         private void SaveRowCmdExecute()
         {
-            DataModel.WbEasyCalcData customer = GlobalConfig.WbEasyCalcDataRepo.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
+            DataModel.WbEasyCalcData customer = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
             LoadData();
             SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcDataId == customer.WbEasyCalcDataId);
         }
@@ -143,7 +144,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private void CloneCmdExecute()
         {
             if (SelectedRow == null) return;
-            int id = GlobalConfig.WbEasyCalcDataRepo.Clone(SelectedRow.WbEasyCalcDataId);
+            int id = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.Clone(SelectedRow.WbEasyCalcDataId);
             LoadData();
             SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcDataId == id);
         }
@@ -168,7 +169,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         private void LoadData()
         {
-            List = new ObservableCollection<DataModel.WbEasyCalcData>(GlobalConfig.WbEasyCalcDataRepo.GetList());
+            List = new ObservableCollection<DataModel.WbEasyCalcData>(GlobalConfig.DataRepository.WbEasyCalcDataListRepository.GetList());
             RowsQty = List.Count;
         }
 
