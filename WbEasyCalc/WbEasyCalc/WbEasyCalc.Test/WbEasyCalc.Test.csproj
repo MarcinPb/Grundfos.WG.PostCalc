@@ -56,7 +56,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\WbEasyCalc.csproj">
+    <ProjectReference Include="..\WbEasyCalc\WbEasyCalc.csproj">
       <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
       <Name>WbEasyCalc</Name>
     </ProjectReference>

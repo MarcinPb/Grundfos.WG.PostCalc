@@ -57,7 +57,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Grundfos.Workbooks\ExcelNpoi.csproj">
+    <ProjectReference Include="..\ExcelNpoi\ExcelNpoi.csproj">
       <Project>{72312fb8-0ea0-4e29-8d99-ea9cf6c1ccca}</Project>
       <Name>ExcelNpoi</Name>
     </ProjectReference>

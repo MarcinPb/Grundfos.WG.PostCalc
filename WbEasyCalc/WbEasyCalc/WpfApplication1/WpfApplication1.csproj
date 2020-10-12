@@ -158,7 +158,7 @@
       <Project>{1cb5b95d-8662-475c-a11c-1b3c138fe649}</Project>
       <Name>GlobalRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grundfos.WB.EasyCalc.Calculations\WbEasyCalc.csproj">
+    <ProjectReference Include="..\WbEasyCalc\WbEasyCalc.csproj">
       <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
       <Name>WbEasyCalc</Name>
     </ProjectReference>
