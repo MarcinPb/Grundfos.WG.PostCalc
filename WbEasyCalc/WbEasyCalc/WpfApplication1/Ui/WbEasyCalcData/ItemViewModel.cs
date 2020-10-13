@@ -51,11 +51,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
             //PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
-
             // output
-            //EasyCalcDataOutput = MapEasyCalcDataOutput()
-            //EasyCalcDataOutput = new EasyCalcDataOutput()
-            //{
             SystemInputVolume_B19 = SystemInputVolume_B19,
             SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
             AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
@@ -81,7 +77,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
             NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
             NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
-            //}
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -548,8 +543,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 ZoneId = model.ZoneId;
                 YearNo = model.YearNo;
                 MonthNo = model.MonthNo;                
-                //MapEasyCalcDataInput(model.EasyCalcDataInput);
-                //MapEasyCalcDataOutput(model.EasyCalcDataOutput);
             }
             else
             {
@@ -590,7 +583,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_DailyAvgPrsM_F7 = model.Prs_DailyAvgPrsM_F7;
             //PIs_IliBestEstimate_F25 = model.PIs_IliBestEstimate_F25;
 
-
             // output
             SystemInputVolume_B19 = model.SystemInputVolume_B19;
             SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
@@ -623,14 +615,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
-                //EasyCalcDataInput easyCalcDataInput = MapEasyCalcDataInput();
-                //EasyCalcDataInput easyCalcDataInput = (EasyCalcDataInput)Model;
-
                 EasyCalcDataInput easyCalcDataInput = Model.EasyCalcDataInput;
                 IWbEasyCalc wbEasyCalc = new WbEasyCalc.WbEasyCalc();
                 EasyCalcDataOutput easyCalcDataOutput = wbEasyCalc.Calculate(easyCalcDataInput);
                 MapEasyCalcDataOutput(easyCalcDataOutput);
-                //Model.EasyCalcDataOutput = easyCalcDataOutput;
             }
             catch (Exception e)
             {
