@@ -131,17 +131,17 @@ namespace WbEasyCalc
                 0d : data.WaterBalanceSheet.NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / data.WaterBalanceSheet.NonRevenueWaterM3_AY24;
         }
 
-        public static void GetInfrastructureLeakageIndex(EasyCalcSheetData data)
-        {
-            var pi = data.PiSheet;
-            double maplBestEstimate_F19 = (
-                (data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37 * 18)
-                + (data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 0.8)
-                + (data.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39 * 25)
-            ) * pi.AveragePressureMBestEstimate_F11 / 24 * pi.AverageSupplyTimeHPerDayBestEstimate_F9 / 1000;
-            pi.CaplBestEstimate_F17 = data.WaterBalanceSheet.PhysicalLossesM3_T34 / data.StartSheet.PeriodDays_M21;
-            pi.MaplBestEstimate_F19 = Math.Max(maplBestEstimate_F19, 0);
-            pi.IliBestEstimate_F25 = pi.MaplBestEstimate_F19 == 0d ? 0d : pi.CaplBestEstimate_F17 / pi.MaplBestEstimate_F19;
-        }
+        //public static void GetInfrastructureLeakageIndex(EasyCalcSheetData data)
+        //{
+        //    var pi = data.PiSheet;
+        //    double maplBestEstimate_F19 = (
+        //        (data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37 * 18)
+        //        + (data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 0.8)
+        //        + (data.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39 * 25)
+        //    ) * pi.AveragePressureMBestEstimate_F11 / 24 * pi.AverageSupplyTimeHPerDayBestEstimate_F9 / 1000;
+        //    pi.CaplBestEstimate_F17 = data.WaterBalanceSheet.PhysicalLossesM3_T34 / data.StartSheet.PeriodDays_M21;
+        //    pi.MaplBestEstimate_F19 = Math.Max(maplBestEstimate_F19, 0);
+        //    pi.IliBestEstimate_F25 = pi.MaplBestEstimate_F19 == 0d ? 0d : pi.CaplBestEstimate_F17 / pi.MaplBestEstimate_F19;
+        //}
     }
 }

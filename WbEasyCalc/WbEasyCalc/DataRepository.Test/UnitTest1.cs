@@ -2,6 +2,7 @@
 using System.Configuration;
 using DataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WbEasyCalc;
 
 namespace DataRepository.Test
 {
@@ -23,9 +24,11 @@ namespace DataRepository.Test
                 YearNo = 1,
                 MonthNo = 1,
                 Description = "Desc 1",
-
-                Start_PeriodDays_M21 = 30,
-                SysInput_SystemInputVolumeM3_D6 = 111111
+                //EasyCalcDataInput = new EasyCalcDataInput()
+                //{
+                    Start_PeriodDays_M21 = 30,
+                    SysInput_SystemInputVolumeM3_D6 = 111111
+                //}, 
             };
             dataRepository.WbEasyCalcDataListRepository.SaveItem(model);
             var id = model.WbEasyCalcDataId;

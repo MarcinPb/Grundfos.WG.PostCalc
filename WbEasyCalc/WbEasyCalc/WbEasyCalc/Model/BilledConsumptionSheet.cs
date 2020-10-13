@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace WbEasyCalc.Model
 {
-    public class BilledConsumptionSheet
+    internal class BilledConsumptionSheet
     {
         public BilledConsumptionSheet()
         {

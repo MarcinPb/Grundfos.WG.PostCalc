@@ -4,13 +4,13 @@ using WbEasyCalc.Model;
 
 namespace WbEasyCalc
 {
-    public class EasyCalcDataReaderMoq : IEasyCalcDataReader
+    public class WbEasyCalc : IWbEasyCalc
     {
-        public void PublishSheetData(EasyCalcSheetData data, string zoneName)
-        {
-        }
+        //public void PublishSheetData(EasyCalcSheetData data, string zoneName)
+        //{
+        //}
 
-        public EasyCalcDataOutput ReadEasyCalcDataOutput(EasyCalcDataInput easyCalcDataInput)
+        public EasyCalcDataOutput Calculate(EasyCalcDataInput easyCalcDataInput)
         {
             EasyCalcSheetData easyCalcSheetData = ReadSheetData(easyCalcDataInput);
             EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
@@ -53,6 +53,7 @@ namespace WbEasyCalc
             return easyCalcDataOutput;
         }
 
+        // Only in test
         public EasyCalcSheetData ReadSheetData(EasyCalcDataInput easyCalcDataInput)
         {
             var data = new EasyCalcSheetData();
@@ -115,7 +116,7 @@ namespace WbEasyCalc
             return data;
         }
 
-
+        // Only in test
         public EasyCalcSheetData ReadSheetData(string zone, DateTime yearMonth)
         {
             var data = new EasyCalcSheetData();

@@ -1,6 +1,9 @@
-﻿namespace DataModel
+﻿using System;
+using WbEasyCalc;
+
+namespace DataModel
 {
-    public class WbEasyCalcData
+    public class WbEasyCalcData : ICloneable
     {
         public int WbEasyCalcDataId { get; set; }
         public int YearNo { get; set; }
@@ -10,6 +13,7 @@
         public string Description { get; set; } = string.Empty;
 
         // input
+        //public EasyCalcDataInput EasyCalcDataInput { get; set; }
         public int Start_PeriodDays_M21 { get; set; }
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
@@ -39,6 +43,7 @@
         public double PIs_IliBestEstimate_F25 { get; set; }
 
         // output
+        //public EasyCalcDataOutput EasyCalcDataOutput { get; set; }
         public double SystemInputVolume_B19 { get; set; }
         public double SystemInputVolumeErrorMargin_B21 { get; set; }
         public double AuthorizedConsumption_K12 { get; set; }
@@ -65,7 +70,6 @@
         public double NonRevenueWaterM3_AY24 { get; set; }
         public double NonRevenueWaterErrorMargin_AY26 { get; set; }
 
-
         public object Clone()
         {
             return new WbEasyCalcData()
@@ -75,38 +79,40 @@
                 YearNo  = YearNo,
                 MonthNo  = MonthNo, 
                 Description  = Description, 
-                IsArchive  = IsArchive, 
+                IsArchive  = IsArchive,
 
                 // input
-                Start_PeriodDays_M21  = Start_PeriodDays_M21,
-                SysInput_SystemInputVolumeM3_D6  = SysInput_SystemInputVolumeM3_D6,
-                SysInput_SystemInputVolumeError_F6  = SysInput_SystemInputVolumeError_F6,
-                BilledCons_BilledMetConsBulkWatSupExpM3_D6  = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
-                BilledCons_BilledUnmetConsBulkWatSupExpM3_H6  = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
-                UnbilledCons_MetConsBulkWatSupExpM3_D6  = UnbilledCons_MetConsBulkWatSupExpM3_D6,
-                UnauthCons_IllegalConnDomEstNo_D6  = UnauthCons_IllegalConnDomEstNo_D6,
-                UnauthCons_IllegalConnDomPersPerHouse_H6  = UnauthCons_IllegalConnDomPersPerHouse_H6,
-                UnauthCons_IllegalConnDomConsLitPerPersDay_J6  = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
-                UnauthCons_IllegalConnDomErrorMargin_F6  = UnauthCons_IllegalConnDomErrorMargin_F6,
-                UnauthCons_IllegalConnOthersErrorMargin_F10  = UnauthCons_IllegalConnOthersErrorMargin_F10,
-                UnauthCons_MeterTampBypEtcEstNo_D14  = UnauthCons_MeterTampBypEtcEstNo_D14,
-                UnauthCons_MeterTampBypEtcErrorMargin_F14  = UnauthCons_MeterTampBypEtcErrorMargin_F14,
-                UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14  = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
-                MetErrors_DetailedManualSpec_J6  = MetErrors_DetailedManualSpec_J6,
-                MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8  = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
-                MetErrors_BilledMetConsWoBulkSupErrorMargin_N8  = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
-                MetErrors_MetBulkSupExpMetUnderreg_H32  = MetErrors_MetBulkSupExpMetUnderreg_H32,
-                MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34  = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
-                MetErrors_CorruptMetReadPractMetUndrreg_H38  = MetErrors_CorruptMetReadPractMetUndrreg_H38,
-                Network_DistributionAndTransmissionMains_D7  = Network_DistributionAndTransmissionMains_D7,
-                Network_NoOfConnOfRegCustomers_H10  = Network_NoOfConnOfRegCustomers_H10,
-                Network_NoOfInactAccountsWSvcConns_H18  = Network_NoOfInactAccountsWSvcConns_H18,
-                Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32  = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
-                Prs_ApproxNoOfConn_D7  = Prs_ApproxNoOfConn_D7,
-                Prs_DailyAvgPrsM_F7  = Prs_DailyAvgPrsM_F7,
-                PIs_IliBestEstimate_F25  = PIs_IliBestEstimate_F25,
+                //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
+                Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
+                MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
                 // output
+                //EasyCalcDataOutput = (EasyCalcDataOutput)EasyCalcDataOutput.Clone(),
                 SystemInputVolume_B19  = SystemInputVolume_B19,
                 SystemInputVolumeErrorMargin_B21  = SystemInputVolumeErrorMargin_B21,
                 AuthorizedConsumption_K12  = AuthorizedConsumption_K12,
@@ -133,6 +139,44 @@
                 NonRevenueWaterM3_AY24  = NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26  = NonRevenueWaterErrorMargin_AY26,
             };
+        }
+
+        private EasyCalcDataInput _easyCalcDataInput;
+        public EasyCalcDataInput EasyCalcDataInput
+        {
+            get
+            {
+                _easyCalcDataInput = new EasyCalcDataInput()
+                {
+                    Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                    SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                    SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                    BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                    BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                    UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                    UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                    UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                    UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                    UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                    UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                    UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                    UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                    UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                    MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6-2)<0.01,
+                    MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                    MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                    MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                    MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                    MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                    Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                    Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                    Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                    Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                    Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
+                };
+                return _easyCalcDataInput;
+            }
         }
     }
 }

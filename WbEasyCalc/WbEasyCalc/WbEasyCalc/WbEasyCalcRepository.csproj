@@ -50,11 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="EasyCalcDataInput.cs" />
-    <Compile Include="EasyCalcDataOutput.cs" />
     <Compile Include="EasyCalcRefactored.cs" />
-    <Compile Include="EasyCalcDataReaderMoq.cs" />
-    <Compile Include="IEasyCalcDataReader.cs" />
+    <Compile Include="WbEasyCalc.cs" />
+    <Compile Include="IWbEasyCalc.cs" />
+    <Compile Include="WasteBin\IEasyCalcDataReader.cs" />
     <Compile Include="Model\BilledConsumptionSheet.cs" />
     <Compile Include="Model\EasyCalcSheetData.cs" />
     <Compile Include="Model\IntermittentSupplySheet.cs" />
@@ -71,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WbEasyCalcModel\WbEasyCalcModel.csproj">
+      <Project>{999ce3b3-3b81-4349-9bde-7eccadfa43fb}</Project>
+      <Name>WbEasyCalcModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

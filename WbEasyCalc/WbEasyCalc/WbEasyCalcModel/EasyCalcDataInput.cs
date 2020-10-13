@@ -1,6 +1,8 @@
-﻿namespace WbEasyCalc
+﻿using System;
+
+namespace WbEasyCalc
 {
-    public class EasyCalcDataInput
+    public class EasyCalcDataInput : ICloneable
     {
         public int Start_PeriodDays_M21 { get; set; }
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
@@ -96,6 +98,41 @@
         //public double Prs_DailyAvgPrsM_F15 { get; set; }
         //public double Prs_DailyAvgPrsM_F16 { get; set; }
         public double PIs_IliBestEstimate_F25 { get; set; }
+
+
+        public object Clone()
+        {
+            return new EasyCalcDataInput()
+            {
+                Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
+                SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
+                UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
+                UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
+                UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+                UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
+                UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
+                MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
+                MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
+                Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
+                Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
+                Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
+            };
+        }
 
     }
 }

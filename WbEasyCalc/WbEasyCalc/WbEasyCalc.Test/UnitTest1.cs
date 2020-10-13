@@ -47,10 +47,10 @@ namespace WbEasyCalc.Test
 
 
 
-            EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
+            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
             EasyCalcSheetData easyCalcSheetData = easyCalcDataReaderMoq.ReadSheetData("", DateTime.Now);
-            EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
-            EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
 
             double actual;
             double expected;
@@ -153,10 +153,10 @@ namespace WbEasyCalc.Test
             };
 
 
-            EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
+            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
             EasyCalcSheetData easyCalcSheetData = easyCalcDataReaderMoq.ReadSheetData(easyCalcDataInput);
-            EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
-            EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
 
             foreach (var keyValuePair in expectedDict)
             {
@@ -235,8 +235,8 @@ namespace WbEasyCalc.Test
             };
 
 
-            EasyCalcDataReaderMoq easyCalcDataReaderMoq = new EasyCalcDataReaderMoq();
-            EasyCalcDataOutput readEasyCalcDataOutput = easyCalcDataReaderMoq.ReadEasyCalcDataOutput(easyCalcDataInput);
+            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
+            EasyCalcDataOutput readEasyCalcDataOutput = easyCalcDataReaderMoq.Calculate(easyCalcDataInput);
 
             foreach (var keyValuePair in expectedDict)
             {

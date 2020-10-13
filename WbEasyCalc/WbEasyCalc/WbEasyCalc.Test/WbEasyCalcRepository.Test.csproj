@@ -56,9 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WbEasyCalc\WbEasyCalc.csproj">
+    <ProjectReference Include="..\WbEasyCalcModel\WbEasyCalcModel.csproj">
+      <Project>{999ce3b3-3b81-4349-9bde-7eccadfa43fb}</Project>
+      <Name>WbEasyCalcModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WbEasyCalc\WbEasyCalcRepository.csproj">
       <Project>{9ae2bb62-74d4-449e-b531-505ba70fba14}</Project>
-      <Name>WbEasyCalc</Name>
+      <Name>WbEasyCalcRepository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

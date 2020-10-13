@@ -68,6 +68,10 @@
       <Project>{ba9d1b4b-4f94-466a-b5e9-2b8d21d6e941}</Project>
       <Name>DataRepository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WbEasyCalcModel\WbEasyCalcModel.csproj">
+      <Project>{999ce3b3-3b81-4349-9bde-7eccadfa43fb}</Project>
+      <Name>WbEasyCalcModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

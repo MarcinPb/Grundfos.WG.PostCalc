@@ -4,7 +4,7 @@
     {
         public StartSheet StartSheet { get; set; }
         public UnauthorizedConsumptionSheet UnauthorizedConsumptionSheet { get; set; }
-        public BilledConsumptionSheet BilledConsumptionSheet { get; set; }
+        internal BilledConsumptionSheet BilledConsumptionSheet { get; set; }
         public UnbilledConsumptionSheet UnbilledConsumptionSheet { get; set; }
         public MeterErrorsSheet MeterErrorsSheet { get; set; }
         public SystemInputSheet SystemInputSheet { get; set; }
