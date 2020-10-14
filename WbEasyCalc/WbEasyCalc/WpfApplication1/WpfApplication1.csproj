@@ -69,6 +69,7 @@
     <Compile Include="Controls\FilteredDataGridCtrl.cs" />
     <Compile Include="Controls\UiHelper.cs" />
     <Compile Include="Controls\TextHeaderToBooleanConverter.cs" />
+    <Compile Include="Converters\BooleanFlagSwitchConverter.cs" />
     <Compile Include="Converters\FloatConverter.cs" />
     <Compile Include="Converters\PercentageConverter.cs" />
     <Compile Include="Ui\WbEasyCalcData\ItemViewModel.cs" />

@@ -28,7 +28,7 @@
                 <Button Command="{Binding OpenRowCmd}" Content="Open"/>
                 -->
                 <Separator/>
-                <Button Command="{Binding RemoveRowCmd}" Content="Delete"/>
+                <Button Command="{Binding RemoveRowCmd}" Content="Delete" ToolTipService.ShowOnDisabled="True" ToolTip="Disabled for rows with a switched on 'Archived' option."/>
                 <Separator/>
                 <Button Command="{Binding CloneCmd}" Content="Clone"/>
                 <Separator/>

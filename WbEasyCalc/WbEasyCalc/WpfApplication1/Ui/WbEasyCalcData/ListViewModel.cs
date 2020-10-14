@@ -123,7 +123,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
         public bool RemoveRowCmdCanExecute()
         {
-            return SelectedRow != null;
+            return SelectedRow != null && SelectedRow.IsArchive==false;
         }
 
         public RelayCommand SaveRowCmd { get; }

@@ -149,10 +149,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _isArchive = value;
                 RaisePropertyChanged();
-                if (IsArchive == false)
-                {
-                    IsAccepted = false;
-                }
+                //if (IsArchive == false)
+                //{
+                //    IsAccepted = false;
+                //}
             }
         }
 
