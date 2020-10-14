@@ -7,22 +7,23 @@
              xmlns:utility="clr-namespace:WpfApplication1.Utility"
              xmlns:controls="clr-namespace:WpfApplication1.Controls"
              mc:Ignorable="d" 
-             Width="1690"
+             Width="1690" Height="900"
              >
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="250" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="620" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+            <Border BorderThickness="1 1 1 1" BorderBrush="Black" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <ToolBar Grid.Row="0"   >
+            <ToolBar Grid.Row="0" >
                 <Button Command="{Binding AddRowCmd}" Content="Add"/>
                 <!--
                 <Button Command="{Binding OpenRowCmd}" Content="Open"/>
@@ -39,13 +40,14 @@
                 AutoGenerateColumns="False" 
                 IsReadOnly="True"
                 utility:SelectingItemAttachedProperty.SelectingItem="{Binding SelectedRow}" 
+                BorderThickness="0 1"
                 >
                 <DataGrid.InputBindings>
                     <MouseBinding Gesture="LeftDoubleClick" Command="{Binding OpenRowCmd}"/>
                 </DataGrid.InputBindings>
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding WbEasyCalcDataId}"/>
-                    <DataGridTextColumn Header="YearNo" Width="150" IsReadOnly="True" Binding="{Binding YearNo}"/>
+                    <DataGridTextColumn Header="YearNo" Width="150" IsReadOnly="True" Binding="{Binding YearName}"/>
                     <DataGridTextColumn Header="MonthNo" Width="150" IsReadOnly="True" Binding="{Binding MonthNo }" />
                     <DataGridTextColumn Header="ZoneId" Width="150" IsReadOnly="True" Binding="{Binding ZoneId}"/>
                     <DataGridTextColumn Header="Description" Width="370" IsReadOnly="True" Binding="{Binding Description}"/>
@@ -63,7 +65,8 @@
                 <StatusBarItem Content="rows"/>
             </StatusBar>
         </Grid>
-        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black" Margin="0 20 0 10">
+            </Border>
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black" Margin="0 20 0 5">
             <ContentControl Content="{Binding WbEasyCalcDataEditedViewModel}" />
         </Border>
         <Grid Grid.Row="2" >
@@ -72,7 +75,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Command="{Binding SaveRowCmd}"  Content="Save" Width="Auto" Margin="10 0 0 0" Padding="30 0"/>
+            <Button Grid.Column="1" Command="{Binding SaveRowCmd}"  Content="Save" Width="Auto" Padding="30 0"/>
         </Grid>
     </Grid>
 </UserControl>
