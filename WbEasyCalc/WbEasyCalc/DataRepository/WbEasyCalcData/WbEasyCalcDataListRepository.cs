@@ -42,8 +42,9 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@ZoneId", model.ZoneId);
                 p.Add("@YearNo", model.YearNo);
                 p.Add("@MonthNo", model.MonthNo);
-                p.Add("@IsArchive", model.IsArchive);
                 p.Add("@Description", model.Description);
+                p.Add("@IsArchive", model.IsArchive);
+                p.Add("@IsAccepted", model.IsAccepted);
                 // input
                 p.Add("@Start_PeriodDays_M21", model.Start_PeriodDays_M21);
                 p.Add("@SysInput_SystemInputVolumeM3_D6", model.SysInput_SystemInputVolumeM3_D6);

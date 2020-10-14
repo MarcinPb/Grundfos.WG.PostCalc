@@ -21,6 +21,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             ZoneId = ZoneId,
             Description = Description,
             IsArchive = IsArchive,
+            IsAccepted = IsAccepted,
 
             //EasyCalcDataInput = MapEasyCalcDataInput(),
             Start_PeriodDays_M21 = Start_PeriodDays_M21,
@@ -147,6 +148,24 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set
             {
                 _isArchive = value;
+                RaisePropertyChanged();
+                if (IsArchive == false)
+                {
+                    IsAccepted = false;
+                }
+            }
+        }
+
+        private bool _isAccepted;
+        public bool IsAccepted
+        {
+            get
+            {
+                return _isAccepted;
+            }
+            set
+            {
+                _isAccepted = value;
                 RaisePropertyChanged();
             }
         }
@@ -551,8 +570,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 MonthNo = DateTime.Now.Month;                
             }
 
-            IsArchive = model.IsArchive;
             Description = model.Description;
+            IsArchive = model.IsArchive;
+            IsAccepted = model.IsAccepted;
 
             
             Start_PeriodDays_M21 = model.Start_PeriodDays_M21;

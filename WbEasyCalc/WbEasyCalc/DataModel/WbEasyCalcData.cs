@@ -9,8 +9,9 @@ namespace DataModel
         public int YearNo { get; set; }
         public int MonthNo { get; set; }
         public int ZoneId { get; set; }
-        public bool IsArchive { get; set; }
         public string Description { get; set; } = string.Empty;
+        public bool IsArchive { get; set; }
+        public bool IsAccepted { get; set; }
 
         // input
         //public EasyCalcDataInput EasyCalcDataInput { get; set; }
@@ -80,6 +81,7 @@ namespace DataModel
                 MonthNo  = MonthNo, 
                 Description  = Description, 
                 IsArchive  = IsArchive,
+                IsAccepted = IsAccepted,
 
                 // input
                 //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
