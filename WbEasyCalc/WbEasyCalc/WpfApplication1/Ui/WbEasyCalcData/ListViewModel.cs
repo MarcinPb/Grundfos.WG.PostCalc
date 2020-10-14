@@ -17,8 +17,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
     {
         #region Props: List, SelectedRow, RowsQty
 
-        private ObservableCollection<DataModel.WbEasyCalcData> _list;
-        public ObservableCollection<DataModel.WbEasyCalcData> List
+        private ObservableCollection<RowViewModel> _list;
+        public ObservableCollection<RowViewModel> List
         {
             get { return _list; }
             set
@@ -28,8 +28,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
-        private DataModel.WbEasyCalcData _selectedRow;
-        public DataModel.WbEasyCalcData SelectedRow
+        private RowViewModel _selectedRow;
+        public RowViewModel SelectedRow
         {
             get { return _selectedRow; }
             set
@@ -97,7 +97,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 return;
             }
-            WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.WbEasyCalcDataId);
+            WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
         }
         public bool OpenRowCmdCanExecute()
         {
@@ -116,14 +116,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             );
             if (res == MessageBoxResult.Yes)
             {
-                GlobalConfig.DataRepository.WbEasyCalcDataListRepository.DeleteItem(SelectedRow.WbEasyCalcDataId);
+                GlobalConfig.DataRepository.WbEasyCalcDataListRepository.DeleteItem(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
                 LoadData();
                 SelectedRow = null;
             }
         }
         public bool RemoveRowCmdCanExecute()
         {
-            return SelectedRow != null && SelectedRow.IsArchive==false;
+            return SelectedRow != null && SelectedRow.WbEasyCalcData.IsArchive==false;
         }
 
         public RelayCommand SaveRowCmd { get; }
@@ -131,7 +131,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
             LoadData();
-            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcDataId == row.WbEasyCalcDataId);
+            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == row.WbEasyCalcDataId);
         }
         public bool SaveRowCmdCanExecute()
         {
@@ -144,9 +144,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private void CloneCmdExecute()
         {
             if (SelectedRow == null) return;
-            int id = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.Clone(SelectedRow.WbEasyCalcDataId);
+            int id = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.Clone(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
             LoadData();
-            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcDataId == id);
+            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == id);
         }
 
         public bool CloneCmdCanExecute()
@@ -169,7 +169,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         private void LoadData()
         {
-            List = new ObservableCollection<DataModel.WbEasyCalcData>(GlobalConfig.DataRepository.WbEasyCalcDataListRepository.GetList());
+            List = new ObservableCollection<RowViewModel>(GlobalConfig.DataRepository.WbEasyCalcDataListRepository.GetList().Select(x => new RowViewModel(x)).ToList());
             RowsQty = List.Count;
         }
 

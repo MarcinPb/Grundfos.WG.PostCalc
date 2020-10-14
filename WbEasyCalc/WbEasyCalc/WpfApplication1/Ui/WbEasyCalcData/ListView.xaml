@@ -46,18 +46,18 @@
                     <MouseBinding Gesture="LeftDoubleClick" Command="{Binding OpenRowCmd}"/>
                 </DataGrid.InputBindings>
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding WbEasyCalcDataId}"/>
-                    <DataGridTextColumn Header="YearNo" Width="150" IsReadOnly="True" Binding="{Binding YearName}"/>
-                    <DataGridTextColumn Header="MonthNo" Width="150" IsReadOnly="True" Binding="{Binding MonthNo }" />
-                    <DataGridTextColumn Header="ZoneId" Width="150" IsReadOnly="True" Binding="{Binding ZoneId}"/>
-                    <DataGridTextColumn Header="Description" Width="370" IsReadOnly="True" Binding="{Binding Description}"/>
-                    <DataGridCheckBoxColumn Header="Archived" Width="90" IsReadOnly="True" Binding="{Binding IsArchive}"/>
-                    <DataGridCheckBoxColumn Header="Accepted" Width="90" IsReadOnly="True" Binding="{Binding IsAccepted}"/>
-                    <DataGridTextColumn Header="Start Period Days" Width="150" IsReadOnly="True" Binding="{Binding Start_PeriodDays_M21}" />
-                    <DataGridTextColumn Header="System Input Volume " Width="170" IsReadOnly="True" Binding="{Binding SystemInputVolume_B19}" />
-                    <DataGridTextColumn Header="System Input Volume Error Margin " Width="220" IsReadOnly="True" Binding="{Binding SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
-                    <DataGridTextColumn Header="Water Losses " Width="130" IsReadOnly="True" Binding="{Binding WaterLosses_K29}" />
-                    <DataGridTextColumn Header="Water Losses Error Margin " Width="200" IsReadOnly="True" Binding="{Binding WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
+                        <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding WbEasyCalcData.WbEasyCalcDataId}"/>
+                    <DataGridTextColumn Header="Year" Width="100" IsReadOnly="True" Binding="{Binding YearName}"/>
+                    <DataGridTextColumn Header="Month" Width="150" IsReadOnly="True" Binding="{Binding MonthName}" />
+                    <DataGridTextColumn Header="Zone" Width="150" IsReadOnly="True" Binding="{Binding ZoneName}"/>
+                    <DataGridTextColumn Header="Description" Width="370" IsReadOnly="True" Binding="{Binding WbEasyCalcData.Description}"/>
+                    <DataGridCheckBoxColumn Header="Archived" Width="90" IsReadOnly="True" Binding="{Binding WbEasyCalcData.IsArchive}"/>
+                    <DataGridCheckBoxColumn Header="Accepted" Width="90" IsReadOnly="True" Binding="{Binding WbEasyCalcData.IsAccepted}"/>
+                    <DataGridTextColumn Header="Start Period Days" Width="150" IsReadOnly="True" Binding="{Binding WbEasyCalcData.Start_PeriodDays_M21}" />
+                    <DataGridTextColumn Header="System Input Volume " Width="170" IsReadOnly="True" Binding="{Binding WbEasyCalcData.SystemInputVolume_B19}" />
+                    <DataGridTextColumn Header="System Input Volume Error Margin " Width="220" IsReadOnly="True" Binding="{Binding WbEasyCalcData.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
+                    <DataGridTextColumn Header="Water Losses " Width="130" IsReadOnly="True" Binding="{Binding WbEasyCalcData.WaterLosses_K29}" />
+                    <DataGridTextColumn Header="Water Losses Error Margin " Width="200" IsReadOnly="True" Binding="{Binding WbEasyCalcData.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
                 </DataGrid.Columns>
             </controls:FilteredDataGridCtrl>
             <StatusBar Grid.Row="2">
