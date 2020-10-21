@@ -129,9 +129,18 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public RelayCommand SaveRowCmd { get; }
         private void SaveRowCmdExecute()
         {
-            DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
-            LoadData();
-            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == row.WbEasyCalcDataId);
+            try
+            {
+                DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
+                LoadData();
+                SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == row.WbEasyCalcDataId);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                throw;
+            }
         }
         public bool SaveRowCmdCanExecute()
         {
