@@ -5,6 +5,7 @@ using System.Windows;
 using DataRepository;
 using GlobalRepository;
 using WbEasyCalc;
+using WbEasyCalcRepository;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData
@@ -636,7 +637,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             try
             {
                 EasyCalcDataInput easyCalcDataInput = Model.EasyCalcDataInput;
-                IWbEasyCalc wbEasyCalc = new WbEasyCalc.WbEasyCalc();
+                IWbEasyCalc wbEasyCalc = new WbEasyCalcRepository.WbEasyCalc();
                 EasyCalcDataOutput easyCalcDataOutput = wbEasyCalc.Calculate(easyCalcDataInput);
                 MapEasyCalcDataOutput(easyCalcDataOutput);
             }

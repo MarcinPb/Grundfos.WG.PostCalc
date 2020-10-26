@@ -1,4 +1,4 @@
-﻿namespace WbEasyCalc.Model
+﻿namespace WbEasyCalcRepository.Model
 {
     public class EasyCalcSheetData
     {

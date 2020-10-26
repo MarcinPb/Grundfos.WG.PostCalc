@@ -1,4 +1,4 @@
-﻿namespace WbEasyCalc.WasteBin
+﻿namespace WbEasyCalcRepository.WasteBin
 {
     public interface IEasyCalcDataReader
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WbEasyCalc.Model
+namespace WbEasyCalcRepository.Model
 {
     public class WaterBalanceSheet
     {

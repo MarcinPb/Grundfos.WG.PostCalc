@@ -1,4 +1,4 @@
-﻿namespace WbEasyCalc
+﻿namespace WbEasyCalcRepository
 {
     public static class Constants
     {

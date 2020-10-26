@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace WbEasyCalc.Model
+namespace WbEasyCalcRepository.Model
 {
     internal class BilledConsumptionSheet
     {

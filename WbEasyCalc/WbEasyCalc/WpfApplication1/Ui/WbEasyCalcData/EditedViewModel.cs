@@ -24,7 +24,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public List<IdNamePair> MonthList { get; set; }
         public List<ZoneItem> ZoneItemList { get; set; }
 
-        #region Commands
+        #region Commands: LoadDataFromSystemCmd, ImportFromExcelExecute, ImportFromExcelCanExecute
 
         public RelayCommand LoadDataFromSystemCmd => new RelayCommand(LoadDataFromSystemExecute, LoadDataFromSystemCanExecute);
         private void LoadDataFromSystemExecute()

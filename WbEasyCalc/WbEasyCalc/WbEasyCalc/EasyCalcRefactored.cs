@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
-using WbEasyCalc.Model;
+using WbEasyCalc;
+using WbEasyCalcRepository.Model;
 
-namespace WbEasyCalc
+namespace WbEasyCalcRepository
 {
     public static class EasyCalcRefactored
     {

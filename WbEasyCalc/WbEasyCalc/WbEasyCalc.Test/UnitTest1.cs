@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WbEasyCalc.Model;
+using WbEasyCalc;
+using WbEasyCalcRepository.Model;
 
-namespace WbEasyCalc.Test
+namespace WbEasyCalcRepository.Test
 {
     [TestClass]
     public class UnitTest1
@@ -47,7 +48,7 @@ namespace WbEasyCalc.Test
 
 
 
-            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
+            WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
             EasyCalcSheetData easyCalcSheetData = easyCalcDataReaderMoq.ReadSheetData("", DateTime.Now);
             //EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
             //EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
@@ -153,7 +154,7 @@ namespace WbEasyCalc.Test
             };
 
 
-            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
+            WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
             EasyCalcSheetData easyCalcSheetData = easyCalcDataReaderMoq.ReadSheetData(easyCalcDataInput);
             //EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
             //EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
@@ -235,7 +236,7 @@ namespace WbEasyCalc.Test
             };
 
 
-            WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalc();
+            WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
             EasyCalcDataOutput readEasyCalcDataOutput = easyCalcDataReaderMoq.Calculate(easyCalcDataInput);
 
             foreach (var keyValuePair in expectedDict)

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using WbEasyCalc.Model;
+using WbEasyCalc;
+using WbEasyCalcRepository.Model;
 
-namespace WbEasyCalc
+namespace WbEasyCalcRepository
 {
     public class WbEasyCalc : IWbEasyCalc
     {
