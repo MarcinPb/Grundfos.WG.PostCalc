@@ -563,12 +563,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 ZoneId = model.ZoneId;
                 YearNo = model.YearNo;
                 MonthNo = model.MonthNo;                
+                Start_PeriodDays_M21 = model.Start_PeriodDays_M21;
             }
             else
             {
                 ZoneId = GlobalConfig.DataRepository.ZoneList.First().ZoneId;
                 YearNo = DateTime.Now.Year;
-                MonthNo = DateTime.Now.Month;                
+                MonthNo = DateTime.Now.Month;
+                //Start_PeriodDays_M21 = model.Start_PeriodDays_M21;
+                CalculateDaysNumber();
             }
 
             Description = model.Description;
@@ -576,7 +579,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsAccepted = model.IsAccepted;
 
             
-            Start_PeriodDays_M21 = model.Start_PeriodDays_M21;
             SysInput_SystemInputVolumeM3_D6 = model.SysInput_SystemInputVolumeM3_D6;
             SysInput_SystemInputVolumeError_F6 = model.SysInput_SystemInputVolumeError_F6;
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;

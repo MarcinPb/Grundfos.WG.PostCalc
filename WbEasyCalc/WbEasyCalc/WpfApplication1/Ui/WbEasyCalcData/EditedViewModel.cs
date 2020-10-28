@@ -105,12 +105,48 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
-                var gisModelScadaData = GlobalConfig.DataRepository.GetGisModelScadaData(Model.YearNo, Model.MonthNo, Model.ZoneId);
+                // Invoke spGisModelScadaData on SQL Server.
+                var wbEasyCalcData = GlobalConfig.DataRepository.GetAutomaticData(Model.YearNo, Model.MonthNo, Model.ZoneId);
 
-                Model.SysInput_SystemInputVolumeM3_D6 = gisModelScadaData.SystemInputVolume;
-                Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = gisModelScadaData.ZoneSale;
-                Model.Network_DistributionAndTransmissionMains_D7 = gisModelScadaData.NetworkLength;
-                Model.Network_NoOfConnOfRegCustomers_H10 = gisModelScadaData.CustomersQuantity;
+                if (Model.MonthNo < 13)
+                {
+                    Model.SysInput_SystemInputVolumeM3_D6 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D6;
+                    Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = wbEasyCalcData.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
+                    Model.Network_DistributionAndTransmissionMains_D7 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D7;
+                    Model.Network_NoOfConnOfRegCustomers_H10 = wbEasyCalcData.Network_NoOfConnOfRegCustomers_H10;
+                }
+                // Sum parameters for all year.
+                else
+                {
+                    Model.Start_PeriodDays_M21 = wbEasyCalcData.Start_PeriodDays_M21;
+                    Model.SysInput_SystemInputVolumeM3_D6 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D6;                                     // @SystemInputVolume
+                    Model.SysInput_SystemInputVolumeError_F6 = wbEasyCalcData.SysInput_SystemInputVolumeError_F6;
+                    Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = wbEasyCalcData.BilledCons_BilledMetConsBulkWatSupExpM3_D6;               // @ZoneSale
+                    Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6  = wbEasyCalcData.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6; 
+                    Model.UnbilledCons_MetConsBulkWatSupExpM3_D6 = wbEasyCalcData.UnbilledCons_MetConsBulkWatSupExpM3_D6;   
+                    Model.UnauthCons_IllegalConnDomEstNo_D6 = wbEasyCalcData.UnauthCons_IllegalConnDomEstNo_D6;
+                    Model.UnauthCons_IllegalConnDomPersPerHouse_H6 = wbEasyCalcData.UnauthCons_IllegalConnDomPersPerHouse_H6;
+                    Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = wbEasyCalcData.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
+                    Model.UnauthCons_IllegalConnDomErrorMargin_F6 = wbEasyCalcData.UnauthCons_IllegalConnDomErrorMargin_F6;
+                    Model.UnauthCons_IllegalConnOthersErrorMargin_F10 = wbEasyCalcData.UnauthCons_IllegalConnOthersErrorMargin_F10;
+                    Model.UnauthCons_MeterTampBypEtcEstNo_D14 = wbEasyCalcData.UnauthCons_MeterTampBypEtcEstNo_D14;
+                    Model.UnauthCons_MeterTampBypEtcErrorMargin_F14 = wbEasyCalcData.UnauthCons_MeterTampBypEtcErrorMargin_F14;
+                    Model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = wbEasyCalcData.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
+                    Model.MetErrors_DetailedManualSpec_J6 = wbEasyCalcData.MetErrors_DetailedManualSpec_J6;
+                    Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = wbEasyCalcData.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
+                    Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = wbEasyCalcData.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+                    Model.MetErrors_MetBulkSupExpMetUnderreg_H32 = wbEasyCalcData.MetErrors_MetBulkSupExpMetUnderreg_H32;
+                    Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34  = wbEasyCalcData.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
+                    Model.MetErrors_CorruptMetReadPractMetUndrreg_H38 = wbEasyCalcData.MetErrors_CorruptMetReadPractMetUndrreg_H38;
+                    Model.Network_DistributionAndTransmissionMains_D7 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D7;              // @NetworkLength 
+                    Model.Network_NoOfConnOfRegCustomers_H10 = wbEasyCalcData.Network_NoOfConnOfRegCustomers_H10;                                // @CustomersQuantity 
+                    Model.Network_NoOfInactAccountsWSvcConns_H18 = wbEasyCalcData.Network_NoOfInactAccountsWSvcConns_H18;
+                    Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = wbEasyCalcData.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+                    Model.Prs_ApproxNoOfConn_D7 = wbEasyCalcData.Prs_ApproxNoOfConn_D7;
+                    Model.Prs_DailyAvgPrsM_F7 = wbEasyCalcData.Prs_DailyAvgPrsM_F7;
+                    
+                    //Model.PIs_IliBestEstimate_F25 = wbEasyCalcData.PIs_IliBestEstimate_F25;
+                }
 
                 Model.CalculateExcel();
             }

@@ -16,6 +16,6 @@ namespace DataRepository
         List<IdNamePair> MonthList { get; }
         List<ZoneItem> ZoneList { get; }
 
-        GisModelScadaData GetGisModelScadaData(int yearNo, int monthNo, int zoneId);
+        DataModel.WbEasyCalcData GetAutomaticData(int yearNo, int monthNo, int zoneId);
     }
 }

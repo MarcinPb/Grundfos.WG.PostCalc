@@ -3,5 +3,6 @@
     public interface IWbEasyCalcDataListRepository : IMultiDeleteListRepository<DataModel.WbEasyCalcData>
     {
         int Clone(int id);
+        int CreateAll();
     }
 }

@@ -9,14 +9,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 {
     public class RowViewModel
     {
-        public DataModel.WbEasyCalcData WbEasyCalcData { get; }
-        public string YearName => GlobalConfig.DataRepository.YearList.FirstOrDefault(x => x.Id == WbEasyCalcData.YearNo)?.Name;
-        public string MonthName => GlobalConfig.DataRepository.MonthList.FirstOrDefault(x => x.Id == WbEasyCalcData.MonthNo)?.Name;
-        public string ZoneName => GlobalConfig.DataRepository.ZoneList.FirstOrDefault(x => x.ZoneId == WbEasyCalcData.ZoneId)?.ZoneName;
+        public DataModel.WbEasyCalcData Model { get; }
+        public string YearName => GlobalConfig.DataRepository.YearList.FirstOrDefault(x => x.Id == Model.YearNo)?.Name;
+        public string MonthName => GlobalConfig.DataRepository.MonthList.FirstOrDefault(x => x.Id == Model.MonthNo)?.Name;
+        public string ZoneName => GlobalConfig.DataRepository.ZoneList.FirstOrDefault(x => x.ZoneId == Model.ZoneId)?.ZoneName;
 
-        public RowViewModel(DataModel.WbEasyCalcData wbEasyCalcData)
+        public RowViewModel(DataModel.WbEasyCalcData model)
         {
-            WbEasyCalcData = wbEasyCalcData;
+            Model = model;
         }
     }
 }

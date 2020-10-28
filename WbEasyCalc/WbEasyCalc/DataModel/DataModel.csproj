@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
-    <Compile Include="GisModelScadaData.cs" />
     <Compile Include="IdNamePair.cs" />
     <Compile Include="WbEasyCalcData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

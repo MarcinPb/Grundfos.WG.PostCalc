@@ -15,13 +15,13 @@ namespace DataModel
 
         // input
         //public EasyCalcDataInput EasyCalcDataInput { get; set; }
-        public int Start_PeriodDays_M21 { get; set; }
+        public int Start_PeriodDays_M21 { get; set; }                                   //
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
-        public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }
+        public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }                      //        
         public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
         public double UnauthCons_IllegalConnDomErrorMargin_F6 { get; set; }
@@ -29,7 +29,7 @@ namespace DataModel
         public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
         public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
         public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
-        public double MetErrors_DetailedManualSpec_J6 { get; set; }
+        public double MetErrors_DetailedManualSpec_J6 { get; set; }                     //
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
         public double MetErrors_MetBulkSupExpMetUnderreg_H32 { get; set; }

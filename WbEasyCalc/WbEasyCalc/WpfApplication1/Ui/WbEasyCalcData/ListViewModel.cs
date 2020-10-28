@@ -40,6 +40,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 OpenRowCmd.RaiseCanExecuteChanged();
                 RemoveRowCmd.RaiseCanExecuteChanged();
                 CloneCmd.RaiseCanExecuteChanged();
+                CreateAllCmd.RaiseCanExecuteChanged();
 
                 //WbEasyCalcDataEditedViewModel?.Close();
                 WbEasyCalcDataEditedViewModel = null;
@@ -97,7 +98,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 return;
             }
-            WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
+            WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.Model.WbEasyCalcDataId);
         }
         public bool OpenRowCmdCanExecute()
         {
@@ -107,23 +108,30 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public RelayCommand RemoveRowCmd { get; }
         private void RemoveRowCmdExecute()
         {
-            if (SelectedRow == null) return;
-            var res = MessageBox.Show(
-                "Are you sure to delete record?",
-                "Question",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question
-            );
-            if (res == MessageBoxResult.Yes)
+            try
             {
-                GlobalConfig.DataRepository.WbEasyCalcDataListRepository.DeleteItem(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
-                LoadData();
-                SelectedRow = null;
+                if (SelectedRow == null) return;
+                var res = MessageBox.Show(
+                    "Are you sure to delete record?",
+                    "Question",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+                if (res == MessageBoxResult.Yes)
+                {
+                    GlobalConfig.DataRepository.WbEasyCalcDataListRepository.DeleteItem(SelectedRow.Model.WbEasyCalcDataId);
+                    LoadData();
+                    SelectedRow = null;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         public bool RemoveRowCmdCanExecute()
         {
-            return SelectedRow != null && SelectedRow.WbEasyCalcData.IsArchive==false;
+            return SelectedRow != null && SelectedRow.Model.IsArchive==false;
         }
 
         public RelayCommand SaveRowCmd { get; }
@@ -133,13 +141,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
                 LoadData();
-                SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == row.WbEasyCalcDataId);
+                SelectedRow = List.FirstOrDefault(x => x.Model.WbEasyCalcDataId == row.WbEasyCalcDataId);
 
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error",MessageBoxButton.OK,MessageBoxImage.Error);
-                throw;
             }
         }
         public bool SaveRowCmdCanExecute()
@@ -152,10 +159,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         private void CloneCmdExecute()
         {
-            if (SelectedRow == null) return;
-            int id = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.Clone(SelectedRow.WbEasyCalcData.WbEasyCalcDataId);
-            LoadData();
-            SelectedRow = List.FirstOrDefault(x => x.WbEasyCalcData.WbEasyCalcDataId == id);
+            try
+            {
+                if (SelectedRow == null) return;
+                int id = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.Clone(SelectedRow.Model.WbEasyCalcDataId);
+                LoadData();
+                SelectedRow = List.FirstOrDefault(x => x.Model.WbEasyCalcDataId == id);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public bool CloneCmdCanExecute()
@@ -163,17 +177,55 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             return SelectedRow != null;
         }
 
+        public RelayCommand CreateAllCmd { get; }
+
+        private void CreateAllCmdExecute()
+        {
+            try
+            {
+                int recordQty = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.CreateAll();
+                if (recordQty==0)
+                {
+                    MessageBox.Show("No records was added.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    LoadData();
+                    var maxId = List.Max(x => x.Model.WbEasyCalcDataId);
+                    SelectedRow = List.FirstOrDefault(x => x.Model.WbEasyCalcDataId == maxId);
+                    MessageBox.Show($"{recordQty} records was added.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public bool CreateAllCmdCanExecute()
+        {
+            // Only if at least one row is archived.
+            return List.Any(x => x.Model.IsArchive==true);
+        }
         #endregion
 
         public ListViewModel()
         {
-            AddRowCmd = new RelayCommand(AddRowCmdExecute, AddRowCmdCanExecute);
-            OpenRowCmd = new RelayCommand(OpenRowCmdExecute, OpenRowCmdCanExecute);
-            RemoveRowCmd = new RelayCommand(RemoveRowCmdExecute, RemoveRowCmdCanExecute);
-            CloneCmd = new RelayCommand(CloneCmdExecute, CloneCmdCanExecute);
-            SaveRowCmd = new RelayCommand(SaveRowCmdExecute, SaveRowCmdCanExecute);
+            try
+            {
+                AddRowCmd = new RelayCommand(AddRowCmdExecute, AddRowCmdCanExecute);
+                OpenRowCmd = new RelayCommand(OpenRowCmdExecute, OpenRowCmdCanExecute);
+                RemoveRowCmd = new RelayCommand(RemoveRowCmdExecute, RemoveRowCmdCanExecute);
+                SaveRowCmd = new RelayCommand(SaveRowCmdExecute, SaveRowCmdCanExecute);
+                CloneCmd = new RelayCommand(CloneCmdExecute, CloneCmdCanExecute);
+                CreateAllCmd = new RelayCommand(CreateAllCmdExecute, CreateAllCmdCanExecute);
 
-            LoadData();
+                LoadData();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void LoadData()

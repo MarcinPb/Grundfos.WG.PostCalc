@@ -142,6 +142,21 @@ namespace DataRepository.WbEasyCalcData
             }
         }
 
+        public int CreateAll()
+        {
+            using (IDbConnection connection = new SqlConnection(_cnnString))
+            {
+                var p = new DynamicParameters();
+                p.Add("@RecordQty", 0, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+
+                connection.Execute("dbo.spWbEasyCalcDataCreateAll", p, commandType: CommandType.StoredProcedure);
+
+                var recordQty = p.Get<int>("@RecordQty");
+
+                return recordQty;
+            }
+        }
+
         private readonly string _cnnString;
         public WbEasyCalcDataListRepository(string cnnString)
         {
