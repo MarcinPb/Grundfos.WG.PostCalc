@@ -75,6 +75,9 @@ namespace WbEasyCalcRepository
             data.UnbilledConsumptionSheet = new UnbilledConsumptionSheet
             {
                 MeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6,
+
+                UnbilledUnmeteredConsumptionM3_H6_H23 = new List<double> { easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H6 },
+                UnbilledUnmeteredConsumptionError_J6_J23 = new List<double> { easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J6 },
             };
             data.UnauthorizedConsumptionSheet = new UnauthorizedConsumptionSheet(data)
             {

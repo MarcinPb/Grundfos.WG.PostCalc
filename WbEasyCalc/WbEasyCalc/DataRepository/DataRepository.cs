@@ -95,6 +95,10 @@ namespace DataRepository
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);          // @ZoneSale
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnbilledCons_MetConsBulkWatSupExpM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);
+
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J6", dbType: DbType.Double, direction: ParameterDirection.Output);
+
                 p.Add("@UnauthCons_IllegalConnDomEstNo_D6", dbType: DbType.Int32, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_IllegalConnDomPersPerHouse_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6", dbType: DbType.Double, direction: ParameterDirection.Output);
@@ -127,6 +131,10 @@ namespace DataRepository
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = p.Get<double>("@BilledCons_BilledMetConsBulkWatSupExpM3_D6"),              // @ZoneSale
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = p.Get<double>("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6"),          // 
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = p.Get<double>("@UnbilledCons_MetConsBulkWatSupExpM3_D6"),                      // 
+
+                    UnbilledCons_UnbUnmetConsM3_H6 = p.Get<double>("@UnbilledCons_UnbUnmetConsM3_H6"),
+                    UnbilledCons_UnbUnmetConsError_J6 = p.Get<double>("@UnbilledCons_UnbUnmetConsError_J6"),
+
                     UnauthCons_IllegalConnDomEstNo_D6 = p.Get<int>("@UnauthCons_IllegalConnDomEstNo_D6"),                                   // //
                     UnauthCons_IllegalConnDomPersPerHouse_H6 = p.Get<double>("@UnauthCons_IllegalConnDomPersPerHouse_H6"),                  // 
                     UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = p.Get<double>("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6"),        // 

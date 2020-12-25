@@ -31,6 +31,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+
+            UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
+            UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
+
             UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
             UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
             UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
@@ -252,6 +256,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _unbilledConsMetConsBulkWatSupExpM3D6;
             set { _unbilledConsMetConsBulkWatSupExpM3D6 = value; RaisePropertyChanged(nameof(UnbilledCons_MetConsBulkWatSupExpM3_D6)); CalculateExcel(); }
         }
+
+
+        private double _unbilledCons_UnbUnmetConsM3_H6;
+        public double UnbilledCons_UnbUnmetConsM3_H6
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H6;
+            set { _unbilledCons_UnbUnmetConsM3_H6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H6)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J6;
+        public double UnbilledCons_UnbUnmetConsError_J6
+        {
+            get => _unbilledCons_UnbUnmetConsError_J6;
+            set { _unbilledCons_UnbUnmetConsError_J6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J6)); CalculateExcel(); }
+        }
+
 
         public int UnauthCons_IllegalConnDomEstNo_D6
         {
@@ -584,6 +603,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = model.UnbilledCons_MetConsBulkWatSupExpM3_D6;
+
+            UnbilledCons_UnbUnmetConsM3_H6 = model.UnbilledCons_UnbUnmetConsM3_H6;
+            UnbilledCons_UnbUnmetConsError_J6 = model.UnbilledCons_UnbUnmetConsError_J6;
+
             UnauthCons_IllegalConnDomEstNo_D6 = model.UnauthCons_IllegalConnDomEstNo_D6;
             UnauthCons_IllegalConnDomPersPerHouse_H6 = model.UnauthCons_IllegalConnDomPersPerHouse_H6;
             UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;

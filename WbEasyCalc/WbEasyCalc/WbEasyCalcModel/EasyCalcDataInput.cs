@@ -50,6 +50,11 @@ namespace WbEasyCalc
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
+
+        public double UnbilledCons_UnbUnmetConsM3_H6 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J6 { get; set; }
+
+
         public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }
         public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }

@@ -21,6 +21,10 @@ namespace DataModel
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
+
+        public double UnbilledCons_UnbUnmetConsM3_H6 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J6 { get; set; }
+
         public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }                      //        
         public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
@@ -75,12 +79,12 @@ namespace DataModel
         {
             return new WbEasyCalcData()
             {
-                WbEasyCalcDataId  = WbEasyCalcDataId,
-                ZoneId  = ZoneId,
-                YearNo  = YearNo,
-                MonthNo  = MonthNo, 
-                Description  = Description, 
-                IsArchive  = IsArchive,
+                WbEasyCalcDataId = WbEasyCalcDataId,
+                ZoneId = ZoneId,
+                YearNo = YearNo,
+                MonthNo = MonthNo,
+                Description = Description,
+                IsArchive = IsArchive,
                 IsAccepted = IsAccepted,
 
                 // input
@@ -91,6 +95,10 @@ namespace DataModel
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+
+                UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
+                UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
+
                 UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
                 UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
@@ -156,6 +164,10 @@ namespace DataModel
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
+
+                    UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
+                    UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
+
                     UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
                     UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
                     UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,

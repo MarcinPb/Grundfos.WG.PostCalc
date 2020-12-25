@@ -55,6 +55,9 @@
   <ItemGroup>
     <Report Include="Report1.rdl" />
     <Report Include="Report2.rdl" />
+    <Report Include="Report3.rdl" />
+    <Report Include="Report4.rdl" />
+    <Report Include="Report4_02.rdl" />
     <Report Include="ReportWg01.rdl" />
     <Report Include="ReportWg02.rdl" />
     <Report Include="ReportWg02_02.rdl" />

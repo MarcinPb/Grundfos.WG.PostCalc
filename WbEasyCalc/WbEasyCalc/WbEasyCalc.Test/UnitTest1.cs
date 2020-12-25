@@ -131,6 +131,10 @@ namespace WbEasyCalcRepository.Test
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = 5332026,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = 1000,
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = 309349,
+
+                UnbilledCons_UnbUnmetConsM3_H6 = 2000,
+                UnbilledCons_UnbUnmetConsError_J6 = 0.05,
+
                 UnauthCons_IllegalConnDomEstNo_D6 = 100,
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = 3,
                 UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = 120,
@@ -175,25 +179,25 @@ namespace WbEasyCalcRepository.Test
                 {"SystemInputVolume_B19", 6593339},
                 {"SystemInputVolumeErrorMargin_B21", 0.05},
 
-                {"AuthorizedConsumption_K12", 5642375},
+                {"AuthorizedConsumption_K12", 5644375},                             // 5642375
                 {"AuthorizedConsumptionErrorMargin_K15", 0.0},
-                {"WaterLosses_K29", 950964},
+                {"WaterLosses_K29", 948964},                                        // 950964
                 {"WaterLossesErrorMargin_K31", 0.347},
 
                 {"BilledAuthorizedConsumption_T8", 5333026},
-                {"UnbilledAuthorizedConsumption_T16", 309349},
+                {"UnbilledAuthorizedConsumption_T16", 311349},                      // 309349
                 {"UnbilledAuthorizedConsumptionErrorMargin_T20", 0.0},
                 {"CommercialLosses_T26", 345294.464},
                 {"CommercialLossesErrorMargin_T29", 0.001},
-                {"PhysicalLossesM3_T34", 605669.536},
-                {"PhyscialLossesErrorMargin_AH35", 0.544},
+                {"PhysicalLossesM3_T34", 603669.536},                               // 605669.536
+                {"PhyscialLossesErrorMargin_AH35", 0.546},                          // 0.544
 
                 {"BilledMeteredConsumption_AC4", 5332026},
                 {"BilledUnmeteredConsumption_AC9", 1000},
-                {"UnbilledMeteredConsumption_AC14", 309349},
+                {"UnbilledMeteredConsumption_AC14", 309349},                        
 
-                {"UnbilledUnmeteredConsumption_AC19", 0},
-                {"UnbilledUnmeteredConsumptionErrorMargin_AO20", 0.0},
+                {"UnbilledUnmeteredConsumption_AC19", 2000},                        // 0
+                {"UnbilledUnmeteredConsumptionErrorMargin_AO20", 0.05},             // 0.05
                 {"UnauthorizedConsumption_AC24", 5880},
                 {"UnauthorizedConsumptionErrorMargin_AO25", 0.082},
                 {"CustomerMeterInaccuraciesAndErrorsM3_AC29", 339414.464},
@@ -213,6 +217,10 @@ namespace WbEasyCalcRepository.Test
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = 5332026,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = 1000,
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = 309349,
+
+                UnbilledCons_UnbUnmetConsM3_H6 = 2000,
+                UnbilledCons_UnbUnmetConsError_J6 = 0.05,
+
                 UnauthCons_IllegalConnDomEstNo_D6 = 100,
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = 3,
                 UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = 120,

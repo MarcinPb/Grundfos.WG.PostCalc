@@ -116,12 +116,19 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text ="Unbilled Unmetered Consumption (Expoer) [m3]: " />
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text ="  Error Margin [%]: " />
+                    <TextBox Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsError_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" TextAlignment="Right"  />
                 </Grid>
             </TabItem>
             <TabItem Header="Unauth. Cons." >
