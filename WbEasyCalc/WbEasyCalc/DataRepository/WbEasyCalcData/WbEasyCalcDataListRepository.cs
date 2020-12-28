@@ -67,6 +67,13 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@MetErrors_DetailedManualSpec_J6", model.MetErrors_DetailedManualSpec_J6);
                 p.Add("@MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8);
                 p.Add("@MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8);
+
+                p.Add("@MeteredBulkSupplyExportErrorMargin_N32", model.MeteredBulkSupplyExportErrorMargin_N32);
+                p.Add("@UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34", model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34);
+                p.Add("@CorruptMeterReadingPracticessErrorMargin_N38", model.CorruptMeterReadingPracticessErrorMargin_N38);
+                p.Add("@DataHandlingErrorsOffice_L40", model.DataHandlingErrorsOffice_L40);
+                p.Add("@DataHandlingErrorsOfficeErrorMargin_N40", model.DataHandlingErrorsOfficeErrorMargin_N40);
+
                 p.Add("@MetErrors_MetBulkSupExpMetUnderreg_H32", model.MetErrors_MetBulkSupExpMetUnderreg_H32);
                 p.Add("@MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34);
                 p.Add("@MetErrors_CorruptMetReadPractMetUndrreg_H38", model.MetErrors_CorruptMetReadPractMetUndrreg_H38);

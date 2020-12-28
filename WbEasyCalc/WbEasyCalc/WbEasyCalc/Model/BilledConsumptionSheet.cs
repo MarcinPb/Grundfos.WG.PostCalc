@@ -7,7 +7,7 @@ namespace WbEasyCalcRepository.Model
     {
         public BilledConsumptionSheet()
         {
-            this.BilledMeteredConsumptionWithoutBulkSupply_D8_D25 = new List<double>();
+            this.BilledMeteredConsumptionWithoutBulkSupply_D8_D25 = new List<double>() { };
             this.BilledUnmeteredConsumptionWithoutBulkSupply_H8_H25 = new List<double>();
         }
 

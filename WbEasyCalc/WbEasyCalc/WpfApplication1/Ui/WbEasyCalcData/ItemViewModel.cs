@@ -30,8 +30,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+
+            BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
+            BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
+
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
+            UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
             UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
             UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
 
@@ -40,12 +45,23 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
             UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
             UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+
+            IllegalConnectionsOthersEstimatedNumber_D10 = IllegalConnectionsOthersEstimatedNumber_D10,
+            IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10,
+
             UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
             UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
             UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
             MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
             MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
             MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+
+            MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
+            UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
+            CorruptMeterReadingPracticessErrorMargin_N38 = CorruptMeterReadingPracticessErrorMargin_N38,
+            DataHandlingErrorsOffice_L40 = DataHandlingErrorsOffice_L40,
+            DataHandlingErrorsOfficeErrorMargin_N40 = DataHandlingErrorsOfficeErrorMargin_N40,
+
             MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
@@ -207,7 +223,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _unauthConsMeterTampBypEtcEstNoD14;
         private double _unauthConsMeterTampBypEtcErrorMarginF14;
         private double _unauthConsMeterTampBypEtcConsLitPerCustDayJ14;
-        private double _metErrorsDetailedManualSpecJ6;
+        private int _metErrorsDetailedManualSpecJ6;
         private double _metErrorsBilledMetConsWoBulkSupMetUndrregH8;
         private double _metErrorsBilledMetConsWoBulkSupErrorMarginN8;
         private double _metErrorsMetBulkSupExpMetUnderregH32;
@@ -251,6 +267,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _billedConsBilledUnmetConsBulkWatSupExpM3H6 = value; RaisePropertyChanged(nameof(BilledCons_BilledUnmetConsBulkWatSupExpM3_H6)); CalculateExcel(); }
         }
 
+
+        private double _billedCons_UnbMetConsM3_D8;
+        public double BilledCons_UnbMetConsM3_D8
+        {
+            get => _billedCons_UnbMetConsM3_D8;
+            set { _billedCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D8)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbUnmetConsM3_H8;
+        public double BilledCons_UnbUnmetConsM3_H8
+        {
+            get => _billedCons_UnbUnmetConsM3_H8;
+            set { _billedCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H8)); CalculateExcel(); }
+        }
+
+
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6
         {
             get => _unbilledConsMetConsBulkWatSupExpM3D6;
@@ -258,6 +289,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        private double _unbilledCons_UnbMetConsM3_D8;
+        public double UnbilledCons_UnbMetConsM3_D8
+        {
+            get => _unbilledCons_UnbMetConsM3_D8;
+            set { _unbilledCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D8)); CalculateExcel(); }
+        }
         private double _unbilledCons_UnbUnmetConsM3_H6;
         public double UnbilledCons_UnbUnmetConsM3_H6
         {
@@ -302,6 +339,25 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _unauthConsIllegalConnOthersErrorMarginF10 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnOthersErrorMargin_F10)); CalculateExcel(); }
         }
 
+
+
+        private double _illegalConnectionsOthersEstimatedNumber_D10;
+        public double IllegalConnectionsOthersEstimatedNumber_D10
+        {
+            get => _illegalConnectionsOthersEstimatedNumber_D10;
+            set { _illegalConnectionsOthersEstimatedNumber_D10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersEstimatedNumber_D10)); CalculateExcel(); }
+        }
+
+        private double _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10;
+        public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10
+        {
+            get => _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10;
+            set { _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10)); CalculateExcel(); }
+        }
+
+
+
+
         public double UnauthCons_MeterTampBypEtcEstNo_D14
         {
             get => _unauthConsMeterTampBypEtcEstNoD14;
@@ -320,7 +376,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _unauthConsMeterTampBypEtcConsLitPerCustDayJ14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14)); CalculateExcel(); }
         }
 
-        public double MetErrors_DetailedManualSpec_J6
+        public int MetErrors_DetailedManualSpec_J6
         {
             get => _metErrorsDetailedManualSpecJ6;
             set { _metErrorsDetailedManualSpecJ6 = value; RaisePropertyChanged(nameof(MetErrors_DetailedManualSpec_J6)); CalculateExcel(); }
@@ -337,6 +393,42 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _metErrorsBilledMetConsWoBulkSupErrorMarginN8;
             set { _metErrorsBilledMetConsWoBulkSupErrorMarginN8 = value; RaisePropertyChanged(nameof(MetErrors_BilledMetConsWoBulkSupErrorMargin_N8)); CalculateExcel(); }
         }
+
+
+        private double _meteredBulkSupplyExportErrorMargin_N32;
+        public double MeteredBulkSupplyExportErrorMargin_N32
+        {
+            get => _meteredBulkSupplyExportErrorMargin_N32;
+            set { _meteredBulkSupplyExportErrorMargin_N32 = value; RaisePropertyChanged(nameof(MeteredBulkSupplyExportErrorMargin_N32)); CalculateExcel(); }
+        }
+        private double _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
+        public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34
+        {
+            get => _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
+            set { _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = value; RaisePropertyChanged(nameof(UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34)); CalculateExcel(); }
+        }
+        private double _corruptMeterReadingPracticessErrorMargin_N38;
+        public double CorruptMeterReadingPracticessErrorMargin_N38
+        {
+            get => _corruptMeterReadingPracticessErrorMargin_N38;
+            set { _corruptMeterReadingPracticessErrorMargin_N38 = value; RaisePropertyChanged(nameof(CorruptMeterReadingPracticessErrorMargin_N38)); CalculateExcel(); }
+        }
+        private double _dataHandlingErrorsOffice_L40;
+        public double DataHandlingErrorsOffice_L40
+        {
+            get => _dataHandlingErrorsOffice_L40;
+            set { _dataHandlingErrorsOffice_L40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOffice_L40)); CalculateExcel(); }
+        }
+        private double _dataHandlingErrorsOfficeErrorMargin_N40;
+        public double DataHandlingErrorsOfficeErrorMargin_N40
+        {
+            get => _dataHandlingErrorsOfficeErrorMargin_N40;
+            set { _dataHandlingErrorsOfficeErrorMargin_N40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOfficeErrorMargin_N40)); CalculateExcel(); }
+        }
+
+
+
+
 
         public double MetErrors_MetBulkSupExpMetUnderreg_H32
         {
@@ -602,8 +694,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_SystemInputVolumeError_F6 = model.SysInput_SystemInputVolumeError_F6;
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
+
+            BilledCons_UnbMetConsM3_D8 = model.BilledCons_UnbMetConsM3_D8;
+            BilledCons_UnbUnmetConsM3_H8 = model.BilledCons_UnbUnmetConsM3_H8;
+
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = model.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 
+            UnbilledCons_UnbMetConsM3_D8 = model.UnbilledCons_UnbMetConsM3_D8;
             UnbilledCons_UnbUnmetConsM3_H6 = model.UnbilledCons_UnbUnmetConsM3_H6;
             UnbilledCons_UnbUnmetConsError_J6 = model.UnbilledCons_UnbUnmetConsError_J6;
 
@@ -612,12 +709,23 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
             UnauthCons_IllegalConnDomErrorMargin_F6 = model.UnauthCons_IllegalConnDomErrorMargin_F6;
             UnauthCons_IllegalConnOthersErrorMargin_F10 = model.UnauthCons_IllegalConnOthersErrorMargin_F10;
+
+            IllegalConnectionsOthersEstimatedNumber_D10 = model.IllegalConnectionsOthersEstimatedNumber_D10;
+            IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = model.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10;
+
             UnauthCons_MeterTampBypEtcEstNo_D14 = model.UnauthCons_MeterTampBypEtcEstNo_D14;
             UnauthCons_MeterTampBypEtcErrorMargin_F14 = model.UnauthCons_MeterTampBypEtcErrorMargin_F14;
             UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
             MetErrors_DetailedManualSpec_J6 = model.MetErrors_DetailedManualSpec_J6;
             MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
             MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+
+            MeteredBulkSupplyExportErrorMargin_N32 = model.MeteredBulkSupplyExportErrorMargin_N32;
+            UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
+            CorruptMeterReadingPracticessErrorMargin_N38 = model.CorruptMeterReadingPracticessErrorMargin_N38;
+            DataHandlingErrorsOffice_L40 = model.DataHandlingErrorsOffice_L40;
+            DataHandlingErrorsOfficeErrorMargin_N40 = model.DataHandlingErrorsOfficeErrorMargin_N40;
+
             MetErrors_MetBulkSupExpMetUnderreg_H32 = model.MetErrors_MetBulkSupExpMetUnderreg_H32;
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = model.MetErrors_CorruptMetReadPractMetUndrreg_H38;

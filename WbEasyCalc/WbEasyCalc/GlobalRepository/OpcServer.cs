@@ -57,6 +57,7 @@ namespace GlobalRepository
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_DetailedManualSpec_J6", Value = easyCalcDataInput.MetErrors_DetailedManualSpec_J6},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", Value = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", Value = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8},
+
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_MetBulkSupExpMetUnderreg_H32", Value = easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", Value = easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.MetErrors_CorruptMetReadPractMetUndrreg_H38", Value = easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38},

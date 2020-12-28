@@ -110,6 +110,13 @@ namespace DataRepository
                 p.Add("@MetErrors_DetailedManualSpec_J6", dbType: DbType.Double, direction: ParameterDirection.Output);                      //
                 p.Add("@MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", dbType: DbType.Double, direction: ParameterDirection.Output);
+
+                p.Add("@MeteredBulkSupplyExportErrorMargin_N32", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@CorruptMeterReadingPracticessErrorMargin_N38", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@DataHandlingErrorsOffice_L40", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@DataHandlingErrorsOfficeErrorMargin_N40", dbType: DbType.Double, direction: ParameterDirection.Output);
+
                 p.Add("@MetErrors_MetBulkSupExpMetUnderreg_H32", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@MetErrors_CorruptMetReadPractMetUndrreg_H38", dbType: DbType.Double, direction: ParameterDirection.Output);
@@ -132,6 +139,7 @@ namespace DataRepository
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = p.Get<double>("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6"),          // 
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = p.Get<double>("@UnbilledCons_MetConsBulkWatSupExpM3_D6"),                      // 
 
+                    UnbilledCons_UnbMetConsM3_D8 = p.Get<double>("@UnbilledCons_UnbMetConsM3_D8"),
                     UnbilledCons_UnbUnmetConsM3_H6 = p.Get<double>("@UnbilledCons_UnbUnmetConsM3_H6"),
                     UnbilledCons_UnbUnmetConsError_J6 = p.Get<double>("@UnbilledCons_UnbUnmetConsError_J6"),
 
@@ -143,9 +151,16 @@ namespace DataRepository
                     UnauthCons_MeterTampBypEtcEstNo_D14 = p.Get<double>("@UnauthCons_MeterTampBypEtcEstNo_D14"),                            // 
                     UnauthCons_MeterTampBypEtcErrorMargin_F14 = p.Get<double>("@UnauthCons_MeterTampBypEtcErrorMargin_F14"),                // 
                     UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = p.Get<double>("@UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14"),    // 
-                    MetErrors_DetailedManualSpec_J6 = p.Get<double>("@MetErrors_DetailedManualSpec_J6"),                                    // //
+                    MetErrors_DetailedManualSpec_J6 = p.Get<int>("@MetErrors_DetailedManualSpec_J6"),                                    // //
                     MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = p.Get<double>("@MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8"),        // 
                     MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = p.Get<double>("@MetErrors_BilledMetConsWoBulkSupErrorMargin_N8"),      // 
+
+                    MeteredBulkSupplyExportErrorMargin_N32 = p.Get<double>("@MeteredBulkSupplyExportErrorMargin_N32"),                                              // 
+                    UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = p.Get<double>("@UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34"),      // 
+                    CorruptMeterReadingPracticessErrorMargin_N38 = p.Get<double>("@CorruptMeterReadingPracticessErrorMargin_N38"),                                  // 
+                    DataHandlingErrorsOffice_L40 = p.Get<double>("@DataHandlingErrorsOffice_L40"),                                                                  // 
+                    DataHandlingErrorsOfficeErrorMargin_N40 = p.Get<double>("@DataHandlingErrorsOfficeErrorMargin_N40"),                                            // 
+
                     MetErrors_MetBulkSupExpMetUnderreg_H32 = p.Get<double>("@MetErrors_MetBulkSupExpMetUnderreg_H32"),                      // 
                     MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = p.Get<double>("@MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34"),  // 
                     MetErrors_CorruptMetReadPractMetUndrreg_H38 = p.Get<double>("@MetErrors_CorruptMetReadPractMetUndrreg_H38"),            // 

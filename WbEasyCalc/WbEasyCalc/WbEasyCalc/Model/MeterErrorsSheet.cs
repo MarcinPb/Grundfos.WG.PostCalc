@@ -17,7 +17,13 @@ namespace WbEasyCalcRepository.Model
         }
 
         public double MeteredBulkSupplyExportMetereUnderregistration_H32 { get; set; }
-        public double UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34 { get; set; }
+        //public double UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34 { get; set; }
+
+        public double UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34
+        {
+            get => this.data.UnbilledConsumptionSheet.UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23.Sum();
+        }
+
         public double UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34 { get; set; }
         public double CorruptMeterReadingPracticesMeterUnderregistration_H38 { get; set; }
         public double BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 { get; set; }
@@ -31,7 +37,12 @@ namespace WbEasyCalcRepository.Model
         public double DataHandlingErrorsOffice_L40 { get; set; }
         public bool DetailedManualSpec_J6 { get; set; }
         public double BestEstimateTotalM3_L49 { get => this.GetBestEstimateTotalM3_L49(); }
-        public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 { get; private set; }
+        //public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 { get; private set; }
+        public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8
+        {
+            get => this.DetailedManualSpec_J6==false ? this.data.BilledConsumptionSheet.BilledMeteredConsumptionWithoutBulkSupply_D8_D25.Sum() : 0;
+        }
+
         public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 { get; private set; }
         public double BilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N8 { get; set; }
         public double MeteredBulkSupplyExportErrorMargin_N32 { get; set; }
@@ -104,6 +115,8 @@ namespace WbEasyCalcRepository.Model
 
         private double GetBestEstimateTotalM3_L49()
         {
+            this.BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 =
+                BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 / (1 - BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8) - BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8;
             this.MeteredBulkSupplyExportTotalWithMeterUnderregistrationM3_L32 =
                 (this.MeteredBulkSupplyExportTotalM3_F32 / (1 - this.MeteredBulkSupplyExportMetereUnderregistration_H32))
                 - this.MeteredBulkSupplyExportTotalM3_F32;

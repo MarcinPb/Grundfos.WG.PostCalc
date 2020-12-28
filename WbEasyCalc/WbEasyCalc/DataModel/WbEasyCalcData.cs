@@ -20,8 +20,14 @@ namespace DataModel
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
+
+        public double BilledCons_UnbMetConsM3_D8 { get; set; }
+        public double BilledCons_UnbUnmetConsM3_H8 { get; set; }
+
+
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
 
+        public double UnbilledCons_UnbMetConsM3_D8 { get; set; }
         public double UnbilledCons_UnbUnmetConsM3_H6 { get; set; }
         public double UnbilledCons_UnbUnmetConsError_J6 { get; set; }
 
@@ -30,12 +36,26 @@ namespace DataModel
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
         public double UnauthCons_IllegalConnDomErrorMargin_F6 { get; set; }
         public double UnauthCons_IllegalConnOthersErrorMargin_F10 { get; set; }
+
+        public double IllegalConnectionsOthersEstimatedNumber_D10 { get; set; }
+        public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 { get; set; }
+
+
+
         public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
         public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
         public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
-        public double MetErrors_DetailedManualSpec_J6 { get; set; }                     //
+        public int MetErrors_DetailedManualSpec_J6 { get; set; }                     //
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
+
+        public double MeteredBulkSupplyExportErrorMargin_N32 { get; set; }
+        public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 { get; set; }
+        public double CorruptMeterReadingPracticessErrorMargin_N38 { get; set; }
+        public double DataHandlingErrorsOffice_L40 { get; set; }
+        public double DataHandlingErrorsOfficeErrorMargin_N40 { get; set; }
+
+
         public double MetErrors_MetBulkSupExpMetUnderreg_H32 { get; set; }
         public double MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 { get; set; }
         public double MetErrors_CorruptMetReadPractMetUndrreg_H38 { get; set; }
@@ -94,8 +114,14 @@ namespace DataModel
                 SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+
+                BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
+                BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
+
+
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
+                UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
                 UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
                 UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
 
@@ -104,12 +130,23 @@ namespace DataModel
                 UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
                 UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
                 UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+
+                IllegalConnectionsOthersEstimatedNumber_D10 = IllegalConnectionsOthersEstimatedNumber_D10,
+                IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10,
+
                 UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
                 UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
                 UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
                 MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
                 MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                 MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+
+                MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
+                UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
+                CorruptMeterReadingPracticessErrorMargin_N38 = CorruptMeterReadingPracticessErrorMargin_N38,
+                DataHandlingErrorsOffice_L40 = DataHandlingErrorsOffice_L40,
+                DataHandlingErrorsOfficeErrorMargin_N40 = DataHandlingErrorsOfficeErrorMargin_N40,
+
                 MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
                 MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
                 MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
@@ -163,8 +200,13 @@ namespace DataModel
                     SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+
+                    BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
+                    BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
+
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
+                    UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
                     UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
                     UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
 
@@ -173,12 +215,25 @@ namespace DataModel
                     UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
                     UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
                     UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
+
+                    IllegalConnectionsOthersEstimatedNumber_D10 = IllegalConnectionsOthersEstimatedNumber_D10,
+                    IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10,
+
                     UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
                     UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
                     UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
                     MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6-2)<0.01,
                     MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                     MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+
+
+                    MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
+                    UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
+                    CorruptMeterReadingPracticessErrorMargin_N38 = CorruptMeterReadingPracticessErrorMargin_N38,
+                    DataHandlingErrorsOffice_L40 = DataHandlingErrorsOffice_L40,
+                    DataHandlingErrorsOfficeErrorMargin_N40 = DataHandlingErrorsOfficeErrorMargin_N40,
+
+
                     MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
                     MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
                     MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
