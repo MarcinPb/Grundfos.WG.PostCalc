@@ -94,8 +94,13 @@ namespace DataRepository
                 p.Add("@SysInput_SystemInputVolumeError_F6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);          // @ZoneSale
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
+                
+                p.Add("@BilledCons_UnbMetConsM3_D8", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@BilledCons_UnbUnmetConsM3_H8", dbType: DbType.Double, direction: ParameterDirection.Output);
+
                 p.Add("@UnbilledCons_MetConsBulkWatSupExpM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);
 
+                p.Add("@UnbilledCons_UnbMetConsM3_D8", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnbilledCons_UnbUnmetConsM3_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnbilledCons_UnbUnmetConsError_J6", dbType: DbType.Double, direction: ParameterDirection.Output);
 
@@ -104,6 +109,10 @@ namespace DataRepository
                 p.Add("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_IllegalConnDomErrorMargin_F6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_IllegalConnOthersErrorMargin_F10", dbType: DbType.Double, direction: ParameterDirection.Output);
+
+                p.Add("@IllegalConnectionsOthersEstimatedNumber_D10", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10", dbType: DbType.Double, direction: ParameterDirection.Output);
+
                 p.Add("@UnauthCons_MeterTampBypEtcEstNo_D14", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_MeterTampBypEtcErrorMargin_F14", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14", dbType: DbType.Double, direction: ParameterDirection.Output);
@@ -137,6 +146,10 @@ namespace DataRepository
                     SysInput_SystemInputVolumeError_F6 = p.Get<double>("@SysInput_SystemInputVolumeError_F6"),                              // 
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = p.Get<double>("@BilledCons_BilledMetConsBulkWatSupExpM3_D6"),              // @ZoneSale
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = p.Get<double>("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6"),          // 
+
+                    BilledCons_UnbMetConsM3_D8 = p.Get<double>("@BilledCons_UnbMetConsM3_D8"),          // 
+                    BilledCons_UnbUnmetConsM3_H8 = p.Get<double>("@BilledCons_UnbUnmetConsM3_H8"),          // 
+
                     UnbilledCons_MetConsBulkWatSupExpM3_D6 = p.Get<double>("@UnbilledCons_MetConsBulkWatSupExpM3_D6"),                      // 
 
                     UnbilledCons_UnbMetConsM3_D8 = p.Get<double>("@UnbilledCons_UnbMetConsM3_D8"),
@@ -148,6 +161,10 @@ namespace DataRepository
                     UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = p.Get<double>("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6"),        // 
                     UnauthCons_IllegalConnDomErrorMargin_F6 = p.Get<double>("@UnauthCons_IllegalConnDomErrorMargin_F6"),                    // 
                     UnauthCons_IllegalConnOthersErrorMargin_F10 = p.Get<double>("@UnauthCons_IllegalConnOthersErrorMargin_F10"),            // 
+
+                    IllegalConnectionsOthersEstimatedNumber_D10 = p.Get<double>("@IllegalConnectionsOthersEstimatedNumber_D10"),          // 
+                    IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = p.Get<double>("@IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10"),          // 
+
                     UnauthCons_MeterTampBypEtcEstNo_D14 = p.Get<double>("@UnauthCons_MeterTampBypEtcEstNo_D14"),                            // 
                     UnauthCons_MeterTampBypEtcErrorMargin_F14 = p.Get<double>("@UnauthCons_MeterTampBypEtcErrorMargin_F14"),                // 
                     UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = p.Get<double>("@UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14"),    // 

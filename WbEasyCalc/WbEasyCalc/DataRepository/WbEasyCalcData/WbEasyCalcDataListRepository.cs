@@ -51,8 +51,13 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@SysInput_SystemInputVolumeError_F6", model.SysInput_SystemInputVolumeError_F6);
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", model.BilledCons_BilledMetConsBulkWatSupExpM3_D6);
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
+
+                p.Add("@BilledCons_UnbMetConsM3_D8", model.BilledCons_UnbMetConsM3_D8);
+                p.Add("@BilledCons_UnbUnmetConsM3_H8", model.BilledCons_UnbUnmetConsM3_H8);
+
                 p.Add("@UnbilledCons_MetConsBulkWatSupExpM3_D6", model.UnbilledCons_MetConsBulkWatSupExpM3_D6);
 
+                p.Add("@UnbilledCons_UnbMetConsM3_D8", model.UnbilledCons_UnbMetConsM3_D8);
                 p.Add("@UnbilledCons_UnbUnmetConsM3_H6", model.UnbilledCons_UnbUnmetConsM3_H6);
                 p.Add("@UnbilledCons_UnbUnmetConsError_J6", model.UnbilledCons_UnbUnmetConsError_J6);
 
@@ -61,6 +66,10 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6", model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6);
                 p.Add("@UnauthCons_IllegalConnDomErrorMargin_F6", model.UnauthCons_IllegalConnDomErrorMargin_F6);
                 p.Add("@UnauthCons_IllegalConnOthersErrorMargin_F10", model.UnauthCons_IllegalConnOthersErrorMargin_F10);
+
+                p.Add("@IllegalConnectionsOthersEstimatedNumber_D10", model.IllegalConnectionsOthersEstimatedNumber_D10);
+                p.Add("@IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10", model.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10);
+
                 p.Add("@UnauthCons_MeterTampBypEtcEstNo_D14", model.UnauthCons_MeterTampBypEtcEstNo_D14);
                 p.Add("@UnauthCons_MeterTampBypEtcErrorMargin_F14", model.UnauthCons_MeterTampBypEtcErrorMargin_F14);
                 p.Add("@UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14", model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14);

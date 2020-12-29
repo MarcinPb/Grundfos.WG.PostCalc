@@ -118,7 +118,6 @@ namespace DataModel
                 BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
                 BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
 
-
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
                 UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
