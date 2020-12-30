@@ -35,8 +35,17 @@
                 <Separator/>
                 <Button Command="{Binding CreateAllCmd}" Content="Create All Zones for Month"/>
                 <Separator/>
+                <Button Command="{Binding CreateAllCmd}" Content="Create All Zones for Month"/>
+                <Separator/>
+                <Button 
+                    CommandParameter="{Binding SelectedItems, ElementName=DataGrid1}" 
+                    Command="{Binding ReadSelectedItemsCmd}" 
+                    Content="Read Selected Items"
+                    />
+                <Separator/>
             </ToolBar>
-            <controls:FilteredDataGridCtrl Grid.Row="1" 
+            <controls:FilteredDataGridCtrl  x:Name="DataGrid1" 
+                Grid.Row="1" 
                 ItemsSource="{Binding List}" 
                 SelectedItem="{Binding SelectedRow}"      
                 AutoGenerateColumns="False" 

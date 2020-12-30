@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -207,6 +208,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             // Only if at least one row is archived.
             return List.Any(x => x.Model.IsArchive==true);
         }
+
+
+        public RelayCommand<IList> ReadSelectedItemsCmd { get; }
+
+        private void ReadSelectedItemsExecute(object selectedItems)
+        {
+            var idListString = ((IList<object>)selectedItems).Select(x => (RowViewModel)x).Select(y => y.Model.WbEasyCalcDataId.ToString()).Aggregate((p, n) => p + "," + n);
+            MessageBox.Show($"Selected Id list: {idListString}.");
+        }
         #endregion
 
         public ListViewModel()
@@ -219,6 +229,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 SaveRowCmd = new RelayCommand(SaveRowCmdExecute, SaveRowCmdCanExecute);
                 CloneCmd = new RelayCommand(CloneCmdExecute, CloneCmdCanExecute);
                 CreateAllCmd = new RelayCommand(CreateAllCmdExecute, CreateAllCmdCanExecute);
+
+                ReadSelectedItemsCmd = new RelayCommand<IList>(ReadSelectedItemsExecute);
 
                 LoadData();
             }
