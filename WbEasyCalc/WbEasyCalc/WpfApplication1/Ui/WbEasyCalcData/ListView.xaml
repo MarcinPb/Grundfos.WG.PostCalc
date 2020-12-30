@@ -40,7 +40,7 @@
                 <Button 
                     CommandParameter="{Binding SelectedItems, ElementName=DataGrid1}" 
                     Command="{Binding ReadSelectedItemsCmd}" 
-                    Content="Read Selected Items"
+                    Content="Archiw Selected Items"
                     />
                 <Separator/>
             </ToolBar>
