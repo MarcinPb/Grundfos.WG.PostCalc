@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="WINDOWS-1250"?>
+<SheetFile>
+	<FileAttrib>
+		<FileType type="str">Sheet</FileType>
+		<SizeX type="int">1024</SizeX> <!-- Szerokość schematu: 1024 -->
+		<SizeY type="int">480</SizeY> <!-- Wysokość schematu: 480 -->
+		<RightLevel type="str">0</RightLevel>
+		<BgColor type="int">-1</BgColor>
+		<PatternFile type="str"/>
+		<WndStyle type="int">4096</WndStyle>
+		<AutoScale type="int">0</AutoScale>
+		<LockScaling type="int">0</LockScaling>
+		<Order type="int">0</Order>
+		<AutoNumMsr type="int">0</AutoNumMsr>
+		<AutoNumSheetButton type="int">0</AutoNumSheetButton>
+		<BgAnchorX type="int">0</BgAnchorX>
+		<BgAnchorY type="int">0</BgAnchorY>
+		<BgOrientation type="float">0</BgOrientation>
+		<BgFitToSheet type="int">0</BgFitToSheet>
+		<InitialBegin type="int">0</InitialBegin>
+		<InitTimeOffset type="long long">0</InitTimeOffset>
+		<Source type="str"/>
+		<Variable type="str"/>
+		<BaseHourChange type="int">1</BaseHourChange>
+		<ExportGridStartX type="int">0</ExportGridStartX>
+		<ExportGridStartY type="int">0</ExportGridStartY>
+		<PrintPages type="str">1</PrintPages>
+		<PrintGridStartX type="int">0</PrintGridStartX>
+		<PrintGridStartY type="int">0</PrintGridStartY>
+		<SourceVosim type="str"/>
+		<VariableVosim type="str"/>
+		<ExportGridRows type="ArrayWORD"/>
+		<ExportGridColumns type="ArrayWORD"/>
+		<PrintGridRows type="ArrayWORD"/>
+		<PrintGridColumns type="ArrayWORD"/>
+		<SplitterGridRows type="ArrayWORD"/>
+		<SplitterGridColumns type="ArrayWORD"/>
+		<BgIsMap type="int">0</BgIsMap>
+		<MapCenterLatitide type="double">52.4099</MapCenterLatitide>
+		<MapCenterLongitude type="double">16.9567</MapCenterLongitude>
+		<MapScale type="double">6.06061e-05</MapScale>
+		<MapSource type="str"/>
+		<ShpfSource type="str"/>
+		<ShpfColor type="int">-65536</ShpfColor>
+		<SplitterMode type="int">0</SplitterMode>
+		<FontList>
+			<Font type="str">&quot;default&quot; -16 0 0 0 0 0 0 0 1 0 0 0 0 &quot;Arial&quot;</Font>
+		</FontList>
+		<LayersDef>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">1</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 1</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 2</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 3</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 4</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 5</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 6</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 7</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 8</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 9</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 10</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 11</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 12</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 13</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 14</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 15</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+			<Def>
+				<DefVersion type="int">9</DefVersion>
+				<DefLayerEnable type="int">0</DefLayerEnable>
+				<DefLayerName type="str">Warstwa 16</DefLayerName>
+				<DefMinScale type="float">1</DefMinScale>
+				<DefMaxScale type="float">40000</DefMaxScale>
+				<DefTransparentOnPrint type="int">0</DefTransparentOnPrint>
+				<DefTransparentOnExport type="int">0</DefTransparentOnExport>
+				<DefServerName type="str"/>
+				<DefVariableName type="str"/>
+				<DefCondition type="str">&lt;&gt;</DefCondition>
+				<DefConditionValue type="str"/>
+				<DefRightLevel type="str">0</DefRightLevel>
+				<DefLayerValuesType type="int">0</DefLayerValuesType>
+				<DefValueType type="str">Wszystkie</DefValueType>
+				<DefVisibleOnRuntime type="int">1</DefVisibleOnRuntime>
+			</Def>
+		</LayersDef>
+		<LayerList>
+			<Layers type="str">&quot;Warstwa 1&quot; 1.000000 40000.000000 0 1 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 2&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 3&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 4&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 5&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 6&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 7&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 8&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 9&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 10&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 11&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 12&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 13&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 14&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 15&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+			<Layers type="str">&quot;Warstwa 16&quot; 1.000000 40000.000000 0 0 0 0 &quot;&quot; &quot;&quot; &quot;&lt;&gt;&quot; &quot;&quot; &quot;0&quot; &quot;Wszystkie&quot; 1</Layers>
+		</LayerList>
+	</FileAttrib>
+	<Elements>
+		<Button type="element">
+			<Version type="int">106</Version>
+			<DispType type="int">0</DispType> <!-- Widoczność przycisku: 0 - przezroczysty, 1 - dwustanowy -->
+			<PictureType type="int">2</PictureType>
+			<MouseEvent type="int">1</MouseEvent>
+			<HotKey type="int">0</HotKey>
+			<FieldNumber type="int">-1</FieldNumber>
+			<ButtonUp type="str"/>
+			<ButtonDown type="str"/>
+			<Label type="str"/>
+			<TransparentOnPrint type="int">0</TransparentOnPrint>
+			<TransparentOnExport type="int">0</TransparentOnExport>
+			<RightLevelLockType type="int">0</RightLevelLockType>
+			<RightLevel type="str">0</RightLevel>
+			<Font type="str">default</Font>
+			<IsButtonFont type="int">0</IsButtonFont>
+			<Color type="int">0</Color>
+			<FillBackground>
+				<FillBox>
+					<ColorsCount type="int">1</ColorsCount>
+					<ColorBoxes>
+						<ColorPos type="0.000000">
+							<ColorBox>
+								<Alpha type="float">1</Alpha>
+								<Blue type="float">0.752941</Blue>
+								<Green type="float">0.752941</Green>
+								<Red type="float">0.752941</Red>
+							</ColorBox>
+						</ColorPos>
+					</ColorBoxes>
+					<FillType type="int">1</FillType>
+				</FillBox>
+			</FillBackground>
+			<SourceX type="str"/>
+			<VariableX type="str"/>
+			<LockValue type="int">0</LockValue>
+			<LockValueString type="str"/>
+			<ButtonLock type="int">0</ButtonLock>
+			<LockCondition type="int">0</LockCondition>
+			<ButtonLockType type="int">0</ButtonLockType>
+			<LockValType type="int">0</LockValType>
+			<LockPredefType type="int">7</LockPredefType>
+			<SourceY type="str"/>
+			<VariableY type="str"/>
+			<DistinctionValue type="int">0</DistinctionValue>
+			<DistinctionValueString type="str"/>
+			<Distinction type="int">0</Distinction>
+			<DistinctionColor type="int">0</DistinctionColor>
+			<DistinctionFlashing type="int">0</DistinctionFlashing>
+			<DistinctionWidth type="int">1</DistinctionWidth>
+			<DistinctionCondition type="int">0</DistinctionCondition>
+			<DistinctionValType type="int">0</DistinctionValType>
+			<DistinctionPredefType type="int">4</DistinctionPredefType>
+			<ItemsCount type="int">1</ItemsCount>
+			<FunctionChoise type="int">0</FunctionChoise>
+			<AutoClose type="int">1</AutoClose>
+			<SimoneMode type="int">1</SimoneMode>
+			<BreakIfFailedOrCancel type="int">1</BreakIfFailedOrCancel>
+			<Orientation type="float">0</Orientation>
+			<TextAlignment type="int">1</TextAlignment>
+			<TextVerticalAlignment type="int">1</TextVerticalAlignment>
+			<Cursor type="int">32512</Cursor>
+			<SourceZ type="str"/>
+			<VariableZ type="str"/>
+			<PressDownValue type="int">0</PressDownValue>
+			<PressDownCondition type="int">0</PressDownCondition>
+			<PressDown type="int">0</PressDown>
+			<PressDownManualMode type="int">0</PressDownManualMode>
+			<LockedInShinsh type="int">0</LockedInShinsh>
+			<GlassButton type="int">0</GlassButton>
+			<PressDownDetermineStateOnly type="int">0</PressDownDetermineStateOnly>
+			<Function type="111">
+				<BaseFunctionVersion type="int">4</BaseFunctionVersion>
+				<FunctionName type="str">Nazwa_funkcji_przycisku</FunctionName> <!-- Nazwa: Nazwa_funkcji_przycisku -->
+				<ActionType type="int">1</ActionType>
+				<ActionName type="str">Wyciśnięcie</ActionName>
+				<FunctionVersion type="int">1</FunctionVersion>
+				<DynamicTitles type="int">0</DynamicTitles>
+				<DynamicBase type="int">1</DynamicBase>
+				<Title type="str">Tytuł_okna</Title> <!-- Tytuł okna: Tytuł_okna -->
+				<InitWndPosFromCursor type="int">1</InitWndPosFromCursor>
+				<Sheet type="str">Odcinki</Sheet> <!-- Komponent bazowy: Odcinki -->
+				<DynamicBaseLayers type="int">0</DynamicBaseLayers>
+				<MergeChangeLists type="int">0</MergeChangeLists>
+				<BreakIfFirstFound type="int">0</BreakIfFirstFound>
+				<ChangeList>
+					<Def type="2" changeFrom="xxx" changeTo="001"/> <!-- Typ zamiany: Zmienne, Wzorzec: xxx, Zamiennik: 001 -->
+					<Def type="4" changeFrom="Przepływ" changeTo="Ciśnienie"/> <!-- Typ zamiany: Teksty, Wzorzec: Przepływ, Zamiennik: Ciśnienie -->
+				</ChangeList>
+			</Function>
+			<BaseElemVersion type="int">104</BaseElemVersion>
+			<AnchoringActivated type="int">0</AnchoringActivated>
+			<Anchor type="int">0</Anchor>
+			<Layers type="UInt64">1</Layers>
+			<GroupId type="int">-1</GroupId>
+			<Name type="str"/>
+			<PointBoxes>
+				<PointBox>
+					<x type="float">350</x> <!-- pozycja x przycisku -->
+					<y type="float">360</y> <!-- pozycja y przycisku -->
+				</PointBox>
+				<PointBox>
+					<x type="float">450</x> <!--450 - 350 = szerokosc przycisku -->
+					<y type="float">460</y> <!--460 - 360 = wysokosc przycisku -->
+				</PointBox>
+			</PointBoxes>
+			<FillBoxes>
+				<FillBox>
+					<ColorsCount type="int">1</ColorsCount>
+					<ColorBoxes>
+						<ColorPos type="0.000000">
+							<ColorBox>
+								<Alpha type="float">1</Alpha>
+								<Blue type="float">0.752941</Blue>
+								<Green type="float">0.752941</Green>
+								<Red type="float">0.752941</Red>
+							</ColorBox>
+						</ColorPos>
+					</ColorBoxes>
+					<FillType type="int">1</FillType>
+				</FillBox>
+				<FillBox>
+					<ColorsCount type="int">1</ColorsCount>
+					<ColorBoxes>
+						<ColorPos type="0.000000">
+							<ColorBox>
+								<Alpha type="float">1</Alpha>
+								<Blue type="float">0</Blue>
+								<Green type="float">0</Green>
+								<Red type="float">0</Red>
+							</ColorBox>
+						</ColorPos>
+					</ColorBoxes>
+					<FillType type="int">1</FillType>
+				</FillBox>
+			</FillBoxes>
+			<ReferencePos>
+				<PointBox>
+					<x type="float">0.5</x>
+					<y type="float">0.5</y>
+				</PointBox>
+			</ReferencePos>
+			<MatrixBox>
+				<E11 type="float">1</E11>
+				<E12 type="float">0</E12>
+				<E21 type="float">0</E21>
+				<E22 type="float">1</E22>
+				<x type="float">0</x>
+				<y type="float">0</y>
+			</MatrixBox>
+			<BubleMessage type="str"/>
+			<LockBubbleMessage type="int">0</LockBubbleMessage>
+		</Button>
+	</Elements>
+</SheetFile>
+

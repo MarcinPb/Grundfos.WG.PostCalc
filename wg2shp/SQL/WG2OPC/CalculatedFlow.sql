@@ -1,0 +1,114 @@
+-- CREATE SCHEMA CONFIG:
+USE [TWDB]
+GO
+CREATE SCHEMA [config] AUTHORIZATION [db_accessadmin]
+GO
+use [TWDB]
+GO
+GRANT CONTROL ON SCHEMA::[config] TO [guest]
+GO
+use [TWDB]
+GO
+GRANT DELETE ON SCHEMA::[config] TO [guest]
+GO
+use [TWDB]
+GO
+GRANT INSERT ON SCHEMA::[config] TO [guest]
+GO
+use [TWDB]
+GO
+GRANT SELECT ON SCHEMA::[config] TO [guest]
+GO
+use [TWDB]
+GO
+GRANT UPDATE ON SCHEMA::[config] TO [guest]
+GO
+use [TWDB]
+GO
+GRANT DELETE ON SCHEMA::[config] TO [public]
+GO
+use [TWDB]
+GO
+GRANT INSERT ON SCHEMA::[config] TO [public]
+GO
+use [TWDB]
+GO
+GRANT SELECT ON SCHEMA::[config] TO [public]
+GO
+use [TWDB]
+GO
+GRANT UPDATE ON SCHEMA::[config] TO [public]
+GO
+use [TWDB]
+GO
+GRANT DELETE ON SCHEMA::[config] TO [tw_user]
+GO
+use [TWDB]
+GO
+GRANT INSERT ON SCHEMA::[config] TO [tw_user]
+GO
+use [TWDB]
+GO
+GRANT SELECT ON SCHEMA::[config] TO [tw_user]
+GO
+use [TWDB]
+GO
+GRANT UPDATE ON SCHEMA::[config] TO [tw_user]
+GO
+-- END CREATE SCHEMA CONFIG
+
+-- CREATE TABLE CalculatedFlowConfig
+USE [TWDB]
+GO
+
+/****** Object:  Table [config].[CalculatedFlowConfig]    Script Date: 24.06.2019 15:04:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [config].[CalculatedFlowConfig](
+	[ID] [int] NOT NULL,
+	[TimeRangeMinutes] [int] NOT NULL,
+	[FwdID] [numeric](20, 0) NOT NULL,
+	[RevID] [numeric](20, 0) NOT NULL,
+	[RatioID] [numeric](20, 0) NOT NULL,
+ CONSTRAINT [PK_CalculatedFlowConfig] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+-- END CREATE TABLE CalculatedFlowConfig
+
+-- CREATE TABLE CALCULATED FLOW
+USE [TWDB]
+GO
+
+/****** Object:  Table [dbo].[CalculatedFlow]    Script Date: 24.06.2019 15:04:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CalculatedFlow](
+	[ID] [int] NOT NULL,
+	[Timestamp] [datetime] NOT NULL,
+	[Value] [float] NULL,
+ CONSTRAINT [PK_CalculatedFlow] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC,
+	[Timestamp] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+-- END CREATE TABLE CALCULATED FLOW
+
+-- MIGRATE CONFIGURATION FROM OLD TABLE
+INSERT INTO CONFIG.CALCULATEDFLOWCONFIG
+SELECT RES_ID, 1 ,FWD_ID, REV_ID, RATIO_ID
+FROM InsertCalculatedFlowConfig
+-- END MIGRATE CONFIGURATION
+

@@ -1,0 +1,162 @@
+﻿<Button type="element">
+  <Version type="int">106</Version>
+  <DispType type="int">0</DispType>
+  <PictureType type="int">2</PictureType>
+  <MouseEvent type="int">1</MouseEvent>
+  <HotKey type="int">0</HotKey>
+  <FieldNumber type="int">-1</FieldNumber>
+  <ButtonUp type="str"/>
+  <ButtonDown type="str"/>
+  <Label type="str"/>
+  <TransparentOnPrint type="int">0</TransparentOnPrint>
+  <TransparentOnExport type="int">0</TransparentOnExport>
+  <RightLevelLockType type="int">0</RightLevelLockType>
+  <RightLevel type="str">0</RightLevel>
+  <Font type="str">default</Font>
+  <IsButtonFont type="int">0</IsButtonFont>
+  <Color type="int">0</Color>
+  <FillBackground>
+    <FillBox>
+      <ColorsCount type="int">1</ColorsCount>
+      <ColorBoxes>
+        <ColorPos type="0.000000">
+          <ColorBox>
+            <Alpha type="float">1</Alpha>
+            <Blue type="float">0.752941</Blue>
+            <Green type="float">0.752941</Green>
+            <Red type="float">0.752941</Red>
+          </ColorBox>
+        </ColorPos>
+      </ColorBoxes>
+      <FillType type="int">1</FillType>
+    </FillBox>
+  </FillBackground>
+  <SourceX type="str"/>
+  <VariableX type="str"/>
+  <LockValue type="int">0</LockValue>
+  <LockValueString type="str"/>
+  <ButtonLock type="int">0</ButtonLock>
+  <LockCondition type="int">0</LockCondition>
+  <ButtonLockType type="int">0</ButtonLockType>
+  <LockValType type="int">0</LockValType>
+  <LockPredefType type="int">7</LockPredefType>
+  <SourceY type="str"/>
+  <VariableY type="str"/>
+  <DistinctionValue type="int">0</DistinctionValue>
+  <DistinctionValueString type="str"/>
+  <Distinction type="int">0</Distinction>
+  <DistinctionColor type="int">0</DistinctionColor>
+  <DistinctionFlashing type="int">0</DistinctionFlashing>
+  <DistinctionWidth type="int">1</DistinctionWidth>
+  <DistinctionCondition type="int">0</DistinctionCondition>
+  <DistinctionValType type="int">0</DistinctionValType>
+  <DistinctionPredefType type="int">4</DistinctionPredefType>
+  <ItemsCount type="int">1</ItemsCount>
+  <FunctionChoise type="int">0</FunctionChoise>
+  <AutoClose type="int">1</AutoClose>
+  <SimoneMode type="int">1</SimoneMode>
+  <BreakIfFailedOrCancel type="int">1</BreakIfFailedOrCancel>
+  <Orientation type="float">0</Orientation>
+  <TextAlignment type="int">1</TextAlignment>
+  <TextVerticalAlignment type="int">1</TextVerticalAlignment>
+  <Cursor type="int">32649</Cursor>
+  <SourceZ type="str"/>
+  <VariableZ type="str"/>
+  <PressDownValue type="int">0</PressDownValue>
+  <PressDownCondition type="int">0</PressDownCondition>
+  <PressDown type="int">0</PressDown>
+  <PressDownManualMode type="int">0</PressDownManualMode>
+  <LockedInShinsh type="int">0</LockedInShinsh>
+  <GlassButton type="int">1</GlassButton>
+  <PressDownDetermineStateOnly type="int">0</PressDownDetermineStateOnly>
+  <Function type="111">
+    <BaseFunctionVersion type="int">4</BaseFunctionVersion>
+    <FunctionName type="str">otwarcie schematu dynamicznego</FunctionName>
+    <ActionType type="int">1</ActionType>
+    <ActionName type="str">Wyciśnięcie</ActionName>
+    <FunctionVersion type="int">1</FunctionVersion>
+    <DynamicTitles type="int">0</DynamicTitles>
+    <DynamicBase type="int">1</DynamicBase>
+    <Title type="str">FCV - dane symulacyjne</Title>
+    <InitWndPosFromCursor type="int">1</InitWndPosFromCursor>
+    <Sheet type="str">dane-symulacyjne-zawor-ogr-przepl-fcv</Sheet>
+    <DynamicBaseLayers type="int">0</DynamicBaseLayers>
+    <MergeChangeLists type="int">0</MergeChangeLists>
+    <BreakIfFirstFound type="int">1</BreakIfFirstFound>
+    <ChangeList>
+      <Def type="2" changeFrom="ValveFlow" changeTo="ValveFlow"/>
+      <Def type="2" changeFrom="ValveFlowSet" changeTo="ValveFlowSet"/>
+      <Def type="2" changeFrom="ValvePrsFrom" changeTo="ValvePrsFrom"/>
+      <Def type="2" changeFrom="ValvePrsTo" changeTo="ValvePrsTo"/>
+      <Def type="2" changeFrom="ValveStatus" changeTo="ValveStatus"/>
+      <Def type="4" changeFrom="LABEL" changeTo="LABEL_ZAMIENNIK"/>
+      <Def type="4" changeFrom="ID" changeTo="ID_ZAMIENNIK"/>
+    </ChangeList>
+  </Function>
+  <BaseElemVersion type="int">104</BaseElemVersion>
+  <AnchoringActivated type="int">0</AnchoringActivated>
+  <Anchor type="int">0</Anchor>
+  <Layers type="UInt64">1</Layers>
+  <GroupId type="int">-1</GroupId>
+  <Name type="str">Przycisk_Dynamiczny</Name>
+  <ReferenceType type="int">0</ReferenceType>
+  <PointBoxes>
+    <PointBox>
+      <x type="float">412</x>
+      <y type="float">1354</y>
+    </PointBox>
+    <PointBox>
+      <x type="float">422</x>
+      <y type="float">1364</y>
+    </PointBox>
+  </PointBoxes>
+  <FillBoxes>
+    <FillBox>
+      <ColorsCount type="int">1</ColorsCount>
+      <ColorBoxes>
+        <ColorPos type="0.000000">
+          <ColorBox>
+            <Alpha type="float">1</Alpha>
+            <Blue type="float">0.752941</Blue>
+            <Green type="float">0.752941</Green>
+            <Red type="float">0.752941</Red>
+          </ColorBox>
+        </ColorPos>
+      </ColorBoxes>
+      <FillType type="int">1</FillType>
+    </FillBox>
+    <FillBox>
+      <ColorsCount type="int">1</ColorsCount>
+      <ColorBoxes>
+        <ColorPos type="0.000000">
+          <ColorBox>
+            <Alpha type="float">1</Alpha>
+            <Blue type="float">0</Blue>
+            <Green type="float">0</Green>
+            <Red type="float">0</Red>
+          </ColorBox>
+        </ColorPos>
+      </ColorBoxes>
+      <FillType type="int">1</FillType>
+    </FillBox>
+  </FillBoxes>
+  <ReferencePos>
+    <PointBox>
+      <x type="float">0.5</x>
+      <y type="float">0.5</y>
+    </PointBox>
+  </ReferencePos>
+  <MatrixBox>
+    <E11 type="float">1</E11>
+    <E12 type="float">0</E12>
+    <E21 type="float">0</E21>
+    <E22 type="float">1</E22>
+    <x type="float">0</x>
+    <y type="float">0</y>
+  </MatrixBox>
+  <BubleMessage type="str"/>
+  <LockBubbleMessage type="int">0</LockBubbleMessage>
+  <LayersMaskBlocks>
+    <Block type="UInt64">1</Block>
+  </LayersMaskBlocks>
+</Button>

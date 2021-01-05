@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DEC6415-8A0D-47B7-AF5C-EA49967825B3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Grundfos.WG2TW.XML.ConsoleApp</RootNamespace>
+    <AssemblyName>Grundfos.WG2TW.XML.ConsoleApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonBuilders\ButtonBuilder.cs" />
+    <Compile Include="ButtonBuilders\ButtonBuilderFactory.cs" />
+    <Compile Include="ButtonBuilders\ButtonBuilderManager.cs" />
+    <Compile Include="Configuration\ButtonFactoryConfiguration.cs" />
+    <Compile Include="Configuration\ButtonTemplate.cs" />
+    <Compile Include="Configuration\ButtonTemplates.cs" />
+    <Compile Include="Configuration\Converters\String2ObjectTypesConverter.cs" />
+    <Compile Include="Configuration\Target.cs" />
+    <Compile Include="Configuration\Targets.cs" />
+    <Compile Include="Configuration\Wg2TwConfigurationSection.cs" />
+    <Compile Include="Configuration\XmlProcessorConfiguration.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Mappings\XmlProcessorConfigurationMapping.cs" />
+    <Compile Include="ButtonBuilders\PipeButtonBuilder.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WgObjectsProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Files\KepEx.xlsx">
+      <Link>TestData\KepEx.xlsx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Files\TelSrv.map">
+      <Link>TestData\TelSrv.map</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Files\Tw.xlsx">
+      <Link>TestData\Tw.xlsx</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Grundfos.WG2SHP.ConsoleApp\NLog.config">
+      <Link>NLog.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grundfos.GeometryModel.Builders\Grundfos.GeometryModel.Builders.csproj">
+      <Project>{92D1310B-9068-4D11-93B1-27B96A9B016C}</Project>
+      <Name>Grundfos.GeometryModel.Builders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.GeometryModel\Grundfos.GeometryModel.csproj">
+      <Project>{4F166DA1-AA06-4B20-9173-67F6C307E275}</Project>
+      <Name>Grundfos.GeometryModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.TW.MapFileProvider\Grundfos.TW.DataSourceMap.csproj">
+      <Project>{B3FD0F35-213A-4A6E-9829-82E7866089D0}</Project>
+      <Name>Grundfos.TW.DataSourceMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.TW.XML\Grundfos.TW.XML.csproj">
+      <Project>{F4B6F43C-A707-4B6C-8FD9-D8467CB48232}</Project>
+      <Name>Grundfos.TW.XML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WG2SVG.Configuration\Grundfos.WG2SVG.Configuration.csproj">
+      <Project>{664AA993-2B46-400E-84BF-8E25B0121AC2}</Project>
+      <Name>Grundfos.WG2SVG.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grundfos.WO\Grundfos.WO.csproj">
+      <Project>{CAEF645B-1DC8-44DC-A0C8-E4C3170ED7EC}</Project>
+      <Name>Grundfos.WO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\button-pbv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-variablespeedpumpbattery.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-tcv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-gpv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-prv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-psv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-standardpump.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-hydrant.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-fcv.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-reservoir.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-tank.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\button-pipe.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\button-junction.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\MapWithDynamicButtons.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\warstwa_przyciski.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.2.20\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SlowCheetah.3.2.20\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.SlowCheetah.3.2.20\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.2.20\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <ItemDefinitionGroup>
+    <!-- Default TransformOnBuild values for file types -->
+    <_NoneWithTargetPath>
+      <TransformOnBuild>false</TransformOnBuild>
+    </_NoneWithTargetPath>
+    <ContentWithTargetPath>
+      <TransformOnBuild>false</TransformOnBuild>
+    </ContentWithTargetPath>
+  </ItemDefinitionGroup>
+</Project>
