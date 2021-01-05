@@ -110,7 +110,7 @@
                     <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"  />
                     <TextBlock Grid.Column="2" Text ="  Billed Unmetered Consumption (Export) [m3]: " />
                     <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                    
+
                     <TextBlock Grid.Row="1" Text ="Billed Metered Consumption [m3]: " />
                     <TextBox Grid.Row="1" Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
                     <TextBlock Grid.Row="1" Grid.Column="2" Text ="  Billed Unmetered Consumption [m3]: " />
@@ -280,22 +280,22 @@
                     <TextBox Grid.Column="1" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }"  TextAlignment="Right"/>
                     <TextBlock Grid.Column="2" Grid.Row="1" Text ="  Error Margin [+/-%]: " />
                     <TextBox Grid.Column="3" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                                        
+
                     <TextBlock Grid.Column="0" Grid.Row="2" Text ="Metered Bulk Supply [%]: " />
                     <TextBox Grid.Column="1" Grid.Row="2" Width="100" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
                     <TextBlock Grid.Column="2" Grid.Row="2" Text ="  Error Margin [+/-%]: " />
                     <TextBox Grid.Column="3" Grid.Row="2" Width="100" Text="{Binding Path=Model.MeteredBulkSupplyExportErrorMargin_N32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    
+
                     <TextBlock Grid.Column="0" Grid.Row="3" Text ="Unbilled Metered Consumption [%]: " />
                     <TextBox Grid.Column="1" Grid.Row="3" Width="100" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
                     <TextBlock Grid.Column="2" Grid.Row="3" Text ="  Error Margin [+/-%]: " />
                     <TextBox Grid.Column="3" Grid.Row="3" Width="100" Text="{Binding Path=Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    
+
                     <TextBlock Grid.Column="0" Grid.Row="4" Text ="Corrupt Meter Reading Practices [%]: " />
                     <TextBox Grid.Column="1" Grid.Row="4" Width="100" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
                     <TextBlock Grid.Column="2" Grid.Row="4" Text ="  Error Margin [+/-%]: " />
                     <TextBox Grid.Column="3" Grid.Row="4" Width="100" Text="{Binding Path=Model.CorruptMeterReadingPracticessErrorMargin_N38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    
+
                     <TextBlock Grid.Column="0" Grid.Row="5" Text ="Data Handling Errors: " />
                     <TextBox Grid.Column="1" Grid.Row="5" Width="100" Text="{Binding Path=Model.DataHandlingErrorsOffice_L40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" TextAlignment="Right"  />
                     <TextBlock Grid.Column="2" Grid.Row="5" Text ="  Error Margin [+/-%]: " />
@@ -422,7 +422,7 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" />
+                                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" Margin="34,0" />
                                         <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLosses_K29, StringFormat={}{0:### ### ##0} m3}" FontWeight="Bold" />
                                         <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
                                         <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Model.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
@@ -586,6 +586,82 @@
                         </Border>
                     </Grid>
                 </Grid>
+            </TabItem>
+            <TabItem Header="PIs">
+                <!--<ContentControl Content="{Binding WbEasyCalcDataEditedViewModel}" />-->
+                <Grid Background="LightBlue">
+                    <Grid Grid.Row="0" Margin="10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="290"/>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="170"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content ="Description" BorderBrush="White" BorderThickness="1" Foreground="White" FontWeight="Bold" Background="SteelBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 0 10 10"/>
+                        <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Estimated" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Number" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[+/-%]" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Person per" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="House" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/person/day]" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - domestic" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
+                        </Border>
+                        <TextBox Grid.Column="1" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.AverageSupplyTimeHPerDayBestEstimate_F9, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
+
+                        <Border Grid.Column="0" Grid.Row="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - others" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
+                        </Border>
+                        <TextBox Grid.Column="1" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.AveragePressureMBestEstimate_F11, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" />
+
+                    </Grid>
+                </Grid>
+
             </TabItem>
         </TabControl>
 

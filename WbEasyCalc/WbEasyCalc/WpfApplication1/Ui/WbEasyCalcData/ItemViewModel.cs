@@ -99,12 +99,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
             NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
             NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
+
+            AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
+            AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
         };
 
         #region Props ViewModel: Id, ZoneId,...
 
         private int _id;
-        public int Id 
+        public int Id
         {
             get => _id;
             set
@@ -146,7 +149,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
         private int _zoneId;
-        public int ZoneId 
+        public int ZoneId
         {
             get
             {
@@ -513,6 +516,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _revenueWaterM3Ay8;
         private double _nonRevenueWaterM3Ay24;
         private double _nonRevenueWaterErrorMarginAy26;
+        private double _averageSupplyTimeHPerDayBestEstimate_F9;
+        private double _averagePressureMBestEstimate_F11;
 
         public double SystemInputVolume_B19
         {
@@ -663,6 +668,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _nonRevenueWaterErrorMarginAy26 = value; RaisePropertyChanged(nameof(NonRevenueWaterErrorMargin_AY26)); }
         }
 
+        public double AverageSupplyTimeHPerDayBestEstimate_F9 
+        { 
+            get => _averageSupplyTimeHPerDayBestEstimate_F9;
+            set { _averageSupplyTimeHPerDayBestEstimate_F9 = value; RaisePropertyChanged(nameof(AverageSupplyTimeHPerDayBestEstimate_F9)); }
+        }
+        public double AveragePressureMBestEstimate_F11 
+        { 
+            get => _averagePressureMBestEstimate_F11;
+            set { _averagePressureMBestEstimate_F11 = value; RaisePropertyChanged(nameof(AveragePressureMBestEstimate_F11)); }
+        }
+
+
+
         #endregion
 
         public ItemViewModel(DataModel.WbEasyCalcData model)
@@ -673,7 +691,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 ZoneId = model.ZoneId;
                 YearNo = model.YearNo;
-                MonthNo = model.MonthNo;                
+                MonthNo = model.MonthNo;
                 Start_PeriodDays_M21 = model.Start_PeriodDays_M21;
             }
             else
@@ -689,7 +707,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsArchive = model.IsArchive;
             IsAccepted = model.IsAccepted;
 
-            
+
             SysInput_SystemInputVolumeM3_D6 = model.SysInput_SystemInputVolumeM3_D6;
             SysInput_SystemInputVolumeError_F6 = model.SysInput_SystemInputVolumeError_F6;
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
@@ -763,6 +781,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = model.RevenueWaterM3_AY8;
             NonRevenueWaterM3_AY24 = model.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
+
+            AverageSupplyTimeHPerDayBestEstimate_F9 = model.AverageSupplyTimeHPerDayBestEstimate_F9;
+            AveragePressureMBestEstimate_F11 = model.AveragePressureMBestEstimate_F11;
         }
 
         public void CalculateExcel()
@@ -821,6 +842,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
             NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
+
+            AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcDataOutput.AverageSupplyTimeHPerDayBestEstimate_F9;
+            AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
         }
 
 

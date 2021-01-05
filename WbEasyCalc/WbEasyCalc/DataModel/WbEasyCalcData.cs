@@ -95,6 +95,10 @@ namespace DataModel
         public double NonRevenueWaterM3_AY24 { get; set; }
         public double NonRevenueWaterErrorMargin_AY26 { get; set; }
 
+        public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
+        public double AveragePressureMBestEstimate_F11 { get; set; }
+
+
         public object Clone()
         {
             return new WbEasyCalcData()
@@ -184,6 +188,9 @@ namespace DataModel
                 RevenueWaterM3_AY8  = RevenueWaterM3_AY8,
                 NonRevenueWaterM3_AY24  = NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26  = NonRevenueWaterErrorMargin_AY26,
+
+                AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
+                AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
             };
         }
 

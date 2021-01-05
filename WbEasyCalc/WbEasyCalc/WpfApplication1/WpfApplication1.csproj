@@ -82,6 +82,9 @@
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\ListViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\RowViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\TabView\TabPis.xaml.cs">
+      <DependentUpon>TabPis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\SelectingItemAttachedProperty.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\ViewModelBase.cs" />
@@ -109,6 +112,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Ui\WbEasyCalcData\TabView\TabPis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
@@ -178,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ui\WaterConsumption\" />
+    <Folder Include="Ui\WbEasyCalcData\TabViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
