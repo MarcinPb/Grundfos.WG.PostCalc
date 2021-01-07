@@ -42,10 +42,10 @@ namespace Grundfos.WG2SVG.ConsoleApp
 
             log.Info("================================================================================");
             log.Info("Starting the application.");
-            RunAsync().Wait();
+            //RunAsync().Wait();
 
             // Only for testing.
-            //Run();
+            Run();
 
             log.Info("Exiting the application.");
         }
@@ -81,11 +81,12 @@ namespace Grundfos.WG2SVG.ConsoleApp
 
                 // Get data from SqlLite to List<DomainObjectData>
                 // 13 [Pipe 3542, Junction 2987, IdahoHydrant 1, ...]
-                var domainObjects = GetDomainObjects(config.DataSource)
+                //var domainObjects = GetDomainObjects(config.DataSource)
+                Dictionary<ObjectTypes, List<DomainObjectData>> domainObjects = GetDomainObjects(config.DataSource)
                     .GroupBy(x => x.ObjectType)
                     .ToDictionary(x => x.Key, x => x.ToList());
 
-                // Get data from "TestData\KepEx.xlsx", "TestData\Tw.xlsx", "TestData\TelSrv.map" files 
+                // Get data from "TestData\KepEx.xlsx", "TestData\TelSrv.map", "TestData\Tw.xlsx" files 
                 // to List<DataSourceMapEntry>
                 // 32298 rec.
                 var dataSourceMap = GetDataSourceMap(config.DataSource);

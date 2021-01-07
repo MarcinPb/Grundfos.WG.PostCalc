@@ -1,5 +1,8 @@
-﻿namespace Grundfos.GeometryModel
+﻿using System;
+
+namespace Grundfos.GeometryModel
 {
+    [Serializable]
     public class Point2D
     {
         public Point2D()

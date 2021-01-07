@@ -4,6 +4,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -13,6 +15,7 @@ using DataModel.Files;
 using DataModel.Files.Osm;
 using DataModel.Files.Ztm;
 using DataRepository.Services;
+using Grundfos.GeometryModel;
 
 namespace DataRepository
 {
@@ -209,6 +212,23 @@ namespace DataRepository
             var osmStopNodeList = GetOsmNodeList(xElement);
             return osmStopNodeList;
         }
+
+
+        public static Dictionary<ObjectTypes, List<DomainObjectData>> GetWgObjectTypeList()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
+            stream.Close();
+
+            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+                .GroupBy(x => x.ObjectType)
+                .ToDictionary(x => x.Key, x => x.ToList());
+
+            return domainGrouppedObjects;
+        }
+
+
 
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using DataModel.Files;
 using DataModel.Files.Osm;
 using DataModel.Files.Ztm;
+using Grundfos.GeometryModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DataRepository.Test
@@ -35,6 +36,18 @@ namespace DataRepository.Test
             var result = Methods.IsDuplicate(ztmOsm, _ztmOsmList);
 
             Assert.AreEqual(result, true);
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            //var ztmOsm = new ZtmOsm(new Stop() { Id = 14 }, new Node() {Id = 23}, 0);
+            //_ztmOsmList.Add(ztmOsm);
+            var list = Methods.GetWgObjectTypeList();
+            var j_6_022 = list[ObjectTypes.Junction].FirstOrDefault(x => x.Label == "j-6-022");
+            var j_5_021 = list[ObjectTypes.Junction].FirstOrDefault(x => x.Label == "j-5-021");
+
+            //Assert.AreEqual(result, true);
         }
     }
 }

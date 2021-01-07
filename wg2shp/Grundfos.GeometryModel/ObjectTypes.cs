@@ -1,5 +1,8 @@
-﻿namespace Grundfos.GeometryModel
+﻿using System;
+
+namespace Grundfos.GeometryModel
 {
+    [Serializable]
     public enum ObjectTypes
     {
         ScadaElement = 23,

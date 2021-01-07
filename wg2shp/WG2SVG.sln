@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.TW.XML.Tests", "Gr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WG2TW.XML.ConsoleApp", "Grundfos.WG2TW.XML.ConsoleApp\Grundfos.WG2TW.XML.ConsoleApp.csproj", "{4DEC6415-8A0D-47B7-AF5C-EA49967825B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WO.Test", "Grundfos.WO.Test\Grundfos.WO.Test.csproj", "{4C68321D-4867-4A38-8D17-2035FC791F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,10 @@ Global
 		{4DEC6415-8A0D-47B7-AF5C-EA49967825B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DEC6415-8A0D-47B7-AF5C-EA49967825B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DEC6415-8A0D-47B7-AF5C-EA49967825B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C68321D-4867-4A38-8D17-2035FC791F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C68321D-4867-4A38-8D17-2035FC791F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C68321D-4867-4A38-8D17-2035FC791F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C68321D-4867-4A38-8D17-2035FC791F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

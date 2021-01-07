@@ -57,9 +57,16 @@
       <Project>{bd6d5cfa-61ca-436f-9d01-fe41d5661e8a}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grundfos.GeometryModel\Grundfos.GeometryModel.csproj">
+      <Project>{4f166da1-aa06-4b20-9173-67f6c307e275}</Project>
+      <Name>Grundfos.GeometryModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Files\Wg\MyFile.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

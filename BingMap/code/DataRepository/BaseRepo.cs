@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using DataModel.Db;
-using DataRepository;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace DataRepository
@@ -115,8 +116,6 @@ namespace DataRepository
                 ser.Serialize(fs, f);
             }
         }
-
-
 
         private int GetStopConnectionId()
         {
