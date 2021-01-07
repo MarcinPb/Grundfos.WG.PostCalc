@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfAppUi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="OSM + ZTM" Height="600" Width="1000" FontSize="16" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        >
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="10" FontSize="28" Text="OSM + ZTM" />
+        <Button Grid.Row="1" x:Name="DownloadBusStopListToFile" Margin="10" Padding="10" Click="DownloadBusStopListToFile_Click">Download Bus Stop List to Osm\BusStopList.xml File</Button>
+        <Button Grid.Row="2" x:Name="GetZtmArea" Margin="10" Padding="10" Click="GetZtmArea_Click">Show ZTM Area Size from Ztm\stops.csv File</Button>
+        <Button Grid.Row="3" x:Name="CreateOsmZtmFile" Margin="10" Padding="10" Click="CreateOsmZtmFile_Click">Create Result.xml File</Button>
+        <Button Grid.Row="4" x:Name="CreateReportFile01" Margin="10" Padding="10" Click="CreateReportFile01_Click">Create Report01.csv File</Button>
+        <Button Grid.Row="5" x:Name="ShowMap" Margin="10" Padding="10" Click="ShowMap_Click">Show Map</Button>
+        <Border Grid.Row="6"  Margin="10" BorderBrush="Gray" BorderThickness="1" >
+            <TextBlock x:Name="ResultsWindow"/>
+        </Border>
+    </Grid>
+</Window>

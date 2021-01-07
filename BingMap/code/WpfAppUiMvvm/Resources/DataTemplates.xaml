@@ -1,0 +1,35 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+    xmlns:converters="clr-namespace:WpfApplication1.Converters"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:helpers="clr-namespace:WpfApplication1.Helpers"
+    xmlns:viewModel="clr-namespace:WpfApplication1.ViewModel">
+    
+    
+    <wpf:ApplicationIdCredentialsProvider x:Key="MyCredentials" ApplicationId="SB1meHUME1wfK2U9s64I~BDIKAFlkZRHGfBWlfDVtjA~AoMBUdvmsIyrtgNmavFb3WmcBIoDg01WZ-Z2zIB-eC6Z2pL3MGM8RDT8I4D3e9bR" />
+
+    <converters:LocationListToTextConverter x:Key="LocationListToTextConverterKey" />
+    <converters:TypeIdToBackground x:Key="TypeIdToBackgroundKey" />
+
+    <DataTemplate DataType="{x:Type viewModel:MapItem1}">
+        <wpf:Pushpin Location="{Binding Location}" Content="{Binding Id}" Background="{Binding TypeId, Converter={StaticResource TypeIdToBackgroundKey}}" ToolTip="{Binding Name}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MapItem2}">
+        <wpf:MapPolyline Locations="{Binding LocationList, Converter={StaticResource LocationListToTextConverterKey}}" Stroke="Red" ToolTip="{Binding Name}" Tag="{Binding Id}" >
+            <wpf:MapPolyline.Style>
+                <Style TargetType="{x:Type wpf:MapPolyline}">
+                    <Setter Property="helpers:MapHelper.StrokeThickness" Value="{Binding StrokeThickness}"/>
+                    <Style.Triggers>
+                        <Trigger Property="wpf:MapPolyline.IsMouseOver" Value="True">
+                            <Setter Property="helpers:MapHelper.StrokeThickness" Value="5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </wpf:MapPolyline.Style>
+        </wpf:MapPolyline>
+    </DataTemplate>
+
+</ResourceDictionary>
