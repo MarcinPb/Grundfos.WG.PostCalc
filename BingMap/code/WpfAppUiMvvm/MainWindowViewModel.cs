@@ -88,6 +88,7 @@ namespace WpfApplication1
 
 
         public RelayCommand AddPushpinCmd { get; }
+        public RelayCommand AddPushpinDotCmd { get; }
         public RelayCommand ChangePushpinNameCmd { get; }
         public RelayCommand AddLineCmd { get; }
 
@@ -114,9 +115,16 @@ namespace WpfApplication1
                 _mainRepo.DeleteMapItem(name);
                 Log += $"Connection {name} was removed.\n";
             }
-            else if (obj is List<Location> closestLocation)
+            else if (obj is List<Location> locationList)
             {
-                _startLocation = closestLocation[0];
+                if (locationList.Count==2)
+                {
+                    _startLocation = locationList[0];
+                }
+                else
+                {
+                    Log = $"Mouse location: {locationList[0].Latitude}  {locationList[0].Longitude}\n" + Log;
+                }
             }
         }
 
@@ -155,10 +163,13 @@ namespace WpfApplication1
             WindowLoadedCmd = new RelayCommand(WindowLoaded);
 
             AddPushpinCmd = new RelayCommand(() =>_mainRepo.AddPushpin());
+            AddPushpinCmd = new RelayCommand(() =>_mainRepo.AddPushpin());
             ChangePushpinNameCmd = new RelayCommand(() => _mainRepo.ChangePushpinName());
             AddLineCmd = new RelayCommand(() => _mainRepo.AddLine());
             ExportCmd = new RelayCommand(ExportExecute);
             SaveCmd = new RelayCommand(() => _mainRepo.Save());
+
+            AddPushpinDotCmd = new RelayCommand(() =>_mainRepo.AddPushpinDot());
 
             MapOpacity = 1;
             _mainRepo = new MainRepo();

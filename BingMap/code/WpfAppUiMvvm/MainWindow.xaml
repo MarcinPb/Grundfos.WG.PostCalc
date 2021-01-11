@@ -40,6 +40,9 @@
             <MenuItem Header="_Map" >
                 <MenuItem Header="Export" Command="{Binding ExportCmd}"/>
                 <MenuItem Header="Save" Command="{Binding SaveCmd}"/>
+                <Separator/>
+                <MenuItem Header="Add Dots" Command="{Binding AddPushpinDotCmd}"/>
+                <MenuItem Header="Add Line" Command="{Binding AddLineCmd}"/>
             </MenuItem>
         </Menu>
         <ToolBar Grid.Row="1" >
@@ -87,6 +90,8 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </m:Map>
-        <TextBlock Text="{Binding Log}" Grid.Row="3" Height ="100"/>
+        <ScrollViewer Grid.Row="3" Height ="100" >
+            <TextBox Text="{Binding Log}" />
+        </ScrollViewer>
     </Grid>
 </Window>

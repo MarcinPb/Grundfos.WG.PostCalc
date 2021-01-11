@@ -71,6 +71,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WG2TW.XML.ConsoleA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grundfos.WO.Test", "Grundfos.WO.Test\Grundfos.WO.Test.csproj", "{4C68321D-4867-4A38-8D17-2035FC791F3C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{15267463-8ECD-4D08-B9EB-0FFCDE396A87}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\geographic_transformations_105.pdf = Docs\geographic_transformations_105.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

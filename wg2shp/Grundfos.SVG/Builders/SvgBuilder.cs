@@ -24,7 +24,7 @@ namespace Grundfos.SVG.Builders
         {
             foreach (var item in items)
             {
-                var geometry = this.BuildSvgGeometry(item);
+                SvgVisualElement geometry = this.BuildSvgGeometry(item);
                 if (geometry != null)
                 {
                     document.Children.Add(geometry);

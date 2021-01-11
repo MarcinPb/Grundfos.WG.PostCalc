@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataModel;
+using DataRepository.WaterConsumption;
 using DataRepository.WbEasyCalcData;
 
 namespace DataRepository
@@ -11,6 +12,7 @@ namespace DataRepository
     public interface IDataRepository
     {
         IWbEasyCalcDataListRepository WbEasyCalcDataListRepository { get; }
+        IListRepository WaterConsumptionListRepository { get; }
 
         List<IdNamePair> YearList { get; }
         List<IdNamePair> MonthList { get; }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Documents;
 using DataModel.Db;
 using DataRepository;
+using Grundfos.GeometryModel;
 using Microsoft.Maps.MapControl.WPF;
 using WpfApplication1.ViewModel;
 
@@ -31,7 +32,8 @@ namespace WpfApplication1.Repository
 
         public Location GetCenterLocation()
         {
-            return new Location(50.295, 18.92);
+            //return new Location(50.295, 18.92);
+            return new Location(51.20150, 16.17970);
         }
         public int GetZoomLevel()
         {
@@ -54,6 +56,23 @@ namespace WpfApplication1.Repository
                 TypeId = 2,
             });
         }
+        public void AddPushpinDot()
+        {
+            var junctionList = Methods.GetJunctionList();
+
+            foreach(var junction in junctionList)
+            {
+                var location = new Location(junction.Center.Y, junction.Center.X);
+                _mapItemList.Add(new MapItem1()
+                {
+                    Id = junction.ID,
+                    Name = $"{junction.Label}: X={junction.Center.X} Y={junction.Center.Y},    Lat={location.Latitude} Lon={location.Longitude}",
+                    TypeId = 2,
+                    Location= location,
+                });
+            }
+        }
+
         private long GetMapItem1Id(ObservableCollection<IMapItem> mapItemList)
         {
             return mapItemList.Where(x => x is MapItem2).Max(x => x.Id) + 1;
@@ -66,16 +85,33 @@ namespace WpfApplication1.Repository
 
         public void AddLine()
         {
+            var pipeList = Methods.GetPipeList();
+
+            foreach(var pipe in pipeList)
+            {
+                _mapItemList.Add(new MapItem2()
+                {
+                    Id = pipe.ID,
+                    StrokeThickness = 1,
+                    LocationList = pipe.Path.Select(x => new Location(x.Y, x.X)).ToList(),
+                });
+            }
+            /*
+            var xDiv = 345000.01;
+            var yDiv = 110830.01;
+
+            var wgObjectTypeList = Methods.GetWgObjectTypeList();
+            var pipe = wgObjectTypeList[ObjectTypes.Pipe].FirstOrDefault(x => x.Label == "p-3-534");
+
             _mapItemList.Add(new MapItem2()
             {
                 Name = "Magda",
-                LocationList = new List<Location>()
-                {
-                    new Location(50.294, 18.92),
-                    new Location(50.295, 18.94),
-                },
+                LocationList = pipe.Geometry.Select(x => new Location(x.Y/yDiv, x.X/xDiv)).ToList(),
                 StrokeThickness = 1,
             });
+            */
+
+
         }
 
         public void AddMapItem(MapItem2 mapItem2)

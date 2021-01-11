@@ -48,6 +48,8 @@
     <Compile Include="DataRepository.cs" />
     <Compile Include="IBaseItemRepository.cs" />
     <Compile Include="IDataRepository.cs" />
+    <Compile Include="WaterConsumption\IListRepository.cs" />
+    <Compile Include="WaterConsumption\ListRepository.cs" />
     <Compile Include="WbEasyCalcData\WbEasyCalcDataListRepository.cs" />
     <Compile Include="WbEasyCalcData\IWbEasyCalcDataListRepository.cs" />
     <Compile Include="IBaseListRepository.cs" />

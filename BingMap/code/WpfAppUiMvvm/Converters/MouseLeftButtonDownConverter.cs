@@ -53,6 +53,11 @@ namespace WpfApplication1.Converters
 
                         return new List<Location>() {closestLocation, mouseLocation};
                     }
+                    else
+                    {
+                        //ea.Handled = true;
+                        return new List<Location>() {mouseLocation};
+                    }
                 }
                 else
                 {

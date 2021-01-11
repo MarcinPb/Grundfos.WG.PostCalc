@@ -89,7 +89,7 @@ namespace Grundfos.WG2SVG.ConsoleApp
                 // Get data from "TestData\KepEx.xlsx", "TestData\TelSrv.map", "TestData\Tw.xlsx" files 
                 // to List<DataSourceMapEntry>
                 // 32298 rec.
-                var dataSourceMap = GetDataSourceMap(config.DataSource);
+                List<DataSourceMapEntry> dataSourceMap = GetDataSourceMap(config.DataSource);
                 //var pipe_p_2_070_4922_List = dataSourceMap.Where(x => x.WgObjectLabel == "p-2-070").ToList(); 
 
 
@@ -176,8 +176,8 @@ namespace Grundfos.WG2SVG.ConsoleApp
 
         private static void WriteStaticSvg(Target target, Dictionary<ObjectTypes, List<DomainObjectData>> domainObjects)
         {
-            var strokeWidthServices = BuildStrokeWidthServices(target);
-            var labelColorRules = target.LabelColorRules.Cast<LabelColorRule>();
+            Dictionary<ObjectTypes, IStrokeWidthService> strokeWidthServices = BuildStrokeWidthServices(target);
+            IEnumerable<LabelColorRule> labelColorRules = target.LabelColorRules.Cast<LabelColorRule>();
             var allGeometries = new List<Geometry>();
             foreach (var labelColorRule in labelColorRules)
             {

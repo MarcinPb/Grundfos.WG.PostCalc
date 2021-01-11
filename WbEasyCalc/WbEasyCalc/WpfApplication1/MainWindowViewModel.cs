@@ -9,6 +9,8 @@ using DataModel;
 using DataRepository;
 using GlobalRepository;
 using WpfApplication1.Utility;
+using WpfApplication1.Ui.WbEasyCalcData;
+using WpfApplication1.Ui.WaterConsumption;
 
 namespace WpfApplication1
 {
@@ -21,10 +23,18 @@ namespace WpfApplication1
             set { _customerViewModel = value; RaisePropertyChanged(); }
         }
 
+        private Ui.WaterConsumption.ListViewModel _waterConsumptionViewModel;
+        public Ui.WaterConsumption.ListViewModel WaterConsumptionViewModel
+        {
+            get => _waterConsumptionViewModel;
+            set { _waterConsumptionViewModel = value; RaisePropertyChanged(); }
+        }
+
         public MainWindowViewModel()
         {
             GlobalConfig.InitializeConnection(DatabaseType.Sql);
             WbEasyCalcDataViewModel = new Ui.WbEasyCalcData.ListViewModel();
+            WaterConsumptionViewModel = new Ui.WaterConsumption.ListViewModel();
         }
 
     }

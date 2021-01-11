@@ -228,6 +228,88 @@ namespace DataRepository
             return domainGrouppedObjects;
         }
 
+        public static List<Dot> GetJunctionList()
+        {
+            // Vertical
+            Point2D topLeft = new Point2D() { X = 5581000, Y = 5679728 };
+            Point2D bottomRight = new Point2D() { X = 5582585, Y = 5670339 };
+
+            // Horizontal
+            //Point2D topLeft = new Point2D() { X = 5570422, Y = 5676000 };
+            //Point2D bottomRight = new Point2D() { X = 5590485, Y = 5674000 };
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
+            stream.Close();
+
+            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+                .GroupBy(x => x.ObjectType)
+                .ToDictionary(x => x.Key, x => x.ToList());
+
+            var dotList = domainGrouppedObjects[ObjectTypes.Junction]
+                .Where(y => y.Geometry[0].X >= topLeft.X && y.Geometry[0].X <= bottomRight.X && y.Geometry[0].Y <= topLeft.Y && y.Geometry[0].Y >= bottomRight.Y )
+                .Select(x => new Dot() 
+                    {
+                        ID= x.ID,
+                        Label=x.Label,
+                        Center= XyToLonLat(x.Geometry[0]),
+                        //Center= x.Geometry[0],
+                    })
+                .ToList();
+            return dotList;
+        }
+
+        public static List<Pipe> GetPipeList()
+        {
+            // Vertical
+            //Point2D topLeft = new Point2D() { X = 5581000, Y = 5679728 };
+            //Point2D bottomRight = new Point2D() { X = 5582585, Y = 5670339 };
+            
+            // Vertical2
+            Point2D topLeft = new Point2D() { X = 5570422, Y = 5679728 };
+            Point2D bottomRight = new Point2D() { X = 5590485, Y = 5670339 };
+
+            // Horizontal
+            //Point2D topLeft = new Point2D() { X = 5570422, Y = 5676000 };
+            //Point2D bottomRight = new Point2D() { X = 5590485, Y = 5674000 };
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
+            stream.Close();
+
+            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+                .GroupBy(x => x.ObjectType)
+                .ToDictionary(x => x.Key, x => x.ToList());
+
+            var dotList = domainGrouppedObjects[ObjectTypes.Pipe]
+                //.Where(y => y.Geometry[0].X >= topLeft.X && y.Geometry[0].X <= bottomRight.X && y.Geometry[0].Y <= topLeft.Y && y.Geometry[0].Y >= bottomRight.Y )
+                //.Where(y => y.Label.StartsWith("p-3-5"))   //p-3-534            
+                .Select(x => new Pipe() 
+                    {
+                        ID= x.ID,
+                        Label=x.Label,
+                        Path = x.Geometry.Select(p => XyToLonLat(p)).ToList(),
+                    })
+                .Take(300)
+                .ToList();
+            return dotList;
+        }
+
+        private static Point2D XyToLonLat(Point2D point2D)
+        {
+            //var xDiv = 345026.4027225150;
+            //var yDiv = 110831.2189204590;
+
+            var moveXx = -63.4400885695583;
+            var multiXx = 0.0000142625456859728;
+
+            var moveYy = 0.562678511340267;
+            var multiYy = 0.00000892357598435176;
+
+            return new Point2D() { X = moveXx + point2D.X*multiXx, Y = moveYy + point2D.Y*multiYy };
+        }
 
 
     }
