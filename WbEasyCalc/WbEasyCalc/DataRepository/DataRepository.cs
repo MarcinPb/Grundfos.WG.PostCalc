@@ -81,6 +81,42 @@ namespace DataRepository
             set => throw new System.NotImplementedException();
         }
 
+        private List<IdNamePair> _waterConsumptionCategoryList;
+        public List<IdNamePair> WaterConsumptionCategoryList
+        {
+            get
+            {
+                if (_waterConsumptionCategoryList == null)
+                {
+                    using (IDbConnection cnn = new SqlConnection(_cnnString))
+                    {
+                        _waterConsumptionCategoryList = cnn.Query<IdNamePair>("dbo.spWaterConsumptionCategoryList", commandType: CommandType.StoredProcedure).ToList();
+                        return _waterConsumptionCategoryList;
+                    }
+                }
+                return _waterConsumptionCategoryList;
+            }
+            set => throw new System.NotImplementedException();
+        }
+
+        private List<IdNamePair> _waterConsumptionStatusList;
+        public List<IdNamePair> WaterConsumptionStatusList
+        {
+            get
+            {
+                if (_waterConsumptionStatusList == null)
+                {
+                    using (IDbConnection cnn = new SqlConnection(_cnnString))
+                    {
+                        _waterConsumptionStatusList = cnn.Query<IdNamePair>("dbo.spWaterConsumptionStatusList", commandType: CommandType.StoredProcedure).ToList();
+                        return _waterConsumptionStatusList;
+                    }
+                }
+                return _waterConsumptionStatusList;
+            }
+            set => throw new System.NotImplementedException();
+        }
+
         public DataModel.WbEasyCalcData GetAutomaticData(int yearNo, int monthNo, int zoneId)
         {
             using (IDbConnection connection = new SqlConnection(_cnnString))

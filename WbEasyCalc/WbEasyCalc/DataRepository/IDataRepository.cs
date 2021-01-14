@@ -16,6 +16,8 @@ namespace DataRepository
 
         List<IdNamePair> YearList { get; }
         List<IdNamePair> MonthList { get; }
+        List<IdNamePair> WaterConsumptionCategoryList { get; }
+        List<IdNamePair> WaterConsumptionStatusList { get; }
         List<ZoneItem> ZoneList { get; }
 
         DataModel.WbEasyCalcData GetAutomaticData(int yearNo, int monthNo, int zoneId);

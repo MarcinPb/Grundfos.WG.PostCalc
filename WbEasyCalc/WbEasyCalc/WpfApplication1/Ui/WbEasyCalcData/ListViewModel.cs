@@ -145,7 +145,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
                 LoadData();
                 SelectedRow = List.FirstOrDefault(x => x.Model.WbEasyCalcDataId == row.WbEasyCalcDataId);
-
             }
             catch (Exception e)
             {

@@ -192,6 +192,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
         }
 
+        private string _description;
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                _description = value;
+                RaisePropertyChanged("Description");
+            }
+        }
+
         private bool _isArchive;
         public bool IsArchive
         {
@@ -221,20 +235,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             {
                 _isAccepted = value;
                 RaisePropertyChanged();
-            }
-        }
-
-        private string _description;
-        public string Description
-        {
-            get
-            {
-                return _description;
-            }
-            set
-            {
-                _description = value;
-                RaisePropertyChanged("Description");
             }
         }
 

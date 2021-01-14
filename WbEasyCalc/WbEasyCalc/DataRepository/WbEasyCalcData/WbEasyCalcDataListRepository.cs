@@ -36,11 +36,14 @@ namespace DataRepository.WbEasyCalcData
 
         public DataModel.WbEasyCalcData SaveItem(DataModel.WbEasyCalcData model)
         {
-            //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
-                //p.Add("@UserName", userName);
+
+                p.Add("@id", model.WbEasyCalcDataId, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+
+                p.Add("@UserName", userName);
                 p.Add("@ZoneId", model.ZoneId);
                 p.Add("@YearNo", model.YearNo);
                 p.Add("@MonthNo", model.MonthNo);
@@ -121,8 +124,6 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@RevenueWaterM3_AY8", model.RevenueWaterM3_AY8);
                 p.Add("@NonRevenueWaterM3_AY24", model.NonRevenueWaterM3_AY24);
                 p.Add("@NonRevenueWaterErrorMargin_AY26", model.NonRevenueWaterErrorMargin_AY26);
-
-                p.Add("@id", model.WbEasyCalcDataId, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
 
                 connection.Execute("dbo.spWbEasyCalcDataSave", p, commandType: CommandType.StoredProcedure);
 

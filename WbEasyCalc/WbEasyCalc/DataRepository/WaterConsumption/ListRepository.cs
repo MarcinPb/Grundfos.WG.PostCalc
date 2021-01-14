@@ -40,8 +40,8 @@ namespace DataRepository.WaterConsumption
             {
                 var p = new DynamicParameters();
                 p.Add("@ZoneId", model.ZoneId);
-                p.Add("@YearNo", model.YearNo);
-                p.Add("@MonthNo", model.MonthNo);
+                p.Add("@YearNo", model.WaterConsumptionCategoryId);
+                p.Add("@MonthNo", model.WaterConsumptionStatusId);
                 p.Add("@Description", model.Description);
                 p.Add("@IsArchive", model.IsArchive);
                 p.Add("@IsAccepted", model.IsAccepted);

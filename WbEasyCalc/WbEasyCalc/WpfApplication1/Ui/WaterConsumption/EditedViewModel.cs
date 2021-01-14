@@ -21,8 +21,8 @@ namespace WpfApplication1.Ui.WaterConsumption
             set { _model = value; RaisePropertyChanged(); }
         }
 
-        public List<IdNamePair> YearList { get; set; }
-        public List<IdNamePair> MonthList { get; set; }
+        public List<IdNamePair> WaterConsumptionCategoryList { get; set; }
+        public List<IdNamePair> WaterConsumptionStatusList { get; set; }
         public List<ZoneItem> ZoneItemList { get; set; }
 
 
@@ -55,15 +55,15 @@ namespace WpfApplication1.Ui.WaterConsumption
 
         #region Commands: LoadDataFromSystemCmd, ImportFromExcelExecute, ImportFromExcelCanExecute
 
-        public RelayCommand LoadDataFromSystemCmd => new RelayCommand(LoadDataFromSystemExecute, LoadDataFromSystemCanExecute);
-        private void LoadDataFromSystemExecute()
-        {
-            LoadDataFromSystem();
-        }
-        public bool LoadDataFromSystemCanExecute()
-        {
-            return true;
-        }
+        //public RelayCommand LoadDataFromSystemCmd => new RelayCommand(LoadDataFromSystemExecute, LoadDataFromSystemCanExecute);
+        //private void LoadDataFromSystemExecute()
+        //{
+        //    LoadDataFromSystem();
+        //}
+        //public bool LoadDataFromSystemCanExecute()
+        //{
+        //    return true;
+        //}
 
         public RelayCommand ImportFromExcelCmd => new RelayCommand(ImportFromExcelExecute, ImportFromExcelCanExecute);
         private void ImportFromExcelExecute()
@@ -125,8 +125,8 @@ namespace WpfApplication1.Ui.WaterConsumption
         {
             Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
 
-            YearList = GlobalConfig.DataRepository.YearList;
-            MonthList = GlobalConfig.DataRepository.MonthList;
+            WaterConsumptionCategoryList = GlobalConfig.DataRepository.WaterConsumptionCategoryList;
+            WaterConsumptionStatusList = GlobalConfig.DataRepository.WaterConsumptionStatusList;
             ZoneItemList = GlobalConfig.DataRepository.ZoneList;
 
 
@@ -135,19 +135,19 @@ namespace WpfApplication1.Ui.WaterConsumption
             ZoomLevel = 15;
         }
 
-        private void LoadDataFromSystem()
-        {
-            try
-            {
-                // Invoke spGisModelScadaData on SQL Server.
-                var wbEasyCalcData = GlobalConfig.DataRepository.GetAutomaticData(Model.YearNo, Model.MonthNo, Model.ZoneId);
+        //private void LoadDataFromSystem()
+        //{
+        //    try
+        //    {
+        //        // Invoke spGisModelScadaData on SQL Server.
+        //        var wbEasyCalcData = GlobalConfig.DataRepository.GetAutomaticData(Model.YearNo, Model.MonthNo, Model.ZoneId);
 
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
 
         private void ExportToExcel(string excelFileName)
         {

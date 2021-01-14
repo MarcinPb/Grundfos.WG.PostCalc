@@ -60,8 +60,8 @@
                 </DataGrid.InputBindings>
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding Model.WaterConsumptionId}"/>
-                    <DataGridTextColumn Header="Year" Width="100" IsReadOnly="True" Binding="{Binding YearName}"/>
-                    <DataGridTextColumn Header="Month" Width="150" IsReadOnly="True" Binding="{Binding MonthName}" />
+                    <DataGridTextColumn Header="Category" Width="100" IsReadOnly="True" Binding="{Binding WaterConsumptionCategoryName}"/>
+                    <DataGridTextColumn Header="Status" Width="150" IsReadOnly="True" Binding="{Binding WaterConsumptionStatusName}" />
                     <DataGridTextColumn Header="Zone" Width="150" IsReadOnly="True" Binding="{Binding ZoneName}"/>
                     <DataGridTextColumn Header="Description" Width="370" IsReadOnly="True" Binding="{Binding Model.Description}"/>
                     <DataGridCheckBoxColumn Header="Archived" Width="90" IsReadOnly="True" Binding="{Binding Model.IsArchive}"/>

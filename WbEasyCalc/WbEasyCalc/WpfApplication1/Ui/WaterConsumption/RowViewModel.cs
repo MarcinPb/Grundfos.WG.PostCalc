@@ -10,8 +10,8 @@ namespace WpfApplication1.Ui.WaterConsumption
     public class RowViewModel
     {
         public DataModel.WaterConsumption Model { get; }
-        public string YearName => GlobalConfig.DataRepository.YearList.FirstOrDefault(x => x.Id == Model.YearNo)?.Name;
-        public string MonthName => GlobalConfig.DataRepository.MonthList.FirstOrDefault(x => x.Id == Model.MonthNo)?.Name;
+        public string WaterConsumptionCategoryName => GlobalConfig.DataRepository.WaterConsumptionCategoryList.FirstOrDefault(x => x.Id == Model.WaterConsumptionCategoryId)?.Name;
+        public string WaterConsumptionStatusName => GlobalConfig.DataRepository.WaterConsumptionStatusList.FirstOrDefault(x => x.Id == Model.WaterConsumptionStatusId)?.Name;
         public string ZoneName => GlobalConfig.DataRepository.ZoneList.FirstOrDefault(x => x.ZoneId == Model.ZoneId)?.ZoneName;
 
         public RowViewModel(DataModel.WaterConsumption model)

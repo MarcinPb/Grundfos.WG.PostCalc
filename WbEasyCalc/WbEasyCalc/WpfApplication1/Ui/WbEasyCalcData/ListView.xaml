@@ -62,7 +62,6 @@
                     <DataGridTextColumn Header="Created Date" Width="120" IsReadOnly="True" Binding="{Binding Model.CreateDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                     <DataGridTextColumn Header="Modified User" Width="120" IsReadOnly="True" Binding="{Binding Model.ModifyLogin, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                     <DataGridTextColumn Header="Modified Date" Width="120" IsReadOnly="True" Binding="{Binding Model.ModifyDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
-                    <!--<DataGridTextColumn Header="Modify Date" Width="100" IsReadOnly="True" Binding="{Binding Model.ModifyDate}"/>-->
                     <DataGridTextColumn Header="Year" Width="100" IsReadOnly="True" Binding="{Binding YearName}"/>
                     <DataGridTextColumn Header="Month" Width="150" IsReadOnly="True" Binding="{Binding MonthName}" />
                     <DataGridTextColumn Header="Zone" Width="150" IsReadOnly="True" Binding="{Binding ZoneName}"/>

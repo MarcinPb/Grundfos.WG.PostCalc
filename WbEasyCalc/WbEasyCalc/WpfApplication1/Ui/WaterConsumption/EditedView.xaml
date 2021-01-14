@@ -38,16 +38,16 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Id" Grid.Row="0" Grid.Column="0" />
-                <TextBlock Grid.Row="0" Grid.Column="1" Margin="7 0 0 0" Text="Year" />
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Month" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Margin="7 0 0 0" Text="Category" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Status" />
                 <TextBlock Grid.Row="0" Grid.Column="3" Text="Zone" />
                 <TextBlock Grid.Row="0" Grid.Column="5" Margin="7 0 0 0" Text="Description"/>
                 <TextBlock Grid.Row="0" Grid.Column="6" Margin="7 0 0 0" Text="Archived"/>
                 <TextBlock Grid.Row="0" Grid.Column="7" Margin="7 0 0 0" Text="Accepted"/>
 
                 <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=Model.Id, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
-                <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=YearList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.YearNo}" />
-                <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=MonthList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.MonthNo}" />
+                <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=WaterConsumptionCategoryList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionCategoryId}" />
+                <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=WaterConsumptionStatusList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionStatusId}" />
                 <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
                 <Button Grid.Row="1" Grid.Column="4" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0" />
                 <TextBox Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
@@ -57,10 +57,12 @@
 
         </Grid>
         <ToolBar Grid.Row="1" >
+            <!--
             <Button Content="Export" HorizontalAlignment="Left" Command="{Binding ExportCmd}"/>
             <Separator/>
             <Button Content="Save" HorizontalAlignment="Left" Command="{Binding SaveCmd}"/>
             <Separator/>
+            -->
             <Label Content="{Binding Center.Latitude}" Width="130"/>
             <Separator/>
             <Label Content="{Binding Center.Longitude}" Width="130"/>

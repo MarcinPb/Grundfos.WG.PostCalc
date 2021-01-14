@@ -115,13 +115,13 @@ namespace DataModel
                 CreateDate = CreateDate,
                 ModifyLogin = ModifyLogin,
                 ModifyDate = ModifyDate,
+                Description = Description,
+                IsArchive = IsArchive,
+                IsAccepted = IsAccepted,
 
                 ZoneId = ZoneId,
                 YearNo = YearNo,
                 MonthNo = MonthNo,
-                Description = Description,
-                IsArchive = IsArchive,
-                IsAccepted = IsAccepted,
 
                 // input
                 //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
