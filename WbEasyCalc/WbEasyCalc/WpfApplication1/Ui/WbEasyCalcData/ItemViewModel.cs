@@ -17,6 +17,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             WbEasyCalcDataId = this.Id,
 
+            CreateLogin = CreateLogin,
+            CreateDate = CreateDate,
+            ModifyLogin = ModifyLogin,
+            ModifyDate = ModifyDate,
+
             YearNo = YearNo,
             MonthNo = MonthNo,
             ZoneId = ZoneId,
@@ -110,12 +115,37 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public int Id
         {
             get => _id;
-            set
-            {
-                _id = value;
-                RaisePropertyChanged("Id");
-            }
+            set { _id = value; RaisePropertyChanged(nameof(Id)); }
         }
+
+        private string _createLogin;
+        public string CreateLogin
+        {
+            get => _createLogin;
+            set { _createLogin = value; RaisePropertyChanged(nameof(CreateLogin)); }
+        }
+
+        private DateTime _createDate;
+        public DateTime CreateDate
+        { 
+            get => _createDate;
+            set { _createDate = value; RaisePropertyChanged(nameof(CreateDate)); }
+        }
+
+        private string _modifyLogin;
+        public string ModifyLogin
+        {
+            get => _modifyLogin;
+            set { _modifyLogin = value; RaisePropertyChanged(nameof(ModifyLogin)); }
+        }
+
+        private DateTime _modifyDate;
+        public DateTime ModifyDate
+        { 
+            get => _modifyDate;
+            set { _modifyDate = value; RaisePropertyChanged(nameof(ModifyDate)); }
+        }
+
 
         private int _yearNo;
         public int YearNo
@@ -689,6 +719,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             if (model.WbEasyCalcDataId != 0)
             {
+
+
+
                 ZoneId = model.ZoneId;
                 YearNo = model.YearNo;
                 MonthNo = model.MonthNo;
@@ -702,6 +735,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 //Start_PeriodDays_M21 = model.Start_PeriodDays_M21;
                 CalculateDaysNumber();
             }
+
+            CreateLogin = model.CreateLogin;
+            CreateDate = model.CreateDate;
+            ModifyLogin = model.ModifyLogin;
+            ModifyDate = model.ModifyDate;
 
             Description = model.Description;
             IsArchive = model.IsArchive;

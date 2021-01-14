@@ -7,6 +7,11 @@ namespace DataModel
     {
         public int WbEasyCalcDataId { get; set; }
 
+        public string CreateLogin { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string ModifyLogin { get; set; }
+        public DateTime ModifyDate { get; set; }
+
         public int YearNo { get; set; }
         public int MonthNo { get; set; }
         public int ZoneId { get; set; }
@@ -105,6 +110,12 @@ namespace DataModel
             return new WbEasyCalcData()
             {
                 WbEasyCalcDataId = WbEasyCalcDataId,
+
+                CreateLogin = CreateLogin,
+                CreateDate = CreateDate,
+                ModifyLogin = ModifyLogin,
+                ModifyDate = ModifyDate,
+
                 ZoneId = ZoneId,
                 YearNo = YearNo,
                 MonthNo = MonthNo,
