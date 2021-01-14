@@ -6,6 +6,7 @@ namespace DataModel
     public class WbEasyCalcData : ICloneable
     {
         public int WbEasyCalcDataId { get; set; }
+
         public int YearNo { get; set; }
         public int MonthNo { get; set; }
         public int ZoneId { get; set; }

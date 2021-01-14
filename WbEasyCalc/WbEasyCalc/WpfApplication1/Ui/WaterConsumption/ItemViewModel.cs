@@ -13,9 +13,9 @@ namespace WpfApplication1.Ui.WaterConsumption
 
     public class ItemViewModel : ViewModelBase
     {
-        public DataModel.WbEasyCalcData Model => new DataModel.WbEasyCalcData()
+        public DataModel.WaterConsumption Model => new DataModel.WaterConsumption()
         {
-            WbEasyCalcDataId = Id,
+            WaterConsumptionId = Id,
 
             YearNo = YearNo,
             MonthNo = MonthNo,
@@ -126,11 +126,11 @@ namespace WpfApplication1.Ui.WaterConsumption
         #endregion
 
 
-        public ItemViewModel(DataModel.WbEasyCalcData model)
+        public ItemViewModel(DataModel.WaterConsumption model)
         {
-            Id = model.WbEasyCalcDataId;
+            Id = model.WaterConsumptionId;
 
-            if (model.WbEasyCalcDataId != 0)
+            if (model.WaterConsumptionId != 0)
             {
                 ZoneId = model.ZoneId;
                 YearNo = model.YearNo;

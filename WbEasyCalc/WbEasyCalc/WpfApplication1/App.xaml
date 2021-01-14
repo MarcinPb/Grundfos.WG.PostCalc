@@ -8,10 +8,12 @@
     xmlns:customer="clr-namespace:WpfApplication1.Ui.WbEasyCalcData"
     xmlns:controls="clr-namespace:WpfApplication1.Controls"
     xmlns:waterConsumption="clr-namespace:WpfApplication1.Ui.WaterConsumption"
+    xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
     >
     <Application.Resources>
         <!--<controls:TextHeaderToBooleanConverter x:Key="YesNoToBooleanConverter" />-->
-        
+        <wpf:ApplicationIdCredentialsProvider x:Key="MyCredentials" ApplicationId="SB1meHUME1wfK2U9s64I~BDIKAFlkZRHGfBWlfDVtjA~AoMBUdvmsIyrtgNmavFb3WmcBIoDg01WZ-Z2zIB-eC6Z2pL3MGM8RDT8I4D3e9bR" />
+
         <DataTemplate DataType="{x:Type customer:ListViewModel}">
             <customer:ListView />
         </DataTemplate>
@@ -20,6 +22,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type waterConsumption:ListViewModel}">
             <waterConsumption:ListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type waterConsumption:EditedViewModel}">
+            <waterConsumption:EditedView />
         </DataTemplate>
 
         <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">

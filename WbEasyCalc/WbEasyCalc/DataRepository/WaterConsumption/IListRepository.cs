@@ -1,8 +1,7 @@
 ﻿namespace DataRepository.WaterConsumption
 {
-    public interface IListRepository : IMultiDeleteListRepository<DataModel.WbEasyCalcData>
+    public interface IListRepository : IMultiDeleteListRepository<DataModel.WaterConsumption>
     {
         int Clone(int id);
-        int CreateAll();
     }
 }

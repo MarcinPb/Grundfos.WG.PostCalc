@@ -8,6 +8,7 @@ using GlobalRepository;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using WbEasyCalc;
 using WpfApplication1.Utility;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace WpfApplication1.Ui.WaterConsumption
 {
@@ -23,6 +24,34 @@ namespace WpfApplication1.Ui.WaterConsumption
         public List<IdNamePair> YearList { get; set; }
         public List<IdNamePair> MonthList { get; set; }
         public List<ZoneItem> ZoneItemList { get; set; }
+
+
+        #region Map
+
+        private Location _center;
+        public Location Center
+        {
+            get => _center;
+            set { _center = value; RaisePropertyChanged(); }
+        }
+
+        private int _zoomLevel;
+        public int ZoomLevel
+        {
+            get => _zoomLevel;
+            set { _zoomLevel = value; RaisePropertyChanged(); }
+        }
+
+        private double _mapOpacity;
+        public double MapOpacity
+        {
+            get => _mapOpacity;
+            set { _mapOpacity = value; RaisePropertyChanged(); }
+        }
+
+        #endregion
+
+
 
         #region Commands: LoadDataFromSystemCmd, ImportFromExcelExecute, ImportFromExcelCanExecute
 
@@ -94,12 +123,16 @@ namespace WpfApplication1.Ui.WaterConsumption
 
         public EditedViewModel(int id)
         {
-            Model = new ItemViewModel(GlobalConfig.DataRepository.WbEasyCalcDataListRepository.GetItem(id));
+            Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
 
             YearList = GlobalConfig.DataRepository.YearList;
             MonthList = GlobalConfig.DataRepository.MonthList;
             ZoneItemList = GlobalConfig.DataRepository.ZoneList;
 
+
+            MapOpacity = 1;
+            Center = new Location(51.20150, 16.17970); 
+            ZoomLevel = 15;
         }
 
         private void LoadDataFromSystem()
@@ -120,8 +153,8 @@ namespace WpfApplication1.Ui.WaterConsumption
         {
             try
             {
-                EasyCalcDataInput easyCalcDataInput = Model.Model.EasyCalcDataInput;
-                GlobalConfig.WbEasyCalcExcel.SaveToExcelFile(excelFileName, easyCalcDataInput);
+                //EasyCalcDataInput easyCalcDataInput = Model.Model.EasyCalcDataInput;
+                //GlobalConfig.WbEasyCalcExcel.SaveToExcelFile(excelFileName, easyCalcDataInput);
             }
             catch (Exception e)
             {
