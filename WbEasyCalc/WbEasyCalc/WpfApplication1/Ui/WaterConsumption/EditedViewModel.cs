@@ -9,6 +9,10 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using WbEasyCalc;
 using WpfApplication1.Utility;
 using Microsoft.Maps.MapControl.WPF;
+using System.Collections.ObjectModel;
+using WpfApplication1.Map;
+using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace WpfApplication1.Ui.WaterConsumption
 {
@@ -25,6 +29,8 @@ namespace WpfApplication1.Ui.WaterConsumption
         public List<IdNamePair> WaterConsumptionStatusList { get; set; }
         public List<ZoneItem> ZoneItemList { get; set; }
 
+
+        public ObservableCollection<IMapItem> MapItemList { get; set; }
 
         #region Map
 
@@ -49,6 +55,8 @@ namespace WpfApplication1.Ui.WaterConsumption
             set { _mapOpacity = value; RaisePropertyChanged(); }
         }
 
+        public RelayCommand<object> MouseMoveCmd { get; }
+
         #endregion
 
         public EditedViewModel(int id)
@@ -61,9 +69,42 @@ namespace WpfApplication1.Ui.WaterConsumption
 
 
             MapOpacity = 1;
-            Center = new Location(51.20150, 16.17970); 
+            Center = new Location(51.20150, 16.17970);
             ZoomLevel = 15;
+
+            MapItemList = new ObservableCollection<IMapItem>()
+            {
+                new MapItem1()
+                {
+                    Id=1,
+                    TypeId=1,
+                    Location=new Location(51.20150, 16.17970)
+                }
+            };
+            MouseMoveCmd = new RelayCommand<object>(MouseMove);
         }
 
+        private void MouseMove(object obj)
+        {
+            var ea = (MouseEventArgs)obj;
+            var originalSource = ea.OriginalSource;
+
+            if (originalSource is Border)
+            {
+                var map = (Microsoft.Maps.MapControl.WPF.Map)ea.Source;
+
+                Point mousePosition2 = ea.GetPosition(map);
+                Location mouseLocation2 = map.ViewportPointToLocation(mousePosition2);
+
+                MapItemList[0].Location = mouseLocation2;
+                //MapItemList.Clear();
+                //MapItemList.Add(new MapItem1()
+                //{
+                //    Id = 1,
+                //    TypeId = 1,
+                //    Location = mouseLocation2
+                //});
+            }
+        }
     }
 }

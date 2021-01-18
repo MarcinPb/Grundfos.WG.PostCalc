@@ -9,6 +9,7 @@
     xmlns:controls="clr-namespace:WpfApplication1.Controls"
     xmlns:waterConsumption="clr-namespace:WpfApplication1.Ui.WaterConsumption"
     xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+    xmlns:map="clr-namespace:WpfApplication1.Map"
     >
     <Application.Resources>
         <!--<controls:TextHeaderToBooleanConverter x:Key="YesNoToBooleanConverter" />-->
@@ -25,6 +26,10 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type waterConsumption:EditedViewModel}">
             <waterConsumption:EditedView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type map:MapItem1}">
+            <wpf:Pushpin Location="{Binding Location}"  ToolTip="{Binding Name}"/>
         </DataTemplate>
 
         <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
