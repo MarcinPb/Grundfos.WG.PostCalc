@@ -20,10 +20,10 @@ namespace DataModel
         public int WaterConsumptionStatusId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public float Latitude { get; set; }
-        public float Lontitude { get; set; }
+        public double Latitude { get; set; }
+        public double Lontitude { get; set; }
         public int ZoneId { get; set; }
-        public float Value { get; set; }
+        public double Value { get; set; }
 
         public object Clone()
         {

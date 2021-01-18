@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              mc:Ignorable="d"              
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
-             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-             >
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
@@ -31,8 +30,9 @@
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="150"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -41,18 +41,23 @@
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="7 0 0 0" Text="Category" />
                 <TextBlock Grid.Row="0" Grid.Column="2" Text="Status" />
                 <TextBlock Grid.Row="0" Grid.Column="3" Text="Zone" />
-                <TextBlock Grid.Row="0" Grid.Column="5" Margin="7 0 0 0" Text="Description"/>
-                <TextBlock Grid.Row="0" Grid.Column="6" Margin="7 0 0 0" Text="Archived"/>
-                <TextBlock Grid.Row="0" Grid.Column="7" Margin="7 0 0 0" Text="Accepted"/>
+                <TextBlock Grid.Row="0" Grid.Column="4" Margin="7 0 0 0" Text="Start" />
+                <TextBlock Grid.Row="0" Grid.Column="5" Margin="7 0 0 0" Text="End" />
+                <TextBlock Grid.Row="0" Grid.Column="6" Margin="7 0 0 0" Text="Value [m3]" />
+                <TextBlock Grid.Row="0" Grid.Column="7" Margin="7 0 0 0" Text="Description"/>
+                <TextBlock Grid.Row="0" Grid.Column="8" Margin="7 0 0 0" Text="Archived"/>
+                <TextBlock Grid.Row="0" Grid.Column="9" Margin="7 0 0 0" Text="Accepted"/>
 
                 <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=Model.Id, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
                 <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=WaterConsumptionCategoryList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionCategoryId}" />
                 <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=WaterConsumptionStatusList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionStatusId}" />
                 <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
-                <Button Grid.Row="1" Grid.Column="4" Command="{Binding LoadDataFromSystemCmd}" Content="Load Automatic Data from GIS and SCADA" Padding="5 0" />
-                <TextBox Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
-                <CheckBox Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsArchive}" IsEnabled="{Binding Path=Model.IsAccepted, Converter={StaticResource NegConverter}}"/>
-                <CheckBox Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsAccepted}" IsEnabled="{Binding Path=Model.IsArchive}" />
+                <xctk:DateTimePicker Grid.Row="1" Grid.Column="4" Margin="7 0 0 0" Value="{Binding Path=Model.StartDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
+                <xctk:DateTimePicker Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Value="{Binding Path=Model.EndDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
+                <TextBox Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Text="{Binding Path=Model.Value, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
+                <CheckBox Grid.Row="1" Grid.Column="8" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsArchive}" IsEnabled="{Binding Path=Model.IsAccepted, Converter={StaticResource NegConverter}}"/>
+                <CheckBox Grid.Row="1" Grid.Column="9" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsAccepted}" IsEnabled="{Binding Path=Model.IsArchive}" />
             </Grid>
 
         </Grid>
@@ -71,7 +76,7 @@
             <Separator/>
         </ToolBar>
 
-        <m:Map Grid.Row="2" Opacity="{Binding MapOpacity}" Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CredentialsProvider="{StaticResource MyCredentials}" >
+        <m:Map Grid.Row="2" Opacity="{Binding MapOpacity}" Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CredentialsProvider="{StaticResource MyCredentials}" Culture="pl-pl">
         </m:Map>
 
     </Grid>

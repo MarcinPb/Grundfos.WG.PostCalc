@@ -23,6 +23,12 @@ namespace WpfApplication1.Ui.WaterConsumption
             WaterConsumptionCategoryId = WaterConsumptionCategoryId,
             WaterConsumptionStatusId = WaterConsumptionStatusId,
             ZoneId = ZoneId,
+
+            StartDate = StartDate,
+            EndDate = EndDate,
+            Latitude=Latitude,
+            Lontitude= Lontitude,
+            Value=Value,
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -133,8 +139,26 @@ namespace WpfApplication1.Ui.WaterConsumption
         }
 
 
+        private double _latitude;
+        public double Latitude 
+        {
+            get => _latitude;
+            set { _latitude = value; RaisePropertyChanged(nameof(Latitude)); }
+        }
 
+        private double _lontitude;
+        public double Lontitude 
+        {
+            get => _lontitude;
+            set { _lontitude = value; RaisePropertyChanged(nameof(Lontitude)); }
+        }
 
+        private double _value;
+        public double Value 
+        {
+            get => _value;
+            set { _value = value; RaisePropertyChanged(nameof(Value)); }
+        }
 
         private int _zoneId;
         public int ZoneId
@@ -170,16 +194,17 @@ namespace WpfApplication1.Ui.WaterConsumption
                 ZoneId = GlobalConfig.DataRepository.ZoneList.First().ZoneId;
                 WaterConsumptionCategoryId = GlobalConfig.DataRepository.WaterConsumptionCategoryList.First().Id; 
                 WaterConsumptionStatusId = GlobalConfig.DataRepository.WaterConsumptionStatusList.First().Id;
-                StartDate = model.StartDate;
-                EndDate = model.EndDate;
+                StartDate = DateTime.Now;
+                EndDate = DateTime.Now;
             }
 
             Description = model.Description;
             IsArchive = model.IsArchive;
             IsAccepted = model.IsAccepted;
 
-
-
+            Latitude = model.Latitude;
+            Lontitude = model.Lontitude;
+            Value = model.Value;
         }
     }
 }
