@@ -65,7 +65,13 @@
             <Label Content="{Binding ZoomLevel}" Width="30" />
             <Separator/>
         </ToolBar>
-        <m:Map Grid.Row="2" Opacity="{Binding MapOpacity}" Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CredentialsProvider="{StaticResource MyCredentials}" >
+        <m:Map Grid.Row="2" 
+            CredentialsProvider="{StaticResource MyCredentials}"
+            Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+            ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+            Opacity="{Binding MapOpacity}" 
+            Culture="pl-pl"
+            >
             <m:MapItemsControl Name="x" ItemsSource="{Binding MapItemList}" bingMapFix:MapFixBehavior.FixUpdate="True" />
             <m:MapPolyline Fill="Blue" Stroke="Green" StrokeThickness="1" Locations=""/>
             <m:MapPolygon Stroke="Green" StrokeThickness="1" Locations="" />
