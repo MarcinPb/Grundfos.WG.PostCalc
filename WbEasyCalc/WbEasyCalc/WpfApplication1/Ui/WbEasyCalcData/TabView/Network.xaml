@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.TabView.NetworkView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView" 
+             xmlns:converters="clr-namespace:WpfApplication1.Converters"
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <converters:FloatConverter x:Key="FloatConverter" />
+        <converters:PercentageConverter  x:Key="PercentageConverter" />
+        <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
+    </UserControl.Resources>
+    <Grid Grid.Row="0" Margin="10" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
+        <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
+        <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
+        <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
+        <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+        <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
+        <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+    </Grid>
+</UserControl>

@@ -67,156 +67,25 @@
                 <tabView:StartView/>
             </TabItem>
             <TabItem Header="Sys.Input" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="System Input Volume [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-                    <TextBlock Grid.Column="2" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                </Grid>
+                <tabView:SysInputView/>
             </TabItem>
             <TabItem Header="Billed Cons" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Billed Metered Consumption (Export) [m3]: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"  />
-                    <TextBlock Grid.Column="2" Text ="  Billed Unmetered Consumption (Export) [m3]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-
-                    <TextBlock Grid.Row="1" Text ="Billed Metered Consumption [m3]: " />
-                    <TextBox Grid.Row="1" Grid.Column="1" Width="100" Text="{Binding Path=Model.BilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text ="  Billed Unmetered Consumption [m3]: " />
-                    <TextBox Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding Path=Model.BilledCons_UnbUnmetConsM3_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                </Grid>
+                <tabView:BilledConsView/>
             </TabItem>
             <TabItem Header="Unb. Cons." >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text ="Ubbilled Metered Consumption [m3]: " />
-                    <TextBox Grid.Row="1" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text ="Unbilled Unmetered Consumption [m3]: " />
-                    <TextBox Grid.Row="2" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text ="  Error Margin [%]: " />
-                    <TextBox Grid.Row="2" Grid.Column="3" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsError_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" TextAlignment="Right"  />
-                </Grid>
+                <tabView:UnbConsView/>
             </TabItem>
             <TabItem Header="Unauth. Cons." >
                 <tabView:UnauthConsView/>
             </TabItem>
             <TabItem Header="Meter Errors" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text ="Enter 1 to use an overall for meter or 2 for manual: " />
-                    <!--<TextBox Grid.Column="1" Grid.Row="0" Width="100" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />-->
-                    <ComboBox Grid.Row="0" Grid.Column="1"  Width="100" ItemsSource="{Binding Path=J6_List}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.MetErrors_DetailedManualSpec_J6}" />
-
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text ="Billed Metered Consumption [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }"  TextAlignment="Right"/>
-                    <TextBlock Grid.Column="2" Grid.Row="1" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="1" Width="100" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-
-                    <TextBlock Grid.Column="0" Grid.Row="2" Text ="Metered Bulk Supply [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="2" Width="100" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Grid.Row="2" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="2" Width="100" Text="{Binding Path=Model.MeteredBulkSupplyExportErrorMargin_N32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text ="Unbilled Metered Consumption [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="3" Width="100" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Grid.Row="3" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="3" Width="100" Text="{Binding Path=Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-
-                    <TextBlock Grid.Column="0" Grid.Row="4" Text ="Corrupt Meter Reading Practices [%]: " />
-                    <TextBox Grid.Column="1" Grid.Row="4" Width="100" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Grid.Row="4" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="4" Width="100" Text="{Binding Path=Model.CorruptMeterReadingPracticessErrorMargin_N38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-
-                    <TextBlock Grid.Column="0" Grid.Row="5" Text ="Data Handling Errors: " />
-                    <TextBox Grid.Column="1" Grid.Row="5" Width="100" Text="{Binding Path=Model.DataHandlingErrorsOffice_L40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Grid.Row="5" Text ="  Error Margin [+/-%]: " />
-                    <TextBox Grid.Column="3" Grid.Row="5" Width="100" Text="{Binding Path=Model.DataHandlingErrorsOfficeErrorMargin_N40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-                </Grid>
+                <tabView:MeterErrorsView/>
             </TabItem>
             <TabItem Header="Network" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
-                    <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-                    <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
-                    <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
-                    <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
-                    <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                    <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
-                    <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-                </Grid>
+                <tabView:NetworkView/>
             </TabItem>
             <TabItem Header="Pressure" >
-                <Grid Grid.Row="0" Margin="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Text ="Approximate Number of Connections: " />
-                    <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-                    <TextBlock Grid.Column="2" Text ="  Daily Average Pressure [m]: " />
-                    <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" TextAlignment="Right"  />
-                </Grid>
-
+                <tabView:PressureView/>
             </TabItem>
         </TabControl>
 

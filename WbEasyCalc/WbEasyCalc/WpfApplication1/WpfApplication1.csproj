@@ -106,14 +106,32 @@
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\ListViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\RowViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml.cs">
+      <DependentUpon>BilledConsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml.cs">
+      <DependentUpon>MeterErrorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\Network.xaml.cs">
+      <DependentUpon>Network.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\PisView.xaml.cs">
       <DependentUpon>PisView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\PressureView.xaml.cs">
+      <DependentUpon>PressureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\SysInputView.xaml.cs">
+      <DependentUpon>SysInputView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\UnauthConsView.xaml.cs">
       <DependentUpon>UnauthConsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml.cs">
+      <DependentUpon>UnbConsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceView.xaml.cs">
       <DependentUpon>WaterBalanceView.xaml</DependentUpon>
@@ -154,7 +172,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\Network.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ui\WbEasyCalcData\TabView\PisView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\PressureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,7 +196,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\SysInputView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ui\WbEasyCalcData\TabView\UnauthConsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
