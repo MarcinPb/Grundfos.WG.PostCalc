@@ -1,17 +1,17 @@
-﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.TabPis"
+﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.TabView.UnauthConsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:converters="clr-namespace:WpfApplication1.Converters" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="900">
+             xmlns:converters="clr-namespace:WpfApplication1.Converters" 
+             >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
     </UserControl.Resources>
-    <Grid Background="LightBlue">
+    <Grid Grid.Row="0" Background="LightBlue">
         <Grid Grid.Row="0" Margin="10" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="290"/>
@@ -71,17 +71,58 @@
                 </Grid>
             </Border>
 
+
             <Border Grid.Column="0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
                 <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - domestic" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
             </Border>
             <TextBox Grid.Column="1" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
+            <TextBox Grid.Column="2" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomErrorMargin_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
+            <TextBox Grid.Column="3" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomPersPerHouse_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+            <TextBox Grid.Column="4" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
+
+            <Border Grid.Column="4" Grid.Row="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/connection/day]" FontWeight="Bold" Foreground="White"/>
+                </Grid>
+            </Border>
 
             <Border Grid.Column="0" Grid.Row="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
                 <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - others" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
             </Border>
             <TextBox Grid.Column="1" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.IllegalConnectionsOthersEstimatedNumber_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" />
+            <TextBox Grid.Column="2" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnOthersErrorMargin_F10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" />
+            <TextBox Grid.Column="4" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" />
+
+            <Border Grid.Column="4" Grid.Row="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/customer/day]" FontWeight="Bold" Foreground="White"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="0" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Meater tampering, bypasses, etc. at registered" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="customers" FontWeight="Bold" Foreground="White" Padding="3 0 0 0"/>
+                </Grid>
+            </Border>
+            <TextBox Grid.Column="1" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcEstNo_D14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="2" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcErrorMargin_F14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="4" Grid.Row="5" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" VerticalContentAlignment="Center"/>
 
         </Grid>
     </Grid>
-
 </UserControl>
