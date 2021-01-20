@@ -35,8 +35,6 @@
                 <Separator/>
                 <Button Command="{Binding CreateAllCmd}" Content="Create All Zones for Month"/>
                 <Separator/>
-                <Button Command="{Binding CreateAllCmd}" Content="Create All Zones for Month"/>
-                <Separator/>
                 <Button 
                     CommandParameter="{Binding SelectedItems, ElementName=DataGrid1}" 
                     Command="{Binding ReadSelectedItemsCmd}" 

@@ -18,7 +18,6 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -58,39 +57,47 @@
                 <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
                 <xctk:DateTimePicker Grid.Row="1" Grid.Column="4" Margin="7 0 0 0" Value="{Binding Path=Model.StartDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
                 <xctk:DateTimePicker Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Value="{Binding Path=Model.EndDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
-                <TextBox Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Text="{Binding Path=Model.Value, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Text="{Binding Path=Model.Value, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"/>
                 <TextBox Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Grid.Row="1" Grid.Column="8" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsArchive}" IsEnabled="{Binding Path=Model.IsAccepted, Converter={StaticResource NegConverter}}"/>
                 <CheckBox Grid.Row="1" Grid.Column="9" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsAccepted}" IsEnabled="{Binding Path=Model.IsArchive}" />
             </Grid>
 
         </Grid>
-        <ToolBar Grid.Row="1" >
-            <!--
-            <Button Content="Export" HorizontalAlignment="Left" Command="{Binding ExportCmd}"/>
-            <Separator/>
-            <Button Content="Save" HorizontalAlignment="Left" Command="{Binding SaveCmd}"/>
-            <Separator/>
-            -->
-            <Label Content="{Binding Center.Latitude}" Width="130"/>
-            <Separator/>
-            <Label Content="{Binding Center.Longitude}" Width="130"/>
-            <Separator/>
-            <Label Content="{Binding ZoomLevel}" Width="30" />
-            <Separator/>
-        </ToolBar>
+        <Border Grid.Row="1" BorderBrush="Gainsboro" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ToolBar  >
+                    <!--
+                    <Button Content="Export" HorizontalAlignment="Left" Command="{Binding ExportCmd}"/>
+                    <Separator/>
+                    <Button Content="Save" HorizontalAlignment="Left" Command="{Binding SaveCmd}"/>
+                    <Separator/>
+                    -->
+                    <Label Content="{Binding Center.Latitude}" Width="130"/>
+                    <Separator/>
+                    <Label Content="{Binding Center.Longitude}" Width="130"/>
+                    <Separator/>
+                    <Label Content="{Binding ZoomLevel}" Width="30" />
+                    <Separator/>
+                </ToolBar>
 
-        <m:Map Grid.Row="2" Opacity="{Binding MapOpacity}" Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CredentialsProvider="{StaticResource MyCredentials}" Culture="pl-pl">
-            <m:MapItemsControl Name="x" ItemsSource="{Binding MapItemList}" />
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <utility:EventCommandExecuter 
-                        Command="{Binding Path=MouseMoveCmd, Mode=OneTime}" 
-                        />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </m:Map>
-
+                <m:Map Grid.Row="1" Opacity="{Binding MapOpacity}" Center="{Binding Center, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ZoomLevel="{Binding ZoomLevel, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CredentialsProvider="{StaticResource MyCredentials}" Culture="pl-pl">
+                    <m:MapItemsControl Name="x" ItemsSource="{Binding MapItemList}" />
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <utility:EventCommandExecuter 
+                                Command="{Binding Path=MouseMoveCmd, Mode=OneTime}" 
+                                />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </m:Map>
+                
+             </Grid>
+       </Border>
     </Grid>
     
 </UserControl>

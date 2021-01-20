@@ -36,15 +36,26 @@ namespace DataRepository.WaterConsumption
 
         public DataModel.WaterConsumption SaveItem(DataModel.WaterConsumption model)
         {
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
-                p.Add("@ZoneId", model.ZoneId);
-                p.Add("@YearNo", model.WaterConsumptionCategoryId);
-                p.Add("@MonthNo", model.WaterConsumptionStatusId);
+                p.Add("@id", model.WaterConsumptionId, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+
+                p.Add("@UserName", userName);
                 p.Add("@Description", model.Description);
                 p.Add("@IsArchive", model.IsArchive);
                 p.Add("@IsAccepted", model.IsAccepted);
+
+                // input
+                p.Add("@WaterConsumptionCategoryId", model.WaterConsumptionCategoryId);
+                p.Add("@WaterConsumptionStatusId", model.WaterConsumptionStatusId);
+                p.Add("@StartDate", model.StartDate);
+                p.Add("@EndDate" , model.EndDate);
+                p.Add("@Latitude", model.Latitude);
+                p.Add("@Lontitude", model.Lontitude);
+                p.Add("@ZoneId", model.ZoneId);
+                p.Add("@Value", model.Value);
 
                 connection.Execute("dbo.spWaterConsumptionSave", p, commandType: CommandType.StoredProcedure);
 
@@ -73,10 +84,12 @@ namespace DataRepository.WaterConsumption
 
         public int Clone(int id)
         {
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
                 p.Add("@id", id, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+                p.Add("@UserName", userName);
 
                 connection.Execute("dbo.spWaterConsumptionClone", p, commandType: CommandType.StoredProcedure);
 

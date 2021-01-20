@@ -69,18 +69,23 @@ namespace WpfApplication1.Ui.WaterConsumption
 
 
             MapOpacity = 1;
-            Center = new Location(51.20150, 16.17970);
             ZoomLevel = 15;
+            Location defaulLocation = id==0 ? new Location(51.20150, 16.17970) : new Location(Model.Model.Latitude, Model.Model.Lontitude);
+            Center = defaulLocation;        // new Location(51.20150, 16.17970);
 
             MapItemList = new ObservableCollection<IMapItem>()
             {
                 new MapItem1()
                 {
-                    Id=1,
-                    TypeId=1,
-                    Location=new Location(51.20150, 16.17970)
+                    Id = 1,
+                    TypeId = 1,
+                    Location = defaulLocation,
+                    Name = GetPushPinName(defaulLocation)
                 }
             };
+            Model.Latitude = defaulLocation.Latitude;
+            Model.Lontitude = defaulLocation.Longitude;
+
             MouseMoveCmd = new RelayCommand<object>(MouseMove);
         }
 
@@ -93,18 +98,17 @@ namespace WpfApplication1.Ui.WaterConsumption
             {
                 var map = (Microsoft.Maps.MapControl.WPF.Map)ea.Source;
 
-                Point mousePosition2 = ea.GetPosition(map);
-                Location mouseLocation2 = map.ViewportPointToLocation(mousePosition2);
+                Point mousePosition = ea.GetPosition(map);
+                Location mouseLocation = map.ViewportPointToLocation(mousePosition);
 
-                MapItemList[0].Location = mouseLocation2;
-                //MapItemList.Clear();
-                //MapItemList.Add(new MapItem1()
-                //{
-                //    Id = 1,
-                //    TypeId = 1,
-                //    Location = mouseLocation2
-                //});
+                MapItemList[0].Location = mouseLocation;
+                MapItemList[0].Name = GetPushPinName(mouseLocation);
+
+                Model.Latitude = mouseLocation.Latitude;
+                Model.Lontitude = mouseLocation.Longitude;
             }
         }
+
+        private string GetPushPinName(Location location) => $"{location.Latitude} - {location.Longitude}";
     }
 }
