@@ -106,7 +106,7 @@
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\ListViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\RowViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\TabView\TabPis.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\TabPis.xaml.cs">
       <DependentUpon>TabPis.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\EventCommandExecuter.cs" />
@@ -145,7 +145,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Ui\WbEasyCalcData\TabView\TabPis.xaml">
+    <Page Include="Ui\WbEasyCalcData\TabPis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ui\WbEasyCalcData\TabViewModel\" />
+    <Folder Include="Ui\WbEasyCalcData\TabView\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

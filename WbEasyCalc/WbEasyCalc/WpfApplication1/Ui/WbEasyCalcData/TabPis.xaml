@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData"
+             xmlns:converters="clr-namespace:WpfApplication1.Converters" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="900">
+    <UserControl.Resources>
+        <converters:FloatConverter x:Key="FloatConverter" />
+        <converters:PercentageConverter  x:Key="PercentageConverter" />
+        <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
+    </UserControl.Resources>
     <Grid Background="LightBlue">
         <Grid Grid.Row="0" Margin="10" >
             <Grid.ColumnDefinitions>
