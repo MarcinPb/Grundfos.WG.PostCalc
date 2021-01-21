@@ -170,6 +170,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = wbEasyCalcData.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
                     Model.Prs_ApproxNoOfConn_D7 = wbEasyCalcData.Prs_ApproxNoOfConn_D7;
                     Model.Prs_DailyAvgPrsM_F7 = wbEasyCalcData.Prs_DailyAvgPrsM_F7;
+                    Model.Prs_ErrorMarg_F26 = wbEasyCalcData.Prs_ErrorMarg_F26;
                     
                     //Model.PIs_IliBestEstimate_F25 = wbEasyCalcData.PIs_IliBestEstimate_F25;
                 }
@@ -260,6 +261,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             
             Model.Prs_ApproxNoOfConn_D7 = easyCalcDataInput.Prs_ApproxNoOfConn_D7;
             Model.Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
+            Model.Prs_ErrorMarg_F26 = easyCalcDataInput.Prs_ErrorMarg_F26;
         }
     }
 }

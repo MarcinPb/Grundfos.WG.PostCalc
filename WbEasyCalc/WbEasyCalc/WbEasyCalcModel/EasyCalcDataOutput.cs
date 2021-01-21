@@ -72,6 +72,7 @@ namespace WbEasyCalc
 
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
+
             };
         }
     }

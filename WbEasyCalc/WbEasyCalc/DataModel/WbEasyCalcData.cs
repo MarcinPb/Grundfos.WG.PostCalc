@@ -71,6 +71,8 @@ namespace DataModel
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
         public double Prs_ApproxNoOfConn_D7 { get; set; }
         public double Prs_DailyAvgPrsM_F7 { get; set; }
+        public double Prs_ErrorMarg_F26 { get; set; }
+
         public double PIs_IliBestEstimate_F25 { get; set; }
 
         // output
@@ -171,6 +173,7 @@ namespace DataModel
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
                 Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                 Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
                 PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
                 // output
@@ -260,7 +263,8 @@ namespace DataModel
                     Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                     Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
                     Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
-                    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
+                    Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                    Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
                 };
                 return _easyCalcDataInput;
             }

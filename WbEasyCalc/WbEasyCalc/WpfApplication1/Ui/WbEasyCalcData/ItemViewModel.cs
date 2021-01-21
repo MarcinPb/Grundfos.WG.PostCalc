@@ -76,6 +76,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
             Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
             Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+            Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
             //PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
             // output
@@ -268,6 +269,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _networkAvgLenOfSvcConnFromBoundaryToMeterMH32;
         private double _prsApproxNoOfConnD7;
         private double _prsDailyAvgPrsMF7;
+        private double _prs_ErrorMarg_F26;
 
 
         public int Start_PeriodDays_M21
@@ -515,6 +517,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             get => _prsDailyAvgPrsMF7;
             set { _prsDailyAvgPrsMF7 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F7)); CalculateExcel(); }
+        }
+
+        public double Prs_ErrorMarg_F26
+        {
+            get => _prs_ErrorMarg_F26;
+            set { _prs_ErrorMarg_F26 = value; RaisePropertyChanged(nameof(Prs_ErrorMarg_F26)); CalculateExcel(); }
         }
 
         #endregion Props input
@@ -791,6 +799,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
             Prs_ApproxNoOfConn_D7 = model.Prs_ApproxNoOfConn_D7;
             Prs_DailyAvgPrsM_F7 = model.Prs_DailyAvgPrsM_F7;
+            Prs_ErrorMarg_F26 = model.Prs_ErrorMarg_F26;
             //PIs_IliBestEstimate_F25 = model.PIs_IliBestEstimate_F25;
 
             // output

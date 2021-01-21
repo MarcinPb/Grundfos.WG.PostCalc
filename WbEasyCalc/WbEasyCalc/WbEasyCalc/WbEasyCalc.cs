@@ -14,6 +14,7 @@ namespace WbEasyCalcRepository
         public EasyCalcDataOutput Calculate(EasyCalcDataInput easyCalcDataInput)
         {
             EasyCalcSheetData easyCalcSheetData = ReadSheetData(easyCalcDataInput);
+
             EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
             EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
 
@@ -52,6 +53,7 @@ namespace WbEasyCalcRepository
 
                 AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = easyCalcSheetData.PiSheet.AveragePressureMBestEstimate_F11,
+
             };
 
             return easyCalcDataOutput;
@@ -193,6 +195,7 @@ namespace WbEasyCalcRepository
                 ApproximateNumberOfConnections_D7_D24 = new List<double> { 9500, },
                 DailyAveragePressureM_F7_F24 = new List<double> { 30 },
             };
+
             data.IntermittentSupply = new IntermittentSupplySheet();
 
             data.PiSheet = new PiSheet(data);

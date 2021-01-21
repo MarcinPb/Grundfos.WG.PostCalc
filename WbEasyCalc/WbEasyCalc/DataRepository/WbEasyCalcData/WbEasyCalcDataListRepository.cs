@@ -97,6 +97,7 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
                 p.Add("@Prs_ApproxNoOfConn_D7", model.Prs_ApproxNoOfConn_D7);
                 p.Add("@Prs_DailyAvgPrsM_F7", model.Prs_DailyAvgPrsM_F7);
+                p.Add("@Prs_ErrorMarg_F26", model.Prs_ErrorMarg_F26);
                 p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);                
                 // output
                 p.Add("@SystemInputVolume_B19", model.SystemInputVolume_B19);

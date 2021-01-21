@@ -121,6 +121,7 @@ namespace WbEasyCalc
         //public double Prs_DailyAvgPrsM_F14 { get; set; }
         //public double Prs_DailyAvgPrsM_F15 { get; set; }
         //public double Prs_DailyAvgPrsM_F16 { get; set; }
+        public double Prs_ErrorMarg_F26 { get; set; }
         public double PIs_IliBestEstimate_F25 { get; set; }
 
 

@@ -174,6 +174,7 @@ namespace DataRepository
                 p.Add("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@Prs_ApproxNoOfConn_D7", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@Prs_DailyAvgPrsM_F7", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@Prs_ErrorMarg_F26", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@PIs_IliBestEstimate_F25", dbType: DbType.Double, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spGisModelScadaData", p, commandType: CommandType.StoredProcedure);
@@ -226,6 +227,7 @@ namespace DataRepository
                     Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = p.Get<double>("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32"),    // 
                     Prs_ApproxNoOfConn_D7 = p.Get<double>("@Prs_ApproxNoOfConn_D7"),                                                        // 
                     Prs_DailyAvgPrsM_F7 = p.Get<double>("@Prs_DailyAvgPrsM_F7"),                                                            // 
+                    Prs_ErrorMarg_F26 = p.Get<double>("@Prs_ErrorMarg_F26"),                                                            // 
                     PIs_IliBestEstimate_F25 = p.Get<double>("@PIs_IliBestEstimate_F25"),                                                    // 
                 };
             }
