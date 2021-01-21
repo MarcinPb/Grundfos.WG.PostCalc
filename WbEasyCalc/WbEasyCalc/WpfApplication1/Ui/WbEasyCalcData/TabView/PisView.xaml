@@ -77,6 +77,39 @@
         <Style x:Key ="LabelTitle4Style" TargetType="Label" BasedOn="{StaticResource LabelColTitleStyle}" >
             <Setter Property = "Content" Value = "     Consumption&#10;[Litres/person/day]"/>
         </Style>
+
+        <Style x:Key ="LabelResult1Style" TargetType="Label">
+            <Setter Property = "Margin" Value = "0 0 10 0"/>
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+            <Setter Property = "Padding" Value = "3 0 3 10"/>
+            <Setter Property = "Background" Value = "Brown"/>
+        </Style>
+
+        <Style x:Key ="LabelResult3Style" TargetType="Label">
+            <Setter Property = "Margin" Value = "0 0 10 0"/>
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+            <Setter Property = "Padding" Value = "10 0"/>
+            <Setter Property = "Background" Value = "Brown"/>
+            <Setter Property = "FontSize" Value = "76"/>
+        </Style>
+
+        <Style x:Key ="LabelResult4Style" TargetType="Label">
+            <Setter Property = "Margin" Value = "0 0 10 10"/>
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+            <Setter Property = "Padding" Value = "3 0"/>
+            <Setter Property = "Background" Value = "Brown"/>
+        </Style>
+
+
     </UserControl.Resources>
     <Grid >
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -93,6 +126,18 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
@@ -138,7 +183,7 @@
                 
                                 
                 
-                    <Label Grid.Row="5" Grid.ColumnSpan="5" Content="Level of Service" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                    <Label Grid.Row="5" Grid.ColumnSpan="5" Content="Volume of Phisical Losses" Style="{StaticResource LabelSpanTitleLightStyle}" />
                                 
                     <Label Grid.Row="6" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
                     <Label Grid.Row="6" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
@@ -160,7 +205,7 @@
                 
                 
                 
-                    <Label Grid.Row="9" Grid.ColumnSpan="5" Content="Level of Service" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                    <Label Grid.Row="9" Grid.ColumnSpan="5" Content="Physical Loss Performance Indicators" Style="{StaticResource LabelSpanTitleLightStyle}" />
 
                     <Label Grid.Row="9" Grid.Column="5"  Grid.ColumnSpan="2" Content="Performance Group" Style="{StaticResource LabelSpanTitleWhiteStyle}" />
                 
@@ -168,21 +213,104 @@
                     <Label Grid.Row="10" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
                     <Label Grid.Row="10" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
                     <Label Grid.Row="10" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
-                    <Label Grid.Row="10" Grid.Column="5"  Content="Group xxxxxxxxxx" Style="{StaticResource LabelSpanTitleLightStyle}" />
-                    <Label Grid.Row="10" Grid.Column="6"  Content="Group bbbbbbbbbb" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                    <Label Grid.Row="10" Grid.Column="5"  Content="Standard" Style="{StaticResource LabelResult1Style}" />
+                    <Label Grid.Row="10" Grid.Column="6"  Content=" Low and Middle&#10;Income Countries" Style="{StaticResource LabelResult1Style}" />
 
-                    <Label Grid.Row="11" Grid.Column="0" Content="CAPL - Current Annual Volume of&#10;Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="11" Grid.Column="0" Content="Infrastructure Leakage Index (ILI)" Style="{StaticResource LabelRowTitleStyle}"  />
                     <Label Grid.Row="11" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="11" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="11" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="11" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <!--<Label Grid.Row="11" Grid.Column="5"  Content="" Style="{StaticResource LabelResult1Style}" />
+                    <Label Grid.Row="11" Grid.Column="6"  Content="" Style="{StaticResource LabelResult1Style}" />-->
+                    <Label Grid.Row="11" Grid.Column="5" Grid.RowSpan="3" Content="A1" Style="{StaticResource LabelResult3Style}" />
+                    <Label Grid.Row="11" Grid.Column="6" Grid.RowSpan="3" Content="A1" Style="{StaticResource LabelResult3Style}" />
 
-                    <Label Grid.Row="12" Grid.Column="0" Content="MAPL - Minimum Achievable Volume&#10;of Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="12" Grid.Column="0" Content="Liters per Connection per Day (w.s.p)&#xD;&#xA;&#xD;&#xA;w.s.p.: when the system is pressurized&#xD;&#xA;- this maens the value is already&#xD;&#xA;corrected in case of intermittent&#xD;&#xA;supply " Style="{StaticResource LabelRowTitleStyle}"  />
                     <Label Grid.Row="12" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="12" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="12" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="12" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
                                 
+                    <Label Grid.Row="13" Grid.Column="0" Content="Liters per Connection per Day per&#xD;&#xA;meter Pressure (w.s.p.)" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="13" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="13" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="13" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="13" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="14" Grid.Column="0" Content="m3/km mains per hour (w.s.p.)" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="5"  Content="Explanation" Style="{StaticResource LabelResult4Style}" />
+                    <Label Grid.Row="14" Grid.Column="6"  Content="Explanation" Style="{StaticResource LabelResult4Style}" />
+
+
+
+
+
+
+
+                    <Label Grid.Row="15" Grid.ColumnSpan="5" Content="Commercial Loss Performance Indicator" Style="{StaticResource LabelSpanTitleLightStyle}" />
+
+                    <Label Grid.Row="16" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
+                    <Label Grid.Row="16" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
+                    <Label Grid.Row="16" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
+                    <Label Grid.Row="16" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
+
+                    <Label Grid.Row="17" Grid.Column="0" Content="Commercial Losses expressed in % of&#xD;&#xA;Authorized Consumption" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="17" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="17" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="17" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="17" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="18" Grid.Column="0" Content="litters/connection/day" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="18" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="18" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="18" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="18" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="19" Grid.Column="0" Content="litters/customer/day" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="19" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="19" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="19" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="19" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="20" Grid.ColumnSpan="5" Content="NRW Performance Indicators" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                    <Label Grid.Row="20" Grid.Column="5"  Grid.ColumnSpan="2" Content="Performance Group" Style="{StaticResource LabelSpanTitleWhiteStyle}" />
+
+                    <Label Grid.Row="21" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
+                    <Label Grid.Row="21" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
+                    <Label Grid.Row="21" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
+                    <Label Grid.Row="21" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
+                    <Label Grid.Row="21" Grid.Column="5"  Content="Standard" Style="{StaticResource LabelResult1Style}" />
+                    <Label Grid.Row="21" Grid.Column="6"  Content=" Low and Middle&#10;Income Countries" Style="{StaticResource LabelResult1Style}" />
+
+                    <Label Grid.Row="22" Grid.Column="0" Content="Value of Non-Revenue Water&#xD;&#xA;expressed in % of System Input&#xD;&#xA;Volume" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="5" Grid.RowSpan="2" Content="A2" Style="{StaticResource LabelResult3Style}" />
+                    <Label Grid.Row="22" Grid.Column="6" Grid.RowSpan="2" Content="A2" Style="{StaticResource LabelResult3Style}" />
+
+                    <Label Grid.Row="23" Grid.Column="0" Content="Value of Non-Revenue Water&#xD;&#xA;expressed in % of Annual Operating&#xD;&#xA;Cost" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="23" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="23" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="23" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="23" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+
+                    <Label Grid.Row="24" Grid.Column="0" Content="Liters per Connection per Day (w.s.p)&#xA;&#xA;w.s.p.: when the system is pressurized&#xA;- this maens the value is already&#xA;corrected in case of intermittent&#xA;supply " Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="5"  Content="Explanation" Style="{StaticResource LabelResult4Style}" />
+                    <Label Grid.Row="24" Grid.Column="6"  Content="Explanation" Style="{StaticResource LabelResult4Style}" />
+
+
                 </Grid>
             </Grid>
         </ScrollViewer>

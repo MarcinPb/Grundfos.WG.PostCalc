@@ -280,6 +280,7 @@
     <Resource Include="Controls\filter.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
     <Folder Include="Ui\WbEasyCalcData\TabView\Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
