@@ -106,6 +106,7 @@ namespace DataModel
         public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
         public double AveragePressureMBestEstimate_F11 { get; set; }
 
+        public double Pressure_BestEstimate_F33 { get; set; }
 
         public object Clone()
         {
@@ -206,6 +207,9 @@ namespace DataModel
 
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
+
+
+                Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
             };
         }
 

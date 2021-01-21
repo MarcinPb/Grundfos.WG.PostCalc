@@ -40,6 +40,8 @@ namespace WbEasyCalc
         public double AveragePressureMBestEstimate_F11 { get; set; } // 30.0 
 
 
+        public double Pressure_BestEstimate_F33 { get; set; } // 30.0 
+
         public object Clone()
         {
             return new EasyCalcDataOutput()
@@ -73,6 +75,8 @@ namespace WbEasyCalc
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
+
+                Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
             };
         }
     }

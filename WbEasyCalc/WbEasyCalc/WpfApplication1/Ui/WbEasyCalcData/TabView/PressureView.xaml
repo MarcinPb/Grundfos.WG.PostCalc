@@ -33,7 +33,7 @@
         <TextBox Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_ErrorMarg_F26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text ="Best Estimate: " />
-        <Label Grid.Row="2" Grid.Column="3" Width="100" Content="999" HorizontalContentAlignment="Right"  />
+        <Label Grid.Row="2" Grid.Column="3" Width="100" Content="{Binding Path=Model.Pressure_BestEstimate_F33}" HorizontalContentAlignment="Right"  />
 
 
     </Grid>

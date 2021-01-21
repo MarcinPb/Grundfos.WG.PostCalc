@@ -108,6 +108,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
             AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
+
+
+            Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -556,6 +559,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _nonRevenueWaterErrorMarginAy26;
         private double _averageSupplyTimeHPerDayBestEstimate_F9;
         private double _averagePressureMBestEstimate_F11;
+        private double _pressure_BestEstimate_F33;
 
         public double SystemInputVolume_B19
         {
@@ -718,6 +722,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        public double Pressure_BestEstimate_F33
+        { 
+            get => _pressure_BestEstimate_F33;
+            set { _pressure_BestEstimate_F33 = value; RaisePropertyChanged(nameof(Pressure_BestEstimate_F33)); }
+        }
+
+
 
         #endregion
 
@@ -831,6 +842,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             AverageSupplyTimeHPerDayBestEstimate_F9 = model.AverageSupplyTimeHPerDayBestEstimate_F9;
             AveragePressureMBestEstimate_F11 = model.AveragePressureMBestEstimate_F11;
+
+
+            Pressure_BestEstimate_F33 = model.Pressure_BestEstimate_F33;
         }
 
         public void CalculateExcel()
@@ -892,6 +906,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcDataOutput.AverageSupplyTimeHPerDayBestEstimate_F9;
             AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
+
+
+            Pressure_BestEstimate_F33 = easyCalcDataOutput.Pressure_BestEstimate_F33;
         }
 
 
