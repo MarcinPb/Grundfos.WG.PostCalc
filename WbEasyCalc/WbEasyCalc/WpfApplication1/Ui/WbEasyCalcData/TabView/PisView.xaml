@@ -6,82 +6,186 @@
              xmlns:converters="clr-namespace:WpfApplication1.Converters" 
              mc:Ignorable="d" 
              >
+    
+    <!--
+    Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6}"
+    Text="{Binding Path=Model.IllegalConnectionsOthersEstimatedNumber_D10}"    
+    -->
+    
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
+
+        <Style x:Key ="LabelSpanTitleBaseStyle" TargetType="Label">
+            <Setter Property = "BorderBrush" Value ="White"/>
+            <Setter Property = "BorderThickness" Value = "1"/>
+            <Setter Property = "Margin" Value = "0 0 10 10"/>
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+            <Setter Property = "Padding" Value = "0 3"/>
+            <Setter Property = "FontSize" Value = "16"/>
+        </Style>
+        <Style x:Key ="LabelSpanTitleDarkStyle" TargetType="Label" BasedOn="{StaticResource LabelSpanTitleBaseStyle}">
+            <Setter Property = "Background" Value = "#FF265B87"/>
+        </Style>
+        <Style x:Key ="LabelSpanTitleLightStyle" TargetType="Label" BasedOn="{StaticResource LabelSpanTitleBaseStyle}">
+            <Setter Property = "Background" Value = "#77265B87"/>
+        </Style>
+
+        <Style x:Key ="LabelSpanTitleWhiteStyle" TargetType="Label" BasedOn="{StaticResource LabelSpanTitleBaseStyle}">
+            <Setter Property = "BorderBrush" Value ="Black"/>
+            <Setter Property = "Background" Value = "White"/>
+            <Setter Property = "Foreground" Value = "Black"/>
+        </Style>
+
+        <Style x:Key ="LabelBaseStyle" TargetType="Label">
+            <Setter Property = "BorderBrush" Value ="White"/>
+            <Setter Property = "BorderThickness" Value = "1"/>
+            <Setter Property = "Margin" Value = "0 0 10 10"/>
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+            <Setter Property = "Padding" Value = "5 10"/>
+        </Style>
+
+        <Style x:Key ="LabelSteelBlueStyle" TargetType="Label" BasedOn="{StaticResource LabelBaseStyle}">
+            <Setter Property = "Background" Value = "SteelBlue"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Right"/>
+        </Style>
+
+        <Style x:Key ="LabelRowTitleStyle" TargetType="Label" BasedOn="{StaticResource LabelBaseStyle}">
+            <Setter Property = "Background" Value = "#FF265B87"/>
+            <Setter Property = "HorizontalContentAlignment" Value = "Left"/>
+        </Style>
+
+        <Style x:Key ="LabelColTitleStyle" TargetType="Label" BasedOn="{StaticResource LabelBaseStyle}">
+            <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+            <Setter Property = "Background" Value = "#FF265B87"/>
+        </Style>
+        <Style x:Key ="LabelTitle1Style" TargetType="Label" BasedOn="{StaticResource LabelColTitleStyle}" >
+            <Setter Property = "Content" Value = "Best Estimate"/>
+        </Style>
+        <Style x:Key ="LabelTitle2Style" TargetType="Label" BasedOn="{StaticResource LabelColTitleStyle}" >
+            <Setter Property = "Content" Value = "Error Margin&#10;     [+/-%]"/>
+        </Style>
+        <Style x:Key ="LabelTitle3Style" TargetType="Label" BasedOn="{StaticResource LabelColTitleStyle}" >
+            <Setter Property = "Content" Value = "Person per&#10;    House"/>
+        </Style>
+        <Style x:Key ="LabelTitle4Style" TargetType="Label" BasedOn="{StaticResource LabelColTitleStyle}" >
+            <Setter Property = "Content" Value = "     Consumption&#10;[Litres/person/day]"/>
+        </Style>
     </UserControl.Resources>
-    <Grid Background="LightBlue">
-        <Grid Grid.Row="0" Margin="10" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="290"/>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="110"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="170"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="70"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Column="0" Grid.Row="0" Content ="Description" BorderBrush="White" BorderThickness="1" Foreground="White" FontWeight="Bold" Background="SteelBlue" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 0 10 10"/>
-            <Border Grid.Row="0" Grid.Column="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <Grid VerticalAlignment="Center">
+    <Grid >
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Background="LightBlue">
+                <Grid Grid.Row="0" Margin="10" >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Estimated" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Number" FontWeight="Bold" Foreground="White"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="0" Grid.Column="2" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <Grid VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[+/-%]" FontWeight="Bold" Foreground="White"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="0" Grid.Column="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <Grid VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Person per" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="House" FontWeight="Bold" Foreground="White"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="0" Grid.Column="4" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <Grid VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="[Litres/person/day]" FontWeight="Bold" Foreground="White"/>
-                </Grid>
-            </Border>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition  />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Grid.Row="1" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - domestic" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
-            </Border>
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="0 0 10 10" Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
+                    <Label Grid.Row="0" Grid.ColumnSpan="5" Content="Performance Indicator" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+                    <Label Grid.Row="1" Grid.ColumnSpan="5" Content="Level of Service" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                
+                    <Label Grid.Row="2" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
+                    <Label Grid.Row="2" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
+                    <Label Grid.Row="2" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
+                    <Label Grid.Row="2" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
 
-            <Border Grid.Column="0" Grid.Row="3" BorderBrush="White" BorderThickness="1" Background="SteelBlue" Margin="0 0 10 10">
-                <TextBlock Grid.Column="0" Grid.Row="1" Text ="Illegal connection - others" Foreground="White" FontWeight="Bold" Padding="3 0 0 0"/>
-            </Border>
-            <TextBox Grid.Column="1" Grid.Row="3" Margin="0 0 10 10" Text="{Binding Path=Model.IllegalConnectionsOthersEstimatedNumber_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"  TextAlignment="Right" />
+                    <Label Grid.Row="3" Grid.Column="0" Content="Average Supply Time [h/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="3" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="3" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="3" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="3" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
 
-        </Grid>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Average Pressure [m]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="4" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="4" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="4" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="4" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                
+                
+                                
+                
+                    <Label Grid.Row="5" Grid.ColumnSpan="5" Content="Level of Service" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                                
+                    <Label Grid.Row="6" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
+                    <Label Grid.Row="6" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
+                    <Label Grid.Row="6" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
+                    <Label Grid.Row="6" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
+
+                    <Label Grid.Row="7" Grid.Column="0" Content="CAPL - Current Annual Volume of&#10;Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="7" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="7" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="7" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="7" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="8" Grid.Column="0" Content="MAPL - Minimum Achievable Volume&#10;of Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                                
+                
+                
+                
+                    <Label Grid.Row="9" Grid.ColumnSpan="5" Content="Level of Service" Style="{StaticResource LabelSpanTitleLightStyle}" />
+
+                    <Label Grid.Row="9" Grid.Column="5"  Grid.ColumnSpan="2" Content="Performance Group" Style="{StaticResource LabelSpanTitleWhiteStyle}" />
+                
+                    <Label Grid.Row="10" Grid.Column="1"  Style="{StaticResource LabelTitle1Style}" />
+                    <Label Grid.Row="10" Grid.Column="2"  Style="{StaticResource LabelTitle2Style}" />
+                    <Label Grid.Row="10" Grid.Column="3"  Style="{StaticResource LabelTitle3Style}" />
+                    <Label Grid.Row="10" Grid.Column="4"  Style="{StaticResource LabelTitle4Style}" />
+                    <Label Grid.Row="10" Grid.Column="5"  Content="Group xxxxxxxxxx" Style="{StaticResource LabelSpanTitleLightStyle}" />
+                    <Label Grid.Row="10" Grid.Column="6"  Content="Group bbbbbbbbbb" Style="{StaticResource LabelSpanTitleLightStyle}" />
+
+                    <Label Grid.Row="11" Grid.Column="0" Content="CAPL - Current Annual Volume of&#10;Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="11" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="11" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="11" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="11" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+
+                    <Label Grid.Row="12" Grid.Column="0" Content="MAPL - Minimum Achievable Volume&#10;of Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
+                    <Label Grid.Row="12" Grid.Column="1" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="12" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="12" Grid.Column="3" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="12" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                                
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 
 </UserControl>
