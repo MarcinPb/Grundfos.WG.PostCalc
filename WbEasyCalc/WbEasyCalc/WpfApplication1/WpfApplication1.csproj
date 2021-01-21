@@ -109,6 +109,9 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml.cs">
       <DependentUpon>BilledConsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml.cs">
+      <DependentUpon>FinancialData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml.cs">
       <DependentUpon>MeterErrorsView.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\WbEasyCalc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ui\WaterConsumption\EditedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +184,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,7 +295,6 @@
     <Resource Include="Controls\filter.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Ui\WbEasyCalcData\TabView\Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
