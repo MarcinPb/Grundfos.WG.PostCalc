@@ -6,24 +6,14 @@
              xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView" 
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
              mc:Ignorable="d" 
+             Background="LightBlue"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
     </UserControl.Resources>
-    <Grid Grid.Row="0" Margin="10" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <!--
         <TextBlock Grid.Row="0" Grid.Column="0" Text ="Bulk Water Supply (Expoer) [m3]: " />
         <TextBox Grid.Row="0" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
         <TextBlock Grid.Row="1" Grid.Column="0" Text ="Ubbilled Metered Consumption [m3]: " />
@@ -32,5 +22,120 @@
         <TextBox Grid.Row="2" Grid.Column="1" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
         <TextBlock Grid.Row="2" Grid.Column="2" Text ="  Error Margin [%]: " />
         <TextBox Grid.Row="2" Grid.Column="3" Width="100" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsError_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" TextAlignment="Right"  />
+        -->
+    <Grid >
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="270"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="270"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.ColumnSpan="3" Content="Unbilled Metered Consumption" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Description"  Style="{StaticResource LabelBlueColTitleStyle}" />
+                <Label Grid.Row="2" Grid.Column="2" Content="[m3]"   Style="{StaticResource LabelBlueColTitleStyle}" />
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Bulk Water Supply (Export)" Style="{StaticResource LabelBlueLeftStyle}" />
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" BorderThickness="1" BorderBrush="Black" />
+
+                <TextBox Grid.Row="6" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="8" Grid.Column="0" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="0" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <Border Grid.Row="6" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+                <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="7" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="2" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <Border Grid.Row="6" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+                <Label Grid.Row="13" Grid.Column="0" Content="Unbilled Metered Consumption" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+
+                <Label Grid.Row="19" Grid.Column="0" Content="[m3]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+                <Label Grid.Row="19" Grid.Column="2" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+
+
+
+
+
+
+                <Label Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="5" Content="Unbilled Unmetered Consumption" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
+                <Label Grid.Row="2" Grid.Column="4" Content="Description"  Style="{StaticResource LabelBlueColTitleStyle}" />
+                <Label Grid.Row="2" Grid.Column="6" Content="[m3]"   Style="{StaticResource LabelBlueColTitleStyle}" />
+                <Label Grid.Row="2" Grid.Column="8" Content="Error Margin&#xD;&#xA;     [+/- %]"   Style="{StaticResource LabelBlueColTitleStyle}" />
+
+                <TextBox Grid.Row="4" Grid.Column="4" Text="Strefa Przybków automat" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <Border Grid.Row="4" Grid.Column="4" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
+
+                <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="5" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="6" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="7" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="6" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <Border Grid.Row="4" Grid.Column="6" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
+
+                <TextBox Grid.Row="4" Grid.Column="8" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsError_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="5" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="6" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="7" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="8" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <Border Grid.Row="4" Grid.Column="8" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
+
+                <Label Grid.Row="11" Grid.Column="4" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}" />
+                <Label Grid.Row="11" Grid.Column="8" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+
+
+                <Label Grid.Row="13" Grid.Column="4" Content="Unbilled Unmetered Consumption [m3]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+
+                <Label Grid.Row="15" Grid.Column="4" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
+                <Label Grid.Row="15" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+
+                <Label Grid.Row="17" Grid.Column="4" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
+                <Label Grid.Row="17" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
+
+
+                <Label Grid.Row="19" Grid.Column="4" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+                <Label Grid.Row="19" Grid.Column="6" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

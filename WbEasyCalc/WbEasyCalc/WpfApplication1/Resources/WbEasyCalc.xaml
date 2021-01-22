@@ -7,7 +7,6 @@
     <Style x:Key ="LabelSpanTitleBaseStyle" TargetType="Label">
         <Setter Property = "BorderBrush" Value ="White"/>
         <Setter Property = "BorderThickness" Value = "1"/>
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
         <Setter Property = "VerticalContentAlignment" Value = "Center"/>
@@ -32,18 +31,22 @@
     <Style x:Key ="LabelBase2Style" TargetType="Label">
         <Setter Property = "BorderBrush" Value ="White"/>
         <Setter Property = "BorderThickness" Value = "1"/>
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
     </Style>
     <Style x:Key ="LabelBlueStyle" TargetType="Label" BasedOn="{StaticResource LabelBase2Style}">
-        <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
+        <!--<Setter Property = "HorizontalContentAlignment" Value = "Center"/>-->
         <Setter Property = "Background" Value = "SteelBlue"/>
         <Setter Property = "HorizontalContentAlignment" Value = "Right"/>
         <Setter Property = "Padding" Value = "3 1 3 1"/>
     </Style>
+    <Style x:Key ="LabelBlueLeftStyle" TargetType="Label" BasedOn="{StaticResource LabelBase2Style}">
+        <!--<Setter Property = "HorizontalContentAlignment" Value = "Center"/>-->
+        <Setter Property = "Background" Value = "SteelBlue"/>
+        <Setter Property = "HorizontalContentAlignment" Value = "Left"/>
+        <Setter Property = "Padding" Value = "3 1 3 1"/>
+    </Style>
     <Style x:Key ="LabelTransparentStyle" TargetType="Label"  >
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "Padding" Value = "3 1 3 1"/>
     </Style>
     
@@ -51,7 +54,6 @@
     <Style x:Key ="LabelBase3Style" TargetType="Label">
         <Setter Property = "BorderBrush" Value ="Black"/>
         <Setter Property = "BorderThickness" Value = "1"/>
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
     </Style>
     <Style x:Key ="LabelLightBlueStyle" TargetType="Label" BasedOn="{StaticResource LabelBase3Style}">
@@ -66,7 +68,6 @@
     <Style x:Key ="LabelBaseStyle" TargetType="Label">
         <Setter Property = "BorderBrush" Value ="White"/>
         <Setter Property = "BorderThickness" Value = "1"/>
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
         <Setter Property = "VerticalContentAlignment" Value = "Center"/>
@@ -90,11 +91,9 @@
     <Style x:Key ="TextBaseStyle" TargetType="TextBox" >
     </Style>
     <Style x:Key ="TextListFirstLeftStyle" TargetType="TextBox" >
-        <Setter Property = "Margin" Value = "0 0 10 0" />
         <Setter Property = "BorderThickness" Value = "0 1 0 0" />
     </Style>
     <Style x:Key ="TextListLastLeftStyle" TargetType="TextBox" >
-        <Setter Property = "Margin" Value = "0 0 10 10" />
         <Setter Property = "BorderThickness" Value = "0 1 0 0" />
     </Style>
     <Style x:Key ="TextListRightStyle" TargetType="TextBox" BasedOn="{StaticResource TextListFirstLeftStyle}">
@@ -136,17 +135,14 @@
     <!-- Result ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     
     <Style x:Key ="LabelResult1Style" TargetType="Label">
-        <Setter Property = "Margin" Value = "0 0 10 0"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
         <Setter Property = "VerticalContentAlignment" Value = "Center"/>
         <Setter Property = "HorizontalContentAlignment" Value = "Center"/>
-        <Setter Property = "Padding" Value = "3 0 3 10"/>
         <Setter Property = "Background" Value = "Brown"/>
     </Style>
 
     <Style x:Key ="LabelResult3Style" TargetType="Label">
-        <Setter Property = "Margin" Value = "0 0 10 0"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
         <Setter Property = "VerticalContentAlignment" Value = "Center"/>
@@ -157,7 +153,6 @@
     </Style>
 
     <Style x:Key ="LabelResult4Style" TargetType="Label">
-        <Setter Property = "Margin" Value = "0 0 10 10"/>
         <Setter Property = "Foreground" Value = "White"/>
         <Setter Property = "FontWeight" Value = "Bold"/>
         <Setter Property = "VerticalContentAlignment" Value = "Center"/>
