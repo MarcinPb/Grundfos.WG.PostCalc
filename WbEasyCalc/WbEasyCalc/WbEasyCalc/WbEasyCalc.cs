@@ -56,6 +56,11 @@ namespace WbEasyCalcRepository
 
 
                 Pressure_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
+
+                Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
+                Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
+                Pis_AverageSupplyTime_J9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_J9,
+                Pis_AverageSupplyTime_L9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_L9,
             };
 
             return easyCalcDataOutput;

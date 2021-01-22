@@ -106,7 +106,15 @@ namespace DataModel
         public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
         public double AveragePressureMBestEstimate_F11 { get; set; }
 
+
+
         public double Pressure_BestEstimate_F33 { get; set; }
+
+
+        public double Pis_AverageSupplyTime_F9 { get; set; }
+        public double Pis_AverageSupplyTime_H9 { get; set; }
+        public double Pis_AverageSupplyTime_J9 { get; set; }
+        public double Pis_AverageSupplyTime_L9 { get; set; }
 
         public object Clone()
         {
@@ -210,6 +218,11 @@ namespace DataModel
 
 
                 Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+
+                Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
+                Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
+                Pis_AverageSupplyTime_J9 = Pis_AverageSupplyTime_J9,
+                Pis_AverageSupplyTime_L9 = Pis_AverageSupplyTime_L9,
             };
         }
 

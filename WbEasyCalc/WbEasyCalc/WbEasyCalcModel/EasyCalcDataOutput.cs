@@ -42,6 +42,14 @@ namespace WbEasyCalc
 
         public double Pressure_BestEstimate_F33 { get; set; } // 30.0 
 
+
+        public double Pis_AverageSupplyTime_F9 { get; set; }
+        public double Pis_AverageSupplyTime_H9 { get; set; }
+        public double Pis_AverageSupplyTime_J9 { get; set; }
+        public double Pis_AverageSupplyTime_L9 { get; set; }
+
+
+
         public object Clone()
         {
             return new EasyCalcDataOutput()
@@ -77,6 +85,11 @@ namespace WbEasyCalc
 
 
                 Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+
+                Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
+                Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
+                Pis_AverageSupplyTime_J9 = Pis_AverageSupplyTime_J9,
+                Pis_AverageSupplyTime_L9 = Pis_AverageSupplyTime_L9,
             };
         }
     }

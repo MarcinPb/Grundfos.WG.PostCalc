@@ -111,6 +111,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+
+            Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
+            Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
+            Pis_AverageSupplyTime_J9 = Pis_AverageSupplyTime_J9,
+            Pis_AverageSupplyTime_L9 = Pis_AverageSupplyTime_L9,
+
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -561,6 +567,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _averagePressureMBestEstimate_F11;
         private double _pressure_BestEstimate_F33;
 
+        private double _pis_AverageSupplyTime_F9;
+        private double _pis_AverageSupplyTime_H9;
+        private double _pis_AverageSupplyTime_J9;
+        private double _pis_AverageSupplyTime_L9;
+
+
         public double SystemInputVolume_B19
         {
             get { return _systemInputVolume_B19; }
@@ -730,6 +742,28 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
 
+        public double Pis_AverageSupplyTime_F9
+        { 
+            get => _pis_AverageSupplyTime_F9;
+            set { _pis_AverageSupplyTime_F9 = value; RaisePropertyChanged(nameof(Pis_AverageSupplyTime_F9)); }
+        }
+        public double Pis_AverageSupplyTime_H9
+        { 
+            get => _pis_AverageSupplyTime_H9;
+            set { _pis_AverageSupplyTime_H9 = value; RaisePropertyChanged(nameof(Pis_AverageSupplyTime_H9)); }
+        }
+        public double Pis_AverageSupplyTime_J9
+        { 
+            get => _pis_AverageSupplyTime_J9;
+            set { _pis_AverageSupplyTime_J9 = value; RaisePropertyChanged(nameof(Pis_AverageSupplyTime_J9)); }
+        }
+        public double Pis_AverageSupplyTime_L9
+        { 
+            get => _pis_AverageSupplyTime_L9;
+            set { _pis_AverageSupplyTime_L9 = value; RaisePropertyChanged(nameof(Pis_AverageSupplyTime_L9)); }
+        }
+
+
         #endregion
 
         public ItemViewModel(DataModel.WbEasyCalcData model)
@@ -845,6 +879,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Pressure_BestEstimate_F33 = model.Pressure_BestEstimate_F33;
+
+            Pis_AverageSupplyTime_F9 = model.Pis_AverageSupplyTime_F9;
+            Pis_AverageSupplyTime_H9 = model.Pis_AverageSupplyTime_H9;
+            Pis_AverageSupplyTime_J9 = model.Pis_AverageSupplyTime_J9;
+            Pis_AverageSupplyTime_L9 = model.Pis_AverageSupplyTime_L9;
         }
 
         public void CalculateExcel()
@@ -909,6 +948,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Pressure_BestEstimate_F33 = easyCalcDataOutput.Pressure_BestEstimate_F33;
+
+            Pis_AverageSupplyTime_F9 = easyCalcDataOutput.Pis_AverageSupplyTime_F9;
+            Pis_AverageSupplyTime_H9 = easyCalcDataOutput.Pis_AverageSupplyTime_H9;
+            Pis_AverageSupplyTime_J9 = easyCalcDataOutput.Pis_AverageSupplyTime_J9;
+            Pis_AverageSupplyTime_L9 = easyCalcDataOutput.Pis_AverageSupplyTime_L9;
         }
 
 
