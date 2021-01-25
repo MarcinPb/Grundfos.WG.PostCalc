@@ -91,25 +91,7 @@
     </Style>
 
 
-    <Style x:Key ="TextBaseStyle" TargetType="TextBox" >
-    </Style>
-    <Style x:Key ="TextListFirstLeftStyle" TargetType="TextBox" >
-        <Setter Property = "BorderThickness" Value = "0 1 0 0" />
-    </Style>
-    <Style x:Key ="TextListLastLeftStyle" TargetType="TextBox" >
-        <Setter Property = "BorderThickness" Value = "0 1 0 0" />
-    </Style>
-    <Style x:Key ="TextListRightStyle" TargetType="TextBox" BasedOn="{StaticResource TextListFirstLeftStyle}">
-        <Setter Property = "TextAlignment" Value = "Right"/>
-    </Style>
-    <Style x:Key ="TextListLastRightStyle" TargetType="TextBox" BasedOn="{StaticResource TextListLastLeftStyle}">
-        <Setter Property = "TextAlignment" Value = "Right"/>
-    </Style>
-    
-    
-    
-    
-    
+     
     <Style x:Key ="LabelRowTitleStyle" TargetType="Label" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property = "Background" Value = "#FF265B87"/>
         <Setter Property = "HorizontalContentAlignment" Value = "Left"/>
@@ -163,5 +145,41 @@
         <Setter Property = "Padding" Value = "3 0"/>
         <Setter Property = "Background" Value = "Brown"/>
     </Style>
+
+
+
+
+
+
+
+
+
+
+    <!-- TextBoxes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <Style x:Key ="TextBaseStyle" TargetType="TextBox" >
+    </Style>
+    <Style x:Key ="TextListLeftStyle" TargetType="TextBox" >
+        <Setter Property = "BorderThickness" Value = "0 1 0 0" />
+    </Style>
+    <!--<Style x:Key ="TextListLeftStyle" TargetType="TextBox" >
+        <Setter Property = "BorderThickness" Value = "0 1 0 0" />
+    </Style>
+    <Style x:Key ="TextListLeftStyle" TargetType="TextBox" >
+        <Setter Property = "BorderThickness" Value = "0 1 0 0" />
+    </Style>-->
+    
+    
+    
+    <Style x:Key ="TextListRightStyle" TargetType="TextBox" BasedOn="{StaticResource TextListLeftStyle}">
+        <Setter Property = "TextAlignment" Value = "Right"/>
+    </Style>
+    <!--<Style x:Key ="TextListLastRightStyle" TargetType="TextBox" BasedOn="{StaticResource TextListLeftStyle}">
+        <Setter Property = "TextAlignment" Value = "Right"/>
+    </Style>-->
+
+
+
+
 
 </ResourceDictionary>

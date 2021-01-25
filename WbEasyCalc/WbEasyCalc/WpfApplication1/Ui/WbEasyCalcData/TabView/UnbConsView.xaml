@@ -67,16 +67,16 @@
                 <Label Grid.Row="4" Grid.Column="0" Content="Bulk Water Supply (Export)" Style="{StaticResource LabelBlueLeftStyle}" />
                 <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" BorderThickness="1" BorderBrush="Black" />
 
-                <TextBox Grid.Row="6" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="8" Grid.Column="0" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="9" Grid.Column="0" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="6" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="8" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="6" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
                 <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="7" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="8" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
-                <TextBox Grid.Row="9" Grid.Column="2" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="2" Text="" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="6" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
                 <Label Grid.Row="13" Grid.Column="0" Content="Unbilled Metered Consumption" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
@@ -95,12 +95,12 @@
                 <Label Grid.Row="2" Grid.Column="6" Content="[m3]"   Style="{StaticResource LabelBlueColTitleStyle}" />
                 <Label Grid.Row="2" Grid.Column="8" Content="Error Margin&#xD;&#xA;     [+/- %]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-                <TextBox Grid.Row="4" Grid.Column="4" Text="Strefa Przybków automat" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLastLeftStyle}" />
-                <TextBox Grid.Row="8" Grid.Column="4" Text="" Style="{StaticResource TextListFirstLeftStyle}"/>
-                <TextBox Grid.Row="9" Grid.Column="4" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="4" Grid.Column="4" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="4" Grid.Column="4" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
 
                 <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
@@ -108,7 +108,7 @@
                 <TextBox Grid.Row="6" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="7" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="8" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
-                <TextBox Grid.Row="9" Grid.Column="6" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="6" Text="" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="4" Grid.Column="6" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
 
                 <TextBox Grid.Row="4" Grid.Column="8" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsError_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
@@ -116,7 +116,7 @@
                 <TextBox Grid.Row="6" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="7" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
                 <TextBox Grid.Row="8" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-                <TextBox Grid.Row="9" Grid.Column="8" Text="" Style="{StaticResource TextListLastLeftStyle}" />
+                <TextBox Grid.Row="9" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="4" Grid.Column="8" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
 
                 <Label Grid.Row="11" Grid.Column="4" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}" />
