@@ -76,15 +76,15 @@
         <Label Grid.Row="9" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
         <Label Grid.Row="9" Grid.Column="4" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
 
-        <Label Grid.Row="11" Grid.Column="0" Content="System Imput Volume [m3]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+        <Label Grid.Row="11" Grid.Column="0" Content="System Imput Volume [m3]" Style="{StaticResource LabelTransparentBoldStyle}" />
 
         <Label Grid.Row="13" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
         <Label Grid.Row="13" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
         
         <Label Grid.Row="15" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
         <Label Grid.Row="15" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
-        
-        <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+
+        <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
         <Label Grid.Row="17" Grid.Column="2" Content="234" Style="{StaticResource LabelBlueStyle}"  />
     </Grid>
 </UserControl>

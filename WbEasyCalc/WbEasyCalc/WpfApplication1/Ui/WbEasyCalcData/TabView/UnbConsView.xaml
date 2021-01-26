@@ -65,7 +65,7 @@
                 <Label Grid.Row="2" Grid.Column="2" Content="[m3]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
                 <Label Grid.Row="4" Grid.Column="0" Content="Bulk Water Supply (Export)" Style="{StaticResource LabelBlueLeftStyle}" />
-                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" BorderThickness="1" BorderBrush="Black" />
+                <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
 
                 <TextBox Grid.Row="6" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
                 <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
