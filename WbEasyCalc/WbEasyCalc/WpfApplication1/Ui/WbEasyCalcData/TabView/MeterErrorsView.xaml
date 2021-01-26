@@ -75,7 +75,7 @@
 
 
             <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Content="Enter 1 to use an overall % for meter under-regidtration or 2 for manual entering of volumes&#xD;&#xA;and under-registration of different meter or customer types"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
+            <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}"  />
 
             <Label Grid.Row="6" Grid.Column="0" Content="Billed Metered Consumption (without Bulk&#xD;&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
             <Label Grid.Row="6" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
