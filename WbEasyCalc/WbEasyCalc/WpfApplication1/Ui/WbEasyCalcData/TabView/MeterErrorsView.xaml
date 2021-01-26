@@ -6,12 +6,163 @@
              xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView" 
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
              mc:Ignorable="d" 
+             Background="LightBlue"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
     </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.ColumnSpan="11" Content="Customer Meter Inaccuraciest and Data Handling Errors" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Description" Style="{StaticResource LabelBlueColTitleStyle}" />
+            <Label Grid.Row="2" Grid.Column="2" Content="Total&#xD;&#xA;[m3]" Style="{StaticResource LabelBlueColTitleStyle}" />
+            <Label Grid.Row="2" Grid.Column="4" Content="Meter under-&#xA; registration" Style="{StaticResource LabelBlueColTitleStyle}" />
+            <Label Grid.Row="2" Grid.Column="8" Content="Total&#xD;&#xA;[m3]" Style="{StaticResource LabelBlueColTitleStyle}" />
+            <Label Grid.Row="2" Grid.Column="10" Content="Error Margin&#xD;&#xA;    [+/- %]" Style="{StaticResource LabelBlueColTitleStyle}" />
+
+
+            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Content="Enter 1 to use an overall % for meter under-regidtration or 2 for manual entering of volumes&#xD;&#xA;and under-registration of different meter or customer types"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
+
+            <Label Grid.Row="6" Grid.Column="0" Content="Billed Metered Consumption (without Bulk&#xD;&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="6" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="6" Grid.Column="4" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="6" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="6" Grid.Column="10" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+
+            <Label Grid.Row="8" Grid.Column="0" Content="Billed Metered Consumption (without Bulk&#xD;&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="8" Grid.Column="2" Content="Total&#xD;&#xA;[m3]" Style="{StaticResource LabelBlueColTitleStyle}" />
+            <Label Grid.Row="8" Grid.Column="4" Content="Meter under-&#xA; registration" Style="{StaticResource LabelBlueColTitleStyle}" />
+
+            <TextBox Grid.Row="10" Grid.Column="0" Text="Małe wodomierze" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="11" Grid.Column="0" Text="Duże wodomierze" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="12" Grid.Column="0" Text="Wodomierze sprzężone" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="13" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <Border Grid.Row="10" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+            <TextBox Grid.Row="10" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="11" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="12" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="2" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <Border Grid.Row="10" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+            <TextBox Grid.Row="10" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="11" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="12" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <Border Grid.Row="10" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+            <TextBox Grid.Row="10" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="11" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="12" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <Border Grid.Row="10" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+            <TextBox Grid.Row="10" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="11" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="12" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="10" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <Border Grid.Row="10" Grid.Column="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+
+            <Label Grid.Row="15" Grid.Column="0" Content="Metered Bulk Supply (Export)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="15" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="15" Grid.Column="4" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="15" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="15" Grid.Column="10" Text="{Binding Path=Model.MeteredBulkSupplyExportErrorMargin_N32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+
+            <Label Grid.Row="17" Grid.Column="0" Content="Unbilled Metered Consumption (without Bulk&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="17" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="17" Grid.Column="4" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="17" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="17" Grid.Column="10" Text="{Binding Path=Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            
+            <Label Grid.Row="19" Grid.Column="4" Content="Estimated % of under-&#xA;            reading" Style="{StaticResource LabelBlueColTitleStyle}" />
+
+            <Label Grid.Row="21" Grid.Column="0" Content="Corrupt Meter Reading Practices"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="21" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="21" Grid.Column="4" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="21" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <TextBox Grid.Row="21" Grid.Column="10" Text="{Binding Path=Model.CorruptMeterReadingPracticessErrorMargin_N38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+
+            <Label Grid.Row="23" Grid.Column="0" Content="Data Handling Errors (Office)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <TextBox Grid.Row="23" Grid.Column="8" Text="{Binding Path=Model.DataHandlingErrorsOffice_L40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="23" Grid.Column="10" Text="{Binding Path=Model.DataHandlingErrorsOfficeErrorMargin_N40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
+
+            <Label Grid.Row="25" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
+            <Label Grid.Row="25" Grid.Column="10" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+
+            <Label Grid.Row="27" Grid.Column="0" Content="Customer Meter Inaccuracies and Data Handling Errors" Style="{StaticResource LabelTransparentBoldStyle}"  />
+
+            <Label Grid.Row="29" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
+            <Label Grid.Row="29" Grid.Column="8" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+
+            <Label Grid.Row="31" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
+            <Label Grid.Row="31" Grid.Column="8" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+
+            <Label Grid.Row="33" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
+            <Label Grid.Row="33" Grid.Column="8" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+        </Grid>
+    </ScrollViewer>
+
+
+</UserControl>
+
+    
+    
+<!--
     <Grid Grid.Row="0" Margin="10" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -28,7 +179,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Text ="Enter 1 to use an overall for meter or 2 for manual: " />
-        <!--<TextBox Grid.Column="1" Grid.Row="0" Width="100" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />-->
         <ComboBox Grid.Row="0" Grid.Column="1"  Width="100" ItemsSource="{Binding Path=J6_List}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.MetErrors_DetailedManualSpec_J6}" />
 
         <TextBlock Grid.Column="0" Grid.Row="1" Text ="Billed Metered Consumption [%]: " />
@@ -56,4 +206,4 @@
         <TextBlock Grid.Column="2" Grid.Row="5" Text ="  Error Margin [+/-%]: " />
         <TextBox Grid.Column="3" Grid.Row="5" Width="100" Text="{Binding Path=Model.DataHandlingErrorsOfficeErrorMargin_N40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
     </Grid>
-</UserControl>
+-->
