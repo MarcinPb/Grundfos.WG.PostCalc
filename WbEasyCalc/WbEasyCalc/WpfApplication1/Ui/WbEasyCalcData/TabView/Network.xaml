@@ -109,7 +109,7 @@
             <Label Grid.Row="2" Grid.Column="6" Content="Number"   Style="{StaticResource LabelBlueColTitleStyle}" />
             <Label Grid.Row="2" Grid.Column="8" Content="Error Margin&#xD;&#xA;     [+/- %]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-            <Label Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Content="Description"  Style="{StaticResource LabelBaseStyle2}" />
+            <Label Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Content="Number of Customers (active)"  Style="{StaticResource LabelBaseStyle2}" />
             <TextBox Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Text="22" Style="{StaticResource TextRightPaddingStyle}" />
             <TextBox Grid.Row="4" Grid.Column="8" Grid.RowSpan="2" Text="22" Style="{StaticResource TextRightPaddingStyle}" />
 

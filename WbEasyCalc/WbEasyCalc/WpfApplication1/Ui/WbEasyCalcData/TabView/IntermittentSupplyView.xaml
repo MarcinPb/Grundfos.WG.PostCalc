@@ -1,9 +1,8 @@
-﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.TabView.PressureView"
+﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.TabView.IntermittentSupplyView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView" 
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
              mc:Ignorable="d" 
              Background="LightBlue"
@@ -21,6 +20,8 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -42,12 +43,13 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Grid.ColumnSpan="5" Content="Average Pressure" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
+        <Label Grid.Row="0" Grid.ColumnSpan="7" Content="Intermittent Supply" Style="{StaticResource LabelSpanTitleDarkStyle}" />
 
         <Label Grid.Row="2" Grid.Column="0" Content="Area"  Style="{StaticResource LabelBlueColTitleStyle}" />
         <Label Grid.Row="2" Grid.Column="2" Content="Approximate&#xD;&#xA;  Number of&#xD;&#xA; Connections"   Style="{StaticResource LabelBlueColTitleStyle}" />
-        <Label Grid.Row="2" Grid.Column="4" Content="   Daily&#xD;&#xA;Average&#xD;&#xA;Pressure&#xD;&#xA;    [m]"   Style="{StaticResource LabelBlueColTitleStyle}" />
+        <Label Grid.Row="2" Grid.Column="4" Content="Supply Time&#xD;&#xA;   [days per&#xD;&#xA;      week]"   Style="{StaticResource LabelBlueColTitleStyle}" />
+        <Label Grid.Row="2" Grid.Column="6" Content="   Supply Time&#xD;&#xA;[hours per day]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
         <TextBox Grid.Row="4" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
         <TextBox Grid.Row="5" Grid.Column="0" Text="asdfasfd" Style="{StaticResource TextListLeftStyle}"/>
@@ -55,58 +57,38 @@
         <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="4" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="5" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="6" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="7" Grid.Column="2" Text="" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="4" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
         <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-        <Label Grid.Row="9" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
-        <TextBox Grid.Row="9" Grid.Column="4" Text="{Binding Path=Model.Prs_ErrorMarg_F26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightStyle}"  />
+        <TextBox Grid.Row="4" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="5" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="6" Grid.Column="6" Text="" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="7" Grid.Column="6" Text="" Style="{StaticResource TextListLeftStyle}" />
+        <Border Grid.Row="4" Grid.Column="6" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-        <Label Grid.Row="11" Grid.Column="0" Content="Average Pressure [m]" Style="{StaticResource LabelTransparentBoldStyle}" />
+        <Label Grid.Row="9" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
+        <TextBox Grid.Row="9" Grid.Column="6" Text="33" Style="{StaticResource TextRightStyle}"  />
+
+        <Label Grid.Row="11" Grid.Column="0" Content="Average Supply Time [h/day]" Style="{StaticResource LabelTransparentBoldStyle}" />
 
         <Label Grid.Row="13" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="13" Grid.Column="4" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="13" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="15" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="15" Grid.Column="4" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="15" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
-        <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=Model.Pressure_BestEstimate_F33}" Style="{StaticResource LabelBlueStyle}"  />
+        <Label Grid.Row="17" Grid.Column="6" Content="234" Style="{StaticResource LabelBlueStyle}"  />
     </Grid>
 
 </UserControl>
-<!--
-    <Grid Grid.Row="0" Margin="10" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Text ="Approximate Number of Connections: " />
-        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-        <TextBlock Grid.Column="2" Text ="  Daily Average Pressure [m]: " />
-        <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" TextAlignment="Right"  />
-        
-        <TextBlock Grid.Row="1" Grid.Column="0" Text ="Error Margin [+/-]: " />
-        <TextBox Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_ErrorMarg_F26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Text ="Best Estimate: " />
-        <Label Grid.Row="2" Grid.Column="3" Width="100" Content="{Binding Path=Model.Pressure_BestEstimate_F33}" HorizontalContentAlignment="Right"  />
-
-
-    </Grid>
--->

@@ -112,6 +112,9 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml.cs">
       <DependentUpon>FinancialData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ui\WbEasyCalcData\TabView\IntermittentSupplyView.xaml.cs">
+      <DependentUpon>IntermittentSupplyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml.cs">
       <DependentUpon>MeterErrorsView.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\IntermittentSupplyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
