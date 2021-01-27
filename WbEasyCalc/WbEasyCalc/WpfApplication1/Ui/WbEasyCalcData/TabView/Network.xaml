@@ -86,17 +86,23 @@
             <Label Grid.Row="11" Grid.Column="0" Content="Possible underestimation" Style="{StaticResource LabelTransparentStyle}"  />
             <TextBox Grid.Row="11" Grid.Column="2" Text="33" Style="{StaticResource TextRightStyle}"  />
 
-            <Label Grid.Row="13" Grid.Column="0" Content="Pipe Lenght [km]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+            <Label Grid.Row="13" Grid.Column="0" Content="Total [km]" Style="{StaticResource LabelTransparentStyle}"  />
+            <Label Grid.Row="13" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
 
-            <Label Grid.Row="15" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="15" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="15" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"  />
+            <TextBox Grid.Row="15" Grid.Column="2" Text="33" Style="{StaticResource TextRightStyle}"  />
 
-            <Label Grid.Row="17" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="17" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
+            <Label Grid.Row="17" Grid.Column="0" Content="Pipe Lenght [km]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+
+            <Label Grid.Row="19" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
+            <Label Grid.Row="19" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+
+            <Label Grid.Row="21" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
+            <Label Grid.Row="21" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
 
 
-            <Label Grid.Row="19" Grid.Column="0" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
-            <Label Grid.Row="19" Grid.Column="2" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="23" Grid.Column="0" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
+            <Label Grid.Row="23" Grid.Column="2" Content="234" Style="{StaticResource LabelBlueStyle}"  />
 
 
 
