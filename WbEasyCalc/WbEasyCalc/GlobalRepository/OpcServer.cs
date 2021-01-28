@@ -42,6 +42,7 @@ namespace GlobalRepository
             ICollection<OpcValue> values = new List<OpcValue>()
             {
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.SysInput_SystemInputVolumeM3_D6", Value = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6},
+
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.SysInput_SystemInputVolumeError_F6", Value = easyCalcDataInput.SysInput_SystemInputVolumeError_F6},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.BilledCons_BilledMetConsBulkWatSupExpM3_D6", Value = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6},
                 new OpcValue(){Tag=$"WbEasyCalc_{zoneRomanNo}.DEV.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", Value = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6},

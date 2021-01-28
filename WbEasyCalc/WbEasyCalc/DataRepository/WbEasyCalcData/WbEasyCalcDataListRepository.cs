@@ -50,10 +50,19 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Description", model.Description);
                 p.Add("@IsArchive", model.IsArchive);
                 p.Add("@IsAccepted", model.IsAccepted);
+
                 // input
                 p.Add("@Start_PeriodDays_M21", model.Start_PeriodDays_M21);
+
                 p.Add("@SysInput_SystemInputVolumeM3_D6", model.SysInput_SystemInputVolumeM3_D6);
                 p.Add("@SysInput_SystemInputVolumeError_F6", model.SysInput_SystemInputVolumeError_F6);
+                p.Add("@SysInput_SystemInputVolumeM3_D7", model.SysInput_SystemInputVolumeM3_D7);
+                p.Add("@SysInput_SystemInputVolumeError_F7", model.SysInput_SystemInputVolumeError_F7);
+                p.Add("@SysInput_SystemInputVolumeM3_D8", model.SysInput_SystemInputVolumeM3_D8);
+                p.Add("@SysInput_SystemInputVolumeError_F8", model.SysInput_SystemInputVolumeError_F8);
+                p.Add("@SysInput_SystemInputVolumeM3_D9", model.SysInput_SystemInputVolumeM3_D9);
+                p.Add("@SysInput_SystemInputVolumeError_F9", model.SysInput_SystemInputVolumeError_F9);
+
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", model.BilledCons_BilledMetConsBulkWatSupExpM3_D6);
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
 

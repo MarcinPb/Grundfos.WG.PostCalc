@@ -176,12 +176,7 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <!--
-            <TextBlock Grid.Column="0" Text ="System Input Volume [m3]: " />
-            <TextBox Grid.Column="2" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-            <TextBlock Grid.Column="4" Text ="  Error Margin [+/-%]: " />
-            <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-            -->
+
             <Label Grid.Row="0" Grid.ColumnSpan="11" Content="Unauthorized Consumption" Style="{StaticResource LabelSpanTitleDarkStyle}" />
 
             <Label Grid.Row="2" Grid.Column="0" Content="Description"  Style="{StaticResource LabelBlueColTitleStyle}" />
@@ -226,7 +221,7 @@
             <TextBox Grid.Row="19" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="8" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="8" Text="" />
             <TextBox Grid.Row="17" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="18" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="19" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
@@ -238,13 +233,13 @@
             <TextBox Grid.Row="19" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="8" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="17" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="18" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="19" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="10" Text="{Binding Path=Model.SysInput_SystemInputVolumeM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="17" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="18" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="19" Grid.Column="10" Text="" Style="{StaticResource TextListLeftStyle}" />

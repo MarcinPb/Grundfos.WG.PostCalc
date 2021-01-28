@@ -14,8 +14,12 @@ namespace WbEasyCalcRepository.Test
         private EasyCalcDataInput _easyCalcDataInput_01 = new EasyCalcDataInput
         {
             Start_PeriodDays_M21 = 30,
+
             SysInput_SystemInputVolumeM3_D6 = 6593339,
             SysInput_SystemInputVolumeError_F6 = 0.05,
+            SysInput_SystemInputVolumeM3_D7 = 10,
+            SysInput_SystemInputVolumeError_F7 = 0.10,
+
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = 5332026,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = 1000,
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = 309349,

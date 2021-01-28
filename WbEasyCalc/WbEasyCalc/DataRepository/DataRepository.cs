@@ -129,8 +129,16 @@ namespace DataRepository
 
                 // input
                 p.Add("@Start_PeriodDays_M21", dbType: DbType.Int32, direction: ParameterDirection.Output);
+
                 p.Add("@SysInput_SystemInputVolumeM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);                     // @SystemInputVolume
                 p.Add("@SysInput_SystemInputVolumeError_F6", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeM3_D7", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeError_F7", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeM3_D8", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeError_F8", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeM3_D9", dbType: DbType.Double, direction: ParameterDirection.Output);
+                p.Add("@SysInput_SystemInputVolumeError_F9", dbType: DbType.Double, direction: ParameterDirection.Output);
+
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", dbType: DbType.Double, direction: ParameterDirection.Output);          // @ZoneSale
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", dbType: DbType.Double, direction: ParameterDirection.Output);
                 
@@ -182,8 +190,16 @@ namespace DataRepository
                 return new DataModel.WbEasyCalcData()
                 {
                     Start_PeriodDays_M21 = p.Get<int>("@Start_PeriodDays_M21"),                                                             // //
+                    
                     SysInput_SystemInputVolumeM3_D6 = p.Get<double>("@SysInput_SystemInputVolumeM3_D6"),                                    // @SystemInputVolume
                     SysInput_SystemInputVolumeError_F6 = p.Get<double>("@SysInput_SystemInputVolumeError_F6"),                              // 
+                    SysInput_SystemInputVolumeM3_D7 = p.Get<double>("@SysInput_SystemInputVolumeM3_D7"),                                    
+                    SysInput_SystemInputVolumeError_F7 = p.Get<double>("@SysInput_SystemInputVolumeError_F7"),                               
+                    SysInput_SystemInputVolumeM3_D8 = p.Get<double>("@SysInput_SystemInputVolumeM3_D8"),                                    
+                    SysInput_SystemInputVolumeError_F8 = p.Get<double>("@SysInput_SystemInputVolumeError_F8"),                               
+                    SysInput_SystemInputVolumeM3_D9 = p.Get<double>("@SysInput_SystemInputVolumeM3_D9"),                                    
+                    SysInput_SystemInputVolumeError_F9 = p.Get<double>("@SysInput_SystemInputVolumeError_F9"),                               
+                                        
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = p.Get<double>("@BilledCons_BilledMetConsBulkWatSupExpM3_D6"),              // @ZoneSale
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = p.Get<double>("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6"),          // 
 

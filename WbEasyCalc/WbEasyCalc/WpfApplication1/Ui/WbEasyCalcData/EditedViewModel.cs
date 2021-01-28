@@ -125,8 +125,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 else
                 {
                     Model.Start_PeriodDays_M21 = wbEasyCalcData.Start_PeriodDays_M21;
+
                     Model.SysInput_SystemInputVolumeM3_D6 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D6;                                     // @SystemInputVolume
                     Model.SysInput_SystemInputVolumeError_F6 = wbEasyCalcData.SysInput_SystemInputVolumeError_F6;
+                    Model.SysInput_SystemInputVolumeM3_D7 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D7;                                     
+                    Model.SysInput_SystemInputVolumeError_F7 = wbEasyCalcData.SysInput_SystemInputVolumeError_F7;
+                    Model.SysInput_SystemInputVolumeM3_D8 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D8;                                     
+                    Model.SysInput_SystemInputVolumeError_F8 = wbEasyCalcData.SysInput_SystemInputVolumeError_F8;
+                    Model.SysInput_SystemInputVolumeM3_D9 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D9;                                     
+                    Model.SysInput_SystemInputVolumeError_F9 = wbEasyCalcData.SysInput_SystemInputVolumeError_F9;
+
+
                     Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = wbEasyCalcData.BilledCons_BilledMetConsBulkWatSupExpM3_D6;               // @ZoneSale
                     Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6  = wbEasyCalcData.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6; 
 
@@ -215,8 +224,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private void MapEasyCalcDataInput(EasyCalcDataInput easyCalcDataInput)
         {
             Model.Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
+
             Model.SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
             Model.SysInput_SystemInputVolumeError_F6 = easyCalcDataInput.SysInput_SystemInputVolumeError_F6;
+            Model.SysInput_SystemInputVolumeM3_D7 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D7;
+            Model.SysInput_SystemInputVolumeError_F7 = easyCalcDataInput.SysInput_SystemInputVolumeError_F7;
+            Model.SysInput_SystemInputVolumeM3_D8 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D8;
+            Model.SysInput_SystemInputVolumeError_F8 = easyCalcDataInput.SysInput_SystemInputVolumeError_F8;
+            Model.SysInput_SystemInputVolumeM3_D9 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D9;
+            Model.SysInput_SystemInputVolumeError_F9 = easyCalcDataInput.SysInput_SystemInputVolumeError_F9;
+
+
             Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
             Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
 

@@ -21,9 +21,18 @@ namespace DataModel
 
         // input
         //public EasyCalcDataInput EasyCalcDataInput { get; set; }
-        public int Start_PeriodDays_M21 { get; set; }                                   //
+        public int Start_PeriodDays_M21 { get; set; } 
+        //
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
+        public double SysInput_SystemInputVolumeM3_D7 { get; set; }
+        public double SysInput_SystemInputVolumeError_F7 { get; set; }
+        public double SysInput_SystemInputVolumeM3_D8 { get; set; }
+        public double SysInput_SystemInputVolumeError_F8 { get; set; }
+        public double SysInput_SystemInputVolumeM3_D9 { get; set; }
+        public double SysInput_SystemInputVolumeError_F9 { get; set; }
+
+
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
 
@@ -137,8 +146,16 @@ namespace DataModel
                 // input
                 //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
                 Start_PeriodDays_M21 = Start_PeriodDays_M21,
+
                 SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
                 SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
+                SysInput_SystemInputVolumeError_F7 = SysInput_SystemInputVolumeError_F7,
+                SysInput_SystemInputVolumeM3_D8 = SysInput_SystemInputVolumeM3_D8,
+                SysInput_SystemInputVolumeError_F8 = SysInput_SystemInputVolumeError_F8,
+                SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
+                SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
+
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
@@ -234,8 +251,17 @@ namespace DataModel
                 _easyCalcDataInput = new EasyCalcDataInput()
                 {
                     Start_PeriodDays_M21 = Start_PeriodDays_M21,
+
                     SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
                     SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+                    SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
+                    SysInput_SystemInputVolumeError_F7 = SysInput_SystemInputVolumeError_F7,
+                    SysInput_SystemInputVolumeM3_D8 = SysInput_SystemInputVolumeM3_D8,
+                    SysInput_SystemInputVolumeError_F8 = SysInput_SystemInputVolumeError_F8,
+                    SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
+                    SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
+
+
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 

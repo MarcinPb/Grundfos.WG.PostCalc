@@ -76,8 +76,20 @@ namespace WbEasyCalcRepository
             };
             data.SystemInputSheet = new SystemInputSheet
             {
-                SystemInputVolumeM3_D6_D70 = new List<double> { easyCalcDataInput.SysInput_SystemInputVolumeM3_D6 },
-                SystemInputVolumeError_F6_F70 = new List<double> { easyCalcDataInput.SysInput_SystemInputVolumeError_F6 }
+                SystemInputVolumeM3_D6_D70 = new List<double> 
+                { 
+                    easyCalcDataInput.SysInput_SystemInputVolumeM3_D6,  
+                    easyCalcDataInput.SysInput_SystemInputVolumeM3_D7,
+                    easyCalcDataInput.SysInput_SystemInputVolumeM3_D8,  
+                    easyCalcDataInput.SysInput_SystemInputVolumeM3_D9,
+                },
+                SystemInputVolumeError_F6_F70 = new List<double> 
+                { 
+                    easyCalcDataInput.SysInput_SystemInputVolumeError_F6, 
+                    easyCalcDataInput.SysInput_SystemInputVolumeError_F7,
+                    easyCalcDataInput.SysInput_SystemInputVolumeError_F8, 
+                    easyCalcDataInput.SysInput_SystemInputVolumeError_F9,
+                }
             };
             data.BilledConsumptionSheet = new BilledConsumptionSheet
             {

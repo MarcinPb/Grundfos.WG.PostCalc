@@ -11,8 +11,16 @@ namespace GlobalRepository
             var excelReader = new ExcelReader(_excelTemplateFileName);
 
             excelReader.WriteToCell("Start", "M21", easyCalcDataInput.Start_PeriodDays_M21);
+
             excelReader.WriteToCell("Sys. Input", "D6", easyCalcDataInput.SysInput_SystemInputVolumeM3_D6);
             excelReader.WriteToCell("Sys. Input", "F6", easyCalcDataInput.SysInput_SystemInputVolumeError_F6);
+            excelReader.WriteToCell("Sys. Input", "D7", easyCalcDataInput.SysInput_SystemInputVolumeM3_D7);
+            excelReader.WriteToCell("Sys. Input", "F7", easyCalcDataInput.SysInput_SystemInputVolumeError_F7);
+            excelReader.WriteToCell("Sys. Input", "D8", easyCalcDataInput.SysInput_SystemInputVolumeM3_D8);
+            excelReader.WriteToCell("Sys. Input", "F8", easyCalcDataInput.SysInput_SystemInputVolumeError_F8);
+            excelReader.WriteToCell("Sys. Input", "D9", easyCalcDataInput.SysInput_SystemInputVolumeM3_D9);
+            excelReader.WriteToCell("Sys. Input", "F9", easyCalcDataInput.SysInput_SystemInputVolumeError_F9);
+
             excelReader.WriteToCell("Billed Cons", "D6", easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6);
             excelReader.WriteToCell("Billed Cons", "H6", easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
 
@@ -67,8 +75,17 @@ namespace GlobalRepository
             EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
             {
                 Start_PeriodDays_M21 = excelReader.ReadCell<int>("Start", "M21"),
+
                 SysInput_SystemInputVolumeM3_D6 = excelReader.ReadCell<double>("Sys. Input", "D6"),
                 SysInput_SystemInputVolumeError_F6 = excelReader.ReadCell<double>("Sys. Input", "F6"),
+                SysInput_SystemInputVolumeM3_D7 = excelReader.ReadCell<double>("Sys. Input", "D7"),
+                SysInput_SystemInputVolumeError_F7 = excelReader.ReadCell<double>("Sys. Input", "F7"),
+                SysInput_SystemInputVolumeM3_D8 = excelReader.ReadCell<double>("Sys. Input", "D8"),
+                SysInput_SystemInputVolumeError_F8 = excelReader.ReadCell<double>("Sys. Input", "F8"),
+                SysInput_SystemInputVolumeM3_D9 = excelReader.ReadCell<double>("Sys. Input", "D9"),
+                SysInput_SystemInputVolumeError_F9 = excelReader.ReadCell<double>("Sys. Input", "F9"),
+
+
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Billed Cons", "D6"),
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6"),
 

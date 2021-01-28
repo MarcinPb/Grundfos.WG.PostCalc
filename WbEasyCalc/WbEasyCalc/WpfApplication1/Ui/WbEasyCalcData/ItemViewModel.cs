@@ -31,8 +31,16 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             //EasyCalcDataInput = MapEasyCalcDataInput(),
             Start_PeriodDays_M21 = Start_PeriodDays_M21,
+
             SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
             SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
+            SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
+            SysInput_SystemInputVolumeError_F7 = SysInput_SystemInputVolumeError_F7,
+            SysInput_SystemInputVolumeM3_D8 = SysInput_SystemInputVolumeM3_D8,
+            SysInput_SystemInputVolumeError_F8 = SysInput_SystemInputVolumeError_F8,
+            SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
+            SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
+
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
@@ -253,8 +261,16 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         #region Props input 
 
         private int _startPeriodDaysM21;
+
         private double _sysInputSystemInputVolumeM3D6;
         private double _sysInputSystemInputVolumeErrorF6;
+        private double _sysInputSystemInputVolumeM3D7;
+        private double _sysInputSystemInputVolumeErrorF7;
+        private double _sysInputSystemInputVolumeM3D8;
+        private double _sysInputSystemInputVolumeErrorF8;
+        private double _sysInputSystemInputVolumeM3D9;
+        private double _sysInputSystemInputVolumeErrorF9;
+
         private double _billedConsBilledMetConsBulkWatSupExpM3D6;
         private double _billedConsBilledUnmetConsBulkWatSupExpM3H6;
         private double _unbilledConsMetConsBulkWatSupExpM3D6;
@@ -292,12 +308,49 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _sysInputSystemInputVolumeM3D6;
             set { _sysInputSystemInputVolumeM3D6 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeM3_D6)); CalculateExcel(); }
         }
-
         public double SysInput_SystemInputVolumeError_F6
         {
             get => _sysInputSystemInputVolumeErrorF6;
             set { _sysInputSystemInputVolumeErrorF6 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeError_F6)); CalculateExcel(); }
         }
+
+        public double SysInput_SystemInputVolumeM3_D7
+        {
+            get => _sysInputSystemInputVolumeM3D7;
+            set { _sysInputSystemInputVolumeM3D7 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeM3_D7)); CalculateExcel(); }
+        }
+        public double SysInput_SystemInputVolumeError_F7
+        {
+            get => _sysInputSystemInputVolumeErrorF7;
+            set { _sysInputSystemInputVolumeErrorF7 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeError_F7)); CalculateExcel(); }
+        }
+
+        public double SysInput_SystemInputVolumeM3_D8
+        {
+            get => _sysInputSystemInputVolumeM3D8;
+            set { _sysInputSystemInputVolumeM3D8 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeM3_D8)); CalculateExcel(); }
+        }
+        public double SysInput_SystemInputVolumeError_F8
+        {
+            get => _sysInputSystemInputVolumeErrorF8;
+            set { _sysInputSystemInputVolumeErrorF8 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeError_F8)); CalculateExcel(); }
+        }
+
+        public double SysInput_SystemInputVolumeM3_D9
+        {
+            get => _sysInputSystemInputVolumeM3D9;
+            set { _sysInputSystemInputVolumeM3D9 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeM3_D9)); CalculateExcel(); }
+        }
+        public double SysInput_SystemInputVolumeError_F9
+        {
+            get => _sysInputSystemInputVolumeErrorF9;
+            set { _sysInputSystemInputVolumeErrorF9 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeError_F9)); CalculateExcel(); }
+        }
+
+
+
+
+
 
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6
         {
@@ -801,6 +854,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             SysInput_SystemInputVolumeM3_D6 = model.SysInput_SystemInputVolumeM3_D6;
             SysInput_SystemInputVolumeError_F6 = model.SysInput_SystemInputVolumeError_F6;
+            SysInput_SystemInputVolumeM3_D7 = model.SysInput_SystemInputVolumeM3_D7;
+            SysInput_SystemInputVolumeError_F7 = model.SysInput_SystemInputVolumeError_F7;
+            SysInput_SystemInputVolumeM3_D8 = model.SysInput_SystemInputVolumeM3_D8;
+            SysInput_SystemInputVolumeError_F8 = model.SysInput_SystemInputVolumeError_F8;
+            SysInput_SystemInputVolumeM3_D9 = model.SysInput_SystemInputVolumeM3_D9;
+            SysInput_SystemInputVolumeError_F9 = model.SysInput_SystemInputVolumeError_F9;
+
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
 
