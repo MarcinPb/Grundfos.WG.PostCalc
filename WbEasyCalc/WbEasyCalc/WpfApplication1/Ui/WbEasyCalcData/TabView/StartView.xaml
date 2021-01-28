@@ -5,23 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
              mc:Ignorable="d" 
+             Background="LightBlue"
              >
     <UserControl.Resources>
+        <Style x:Key ="LabelLocal1Style" TargetType="Label" >
+            <Setter Property = "Foreground" Value = "White"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "Background" Value = "SteelBlue"/>
+            <Setter Property = "Padding" Value = "5 0"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+        </Style>
+        <Style x:Key ="LabelLocal2Style" TargetType="Label" >
+            <Setter Property = "Foreground" Value = "Black"/>
+            <Setter Property = "FontWeight" Value = "Bold"/>
+            <Setter Property = "Background" Value = "White"/>
+            <Setter Property = "VerticalContentAlignment" Value = "Center"/>
+        </Style>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
     </UserControl.Resources>
-    <Grid Grid.Row="0" Background="LightBlue">
-        <Grid Grid.Row="0" Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text ="The volumes used this water balance arre for a period of [days]: " />
-            <TextBox Grid.Column="1" Width="40" Text="{Binding Path=Model.Start_PeriodDays_M21, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" />
-        </Grid>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Utilyty Name: " Style="{StaticResource LabelLocal1Style}" Padding="3 5" HorizontalContentAlignment ="Center"/>
+        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Content="LPWiK S.A." Style="{StaticResource LabelLocal2Style}" HorizontalContentAlignment ="Center" />
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="1" />
+        
+        <Label Grid.Row="4" Grid.Column="0" Content="The volumes used this water balance arre for a period of:      " Style="{StaticResource LabelLocal1Style}" />
+        <TextBox Grid.Row="4" Grid.Column="1" Width="60" Text="{Binding Path=Model.Start_PeriodDays_M21, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="24" FontWeight="Bold" BorderBrush="White" BorderThickness="1 0" Padding="10"/>
+        <Label Grid.Row="4" Grid.Column="2" Content="days               " Style="{StaticResource LabelLocal1Style}" />
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="1" />
+
+        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Content="" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+        <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Content="" Style="{StaticResource LabelSpanTitleDarkStyle}" />
+
     </Grid>
 </UserControl>
