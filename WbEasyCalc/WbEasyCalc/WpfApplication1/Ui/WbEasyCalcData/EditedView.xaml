@@ -87,8 +87,11 @@
             <TabItem Header="Pressure" >
                 <tabView:PressureView/>
             </TabItem>
-            <TabItem Header="Intermittent SupplyView" >
+            <TabItem Header="Intermittent Supply" >
                 <tabView:IntermittentSupplyView/>
+            </TabItem>
+            <TabItem Header="Financial Data" >
+                <tabView:FinancialDataView/>
             </TabItem>
         </TabControl>
 
