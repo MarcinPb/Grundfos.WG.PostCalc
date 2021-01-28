@@ -84,6 +84,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
             Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
             Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+            Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,
+            Prs_DailyAvgPrsM_F8 = Prs_DailyAvgPrsM_F8,
+            Prs_ApproxNoOfConn_D9 = Prs_ApproxNoOfConn_D9,
+            Prs_DailyAvgPrsM_F9 = Prs_DailyAvgPrsM_F9,
+            Prs_ApproxNoOfConn_D10 = Prs_ApproxNoOfConn_D10,
+            Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
             Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
             //PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
@@ -118,7 +124,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
 
-            Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+            Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
 
             Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
             Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
@@ -294,6 +300,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _networkAvgLenOfSvcConnFromBoundaryToMeterMH32;
         private double _prsApproxNoOfConnD7;
         private double _prsDailyAvgPrsMF7;
+        private double _prsApproxNoOfConnD8;
+        private double _prsDailyAvgPrsMF8;
+        private double _prsApproxNoOfConnD9;
+        private double _prsDailyAvgPrsMF9;
+        private double _prsApproxNoOfConnD10;
+        private double _prsDailyAvgPrsMF10;
         private double _prs_ErrorMarg_F26;
 
 
@@ -569,17 +581,50 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _networkAvgLenOfSvcConnFromBoundaryToMeterMH32 = value; RaisePropertyChanged(nameof(Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32)); CalculateExcel(); }
         }
 
+
+
         public double Prs_ApproxNoOfConn_D7
         {
             get => _prsApproxNoOfConnD7;
             set { _prsApproxNoOfConnD7 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D7)); CalculateExcel(); }
         }
-
         public double Prs_DailyAvgPrsM_F7
         {
             get => _prsDailyAvgPrsMF7;
             set { _prsDailyAvgPrsMF7 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F7)); CalculateExcel(); }
         }
+        public double Prs_ApproxNoOfConn_D8
+        {
+            get => _prsApproxNoOfConnD8;
+            set { _prsApproxNoOfConnD8 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D8)); CalculateExcel(); }
+        }
+        public double Prs_DailyAvgPrsM_F8
+        {
+            get => _prsDailyAvgPrsMF8;
+            set { _prsDailyAvgPrsMF8 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F8)); CalculateExcel(); }
+        }
+        public double Prs_ApproxNoOfConn_D9
+        {
+            get => _prsApproxNoOfConnD9;
+            set { _prsApproxNoOfConnD9 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D9)); CalculateExcel(); }
+        }
+        public double Prs_DailyAvgPrsM_F9
+        {
+            get => _prsDailyAvgPrsMF9;
+            set { _prsDailyAvgPrsMF9 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F9)); CalculateExcel(); }
+        }
+        public double Prs_ApproxNoOfConn_D10
+        {
+            get => _prsApproxNoOfConnD10;
+            set { _prsApproxNoOfConnD10 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D10)); CalculateExcel(); }
+        }
+        public double Prs_DailyAvgPrsM_F10
+        {
+            get => _prsDailyAvgPrsMF10;
+            set { _prsDailyAvgPrsMF10 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F10)); CalculateExcel(); }
+        }
+
+
 
         public double Prs_ErrorMarg_F26
         {
@@ -618,7 +663,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _nonRevenueWaterErrorMarginAy26;
         private double _averageSupplyTimeHPerDayBestEstimate_F9;
         private double _averagePressureMBestEstimate_F11;
-        private double _pressure_BestEstimate_F33;
+        private double _prs_BestEstimate_F33;
 
         private double _pis_AverageSupplyTime_F9;
         private double _pis_AverageSupplyTime_H9;
@@ -787,10 +832,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
-        public double Pressure_BestEstimate_F33
+        public double Prs_BestEstimate_F33
         { 
-            get => _pressure_BestEstimate_F33;
-            set { _pressure_BestEstimate_F33 = value; RaisePropertyChanged(nameof(Pressure_BestEstimate_F33)); }
+            get => _prs_BestEstimate_F33;
+            set { _prs_BestEstimate_F33 = value; RaisePropertyChanged(nameof(Prs_BestEstimate_F33)); }
         }
 
 
@@ -904,6 +949,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
             Prs_ApproxNoOfConn_D7 = model.Prs_ApproxNoOfConn_D7;
             Prs_DailyAvgPrsM_F7 = model.Prs_DailyAvgPrsM_F7;
+            Prs_ApproxNoOfConn_D8 = model.Prs_ApproxNoOfConn_D8;
+            Prs_DailyAvgPrsM_F8 = model.Prs_DailyAvgPrsM_F8;
+            Prs_ApproxNoOfConn_D9 = model.Prs_ApproxNoOfConn_D9;
+            Prs_DailyAvgPrsM_F9 = model.Prs_DailyAvgPrsM_F9;
+            Prs_ApproxNoOfConn_D10 = model.Prs_ApproxNoOfConn_D10;
+            Prs_DailyAvgPrsM_F10 = model.Prs_DailyAvgPrsM_F10;
             Prs_ErrorMarg_F26 = model.Prs_ErrorMarg_F26;
             //PIs_IliBestEstimate_F25 = model.PIs_IliBestEstimate_F25;
 
@@ -938,7 +989,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             AveragePressureMBestEstimate_F11 = model.AveragePressureMBestEstimate_F11;
 
 
-            Pressure_BestEstimate_F33 = model.Pressure_BestEstimate_F33;
+            Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
 
             Pis_AverageSupplyTime_F9 = model.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = model.Pis_AverageSupplyTime_H9;
@@ -1007,7 +1058,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
 
 
-            Pressure_BestEstimate_F33 = easyCalcDataOutput.Pressure_BestEstimate_F33;
+            Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
 
             Pis_AverageSupplyTime_F9 = easyCalcDataOutput.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = easyCalcDataOutput.Pis_AverageSupplyTime_H9;

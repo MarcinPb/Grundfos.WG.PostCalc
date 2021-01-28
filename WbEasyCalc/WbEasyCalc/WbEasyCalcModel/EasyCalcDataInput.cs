@@ -105,8 +105,8 @@ namespace WbEasyCalc
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
         public double Prs_ApproxNoOfConn_D7 { get; set; }
         public double Prs_ApproxNoOfConn_D8 { get; set; }
-        //public double Prs_ApproxNoOfConn_D9 { get; set; }
-        //public double Prs_ApproxNoOfConn_D10 { get; set; }
+        public double Prs_ApproxNoOfConn_D9 { get; set; }
+        public double Prs_ApproxNoOfConn_D10 { get; set; }
         //public double Prs_ApproxNoOfConn_D11 { get; set; }
         //public double Prs_ApproxNoOfConn_D12 { get; set; }
         //public double Prs_ApproxNoOfConn_D13 { get; set; }
@@ -115,8 +115,8 @@ namespace WbEasyCalc
         //public double Prs_ApproxNoOfConn_D16 { get; set; }
         public double Prs_DailyAvgPrsM_F7 { get; set; }
         public double Prs_DailyAvgPrsM_F8 { get; set; }
-        //public double Prs_DailyAvgPrsM_F9 { get; set; }
-        //public double Prs_DailyAvgPrsM_F10 { get; set; }
+        public double Prs_DailyAvgPrsM_F9 { get; set; }
+        public double Prs_DailyAvgPrsM_F10 { get; set; }
         //public double Prs_DailyAvgPrsM_F11 { get; set; }
         //public double Prs_DailyAvgPrsM_F12 { get; set; }
         //public double Prs_DailyAvgPrsM_F13 { get; set; }
@@ -182,6 +182,12 @@ namespace WbEasyCalc
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
                 Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                 Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,
+                Prs_DailyAvgPrsM_F8 = Prs_DailyAvgPrsM_F8,
+                Prs_ApproxNoOfConn_D9 = Prs_ApproxNoOfConn_D9,
+                Prs_DailyAvgPrsM_F9 = Prs_DailyAvgPrsM_F9,
+                Prs_ApproxNoOfConn_D10 = Prs_ApproxNoOfConn_D10,
+                Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                 PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
             };
         }

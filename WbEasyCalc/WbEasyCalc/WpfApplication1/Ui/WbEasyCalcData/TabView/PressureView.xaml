@@ -50,21 +50,21 @@
         <Label Grid.Row="2" Grid.Column="4" Content="   Daily&#xD;&#xA;Average&#xD;&#xA;Pressure&#xD;&#xA;    [m]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
         <TextBox Grid.Row="4" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="0" Text="asdfasfd" Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
         <TextBox Grid.Row="6" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
         <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="5" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="6" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="7" Grid.Column="2" Text="" Style="{StaticResource TextListLeftStyle}" />
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D9, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
         <Border Grid.Row="4" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
-        <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
+        <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="6" Grid.Column="4" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F9, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextListRightStyle}" />
+        <TextBox Grid.Row="7" Grid.Column="4" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" Style="{StaticResource TextListRightStyle}" />
         <Border Grid.Row="4" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <Label Grid.Row="9" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
@@ -79,34 +79,7 @@
         <Label Grid.Row="15" Grid.Column="4" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
-        <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=Model.Pressure_BestEstimate_F33}" Style="{StaticResource LabelBlueStyle}"  />
+        <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=Model.Prs_BestEstimate_F33}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelBlueStyle}"  />
     </Grid>
 
 </UserControl>
-<!--
-    <Grid Grid.Row="0" Margin="10" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Text ="Approximate Number of Connections: " />
-        <TextBox Grid.Column="1" Width="100" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right"  />
-        <TextBlock Grid.Column="2" Text ="  Daily Average Pressure [m]: " />
-        <TextBox Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_DailyAvgPrsM_F7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter} }" TextAlignment="Right"  />
-        
-        <TextBlock Grid.Row="1" Grid.Column="0" Text ="Error Margin [+/-]: " />
-        <TextBox Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding Path=Model.Prs_ErrorMarg_F26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" TextAlignment="Right"  />
-
-        <TextBlock Grid.Row="2" Grid.Column="0" Text ="Best Estimate: " />
-        <Label Grid.Row="2" Grid.Column="3" Width="100" Content="{Binding Path=Model.Pressure_BestEstimate_F33}" HorizontalContentAlignment="Right"  />
-
-
-    </Grid>
--->

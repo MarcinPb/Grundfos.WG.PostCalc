@@ -40,7 +40,7 @@ namespace WbEasyCalc
         public double AveragePressureMBestEstimate_F11 { get; set; } // 30.0 
 
 
-        public double Pressure_BestEstimate_F33 { get; set; } // 30.0 
+        public double Prs_BestEstimate_F33 { get; set; } // 30.0 
 
 
         public double Pis_AverageSupplyTime_F9 { get; set; }
@@ -84,7 +84,7 @@ namespace WbEasyCalc
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
 
-                Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+                Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
 
                 Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
                 Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,

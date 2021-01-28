@@ -55,7 +55,7 @@ namespace WbEasyCalcRepository
                 AveragePressureMBestEstimate_F11 = easyCalcSheetData.PiSheet.AveragePressureMBestEstimate_F11,
 
 
-                Pressure_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
+                Prs_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
 
                 Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
@@ -148,8 +148,20 @@ namespace WbEasyCalcRepository
             };
             data.PressureSheet = new PressureSheet()
             {
-                ApproximateNumberOfConnections_D7_D24 = new List<double> { easyCalcDataInput.Prs_ApproxNoOfConn_D7, },
-                DailyAveragePressureM_F7_F24 = new List<double> { easyCalcDataInput.Prs_DailyAvgPrsM_F7 },
+                ApproximateNumberOfConnections_D7_D24 = new List<double> 
+                { 
+                    easyCalcDataInput.Prs_ApproxNoOfConn_D7, 
+                    easyCalcDataInput.Prs_ApproxNoOfConn_D8, 
+                    easyCalcDataInput.Prs_ApproxNoOfConn_D9, 
+                    easyCalcDataInput.Prs_ApproxNoOfConn_D10, 
+                },
+                DailyAveragePressureM_F7_F24 = new List<double> 
+                { 
+                    easyCalcDataInput.Prs_DailyAvgPrsM_F7, 
+                    easyCalcDataInput.Prs_DailyAvgPrsM_F8, 
+                    easyCalcDataInput.Prs_DailyAvgPrsM_F9, 
+                    easyCalcDataInput.Prs_DailyAvgPrsM_F10, 
+                },
             };
             data.IntermittentSupply = new IntermittentSupplySheet();
 

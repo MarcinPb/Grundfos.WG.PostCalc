@@ -80,7 +80,14 @@ namespace DataModel
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
         public double Prs_ApproxNoOfConn_D7 { get; set; }
         public double Prs_DailyAvgPrsM_F7 { get; set; }
+        public double Prs_ApproxNoOfConn_D8 { get; set; }
+        public double Prs_DailyAvgPrsM_F8 { get; set; }
+        public double Prs_ApproxNoOfConn_D9 { get; set; }
+        public double Prs_DailyAvgPrsM_F9 { get; set; }
+        public double Prs_ApproxNoOfConn_D10 { get; set; }
+        public double Prs_DailyAvgPrsM_F10 { get; set; }
         public double Prs_ErrorMarg_F26 { get; set; }
+        public double Prs_BestEstimate_F33 { get; set; }
 
         public double PIs_IliBestEstimate_F25 { get; set; }
 
@@ -117,7 +124,6 @@ namespace DataModel
 
 
 
-        public double Pressure_BestEstimate_F33 { get; set; }
 
 
         public double Pis_AverageSupplyTime_F9 { get; set; }
@@ -199,6 +205,12 @@ namespace DataModel
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
                 Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                 Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,
+                Prs_DailyAvgPrsM_F8 = Prs_DailyAvgPrsM_F8,
+                Prs_ApproxNoOfConn_D9 = Prs_ApproxNoOfConn_D9,
+                Prs_DailyAvgPrsM_F9 = Prs_DailyAvgPrsM_F9,
+                Prs_ApproxNoOfConn_D10 = Prs_ApproxNoOfConn_D10,
+                Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                 Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
                 PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
@@ -234,7 +246,7 @@ namespace DataModel
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
 
-                Pressure_BestEstimate_F33 = Pressure_BestEstimate_F33,
+                Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
 
                 Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
                 Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
@@ -307,6 +319,12 @@ namespace DataModel
                     Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
                     Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                     Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
+                    Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,
+                    Prs_DailyAvgPrsM_F8 = Prs_DailyAvgPrsM_F8,
+                    Prs_ApproxNoOfConn_D9 = Prs_ApproxNoOfConn_D9,
+                    Prs_DailyAvgPrsM_F9 = Prs_DailyAvgPrsM_F9,
+                    Prs_ApproxNoOfConn_D10 = Prs_ApproxNoOfConn_D10,
+                    Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                     Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
                 };
                 return _easyCalcDataInput;
