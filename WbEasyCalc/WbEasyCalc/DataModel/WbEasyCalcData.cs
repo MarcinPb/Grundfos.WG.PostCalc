@@ -125,6 +125,10 @@ namespace DataModel
 
 
         public double Network_DistributionAndTransmissionMains_D7 { get; set; }
+        public double Network_DistributionAndTransmissionMains_D8 { get; set; }
+        public double Network_DistributionAndTransmissionMains_D9 { get; set; }
+        public double Network_DistributionAndTransmissionMains_D10 { get; set; }
+
         public double Network_NoOfConnOfRegCustomers_H10 { get; set; }
         public double Network_NoOfInactAccountsWSvcConns_H18 { get; set; }
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
@@ -302,7 +306,12 @@ namespace DataModel
                 MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
                 MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
                 MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
+
                 Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                Network_DistributionAndTransmissionMains_D8 = Network_DistributionAndTransmissionMains_D8,
+                Network_DistributionAndTransmissionMains_D9 = Network_DistributionAndTransmissionMains_D9,
+                Network_DistributionAndTransmissionMains_D10 = Network_DistributionAndTransmissionMains_D10,
+
                 Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
                 Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
@@ -468,6 +477,9 @@ namespace DataModel
                     MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
                     MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
                     Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                    Network_DistributionAndTransmissionMains_D8 = Network_DistributionAndTransmissionMains_D8,
+                    Network_DistributionAndTransmissionMains_D9 = Network_DistributionAndTransmissionMains_D9,
+                    Network_DistributionAndTransmissionMains_D10 = Network_DistributionAndTransmissionMains_D10,
                     Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
                     Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                     Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,

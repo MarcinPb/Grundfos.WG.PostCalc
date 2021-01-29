@@ -104,6 +104,9 @@ namespace GlobalRepository
             excelReader.WriteToCell("Meter Errors", "H34", easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34);
             excelReader.WriteToCell("Meter Errors", "H38", easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38);
             excelReader.WriteToCell("Network", "D7", easyCalcDataInput.Network_DistributionAndTransmissionMains_D7);
+            excelReader.WriteToCell("Network", "D8", easyCalcDataInput.Network_DistributionAndTransmissionMains_D8);
+            excelReader.WriteToCell("Network", "D9", easyCalcDataInput.Network_DistributionAndTransmissionMains_D9);
+            excelReader.WriteToCell("Network", "D10", easyCalcDataInput.Network_DistributionAndTransmissionMains_D10);
             excelReader.WriteToCell("Network", "H10", easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10);
             excelReader.WriteToCell("Network", "H18", easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18);
             excelReader.WriteToCell("Network", "H32", easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);

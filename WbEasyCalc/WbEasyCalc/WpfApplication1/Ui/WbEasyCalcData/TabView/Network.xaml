@@ -75,9 +75,9 @@
             <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="5" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="6" Grid.Column="2" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="7" Grid.Column="2" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D9, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="4" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <Label Grid.Row="9" Grid.Column="0" Content="Total [km]" Style="{StaticResource LabelTransparentStyle}"  />
@@ -160,27 +160,4 @@
         </Grid>
     </ScrollViewer>
 
-
 </UserControl>
-<!--
-    <Grid Grid.Row="0" Margin="10" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" Text ="Disribution and Transmission Mains [km]: " />
-        <TextBox Grid.Column="1" Grid.Row="0" Width="200" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite" />
-        <TextBlock Grid.Column="0" Grid.Row="1" Text ="Number of Connections of Registered Customers: " />
-        <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" Background="AntiqueWhite"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" Text ="Number of inactive account with existing connection: " />
-        <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-        <TextBlock Grid.Column="0" Grid.Row="3" Text ="Average Lenght of Connection from Property to Customer: " />
-        <TextBox Grid.Column="1" Grid.Row="3" Width="200" Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" TextAlignment="Right" />
-    </Grid>
--->

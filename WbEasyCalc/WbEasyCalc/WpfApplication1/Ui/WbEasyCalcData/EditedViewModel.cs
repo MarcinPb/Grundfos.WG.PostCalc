@@ -219,6 +219,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34  = wbEasyCalcData.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
                     Model.MetErrors_CorruptMetReadPractMetUndrreg_H38 = wbEasyCalcData.MetErrors_CorruptMetReadPractMetUndrreg_H38;
                     Model.Network_DistributionAndTransmissionMains_D7 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D7;              // @NetworkLength 
+                    Model.Network_DistributionAndTransmissionMains_D8 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D8;
+                    Model.Network_DistributionAndTransmissionMains_D9 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D9;
+                    Model.Network_DistributionAndTransmissionMains_D10 = wbEasyCalcData.Network_DistributionAndTransmissionMains_D10;
                     Model.Network_NoOfConnOfRegCustomers_H10 = wbEasyCalcData.Network_NoOfConnOfRegCustomers_H10;                                // @CustomersQuantity 
                     Model.Network_NoOfInactAccountsWSvcConns_H18 = wbEasyCalcData.Network_NoOfInactAccountsWSvcConns_H18;
                     Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = wbEasyCalcData.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
@@ -373,7 +376,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.MetErrors_MetBulkSupExpMetUnderreg_H32 = easyCalcDataInput.MetErrors_MetBulkSupExpMetUnderreg_H32;
             Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = easyCalcDataInput.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
             Model.MetErrors_CorruptMetReadPractMetUndrreg_H38 = easyCalcDataInput.MetErrors_CorruptMetReadPractMetUndrreg_H38;
-            Model.Network_DistributionAndTransmissionMains_D7 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D7;
+            Model.Network_DistributionAndTransmissionMains_D7 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D7;               
+            Model.Network_DistributionAndTransmissionMains_D8 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D8;
+            Model.Network_DistributionAndTransmissionMains_D9 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D9;
+            Model.Network_DistributionAndTransmissionMains_D10 = easyCalcDataInput.Network_DistributionAndTransmissionMains_D10;
             Model.Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
             Model.Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
             Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;

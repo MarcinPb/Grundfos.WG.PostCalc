@@ -139,8 +139,8 @@ namespace WbEasyCalc
         public double MetErrors_CorruptMetReadPractMetUndrreg_H38 { get; set; }
         public double Network_DistributionAndTransmissionMains_D7 { get; set; }
         public double Network_DistributionAndTransmissionMains_D8 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D9 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D10 { get; set; }
+        public double Network_DistributionAndTransmissionMains_D9 { get; set; }
+        public double Network_DistributionAndTransmissionMains_D10 { get; set; }
         //public double Network_DistributionAndTransmissionMains_D11 { get; set; }
         //public double Network_DistributionAndTransmissionMains_D12 { get; set; }
         //public double Network_DistributionAndTransmissionMains_D13 { get; set; }
@@ -276,6 +276,9 @@ namespace WbEasyCalc
                 MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
                 MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
                 Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+                Network_DistributionAndTransmissionMains_D8 = Network_DistributionAndTransmissionMains_D8,
+                Network_DistributionAndTransmissionMains_D9 = Network_DistributionAndTransmissionMains_D9,
+                Network_DistributionAndTransmissionMains_D10 = Network_DistributionAndTransmissionMains_D10,
                 Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
                 Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,

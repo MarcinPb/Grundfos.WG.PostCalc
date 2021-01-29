@@ -216,7 +216,13 @@ namespace WbEasyCalcRepository
 
             data.NetworkSheet = new NetworkSheet(data)
             {
-                DistributionAndTransmissionMainsEntries_D7_D26 = new List<double> { easyCalcDataInput.Network_DistributionAndTransmissionMains_D7 },
+                DistributionAndTransmissionMainsEntries_D7_D26 = new List<double> 
+                { 
+                    easyCalcDataInput.Network_DistributionAndTransmissionMains_D7, 
+                    easyCalcDataInput.Network_DistributionAndTransmissionMains_D8, 
+                    easyCalcDataInput.Network_DistributionAndTransmissionMains_D9, 
+                    easyCalcDataInput.Network_DistributionAndTransmissionMains_D10, 
+                },
                 NumberOfConnectionsOfRegsteredCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10,
                 NumberOfInactiveAccountsWServiceConnections_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18,
                 AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,

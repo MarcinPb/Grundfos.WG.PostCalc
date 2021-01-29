@@ -124,6 +124,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
             Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
+            Network_DistributionAndTransmissionMains_D8 = Network_DistributionAndTransmissionMains_D8,
+            Network_DistributionAndTransmissionMains_D9 = Network_DistributionAndTransmissionMains_D9,
+            Network_DistributionAndTransmissionMains_D10 = Network_DistributionAndTransmissionMains_D10,
             Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
             Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
@@ -346,7 +349,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _metErrorsMetBulkSupExpMetUnderregH32;
         private double _metErrorsUnbillMetConsWoBulkSupplMetUndrregH34;
         private double _metErrorsCorruptMetReadPractMetUndrregH38;
-        private double _networkDistributionAndTransmissionMainsD7;
         private double _networkNoOfConnOfRegCustomersH10;
         private double _networkNoOfInactAccountsWSvcConnsH18;
         private double _networkAvgLenOfSvcConnFromBoundaryToMeterMH32;
@@ -874,11 +876,31 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _metErrorsCorruptMetReadPractMetUndrregH38 = value; RaisePropertyChanged(nameof(MetErrors_CorruptMetReadPractMetUndrreg_H38)); CalculateExcel(); }
         }
 
+        private double _networkDistributionAndTransmissionMainsD7;
         public double Network_DistributionAndTransmissionMains_D7
         {
             get => _networkDistributionAndTransmissionMainsD7;
             set { _networkDistributionAndTransmissionMainsD7 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D7)); CalculateExcel(); }
         }
+        private double _networkDistributionAndTransmissionMainsD8;
+        public double Network_DistributionAndTransmissionMains_D8
+        {
+            get => _networkDistributionAndTransmissionMainsD8;
+            set { _networkDistributionAndTransmissionMainsD8 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D8)); CalculateExcel(); }
+        }
+        private double _networkDistributionAndTransmissionMainsD9;
+        public double Network_DistributionAndTransmissionMains_D9
+        {
+            get => _networkDistributionAndTransmissionMainsD9;
+            set { _networkDistributionAndTransmissionMainsD9 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D9)); CalculateExcel(); }
+        }
+        private double _networkDistributionAndTransmissionMainsD10;
+        public double Network_DistributionAndTransmissionMains_D10
+        {
+            get => _networkDistributionAndTransmissionMainsD10;
+            set { _networkDistributionAndTransmissionMainsD10 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D10)); CalculateExcel(); }
+        }
+
 
         public double Network_NoOfConnOfRegCustomers_H10
         {
@@ -1342,6 +1364,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = model.MetErrors_CorruptMetReadPractMetUndrreg_H38;
             Network_DistributionAndTransmissionMains_D7 = model.Network_DistributionAndTransmissionMains_D7;
+            Network_DistributionAndTransmissionMains_D8 = model.Network_DistributionAndTransmissionMains_D8;
+            Network_DistributionAndTransmissionMains_D9 = model.Network_DistributionAndTransmissionMains_D9;
+            Network_DistributionAndTransmissionMains_D10 = model.Network_DistributionAndTransmissionMains_D10;
             Network_NoOfConnOfRegCustomers_H10 = model.Network_NoOfConnOfRegCustomers_H10;
             Network_NoOfInactAccountsWSvcConns_H18 = model.Network_NoOfInactAccountsWSvcConns_H18;
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;

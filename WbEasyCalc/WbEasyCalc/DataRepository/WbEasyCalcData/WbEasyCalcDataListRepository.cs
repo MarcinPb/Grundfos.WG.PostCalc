@@ -146,6 +146,9 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34", model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34);
                 p.Add("@MetErrors_CorruptMetReadPractMetUndrreg_H38", model.MetErrors_CorruptMetReadPractMetUndrreg_H38);
                 p.Add("@Network_DistributionAndTransmissionMains_D7", model.Network_DistributionAndTransmissionMains_D7);
+                p.Add("@Network_DistributionAndTransmissionMains_D8", model.Network_DistributionAndTransmissionMains_D8);
+                p.Add("@Network_DistributionAndTransmissionMains_D9", model.Network_DistributionAndTransmissionMains_D9);
+                p.Add("@Network_DistributionAndTransmissionMains_D10", model.Network_DistributionAndTransmissionMains_D10);
                 p.Add("@Network_NoOfConnOfRegCustomers_H10", model.Network_NoOfConnOfRegCustomers_H10);
                 p.Add("@Network_NoOfInactAccountsWSvcConns_H18", model.Network_NoOfInactAccountsWSvcConns_H18);
                 p.Add("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
