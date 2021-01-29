@@ -22,7 +22,12 @@ namespace DataModel
         // input
         //public EasyCalcDataInput EasyCalcDataInput { get; set; }
         public int Start_PeriodDays_M21 { get; set; } 
-        //
+
+        // SysInput
+        public string SysInput_Desc_B6 { get; set; }
+        public string SysInput_Desc_B7 { get; set; }
+        public string SysInput_Desc_B8 { get; set; }
+        public string SysInput_Desc_B9 { get; set; }
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
         public double SysInput_SystemInputVolumeM3_D7 { get; set; }
@@ -160,6 +165,10 @@ namespace DataModel
                 //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
                 Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
+                SysInput_Desc_B6 = SysInput_Desc_B6,
+                SysInput_Desc_B7 = SysInput_Desc_B7,
+                SysInput_Desc_B8 = SysInput_Desc_B8,
+                SysInput_Desc_B9 = SysInput_Desc_B9,
                 SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
                 SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
                 SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
@@ -278,6 +287,10 @@ namespace DataModel
                 {
                     Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
+                    SysInput_Desc_B6 = SysInput_Desc_B6,
+                    SysInput_Desc_B7 = SysInput_Desc_B7,
+                    SysInput_Desc_B8 = SysInput_Desc_B8,
+                    SysInput_Desc_B9 = SysInput_Desc_B9,
                     SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
                     SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
                     SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,

@@ -54,6 +54,10 @@ namespace DataRepository.WbEasyCalcData
                 // input
                 p.Add("@Start_PeriodDays_M21", model.Start_PeriodDays_M21);
 
+                p.Add("@SysInput_Desc_B6", model.SysInput_Desc_B6);
+                p.Add("@SysInput_Desc_B7", model.SysInput_Desc_B7);
+                p.Add("@SysInput_Desc_B8", model.SysInput_Desc_B8);
+                p.Add("@SysInput_Desc_B9", model.SysInput_Desc_B9);
                 p.Add("@SysInput_SystemInputVolumeM3_D6", model.SysInput_SystemInputVolumeM3_D6);
                 p.Add("@SysInput_SystemInputVolumeError_F6", model.SysInput_SystemInputVolumeError_F6);
                 p.Add("@SysInput_SystemInputVolumeM3_D7", model.SysInput_SystemInputVolumeM3_D7);

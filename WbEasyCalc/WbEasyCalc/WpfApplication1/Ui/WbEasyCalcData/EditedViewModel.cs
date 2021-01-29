@@ -126,6 +126,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 {
                     Model.Start_PeriodDays_M21 = wbEasyCalcData.Start_PeriodDays_M21;
 
+                    Model.SysInput_Desc_B6 = wbEasyCalcData.SysInput_Desc_B6;
+                    Model.SysInput_Desc_B7 = wbEasyCalcData.SysInput_Desc_B7;
+                    Model.SysInput_Desc_B8 = wbEasyCalcData.SysInput_Desc_B8;
+                    Model.SysInput_Desc_B9 = wbEasyCalcData.SysInput_Desc_B9;
                     Model.SysInput_SystemInputVolumeM3_D6 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D6;                                     // @SystemInputVolume
                     Model.SysInput_SystemInputVolumeError_F6 = wbEasyCalcData.SysInput_SystemInputVolumeError_F6;
                     Model.SysInput_SystemInputVolumeM3_D7 = wbEasyCalcData.SysInput_SystemInputVolumeM3_D7;                                     
@@ -236,6 +240,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             Model.Start_PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21;
 
+            Model.SysInput_Desc_B6 = easyCalcDataInput.SysInput_Desc_B6;
+            Model.SysInput_Desc_B7 = easyCalcDataInput.SysInput_Desc_B7;
+            Model.SysInput_Desc_B8 = easyCalcDataInput.SysInput_Desc_B8;
+            Model.SysInput_Desc_B9 = easyCalcDataInput.SysInput_Desc_B9;
             Model.SysInput_SystemInputVolumeM3_D6 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D6;
             Model.SysInput_SystemInputVolumeError_F6 = easyCalcDataInput.SysInput_SystemInputVolumeError_F6;
             Model.SysInput_SystemInputVolumeM3_D7 = easyCalcDataInput.SysInput_SystemInputVolumeM3_D7;

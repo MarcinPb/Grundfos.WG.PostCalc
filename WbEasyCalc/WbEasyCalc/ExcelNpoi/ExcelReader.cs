@@ -292,7 +292,7 @@ namespace ExcelNpoi
             }
             if (t == typeof(string))
             {
-                cell.SetCellValue(value.ToString()); 
+                cell.SetCellValue(value==null ? string.Empty : value.ToString()); 
                 return;
             }
             if (typeof(T) == typeof(bool))

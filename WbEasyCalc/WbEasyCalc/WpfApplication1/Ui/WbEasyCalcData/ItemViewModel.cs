@@ -32,6 +32,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             //EasyCalcDataInput = MapEasyCalcDataInput(),
             Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
+            SysInput_Desc_B6 = SysInput_Desc_B6,
+            SysInput_Desc_B7 = SysInput_Desc_B7,
+            SysInput_Desc_B8 = SysInput_Desc_B8,
+            SysInput_Desc_B9 = SysInput_Desc_B9,
             SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
             SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
             SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
@@ -320,6 +324,31 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             get => _startPeriodDaysM21;
             set { _startPeriodDaysM21 = value; RaisePropertyChanged(nameof(Start_PeriodDays_M21)); CalculateExcel(); }
+        }
+
+        private string _sysInput_Desc_B6;
+        public string SysInput_Desc_B6
+        {
+            get => _sysInput_Desc_B6;
+            set { _sysInput_Desc_B6 = value; RaisePropertyChanged(nameof(SysInput_Desc_B6)); }
+        }
+        private string _sysInput_Desc_B7;
+        public string SysInput_Desc_B7
+        {
+            get => _sysInput_Desc_B7;
+            set { _sysInput_Desc_B7 = value; RaisePropertyChanged(nameof(SysInput_Desc_B7)); }
+        }
+        private string _sysInput_Desc_B8;
+        public string SysInput_Desc_B8
+        {
+            get => _sysInput_Desc_B8;
+            set { _sysInput_Desc_B8 = value; RaisePropertyChanged(nameof(SysInput_Desc_B8)); }
+        }
+        private string _sysInput_Desc_B9;
+        public string SysInput_Desc_B9
+        {
+            get => _sysInput_Desc_B9;
+            set { _sysInput_Desc_B9 = value; RaisePropertyChanged(nameof(SysInput_Desc_B9)); }
         }
 
         public double SysInput_SystemInputVolumeM3_D6
@@ -940,6 +969,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsAccepted = model.IsAccepted;
 
 
+            SysInput_Desc_B6 = model.SysInput_Desc_B6;
+            SysInput_Desc_B7 = model.SysInput_Desc_B7;
+            SysInput_Desc_B8 = model.SysInput_Desc_B8;
+            SysInput_Desc_B9 = model.SysInput_Desc_B9;
             SysInput_SystemInputVolumeM3_D6 = model.SysInput_SystemInputVolumeM3_D6;
             SysInput_SystemInputVolumeError_F6 = model.SysInput_SystemInputVolumeError_F6;
             SysInput_SystemInputVolumeM3_D7 = model.SysInput_SystemInputVolumeM3_D7;

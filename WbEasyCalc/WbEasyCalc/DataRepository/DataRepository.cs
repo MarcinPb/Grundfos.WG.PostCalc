@@ -196,7 +196,11 @@ namespace DataRepository
                 return new DataModel.WbEasyCalcData()
                 {
                     Start_PeriodDays_M21 = p.Get<int>("@Start_PeriodDays_M21"),                                                             // //
-                    
+
+                    //SysInput_Desc_B6 = p.Get<string>("@SysInput_Desc_B6"),                                   
+                    //SysInput_Desc_B7 = p.Get<string>("@SysInput_Desc_B7"),                                   
+                    //SysInput_Desc_B8 = p.Get<string>("@SysInput_Desc_B8"),                                   
+                    //SysInput_Desc_B9 = p.Get<string>("@SysInput_Desc_B9"),                                                       
                     SysInput_SystemInputVolumeM3_D6 = p.Get<double>("@SysInput_SystemInputVolumeM3_D6"),                                    // @SystemInputVolume
                     SysInput_SystemInputVolumeError_F6 = p.Get<double>("@SysInput_SystemInputVolumeError_F6"),                              // 
                     SysInput_SystemInputVolumeM3_D7 = p.Get<double>("@SysInput_SystemInputVolumeM3_D7"),                                    

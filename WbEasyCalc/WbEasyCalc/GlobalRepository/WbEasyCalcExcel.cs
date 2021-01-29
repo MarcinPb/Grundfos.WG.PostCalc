@@ -12,6 +12,10 @@ namespace GlobalRepository
 
             excelReader.WriteToCell("Start", "M21", easyCalcDataInput.Start_PeriodDays_M21);
 
+            excelReader.WriteToCell("Sys. Input", "B6", easyCalcDataInput.SysInput_Desc_B6);
+            excelReader.WriteToCell("Sys. Input", "B7", easyCalcDataInput.SysInput_Desc_B7);
+            excelReader.WriteToCell("Sys. Input", "B8", easyCalcDataInput.SysInput_Desc_B8);
+            excelReader.WriteToCell("Sys. Input", "B9", easyCalcDataInput.SysInput_Desc_B9);
             excelReader.WriteToCell("Sys. Input", "D6", easyCalcDataInput.SysInput_SystemInputVolumeM3_D6);
             excelReader.WriteToCell("Sys. Input", "F6", easyCalcDataInput.SysInput_SystemInputVolumeError_F6);
             excelReader.WriteToCell("Sys. Input", "D7", easyCalcDataInput.SysInput_SystemInputVolumeM3_D7);
@@ -87,6 +91,10 @@ namespace GlobalRepository
             {
                 Start_PeriodDays_M21 = excelReader.ReadCell<int>("Start", "M21"),
 
+                SysInput_Desc_B6 = excelReader.ReadCell<string>("Sys. Input", "B6"),
+                SysInput_Desc_B7 = excelReader.ReadCell<string>("Sys. Input", "B7"),
+                SysInput_Desc_B8 = excelReader.ReadCell<string>("Sys. Input", "B8"),
+                SysInput_Desc_B9 = excelReader.ReadCell<string>("Sys. Input", "B9"),
                 SysInput_SystemInputVolumeM3_D6 = excelReader.ReadCell<double>("Sys. Input", "D6"),
                 SysInput_SystemInputVolumeError_F6 = excelReader.ReadCell<double>("Sys. Input", "F6"),
                 SysInput_SystemInputVolumeM3_D7 = excelReader.ReadCell<double>("Sys. Input", "D7"),

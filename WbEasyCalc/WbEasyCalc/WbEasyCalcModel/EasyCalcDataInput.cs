@@ -5,6 +5,11 @@ namespace WbEasyCalc
     public class EasyCalcDataInput //: ICloneable
     {
         public int Start_PeriodDays_M21 { get; set; }
+
+        public string SysInput_Desc_B6 { get; set; }
+        public string SysInput_Desc_B7 { get; set; }
+        public string SysInput_Desc_B8 { get; set; }
+        public string SysInput_Desc_B9 { get; set; }
         public double SysInput_SystemInputVolumeM3_D6 { get; set; }
         public double SysInput_SystemInputVolumeM3_D7 { get; set; }
         public double SysInput_SystemInputVolumeM3_D8 { get; set; }
@@ -139,6 +144,10 @@ namespace WbEasyCalc
             {
                 Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
+                SysInput_Desc_B6 = SysInput_Desc_B6,
+                SysInput_Desc_B7 = SysInput_Desc_B7,
+                SysInput_Desc_B8 = SysInput_Desc_B8,
+                SysInput_Desc_B9 = SysInput_Desc_B9,
                 SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
                 SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
                 SysInput_SystemInputVolumeM3_D7 = SysInput_SystemInputVolumeM3_D7,
