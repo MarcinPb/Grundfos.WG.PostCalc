@@ -177,6 +177,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Network_NoOfConnOfRegCustomers_H10 = wbEasyCalcData.Network_NoOfConnOfRegCustomers_H10;                                // @CustomersQuantity 
                     Model.Network_NoOfInactAccountsWSvcConns_H18 = wbEasyCalcData.Network_NoOfInactAccountsWSvcConns_H18;
                     Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = wbEasyCalcData.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+
+                    Model.Prs_Area_B7 = wbEasyCalcData.Prs_Area_B7;
+                    Model.Prs_Area_B8 = wbEasyCalcData.Prs_Area_B8;
+                    Model.Prs_Area_B9 = wbEasyCalcData.Prs_Area_B9;
+                    Model.Prs_Area_B10 = wbEasyCalcData.Prs_Area_B10;
                     Model.Prs_ApproxNoOfConn_D7 = wbEasyCalcData.Prs_ApproxNoOfConn_D7;
                     Model.Prs_DailyAvgPrsM_F7 = wbEasyCalcData.Prs_DailyAvgPrsM_F7;
                     Model.Prs_ApproxNoOfConn_D8 = wbEasyCalcData.Prs_ApproxNoOfConn_D8;
@@ -282,7 +287,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
             Model.Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
             Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
-            
+
+            Model.Prs_Area_B7 = easyCalcDataInput.Prs_Area_B7;
+            Model.Prs_Area_B8 = easyCalcDataInput.Prs_Area_B8;
+            Model.Prs_Area_B9 = easyCalcDataInput.Prs_Area_B9;
+            Model.Prs_Area_B10 = easyCalcDataInput.Prs_Area_B10;
             Model.Prs_ApproxNoOfConn_D7 = easyCalcDataInput.Prs_ApproxNoOfConn_D7;
             Model.Prs_DailyAvgPrsM_F7 = easyCalcDataInput.Prs_DailyAvgPrsM_F7;
             Model.Prs_ApproxNoOfConn_D8 = easyCalcDataInput.Prs_ApproxNoOfConn_D8;

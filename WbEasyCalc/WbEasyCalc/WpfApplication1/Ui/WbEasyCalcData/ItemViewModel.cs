@@ -82,6 +82,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
             Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+
+            Prs_Area_B7 = Prs_Area_B7,
+            Prs_Area_B8 = Prs_Area_B8,
+            Prs_Area_B9 = Prs_Area_B9,
+            Prs_Area_B10 = Prs_Area_B10,
             Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
             Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
             Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,
@@ -125,6 +130,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
+            Prs_Min_F29 = Prs_Min_F29,
+            Prs_Max_F31 = Prs_Max_F31,
 
             Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
             Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
@@ -582,6 +589,30 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        private string _prs_Area_B7;
+        public string Prs_Area_B7
+        {
+            get => _prs_Area_B7;
+            set { _prs_Area_B7 = value; RaisePropertyChanged(nameof(Prs_Area_B7)); }
+        }
+        private string _prs_Area_B8;
+        public string Prs_Area_B8
+        {
+            get => _prs_Area_B8;
+            set { _prs_Area_B8 = value; RaisePropertyChanged(nameof(Prs_Area_B8)); }
+        }
+        private string _prs_Area_B9;
+        public string Prs_Area_B9
+        {
+            get => _prs_Area_B9;
+            set { _prs_Area_B9 = value; RaisePropertyChanged(nameof(Prs_Area_B9)); }
+        }
+        private string _prs_Area_B10;
+        public string Prs_Area_B10
+        {
+            get => _prs_Area_B10;
+            set { _prs_Area_B10 = value; RaisePropertyChanged(nameof(Prs_Area_B10)); }
+        }
 
         public double Prs_ApproxNoOfConn_D7
         {
@@ -664,6 +695,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _averageSupplyTimeHPerDayBestEstimate_F9;
         private double _averagePressureMBestEstimate_F11;
         private double _prs_BestEstimate_F33;
+        private double _prs_Min_F29;
+        private double _prs_Max_F31;
 
         private double _pis_AverageSupplyTime_F9;
         private double _pis_AverageSupplyTime_H9;
@@ -837,6 +870,16 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _prs_BestEstimate_F33;
             set { _prs_BestEstimate_F33 = value; RaisePropertyChanged(nameof(Prs_BestEstimate_F33)); }
         }
+        public double Prs_Min_F29
+        { 
+            get => _prs_Min_F29;
+            set { _prs_Min_F29 = value; RaisePropertyChanged(nameof(Prs_Min_F29)); }
+        }
+        public double Prs_Max_F31
+        { 
+            get => _prs_Max_F31;
+            set { _prs_Max_F31 = value; RaisePropertyChanged(nameof(Prs_Max_F31)); }
+        }
 
 
 
@@ -947,6 +990,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_NoOfConnOfRegCustomers_H10 = model.Network_NoOfConnOfRegCustomers_H10;
             Network_NoOfInactAccountsWSvcConns_H18 = model.Network_NoOfInactAccountsWSvcConns_H18;
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+
+            Prs_Area_B7 = model.Prs_Area_B7;
+            Prs_Area_B8 = model.Prs_Area_B8;
+            Prs_Area_B9 = model.Prs_Area_B9;
+            Prs_Area_B10 = model.Prs_Area_B10;
             Prs_ApproxNoOfConn_D7 = model.Prs_ApproxNoOfConn_D7;
             Prs_DailyAvgPrsM_F7 = model.Prs_DailyAvgPrsM_F7;
             Prs_ApproxNoOfConn_D8 = model.Prs_ApproxNoOfConn_D8;
@@ -990,6 +1038,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
+            Prs_Min_F29 = model.Prs_Min_F29;
+            Prs_Max_F31 = model.Prs_Max_F31;
 
             Pis_AverageSupplyTime_F9 = model.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = model.Pis_AverageSupplyTime_H9;
@@ -1059,6 +1109,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
+            Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
+            Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
 
             Pis_AverageSupplyTime_F9 = easyCalcDataOutput.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = easyCalcDataOutput.Pis_AverageSupplyTime_H9;

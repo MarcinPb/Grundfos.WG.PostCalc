@@ -49,10 +49,10 @@
         <Label Grid.Row="2" Grid.Column="2" Content="Approximate&#xD;&#xA;  Number of&#xD;&#xA; Connections"   Style="{StaticResource LabelBlueColTitleStyle}" />
         <Label Grid.Row="2" Grid.Column="4" Content="   Daily&#xD;&#xA;Average&#xD;&#xA;Pressure&#xD;&#xA;    [m]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-        <TextBox Grid.Row="4" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="6" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
+        <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Path=Model.Prs_Area_B7}" Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Text="{Binding Path=Model.Prs_Area_B8}" Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Model.Prs_Area_B9}" Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="0" Text="{Binding Path=Model.Prs_Area_B10}" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Prs_ApproxNoOfConn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
@@ -73,10 +73,10 @@
         <Label Grid.Row="11" Grid.Column="0" Content="Average Pressure [m]" Style="{StaticResource LabelTransparentBoldStyle}" />
 
         <Label Grid.Row="13" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="13" Grid.Column="4" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="13" Grid.Column="4" Content="{Binding Path=Model.Prs_Min_F29}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="15" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="15" Grid.Column="4" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="15" Grid.Column="4" Content="{Binding Path=Model.Prs_Max_F31}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
         <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=Model.Prs_BestEstimate_F33}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelBlueStyle}"  />

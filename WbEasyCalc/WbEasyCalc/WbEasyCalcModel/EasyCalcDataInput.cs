@@ -103,6 +103,12 @@ namespace WbEasyCalc
         public double Network_NoOfConnOfRegCustomers_H10 { get; set; }
         public double Network_NoOfInactAccountsWSvcConns_H18 { get; set; }
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
+
+
+        public string Prs_Area_B7 { get; set; }
+        public string Prs_Area_B8 { get; set; }
+        public string Prs_Area_B9 { get; set; }
+        public string Prs_Area_B10 { get; set; }
         public double Prs_ApproxNoOfConn_D7 { get; set; }
         public double Prs_ApproxNoOfConn_D8 { get; set; }
         public double Prs_ApproxNoOfConn_D9 { get; set; }
@@ -180,6 +186,11 @@ namespace WbEasyCalc
                 Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
                 Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+
+                Prs_Area_B7 = Prs_Area_B7,
+                Prs_Area_B8 = Prs_Area_B8,
+                Prs_Area_B9 = Prs_Area_B9,
+                Prs_Area_B10 = Prs_Area_B10,
                 Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
                 Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7,
                 Prs_ApproxNoOfConn_D8 = Prs_ApproxNoOfConn_D8,

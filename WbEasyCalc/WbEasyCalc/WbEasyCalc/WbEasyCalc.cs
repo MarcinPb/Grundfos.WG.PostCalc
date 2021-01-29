@@ -56,6 +56,8 @@ namespace WbEasyCalcRepository
 
 
                 Prs_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
+                Prs_Min_F29 = easyCalcSheetData.PressureSheet.Prs_Min_F29,
+                Prs_Max_F31 = easyCalcSheetData.PressureSheet.Prs_Max_F31,
 
                 Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
@@ -162,6 +164,7 @@ namespace WbEasyCalcRepository
                     easyCalcDataInput.Prs_DailyAvgPrsM_F9, 
                     easyCalcDataInput.Prs_DailyAvgPrsM_F10, 
                 },
+                Prs_ErrorMarg_F26 = easyCalcDataInput.Prs_ErrorMarg_F26,
             };
             data.IntermittentSupply = new IntermittentSupplySheet();
 

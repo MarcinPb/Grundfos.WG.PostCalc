@@ -106,10 +106,10 @@
                     <Label Grid.Row="6" Grid.Column="8" Content="{Binding Path=Model.Pis_AverageSupplyTime_L9}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="8" Grid.Column="0" Content="Average Pressure [m]" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="4" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="6" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="2" Content="{Binding Path=Model.Prs_BestEstimate_F33}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="4" Content="{Binding Path=Model.Prs_ErrorMarg_F26}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="6" Content="{Binding Path=Model.Prs_Min_F29}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Model.Prs_Max_F31}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                 
                 

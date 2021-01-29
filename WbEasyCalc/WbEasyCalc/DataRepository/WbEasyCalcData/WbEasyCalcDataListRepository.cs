@@ -104,6 +104,11 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Network_NoOfConnOfRegCustomers_H10", model.Network_NoOfConnOfRegCustomers_H10);
                 p.Add("@Network_NoOfInactAccountsWSvcConns_H18", model.Network_NoOfInactAccountsWSvcConns_H18);
                 p.Add("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
+
+                p.Add("@Prs_Area_B7", model.Prs_Area_B7);
+                p.Add("@Prs_Area_B8", model.Prs_Area_B8);
+                p.Add("@Prs_Area_B9", model.Prs_Area_B9);
+                p.Add("@Prs_Area_B10", model.Prs_Area_B10);
                 p.Add("@Prs_ApproxNoOfConn_D7", model.Prs_ApproxNoOfConn_D7);
                 p.Add("@Prs_DailyAvgPrsM_F7", model.Prs_DailyAvgPrsM_F7);
                 p.Add("@Prs_ApproxNoOfConn_D8", model.Prs_ApproxNoOfConn_D8);

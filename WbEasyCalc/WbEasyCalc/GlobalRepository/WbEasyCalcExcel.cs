@@ -62,6 +62,11 @@ namespace GlobalRepository
             excelReader.WriteToCell("Network", "H10", easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10);
             excelReader.WriteToCell("Network", "H18", easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18);
             excelReader.WriteToCell("Network", "H32", easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
+
+            excelReader.WriteToCell("Pressure", "B7", easyCalcDataInput.Prs_Area_B7);
+            excelReader.WriteToCell("Pressure", "B8", easyCalcDataInput.Prs_Area_B8);
+            excelReader.WriteToCell("Pressure", "B9", easyCalcDataInput.Prs_Area_B9);
+            excelReader.WriteToCell("Pressure", "B10", easyCalcDataInput.Prs_Area_B10);
             excelReader.WriteToCell("Pressure", "D7", easyCalcDataInput.Prs_ApproxNoOfConn_D7);
             excelReader.WriteToCell("Pressure", "F7", easyCalcDataInput.Prs_DailyAvgPrsM_F7);
             excelReader.WriteToCell("Pressure", "D8", easyCalcDataInput.Prs_ApproxNoOfConn_D8);
@@ -133,6 +138,12 @@ namespace GlobalRepository
                 Network_NoOfConnOfRegCustomers_H10 = excelReader.ReadCell<double>("Network", "H10"),
                 Network_NoOfInactAccountsWSvcConns_H18 = excelReader.ReadCell<double>("Network", "H18"),
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = excelReader.ReadCell<double>("Network", "H32"),
+
+                Prs_Area_B7 = excelReader.ReadCell<string>("Pressure", "B7"),
+                Prs_Area_B8 = excelReader.ReadCell<string>("Pressure", "B8"),
+                Prs_Area_B9 = excelReader.ReadCell<string>("Pressure", "B9"),
+                Prs_Area_B10 = excelReader.ReadCell<string>("Pressure", "B10"),
+
                 Prs_ApproxNoOfConn_D7 = excelReader.ReadCell<double>("Pressure", "D7"),
                 Prs_DailyAvgPrsM_F7 = excelReader.ReadCell<double>("Pressure", "F7"),
                 Prs_ApproxNoOfConn_D8 = excelReader.ReadCell<double>("Pressure", "D8"),
