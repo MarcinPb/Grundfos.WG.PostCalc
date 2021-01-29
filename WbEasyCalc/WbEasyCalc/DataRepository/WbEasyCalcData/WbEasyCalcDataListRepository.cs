@@ -71,7 +71,13 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
 
                 p.Add("@BilledCons_UnbMetConsM3_D8", model.BilledCons_UnbMetConsM3_D8);
+                p.Add("@BilledCons_UnbMetConsM3_D9", model.BilledCons_UnbMetConsM3_D9);
+                p.Add("@BilledCons_UnbMetConsM3_D10", model.BilledCons_UnbMetConsM3_D10);
+                p.Add("@BilledCons_UnbMetConsM3_D11", model.BilledCons_UnbMetConsM3_D11);
                 p.Add("@BilledCons_UnbUnmetConsM3_H8", model.BilledCons_UnbUnmetConsM3_H8);
+                p.Add("@BilledCons_UnbUnmetConsM3_H9", model.BilledCons_UnbUnmetConsM3_H9);
+                p.Add("@BilledCons_UnbUnmetConsM3_H10", model.BilledCons_UnbUnmetConsM3_H10);
+                p.Add("@BilledCons_UnbUnmetConsM3_H11", model.BilledCons_UnbUnmetConsM3_H11);
 
                 p.Add("@UnbilledCons_MetConsBulkWatSupExpM3_D6", model.UnbilledCons_MetConsBulkWatSupExpM3_D6);
 

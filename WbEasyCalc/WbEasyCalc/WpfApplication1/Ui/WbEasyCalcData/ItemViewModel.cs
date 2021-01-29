@@ -49,7 +49,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
             BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
+            BilledCons_UnbMetConsM3_D9 = BilledCons_UnbMetConsM3_D9,
+            BilledCons_UnbMetConsM3_D10 = BilledCons_UnbMetConsM3_D10,
+            BilledCons_UnbMetConsM3_D11 = BilledCons_UnbMetConsM3_D11,
             BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
+            BilledCons_UnbUnmetConsM3_H9 = BilledCons_UnbUnmetConsM3_H9,
+            BilledCons_UnbUnmetConsM3_H10 = BilledCons_UnbUnmetConsM3_H10,
+            BilledCons_UnbUnmetConsM3_H11 = BilledCons_UnbUnmetConsM3_H11,
 
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
@@ -419,11 +425,47 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _billedCons_UnbMetConsM3_D8;
             set { _billedCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D8)); CalculateExcel(); }
         }
+        private double _billedCons_UnbMetConsM3_D9;
+        public double BilledCons_UnbMetConsM3_D9
+        {
+            get => _billedCons_UnbMetConsM3_D9;
+            set { _billedCons_UnbMetConsM3_D9 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D9)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbMetConsM3_D10;
+        public double BilledCons_UnbMetConsM3_D10
+        {
+            get => _billedCons_UnbMetConsM3_D10;
+            set { _billedCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D10)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbMetConsM3_D11;
+        public double BilledCons_UnbMetConsM3_D11
+        {
+            get => _billedCons_UnbMetConsM3_D11;
+            set { _billedCons_UnbMetConsM3_D11 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D11)); CalculateExcel(); }
+        }
         private double _billedCons_UnbUnmetConsM3_H8;
         public double BilledCons_UnbUnmetConsM3_H8
         {
             get => _billedCons_UnbUnmetConsM3_H8;
             set { _billedCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H8)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbUnmetConsM3_H9;
+        public double BilledCons_UnbUnmetConsM3_H9
+        {
+            get => _billedCons_UnbUnmetConsM3_H9;
+            set { _billedCons_UnbUnmetConsM3_H9 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H9)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbUnmetConsM3_H10;
+        public double BilledCons_UnbUnmetConsM3_H10
+        {
+            get => _billedCons_UnbUnmetConsM3_H10;
+            set { _billedCons_UnbUnmetConsM3_H10 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H10)); CalculateExcel(); }
+        }
+        private double _billedCons_UnbUnmetConsM3_H11;
+        public double BilledCons_UnbUnmetConsM3_H11
+        {
+            get => _billedCons_UnbUnmetConsM3_H11;
+            set { _billedCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H11)); CalculateExcel(); }
         }
 
 
@@ -986,7 +1028,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
 
             BilledCons_UnbMetConsM3_D8 = model.BilledCons_UnbMetConsM3_D8;
+            BilledCons_UnbMetConsM3_D9 = model.BilledCons_UnbMetConsM3_D9;
+            BilledCons_UnbMetConsM3_D10 = model.BilledCons_UnbMetConsM3_D10;
+            BilledCons_UnbMetConsM3_D11 = model.BilledCons_UnbMetConsM3_D11;
             BilledCons_UnbUnmetConsM3_H8 = model.BilledCons_UnbUnmetConsM3_H8;
+            BilledCons_UnbUnmetConsM3_H9 = model.BilledCons_UnbUnmetConsM3_H9;
+            BilledCons_UnbUnmetConsM3_H10 = model.BilledCons_UnbUnmetConsM3_H10;
+            BilledCons_UnbUnmetConsM3_H11 = model.BilledCons_UnbUnmetConsM3_H11;
 
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = model.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 

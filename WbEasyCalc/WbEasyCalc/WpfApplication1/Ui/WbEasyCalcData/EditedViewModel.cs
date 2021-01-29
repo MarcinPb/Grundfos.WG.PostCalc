@@ -143,8 +143,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = wbEasyCalcData.BilledCons_BilledMetConsBulkWatSupExpM3_D6;               // @ZoneSale
                     Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6  = wbEasyCalcData.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6; 
 
-                    Model.BilledCons_UnbMetConsM3_D8 = wbEasyCalcData.BilledCons_UnbMetConsM3_D8; 
-                    Model.BilledCons_UnbUnmetConsM3_H8 = wbEasyCalcData.BilledCons_UnbUnmetConsM3_H8; 
+                    Model.BilledCons_UnbMetConsM3_D8 = wbEasyCalcData.BilledCons_UnbMetConsM3_D8;
+                    Model.BilledCons_UnbMetConsM3_D9 = wbEasyCalcData.BilledCons_UnbMetConsM3_D9;
+                    Model.BilledCons_UnbMetConsM3_D10 = wbEasyCalcData.BilledCons_UnbMetConsM3_D10;
+                    Model.BilledCons_UnbMetConsM3_D11 = wbEasyCalcData.BilledCons_UnbMetConsM3_D11;
+                    Model.BilledCons_UnbUnmetConsM3_H8 = wbEasyCalcData.BilledCons_UnbUnmetConsM3_H8;
+                    Model.BilledCons_UnbUnmetConsM3_H9 = wbEasyCalcData.BilledCons_UnbUnmetConsM3_H9;
+                    Model.BilledCons_UnbUnmetConsM3_H10 = wbEasyCalcData.BilledCons_UnbUnmetConsM3_H10;
+                    Model.BilledCons_UnbUnmetConsM3_H11 = wbEasyCalcData.BilledCons_UnbUnmetConsM3_H11;
 
                     Model.UnbilledCons_MetConsBulkWatSupExpM3_D6 = wbEasyCalcData.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 
@@ -258,7 +264,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;
 
             Model.BilledCons_UnbMetConsM3_D8 = easyCalcDataInput.BilledCons_UnbMetConsM3_D8;
+            Model.BilledCons_UnbMetConsM3_D9 = easyCalcDataInput.BilledCons_UnbMetConsM3_D9;
+            Model.BilledCons_UnbMetConsM3_D10 = easyCalcDataInput.BilledCons_UnbMetConsM3_D10;
+            Model.BilledCons_UnbMetConsM3_D11 = easyCalcDataInput.BilledCons_UnbMetConsM3_D11;
             Model.BilledCons_UnbUnmetConsM3_H8 = easyCalcDataInput.BilledCons_UnbUnmetConsM3_H8;
+            Model.BilledCons_UnbUnmetConsM3_H9 = easyCalcDataInput.BilledCons_UnbUnmetConsM3_H9;
+            Model.BilledCons_UnbUnmetConsM3_H10 = easyCalcDataInput.BilledCons_UnbUnmetConsM3_H10;
+            Model.BilledCons_UnbUnmetConsM3_H11 = easyCalcDataInput.BilledCons_UnbUnmetConsM3_H11;
 
             Model.UnbilledCons_MetConsBulkWatSupExpM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 

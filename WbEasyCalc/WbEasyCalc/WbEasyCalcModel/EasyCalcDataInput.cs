@@ -58,7 +58,13 @@ namespace WbEasyCalc
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
 
         public double BilledCons_UnbMetConsM3_D8 { get; set; }
+        public double BilledCons_UnbMetConsM3_D9 { get; set; }
+        public double BilledCons_UnbMetConsM3_D10 { get; set; }
+        public double BilledCons_UnbMetConsM3_D11 { get; set; }
         public double BilledCons_UnbUnmetConsM3_H8 { get; set; }
+        public double BilledCons_UnbUnmetConsM3_H9 { get; set; }
+        public double BilledCons_UnbUnmetConsM3_H10 { get; set; }
+        public double BilledCons_UnbUnmetConsM3_H11 { get; set; }
 
 
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
@@ -161,7 +167,13 @@ namespace WbEasyCalc
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
                 BilledCons_UnbMetConsM3_D8 = BilledCons_UnbMetConsM3_D8,
+                BilledCons_UnbMetConsM3_D9 = BilledCons_UnbMetConsM3_D9,
+                BilledCons_UnbMetConsM3_D10 = BilledCons_UnbMetConsM3_D10,
+                BilledCons_UnbMetConsM3_D11 = BilledCons_UnbMetConsM3_D11,
                 BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8,
+                BilledCons_UnbUnmetConsM3_H9 = BilledCons_UnbUnmetConsM3_H9,
+                BilledCons_UnbUnmetConsM3_H10 = BilledCons_UnbUnmetConsM3_H10,
+                BilledCons_UnbUnmetConsM3_H11 = BilledCons_UnbUnmetConsM3_H11,
 
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 

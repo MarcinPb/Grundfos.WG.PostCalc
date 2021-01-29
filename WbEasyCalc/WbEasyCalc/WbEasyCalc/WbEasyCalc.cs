@@ -97,8 +97,20 @@ namespace WbEasyCalcRepository
             {
                 BilledMeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                 BulledUnmeteredConsumptionBulkWaterSupplyExportM3_H6 = easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
-                BilledMeteredConsumptionWithoutBulkSupply_D8_D25 = new List<double> { easyCalcDataInput.BilledCons_UnbMetConsM3_D8 },
-                BilledUnmeteredConsumptionWithoutBulkSupply_H8_H25 = new List<double> { easyCalcDataInput.BilledCons_UnbUnmetConsM3_H8 }, 
+                BilledMeteredConsumptionWithoutBulkSupply_D8_D25 = new List<double> 
+                { 
+                    easyCalcDataInput.BilledCons_UnbMetConsM3_D8, 
+                    easyCalcDataInput.BilledCons_UnbMetConsM3_D9, 
+                    easyCalcDataInput.BilledCons_UnbMetConsM3_D10, 
+                    easyCalcDataInput.BilledCons_UnbMetConsM3_D11, 
+                },
+                BilledUnmeteredConsumptionWithoutBulkSupply_H8_H25 = new List<double> 
+                { 
+                    easyCalcDataInput.BilledCons_UnbUnmetConsM3_H8, 
+                    easyCalcDataInput.BilledCons_UnbUnmetConsM3_H9, 
+                    easyCalcDataInput.BilledCons_UnbUnmetConsM3_H10, 
+                    easyCalcDataInput.BilledCons_UnbUnmetConsM3_H11, 
+                }, 
             };
             data.UnbilledConsumptionSheet = new UnbilledConsumptionSheet
             {

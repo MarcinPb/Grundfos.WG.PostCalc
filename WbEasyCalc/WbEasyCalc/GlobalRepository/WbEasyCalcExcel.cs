@@ -29,7 +29,13 @@ namespace GlobalRepository
             excelReader.WriteToCell("Billed Cons", "H6", easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
 
             excelReader.WriteToCell("Billed Cons", "D8", easyCalcDataInput.BilledCons_UnbMetConsM3_D8);
+            excelReader.WriteToCell("Billed Cons", "D9", easyCalcDataInput.BilledCons_UnbMetConsM3_D9);
+            excelReader.WriteToCell("Billed Cons", "D10", easyCalcDataInput.BilledCons_UnbMetConsM3_D10);
+            excelReader.WriteToCell("Billed Cons", "D11", easyCalcDataInput.BilledCons_UnbMetConsM3_D11);
             excelReader.WriteToCell("Billed Cons", "H8", easyCalcDataInput.BilledCons_UnbUnmetConsM3_H8);
+            excelReader.WriteToCell("Billed Cons", "H9", easyCalcDataInput.BilledCons_UnbUnmetConsM3_H9);
+            excelReader.WriteToCell("Billed Cons", "H10", easyCalcDataInput.BilledCons_UnbUnmetConsM3_H10);
+            excelReader.WriteToCell("Billed Cons", "H11", easyCalcDataInput.BilledCons_UnbUnmetConsM3_H11);
 
             excelReader.WriteToCell("Unb. Cons.", "D6", easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6);
 
@@ -109,7 +115,13 @@ namespace GlobalRepository
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6"),
 
                 BilledCons_UnbMetConsM3_D8 = excelReader.ReadCell<double>("Billed Cons", "D8"),
+                BilledCons_UnbMetConsM3_D9 = excelReader.ReadCell<double>("Billed Cons", "D9"),
+                BilledCons_UnbMetConsM3_D10 = excelReader.ReadCell<double>("Billed Cons", "D10"),
+                BilledCons_UnbMetConsM3_D11 = excelReader.ReadCell<double>("Billed Cons", "D11"),
                 BilledCons_UnbUnmetConsM3_H8 = excelReader.ReadCell<double>("Billed Cons", "H8"),
+                BilledCons_UnbUnmetConsM3_H9 = excelReader.ReadCell<double>("Billed Cons", "H9"),
+                BilledCons_UnbUnmetConsM3_H10 = excelReader.ReadCell<double>("Billed Cons", "H10"),
+                BilledCons_UnbUnmetConsM3_H11 = excelReader.ReadCell<double>("Billed Cons", "H11"),
 
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Unb. Cons.", "D6"),
 
