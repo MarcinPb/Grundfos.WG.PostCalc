@@ -123,6 +123,19 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8", model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8);
                 p.Add("@MetErrors_BilledMetConsWoBulkSupErrorMargin_N8", model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8);
 
+                p.Add("@MetErrors_Total_F12", model.MetErrors_Total_F12);
+                p.Add("@MetErrors_Total_F13", model.MetErrors_Total_F13);
+                p.Add("@MetErrors_Total_F14", model.MetErrors_Total_F14);
+                p.Add("@MetErrors_Total_F15", model.MetErrors_Total_F15);
+                p.Add("@MetErrors_Meter_H12", model.MetErrors_Meter_H12);
+                p.Add("@MetErrors_Meter_H13", model.MetErrors_Meter_H13);
+                p.Add("@MetErrors_Meter_H14", model.MetErrors_Meter_H14);
+                p.Add("@MetErrors_Meter_H15", model.MetErrors_Meter_H15);
+                p.Add("@MetErrors_Error_N12", model.MetErrors_Error_N12);
+                p.Add("@MetErrors_Error_N13", model.MetErrors_Error_N13);
+                p.Add("@MetErrors_Error_N14", model.MetErrors_Error_N14);
+                p.Add("@MetErrors_Error_N15", model.MetErrors_Error_N15);
+
                 p.Add("@MeteredBulkSupplyExportErrorMargin_N32", model.MeteredBulkSupplyExportErrorMargin_N32);
                 p.Add("@UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34", model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34);
                 p.Add("@CorruptMeterReadingPracticessErrorMargin_N38", model.CorruptMeterReadingPracticessErrorMargin_N38);

@@ -70,6 +70,18 @@ namespace DataModel
         public double UnbilledCons_UnbUnmetConsError_J10 { get; set; }
         public double UnbilledCons_UnbUnmetConsError_J11 { get; set; }
 
+
+        public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }                      //        
+        public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
+        public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
+        public double UnauthCons_IllegalConnDomErrorMargin_F6 { get; set; }
+        public double UnauthCons_IllegalConnOthersErrorMargin_F10 { get; set; }
+        public double IllegalConnectionsOthersEstimatedNumber_D10 { get; set; }
+        public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 { get; set; }
+        public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
+        public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
+        public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
+
         public double UnauthCons_OthersErrorMargin_F18 { get; set; }
         public double UnauthCons_OthersErrorMargin_F19 { get; set; }
         public double UnauthCons_OthersErrorMargin_F20 { get; set; }
@@ -80,31 +92,24 @@ namespace DataModel
         public double UnauthCons_OthersM3PerDay_J21 { get; set; }
 
 
-
-
-
-
-        public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }                      //        
-        public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
-        public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
-        public double UnauthCons_IllegalConnDomErrorMargin_F6 { get; set; }
-        public double UnauthCons_IllegalConnOthersErrorMargin_F10 { get; set; }
-
-
-
-        public double IllegalConnectionsOthersEstimatedNumber_D10 { get; set; }
-        public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 { get; set; }
-
-
-
-        public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
-        public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
-        public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
-
-
         public int MetErrors_DetailedManualSpec_J6 { get; set; }                     //
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
+
+        public double MetErrors_Total_F12 { get; set; }
+        public double MetErrors_Total_F13 { get; set; }
+        public double MetErrors_Total_F14 { get; set; }
+        public double MetErrors_Total_F15 { get; set; }
+
+        public double MetErrors_Meter_H12 { get; set; }
+        public double MetErrors_Meter_H13 { get; set; }
+        public double MetErrors_Meter_H14 { get; set; }
+        public double MetErrors_Meter_H15 { get; set; }
+
+        public double MetErrors_Error_N12 { get; set; }
+        public double MetErrors_Error_N13 { get; set; }
+        public double MetErrors_Error_N14 { get; set; }
+        public double MetErrors_Error_N15 { get; set; }
 
         public double MeteredBulkSupplyExportErrorMargin_N32 { get; set; }
         public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 { get; set; }
@@ -116,6 +121,9 @@ namespace DataModel
         public double MetErrors_MetBulkSupExpMetUnderreg_H32 { get; set; }
         public double MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 { get; set; }
         public double MetErrors_CorruptMetReadPractMetUndrreg_H38 { get; set; }
+
+
+
         public double Network_DistributionAndTransmissionMains_D7 { get; set; }
         public double Network_NoOfConnOfRegCustomers_H10 { get; set; }
         public double Network_NoOfInactAccountsWSvcConns_H18 { get; set; }
@@ -267,9 +275,23 @@ namespace DataModel
                 UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
                 UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
                 UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+
                 MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
                 MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                 MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+
+                MetErrors_Total_F12 = MetErrors_Total_F12,
+                MetErrors_Total_F13 = MetErrors_Total_F13,
+                MetErrors_Total_F14 = MetErrors_Total_F14,
+                MetErrors_Total_F15 = MetErrors_Total_F15,
+                MetErrors_Meter_H12 = MetErrors_Meter_H12,
+                MetErrors_Meter_H13 = MetErrors_Meter_H13,
+                MetErrors_Meter_H14 = MetErrors_Meter_H14,
+                MetErrors_Meter_H15 = MetErrors_Meter_H15,
+                MetErrors_Error_N12 = MetErrors_Error_N12,
+                MetErrors_Error_N13 = MetErrors_Error_N13,
+                MetErrors_Error_N14 = MetErrors_Error_N14,
+                MetErrors_Error_N15 = MetErrors_Error_N15,
 
                 MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
                 UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
@@ -422,6 +444,18 @@ namespace DataModel
                     MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                     MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
 
+                    MetErrors_Total_F12 = MetErrors_Total_F12,
+                    MetErrors_Total_F13 = MetErrors_Total_F13,
+                    MetErrors_Total_F14 = MetErrors_Total_F14,
+                    MetErrors_Total_F15 = MetErrors_Total_F15,
+                    MetErrors_Meter_H12 = MetErrors_Meter_H12,
+                    MetErrors_Meter_H13 = MetErrors_Meter_H13,
+                    MetErrors_Meter_H14 = MetErrors_Meter_H14,
+                    MetErrors_Meter_H15 = MetErrors_Meter_H15,
+                    MetErrors_Error_N12 = MetErrors_Error_N12,
+                    MetErrors_Error_N13 = MetErrors_Error_N13,
+                    MetErrors_Error_N14 = MetErrors_Error_N14,
+                    MetErrors_Error_N15 = MetErrors_Error_N15,
 
                     MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
                     UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,

@@ -81,6 +81,19 @@ namespace GlobalRepository
             excelReader.WriteToCell("Meter Errors", "H8", easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8);
             excelReader.WriteToCell("Meter Errors", "N8", easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8);
 
+            excelReader.WriteToCell("Meter Errors", "F12", easyCalcDataInput.MetErrors_Total_F12);
+            excelReader.WriteToCell("Meter Errors", "F13", easyCalcDataInput.MetErrors_Total_F13);
+            excelReader.WriteToCell("Meter Errors", "F14", easyCalcDataInput.MetErrors_Total_F14);
+            excelReader.WriteToCell("Meter Errors", "F15", easyCalcDataInput.MetErrors_Total_F15);
+            excelReader.WriteToCell("Meter Errors", "H12", easyCalcDataInput.MetErrors_Meter_H12);
+            excelReader.WriteToCell("Meter Errors", "H13", easyCalcDataInput.MetErrors_Meter_H13);
+            excelReader.WriteToCell("Meter Errors", "H14", easyCalcDataInput.MetErrors_Meter_H14);
+            excelReader.WriteToCell("Meter Errors", "H15", easyCalcDataInput.MetErrors_Meter_H15);
+            excelReader.WriteToCell("Meter Errors", "N12", easyCalcDataInput.MetErrors_Error_N12);
+            excelReader.WriteToCell("Meter Errors", "N13", easyCalcDataInput.MetErrors_Error_N13);
+            excelReader.WriteToCell("Meter Errors", "N14", easyCalcDataInput.MetErrors_Error_N14);
+            excelReader.WriteToCell("Meter Errors", "N15", easyCalcDataInput.MetErrors_Error_N15);
+
             excelReader.WriteToCell("Meter Errors", "N32", easyCalcDataInput.MeteredBulkSupplyExportErrorMargin_N32);
             excelReader.WriteToCell("Meter Errors", "N34", easyCalcDataInput.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34);
             excelReader.WriteToCell("Meter Errors", "N38", easyCalcDataInput.CorruptMeterReadingPracticessErrorMargin_N38);
@@ -188,6 +201,19 @@ namespace GlobalRepository
                 MetErrors_DetailedManualSpec_J6 = excelReader.ReadCell<int>("Meter Errors", "J6") == 2,
                 MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = excelReader.ReadCell<double>("Meter Errors", "H8"),
                 MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = excelReader.ReadCell<double>("Meter Errors", "N8"),
+
+                MetErrors_Total_F12 = excelReader.ReadCell<double>("Meter Errors", "F12"),
+                MetErrors_Total_F13 = excelReader.ReadCell<double>("Meter Errors", "F13"),
+                MetErrors_Total_F14 = excelReader.ReadCell<double>("Meter Errors", "F14"),
+                MetErrors_Total_F15 = excelReader.ReadCell<double>("Meter Errors", "F15"),
+                MetErrors_Meter_H12 = excelReader.ReadCell<double>("Meter Errors", "H12"),
+                MetErrors_Meter_H13 = excelReader.ReadCell<double>("Meter Errors", "H13"),
+                MetErrors_Meter_H14 = excelReader.ReadCell<double>("Meter Errors", "H14"),
+                MetErrors_Meter_H15 = excelReader.ReadCell<double>("Meter Errors", "H15"),
+                MetErrors_Error_N12 = excelReader.ReadCell<double>("Meter Errors", "N12"),
+                MetErrors_Error_N13 = excelReader.ReadCell<double>("Meter Errors", "N13"),
+                MetErrors_Error_N14 = excelReader.ReadCell<double>("Meter Errors", "N14"),
+                MetErrors_Error_N15 = excelReader.ReadCell<double>("Meter Errors", "N15"),
 
                 MeteredBulkSupplyExportErrorMargin_N32 = excelReader.ReadCell<double>("Meter Errors", "N32"),
                 UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = excelReader.ReadCell<double>("Meter Errors", "N34"),

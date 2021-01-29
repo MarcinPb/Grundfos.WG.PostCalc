@@ -101,6 +101,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
             MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
 
+            MetErrors_Total_F12 = MetErrors_Total_F12,
+            MetErrors_Total_F13 = MetErrors_Total_F13,
+            MetErrors_Total_F14 = MetErrors_Total_F14,
+            MetErrors_Total_F15 = MetErrors_Total_F15,
+            MetErrors_Meter_H12 = MetErrors_Meter_H12,
+            MetErrors_Meter_H13 = MetErrors_Meter_H13,
+            MetErrors_Meter_H14 = MetErrors_Meter_H14,
+            MetErrors_Meter_H15 = MetErrors_Meter_H15,
+            MetErrors_Error_N12 = MetErrors_Error_N12,
+            MetErrors_Error_N13 = MetErrors_Error_N13,
+            MetErrors_Error_N14 = MetErrors_Error_N14,
+            MetErrors_Error_N15 = MetErrors_Error_N15,
+
             MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
             UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
             CorruptMeterReadingPracticessErrorMargin_N38 = CorruptMeterReadingPracticessErrorMargin_N38,
@@ -733,6 +746,81 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        private double _metErrors_Total_F12;
+        public double MetErrors_Total_F12
+        {
+            get => _metErrors_Total_F12;
+            set { _metErrors_Total_F12 = value; RaisePropertyChanged(nameof(MetErrors_Total_F12)); CalculateExcel(); }
+        }
+        private double _metErrors_Total_F13;
+        public double MetErrors_Total_F13
+        {
+            get => _metErrors_Total_F13;
+            set { _metErrors_Total_F13 = value; RaisePropertyChanged(nameof(MetErrors_Total_F13)); CalculateExcel(); }
+        }
+        private double _metErrors_Total_F14;
+        public double MetErrors_Total_F14
+        {
+            get => _metErrors_Total_F14;
+            set { _metErrors_Total_F14 = value; RaisePropertyChanged(nameof(MetErrors_Total_F14)); CalculateExcel(); }
+        }
+        private double _metErrors_Total_F15;
+        public double MetErrors_Total_F15
+        {
+            get => _metErrors_Total_F15;
+            set { _metErrors_Total_F15 = value; RaisePropertyChanged(nameof(MetErrors_Total_F15)); CalculateExcel(); }
+        }
+
+        private double _metErrors_Meter_H12;
+        public double MetErrors_Meter_H12
+        {
+            get => _metErrors_Meter_H12;
+            set { _metErrors_Meter_H12 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H12)); CalculateExcel(); }
+        }
+        private double _metErrors_Meter_H13;
+        public double MetErrors_Meter_H13
+        {
+            get => _metErrors_Meter_H13;
+            set { _metErrors_Meter_H13 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H13)); CalculateExcel(); }
+        }
+        private double _metErrors_Meter_H14;
+        public double MetErrors_Meter_H14
+        {
+            get => _metErrors_Meter_H14;
+            set { _metErrors_Meter_H14 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H14)); CalculateExcel(); }
+        }
+        private double _metErrors_Meter_H15;
+        public double MetErrors_Meter_H15
+        {
+            get => _metErrors_Meter_H15;
+            set { _metErrors_Meter_H15 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H15)); CalculateExcel(); }
+        }
+
+        private double _metErrors_Error_N12;
+        public double MetErrors_Error_N12
+        {
+            get => _metErrors_Error_N12;
+            set { _metErrors_Error_N12 = value; RaisePropertyChanged(nameof(MetErrors_Error_N12)); CalculateExcel(); }
+        }
+        private double _metErrors_Error_N13;
+        public double MetErrors_Error_N13
+        {
+            get => _metErrors_Error_N13;
+            set { _metErrors_Error_N13 = value; RaisePropertyChanged(nameof(MetErrors_Error_N13)); CalculateExcel(); }
+        }
+        private double _metErrors_Error_N14;
+        public double MetErrors_Error_N14
+        {
+            get => _metErrors_Error_N14;
+            set { _metErrors_Error_N14 = value; RaisePropertyChanged(nameof(MetErrors_Error_N14)); CalculateExcel(); }
+        }
+        private double _metErrors_Error_N15;
+        public double MetErrors_Error_N15
+        {
+            get => _metErrors_Error_N15;
+            set { _metErrors_Error_N15 = value; RaisePropertyChanged(nameof(MetErrors_Error_N15)); CalculateExcel(); }
+        }
+
         private double _meteredBulkSupplyExportErrorMargin_N32;
         public double MeteredBulkSupplyExportErrorMargin_N32
         {
@@ -1230,6 +1318,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_DetailedManualSpec_J6 = model.MetErrors_DetailedManualSpec_J6;
             MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
             MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+
+            MetErrors_Total_F12 = model.MetErrors_Total_F12;
+            MetErrors_Total_F13 = model.MetErrors_Total_F13;
+            MetErrors_Total_F14 = model.MetErrors_Total_F14;
+            MetErrors_Total_F15 = model.MetErrors_Total_F15;
+            MetErrors_Meter_H12 = model.MetErrors_Meter_H12;
+            MetErrors_Meter_H13 = model.MetErrors_Meter_H13;
+            MetErrors_Meter_H14 = model.MetErrors_Meter_H14;
+            MetErrors_Meter_H15 = model.MetErrors_Meter_H15;
+            MetErrors_Error_N12 = model.MetErrors_Error_N12;
+            MetErrors_Error_N13 = model.MetErrors_Error_N13;
+            MetErrors_Error_N14 = model.MetErrors_Error_N14;
+            MetErrors_Error_N15 = model.MetErrors_Error_N15;
 
             MeteredBulkSupplyExportErrorMargin_N32 = model.MeteredBulkSupplyExportErrorMargin_N32;
             UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;

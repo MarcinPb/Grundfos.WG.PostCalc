@@ -181,6 +181,28 @@ namespace WbEasyCalcRepository
                 BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                 BilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
 
+                BilledMeteredConsumptionManuallyEnteredM3_F12_F28 = new List<double>
+                {
+                    easyCalcDataInput.MetErrors_Total_F12,
+                    easyCalcDataInput.MetErrors_Total_F13,
+                    easyCalcDataInput.MetErrors_Total_F14,
+                    easyCalcDataInput.MetErrors_Total_F15,
+                },
+                BilledMeteredConsumptionManuallyEnteredMeterUnderregistration_H12_H28 = new List<double>
+                {
+                    easyCalcDataInput.MetErrors_Meter_H12,
+                    easyCalcDataInput.MetErrors_Meter_H13,
+                    easyCalcDataInput.MetErrors_Meter_H14,
+                    easyCalcDataInput.MetErrors_Meter_H15,
+                },
+                BilledMeteredConsumptionManuallyEnteredErrorMargin_N12_N28 = new List<double>
+                {
+                    easyCalcDataInput.MetErrors_Error_N12,
+                    easyCalcDataInput.MetErrors_Error_N13,
+                    easyCalcDataInput.MetErrors_Error_N14,
+                    easyCalcDataInput.MetErrors_Error_N15,
+                },
+
                 MeteredBulkSupplyExportErrorMargin_N32 = easyCalcDataInput.MeteredBulkSupplyExportErrorMargin_N32,
                 UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = easyCalcDataInput.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
                 CorruptMeterReadingPracticessErrorMargin_N38 = easyCalcDataInput.CorruptMeterReadingPracticessErrorMargin_N38,

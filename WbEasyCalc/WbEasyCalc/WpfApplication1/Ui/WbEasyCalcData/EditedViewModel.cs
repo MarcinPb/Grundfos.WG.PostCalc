@@ -196,6 +196,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = wbEasyCalcData.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
                     Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = wbEasyCalcData.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
 
+                    Model.MetErrors_Total_F12 = wbEasyCalcData.MetErrors_Total_F12;
+                    Model.MetErrors_Total_F13 = wbEasyCalcData.MetErrors_Total_F13;
+                    Model.MetErrors_Total_F14 = wbEasyCalcData.MetErrors_Total_F14;
+                    Model.MetErrors_Total_F15 = wbEasyCalcData.MetErrors_Total_F15;
+                    Model.MetErrors_Meter_H12 = wbEasyCalcData.MetErrors_Meter_H12;
+                    Model.MetErrors_Meter_H13 = wbEasyCalcData.MetErrors_Meter_H13;
+                    Model.MetErrors_Meter_H14 = wbEasyCalcData.MetErrors_Meter_H14;
+                    Model.MetErrors_Meter_H15 = wbEasyCalcData.MetErrors_Meter_H15;
+                    Model.MetErrors_Error_N12 = wbEasyCalcData.MetErrors_Error_N12;
+                    Model.MetErrors_Error_N13 = wbEasyCalcData.MetErrors_Error_N13;
+                    Model.MetErrors_Error_N14 = wbEasyCalcData.MetErrors_Error_N14;
+                    Model.MetErrors_Error_N15 = wbEasyCalcData.MetErrors_Error_N15;
+
                     Model.MeteredBulkSupplyExportErrorMargin_N32 = wbEasyCalcData.MeteredBulkSupplyExportErrorMargin_N32;
                     Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = wbEasyCalcData.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
                     Model.CorruptMeterReadingPracticessErrorMargin_N38 = wbEasyCalcData.CorruptMeterReadingPracticessErrorMargin_N38;
@@ -337,6 +350,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.MetErrors_DetailedManualSpec_J6 = easyCalcDataInput.MetErrors_DetailedManualSpec_J6 ? 2 : 1;
             Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8;
             Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = easyCalcDataInput.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8;
+
+            Model.MetErrors_Total_F12 = easyCalcDataInput.MetErrors_Total_F12;
+            Model.MetErrors_Total_F13 = easyCalcDataInput.MetErrors_Total_F13;
+            Model.MetErrors_Total_F14 = easyCalcDataInput.MetErrors_Total_F14;
+            Model.MetErrors_Total_F15 = easyCalcDataInput.MetErrors_Total_F15;
+            Model.MetErrors_Meter_H12 = easyCalcDataInput.MetErrors_Meter_H12;
+            Model.MetErrors_Meter_H13 = easyCalcDataInput.MetErrors_Meter_H13;
+            Model.MetErrors_Meter_H14 = easyCalcDataInput.MetErrors_Meter_H14;
+            Model.MetErrors_Meter_H15 = easyCalcDataInput.MetErrors_Meter_H15;
+            Model.MetErrors_Error_N12 = easyCalcDataInput.MetErrors_Error_N12;
+            Model.MetErrors_Error_N13 = easyCalcDataInput.MetErrors_Error_N13;
+            Model.MetErrors_Error_N14 = easyCalcDataInput.MetErrors_Error_N14;
+            Model.MetErrors_Error_N15 = easyCalcDataInput.MetErrors_Error_N15;
 
             Model.MeteredBulkSupplyExportErrorMargin_N32 = easyCalcDataInput.MeteredBulkSupplyExportErrorMargin_N32;
             Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = easyCalcDataInput.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;

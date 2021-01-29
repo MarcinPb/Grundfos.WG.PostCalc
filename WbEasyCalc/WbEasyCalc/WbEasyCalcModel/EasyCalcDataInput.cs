@@ -111,6 +111,21 @@ namespace WbEasyCalc
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
 
+        public double MetErrors_Total_F12 { get; set; }
+        public double MetErrors_Total_F13 { get; set; }
+        public double MetErrors_Total_F14 { get; set; }
+        public double MetErrors_Total_F15 { get; set; }
+
+        public double MetErrors_Meter_H12 { get; set; }
+        public double MetErrors_Meter_H13 { get; set; }
+        public double MetErrors_Meter_H14 { get; set; }
+        public double MetErrors_Meter_H15 { get; set; }
+
+        public double MetErrors_Error_N12 { get; set; }
+        public double MetErrors_Error_N13 { get; set; }
+        public double MetErrors_Error_N14 { get; set; }
+        public double MetErrors_Error_N15 { get; set; }
+
 
         public double MeteredBulkSupplyExportErrorMargin_N32 { get; set; }
         public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 { get; set; }
@@ -232,9 +247,23 @@ namespace WbEasyCalc
                 UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
                 UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
                 UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+
                 MetErrors_DetailedManualSpec_J6 = MetErrors_DetailedManualSpec_J6,
                 MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
                 MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+
+                MetErrors_Total_F12 = MetErrors_Total_F12,
+                MetErrors_Total_F13 = MetErrors_Total_F13,
+                MetErrors_Total_F14 = MetErrors_Total_F14,
+                MetErrors_Total_F15 = MetErrors_Total_F15,
+                MetErrors_Meter_H12 = MetErrors_Meter_H12,
+                MetErrors_Meter_H13 = MetErrors_Meter_H13,
+                MetErrors_Meter_H14 = MetErrors_Meter_H14,
+                MetErrors_Meter_H15 = MetErrors_Meter_H15,
+                MetErrors_Error_N12 = MetErrors_Error_N12,
+                MetErrors_Error_N13 = MetErrors_Error_N13,
+                MetErrors_Error_N14 = MetErrors_Error_N14,
+                MetErrors_Error_N15 = MetErrors_Error_N15,
 
                 MeteredBulkSupplyExportErrorMargin_N32 = MeteredBulkSupplyExportErrorMargin_N32,
                 UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
