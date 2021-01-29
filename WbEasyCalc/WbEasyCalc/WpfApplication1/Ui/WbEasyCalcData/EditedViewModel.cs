@@ -171,6 +171,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.UnbilledCons_UnbUnmetConsError_J10 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J10;
                     Model.UnbilledCons_UnbUnmetConsError_J11 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J11;
 
+                    Model.UnauthCons_OthersErrorMargin_F18 = wbEasyCalcData.UnauthCons_OthersErrorMargin_F18;
+                    Model.UnauthCons_OthersErrorMargin_F19 = wbEasyCalcData.UnauthCons_OthersErrorMargin_F19;
+                    Model.UnauthCons_OthersErrorMargin_F20 = wbEasyCalcData.UnauthCons_OthersErrorMargin_F20;
+                    Model.UnauthCons_OthersErrorMargin_F21 = wbEasyCalcData.UnauthCons_OthersErrorMargin_F21;
+                    Model.UnauthCons_OthersM3PerDay_J18 = wbEasyCalcData.UnauthCons_OthersM3PerDay_J18;
+                    Model.UnauthCons_OthersM3PerDay_J19 = wbEasyCalcData.UnauthCons_OthersM3PerDay_J19;
+                    Model.UnauthCons_OthersM3PerDay_J20 = wbEasyCalcData.UnauthCons_OthersM3PerDay_J20;
+                    Model.UnauthCons_OthersM3PerDay_J21 = wbEasyCalcData.UnauthCons_OthersM3PerDay_J21;
+
                     Model.UnauthCons_IllegalConnDomEstNo_D6 = wbEasyCalcData.UnauthCons_IllegalConnDomEstNo_D6;
                     Model.UnauthCons_IllegalConnDomPersPerHouse_H6 = wbEasyCalcData.UnauthCons_IllegalConnDomPersPerHouse_H6;
                     Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = wbEasyCalcData.UnauthCons_IllegalConnDomConsLitPerPersDay_J6;
@@ -303,6 +312,15 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.UnbilledCons_UnbUnmetConsError_J9 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J9;
             Model.UnbilledCons_UnbUnmetConsError_J10 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J10;
             Model.UnbilledCons_UnbUnmetConsError_J11 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11;
+
+            Model.UnauthCons_OthersErrorMargin_F18 = easyCalcDataInput.UnauthCons_OthersErrorMargin_F18;
+            Model.UnauthCons_OthersErrorMargin_F19 = easyCalcDataInput.UnauthCons_OthersErrorMargin_F19;
+            Model.UnauthCons_OthersErrorMargin_F20 = easyCalcDataInput.UnauthCons_OthersErrorMargin_F20;
+            Model.UnauthCons_OthersErrorMargin_F21 = easyCalcDataInput.UnauthCons_OthersErrorMargin_F21;
+            Model.UnauthCons_OthersM3PerDay_J18 = easyCalcDataInput.UnauthCons_OthersM3PerDay_J18;
+            Model.UnauthCons_OthersM3PerDay_J19 = easyCalcDataInput.UnauthCons_OthersM3PerDay_J19;
+            Model.UnauthCons_OthersM3PerDay_J20 = easyCalcDataInput.UnauthCons_OthersM3PerDay_J20;
+            Model.UnauthCons_OthersM3PerDay_J21 = easyCalcDataInput.UnauthCons_OthersM3PerDay_J21;
 
             Model.UnauthCons_IllegalConnDomEstNo_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6;
             Model.UnauthCons_IllegalConnDomPersPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6;

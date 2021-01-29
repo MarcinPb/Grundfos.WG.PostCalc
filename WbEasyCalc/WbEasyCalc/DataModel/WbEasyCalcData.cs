@@ -70,11 +70,27 @@ namespace DataModel
         public double UnbilledCons_UnbUnmetConsError_J10 { get; set; }
         public double UnbilledCons_UnbUnmetConsError_J11 { get; set; }
 
+        public double UnauthCons_OthersErrorMargin_F18 { get; set; }
+        public double UnauthCons_OthersErrorMargin_F19 { get; set; }
+        public double UnauthCons_OthersErrorMargin_F20 { get; set; }
+        public double UnauthCons_OthersErrorMargin_F21 { get; set; }
+        public double UnauthCons_OthersM3PerDay_J18 { get; set; }
+        public double UnauthCons_OthersM3PerDay_J19 { get; set; }
+        public double UnauthCons_OthersM3PerDay_J20 { get; set; }
+        public double UnauthCons_OthersM3PerDay_J21 { get; set; }
+
+
+
+
+
+
         public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }                      //        
         public double UnauthCons_IllegalConnDomPersPerHouse_H6 { get; set; }
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6 { get; set; }
         public double UnauthCons_IllegalConnDomErrorMargin_F6 { get; set; }
         public double UnauthCons_IllegalConnOthersErrorMargin_F10 { get; set; }
+
+
 
         public double IllegalConnectionsOthersEstimatedNumber_D10 { get; set; }
         public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 { get; set; }
@@ -84,6 +100,8 @@ namespace DataModel
         public double UnauthCons_MeterTampBypEtcEstNo_D14 { get; set; }
         public double UnauthCons_MeterTampBypEtcErrorMargin_F14 { get; set; }
         public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 { get; set; }
+
+
         public int MetErrors_DetailedManualSpec_J6 { get; set; }                     //
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 { get; set; }
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 { get; set; }
@@ -228,6 +246,15 @@ namespace DataModel
                 UnbilledCons_UnbUnmetConsError_J10 = UnbilledCons_UnbUnmetConsError_J10,
                 UnbilledCons_UnbUnmetConsError_J11 = UnbilledCons_UnbUnmetConsError_J11,
 
+                UnauthCons_OthersErrorMargin_F18 = UnauthCons_OthersErrorMargin_F18,
+                UnauthCons_OthersErrorMargin_F19 = UnauthCons_OthersErrorMargin_F19,
+                UnauthCons_OthersErrorMargin_F20 = UnauthCons_OthersErrorMargin_F20,
+                UnauthCons_OthersErrorMargin_F21 = UnauthCons_OthersErrorMargin_F21,
+                UnauthCons_OthersM3PerDay_J18 = UnauthCons_OthersM3PerDay_J18,
+                UnauthCons_OthersM3PerDay_J19 = UnauthCons_OthersM3PerDay_J19,
+                UnauthCons_OthersM3PerDay_J20 = UnauthCons_OthersM3PerDay_J20,
+                UnauthCons_OthersM3PerDay_J21 = UnauthCons_OthersM3PerDay_J21,
+
                 UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
                 UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
@@ -369,6 +396,15 @@ namespace DataModel
                     UnbilledCons_UnbUnmetConsError_J9 = UnbilledCons_UnbUnmetConsError_J9,
                     UnbilledCons_UnbUnmetConsError_J10 = UnbilledCons_UnbUnmetConsError_J10,
                     UnbilledCons_UnbUnmetConsError_J11 = UnbilledCons_UnbUnmetConsError_J11,
+
+                    UnauthCons_OthersErrorMargin_F18 = UnauthCons_OthersErrorMargin_F18,
+                    UnauthCons_OthersErrorMargin_F19 = UnauthCons_OthersErrorMargin_F19,
+                    UnauthCons_OthersErrorMargin_F20 = UnauthCons_OthersErrorMargin_F20,
+                    UnauthCons_OthersErrorMargin_F21 = UnauthCons_OthersErrorMargin_F21,
+                    UnauthCons_OthersM3PerDay_J18 = UnauthCons_OthersM3PerDay_J18,
+                    UnauthCons_OthersM3PerDay_J19 = UnauthCons_OthersM3PerDay_J19,
+                    UnauthCons_OthersM3PerDay_J20 = UnauthCons_OthersM3PerDay_J20,
+                    UnauthCons_OthersM3PerDay_J21 = UnauthCons_OthersM3PerDay_J21,
 
                     UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
                     UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,

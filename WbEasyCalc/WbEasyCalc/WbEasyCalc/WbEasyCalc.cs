@@ -144,6 +144,20 @@ namespace WbEasyCalcRepository
             };
             data.UnauthorizedConsumptionSheet = new UnauthorizedConsumptionSheet(data)
             {
+                OthersErrorMargin_F18_F22 = new List<double>
+                {
+                    easyCalcDataInput.UnauthCons_OthersErrorMargin_F18, 
+                    easyCalcDataInput.UnauthCons_OthersErrorMargin_F19, 
+                    easyCalcDataInput.UnauthCons_OthersErrorMargin_F20, 
+                    easyCalcDataInput.UnauthCons_OthersErrorMargin_F21, 
+                },
+                OthersM3PerDay_J18_J22 = new List<double>
+                {
+                    easyCalcDataInput.UnauthCons_OthersM3PerDay_J18, 
+                    easyCalcDataInput.UnauthCons_OthersM3PerDay_J19, 
+                    easyCalcDataInput.UnauthCons_OthersM3PerDay_J20, 
+                    easyCalcDataInput.UnauthCons_OthersM3PerDay_J21, 
+                },
                 IllegalConnectionsDomesticEstimatedNumber_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6,
                 IllegalConnectionsDomesticPersonsPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6,
                 IllegalConnectionsDomesticConsumptionLitersPerPersonPerDay_J6 = easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
@@ -157,6 +171,9 @@ namespace WbEasyCalcRepository
                 MeterTamperingBypassesEtcEstimatedNumber_D14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14,
                 MeterTamperingBypassesEtcErrorMargin_F14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14,
                 MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+
+
+
             };
             data.MeterErrorsSheet = new MeterErrorsSheet(data)
             {

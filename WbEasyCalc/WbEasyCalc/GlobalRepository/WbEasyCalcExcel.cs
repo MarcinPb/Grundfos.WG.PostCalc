@@ -56,6 +56,15 @@ namespace GlobalRepository
             excelReader.WriteToCell("Unb. Cons.", "J10", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J10);
             excelReader.WriteToCell("Unb. Cons.", "J11", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11);
 
+            excelReader.WriteToCell("Unauth.Cons.", "F18", easyCalcDataInput.UnauthCons_OthersErrorMargin_F18);
+            excelReader.WriteToCell("Unauth.Cons.", "F19", easyCalcDataInput.UnauthCons_OthersErrorMargin_F19);
+            excelReader.WriteToCell("Unauth.Cons.", "F20", easyCalcDataInput.UnauthCons_OthersErrorMargin_F20);
+            excelReader.WriteToCell("Unauth.Cons.", "F21", easyCalcDataInput.UnauthCons_OthersErrorMargin_F21);
+            excelReader.WriteToCell("Unauth.Cons.", "J18", easyCalcDataInput.UnauthCons_OthersM3PerDay_J18);
+            excelReader.WriteToCell("Unauth.Cons.", "J19", easyCalcDataInput.UnauthCons_OthersM3PerDay_J19);
+            excelReader.WriteToCell("Unauth.Cons.", "J20", easyCalcDataInput.UnauthCons_OthersM3PerDay_J20);
+            excelReader.WriteToCell("Unauth.Cons.", "J21", easyCalcDataInput.UnauthCons_OthersM3PerDay_J21);
+
             excelReader.WriteToCell("Unauth. Cons.", "D6", easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6);
             excelReader.WriteToCell("Unauth. Cons.", "H6", easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6);
             excelReader.WriteToCell("Unauth. Cons.", "J6", easyCalcDataInput.UnauthCons_IllegalConnDomConsLitPerPersDay_J6);
@@ -154,6 +163,15 @@ namespace GlobalRepository
                 UnbilledCons_UnbUnmetConsError_J9 = excelReader.ReadCell<double>("Unb. Cons.", "J9"),
                 UnbilledCons_UnbUnmetConsError_J10 = excelReader.ReadCell<double>("Unb. Cons.", "J10"),
                 UnbilledCons_UnbUnmetConsError_J11 = excelReader.ReadCell<double>("Unb. Cons.", "J11"),
+
+                UnauthCons_OthersErrorMargin_F18 = excelReader.ReadCell<double>("Unb. Cons.", "F18"),
+                UnauthCons_OthersErrorMargin_F19 = excelReader.ReadCell<double>("Unb. Cons.", "F19"),
+                UnauthCons_OthersErrorMargin_F20 = excelReader.ReadCell<double>("Unb. Cons.", "F20"),
+                UnauthCons_OthersErrorMargin_F21 = excelReader.ReadCell<double>("Unb. Cons.", "F21"),
+                UnauthCons_OthersM3PerDay_J18 = excelReader.ReadCell<double>("Unb. Cons.", "J18"),
+                UnauthCons_OthersM3PerDay_J19 = excelReader.ReadCell<double>("Unb. Cons.", "J19"),
+                UnauthCons_OthersM3PerDay_J20 = excelReader.ReadCell<double>("Unb. Cons.", "J20"),
+                UnauthCons_OthersM3PerDay_J21 = excelReader.ReadCell<double>("Unb. Cons.", "J21"),
 
                 UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6"),
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6"),

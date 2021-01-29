@@ -227,22 +227,22 @@
             <TextBox Grid.Row="19" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="4" Text="{Binding Path=Model.SysInput_SystemInputVolumeError_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="17" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="18" Grid.Column="4" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="19" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="17" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F19, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="18" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F20, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="19" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F21, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="16" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="17" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="18" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="19" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_OthersM3PerDay_J18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="17" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_OthersM3PerDay_J19, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="18" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_OthersM3PerDay_J20, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="19" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_OthersM3PerDay_J21, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="16" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <TextBox Grid.Row="16" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="17" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="18" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="19" Grid.Column="10" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="19" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="16" Grid.Column="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <Label Grid.Row="21" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>

@@ -98,6 +98,15 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@UnbilledCons_UnbUnmetConsError_J10", model.UnbilledCons_UnbUnmetConsError_J10);
                 p.Add("@UnbilledCons_UnbUnmetConsError_J11", model.UnbilledCons_UnbUnmetConsError_J11);
 
+                p.Add("@UnauthCons_OthersErrorMargin_F18", model.UnauthCons_OthersErrorMargin_F18);
+                p.Add("@UnauthCons_OthersErrorMargin_F19", model.UnauthCons_OthersErrorMargin_F19);
+                p.Add("@UnauthCons_OthersErrorMargin_F20", model.UnauthCons_OthersErrorMargin_F20);
+                p.Add("@UnauthCons_OthersErrorMargin_F21", model.UnauthCons_OthersErrorMargin_F21);
+                p.Add("@UnauthCons_OthersM3PerDay_J18", model.UnauthCons_OthersM3PerDay_J18);
+                p.Add("@UnauthCons_OthersM3PerDay_J19", model.UnauthCons_OthersM3PerDay_J19);
+                p.Add("@UnauthCons_OthersM3PerDay_J20", model.UnauthCons_OthersM3PerDay_J20);
+                p.Add("@UnauthCons_OthersM3PerDay_J21", model.UnauthCons_OthersM3PerDay_J21);
+
                 p.Add("@UnauthCons_IllegalConnDomEstNo_D6", model.UnauthCons_IllegalConnDomEstNo_D6);
                 p.Add("@UnauthCons_IllegalConnDomPersPerHouse_H6", model.UnauthCons_IllegalConnDomPersPerHouse_H6);
                 p.Add("@UnauthCons_IllegalConnDomConsLitPerPersDay_J6", model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6);
