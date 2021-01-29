@@ -40,8 +40,21 @@ namespace GlobalRepository
             excelReader.WriteToCell("Unb. Cons.", "D6", easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6);
 
             excelReader.WriteToCell("Unb. Cons.", "D8", easyCalcDataInput.UnbilledCons_UnbMetConsM3_D8);
+            excelReader.WriteToCell("Unb. Cons.", "D9", easyCalcDataInput.UnbilledCons_UnbMetConsM3_D9);
+            excelReader.WriteToCell("Unb. Cons.", "D10", easyCalcDataInput.UnbilledCons_UnbMetConsM3_D10);
+            excelReader.WriteToCell("Unb. Cons.", "D11", easyCalcDataInput.UnbilledCons_UnbMetConsM3_D11);
             excelReader.WriteToCell("Unb. Cons.", "H6", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H6);
+            excelReader.WriteToCell("Unb. Cons.", "H7", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H7);
+            excelReader.WriteToCell("Unb. Cons.", "H8", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H8);
+            excelReader.WriteToCell("Unb. Cons.", "H9", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H9);
+            excelReader.WriteToCell("Unb. Cons.", "H10", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H10);
+            excelReader.WriteToCell("Unb. Cons.", "H11", easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H11);
             excelReader.WriteToCell("Unb. Cons.", "J6", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J6);
+            excelReader.WriteToCell("Unb. Cons.", "J7", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J7);
+            excelReader.WriteToCell("Unb. Cons.", "J8", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J8);
+            excelReader.WriteToCell("Unb. Cons.", "J9", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J9);
+            excelReader.WriteToCell("Unb. Cons.", "J10", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J10);
+            excelReader.WriteToCell("Unb. Cons.", "J11", easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11);
 
             excelReader.WriteToCell("Unauth. Cons.", "D6", easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6);
             excelReader.WriteToCell("Unauth. Cons.", "H6", easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6);
@@ -126,8 +139,21 @@ namespace GlobalRepository
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Unb. Cons.", "D6"),
 
                 UnbilledCons_UnbMetConsM3_D8 = excelReader.ReadCell<double>("Unb. Cons.", "D8"),
+                UnbilledCons_UnbMetConsM3_D9 = excelReader.ReadCell<double>("Unb. Cons.", "D9"),
+                UnbilledCons_UnbMetConsM3_D10 = excelReader.ReadCell<double>("Unb. Cons.", "D10"),
+                UnbilledCons_UnbMetConsM3_D11 = excelReader.ReadCell<double>("Unb. Cons.", "D11"),
                 UnbilledCons_UnbUnmetConsM3_H6 = excelReader.ReadCell<double>("Unb. Cons.", "H6"),
+                UnbilledCons_UnbUnmetConsM3_H7 = excelReader.ReadCell<double>("Unb. Cons.", "H7"),
+                UnbilledCons_UnbUnmetConsM3_H8 = excelReader.ReadCell<double>("Unb. Cons.", "H8"),
+                UnbilledCons_UnbUnmetConsM3_H9 = excelReader.ReadCell<double>("Unb. Cons.", "H9"),
+                UnbilledCons_UnbUnmetConsM3_H10 = excelReader.ReadCell<double>("Unb. Cons.", "H10"),
+                UnbilledCons_UnbUnmetConsM3_H11 = excelReader.ReadCell<double>("Unb. Cons.", "H11"),
                 UnbilledCons_UnbUnmetConsError_J6 = excelReader.ReadCell<double>("Unb. Cons.", "J6"),
+                UnbilledCons_UnbUnmetConsError_J7 = excelReader.ReadCell<double>("Unb. Cons.", "J7"),
+                UnbilledCons_UnbUnmetConsError_J8 = excelReader.ReadCell<double>("Unb. Cons.", "J8"),
+                UnbilledCons_UnbUnmetConsError_J9 = excelReader.ReadCell<double>("Unb. Cons.", "J9"),
+                UnbilledCons_UnbUnmetConsError_J10 = excelReader.ReadCell<double>("Unb. Cons.", "J10"),
+                UnbilledCons_UnbUnmetConsError_J11 = excelReader.ReadCell<double>("Unb. Cons.", "J11"),
 
                 UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6"),
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6"),

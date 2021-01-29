@@ -155,8 +155,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.UnbilledCons_MetConsBulkWatSupExpM3_D6 = wbEasyCalcData.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 
                     Model.UnbilledCons_UnbMetConsM3_D8 = wbEasyCalcData.UnbilledCons_UnbMetConsM3_D8;
+                    Model.UnbilledCons_UnbMetConsM3_D9 = wbEasyCalcData.UnbilledCons_UnbMetConsM3_D9;
+                    Model.UnbilledCons_UnbMetConsM3_D10 = wbEasyCalcData.UnbilledCons_UnbMetConsM3_D10;
+                    Model.UnbilledCons_UnbMetConsM3_D11 = wbEasyCalcData.UnbilledCons_UnbMetConsM3_D11;
                     Model.UnbilledCons_UnbUnmetConsM3_H6 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H6;
+                    Model.UnbilledCons_UnbUnmetConsM3_H7 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H7;
+                    Model.UnbilledCons_UnbUnmetConsM3_H8 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H8;
+                    Model.UnbilledCons_UnbUnmetConsM3_H9 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H9;
+                    Model.UnbilledCons_UnbUnmetConsM3_H10 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H10;
+                    Model.UnbilledCons_UnbUnmetConsM3_H11 = wbEasyCalcData.UnbilledCons_UnbUnmetConsM3_H11;
                     Model.UnbilledCons_UnbUnmetConsError_J6 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J6;
+                    Model.UnbilledCons_UnbUnmetConsError_J7 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J7;
+                    Model.UnbilledCons_UnbUnmetConsError_J8 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J8;
+                    Model.UnbilledCons_UnbUnmetConsError_J9 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J9;
+                    Model.UnbilledCons_UnbUnmetConsError_J10 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J10;
+                    Model.UnbilledCons_UnbUnmetConsError_J11 = wbEasyCalcData.UnbilledCons_UnbUnmetConsError_J11;
 
                     Model.UnauthCons_IllegalConnDomEstNo_D6 = wbEasyCalcData.UnauthCons_IllegalConnDomEstNo_D6;
                     Model.UnauthCons_IllegalConnDomPersPerHouse_H6 = wbEasyCalcData.UnauthCons_IllegalConnDomPersPerHouse_H6;
@@ -275,8 +288,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.UnbilledCons_MetConsBulkWatSupExpM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 
             Model.UnbilledCons_UnbMetConsM3_D8 = easyCalcDataInput.UnbilledCons_UnbMetConsM3_D8;
+            Model.UnbilledCons_UnbMetConsM3_D9 = easyCalcDataInput.UnbilledCons_UnbMetConsM3_D9;
+            Model.UnbilledCons_UnbMetConsM3_D10 = easyCalcDataInput.UnbilledCons_UnbMetConsM3_D10;
+            Model.UnbilledCons_UnbMetConsM3_D11 = easyCalcDataInput.UnbilledCons_UnbMetConsM3_D11;
             Model.UnbilledCons_UnbUnmetConsM3_H6 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H6;
+            Model.UnbilledCons_UnbUnmetConsM3_H7 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H7;
+            Model.UnbilledCons_UnbUnmetConsM3_H8 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H8;
+            Model.UnbilledCons_UnbUnmetConsM3_H9 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H9;
+            Model.UnbilledCons_UnbUnmetConsM3_H10 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H10;
+            Model.UnbilledCons_UnbUnmetConsM3_H11 = easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H11;
             Model.UnbilledCons_UnbUnmetConsError_J6 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J6;
+            Model.UnbilledCons_UnbUnmetConsError_J7 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J7;
+            Model.UnbilledCons_UnbUnmetConsError_J8 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J8;
+            Model.UnbilledCons_UnbUnmetConsError_J9 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J9;
+            Model.UnbilledCons_UnbUnmetConsError_J10 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J10;
+            Model.UnbilledCons_UnbUnmetConsError_J11 = easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11;
 
             Model.UnauthCons_IllegalConnDomEstNo_D6 = easyCalcDataInput.UnauthCons_IllegalConnDomEstNo_D6;
             Model.UnauthCons_IllegalConnDomPersPerHouse_H6 = easyCalcDataInput.UnauthCons_IllegalConnDomPersPerHouse_H6;

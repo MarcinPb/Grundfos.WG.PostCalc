@@ -116,9 +116,31 @@ namespace WbEasyCalcRepository
             {
                 MeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
-                UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23 = new List<double> { easyCalcDataInput.UnbilledCons_UnbMetConsM3_D8 },
-                UnbilledUnmeteredConsumptionM3_H6_H23 = new List<double> { easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H6 },
-                UnbilledUnmeteredConsumptionError_J6_J23 = new List<double> { easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J6 },
+                UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23 = new List<double> 
+                { 
+                    easyCalcDataInput.UnbilledCons_UnbMetConsM3_D8, 
+                    easyCalcDataInput.UnbilledCons_UnbMetConsM3_D9, 
+                    easyCalcDataInput.UnbilledCons_UnbMetConsM3_D10, 
+                    easyCalcDataInput.UnbilledCons_UnbMetConsM3_D11, 
+                },
+                UnbilledUnmeteredConsumptionM3_H6_H23 = new List<double> 
+                { 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H6, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H7, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H8, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H9, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H10, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsM3_H11, 
+                },
+                UnbilledUnmeteredConsumptionError_J6_J23 = new List<double> 
+                { 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J6, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J7, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J8, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J9, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J10, 
+                    easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11, 
+                },
             };
             data.UnauthorizedConsumptionSheet = new UnauthorizedConsumptionSheet(data)
             {

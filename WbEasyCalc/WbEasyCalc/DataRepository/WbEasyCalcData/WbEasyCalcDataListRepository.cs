@@ -82,8 +82,21 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@UnbilledCons_MetConsBulkWatSupExpM3_D6", model.UnbilledCons_MetConsBulkWatSupExpM3_D6);
 
                 p.Add("@UnbilledCons_UnbMetConsM3_D8", model.UnbilledCons_UnbMetConsM3_D8);
+                p.Add("@UnbilledCons_UnbMetConsM3_D9", model.UnbilledCons_UnbMetConsM3_D9);
+                p.Add("@UnbilledCons_UnbMetConsM3_D10", model.UnbilledCons_UnbMetConsM3_D10);
+                p.Add("@UnbilledCons_UnbMetConsM3_D11", model.UnbilledCons_UnbMetConsM3_D11);
                 p.Add("@UnbilledCons_UnbUnmetConsM3_H6", model.UnbilledCons_UnbUnmetConsM3_H6);
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H7", model.UnbilledCons_UnbUnmetConsM3_H7);
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H8", model.UnbilledCons_UnbUnmetConsM3_H8);
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H9", model.UnbilledCons_UnbUnmetConsM3_H9);
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H10", model.UnbilledCons_UnbUnmetConsM3_H10);
+                p.Add("@UnbilledCons_UnbUnmetConsM3_H11", model.UnbilledCons_UnbUnmetConsM3_H11);
                 p.Add("@UnbilledCons_UnbUnmetConsError_J6", model.UnbilledCons_UnbUnmetConsError_J6);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J7", model.UnbilledCons_UnbUnmetConsError_J7);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J8", model.UnbilledCons_UnbUnmetConsError_J8);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J9", model.UnbilledCons_UnbUnmetConsError_J9);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J10", model.UnbilledCons_UnbUnmetConsError_J10);
+                p.Add("@UnbilledCons_UnbUnmetConsError_J11", model.UnbilledCons_UnbUnmetConsError_J11);
 
                 p.Add("@UnauthCons_IllegalConnDomEstNo_D6", model.UnauthCons_IllegalConnDomEstNo_D6);
                 p.Add("@UnauthCons_IllegalConnDomPersPerHouse_H6", model.UnauthCons_IllegalConnDomPersPerHouse_H6);

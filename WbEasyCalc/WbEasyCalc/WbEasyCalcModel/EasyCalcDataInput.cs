@@ -70,8 +70,21 @@ namespace WbEasyCalc
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6 { get; set; }
 
         public double UnbilledCons_UnbMetConsM3_D8 { get; set; }
+        public double UnbilledCons_UnbMetConsM3_D9 { get; set; }
+        public double UnbilledCons_UnbMetConsM3_D10 { get; set; }
+        public double UnbilledCons_UnbMetConsM3_D11 { get; set; }
         public double UnbilledCons_UnbUnmetConsM3_H6 { get; set; }
+        public double UnbilledCons_UnbUnmetConsM3_H7 { get; set; }
+        public double UnbilledCons_UnbUnmetConsM3_H8 { get; set; }
+        public double UnbilledCons_UnbUnmetConsM3_H9 { get; set; }
+        public double UnbilledCons_UnbUnmetConsM3_H10 { get; set; }
+        public double UnbilledCons_UnbUnmetConsM3_H11 { get; set; }
         public double UnbilledCons_UnbUnmetConsError_J6 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J7 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J8 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J9 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J10 { get; set; }
+        public double UnbilledCons_UnbUnmetConsError_J11 { get; set; }
 
 
         public int UnauthCons_IllegalConnDomEstNo_D6 { get; set; }
@@ -178,8 +191,21 @@ namespace WbEasyCalc
                 UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
                 UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
+                UnbilledCons_UnbMetConsM3_D9 = UnbilledCons_UnbMetConsM3_D9,
+                UnbilledCons_UnbMetConsM3_D10 = UnbilledCons_UnbMetConsM3_D10,
+                UnbilledCons_UnbMetConsM3_D11 = UnbilledCons_UnbMetConsM3_D11,
                 UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
+                UnbilledCons_UnbUnmetConsM3_H7 = UnbilledCons_UnbUnmetConsM3_H7,
+                UnbilledCons_UnbUnmetConsM3_H8 = UnbilledCons_UnbUnmetConsM3_H8,
+                UnbilledCons_UnbUnmetConsM3_H9 = UnbilledCons_UnbUnmetConsM3_H9,
+                UnbilledCons_UnbUnmetConsM3_H10 = UnbilledCons_UnbUnmetConsM3_H10,
+                UnbilledCons_UnbUnmetConsM3_H11 = UnbilledCons_UnbUnmetConsM3_H11,
                 UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
+                UnbilledCons_UnbUnmetConsError_J7 = UnbilledCons_UnbUnmetConsError_J7,
+                UnbilledCons_UnbUnmetConsError_J8 = UnbilledCons_UnbUnmetConsError_J8,
+                UnbilledCons_UnbUnmetConsError_J9 = UnbilledCons_UnbUnmetConsError_J9,
+                UnbilledCons_UnbUnmetConsError_J10 = UnbilledCons_UnbUnmetConsError_J10,
+                UnbilledCons_UnbUnmetConsError_J11 = UnbilledCons_UnbUnmetConsError_J11,
 
                 UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,

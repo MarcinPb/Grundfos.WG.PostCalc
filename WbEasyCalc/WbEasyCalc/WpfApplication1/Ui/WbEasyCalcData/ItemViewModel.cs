@@ -60,8 +60,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
             UnbilledCons_UnbMetConsM3_D8 = UnbilledCons_UnbMetConsM3_D8,
+            UnbilledCons_UnbMetConsM3_D9 = UnbilledCons_UnbMetConsM3_D9,
+            UnbilledCons_UnbMetConsM3_D10 = UnbilledCons_UnbMetConsM3_D10,
+            UnbilledCons_UnbMetConsM3_D11 = UnbilledCons_UnbMetConsM3_D11,
             UnbilledCons_UnbUnmetConsM3_H6 = UnbilledCons_UnbUnmetConsM3_H6,
+            UnbilledCons_UnbUnmetConsM3_H7 = UnbilledCons_UnbUnmetConsM3_H7,
+            UnbilledCons_UnbUnmetConsM3_H8 = UnbilledCons_UnbUnmetConsM3_H8,
+            UnbilledCons_UnbUnmetConsM3_H9 = UnbilledCons_UnbUnmetConsM3_H9,
+            UnbilledCons_UnbUnmetConsM3_H10 = UnbilledCons_UnbUnmetConsM3_H10,
+            UnbilledCons_UnbUnmetConsM3_H11 = UnbilledCons_UnbUnmetConsM3_H11,
             UnbilledCons_UnbUnmetConsError_J6 = UnbilledCons_UnbUnmetConsError_J6,
+            UnbilledCons_UnbUnmetConsError_J7 = UnbilledCons_UnbUnmetConsError_J7,
+            UnbilledCons_UnbUnmetConsError_J8 = UnbilledCons_UnbUnmetConsError_J8,
+            UnbilledCons_UnbUnmetConsError_J9 = UnbilledCons_UnbUnmetConsError_J9,
+            UnbilledCons_UnbUnmetConsError_J10 = UnbilledCons_UnbUnmetConsError_J10,
+            UnbilledCons_UnbUnmetConsError_J11 = UnbilledCons_UnbUnmetConsError_J11,
 
             UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
             UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
@@ -482,17 +495,95 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _unbilledCons_UnbMetConsM3_D8;
             set { _unbilledCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D8)); CalculateExcel(); }
         }
+        private double _unbilledCons_UnbMetConsM3_D9;
+        public double UnbilledCons_UnbMetConsM3_D9
+        {
+            get => _unbilledCons_UnbMetConsM3_D9;
+            set { _unbilledCons_UnbMetConsM3_D9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D9)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbMetConsM3_D10;
+        public double UnbilledCons_UnbMetConsM3_D10
+        {
+            get => _unbilledCons_UnbMetConsM3_D10;
+            set { _unbilledCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D10)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbMetConsM3_D11;
+        public double UnbilledCons_UnbMetConsM3_D11
+        {
+            get => _unbilledCons_UnbMetConsM3_D11;
+            set { _unbilledCons_UnbMetConsM3_D11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D11)); CalculateExcel(); }
+        }
         private double _unbilledCons_UnbUnmetConsM3_H6;
         public double UnbilledCons_UnbUnmetConsM3_H6
         {
             get => _unbilledCons_UnbUnmetConsM3_H6;
             set { _unbilledCons_UnbUnmetConsM3_H6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H6)); CalculateExcel(); }
         }
+        private double _unbilledCons_UnbUnmetConsM3_H7;
+        public double UnbilledCons_UnbUnmetConsM3_H7
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H7;
+            set { _unbilledCons_UnbUnmetConsM3_H7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H7)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsM3_H8;
+        public double UnbilledCons_UnbUnmetConsM3_H8
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H8;
+            set { _unbilledCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H8)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsM3_H9;
+        public double UnbilledCons_UnbUnmetConsM3_H9
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H9;
+            set { _unbilledCons_UnbUnmetConsM3_H9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H9)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsM3_H10;
+        public double UnbilledCons_UnbUnmetConsM3_H10
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H10;
+            set { _unbilledCons_UnbUnmetConsM3_H10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H10)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsM3_H11;
+        public double UnbilledCons_UnbUnmetConsM3_H11
+        {
+            get => _unbilledCons_UnbUnmetConsM3_H11;
+            set { _unbilledCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H11)); CalculateExcel(); }
+        }
         private double _unbilledCons_UnbUnmetConsError_J6;
         public double UnbilledCons_UnbUnmetConsError_J6
         {
             get => _unbilledCons_UnbUnmetConsError_J6;
             set { _unbilledCons_UnbUnmetConsError_J6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J6)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J7;
+        public double UnbilledCons_UnbUnmetConsError_J7
+        {
+            get => _unbilledCons_UnbUnmetConsError_J7;
+            set { _unbilledCons_UnbUnmetConsError_J7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J7)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J8;
+        public double UnbilledCons_UnbUnmetConsError_J8
+        {
+            get => _unbilledCons_UnbUnmetConsError_J8;
+            set { _unbilledCons_UnbUnmetConsError_J8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J8)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J9;
+        public double UnbilledCons_UnbUnmetConsError_J9
+        {
+            get => _unbilledCons_UnbUnmetConsError_J9;
+            set { _unbilledCons_UnbUnmetConsError_J9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J9)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J10;
+        public double UnbilledCons_UnbUnmetConsError_J10
+        {
+            get => _unbilledCons_UnbUnmetConsError_J10;
+            set { _unbilledCons_UnbUnmetConsError_J10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J10)); CalculateExcel(); }
+        }
+        private double _unbilledCons_UnbUnmetConsError_J11;
+        public double UnbilledCons_UnbUnmetConsError_J11
+        {
+            get => _unbilledCons_UnbUnmetConsError_J11;
+            set { _unbilledCons_UnbUnmetConsError_J11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J11)); CalculateExcel(); }
         }
 
 
@@ -1039,8 +1130,21 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             UnbilledCons_MetConsBulkWatSupExpM3_D6 = model.UnbilledCons_MetConsBulkWatSupExpM3_D6;
 
             UnbilledCons_UnbMetConsM3_D8 = model.UnbilledCons_UnbMetConsM3_D8;
+            UnbilledCons_UnbMetConsM3_D9 = model.UnbilledCons_UnbMetConsM3_D9;
+            UnbilledCons_UnbMetConsM3_D10 = model.UnbilledCons_UnbMetConsM3_D10;
+            UnbilledCons_UnbMetConsM3_D11 = model.UnbilledCons_UnbMetConsM3_D11;
             UnbilledCons_UnbUnmetConsM3_H6 = model.UnbilledCons_UnbUnmetConsM3_H6;
+            UnbilledCons_UnbUnmetConsM3_H7 = model.UnbilledCons_UnbUnmetConsM3_H7;
+            UnbilledCons_UnbUnmetConsM3_H8 = model.UnbilledCons_UnbUnmetConsM3_H8;
+            UnbilledCons_UnbUnmetConsM3_H9 = model.UnbilledCons_UnbUnmetConsM3_H9;
+            UnbilledCons_UnbUnmetConsM3_H10 = model.UnbilledCons_UnbUnmetConsM3_H10;
+            UnbilledCons_UnbUnmetConsM3_H11 = model.UnbilledCons_UnbUnmetConsM3_H11;
             UnbilledCons_UnbUnmetConsError_J6 = model.UnbilledCons_UnbUnmetConsError_J6;
+            UnbilledCons_UnbUnmetConsError_J7 = model.UnbilledCons_UnbUnmetConsError_J7;
+            UnbilledCons_UnbUnmetConsError_J8 = model.UnbilledCons_UnbUnmetConsError_J8;
+            UnbilledCons_UnbUnmetConsError_J9 = model.UnbilledCons_UnbUnmetConsError_J9;
+            UnbilledCons_UnbUnmetConsError_J10 = model.UnbilledCons_UnbUnmetConsError_J10;
+            UnbilledCons_UnbUnmetConsError_J11 = model.UnbilledCons_UnbUnmetConsError_J11;
 
             UnauthCons_IllegalConnDomEstNo_D6 = model.UnauthCons_IllegalConnDomEstNo_D6;
             UnauthCons_IllegalConnDomPersPerHouse_H6 = model.UnauthCons_IllegalConnDomPersPerHouse_H6;
