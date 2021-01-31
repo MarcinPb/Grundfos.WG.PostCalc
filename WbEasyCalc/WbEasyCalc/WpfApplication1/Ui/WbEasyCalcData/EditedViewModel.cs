@@ -239,7 +239,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Prs_ApproxNoOfConn_D10 = wbEasyCalcData.Prs_ApproxNoOfConn_D10;
                     Model.Prs_DailyAvgPrsM_F10 = wbEasyCalcData.Prs_DailyAvgPrsM_F10;
                     Model.Prs_ErrorMarg_F26 = wbEasyCalcData.Prs_ErrorMarg_F26;
-                    
+
+                    Model.Interm_Conn_D7 =  wbEasyCalcData.Interm_Conn_D7;
+                    Model.Interm_Conn_D8 =  wbEasyCalcData.Interm_Conn_D8;
+                    Model.Interm_Conn_D9 =  wbEasyCalcData.Interm_Conn_D9;
+                    Model.Interm_Conn_D10 = wbEasyCalcData.Interm_Conn_D10;
+                    Model.Interm_Days_F7 =  wbEasyCalcData.Interm_Days_F7;
+                    Model.Interm_Days_F8 =  wbEasyCalcData.Interm_Days_F8;
+                    Model.Interm_Days_F9 =  wbEasyCalcData.Interm_Days_F9;
+                    Model.Interm_Days_F10 = wbEasyCalcData.Interm_Days_F10;
+                    Model.Interm_Hour_H7 =  wbEasyCalcData.Interm_Hour_H7;
+                    Model.Interm_Hour_H8 =  wbEasyCalcData.Interm_Hour_H8;
+                    Model.Interm_Hour_H9 =  wbEasyCalcData.Interm_Hour_H9;
+                    Model.Interm_Hour_H10 = wbEasyCalcData.Interm_Hour_H10;
+
                     //Model.PIs_IliBestEstimate_F25 = wbEasyCalcData.PIs_IliBestEstimate_F25;
                 }
 
@@ -397,6 +410,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.Prs_ApproxNoOfConn_D10 = easyCalcDataInput.Prs_ApproxNoOfConn_D10;
             Model.Prs_DailyAvgPrsM_F10 = easyCalcDataInput.Prs_DailyAvgPrsM_F10;
             Model.Prs_ErrorMarg_F26 = easyCalcDataInput.Prs_ErrorMarg_F26;
+
+            Model.Interm_Conn_D7 =  easyCalcDataInput.Interm_Conn_D7;
+            Model.Interm_Conn_D8 =  easyCalcDataInput.Interm_Conn_D8;
+            Model.Interm_Conn_D9 =  easyCalcDataInput.Interm_Conn_D9;
+            Model.Interm_Conn_D10 = easyCalcDataInput.Interm_Conn_D10;
+            Model.Interm_Days_F7 =  easyCalcDataInput.Interm_Days_F7;
+            Model.Interm_Days_F8 =  easyCalcDataInput.Interm_Days_F8;
+            Model.Interm_Days_F9 =  easyCalcDataInput.Interm_Days_F9;
+            Model.Interm_Days_F10 = easyCalcDataInput.Interm_Days_F10;
+            Model.Interm_Hour_H7 =  easyCalcDataInput.Interm_Hour_H7;
+            Model.Interm_Hour_H8 =  easyCalcDataInput.Interm_Hour_H8;
+            Model.Interm_Hour_H9 =  easyCalcDataInput.Interm_Hour_H9;
+            Model.Interm_Hour_H10 = easyCalcDataInput.Interm_Hour_H10;
+
         }
     }
 }

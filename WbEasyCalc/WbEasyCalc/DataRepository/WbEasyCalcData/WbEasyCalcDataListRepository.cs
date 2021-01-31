@@ -166,6 +166,20 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Prs_ApproxNoOfConn_D10", model.Prs_ApproxNoOfConn_D10);
                 p.Add("@Prs_DailyAvgPrsM_F10", model.Prs_DailyAvgPrsM_F10);
                 p.Add("@Prs_ErrorMarg_F26", model.Prs_ErrorMarg_F26);
+
+                p.Add("@Interm_Conn_D7", model.Interm_Conn_D7);
+                p.Add("@Interm_Conn_D8", model.Interm_Conn_D8 );
+                p.Add("@Interm_Conn_D9", model.Interm_Conn_D9 );
+                p.Add("@Interm_Conn_D10", model.Interm_Conn_D10);
+                p.Add("@Interm_Days_F7", model.Interm_Days_F7 );
+                p.Add("@Interm_Days_F8", model.Interm_Days_F8 );
+                p.Add("@Interm_Days_F9", model.Interm_Days_F9 );
+                p.Add("@Interm_Days_F10", model.Interm_Days_F10);
+                p.Add("@Interm_Hour_H7", model.Interm_Hour_H7 );
+                p.Add("@Interm_Hour_H8", model.Interm_Hour_H8 );
+                p.Add("@Interm_Hour_H9", model.Interm_Hour_H9 );
+                p.Add("@Interm_Hour_H10", model.Interm_Hour_H10);
+
                 p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);                
                 // output
                 p.Add("@SystemInputVolume_B19", model.SystemInputVolume_B19);

@@ -150,6 +150,23 @@ namespace DataModel
         public double Prs_Min_F29 { get; set; }
         public double Prs_Max_F31 { get; set; }
 
+
+        public double Interm_Conn_D7 { get; set; }
+        public double Interm_Conn_D8 { get; set; }
+        public double Interm_Conn_D9 { get; set; }
+        public double Interm_Conn_D10 { get; set; }
+        public double Interm_Days_F7 { get; set; }
+        public double Interm_Days_F8 { get; set; }
+        public double Interm_Days_F9 { get; set; }
+        public double Interm_Days_F10 { get; set; }
+        public double Interm_Hour_H7 { get; set; }
+        public double Interm_Hour_H8 { get; set; }
+        public double Interm_Hour_H9 { get; set; }
+        public double Interm_Hour_H10 { get; set; }
+
+
+
+
         public double PIs_IliBestEstimate_F25 { get; set; }
 
         // output
@@ -330,6 +347,19 @@ namespace DataModel
                 Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                 Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
 
+                Interm_Conn_D7  = Interm_Conn_D7,
+                Interm_Conn_D8  = Interm_Conn_D8,
+                Interm_Conn_D9  = Interm_Conn_D9,
+                Interm_Conn_D10 = Interm_Conn_D10,
+                Interm_Days_F7  = Interm_Days_F7,
+                Interm_Days_F8  = Interm_Days_F8,
+                Interm_Days_F9  = Interm_Days_F9,
+                Interm_Days_F10 = Interm_Days_F10,
+                Interm_Hour_H7  = Interm_Hour_H7,
+                Interm_Hour_H8  = Interm_Hour_H8,
+                Interm_Hour_H9  = Interm_Hour_H9,
+                Interm_Hour_H10 = Interm_Hour_H10,
+
                 PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
                 // output
@@ -497,6 +527,20 @@ namespace DataModel
                     Prs_ApproxNoOfConn_D10 = Prs_ApproxNoOfConn_D10,
                     Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                     Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
+
+                    Interm_Conn_D7 = Interm_Conn_D7,
+                    Interm_Conn_D8 = Interm_Conn_D8,
+                    Interm_Conn_D9 = Interm_Conn_D9,
+                    Interm_Conn_D10 = Interm_Conn_D10,
+                    Interm_Days_F7 = Interm_Days_F7,
+                    Interm_Days_F8 = Interm_Days_F8,
+                    Interm_Days_F9 = Interm_Days_F9,
+                    Interm_Days_F10 = Interm_Days_F10,
+                    Interm_Hour_H7 = Interm_Hour_H7,
+                    Interm_Hour_H8 = Interm_Hour_H8,
+                    Interm_Hour_H9 = Interm_Hour_H9,
+                    Interm_Hour_H10 = Interm_Hour_H10,
+
                 };
                 return _easyCalcDataInput;
             }

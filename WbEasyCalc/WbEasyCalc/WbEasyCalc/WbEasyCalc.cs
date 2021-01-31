@@ -245,7 +245,30 @@ namespace WbEasyCalcRepository
                 },
                 Prs_ErrorMarg_F26 = easyCalcDataInput.Prs_ErrorMarg_F26,
             };
-            data.IntermittentSupply = new IntermittentSupplySheet();
+            data.IntermittentSupply = new IntermittentSupplySheet() 
+            { 
+                Interm_Conn_D7_24_List = new List<double> 
+                {
+                    easyCalcDataInput.Interm_Conn_D7,
+                    easyCalcDataInput.Interm_Conn_D8,
+                    easyCalcDataInput.Interm_Conn_D9,
+                    easyCalcDataInput.Interm_Conn_D10,
+                },
+                Interm_Days_F7_24_List = new List<double> 
+                { 
+                    easyCalcDataInput.Interm_Days_F7,
+                    easyCalcDataInput.Interm_Days_F8,
+                    easyCalcDataInput.Interm_Days_F9,
+                    easyCalcDataInput.Interm_Days_F10,
+                },
+                Interm_Hour_H7_24_List = new List<double> 
+                { 
+                    easyCalcDataInput.Interm_Hour_H7,
+                    easyCalcDataInput.Interm_Hour_H8,
+                    easyCalcDataInput.Interm_Hour_H9,
+                    easyCalcDataInput.Interm_Hour_H10,
+                },
+            };
 
             data.PiSheet = new PiSheet(data);
             data.WaterBalanceSheet = new WaterBalanceSheet();

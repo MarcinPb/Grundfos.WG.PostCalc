@@ -124,6 +124,19 @@ namespace GlobalRepository
             excelReader.WriteToCell("Pressure", "D10", easyCalcDataInput.Prs_ApproxNoOfConn_D10);
             excelReader.WriteToCell("Pressure", "F10", easyCalcDataInput.Prs_DailyAvgPrsM_F10);
 
+            excelReader.WriteToCell("Intermittent Supply", "D7", easyCalcDataInput.Interm_Conn_D7);
+            excelReader.WriteToCell("Intermittent Supply", "D8", easyCalcDataInput.Interm_Conn_D8);
+            excelReader.WriteToCell("Intermittent Supply", "D9", easyCalcDataInput.Interm_Conn_D9);
+            excelReader.WriteToCell("Intermittent Supply", "D10", easyCalcDataInput.Interm_Conn_D10);
+            excelReader.WriteToCell("Intermittent Supply", "F7", easyCalcDataInput.Interm_Days_F7);
+            excelReader.WriteToCell("Intermittent Supply", "F8", easyCalcDataInput.Interm_Days_F8);
+            excelReader.WriteToCell("Intermittent Supply", "F9", easyCalcDataInput.Interm_Days_F9);
+            excelReader.WriteToCell("Intermittent Supply", "F10", easyCalcDataInput.Interm_Days_F10);
+            excelReader.WriteToCell("Intermittent Supply", "H7", easyCalcDataInput.Interm_Hour_H7);
+            excelReader.WriteToCell("Intermittent Supply", "H8", easyCalcDataInput.Interm_Hour_H8);
+            excelReader.WriteToCell("Intermittent Supply", "H9", easyCalcDataInput.Interm_Hour_H9);
+            excelReader.WriteToCell("Intermittent Supply", "H10", easyCalcDataInput.Interm_Hour_H10);
+
             excelReader.WriteToFile(excelFileName);
         }
 
@@ -245,6 +258,20 @@ namespace GlobalRepository
                 Prs_DailyAvgPrsM_F9 = excelReader.ReadCell<double>("Pressure", "F9"),
                 Prs_ApproxNoOfConn_D10 = excelReader.ReadCell<double>("Pressure", "D10"),
                 Prs_DailyAvgPrsM_F10 = excelReader.ReadCell<double>("Pressure", "F10"),
+
+                Interm_Conn_D7 = excelReader.ReadCell<double>("Intermittent Supply", "D7"),
+                Interm_Conn_D8 = excelReader.ReadCell<double>("Intermittent Supply", "D8"),
+                Interm_Conn_D9 = excelReader.ReadCell<double>("Intermittent Supply", "D9"),
+                Interm_Conn_D10 = excelReader.ReadCell<double>("Intermittent Supply", "D10"),
+                Interm_Days_F7 = excelReader.ReadCell<double>("Intermittent Supply", "F7"),
+                Interm_Days_F8 = excelReader.ReadCell<double>("Intermittent Supply", "F8"),
+                Interm_Days_F9 = excelReader.ReadCell<double>("Intermittent Supply", "F9"),
+                Interm_Days_F10 = excelReader.ReadCell<double>("Intermittent Supply", "F10"),
+                Interm_Hour_H7 = excelReader.ReadCell<double>("Intermittent Supply", "H7"),
+                Interm_Hour_H8 = excelReader.ReadCell<double>("Intermittent Supply", "H8"),
+                Interm_Hour_H9 = excelReader.ReadCell<double>("Intermittent Supply", "H9"),
+                Interm_Hour_H10 = excelReader.ReadCell<double>("Intermittent Supply", "H10"),
+
             };
 
             return easyCalcDataInput;
