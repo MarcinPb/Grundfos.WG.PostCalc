@@ -221,12 +221,6 @@
             <TextBox Grid.Row="19" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="8" Text="" />
-            <TextBox Grid.Row="17" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="18" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="19" Grid.Column="8" Text="" Style="{StaticResource TextListLeftStyle}" />
-            <Border Grid.Row="16" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
-
             <TextBox Grid.Row="16" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="17" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F19, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
             <TextBox Grid.Row="18" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F20, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
