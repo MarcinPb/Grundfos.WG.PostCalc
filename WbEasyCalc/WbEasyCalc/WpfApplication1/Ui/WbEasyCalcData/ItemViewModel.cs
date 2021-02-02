@@ -235,6 +235,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_Min_F29 = Prs_Min_F29,
             Prs_Max_F31 = Prs_Max_F31,
 
+            SysInput_ErrorMarg_F72 = SysInput_ErrorMarg_F72,
+            SysInput_Min_D75 = SysInput_Min_D75,
+            SysInput_Max_D77 = SysInput_Max_D77,
+            SysInput_BestEstimate_D79 = SysInput_BestEstimate_D79,
+
             Interm_Min_H29 = Interm_Min_H29,
             Interm_Max_H31 = Interm_Max_H31,
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
@@ -1571,6 +1576,38 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _prs_Max_F31 = value; RaisePropertyChanged(nameof(Prs_Max_F31)); }
         }
 
+
+
+        private double _sysInput_ErrorMarg_F72;
+        public double SysInput_ErrorMarg_F72
+        {
+            get => _sysInput_ErrorMarg_F72;
+            set { _sysInput_ErrorMarg_F72 = value; 
+                RaisePropertyChanged(nameof(SysInput_ErrorMarg_F72)); 
+            }
+        }
+        private double _sysInput_Min_D75;
+        public double SysInput_Min_D75
+        {
+            get => _sysInput_Min_D75;
+            set { _sysInput_Min_D75 = value; RaisePropertyChanged(nameof(SysInput_Min_D75)); }
+        }
+        private double _sysInput_Max_D77;
+        public double SysInput_Max_D77
+        {
+            get => _sysInput_Max_D77;
+            set { _sysInput_Max_D77 = value; RaisePropertyChanged(nameof(SysInput_Max_D77)); }
+        }
+        private double _sysInput_BestEstimate_D79;
+        public double SysInput_BestEstimate_D79
+        {
+            get => _sysInput_BestEstimate_D79;
+            set { _sysInput_BestEstimate_D79 = value; 
+                RaisePropertyChanged(nameof(SysInput_BestEstimate_D79)); 
+            }
+        }
+
+
         private double _interm_BestEstimate_H33;
         public double Interm_BestEstimate_H33
         { 
@@ -1849,6 +1886,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_Min_F29 = model.Prs_Min_F29;
             Prs_Max_F31 = model.Prs_Max_F31;
 
+            SysInput_ErrorMarg_F72 = model.SysInput_ErrorMarg_F72;
+            SysInput_Min_D75 = model.SysInput_Min_D75;
+            SysInput_Max_D77 = model.SysInput_Max_D77;
+            SysInput_BestEstimate_D79 = model.SysInput_BestEstimate_D79;
+
             Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
             Interm_Min_H29 = model.Interm_Min_H29;
             Interm_Max_H31 = model.Interm_Max_H31;
@@ -1922,6 +1964,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
             Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
+
+            SysInput_ErrorMarg_F72 = easyCalcDataOutput.SysInput_ErrorMarg_F72;
+            SysInput_Min_D75 = easyCalcDataOutput.SysInput_Min_D75;
+            SysInput_Max_D77 = easyCalcDataOutput.SysInput_Max_D77;
+            SysInput_BestEstimate_D79 = easyCalcDataOutput.SysInput_BestEstimate_D79;
 
             Interm_BestEstimate_H33 = easyCalcDataOutput.Interm_BestEstimate_H33;
             Interm_Min_H29 = easyCalcDataOutput.Interm_Min_H29;

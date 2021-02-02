@@ -192,6 +192,14 @@ namespace DataModel
         public double Prs_Max_F31 { get; set; }
         public double Prs_BestEstimate_F33 { get; set; }
 
+        public double SysInput_ErrorMarg_F72 { get; set; }
+        public double SysInput_Min_D75 { get; set; }
+        public double SysInput_Max_D77 { get; set; }
+        public double SysInput_BestEstimate_D79 { get; set; }
+
+
+
+
         public double Interm_ErrorMarg_H26 { get; set; }
         public double Interm_Min_H29 { get; set; }
         public double Interm_Max_H31 { get; set; }
@@ -251,10 +259,6 @@ namespace DataModel
 
         public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
         public double AveragePressureMBestEstimate_F11 { get; set; }
-
-
-
-
 
         public double Pis_AverageSupplyTime_F9 { get; set; }
         public double Pis_AverageSupplyTime_H9 { get; set; }
@@ -487,6 +491,11 @@ namespace DataModel
                 Prs_Min_F29 = Prs_Min_F29,
                 Prs_Max_F31 = Prs_Max_F31,
                 Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
+
+                SysInput_ErrorMarg_F72 = SysInput_ErrorMarg_F72,
+                SysInput_Min_D75 = SysInput_Min_D75,
+                SysInput_Max_D77 = SysInput_Max_D77,
+                SysInput_BestEstimate_D79 = SysInput_BestEstimate_D79,
 
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,

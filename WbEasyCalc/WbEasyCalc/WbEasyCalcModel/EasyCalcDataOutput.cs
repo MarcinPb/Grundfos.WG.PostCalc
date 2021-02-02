@@ -44,6 +44,11 @@ namespace WbEasyCalc
         public double Prs_Max_F31 { get; set; }
         public double Prs_BestEstimate_F33 { get; set; } // 30.0 
 
+        public double SysInput_ErrorMarg_F72 { get; set; }
+        public double SysInput_Min_D75 { get; set; }
+        public double SysInput_Max_D77 { get; set; }
+        public double SysInput_BestEstimate_D79 { get; set; }
+
         public double Interm_Min_H29 { get; set; }
         public double Interm_Max_H31 { get; set; }
         public double Interm_BestEstimate_H33 { get; set; }
@@ -95,6 +100,11 @@ namespace WbEasyCalc
                 Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
                 Prs_Min_F29 = Prs_Min_F29,
                 Prs_Max_F31 = Prs_Max_F31,
+
+                SysInput_ErrorMarg_F72 = SysInput_ErrorMarg_F72,
+                SysInput_Min_D75 = SysInput_Min_D75,
+                SysInput_Max_D77 = SysInput_Max_D77,
+                SysInput_BestEstimate_D79 = SysInput_BestEstimate_D79,
 
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,

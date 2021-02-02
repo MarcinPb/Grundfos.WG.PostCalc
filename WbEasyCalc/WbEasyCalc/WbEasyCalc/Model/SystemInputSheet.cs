@@ -17,7 +17,12 @@ namespace WbEasyCalcRepository.Model
         public List<double> SystemInputFactorized_K6_K70 { get => this.GetSystemInputVolumeFactorized(); }
         public double SystemInputVolume_D79 { get => this.SystemInputVolumeM3_D6_D70.Sum(); }
         public double SumFactorizedSqrt_J72 { get => Math.Sqrt(this.SystemInputFactorized_K6_K70.Sum()); }
-        public double ErrorMargin_F72 { get => this.SystemInputVolume_D79 == 0 ? 0 :  this.SumFactorizedSqrt_J72 * Factor / this.SystemInputVolume_D79; }
+        public double ErrorMargin_F72 { get => GetErrorMargin_F72(); }
+        private double GetErrorMargin_F72()
+        {
+            var result = this.SystemInputVolume_D79 == 0 ? 0 :  this.SumFactorizedSqrt_J72 * Factor / this.SystemInputVolume_D79;
+            return result;
+        }
         private List<double> GetSystemInputVolumeFactorized()
         {
             var result = new List<double>();
@@ -29,5 +34,17 @@ namespace WbEasyCalcRepository.Model
 
             return result;
         }
+
+        public double Min_D75 { get => this.GetMin_D75(); }
+        private double GetMin_D75()
+        {
+            return SystemInputVolume_D79 == 0 ? 0 : SystemInputVolume_D79 * (1 - ErrorMargin_F72);
+        }
+        public double Max_D77 { get => this.GetMax_D77(); }
+        private double GetMax_D77()
+        {
+            return SystemInputVolume_D79 == 0 ? 0 : SystemInputVolume_D79 * (1 + ErrorMargin_F72);
+        }
+
     }
 }

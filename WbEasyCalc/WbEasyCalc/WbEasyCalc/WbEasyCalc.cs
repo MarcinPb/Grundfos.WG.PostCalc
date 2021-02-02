@@ -59,6 +59,11 @@ namespace WbEasyCalcRepository
                 Prs_Min_F29 = easyCalcSheetData.PressureSheet.Prs_Min_F29,
                 Prs_Max_F31 = easyCalcSheetData.PressureSheet.Prs_Max_F31,
 
+                SysInput_ErrorMarg_F72 = easyCalcSheetData.SystemInputSheet.ErrorMargin_F72,
+                SysInput_Min_D75 = easyCalcSheetData.SystemInputSheet.Min_D75,
+                SysInput_Max_D77 = easyCalcSheetData.SystemInputSheet.Max_D77,
+                SysInput_BestEstimate_D79 = easyCalcSheetData.SystemInputSheet.SystemInputVolume_D79,
+
                 Interm_BestEstimate_H33 = easyCalcSheetData.IntermittentSupply.SupplyTimeBestEstimate_H33,
                 Interm_Min_H29 = easyCalcSheetData.IntermittentSupply.Interm_Min_F29,
                 Interm_Max_H31 = easyCalcSheetData.IntermittentSupply.Interm_Max_F31,
