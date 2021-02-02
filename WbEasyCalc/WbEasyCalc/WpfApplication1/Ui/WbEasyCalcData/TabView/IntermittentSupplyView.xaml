@@ -51,10 +51,10 @@
         <Label Grid.Row="2" Grid.Column="4" Content="Supply Time&#xD;&#xA;   [days per&#xD;&#xA;      week]"   Style="{StaticResource LabelBlueColTitleStyle}" />
         <Label Grid.Row="2" Grid.Column="6" Content="   Supply Time&#xD;&#xA;[hours per day]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-        <TextBox Grid.Row="4" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="0" Text="asdfasfd" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="6" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-        <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
+        <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Path=Model.Interm_Area_B7}"  Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Text="{Binding Path=Model.Interm_Area_B8}"  Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Model.Interm_Area_B9}"  Style="{StaticResource TextListLeftStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="0" Text="{Binding Path=Model.Interm_Area_B10}" Style="{StaticResource TextListLeftStyle}" />
         <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Interm_Conn_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />

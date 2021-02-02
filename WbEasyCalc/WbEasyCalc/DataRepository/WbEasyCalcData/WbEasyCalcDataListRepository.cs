@@ -67,6 +67,41 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@SysInput_SystemInputVolumeM3_D9", model.SysInput_SystemInputVolumeM3_D9);
                 p.Add("@SysInput_SystemInputVolumeError_F9", model.SysInput_SystemInputVolumeError_F9);
 
+                p.Add("@BilledCons_Desc_B8", model.BilledCons_Desc_B8   );
+                p.Add("@BilledCons_Desc_B9", model.BilledCons_Desc_B9   );
+                p.Add("@BilledCons_Desc_B10", model.BilledCons_Desc_B10  );
+                p.Add("@BilledCons_Desc_B11", model.BilledCons_Desc_B11  );
+                p.Add("@BilledCons_Desc_F8", model.BilledCons_Desc_F8   );
+                p.Add("@BilledCons_Desc_F9", model.BilledCons_Desc_F9   );
+                p.Add("@BilledCons_Desc_F10", model.BilledCons_Desc_F10  );
+                p.Add("@BilledCons_Desc_F11", model.BilledCons_Desc_F11  );
+                p.Add("@UnbilledCons_Desc_D8", model.UnbilledCons_Desc_D8 );
+                p.Add("@UnbilledCons_Desc_D9", model.UnbilledCons_Desc_D9 );
+                p.Add("@UnbilledCons_Desc_D10", model.UnbilledCons_Desc_D10);
+                p.Add("@UnbilledCons_Desc_D11", model.UnbilledCons_Desc_D11);
+                p.Add("@UnbilledCons_Desc_F6", model.UnbilledCons_Desc_F6 );
+                p.Add("@UnbilledCons_Desc_F7", model.UnbilledCons_Desc_F7 );
+                p.Add("@UnbilledCons_Desc_F8", model.UnbilledCons_Desc_F8 );
+                p.Add("@UnbilledCons_Desc_F9", model.UnbilledCons_Desc_F9 );
+                p.Add("@UnbilledCons_Desc_F10", model.UnbilledCons_Desc_F10);
+                p.Add("@UnbilledCons_Desc_F11", model.UnbilledCons_Desc_F11);
+                p.Add("@UnauthCons_Desc_B18", model.UnauthCons_Desc_B18  );
+                p.Add("@UnauthCons_Desc_B19", model.UnauthCons_Desc_B19  );
+                p.Add("@UnauthCons_Desc_B20", model.UnauthCons_Desc_B20  );
+                p.Add("@UnauthCons_Desc_B21", model.UnauthCons_Desc_B21  );
+                p.Add("@MetErrors_Desc_D12", model.MetErrors_Desc_D12   );
+                p.Add("@MetErrors_Desc_D13", model.MetErrors_Desc_D13   );
+                p.Add("@MetErrors_Desc_D14", model.MetErrors_Desc_D14   );
+                p.Add("@MetErrors_Desc_D15", model.MetErrors_Desc_D15   );
+                p.Add("@Network_Desc_B7", model.Network_Desc_B7      );
+                p.Add("@Network_Desc_B8", model.Network_Desc_B8      );
+                p.Add("@Network_Desc_B9", model.Network_Desc_B9      );
+                p.Add("@Network_Desc_B10", model.Network_Desc_B10     );
+                p.Add("@Interm_Area_B7", model.Interm_Area_B7       );
+                p.Add("@Interm_Area_B8", model.Interm_Area_B8       );
+                p.Add("@Interm_Area_B9", model.Interm_Area_B9       );
+                p.Add("@Interm_Area_B10", model.Interm_Area_B10      );
+
                 p.Add("@BilledCons_BilledMetConsBulkWatSupExpM3_D6", model.BilledCons_BilledMetConsBulkWatSupExpM3_D6);
                 p.Add("@BilledCons_BilledUnmetConsBulkWatSupExpM3_H6", model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
 

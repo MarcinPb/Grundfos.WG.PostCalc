@@ -57,10 +57,10 @@
                 <Label Grid.Row="4" Grid.Column="0" Content="Bulk Water Supply (Export)" Style="{StaticResource LabelBlueLeftStyle}" />
                 <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_MetConsBulkWatSupExpM3_D6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
 
-                <TextBox Grid.Row="6" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="7" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="8" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="9" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
+                <TextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Model.UnbilledCons_Desc_D8}"  Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="0" Text="{Binding Path=Model.UnbilledCons_Desc_D9}"  Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="8" Grid.Column="0" Text="{Binding Path=Model.UnbilledCons_Desc_D10}" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="0" Text="{Binding Path=Model.UnbilledCons_Desc_D11}" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="6" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
                 <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.UnbilledCons_UnbMetConsM3_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
@@ -85,12 +85,12 @@
                 <Label Grid.Row="2" Grid.Column="6" Content="[m3]"   Style="{StaticResource LabelBlueColTitleStyle}" />
                 <Label Grid.Row="2" Grid.Column="8" Content="Error Margin&#xD;&#xA;     [+/- %]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-                <TextBox Grid.Row="4" Grid.Column="4" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="5" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="6" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="7" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
-                <TextBox Grid.Row="8" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}"/>
-                <TextBox Grid.Row="9" Grid.Column="4" Text="" Style="{StaticResource TextListLeftStyle}" />
+                <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F6}"  Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="5" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F7}"  Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="6" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F8}"  Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="7" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F9}"  Style="{StaticResource TextListLeftStyle}" />
+                <TextBox Grid.Row="8" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F10}" Style="{StaticResource TextListLeftStyle}"/>
+                <TextBox Grid.Row="9" Grid.Column="4" Text="{Binding Path=Model.UnbilledCons_Desc_F11}" Style="{StaticResource TextListLeftStyle}" />
                 <Border Grid.Row="4" Grid.Column="4" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
 
                 <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.UnbilledCons_UnbUnmetConsM3_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />

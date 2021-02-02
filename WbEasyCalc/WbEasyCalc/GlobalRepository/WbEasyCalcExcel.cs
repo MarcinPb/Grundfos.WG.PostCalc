@@ -24,6 +24,43 @@ namespace GlobalRepository
             excelReader.WriteToCell("Sys. Input", "F8", easyCalcDataInput.SysInput_SystemInputVolumeError_F8);
             excelReader.WriteToCell("Sys. Input", "D9", easyCalcDataInput.SysInput_SystemInputVolumeM3_D9);
             excelReader.WriteToCell("Sys. Input", "F9", easyCalcDataInput.SysInput_SystemInputVolumeError_F9);
+            
+            excelReader.WriteToCell("Billed Cons","B8", easyCalcDataInput.BilledCons_Desc_B8);
+            excelReader.WriteToCell("Billed Cons","B9", easyCalcDataInput.BilledCons_Desc_B9);
+            excelReader.WriteToCell("Billed Cons","B10", easyCalcDataInput.BilledCons_Desc_B10);
+            excelReader.WriteToCell("Billed Cons","B11", easyCalcDataInput.BilledCons_Desc_B11);
+            excelReader.WriteToCell("Billed Cons","F8", easyCalcDataInput.BilledCons_Desc_F8);
+            excelReader.WriteToCell("Billed Cons","F9", easyCalcDataInput.BilledCons_Desc_F9);
+            excelReader.WriteToCell("Billed Cons","F10", easyCalcDataInput.BilledCons_Desc_F10);
+            excelReader.WriteToCell("Billed Cons","F11", easyCalcDataInput.BilledCons_Desc_F11);
+            excelReader.WriteToCell("Unb. Cons.","D8", easyCalcDataInput.UnbilledCons_Desc_D8);
+            excelReader.WriteToCell("Unb. Cons.","D9", easyCalcDataInput.UnbilledCons_Desc_D9);
+            excelReader.WriteToCell("Unb. Cons.","D10", easyCalcDataInput.UnbilledCons_Desc_D10);
+            excelReader.WriteToCell("Unb. Cons.","D11", easyCalcDataInput.UnbilledCons_Desc_D11);
+            excelReader.WriteToCell("Unb. Cons.","F6", easyCalcDataInput.UnbilledCons_Desc_F6);
+            excelReader.WriteToCell("Unb. Cons.","F7", easyCalcDataInput.UnbilledCons_Desc_F7);
+            excelReader.WriteToCell("Unb. Cons.","F8", easyCalcDataInput.UnbilledCons_Desc_F8);
+            excelReader.WriteToCell("Unb. Cons.","F9", easyCalcDataInput.UnbilledCons_Desc_F9);
+            excelReader.WriteToCell("Unb. Cons.","F10", easyCalcDataInput.UnbilledCons_Desc_F10);
+            excelReader.WriteToCell("Unb. Cons.", "F11", easyCalcDataInput.UnbilledCons_Desc_F11);
+            excelReader.WriteToCell("Unauth. Cons.","B18", easyCalcDataInput.UnauthCons_Desc_B18);
+            excelReader.WriteToCell("Unauth. Cons.","B19", easyCalcDataInput.UnauthCons_Desc_B19);
+            excelReader.WriteToCell("Unauth. Cons.","B20", easyCalcDataInput.UnauthCons_Desc_B20);
+            excelReader.WriteToCell("Unauth. Cons.","B21", easyCalcDataInput.UnauthCons_Desc_B21);
+            excelReader.WriteToCell("Meter Errors","D12", easyCalcDataInput.MetErrors_Desc_D12);
+            excelReader.WriteToCell("Meter Errors","D13", easyCalcDataInput.MetErrors_Desc_D13);
+            excelReader.WriteToCell("Meter Errors","D14", easyCalcDataInput.MetErrors_Desc_D14);
+            excelReader.WriteToCell("Meter Errors","D15", easyCalcDataInput.MetErrors_Desc_D15);
+            excelReader.WriteToCell("Network","B7", easyCalcDataInput.Network_Desc_B7);
+            excelReader.WriteToCell("Network","B8", easyCalcDataInput.Network_Desc_B8);
+            excelReader.WriteToCell("Network","B9", easyCalcDataInput.Network_Desc_B9);
+            excelReader.WriteToCell("Network","B10", easyCalcDataInput.Network_Desc_B10);
+            excelReader.WriteToCell("Intermittent Supply","B7", easyCalcDataInput.Interm_Area_B7);
+            excelReader.WriteToCell("Intermittent Supply","B8", easyCalcDataInput.Interm_Area_B8);
+            excelReader.WriteToCell("Intermittent Supply","B9", easyCalcDataInput.Interm_Area_B9);
+            excelReader.WriteToCell("Intermittent Supply","B10", easyCalcDataInput.Interm_Area_B10);
+
+
 
             excelReader.WriteToCell("Billed Cons", "D6", easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6);
             excelReader.WriteToCell("Billed Cons", "H6", easyCalcDataInput.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6);
@@ -161,6 +198,40 @@ namespace GlobalRepository
                 SysInput_SystemInputVolumeM3_D9 = excelReader.ReadCell<double>("Sys. Input", "D9"),
                 SysInput_SystemInputVolumeError_F9 = excelReader.ReadCell<double>("Sys. Input", "F9"),
 
+                BilledCons_Desc_B8 = excelReader.ReadCell<string>("Billed Cons", "B8"),
+                BilledCons_Desc_B9 = excelReader.ReadCell<string>("Billed Cons", "B9"),
+                BilledCons_Desc_B10 = excelReader.ReadCell<string>("Billed Cons", "B10"),
+                BilledCons_Desc_B11 = excelReader.ReadCell<string>("Billed Cons", "B11"),
+                BilledCons_Desc_F8 = excelReader.ReadCell<string>("Billed Cons", "F8"),
+                BilledCons_Desc_F9 = excelReader.ReadCell<string>("Billed Cons", "F9"),
+                BilledCons_Desc_F10 = excelReader.ReadCell<string>("Billed Cons", "F10"),
+                BilledCons_Desc_F11 = excelReader.ReadCell<string>("Billed Cons", "F11"),
+                UnbilledCons_Desc_D8 = excelReader.ReadCell<string>("Unb. Cons.", "D8"),
+                UnbilledCons_Desc_D9 = excelReader.ReadCell<string>("Unb. Cons.", "D9"),
+                UnbilledCons_Desc_D10 = excelReader.ReadCell<string>("Unb. Cons.", "D10"),
+                UnbilledCons_Desc_D11 = excelReader.ReadCell<string>("Unb. Cons.", "D11"),
+                UnbilledCons_Desc_F6 = excelReader.ReadCell<string>("Unb. Cons.", "F6"),
+                UnbilledCons_Desc_F7 = excelReader.ReadCell<string>("Unb. Cons.", "F7"),
+                UnbilledCons_Desc_F8 = excelReader.ReadCell<string>("Unb. Cons.", "F8"),
+                UnbilledCons_Desc_F9 = excelReader.ReadCell<string>("Unb. Cons.", "F9"),
+                UnbilledCons_Desc_F10 = excelReader.ReadCell<string>("Unb. Cons.", "F10"),
+                UnbilledCons_Desc_F11 = excelReader.ReadCell<string>("Unb. Cons.", "F11"),
+                UnauthCons_Desc_B18 = excelReader.ReadCell<string>("Unauth. Cons.", "B18"),
+                UnauthCons_Desc_B19 = excelReader.ReadCell<string>("Unauth. Cons.", "B19"),
+                UnauthCons_Desc_B20 = excelReader.ReadCell<string>("Unauth. Cons.", "B20"),
+                UnauthCons_Desc_B21 = excelReader.ReadCell<string>("Unauth. Cons.", "B21"),
+                MetErrors_Desc_D12 = excelReader.ReadCell<string>("Meter Errors", "D12"),
+                MetErrors_Desc_D13 = excelReader.ReadCell<string>("Meter Errors", "D13"),
+                MetErrors_Desc_D14 = excelReader.ReadCell<string>("Meter Errors", "D14"),
+                MetErrors_Desc_D15 = excelReader.ReadCell<string>("Meter Errors", "D15"),
+                Network_Desc_B7 = excelReader.ReadCell<string>("Network", "B7"),
+                Network_Desc_B8 = excelReader.ReadCell<string>("Network", "B8"),
+                Network_Desc_B9 = excelReader.ReadCell<string>("Network", "B9"),
+                Network_Desc_B10 = excelReader.ReadCell<string>("Network", "B10"),
+                Interm_Area_B7 = excelReader.ReadCell<string>("Intermittent Supply", "B7"),
+                Interm_Area_B8 = excelReader.ReadCell<string>("Intermittent Supply", "B8"),
+                Interm_Area_B9 = excelReader.ReadCell<string>("Intermittent Supply", "B9"),
+                Interm_Area_B10 = excelReader.ReadCell<string>("Intermittent Supply", "B10"),
 
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = excelReader.ReadCell<double>("Billed Cons", "D6"),
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = excelReader.ReadCell<double>("Billed Cons", "H6"),
@@ -193,14 +264,14 @@ namespace GlobalRepository
                 UnbilledCons_UnbUnmetConsError_J10 = excelReader.ReadCell<double>("Unb. Cons.", "J10"),
                 UnbilledCons_UnbUnmetConsError_J11 = excelReader.ReadCell<double>("Unb. Cons.", "J11"),
 
-                UnauthCons_OthersErrorMargin_F18 = excelReader.ReadCell<double>("Unb. Cons.", "F18"),
-                UnauthCons_OthersErrorMargin_F19 = excelReader.ReadCell<double>("Unb. Cons.", "F19"),
-                UnauthCons_OthersErrorMargin_F20 = excelReader.ReadCell<double>("Unb. Cons.", "F20"),
-                UnauthCons_OthersErrorMargin_F21 = excelReader.ReadCell<double>("Unb. Cons.", "F21"),
-                UnauthCons_OthersM3PerDay_J18 = excelReader.ReadCell<double>("Unb. Cons.", "J18"),
-                UnauthCons_OthersM3PerDay_J19 = excelReader.ReadCell<double>("Unb. Cons.", "J19"),
-                UnauthCons_OthersM3PerDay_J20 = excelReader.ReadCell<double>("Unb. Cons.", "J20"),
-                UnauthCons_OthersM3PerDay_J21 = excelReader.ReadCell<double>("Unb. Cons.", "J21"),
+                UnauthCons_OthersErrorMargin_F18 = excelReader.ReadCell<double>("Unauth. Cons.", "F18"),
+                UnauthCons_OthersErrorMargin_F19 = excelReader.ReadCell<double>("Unauth. Cons.", "F19"),
+                UnauthCons_OthersErrorMargin_F20 = excelReader.ReadCell<double>("Unauth. Cons.", "F20"),
+                UnauthCons_OthersErrorMargin_F21 = excelReader.ReadCell<double>("Unauth. Cons.", "F21"),
+                UnauthCons_OthersM3PerDay_J18 = excelReader.ReadCell<double>("Unauth. Cons.", "J18"),
+                UnauthCons_OthersM3PerDay_J19 = excelReader.ReadCell<double>("Unauth. Cons.", "J19"),
+                UnauthCons_OthersM3PerDay_J20 = excelReader.ReadCell<double>("Unauth. Cons.", "J20"),
+                UnauthCons_OthersM3PerDay_J21 = excelReader.ReadCell<double>("Unauth. Cons.", "J21"),
 
                 UnauthCons_IllegalConnDomEstNo_D6 = excelReader.ReadCell<int>("Unauth. Cons.", "D6"),
                 UnauthCons_IllegalConnDomPersPerHouse_H6 = excelReader.ReadCell<double>("Unauth. Cons.", "H6"),

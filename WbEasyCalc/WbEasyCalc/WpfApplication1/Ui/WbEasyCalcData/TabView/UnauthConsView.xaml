@@ -215,10 +215,10 @@
 
             <Label Grid.Row="14" Grid.Column="8" Content="Consumption [m3/day]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-            <TextBox Grid.Row="16" Grid.Column="0" Text="Strefa Przybków automat" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="17" Grid.Column="0" Text="asdfasfd" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="18" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="19" Grid.Column="0" Text="" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="16" Grid.Column="0" Text="{Binding Path=Model.UnauthCons_Desc_B18}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="17" Grid.Column="0" Text="{Binding Path=Model.UnauthCons_Desc_B19}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="18" Grid.Column="0" Text="{Binding Path=Model.UnauthCons_Desc_B20}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="19" Grid.Column="0" Text="{Binding Path=Model.UnauthCons_Desc_B21}" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="16" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <TextBox Grid.Row="16" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_OthersErrorMargin_F18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />

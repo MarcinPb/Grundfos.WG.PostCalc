@@ -45,6 +45,44 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
             SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
 
+
+            BilledCons_Desc_B8 = BilledCons_Desc_B8,
+            BilledCons_Desc_B9 = BilledCons_Desc_B9,
+            BilledCons_Desc_B10 = BilledCons_Desc_B10,
+            BilledCons_Desc_B11 = BilledCons_Desc_B11,
+            BilledCons_Desc_F8 = BilledCons_Desc_F8,
+            BilledCons_Desc_F9 = BilledCons_Desc_F9,
+            BilledCons_Desc_F10 = BilledCons_Desc_F10,
+            BilledCons_Desc_F11 = BilledCons_Desc_F11,
+            UnbilledCons_Desc_D8 = UnbilledCons_Desc_D8,
+            UnbilledCons_Desc_D9 = UnbilledCons_Desc_D9,
+            UnbilledCons_Desc_D10 = UnbilledCons_Desc_D10,
+            UnbilledCons_Desc_D11 = UnbilledCons_Desc_D11,
+            UnbilledCons_Desc_F6 = UnbilledCons_Desc_F6,
+            UnbilledCons_Desc_F7 = UnbilledCons_Desc_F7,
+            UnbilledCons_Desc_F8 = UnbilledCons_Desc_F8,
+            UnbilledCons_Desc_F9 = UnbilledCons_Desc_F9,
+            UnbilledCons_Desc_F10 = UnbilledCons_Desc_F10,
+            UnbilledCons_Desc_F11 = UnbilledCons_Desc_F11,
+            UnauthCons_Desc_B18 = UnauthCons_Desc_B18,
+            UnauthCons_Desc_B19 = UnauthCons_Desc_B19,
+            UnauthCons_Desc_B20 = UnauthCons_Desc_B20,
+            UnauthCons_Desc_B21 = UnauthCons_Desc_B21,
+            MetErrors_Desc_D12 = MetErrors_Desc_D12,
+            MetErrors_Desc_D13 = MetErrors_Desc_D13,
+            MetErrors_Desc_D14 = MetErrors_Desc_D14,
+            MetErrors_Desc_D15 = MetErrors_Desc_D15,
+            Network_Desc_B7 = Network_Desc_B7,
+            Network_Desc_B8 = Network_Desc_B8,
+            Network_Desc_B9 = Network_Desc_B9,
+            Network_Desc_B10 = Network_Desc_B10,
+            Interm_Area_B7 = Interm_Area_B7,
+            Interm_Area_B8 = Interm_Area_B8,
+            Interm_Area_B9 = Interm_Area_B9,
+            Interm_Area_B10 = Interm_Area_B10,
+
+
+
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
@@ -452,6 +490,224 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _sysInputSystemInputVolumeErrorF9;
             set { _sysInputSystemInputVolumeErrorF9 = value; RaisePropertyChanged(nameof(SysInput_SystemInputVolumeError_F9)); CalculateExcel(); }
         }
+
+
+        private string _billedCons_Desc_B8;
+        public string BilledCons_Desc_B8
+        {
+            get => _billedCons_Desc_B8;
+            set { _billedCons_Desc_B8 = value; RaisePropertyChanged(nameof(BilledCons_Desc_B8)); }
+        }
+        private string _billedCons_Desc_B9;
+        public string BilledCons_Desc_B9
+        {
+            get => _billedCons_Desc_B9;
+            set { _billedCons_Desc_B9 = value; RaisePropertyChanged(nameof(BilledCons_Desc_B9)); }
+        }
+        private string _billedCons_Desc_B10;
+        public string BilledCons_Desc_B10
+        {
+            get => _billedCons_Desc_B10;
+            set { _billedCons_Desc_B10 = value; RaisePropertyChanged(nameof(BilledCons_Desc_B10)); }
+        }
+        private string _billedCons_Desc_B11;
+        public string BilledCons_Desc_B11
+        {
+            get => _billedCons_Desc_B11;
+            set { _billedCons_Desc_B11 = value; RaisePropertyChanged(nameof(BilledCons_Desc_B11)); }
+        }
+
+        private string _billedCons_Desc_F8;
+        public string BilledCons_Desc_F8
+        {
+            get => _billedCons_Desc_F8;
+            set { _billedCons_Desc_F8 = value; RaisePropertyChanged(nameof(BilledCons_Desc_F8)); }
+        }
+        private string _billedCons_Desc_F9;
+        public string BilledCons_Desc_F9
+        {
+            get => _billedCons_Desc_F9;
+            set { _billedCons_Desc_F9 = value; RaisePropertyChanged(nameof(BilledCons_Desc_F9)); }
+        }
+        private string _billedCons_Desc_F10;
+        public string BilledCons_Desc_F10
+        {
+            get => _billedCons_Desc_F10;
+            set { _billedCons_Desc_F10 = value; RaisePropertyChanged(nameof(BilledCons_Desc_F10)); }
+        }
+        private string _billedCons_Desc_F11;
+        public string BilledCons_Desc_F11
+        {
+            get => _billedCons_Desc_F11;
+            set { _billedCons_Desc_F11 = value; RaisePropertyChanged(nameof(BilledCons_Desc_F11)); }
+        }
+
+        private string _unbilledCons_Desc_D8;
+        public string UnbilledCons_Desc_D8
+        {
+            get => _unbilledCons_Desc_D8;
+            set { _unbilledCons_Desc_D8 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_D8)); }
+        }
+        private string _unbilledCons_Desc_D9;
+        public string UnbilledCons_Desc_D9
+        {
+            get => _unbilledCons_Desc_D9;
+            set { _unbilledCons_Desc_D9 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_D9)); }
+        }
+        private string _unbilledCons_Desc_D10;
+        public string UnbilledCons_Desc_D10
+        {
+            get => _unbilledCons_Desc_D10;
+            set { _unbilledCons_Desc_D10 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_D10)); }
+        }
+        private string _unbilledCons_Desc_D11;
+        public string UnbilledCons_Desc_D11
+        {
+            get => _unbilledCons_Desc_D11;
+            set { _unbilledCons_Desc_D11 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_D11)); }
+        }
+
+        private string _unbilledCons_Desc_F6;
+        public string UnbilledCons_Desc_F6
+        {
+            get => _unbilledCons_Desc_F6;
+            set { _unbilledCons_Desc_F6 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F6)); }
+        }
+        private string _unbilledCons_Desc_F7;
+        public string UnbilledCons_Desc_F7
+        {
+            get => _unbilledCons_Desc_F7;
+            set { _unbilledCons_Desc_F7 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F7)); }
+        }
+        private string _unbilledCons_Desc_F8;
+        public string UnbilledCons_Desc_F8
+        {
+            get => _unbilledCons_Desc_F8;
+            set { _unbilledCons_Desc_F8 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F8)); }
+        }
+        private string _unbilledCons_Desc_F9;
+        public string UnbilledCons_Desc_F9
+        {
+            get => _unbilledCons_Desc_F9;
+            set { _unbilledCons_Desc_F9 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F9)); }
+        }
+        private string _unbilledCons_Desc_F10;
+        public string UnbilledCons_Desc_F10
+        {
+            get => _unbilledCons_Desc_F10;
+            set { _unbilledCons_Desc_F10 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F10)); }
+        }
+        private string _unbilledCons_Desc_F11;
+        public string UnbilledCons_Desc_F11
+        {
+            get => _unbilledCons_Desc_F11;
+            set { _unbilledCons_Desc_F11 = value; RaisePropertyChanged(nameof(UnbilledCons_Desc_F11)); }
+        }
+
+        private string _unauthCons_Desc_B18;
+        public string UnauthCons_Desc_B18
+        {
+            get => _unauthCons_Desc_B18;
+            set { _unauthCons_Desc_B18 = value; RaisePropertyChanged(nameof(UnauthCons_Desc_B18)); }
+        }
+        private string _unauthCons_Desc_B19;
+        public string UnauthCons_Desc_B19
+        {
+            get => _unauthCons_Desc_B19;
+            set { _unauthCons_Desc_B19 = value; RaisePropertyChanged(nameof(UnauthCons_Desc_B19)); }
+        }
+        private string _unauthCons_Desc_B20;
+        public string UnauthCons_Desc_B20
+        {
+            get => _unauthCons_Desc_B20;
+            set { _unauthCons_Desc_B20 = value; RaisePropertyChanged(nameof(UnauthCons_Desc_B20)); }
+        }
+        private string _unauthCons_Desc_B21;
+        public string UnauthCons_Desc_B21
+        {
+            get => _unauthCons_Desc_B21;
+            set { _unauthCons_Desc_B21 = value; RaisePropertyChanged(nameof(UnauthCons_Desc_B21)); }
+        }
+
+        private string _metErrors_Desc_D12;
+        public string MetErrors_Desc_D12
+        {
+            get => _metErrors_Desc_D12;
+            set { _metErrors_Desc_D12 = value; RaisePropertyChanged(nameof(MetErrors_Desc_D12)); }
+        }
+        private string _metErrors_Desc_D13;
+        public string MetErrors_Desc_D13
+        {
+            get => _metErrors_Desc_D13;
+            set { _metErrors_Desc_D13 = value; RaisePropertyChanged(nameof(MetErrors_Desc_D13)); }
+        }
+        private string _metErrors_Desc_D14;
+        public string MetErrors_Desc_D14
+        {
+            get => _metErrors_Desc_D14;
+            set { _metErrors_Desc_D14 = value; RaisePropertyChanged(nameof(MetErrors_Desc_D14)); }
+        }
+        private string _metErrors_Desc_D15;
+        public string MetErrors_Desc_D15
+        {
+            get => _metErrors_Desc_D15;
+            set { _metErrors_Desc_D15 = value; RaisePropertyChanged(nameof(MetErrors_Desc_D15)); }
+        }
+
+        private string _network_Desc_B7;
+        public string Network_Desc_B7
+        {
+            get => _network_Desc_B7;
+            set { _network_Desc_B7 = value; RaisePropertyChanged(nameof(Network_Desc_B7)); }
+        }
+        private string _network_Desc_B8;
+        public string Network_Desc_B8
+        {
+            get => _network_Desc_B8;
+            set { _network_Desc_B8 = value; RaisePropertyChanged(nameof(Network_Desc_B8)); }
+        }
+        private string _network_Desc_B9;
+        public string Network_Desc_B9
+        {
+            get => _network_Desc_B9;
+            set { _network_Desc_B9 = value; RaisePropertyChanged(nameof(Network_Desc_B9)); }
+        }
+        private string _network_Desc_B10;
+        public string Network_Desc_B10
+        {
+            get => _network_Desc_B10;
+            set { _network_Desc_B10 = value; RaisePropertyChanged(nameof(Network_Desc_B10)); }
+        }
+
+        private string _interm_Area_B7;
+        public string Interm_Area_B7
+        {
+            get => _interm_Area_B7;
+            set { _interm_Area_B7 = value; RaisePropertyChanged(nameof(Interm_Area_B7)); }
+        }
+        private string _interm_Area_B8;
+        public string Interm_Area_B8
+        {
+            get => _interm_Area_B8;
+            set { _interm_Area_B8 = value; RaisePropertyChanged(nameof(Interm_Area_B8)); }
+        }
+        private string _interm_Area_B9;
+        public string Interm_Area_B9
+        {
+            get => _interm_Area_B9;
+            set { _interm_Area_B9 = value; RaisePropertyChanged(nameof(Interm_Area_B9)); }
+        }
+        private string _interm_Area_B10;
+        public string Interm_Area_B10
+        {
+            get => _interm_Area_B10;
+            set { _interm_Area_B10 = value; RaisePropertyChanged(nameof(Interm_Area_B10)); }
+        }
+
+
+
+
+
 
 
 
@@ -1375,6 +1631,44 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_SystemInputVolumeError_F8 = model.SysInput_SystemInputVolumeError_F8;
             SysInput_SystemInputVolumeM3_D9 = model.SysInput_SystemInputVolumeM3_D9;
             SysInput_SystemInputVolumeError_F9 = model.SysInput_SystemInputVolumeError_F9;
+
+            BilledCons_Desc_B8 = model.BilledCons_Desc_B8     ;
+            BilledCons_Desc_B9 = model.BilledCons_Desc_B9     ;
+            BilledCons_Desc_B10 = model.BilledCons_Desc_B10    ;
+            BilledCons_Desc_B11 = model.BilledCons_Desc_B11    ;
+            BilledCons_Desc_F8 = model.BilledCons_Desc_F8     ;
+            BilledCons_Desc_F9 = model.BilledCons_Desc_F9     ;
+            BilledCons_Desc_F10 = model.BilledCons_Desc_F10    ;
+            BilledCons_Desc_F11 = model.BilledCons_Desc_F11    ;
+            UnbilledCons_Desc_D8 = model.UnbilledCons_Desc_D8   ;
+            UnbilledCons_Desc_D9 = model.UnbilledCons_Desc_D9   ;
+            UnbilledCons_Desc_D10 = model.UnbilledCons_Desc_D10  ;
+            UnbilledCons_Desc_D11 = model.UnbilledCons_Desc_D11  ;
+            UnbilledCons_Desc_F6 = model.UnbilledCons_Desc_F6   ;
+            UnbilledCons_Desc_F7 = model.UnbilledCons_Desc_F7   ;
+            UnbilledCons_Desc_F8 = model.UnbilledCons_Desc_F8   ;
+            UnbilledCons_Desc_F9 = model.UnbilledCons_Desc_F9   ;
+            UnbilledCons_Desc_F10 = model.UnbilledCons_Desc_F10  ;
+            UnbilledCons_Desc_F11 = model.UnbilledCons_Desc_F11  ;
+            UnauthCons_Desc_B18 = model.UnauthCons_Desc_B18    ;
+            UnauthCons_Desc_B19 = model.UnauthCons_Desc_B19    ;
+            UnauthCons_Desc_B20 = model.UnauthCons_Desc_B20    ;
+            UnauthCons_Desc_B21 = model.UnauthCons_Desc_B21    ;
+            MetErrors_Desc_D12 = model.MetErrors_Desc_D12     ;
+            MetErrors_Desc_D13 = model.MetErrors_Desc_D13     ;
+            MetErrors_Desc_D14 = model.MetErrors_Desc_D14     ;
+            MetErrors_Desc_D15 = model.MetErrors_Desc_D15     ;
+            Network_Desc_B7 = model.Network_Desc_B7        ;
+            Network_Desc_B8 = model.Network_Desc_B8        ;
+            Network_Desc_B9 = model.Network_Desc_B9        ;
+            Network_Desc_B10 = model.Network_Desc_B10       ;
+            Interm_Area_B7 = model.Interm_Area_B7         ;
+            Interm_Area_B8 = model.Interm_Area_B8         ;
+            Interm_Area_B9 = model.Interm_Area_B9         ;
+            Interm_Area_B10 = model.Interm_Area_B10        ;
+
+
+
 
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = model.BilledCons_BilledMetConsBulkWatSupExpM3_D6;
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;

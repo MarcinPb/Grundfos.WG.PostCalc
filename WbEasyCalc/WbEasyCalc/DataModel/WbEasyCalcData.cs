@@ -41,6 +41,48 @@ namespace DataModel
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6 { get; set; }
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 { get; set; }
 
+
+        public string BilledCons_Desc_B8 { get; set; }
+        public string BilledCons_Desc_B9 { get; set; }
+        public string BilledCons_Desc_B10 { get; set; }
+        public string BilledCons_Desc_B11 { get; set; }
+        public string BilledCons_Desc_F8 { get; set; }
+        public string BilledCons_Desc_F9 { get; set; }
+        public string BilledCons_Desc_F10 { get; set; }
+        public string BilledCons_Desc_F11 { get; set; }
+
+        public string UnbilledCons_Desc_D8 { get; set; }
+        public string UnbilledCons_Desc_D9 { get; set; }
+        public string UnbilledCons_Desc_D10 { get; set; }
+        public string UnbilledCons_Desc_D11 { get; set; }
+        public string UnbilledCons_Desc_F6 { get; set; }
+        public string UnbilledCons_Desc_F7 { get; set; }
+        public string UnbilledCons_Desc_F8 { get; set; }
+        public string UnbilledCons_Desc_F9 { get; set; }
+        public string UnbilledCons_Desc_F10 { get; set; }
+        public string UnbilledCons_Desc_F11 { get; set; }
+        
+        public string UnauthCons_Desc_B18 { get; set; }
+        public string UnauthCons_Desc_B19 { get; set; }
+        public string UnauthCons_Desc_B20 { get; set; }
+        public string UnauthCons_Desc_B21 { get; set; }
+        
+        public string MetErrors_Desc_D12 { get; set; }
+        public string MetErrors_Desc_D13 { get; set; }
+        public string MetErrors_Desc_D14 { get; set; }
+        public string MetErrors_Desc_D15 { get; set; }
+        
+        public string Network_Desc_B7 { get; set; }
+        public string Network_Desc_B8 { get; set; }
+        public string Network_Desc_B9 { get; set; }
+        public string Network_Desc_B10 { get; set; }
+        
+        public string Interm_Area_B7 { get; set; }
+        public string Interm_Area_B8 { get; set; }
+        public string Interm_Area_B9 { get; set; }
+        public string Interm_Area_B10 { get; set; }
+    
+
         public double BilledCons_UnbMetConsM3_D8 { get; set; }
         public double BilledCons_UnbMetConsM3_D9 { get; set; }
         public double BilledCons_UnbMetConsM3_D10 { get; set; }
@@ -244,6 +286,44 @@ namespace DataModel
                 SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
                 SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
 
+                BilledCons_Desc_B8      = BilledCons_Desc_B8     ,
+                BilledCons_Desc_B9      = BilledCons_Desc_B9     ,
+                BilledCons_Desc_B10     = BilledCons_Desc_B10    ,
+                BilledCons_Desc_B11     = BilledCons_Desc_B11    ,
+                BilledCons_Desc_F8      = BilledCons_Desc_F8     ,
+                BilledCons_Desc_F9      = BilledCons_Desc_F9     ,
+                BilledCons_Desc_F10     = BilledCons_Desc_F10    ,
+                BilledCons_Desc_F11     = BilledCons_Desc_F11    ,
+                UnbilledCons_Desc_D8    = UnbilledCons_Desc_D8   ,
+                UnbilledCons_Desc_D9    = UnbilledCons_Desc_D9   ,
+                UnbilledCons_Desc_D10   = UnbilledCons_Desc_D10  ,
+                UnbilledCons_Desc_D11   = UnbilledCons_Desc_D11  ,
+                UnbilledCons_Desc_F6    = UnbilledCons_Desc_F6   ,
+                UnbilledCons_Desc_F7    = UnbilledCons_Desc_F7   ,
+                UnbilledCons_Desc_F8    = UnbilledCons_Desc_F8   ,
+                UnbilledCons_Desc_F9    = UnbilledCons_Desc_F9   ,
+                UnbilledCons_Desc_F10   = UnbilledCons_Desc_F10  ,
+                UnbilledCons_Desc_F11   = UnbilledCons_Desc_F11  ,
+                UnauthCons_Desc_B18     = UnauthCons_Desc_B18    ,
+                UnauthCons_Desc_B19     = UnauthCons_Desc_B19    ,
+                UnauthCons_Desc_B20     = UnauthCons_Desc_B20    ,
+                UnauthCons_Desc_B21     = UnauthCons_Desc_B21    ,
+                MetErrors_Desc_D12      = MetErrors_Desc_D12     ,
+                MetErrors_Desc_D13      = MetErrors_Desc_D13     ,
+                MetErrors_Desc_D14      = MetErrors_Desc_D14     ,
+                MetErrors_Desc_D15      = MetErrors_Desc_D15     ,
+                Network_Desc_B7         = Network_Desc_B7        ,
+                Network_Desc_B8         = Network_Desc_B8        ,
+                Network_Desc_B9         = Network_Desc_B9        ,
+                Network_Desc_B10        = Network_Desc_B10       ,
+                Interm_Area_B7          = Interm_Area_B7         ,
+                Interm_Area_B8          = Interm_Area_B8         ,
+                Interm_Area_B9          = Interm_Area_B9         ,
+                Interm_Area_B10         = Interm_Area_B10        ,
+
+
+
+
                 BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                 BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
 
@@ -426,6 +506,40 @@ namespace DataModel
                     SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
                     SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
 
+                    BilledCons_Desc_B8 = BilledCons_Desc_B8,
+                    BilledCons_Desc_B9 = BilledCons_Desc_B9,
+                    BilledCons_Desc_B10 = BilledCons_Desc_B10,
+                    BilledCons_Desc_B11 = BilledCons_Desc_B11,
+                    BilledCons_Desc_F8 = BilledCons_Desc_F8,
+                    BilledCons_Desc_F9 = BilledCons_Desc_F9,
+                    BilledCons_Desc_F10 = BilledCons_Desc_F10,
+                    BilledCons_Desc_F11 = BilledCons_Desc_F11,
+                    UnbilledCons_Desc_D8 = UnbilledCons_Desc_D8,
+                    UnbilledCons_Desc_D9 = UnbilledCons_Desc_D9,
+                    UnbilledCons_Desc_D10 = UnbilledCons_Desc_D10,
+                    UnbilledCons_Desc_D11 = UnbilledCons_Desc_D11,
+                    UnbilledCons_Desc_F6 = UnbilledCons_Desc_F6,
+                    UnbilledCons_Desc_F7 = UnbilledCons_Desc_F7,
+                    UnbilledCons_Desc_F8 = UnbilledCons_Desc_F8,
+                    UnbilledCons_Desc_F9 = UnbilledCons_Desc_F9,
+                    UnbilledCons_Desc_F10 = UnbilledCons_Desc_F10,
+                    UnbilledCons_Desc_F11 = UnbilledCons_Desc_F11,
+                    UnauthCons_Desc_B18 = UnauthCons_Desc_B18,
+                    UnauthCons_Desc_B19 = UnauthCons_Desc_B19,
+                    UnauthCons_Desc_B20 = UnauthCons_Desc_B20,
+                    UnauthCons_Desc_B21 = UnauthCons_Desc_B21,
+                    MetErrors_Desc_D12 = MetErrors_Desc_D12,
+                    MetErrors_Desc_D13 = MetErrors_Desc_D13,
+                    MetErrors_Desc_D14 = MetErrors_Desc_D14,
+                    MetErrors_Desc_D15 = MetErrors_Desc_D15,
+                    Network_Desc_B7 = Network_Desc_B7,
+                    Network_Desc_B8 = Network_Desc_B8,
+                    Network_Desc_B9 = Network_Desc_B9,
+                    Network_Desc_B10 = Network_Desc_B10,
+                    Interm_Area_B7 = Interm_Area_B7,
+                    Interm_Area_B8 = Interm_Area_B8,
+                    Interm_Area_B9 = Interm_Area_B9,
+                    Interm_Area_B10 = Interm_Area_B10,
 
                     BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
                     BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
