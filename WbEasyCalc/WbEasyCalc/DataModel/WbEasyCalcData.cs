@@ -188,9 +188,19 @@ namespace DataModel
         public double Prs_ApproxNoOfConn_D10 { get; set; }
         public double Prs_DailyAvgPrsM_F10 { get; set; }
         public double Prs_ErrorMarg_F26 { get; set; }
-        public double Prs_BestEstimate_F33 { get; set; }
         public double Prs_Min_F29 { get; set; }
         public double Prs_Max_F31 { get; set; }
+        public double Prs_BestEstimate_F33 { get; set; }
+
+        public double Interm_ErrorMarg_H26 { get; set; }
+        public double Interm_Min_H29 { get; set; }
+        public double Interm_Max_H31 { get; set; }
+        public double Interm_BestEstimate_H33 { get; set; }
+
+
+
+
+
 
 
         public double Interm_Conn_D7 { get; set; }
@@ -439,6 +449,7 @@ namespace DataModel
                 Interm_Hour_H8  = Interm_Hour_H8,
                 Interm_Hour_H9  = Interm_Hour_H9,
                 Interm_Hour_H10 = Interm_Hour_H10,
+                Interm_ErrorMarg_H26 = Interm_ErrorMarg_H26,
 
                 PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
 
@@ -473,9 +484,13 @@ namespace DataModel
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
-                Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
                 Prs_Min_F29 = Prs_Min_F29,
                 Prs_Max_F31 = Prs_Max_F31,
+                Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
+
+                Interm_Min_H29 = Interm_Min_H29,
+                Interm_Max_H31 = Interm_Max_H31,
+                Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
 
                 Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
                 Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
@@ -654,6 +669,7 @@ namespace DataModel
                     Interm_Hour_H8 = Interm_Hour_H8,
                     Interm_Hour_H9 = Interm_Hour_H9,
                     Interm_Hour_H10 = Interm_Hour_H10,
+                    Interm_ErrorMarg_H26 = Interm_ErrorMarg_H26,
 
                 };
                 return _easyCalcDataInput;

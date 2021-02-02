@@ -196,6 +196,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Interm_Hour_H8 = Interm_Hour_H8,
             Interm_Hour_H9 = Interm_Hour_H9,
             Interm_Hour_H10 = Interm_Hour_H10,
+            Interm_ErrorMarg_H26 = Interm_ErrorMarg_H26,
 
 
 
@@ -233,6 +234,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
             Prs_Min_F29 = Prs_Min_F29,
             Prs_Max_F31 = Prs_Max_F31,
+
+            Interm_Min_H29 = Interm_Min_H29,
+            Interm_Max_H31 = Interm_Max_H31,
+            Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
 
             Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
             Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,
@@ -1271,75 +1276,81 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public double Interm_Conn_D7
         {
             get => _interm_Conn_D7;
-            set { _interm_Conn_D7 = value; RaisePropertyChanged(nameof(Interm_Conn_D7)); }
+            set { _interm_Conn_D7 = value; RaisePropertyChanged(nameof(Interm_Conn_D7)); CalculateExcel(); }
         }
         private double _interm_Conn_D8;
         public double Interm_Conn_D8
         {
             get => _interm_Conn_D8;
-            set { _interm_Conn_D8 = value; RaisePropertyChanged(nameof(Interm_Conn_D8)); }
+            set { _interm_Conn_D8 = value; RaisePropertyChanged(nameof(Interm_Conn_D8)); CalculateExcel(); }
         }
         private double _interm_Conn_D9;
         public double Interm_Conn_D9
         {
             get => _interm_Conn_D9;
-            set { _interm_Conn_D9 = value; RaisePropertyChanged(nameof(Interm_Conn_D9)); }
+            set { _interm_Conn_D9 = value; RaisePropertyChanged(nameof(Interm_Conn_D9)); CalculateExcel(); }
         }
         private double _interm_Conn_D10;
         public double Interm_Conn_D10
         {
             get => _interm_Conn_D10;
-            set { _interm_Conn_D10 = value; RaisePropertyChanged(nameof(Interm_Conn_D10)); }
+            set { _interm_Conn_D10 = value; RaisePropertyChanged(nameof(Interm_Conn_D10)); CalculateExcel(); }
         }
 
         private double _interm_Days_F7;
         public double Interm_Days_F7
         {
             get => _interm_Days_F7;
-            set { _interm_Days_F7 = value; RaisePropertyChanged(nameof(Interm_Days_F7)); }
+            set { _interm_Days_F7 = value; RaisePropertyChanged(nameof(Interm_Days_F7)); CalculateExcel(); }
         }
         private double _interm_Days_F8;
         public double Interm_Days_F8
         {
             get => _interm_Days_F8;
-            set { _interm_Days_F8 = value; RaisePropertyChanged(nameof(Interm_Days_F8)); }
+            set { _interm_Days_F8 = value; RaisePropertyChanged(nameof(Interm_Days_F8)); CalculateExcel(); }
         }
         private double _interm_Days_F9;
         public double Interm_Days_F9
         {
             get => _interm_Days_F9;
-            set { _interm_Days_F9 = value; RaisePropertyChanged(nameof(Interm_Days_F9)); }
+            set { _interm_Days_F9 = value; RaisePropertyChanged(nameof(Interm_Days_F9)); CalculateExcel(); }
         }
         private double _interm_Days_F10;
         public double Interm_Days_F10
         {
             get => _interm_Days_F10;
-            set { _interm_Days_F10 = value; RaisePropertyChanged(nameof(Interm_Days_F10)); }
+            set { _interm_Days_F10 = value; RaisePropertyChanged(nameof(Interm_Days_F10)); CalculateExcel(); }
         }
 
         private double _interm_Hour_H7;
         public double Interm_Hour_H7
         {
             get => _interm_Hour_H7;
-            set { _interm_Hour_H7 = value; RaisePropertyChanged(nameof(Interm_Hour_H7)); }
+            set { _interm_Hour_H7 = value; RaisePropertyChanged(nameof(Interm_Hour_H7)); CalculateExcel(); }
         }
         private double _interm_Hour_H8;
         public double Interm_Hour_H8
         {
             get => _interm_Hour_H8;
-            set { _interm_Hour_H8 = value; RaisePropertyChanged(nameof(Interm_Hour_H8)); }
+            set { _interm_Hour_H8 = value; RaisePropertyChanged(nameof(Interm_Hour_H8)); CalculateExcel(); }
         }
         private double _interm_Hour_H9;
         public double Interm_Hour_H9
         {
             get => _interm_Hour_H9;
-            set { _interm_Hour_H9 = value; RaisePropertyChanged(nameof(Interm_Hour_H9)); }
+            set { _interm_Hour_H9 = value; RaisePropertyChanged(nameof(Interm_Hour_H9)); CalculateExcel(); }
         }
         private double _interm_Hour_H10;
         public double Interm_Hour_H10
         {
             get => _interm_Hour_H10;
-            set { _interm_Hour_H10 = value; RaisePropertyChanged(nameof(Interm_Hour_H10)); }
+            set { _interm_Hour_H10 = value; RaisePropertyChanged(nameof(Interm_Hour_H10)); CalculateExcel(); }
+        }
+        private double _interm_ErrorMarg_H26;
+        public double Interm_ErrorMarg_H26
+        {
+            get => _interm_ErrorMarg_H26;
+            set { _interm_ErrorMarg_H26 = value; RaisePropertyChanged(nameof(Interm_ErrorMarg_H26)); CalculateExcel(); }
         }
 
         #endregion Props input
@@ -1560,6 +1571,24 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _prs_Max_F31 = value; RaisePropertyChanged(nameof(Prs_Max_F31)); }
         }
 
+        private double _interm_BestEstimate_H33;
+        public double Interm_BestEstimate_H33
+        { 
+            get => _interm_BestEstimate_H33;
+            set { _interm_BestEstimate_H33 = value; RaisePropertyChanged(nameof(Interm_BestEstimate_H33)); }
+        }
+        private double _interm_Min_H29;
+        public double Interm_Min_H29
+        { 
+            get => _interm_Min_H29;
+            set { _interm_Min_H29 = value; RaisePropertyChanged(nameof(Interm_Min_H29)); }
+        }
+        private double _interm_Max_H31;
+        public double Interm_Max_H31
+        { 
+            get => _interm_Max_H31;
+            set { _interm_Max_H31 = value; RaisePropertyChanged(nameof(Interm_Max_H31)); }
+        }
 
 
         public double Pis_AverageSupplyTime_F9
@@ -1783,6 +1812,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Interm_Hour_H8 = model.Interm_Hour_H8;
             Interm_Hour_H9 = model.Interm_Hour_H9;
             Interm_Hour_H10 = model.Interm_Hour_H10;
+            Interm_ErrorMarg_H26 = model.Interm_ErrorMarg_H26;
 
             // output
             SystemInputVolume_B19 = model.SystemInputVolume_B19;
@@ -1818,6 +1848,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
             Prs_Min_F29 = model.Prs_Min_F29;
             Prs_Max_F31 = model.Prs_Max_F31;
+
+            Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
+            Interm_Min_H29 = model.Interm_Min_H29;
+            Interm_Max_H31 = model.Interm_Max_H31;
 
             Pis_AverageSupplyTime_F9 = model.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = model.Pis_AverageSupplyTime_H9;
@@ -1885,10 +1919,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcDataOutput.AverageSupplyTimeHPerDayBestEstimate_F9;
             AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
 
-
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
             Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
+
+            Interm_BestEstimate_H33 = easyCalcDataOutput.Interm_BestEstimate_H33;
+            Interm_Min_H29 = easyCalcDataOutput.Interm_Min_H29;
+            Interm_Max_H31 = easyCalcDataOutput.Interm_Max_H31;
 
             Pis_AverageSupplyTime_F9 = easyCalcDataOutput.Pis_AverageSupplyTime_F9;
             Pis_AverageSupplyTime_H9 = easyCalcDataOutput.Pis_AverageSupplyTime_H9;

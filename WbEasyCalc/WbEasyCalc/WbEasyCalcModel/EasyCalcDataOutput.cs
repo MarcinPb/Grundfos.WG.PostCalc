@@ -40,9 +40,15 @@ namespace WbEasyCalc
         public double AveragePressureMBestEstimate_F11 { get; set; } // 30.0 
 
 
-        public double Prs_BestEstimate_F33 { get; set; } // 30.0 
         public double Prs_Min_F29 { get; set; }  
-        public double Prs_Max_F31 { get; set; }  
+        public double Prs_Max_F31 { get; set; }
+        public double Prs_BestEstimate_F33 { get; set; } // 30.0 
+
+        public double Interm_Min_H29 { get; set; }
+        public double Interm_Max_H31 { get; set; }
+        public double Interm_BestEstimate_H33 { get; set; }
+
+
 
 
         public double Pis_AverageSupplyTime_F9 { get; set; }
@@ -89,6 +95,10 @@ namespace WbEasyCalc
                 Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
                 Prs_Min_F29 = Prs_Min_F29,
                 Prs_Max_F31 = Prs_Max_F31,
+
+                Interm_Min_H29 = Interm_Min_H29,
+                Interm_Max_H31 = Interm_Max_H31,
+                Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
 
                 Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
                 Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,

@@ -233,6 +233,7 @@ namespace WbEasyCalc
         public double Interm_Hour_H8 { get; set; }
         public double Interm_Hour_H9 { get; set; }
         public double Interm_Hour_H10 { get; set; }
+        public double Interm_ErrorMarg_H26 { get; set; }
 
         public double PIs_IliBestEstimate_F25 { get; set; }
 

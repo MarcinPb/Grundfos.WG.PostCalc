@@ -76,18 +76,18 @@
         <Border Grid.Row="4" Grid.Column="6" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
         <Label Grid.Row="9" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
-        <TextBox Grid.Row="9" Grid.Column="6" Text="33" Style="{StaticResource TextRightStyle}"  />
+        <TextBox Grid.Row="9" Grid.Column="6" Text="{Binding Path=Model.Interm_ErrorMarg_H26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightStyle}"  />
 
         <Label Grid.Row="11" Grid.Column="0" Content="Average Supply Time [h/day]" Style="{StaticResource LabelTransparentBoldStyle}" />
 
         <Label Grid.Row="13" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="13" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="13" Grid.Column="6" Content="{Binding Path=Model.Interm_Min_H29}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="15" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-        <Label Grid.Row="15" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+        <Label Grid.Row="15" Grid.Column="6" Content="{Binding Path=Model.Interm_Max_H31}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
         <Label Grid.Row="17" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
-        <Label Grid.Row="17" Grid.Column="6" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+        <Label Grid.Row="17" Grid.Column="6" Content="{Binding Path=Model.Interm_BestEstimate_H33}" ContentStringFormat="{}{0:########0.0}" Style="{StaticResource LabelBlueStyle}"  />
     </Grid>
 
 </UserControl>

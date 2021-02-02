@@ -59,6 +59,10 @@ namespace WbEasyCalcRepository
                 Prs_Min_F29 = easyCalcSheetData.PressureSheet.Prs_Min_F29,
                 Prs_Max_F31 = easyCalcSheetData.PressureSheet.Prs_Max_F31,
 
+                Interm_BestEstimate_H33 = easyCalcSheetData.IntermittentSupply.SupplyTimeBestEstimate_H33,
+                Interm_Min_H29 = easyCalcSheetData.IntermittentSupply.Interm_Min_F29,
+                Interm_Max_H31 = easyCalcSheetData.IntermittentSupply.Interm_Max_F31,
+
                 Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
                 Pis_AverageSupplyTime_J9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_J9,
@@ -268,6 +272,7 @@ namespace WbEasyCalcRepository
                     easyCalcDataInput.Interm_Hour_H9,
                     easyCalcDataInput.Interm_Hour_H10,
                 },
+                ErrorMargin_H26 = easyCalcDataInput.Interm_ErrorMarg_H26,
             };
 
             data.PiSheet = new PiSheet(data);

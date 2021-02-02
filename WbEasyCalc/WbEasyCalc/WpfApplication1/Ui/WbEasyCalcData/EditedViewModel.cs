@@ -491,7 +491,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.Interm_Hour_H8 =  easyCalcDataInput.Interm_Hour_H8;
             Model.Interm_Hour_H9 =  easyCalcDataInput.Interm_Hour_H9;
             Model.Interm_Hour_H10 = easyCalcDataInput.Interm_Hour_H10;
-
+            Model.Interm_ErrorMarg_H26 = easyCalcDataInput.Interm_ErrorMarg_H26;
         }
     }
 }

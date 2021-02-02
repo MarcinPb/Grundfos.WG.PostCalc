@@ -214,6 +214,7 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Interm_Hour_H8", model.Interm_Hour_H8 );
                 p.Add("@Interm_Hour_H9", model.Interm_Hour_H9 );
                 p.Add("@Interm_Hour_H10", model.Interm_Hour_H10);
+                p.Add("@Interm_ErrorMarg_H26", model.Interm_ErrorMarg_H26);
 
                 p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);                
                 // output
