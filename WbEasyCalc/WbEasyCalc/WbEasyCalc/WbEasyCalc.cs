@@ -273,6 +273,14 @@ namespace WbEasyCalcRepository
                 NumberOfConnectionsOfRegsteredCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10,
                 NumberOfInactiveAccountsWServiceConnections_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18,
                 AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+
+                DistributionAndTransmissionMainsPossibleUnderestimation_D30 = easyCalcDataInput.Network_PossibleUnd_D30,
+                Network_NoCustomers_H7 = easyCalcDataInput.Network_NoCustomers_H7,
+                Network_ErrorMargin_J7 = easyCalcDataInput.Network_ErrorMargin_J7,
+                Network_ErrorMargin_J10 = easyCalcDataInput.Network_ErrorMargin_J10,
+                Network_ErrorMargin_J18 = easyCalcDataInput.Network_ErrorMargin_J18,
+                Network_ErrorMargin_J32 = easyCalcDataInput.Network_ErrorMargin_J32,
+                //Network_ErrorMargin_D35 = easyCalcDataInput.Network_ErrorMargin_D35,
             };
             data.PressureSheet = new PressureSheet()
             {

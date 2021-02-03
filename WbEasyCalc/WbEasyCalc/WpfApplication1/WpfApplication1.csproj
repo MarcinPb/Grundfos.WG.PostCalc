@@ -262,9 +262,15 @@
     <AppDesigner Include="Properties\" />
     <None Include="TestData\WB-EasyCalc - open.xlsm" />
     <None Include="TestData\WB-EasyCalc - original.xlsm" />
+    <None Include="TestData\WB-EasyCalc - sample from GM - 2.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\WB-EasyCalc - sample from GM to override.xlsm" />
     <None Include="TestData\WB-EasyCalc - sample from GM.xlsm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\WB-EasyCalc_decrypted.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

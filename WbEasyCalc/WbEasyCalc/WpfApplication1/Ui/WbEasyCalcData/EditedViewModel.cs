@@ -260,6 +260,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Network_NoOfInactAccountsWSvcConns_H18 = wbEasyCalcData.Network_NoOfInactAccountsWSvcConns_H18;
                     Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = wbEasyCalcData.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
 
+                    Model.Network_PossibleUnd_D30 = wbEasyCalcData.Network_PossibleUnd_D30;
+                    Model.Network_NoCustomers_H7 =  wbEasyCalcData.Network_NoCustomers_H7;
+                    Model.Network_ErrorMargin_J7 =  wbEasyCalcData.Network_ErrorMargin_J7;
+                    Model.Network_ErrorMargin_J10 = wbEasyCalcData.Network_ErrorMargin_J10;
+                    Model.Network_ErrorMargin_J18 = wbEasyCalcData.Network_ErrorMargin_J18;
+                    Model.Network_ErrorMargin_J32 = wbEasyCalcData.Network_ErrorMargin_J32;
+                    Model.Network_ErrorMargin_D35 = wbEasyCalcData.Network_ErrorMargin_D35;
+
                     Model.Prs_Area_B7 = wbEasyCalcData.Prs_Area_B7;
                     Model.Prs_Area_B8 = wbEasyCalcData.Prs_Area_B8;
                     Model.Prs_Area_B9 = wbEasyCalcData.Prs_Area_B9;
@@ -464,6 +472,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.Network_NoOfConnOfRegCustomers_H10 = easyCalcDataInput.Network_NoOfConnOfRegCustomers_H10;
             Model.Network_NoOfInactAccountsWSvcConns_H18 = easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18;
             Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+
+            Model.Network_PossibleUnd_D30 = easyCalcDataInput.Network_PossibleUnd_D30;
+            Model.Network_NoCustomers_H7 =  easyCalcDataInput.Network_NoCustomers_H7;
+            Model.Network_ErrorMargin_J7 =  easyCalcDataInput.Network_ErrorMargin_J7;
+            Model.Network_ErrorMargin_J10 = easyCalcDataInput.Network_ErrorMargin_J10;
+            Model.Network_ErrorMargin_J18 = easyCalcDataInput.Network_ErrorMargin_J18;
+            Model.Network_ErrorMargin_J32 = easyCalcDataInput.Network_ErrorMargin_J32;
+            Model.Network_ErrorMargin_D35 = easyCalcDataInput.Network_ErrorMargin_D35;
 
             Model.Prs_Area_B7 = easyCalcDataInput.Prs_Area_B7;
             Model.Prs_Area_B8 = easyCalcDataInput.Prs_Area_B8;

@@ -194,6 +194,14 @@ namespace WbEasyCalc
         public double Network_NoOfInactAccountsWSvcConns_H18 { get; set; }
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
 
+        public double Network_PossibleUnd_D30 { get; set; }
+        public double Network_NoCustomers_H7 { get; set; }
+        public double Network_ErrorMargin_J7 { get; set; }
+        public double Network_ErrorMargin_J10 { get; set; }
+        public double Network_ErrorMargin_J18 { get; set; }
+        public double Network_ErrorMargin_J32 { get; set; }
+        public double Network_ErrorMargin_D35 { get; set; }
+
 
         public string Prs_Area_B7 { get; set; }
         public string Prs_Area_B8 { get; set; }
@@ -377,6 +385,14 @@ namespace WbEasyCalc
                 Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
                 Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+
+                Network_PossibleUnd_D30 = Network_PossibleUnd_D30,
+                Network_NoCustomers_H7 = Network_NoCustomers_H7,
+                Network_ErrorMargin_J7 = Network_ErrorMargin_J7,
+                Network_ErrorMargin_J10 = Network_ErrorMargin_J10,
+                Network_ErrorMargin_J18 = Network_ErrorMargin_J18,
+                Network_ErrorMargin_J32 = Network_ErrorMargin_J32,
+                Network_ErrorMargin_D35 = Network_ErrorMargin_D35,
 
                 Prs_Area_B7 = Prs_Area_B7,
                 Prs_Area_B8 = Prs_Area_B8,

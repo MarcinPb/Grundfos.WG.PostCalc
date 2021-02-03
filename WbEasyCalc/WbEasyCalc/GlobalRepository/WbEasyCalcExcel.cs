@@ -148,6 +148,15 @@ namespace GlobalRepository
             excelReader.WriteToCell("Network", "H18", easyCalcDataInput.Network_NoOfInactAccountsWSvcConns_H18);
             excelReader.WriteToCell("Network", "H32", easyCalcDataInput.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
 
+            excelReader.WriteToCell("Network", "D30", easyCalcDataInput.Network_PossibleUnd_D30);
+            excelReader.WriteToCell("Network", "H7",  easyCalcDataInput.Network_NoCustomers_H7 );
+            excelReader.WriteToCell("Network", "J7",  easyCalcDataInput.Network_ErrorMargin_J7 );
+            excelReader.WriteToCell("Network", "J10", easyCalcDataInput.Network_ErrorMargin_J10);
+            excelReader.WriteToCell("Network", "J18", easyCalcDataInput.Network_ErrorMargin_J18);
+            excelReader.WriteToCell("Network", "J32", easyCalcDataInput.Network_ErrorMargin_J32);
+            //excelReader.WriteToCell("Network", "D35", easyCalcDataInput.Network_ErrorMargin_D35);
+
+
             excelReader.WriteToCell("Pressure", "B7", easyCalcDataInput.Prs_Area_B7);
             excelReader.WriteToCell("Pressure", "B8", easyCalcDataInput.Prs_Area_B8);
             excelReader.WriteToCell("Pressure", "B9", easyCalcDataInput.Prs_Area_B9);
@@ -173,7 +182,7 @@ namespace GlobalRepository
             excelReader.WriteToCell("Intermittent Supply", "H8", easyCalcDataInput.Interm_Hour_H8);
             excelReader.WriteToCell("Intermittent Supply", "H9", easyCalcDataInput.Interm_Hour_H9);
             excelReader.WriteToCell("Intermittent Supply", "H10", easyCalcDataInput.Interm_Hour_H10);
-
+            
             excelReader.WriteToFile(excelFileName);
         }
 
@@ -315,6 +324,15 @@ namespace GlobalRepository
                 Network_NoOfConnOfRegCustomers_H10 = excelReader.ReadCell<double>("Network", "H10"),
                 Network_NoOfInactAccountsWSvcConns_H18 = excelReader.ReadCell<double>("Network", "H18"),
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = excelReader.ReadCell<double>("Network", "H32"),
+
+                Network_PossibleUnd_D30 = excelReader.ReadCell<double>("Network", "D30"),
+                Network_NoCustomers_H7 =  excelReader.ReadCell<double>("Network", "H7"),
+                Network_ErrorMargin_J7 =  excelReader.ReadCell<double>("Network", "J7"),
+                Network_ErrorMargin_J10 = excelReader.ReadCell<double>("Network", "J10"),
+                Network_ErrorMargin_J18 = excelReader.ReadCell<double>("Network", "J18"),
+                Network_ErrorMargin_J32 = excelReader.ReadCell<double>("Network", "J32"),
+                //Network_ErrorMargin_D35 = excelReader.ReadCell<double>("Network", "D35"),
+
 
                 Prs_Area_B7 = excelReader.ReadCell<string>("Pressure", "B7"),
                 Prs_Area_B8 = excelReader.ReadCell<string>("Pressure", "B8"),

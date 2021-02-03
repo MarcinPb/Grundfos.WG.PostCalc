@@ -13,8 +13,8 @@ namespace WbEasyCalcRepository.Model
             this.DistributionAndTransmissionMainsEntries_D7_D26 = new List<double>();
         }
 
-        public double DistributionAndTransmissionMainsPossibleUnderestimation_D30 { get; set; }
         public List<double> DistributionAndTransmissionMainsEntries_D7_D26 { get; set; }
+        public double DistributionAndTransmissionMainsPossibleUnderestimation_D30 { get; set; }
         public double DistributionAndTransmissionMainsTotalKm_D28 { get => this.DistributionAndTransmissionMainsEntries_D7_D26.Sum(); }
         public double DistributionAndTransmissionMainsMinimum_D33 { get => this.DistributionAndTransmissionMainsTotalKm_D28; }
         public double DistributionAndTransmissionMainsMaximum_D35
@@ -26,14 +26,21 @@ namespace WbEasyCalcRepository.Model
         {
             get => (this.DistributionAndTransmissionMainsMinimum_D33 + this.DistributionAndTransmissionMainsMaximum_D35) / 2;
         }
+
+        public double Network_NoCustomers_H7 { get; set; }
         public double NumberOfConnectionsOfRegsteredCustomers_H10 { get; set; }
+        public double NumberOfInactiveAccountsWServiceConnections_H18 { get; set; }
         public double AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 { get; set; }
+        public double Network_ErrorMargin_J7  { get; set; }
+        public double Network_ErrorMargin_J10 { get; set; }
+        public double Network_ErrorMargin_J18 { get; set; }
+        public double Network_ErrorMargin_J32 { get; set; }
+
         public double EstimatedNumberOfIllegalConnections_H21
         {
             get => this.data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticEstimatedNumber_D6
                 + this.data.UnauthorizedConsumptionSheet.IllegalConnectionsOthersEstimatedNumber_D10;
         }
-        public double NumberOfInactiveAccountsWServiceConnections_H18 { get; set; }
         public double ServiceConnectionsBestEstimate_H30
         {
             get => this.NumberOfConnectionsOfRegsteredCustomers_H10

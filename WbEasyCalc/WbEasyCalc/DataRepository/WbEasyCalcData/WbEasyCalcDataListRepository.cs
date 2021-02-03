@@ -188,6 +188,14 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Network_NoOfInactAccountsWSvcConns_H18", model.Network_NoOfInactAccountsWSvcConns_H18);
                 p.Add("@Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32", model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32);
 
+                p.Add("@Network_PossibleUnd_D30", model.Network_PossibleUnd_D30);
+                p.Add("@Network_NoCustomers_H7", model.Network_NoCustomers_H7);  
+                p.Add("@Network_ErrorMargin_J7", model.Network_ErrorMargin_J7);  
+                p.Add("@Network_ErrorMargin_J10", model.Network_ErrorMargin_J10);
+                p.Add("@Network_ErrorMargin_J18", model.Network_ErrorMargin_J18);
+                p.Add("@Network_ErrorMargin_J32", model.Network_ErrorMargin_J32);
+                p.Add("@Network_ErrorMargin_D35", model.Network_ErrorMargin_D35);
+
                 p.Add("@Prs_Area_B7", model.Prs_Area_B7);
                 p.Add("@Prs_Area_B8", model.Prs_Area_B8);
                 p.Add("@Prs_Area_B9", model.Prs_Area_B9);

@@ -169,6 +169,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
 
+            Network_PossibleUnd_D30 = Network_PossibleUnd_D30,
+            Network_NoCustomers_H7 = Network_NoCustomers_H7,
+            Network_ErrorMargin_J7 = Network_ErrorMargin_J7,
+            Network_ErrorMargin_J10 = Network_ErrorMargin_J10,
+            Network_ErrorMargin_J18 = Network_ErrorMargin_J18,
+            Network_ErrorMargin_J32 = Network_ErrorMargin_J32,
+            Network_ErrorMargin_D35 = Network_ErrorMargin_D35,
+
             Prs_Area_B7 = Prs_Area_B7,
             Prs_Area_B8 = Prs_Area_B8,
             Prs_Area_B9 = Prs_Area_B9,
@@ -1239,6 +1247,51 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _networkAvgLenOfSvcConnFromBoundaryToMeterMH32 = value; RaisePropertyChanged(nameof(Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32)); CalculateExcel(); }
         }
 
+        private double _network_PossibleUnd_D30;
+        public double Network_PossibleUnd_D30
+        {
+            get => _network_PossibleUnd_D30;
+            set { _network_PossibleUnd_D30 = value; RaisePropertyChanged(nameof(Network_PossibleUnd_D30)); CalculateExcel(); }
+        }
+        private double _network_NoCustomers_H7;
+        public double Network_NoCustomers_H7
+        {
+            get => _network_NoCustomers_H7;
+            set { _network_NoCustomers_H7 = value; RaisePropertyChanged(nameof(Network_NoCustomers_H7)); CalculateExcel(); }
+        }
+
+        private double _network_ErrorMargin_J7;
+        public double Network_ErrorMargin_J7
+        {
+            get => _network_ErrorMargin_J7;
+            set { _network_ErrorMargin_J7 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J7)); CalculateExcel(); }
+        }
+
+        private double _network_ErrorMargin_J10;
+        public double Network_ErrorMargin_J10
+        {
+            get => _network_ErrorMargin_J10;
+            set { _network_ErrorMargin_J10 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J10)); CalculateExcel(); }
+        }
+        private double _network_ErrorMargin_J18;
+        public double Network_ErrorMargin_J18
+        {
+            get => _network_ErrorMargin_J18;
+            set { _network_ErrorMargin_J18 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J18)); CalculateExcel(); }
+        }
+        private double _network_ErrorMargin_J32;
+        public double Network_ErrorMargin_J32
+        {
+            get => _network_ErrorMargin_J32;
+            set { _network_ErrorMargin_J32 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J32)); CalculateExcel(); }
+        }
+        private double _network_ErrorMargin_D35;
+        public double Network_ErrorMargin_D35
+        {
+            get => _network_ErrorMargin_D35;
+            set { _network_ErrorMargin_D35 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_D35)); CalculateExcel(); }
+        }
+
 
         private string _prs_Area_B7;
         public string Prs_Area_B7
@@ -2073,6 +2126,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_NoOfConnOfRegCustomers_H10 = model.Network_NoOfConnOfRegCustomers_H10;
             Network_NoOfInactAccountsWSvcConns_H18 = model.Network_NoOfInactAccountsWSvcConns_H18;
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32;
+
+            Network_PossibleUnd_D30 = model.Network_PossibleUnd_D30;
+            Network_NoCustomers_H7 =  model.Network_NoCustomers_H7 ;
+            Network_ErrorMargin_J7 =  model.Network_ErrorMargin_J7 ;
+            Network_ErrorMargin_J10 = model.Network_ErrorMargin_J10;
+            Network_ErrorMargin_J18 = model.Network_ErrorMargin_J18;
+            Network_ErrorMargin_J32 = model.Network_ErrorMargin_J32;
+            Network_ErrorMargin_D35 = model.Network_ErrorMargin_D35;
 
             Prs_Area_B7 = model.Prs_Area_B7;
             Prs_Area_B8 = model.Prs_Area_B8;
