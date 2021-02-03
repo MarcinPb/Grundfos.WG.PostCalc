@@ -23,6 +23,13 @@ namespace WbEasyCalcRepository.Model
         public double MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14 { get; set; }
         public List<double> OthersM3PerDay_J18_J22 { get; set; }
         public List<double> OthersErrorMargin_F18_F22 { get; set; }
+        public List<double> Total_L18_L22 { get => GetTotal_L18_L22(); }
+
+        private List<double> GetTotal_L18_L22()
+        {
+            return OthersM3PerDay_J18_J22.Select(x => x * this.data.StartSheet.PeriodDays_M21).ToList();
+        }
+
         public double BestEstimateTotal_L31 { get => this.GetBestEstimateTotal(); }
         public double ErrorMargin_F24 { get => this.GetErrorMargin_F24(); }
         public double ErrorFactor_P24 { get => this.GetErrorFactor(); }

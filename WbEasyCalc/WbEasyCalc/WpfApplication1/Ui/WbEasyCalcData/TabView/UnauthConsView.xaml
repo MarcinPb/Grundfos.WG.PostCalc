@@ -233,11 +233,11 @@
             <TextBox Grid.Row="19" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_OthersM3PerDay_J21, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="16" Grid.Column="8" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="16" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="17" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="18" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="19" Grid.Column="10" Text="" Style="{StaticResource TextListRightStyle}" />
-            <Border Grid.Row="16" Grid.Column="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
+            <Label Grid.Row="16" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L18}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelListBlueStyle}" />
+            <Label Grid.Row="17" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelListBlueStyle}" />
+            <Label Grid.Row="18" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L20}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelListBlueStyle}" />
+            <Label Grid.Row="19" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L21}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelListBlueStyle}" />
+            <Border Grid.Row="16" Grid.Column="10" Grid.RowSpan="4" BorderBrush="White" BorderThickness="1"/>
 
             <Label Grid.Row="21" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
             <Label Grid.Row="21" Grid.Column="4" Content="{Binding Path=Model.UnauthCons_ErrorMarg_F24}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBlueStyle}" Height="20" VerticalAlignment="Top"  />

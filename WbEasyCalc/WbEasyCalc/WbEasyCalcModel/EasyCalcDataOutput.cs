@@ -84,6 +84,11 @@ namespace WbEasyCalc
         public double MetErrors_Total_L14 { get; set; }
         public double MetErrors_Total_L15 { get; set; }
 
+        public double UnauthCons_Total_L18 { get; set; }
+        public double UnauthCons_Total_L19 { get; set; }
+        public double UnauthCons_Total_L20 { get; set; }
+        public double UnauthCons_Total_L21 { get; set; }
+
 
         public double Interm_Min_H29 { get; set; }
         public double Interm_Max_H31 { get; set; }
@@ -174,6 +179,11 @@ namespace WbEasyCalc
                 MetErrors_Total_L13 = MetErrors_Total_L13,
                 MetErrors_Total_L14 = MetErrors_Total_L14,
                 MetErrors_Total_L15 = MetErrors_Total_L15,
+
+                UnauthCons_Total_L18 = UnauthCons_Total_L18,
+                UnauthCons_Total_L19 = UnauthCons_Total_L19,
+                UnauthCons_Total_L20 = UnauthCons_Total_L20,
+                UnauthCons_Total_L21 = UnauthCons_Total_L21,
 
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,

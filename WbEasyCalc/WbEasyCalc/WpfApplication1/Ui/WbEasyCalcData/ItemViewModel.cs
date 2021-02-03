@@ -273,6 +273,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Total_L14 = MetErrors_Total_L14,
             MetErrors_Total_L15 = MetErrors_Total_L15,
 
+            UnauthCons_Total_L18 = UnauthCons_Total_L18,
+            UnauthCons_Total_L19 = UnauthCons_Total_L19,
+            UnauthCons_Total_L20 = UnauthCons_Total_L20,
+            UnauthCons_Total_L21 = UnauthCons_Total_L21,
+
             Interm_Min_H29 = Interm_Min_H29,
             Interm_Max_H31 = Interm_Max_H31,
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
@@ -1828,6 +1833,30 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _metErrors_Total_L15 = value; RaisePropertyChanged(nameof(MetErrors_Total_L15)); }
         }
 
+        private double _unauthCons_Total_L18;
+        public double UnauthCons_Total_L18
+        {
+            get => _unauthCons_Total_L18;
+            set { _unauthCons_Total_L18 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L18)); }
+        }
+        private double _unauthCons_Total_L19;
+        public double UnauthCons_Total_L19
+        {
+            get => _unauthCons_Total_L19;
+            set { _unauthCons_Total_L19 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L19)); }
+        }
+        private double _unauthCons_Total_L20;
+        public double UnauthCons_Total_L20
+        {
+            get => _unauthCons_Total_L20;
+            set { _unauthCons_Total_L20 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L20)); }
+        }
+        private double _unauthCons_Total_L21;
+        public double UnauthCons_Total_L21
+        {
+            get => _unauthCons_Total_L21;
+            set { _unauthCons_Total_L21 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L21)); }
+        }
 
 
 
@@ -2147,6 +2176,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Total_L14 = model.MetErrors_Total_L14;
             MetErrors_Total_L15 = model.MetErrors_Total_L15;
 
+            UnauthCons_Total_L18 = model.UnauthCons_Total_L18;
+            UnauthCons_Total_L19 = model.UnauthCons_Total_L19;
+            UnauthCons_Total_L20 = model.UnauthCons_Total_L20;
+            UnauthCons_Total_L21 = model.UnauthCons_Total_L21;
+
             Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
             Interm_Min_H29 = model.Interm_Min_H29;
             Interm_Max_H31 = model.Interm_Max_H31;
@@ -2258,6 +2292,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Total_L13 = easyCalcDataOutput.MetErrors_Total_L13;
             MetErrors_Total_L14 = easyCalcDataOutput.MetErrors_Total_L14;
             MetErrors_Total_L15 = easyCalcDataOutput.MetErrors_Total_L15;
+
+            UnauthCons_Total_L18 = easyCalcDataOutput.UnauthCons_Total_L18;
+            UnauthCons_Total_L19 = easyCalcDataOutput.UnauthCons_Total_L19;
+            UnauthCons_Total_L20 = easyCalcDataOutput.UnauthCons_Total_L20;
+            UnauthCons_Total_L21 = easyCalcDataOutput.UnauthCons_Total_L21;
 
             Interm_BestEstimate_H33 = easyCalcDataOutput.Interm_BestEstimate_H33;
             Interm_Min_H29 = easyCalcDataOutput.Interm_Min_H29;
