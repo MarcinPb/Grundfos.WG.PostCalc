@@ -268,6 +268,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Max_L47 = MetErrors_Max_L47,
             MetErrors_BestEstimate_L49 = MetErrors_BestEstimate_L49,
 
+            MetErrors_Total_L12 = MetErrors_Total_L12,
+            MetErrors_Total_L13 = MetErrors_Total_L13,
+            MetErrors_Total_L14 = MetErrors_Total_L14,
+            MetErrors_Total_L15 = MetErrors_Total_L15,
+
             Interm_Min_H29 = Interm_Min_H29,
             Interm_Max_H31 = Interm_Max_H31,
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
@@ -1798,6 +1803,33 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
 
+        private double _metErrors_Total_L12;
+        public double MetErrors_Total_L12
+        {
+            get => _metErrors_Total_L12;
+            set { _metErrors_Total_L12 = value; RaisePropertyChanged(nameof(MetErrors_Total_L12)); }
+        }
+        private double _metErrors_Total_L13;
+        public double MetErrors_Total_L13
+        {
+            get => _metErrors_Total_L13;
+            set { _metErrors_Total_L13 = value; RaisePropertyChanged(nameof(MetErrors_Total_L13)); }
+        }
+        private double _metErrors_Total_L14;
+        public double MetErrors_Total_L14
+        {
+            get => _metErrors_Total_L14;
+            set { _metErrors_Total_L14 = value; RaisePropertyChanged(nameof(MetErrors_Total_L14)); }
+        }
+        private double _metErrors_Total_L15;
+        public double MetErrors_Total_L15
+        {
+            get => _metErrors_Total_L15;
+            set { _metErrors_Total_L15 = value; RaisePropertyChanged(nameof(MetErrors_Total_L15)); }
+        }
+
+
+
 
         private double _interm_BestEstimate_H33;
         public double Interm_BestEstimate_H33
@@ -2110,6 +2142,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Max_L47 = model.MetErrors_Max_L47;
             MetErrors_BestEstimate_L49 = model.MetErrors_BestEstimate_L49;
 
+            MetErrors_Total_L12 = model.MetErrors_Total_L12;
+            MetErrors_Total_L13 = model.MetErrors_Total_L13;
+            MetErrors_Total_L14 = model.MetErrors_Total_L14;
+            MetErrors_Total_L15 = model.MetErrors_Total_L15;
+
             Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
             Interm_Min_H29 = model.Interm_Min_H29;
             Interm_Max_H31 = model.Interm_Max_H31;
@@ -2216,6 +2253,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Min_L45 = easyCalcDataOutput.MetErrors_Min_L45;
             MetErrors_Max_L47 = easyCalcDataOutput.MetErrors_Max_L47;
             MetErrors_BestEstimate_L49 = easyCalcDataOutput.MetErrors_BestEstimate_L49;
+
+            MetErrors_Total_L12 = easyCalcDataOutput.MetErrors_Total_L12;
+            MetErrors_Total_L13 = easyCalcDataOutput.MetErrors_Total_L13;
+            MetErrors_Total_L14 = easyCalcDataOutput.MetErrors_Total_L14;
+            MetErrors_Total_L15 = easyCalcDataOutput.MetErrors_Total_L15;
 
             Interm_BestEstimate_H33 = easyCalcDataOutput.Interm_BestEstimate_H33;
             Interm_Min_H29 = easyCalcDataOutput.Interm_Min_H29;

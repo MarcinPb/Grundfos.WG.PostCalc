@@ -229,6 +229,10 @@ namespace DataModel
         public double MetErrors_Max_L47 { get; set; }
         public double MetErrors_BestEstimate_L49 { get; set; }
 
+        public double MetErrors_Total_L12 { get; set; }
+        public double MetErrors_Total_L13 { get; set; }
+        public double MetErrors_Total_L14 { get; set; }
+        public double MetErrors_Total_L15 { get; set; }
 
 
 
@@ -559,6 +563,11 @@ namespace DataModel
                 MetErrors_Min_L45           = MetErrors_Min_L45         ,
                 MetErrors_Max_L47           = MetErrors_Max_L47         ,
                 MetErrors_BestEstimate_L49  = MetErrors_BestEstimate_L49,
+
+                MetErrors_Total_L12 = MetErrors_Total_L12,
+                MetErrors_Total_L13 = MetErrors_Total_L13,
+                MetErrors_Total_L14 = MetErrors_Total_L14,
+                MetErrors_Total_L15 = MetErrors_Total_L15,
 
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,

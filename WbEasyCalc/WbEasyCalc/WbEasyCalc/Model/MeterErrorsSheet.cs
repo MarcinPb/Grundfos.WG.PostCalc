@@ -92,7 +92,7 @@ namespace WbEasyCalcRepository.Model
                 / Constants.StandardDistributionFactor,
                 2);
 
-            double s42 = s12_s28 + s32 + s34 + s38 + s40;
+            double s42 = s8 + s12_s28 + s32 + s34 + s38 + s40;
             double r42 = Math.Sqrt(s42);
             double n42 = this.BestEstimateTotalM3_L49 == 0 ? 0 : r42 * Constants.StandardDistributionFactor / this.BestEstimateTotalM3_L49;
             return n42;
@@ -108,6 +108,7 @@ namespace WbEasyCalcRepository.Model
                     * this.BilledMeteredConsumptionManuallyEnteredErrorMargin_N12_N28[i]
                     / Constants.StandardDistributionFactor,
                     2);
+                entries.Add(entry);
             }
 
             return entries;
@@ -151,21 +152,22 @@ namespace WbEasyCalcRepository.Model
 
         private List<double> GetBilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28()
         {
+            var results = new List<double>();
             if (!this.DetailedManualSpec_J6)
             {
-                return this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28.Select(x => 0d).ToList();
+                results = this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28.Select(x => 0d).ToList();
             }
-
-            var results = new List<double>();
-            for (int i = 0; i < this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28.Count; i++)
+            else
             {
-                double item = (
-                    this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28[i]
-                    / (1 - this.BilledMeteredConsumptionManuallyEnteredMeterUnderregistration_H12_H28[i])
-                ) - this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28[i];
-                results.Add(item);
+                for (int i = 0; i < this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28.Count; i++)
+                {
+                    double item = (
+                        this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28[i]
+                        / (1 - this.BilledMeteredConsumptionManuallyEnteredMeterUnderregistration_H12_H28[i])
+                    ) - this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28[i];
+                    results.Add(item);
+                }
             }
-
             return results;
         }
 

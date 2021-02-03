@@ -105,10 +105,16 @@
             <TextBox Grid.Row="13" Grid.Column="4" Text="{Binding Path=Model.MetErrors_Meter_H15, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="10" Grid.Column="4" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
+            <!--
             <TextBox Grid.Row="10" Grid.Column="8" Text="34" Style="{StaticResource TextListRightStyle}" Background="SteelBlue" Foreground="White"/>
             <TextBox Grid.Row="11" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" Background="SteelBlue" Foreground="White"/>
             <TextBox Grid.Row="12" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" Background="SteelBlue" Foreground="White"/>
             <TextBox Grid.Row="13" Grid.Column="8" Text="" Style="{StaticResource TextListRightStyle}" Background="SteelBlue" Foreground="White"/>
+            -->
+            <Label Grid.Row="10" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L12}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="11" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L13}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="12" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L14}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="13" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L15}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
             <Border Grid.Row="10" Grid.Column="8" Grid.RowSpan="4" BorderBrush="White" BorderThickness="1"/>
 
             <TextBox Grid.Row="10" Grid.Column="10" Text="{Binding Path=Model.MetErrors_Error_N12, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextListRightStyle}" />

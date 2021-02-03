@@ -18,7 +18,7 @@ namespace WbEasyCalcRepository
             EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
             EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
 
-            EasyCalcDataOutput easyCalcDataOutput =  new EasyCalcDataOutput()
+            EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
             {
                 SystemInputVolume_B19 = easyCalcSheetData.WaterBalanceSheet.SystemInputVolume_B19,
                 SystemInputVolumeErrorMargin_B21 = easyCalcSheetData.WaterBalanceSheet.SystemInputVolumeErrorMargin_B21,
@@ -92,6 +92,10 @@ namespace WbEasyCalcRepository
                 MetErrors_Max_L47 = easyCalcSheetData.MeterErrorsSheet.Max_L47,
                 MetErrors_BestEstimate_L49 = easyCalcSheetData.MeterErrorsSheet.BestEstimateTotalM3_L49,
 
+                MetErrors_Total_L12 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[0],
+                MetErrors_Total_L13 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[1],
+                MetErrors_Total_L14 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[2],
+                MetErrors_Total_L15 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[3],
 
                 Interm_BestEstimate_H33 = easyCalcSheetData.IntermittentSupply.SupplyTimeBestEstimate_H33,
                 Interm_Min_H29 = easyCalcSheetData.IntermittentSupply.Interm_Min_F29,
