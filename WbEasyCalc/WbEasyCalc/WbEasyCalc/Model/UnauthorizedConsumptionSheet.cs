@@ -125,5 +125,16 @@ namespace WbEasyCalcRepository.Model
                 + meterTamperingBypassesEtcTotalM3_L14
                 + othersM3;
         }
+
+        public double Min_L27 { get => this.GetMin_L27(); }
+        private double GetMin_L27()
+        {
+            return BestEstimateTotal_L31 * (1 - ErrorMargin_F24);
+        }
+        public double Max_L29 { get => this.GetMax_L29(); }
+        private double GetMax_L29()
+        {
+            return BestEstimateTotal_L31 * (1 + ErrorMargin_F24);
+        }
     }
 }

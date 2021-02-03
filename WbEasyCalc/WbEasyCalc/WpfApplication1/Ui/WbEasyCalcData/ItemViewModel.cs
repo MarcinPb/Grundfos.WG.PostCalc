@@ -240,6 +240,34 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_Max_D77 = SysInput_Max_D77,
             SysInput_BestEstimate_D79 = SysInput_BestEstimate_D79,
 
+            BilledCons_Sum_D28 = BilledCons_Sum_D28,
+            BilledCons_Sum_H28 = BilledCons_Sum_H28,
+            UnbilledCons_Sum_D32 = UnbilledCons_Sum_D32,
+            UnbilledCons_ErrorMarg_J25 = UnbilledCons_ErrorMarg_J25,
+            UnbilledCons_Min_H28 = UnbilledCons_Min_H28,
+            UnbilledCons_Max_H30 = UnbilledCons_Max_H30,
+            UnbilledCons_BestEstimate_H32 = UnbilledCons_BestEstimate_H32,
+            UnauthCons_Total_L6 = UnauthCons_Total_L6,
+            UnauthCons_Total_L10 = UnauthCons_Total_L10,
+            UnauthCons_Total_L14 = UnauthCons_Total_L14,
+            UnauthCons_ErrorMarg_F24 = UnauthCons_ErrorMarg_F24,
+            UnauthCons_Min_L27 = UnauthCons_Min_L27,
+            UnauthCons_Max_L29 = UnauthCons_Max_L29,
+            UnauthCons_BestEstimate_L31 = UnauthCons_BestEstimate_L31,
+
+            MetErrors_Total_F8 = MetErrors_Total_F8,
+            MetErrors_Total_F32 = MetErrors_Total_F32,
+            MetErrors_Total_F34 = MetErrors_Total_F34,
+            MetErrors_Total_F38 = MetErrors_Total_F38,
+            MetErrors_Total_L8 = MetErrors_Total_L8,
+            MetErrors_Total_L32 = MetErrors_Total_L32,
+            MetErrors_Total_L34 = MetErrors_Total_L34,
+            MetErrors_Total_L38 = MetErrors_Total_L38,
+            MetErrors_ErrorMarg_N42 = MetErrors_ErrorMarg_N42,
+            MetErrors_Min_L45 = MetErrors_Min_L45,
+            MetErrors_Max_L47 = MetErrors_Max_L47,
+            MetErrors_BestEstimate_L49 = MetErrors_BestEstimate_L49,
+
             Interm_Min_H29 = Interm_Min_H29,
             Interm_Max_H31 = Interm_Max_H31,
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
@@ -1582,9 +1610,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public double SysInput_ErrorMarg_F72
         {
             get => _sysInput_ErrorMarg_F72;
-            set { _sysInput_ErrorMarg_F72 = value; 
-                RaisePropertyChanged(nameof(SysInput_ErrorMarg_F72)); 
-            }
+            set { _sysInput_ErrorMarg_F72 = value; RaisePropertyChanged(nameof(SysInput_ErrorMarg_F72)); }
         }
         private double _sysInput_Min_D75;
         public double SysInput_Min_D75
@@ -1602,10 +1628,175 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         public double SysInput_BestEstimate_D79
         {
             get => _sysInput_BestEstimate_D79;
-            set { _sysInput_BestEstimate_D79 = value; 
-                RaisePropertyChanged(nameof(SysInput_BestEstimate_D79)); 
-            }
+            set { _sysInput_BestEstimate_D79 = value; RaisePropertyChanged(nameof(SysInput_BestEstimate_D79)); }
         }
+
+
+
+
+        private double _billedCons_Sum_D28;
+        public double BilledCons_Sum_D28
+        {
+            get => _billedCons_Sum_D28;
+            set { _billedCons_Sum_D28 = value; RaisePropertyChanged(nameof(BilledCons_Sum_D28)); }
+        }
+        private double _billedCons_Sum_H28;
+        public double BilledCons_Sum_H28
+        {
+            get => _billedCons_Sum_H28;
+            set { _billedCons_Sum_H28 = value; RaisePropertyChanged(nameof(BilledCons_Sum_H28)); }
+        }
+        private double _unbilledCons_Sum_D32;
+        public double UnbilledCons_Sum_D32
+        {
+            get => _unbilledCons_Sum_D32;
+            set { _unbilledCons_Sum_D32 = value; RaisePropertyChanged(nameof(UnbilledCons_Sum_D32)); }
+        }
+        private double _unbilledCons_ErrorMarg_J25;
+        public double UnbilledCons_ErrorMarg_J25
+        {
+            get => _unbilledCons_ErrorMarg_J25;
+            set { _unbilledCons_ErrorMarg_J25 = value; RaisePropertyChanged(nameof(UnbilledCons_ErrorMarg_J25)); }
+        }
+        private double _unbilledCons_Min_H28;
+        public double UnbilledCons_Min_H28
+        {
+            get => _unbilledCons_Min_H28;
+            set { _unbilledCons_Min_H28 = value; RaisePropertyChanged(nameof(UnbilledCons_Min_H28)); }
+        }
+        private double _unbilledCons_Max_H30;
+        public double UnbilledCons_Max_H30
+        {
+            get => _unbilledCons_Max_H30;
+            set { _unbilledCons_Max_H30 = value; RaisePropertyChanged(nameof(UnbilledCons_Max_H30)); }
+        }
+        private double _unbilledCons_BestEstimate_H32;
+        public double UnbilledCons_BestEstimate_H32
+        {
+            get => _unbilledCons_BestEstimate_H32;
+            set { _unbilledCons_BestEstimate_H32 = value; RaisePropertyChanged(nameof(UnbilledCons_BestEstimate_H32)); }
+        }
+        private double _unauthCons_Total_L6;
+        public double UnauthCons_Total_L6
+        {
+            get => _unauthCons_Total_L6;
+            set { _unauthCons_Total_L6 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L6)); }
+        }
+        private double _unauthCons_Total_L10;
+        public double UnauthCons_Total_L10
+        {
+            get => _unauthCons_Total_L10;
+            set { _unauthCons_Total_L10 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L10)); }
+        }
+        private double _unauthCons_Total_L14;
+        public double UnauthCons_Total_L14
+        {
+            get => _unauthCons_Total_L14;
+            set { _unauthCons_Total_L14 = value; RaisePropertyChanged(nameof(UnauthCons_Total_L14)); }
+        }
+        private double _unauthCons_ErrorMarg_F24;
+        public double UnauthCons_ErrorMarg_F24
+        {
+            get => _unauthCons_ErrorMarg_F24;
+            set { _unauthCons_ErrorMarg_F24 = value; RaisePropertyChanged(nameof(UnauthCons_ErrorMarg_F24)); }
+        }
+        private double _unauthCons_Min_L27;
+        public double UnauthCons_Min_L27
+        {
+            get => _unauthCons_Min_L27;
+            set { _unauthCons_Min_L27 = value; RaisePropertyChanged(nameof(UnauthCons_Min_L27)); }
+        }
+        private double _unauthCons_Max_L29;
+        public double UnauthCons_Max_L29
+        {
+            get => _unauthCons_Max_L29;
+            set { _unauthCons_Max_L29 = value; RaisePropertyChanged(nameof(UnauthCons_Max_L29)); }
+        }
+        private double _unauthCons_BestEstimate_L31;
+        public double UnauthCons_BestEstimate_L31
+        {
+            get => _unauthCons_BestEstimate_L31;
+            set { _unauthCons_BestEstimate_L31 = value; RaisePropertyChanged(nameof(UnauthCons_BestEstimate_L31)); }
+        }
+
+
+
+        private double _metErrors_Total_F8;
+        public double MetErrors_Total_F8
+        {
+            get => _metErrors_Total_F8;
+            set { _metErrors_Total_F8 = value; RaisePropertyChanged(nameof(MetErrors_Total_F8)); }
+        }
+        private double _metErrors_Total_F32;
+        public double MetErrors_Total_F32
+        {
+            get => _metErrors_Total_F32;
+            set { _metErrors_Total_F32 = value; RaisePropertyChanged(nameof(MetErrors_Total_F32)); }
+        }
+        private double _metErrors_Total_F34;
+        public double MetErrors_Total_F34
+        {
+            get => _metErrors_Total_F34;
+            set { _metErrors_Total_F34 = value; RaisePropertyChanged(nameof(MetErrors_Total_F34)); }
+        }
+        private double _metErrors_Total_F38;
+        public double MetErrors_Total_F38
+        {
+            get => _metErrors_Total_F38;
+            set { _metErrors_Total_F38 = value; RaisePropertyChanged(nameof(MetErrors_Total_F38)); }
+        }
+
+        private double _metErrors_Total_L8;
+        public double MetErrors_Total_L8
+        {
+            get => _metErrors_Total_L8;
+            set { _metErrors_Total_L8 = value; RaisePropertyChanged(nameof(MetErrors_Total_L8)); }
+        }
+        private double _metErrors_Total_L32;
+        public double MetErrors_Total_L32
+        {
+            get => _metErrors_Total_L32;
+            set { _metErrors_Total_L32 = value; RaisePropertyChanged(nameof(MetErrors_Total_L32)); }
+        }
+        private double _metErrors_Total_L34;
+        public double MetErrors_Total_L34
+        {
+            get => _metErrors_Total_L34;
+            set { _metErrors_Total_L34 = value; RaisePropertyChanged(nameof(MetErrors_Total_L34)); }
+        }
+        private double _metErrors_Total_L38;
+        public double MetErrors_Total_L38
+        {
+            get => _metErrors_Total_L38;
+            set { _metErrors_Total_L38 = value; RaisePropertyChanged(nameof(MetErrors_Total_L38)); }
+        }
+
+        private double _metErrors_ErrorMarg_N42;
+        public double MetErrors_ErrorMarg_N42
+        {
+            get => _metErrors_ErrorMarg_N42;
+            set { _metErrors_ErrorMarg_N42 = value; RaisePropertyChanged(nameof(MetErrors_ErrorMarg_N42)); }
+        }
+        private double _metErrors_Min_L45;
+        public double MetErrors_Min_L45
+        {
+            get => _metErrors_Min_L45;
+            set { _metErrors_Min_L45 = value; RaisePropertyChanged(nameof(MetErrors_Min_L45)); }
+        }
+        private double _metErrors_Max_L47;
+        public double MetErrors_Max_L47
+        {
+            get => _metErrors_Max_L47;
+            set { _metErrors_Max_L47 = value; RaisePropertyChanged(nameof(MetErrors_Max_L47)); }
+        }
+        private double _metErrors_BestEstimate_L49;
+        public double MetErrors_BestEstimate_L49
+        {
+            get => _metErrors_BestEstimate_L49;
+            set { _metErrors_BestEstimate_L49 = value; RaisePropertyChanged(nameof(MetErrors_BestEstimate_L49)); }
+        }
+
+
 
 
         private double _interm_BestEstimate_H33;
@@ -1891,6 +2082,34 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_Max_D77 = model.SysInput_Max_D77;
             SysInput_BestEstimate_D79 = model.SysInput_BestEstimate_D79;
 
+            BilledCons_Sum_D28 =            model.BilledCons_Sum_D28           ;
+            BilledCons_Sum_H28 =            model.BilledCons_Sum_H28           ;
+            UnbilledCons_Sum_D32 =          model.UnbilledCons_Sum_D32         ;
+            UnbilledCons_ErrorMarg_J25 =    model.UnbilledCons_ErrorMarg_J25   ;
+            UnbilledCons_Min_H28 =          model.UnbilledCons_Min_H28         ;
+            UnbilledCons_Max_H30 =          model.UnbilledCons_Max_H30         ;
+            UnbilledCons_BestEstimate_H32 = model.UnbilledCons_BestEstimate_H32;
+            UnauthCons_Total_L6 =           model.UnauthCons_Total_L6          ;
+            UnauthCons_Total_L10 =          model.UnauthCons_Total_L10         ;
+            UnauthCons_Total_L14 =          model.UnauthCons_Total_L14         ;
+            UnauthCons_ErrorMarg_F24 =      model.UnauthCons_ErrorMarg_F24     ;
+            UnauthCons_Min_L27 =            model.UnauthCons_Min_L27           ;
+            UnauthCons_Max_L29 =            model.UnauthCons_Max_L29           ;
+            UnauthCons_BestEstimate_L31 =   model.UnauthCons_BestEstimate_L31  ;
+
+            MetErrors_Total_F8 = model.MetErrors_Total_F8;
+            MetErrors_Total_F32 = model.MetErrors_Total_F32;
+            MetErrors_Total_F34 = model.MetErrors_Total_F34;
+            MetErrors_Total_F38 = model.MetErrors_Total_F38;
+            MetErrors_Total_L8 = model.MetErrors_Total_L8;
+            MetErrors_Total_L32 = model.MetErrors_Total_L32;
+            MetErrors_Total_L34 = model.MetErrors_Total_L34;
+            MetErrors_Total_L38 = model.MetErrors_Total_L38;
+            MetErrors_ErrorMarg_N42 = model.MetErrors_ErrorMarg_N42;
+            MetErrors_Min_L45 = model.MetErrors_Min_L45;
+            MetErrors_Max_L47 = model.MetErrors_Max_L47;
+            MetErrors_BestEstimate_L49 = model.MetErrors_BestEstimate_L49;
+
             Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
             Interm_Min_H29 = model.Interm_Min_H29;
             Interm_Max_H31 = model.Interm_Max_H31;
@@ -1969,6 +2188,34 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             SysInput_Min_D75 = easyCalcDataOutput.SysInput_Min_D75;
             SysInput_Max_D77 = easyCalcDataOutput.SysInput_Max_D77;
             SysInput_BestEstimate_D79 = easyCalcDataOutput.SysInput_BestEstimate_D79;
+
+            BilledCons_Sum_D28 = easyCalcDataOutput.BilledCons_Sum_D28;
+            BilledCons_Sum_H28 = easyCalcDataOutput.BilledCons_Sum_H28;
+            UnbilledCons_Sum_D32 = easyCalcDataOutput.UnbilledCons_Sum_D32;
+            UnbilledCons_ErrorMarg_J25 = easyCalcDataOutput.UnbilledCons_ErrorMarg_J25;
+            UnbilledCons_Min_H28 = easyCalcDataOutput.UnbilledCons_Min_H28;
+            UnbilledCons_Max_H30 = easyCalcDataOutput.UnbilledCons_Max_H30;
+            UnbilledCons_BestEstimate_H32 = easyCalcDataOutput.UnbilledCons_BestEstimate_H32;
+            UnauthCons_Total_L6 = easyCalcDataOutput.UnauthCons_Total_L6;
+            UnauthCons_Total_L10 = easyCalcDataOutput.UnauthCons_Total_L10;
+            UnauthCons_Total_L14 = easyCalcDataOutput.UnauthCons_Total_L14;
+            UnauthCons_ErrorMarg_F24 = easyCalcDataOutput.UnauthCons_ErrorMarg_F24;
+            UnauthCons_Min_L27 = easyCalcDataOutput.UnauthCons_Min_L27;
+            UnauthCons_Max_L29 = easyCalcDataOutput.UnauthCons_Max_L29;
+            UnauthCons_BestEstimate_L31 = easyCalcDataOutput.UnauthCons_BestEstimate_L31;
+
+            MetErrors_Total_F8 = easyCalcDataOutput.MetErrors_Total_F8;
+            MetErrors_Total_F32 = easyCalcDataOutput.MetErrors_Total_F32;
+            MetErrors_Total_F34 = easyCalcDataOutput.MetErrors_Total_F34;
+            MetErrors_Total_F38 = easyCalcDataOutput.MetErrors_Total_F38;
+            MetErrors_Total_L8 = easyCalcDataOutput.MetErrors_Total_L8;
+            MetErrors_Total_L32 = easyCalcDataOutput.MetErrors_Total_L32;
+            MetErrors_Total_L34 = easyCalcDataOutput.MetErrors_Total_L34;
+            MetErrors_Total_L38 = easyCalcDataOutput.MetErrors_Total_L38;
+            MetErrors_ErrorMarg_N42 = easyCalcDataOutput.MetErrors_ErrorMarg_N42;
+            MetErrors_Min_L45 = easyCalcDataOutput.MetErrors_Min_L45;
+            MetErrors_Max_L47 = easyCalcDataOutput.MetErrors_Max_L47;
+            MetErrors_BestEstimate_L49 = easyCalcDataOutput.MetErrors_BestEstimate_L49;
 
             Interm_BestEstimate_H33 = easyCalcDataOutput.Interm_BestEstimate_H33;
             Interm_Min_H29 = easyCalcDataOutput.Interm_Min_H29;

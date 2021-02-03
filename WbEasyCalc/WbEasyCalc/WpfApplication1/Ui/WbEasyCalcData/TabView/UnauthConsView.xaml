@@ -192,7 +192,7 @@
             <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_IllegalConnDomErrorMargin_F6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
             <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.UnauthCons_IllegalConnDomPersPerHouse_H6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
             <TextBox Grid.Row="4" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_IllegalConnDomConsLitPerPersDay_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
-            <Label Grid.Row="4" Grid.Column="10" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="4" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L6}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
 
 
 
@@ -203,7 +203,7 @@
             <TextBox Grid.Row="8" Grid.Column="2" Text="{Binding Path=Model.IllegalConnectionsOthersEstimatedNumber_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
             <TextBox Grid.Row="8" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_IllegalConnOthersErrorMargin_F10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
             <TextBox Grid.Row="8" Grid.Column="8" Text="{Binding Path=Model.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightStyle}"  />
-            <Label Grid.Row="8" Grid.Column="10" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="8" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L10}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
 
             <Label Grid.Row="10" Grid.Column="8" Content="      Consumption&#xD;&#xA;[liters/customer/day]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
@@ -211,7 +211,7 @@
             <TextBox Grid.Row="12" Grid.Column="2" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcEstNo_D14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
             <TextBox Grid.Row="12" Grid.Column="4" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcErrorMargin_F14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
             <TextBox Grid.Row="12" Grid.Column="8" Text="{Binding Path=Model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="12" Grid.Column="10" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="12" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Total_L14}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
             <Label Grid.Row="14" Grid.Column="8" Content="Consumption [m3/day]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
@@ -240,18 +240,18 @@
             <Border Grid.Row="16" Grid.Column="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <Label Grid.Row="21" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
-            <Label Grid.Row="21" Grid.Column="4" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="21" Grid.Column="4" Content="{Binding Path=Model.UnauthCons_ErrorMarg_F24}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBlueStyle}" Height="20" VerticalAlignment="Top"  />
 
             <Label Grid.Row="23" Grid.Column="0" Content="Unauthorized consumption [m3]" Style="{StaticResource LabelTransparentBoldStyle}"  />
 
             <Label Grid.Row="25" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="25" Grid.Column="10" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="25" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Min_L27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="27" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="27" Grid.Column="10" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="27" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_Max_L29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="29" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
-            <Label Grid.Row="29" Grid.Column="10" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="29" Grid.Column="10" Content="{Binding Path=Model.UnauthCons_BestEstimate_L31}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
         </Grid>
     </ScrollViewer>
 </UserControl>

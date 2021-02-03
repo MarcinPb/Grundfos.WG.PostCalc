@@ -72,7 +72,7 @@
                 <Label Grid.Row="13" Grid.Column="0" Content="Unbilled Metered Consumption" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
 
                 <Label Grid.Row="19" Grid.Column="0" Content="[m3]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" HorizontalContentAlignment="Right"/>
-                <Label Grid.Row="19" Grid.Column="2" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+                <Label Grid.Row="19" Grid.Column="2" Content="{Binding Path=Model.UnbilledCons_Sum_D32}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
 
 
 
@@ -110,20 +110,19 @@
                 <Border Grid.Row="4" Grid.Column="8" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1"/>
 
                 <Label Grid.Row="11" Grid.Column="4" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}" />
-                <Label Grid.Row="11" Grid.Column="8" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+                <Label Grid.Row="11" Grid.Column="8" Content="{Binding Path=Model.UnbilledCons_ErrorMarg_J25}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBlueStyle}"  />
 
 
                 <Label Grid.Row="13" Grid.Column="4" Content="Unbilled Unmetered Consumption [m3]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
 
                 <Label Grid.Row="15" Grid.Column="4" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-                <Label Grid.Row="15" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+                <Label Grid.Row="15" Grid.Column="6" Content="{Binding Path=Model.UnbilledCons_Min_H28}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
                 <Label Grid.Row="17" Grid.Column="4" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-                <Label Grid.Row="17" Grid.Column="6" Content="234" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
-
+                <Label Grid.Row="17" Grid.Column="6" Content="{Binding Path=Model.UnbilledCons_Max_H30}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
 
                 <Label Grid.Row="19" Grid.Column="4" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
-                <Label Grid.Row="19" Grid.Column="6" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+                <Label Grid.Row="19" Grid.Column="6" Content="{Binding Path=Model.UnbilledCons_BestEstimate_H32}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
 
             </Grid>
         </ScrollViewer>

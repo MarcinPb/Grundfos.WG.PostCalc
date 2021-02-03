@@ -43,5 +43,18 @@ namespace WbEasyCalcRepository.Model
 
             return result;
         }
+
+        public double Min_H28 { get => this.GetMin_H28(); }
+        private double GetMin_H28()
+        {
+            return UnbilledUnmeteredConsumption_H32 == 0 ? 0 : UnbilledUnmeteredConsumption_H32 * (1 - UnbilledUnmeteredConsumptionErrorMargin_J25);
+        }
+        public double Max_H30 { get => this.GetMax_H30(); }
+        private double GetMax_H30()
+        {
+            return UnbilledUnmeteredConsumption_H32 == 0 ? 0 : UnbilledUnmeteredConsumption_H32 * (1 + UnbilledUnmeteredConsumptionErrorMargin_J25);
+        }
+
+
     }
 }

@@ -78,9 +78,9 @@
             <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding Path=Model.MetErrors_DetailedManualSpec_J6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}"  />
 
             <Label Grid.Row="6" Grid.Column="0" Content="Billed Metered Consumption (without Bulk&#xD;&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="6" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="6" Grid.Column="2" Content="{Binding Path=Model.MetErrors_Total_F8}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="6" Grid.Column="4" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="6" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="6" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L8}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="6" Grid.Column="10" Text="{Binding Path=Model.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="8" Grid.Column="0" Content="Billed Metered Consumption (without Bulk&#xD;&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
@@ -118,23 +118,23 @@
             <Border Grid.Row="10" Grid.Column="10" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <Label Grid.Row="15" Grid.Column="0" Content="Metered Bulk Supply (Export)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="15" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="15" Grid.Column="2" Content="{Binding Path=Model.MetErrors_Total_F32}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="15" Grid.Column="4" Text="{Binding Path=Model.MetErrors_MetBulkSupExpMetUnderreg_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="15" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="15" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L32}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="15" Grid.Column="10" Text="{Binding Path=Model.MeteredBulkSupplyExportErrorMargin_N32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="17" Grid.Column="0" Content="Unbilled Metered Consumption (without Bulk&#xA;Supply)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="17" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="17" Grid.Column="2" Content="{Binding Path=Model.MetErrors_Total_F34}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="17" Grid.Column="4" Text="{Binding Path=Model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="17" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="17" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L34}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="17" Grid.Column="10" Text="{Binding Path=Model.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
             
             <Label Grid.Row="19" Grid.Column="4" Content="Estimated % of under-&#xA;            reading" Style="{StaticResource LabelBlueColTitleStyle}" />
 
             <Label Grid.Row="21" Grid.Column="0" Content="Corrupt Meter Reading Practices"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="21" Grid.Column="2" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="21" Grid.Column="2" Content="{Binding Path=Model.MetErrors_Total_F38}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="21" Grid.Column="4" Text="{Binding Path=Model.MetErrors_CorruptMetReadPractMetUndrreg_H38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="21" Grid.Column="8" Content="22.33" Style="{StaticResource LabelSteelBlueStyle}"  />
+            <Label Grid.Row="21" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Total_L38}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
             <TextBox Grid.Row="21" Grid.Column="10" Text="{Binding Path=Model.CorruptMeterReadingPracticessErrorMargin_N38, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="23" Grid.Column="0" Content="Data Handling Errors (Office)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
@@ -142,18 +142,18 @@
             <TextBox Grid.Row="23" Grid.Column="10" Text="{Binding Path=Model.DataHandlingErrorsOfficeErrorMargin_N40, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter} }" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="25" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"/>
-            <Label Grid.Row="25" Grid.Column="10" Content="22.33" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="25" Grid.Column="10" Content="{Binding Path=Model.MetErrors_ErrorMarg_N42}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBlueStyle}"  />
 
             <Label Grid.Row="27" Grid.Column="0" Content="Customer Meter Inaccuracies and Data Handling Errors" Style="{StaticResource LabelTransparentBoldStyle}"  />
 
             <Label Grid.Row="29" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="29" Grid.Column="8" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="29" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Min_L45}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="31" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="31" Grid.Column="8" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="31" Grid.Column="8" Content="{Binding Path=Model.MetErrors_Max_L47}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="33" Grid.Column="0" Content="Best Estimates" Style="{StaticResource LabelTransparentBoldStyle}" />
-            <Label Grid.Row="33" Grid.Column="8" Content="234" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="33" Grid.Column="8" Content="{Binding Path=Model.MetErrors_BestEstimate_L49}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
         </Grid>
     </ScrollViewer>
 

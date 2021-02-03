@@ -168,5 +168,16 @@ namespace WbEasyCalcRepository.Model
 
             return results;
         }
+
+        public double Min_L45 { get => this.GetMin_L45(); }
+        private double GetMin_L45()
+        {
+            return BestEstimateTotalM3_L49 * (1 - ErrorMarginTotal_N42);
+        }
+        public double Max_L47 { get => this.GetMax_L47(); }
+        private double GetMax_L47()
+        {
+            return BestEstimateTotalM3_L49 * (1 + ErrorMarginTotal_N42);
+        }
     }
 }
