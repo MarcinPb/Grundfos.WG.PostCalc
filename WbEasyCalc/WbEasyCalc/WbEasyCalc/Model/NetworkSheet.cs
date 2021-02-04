@@ -69,5 +69,17 @@ namespace WbEasyCalcRepository.Model
             return ServiceConnectionsBestEstimate_H30==0 ? 0 : m24 * 1.96/ ServiceConnectionsBestEstimate_H30;
         }
         public double Network_ErrorMarg_J39 { get => Math.Sqrt(Network_ErrorMarg_J24*Network_ErrorMarg_J24 + Network_ErrorMargin_J32*Network_ErrorMargin_J32); }
+
+        public double Network_Min_H26 { get => this.GetNetwork_Min_H26(); }
+        private double GetNetwork_Min_H26()
+        {
+            return ServiceConnectionsBestEstimate_H30 * (1 - Network_ErrorMarg_J24);
+        }
+        public double Network_Max_H28 { get => this.GetNetwork_Max_H28(); }
+        private double GetNetwork_Max_H28()
+        {
+            return ServiceConnectionsBestEstimate_H30 * (1 + Network_ErrorMarg_J24);
+        }
+
     }
 }
