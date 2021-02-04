@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WbEasyCalcRepository.Model
@@ -19,8 +20,7 @@ namespace WbEasyCalcRepository.Model
         public double DistributionAndTransmissionMainsMinimum_D33 { get => this.DistributionAndTransmissionMainsTotalKm_D28; }
         public double DistributionAndTransmissionMainsMaximum_D35
         {
-            get => this.DistributionAndTransmissionMainsTotalKm_D28
-                * (1 + this.DistributionAndTransmissionMainsPossibleUnderestimation_D30);
+            get => Math.Round(this.DistributionAndTransmissionMainsTotalKm_D28 * (1 + this.DistributionAndTransmissionMainsPossibleUnderestimation_D30), 1);
         }
         public double DistributionAndTransmissionMainsBestEstimate_D37
         {
@@ -31,7 +31,7 @@ namespace WbEasyCalcRepository.Model
         public double NumberOfConnectionsOfRegsteredCustomers_H10 { get; set; }
         public double NumberOfInactiveAccountsWServiceConnections_H18 { get; set; }
         public double AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 { get; set; }
-        public double Network_ErrorMargin_J7  { get; set; }
+        public double Network_ErrorMargin_J7 { get; set; }
         public double Network_ErrorMargin_J10 { get; set; }
         public double Network_ErrorMargin_J18 { get; set; }
         public double Network_ErrorMargin_J32 { get; set; }
@@ -52,5 +52,22 @@ namespace WbEasyCalcRepository.Model
             get => this.AvgLenOfServiceConnectionFromBoundaryToMeterM_H32
                 * this.ServiceConnectionsBestEstimate_H30 / 1000;
         }
+        public double Network_ErrorMarg_J21 { get => data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticErrorMargin_F6; }
+        
+        public double Network_ErrorMarg_J24 { get => GetNetwork_ErrorMarg_J24(); }
+        private double GetNetwork_ErrorMarg_J24()
+        {
+            var m7 = (NumberOfConnectionsOfRegsteredCustomers_H10 * Network_ErrorMargin_J10) / 1.96;
+            var m15 = (NumberOfInactiveAccountsWServiceConnections_H18 * Network_ErrorMargin_J18) / 1.96;
+            var m18 = (EstimatedNumberOfIllegalConnections_H21 * Network_ErrorMarg_J21) / 1.96;
+            var n7 = m7 * m7;
+            var n15 = m15 * m15;
+            var n18 = m18 * m18;
+            var n22 = n7 + n15 + n18;
+            var m24 = Math.Sqrt(n22);
+
+            return ServiceConnectionsBestEstimate_H30==0 ? 0 : m24 * 1.96/ ServiceConnectionsBestEstimate_H30;
+        }
+        public double Network_ErrorMarg_J39 { get => Math.Sqrt(Network_ErrorMarg_J24*Network_ErrorMarg_J24 + Network_ErrorMargin_J32*Network_ErrorMargin_J32); }
     }
 }

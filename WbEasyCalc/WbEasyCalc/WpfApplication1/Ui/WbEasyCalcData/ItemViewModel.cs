@@ -276,6 +276,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Max_L47 = MetErrors_Max_L47,
             MetErrors_BestEstimate_L49 = MetErrors_BestEstimate_L49,
 
+            Network_Total_D28 = Network_Total_D28,
+            Network_Total_D32 = Network_Total_D32,
+            Network_Min_D39 = Network_Min_D39,
+            Network_Max_D41 = Network_Max_D41,
+            Network_BestEstimate_D43 = Network_BestEstimate_D43,
+            Network_Number_H21 = Network_Number_H21,
+            Network_ErrorMarg_J21 = Network_ErrorMarg_J21,
+            Network_ErrorMarg_J24 = Network_ErrorMarg_J24,
+            Network_Min_H26 = Network_Min_H26,
+            Network_Max_H28 = Network_Max_H28,
+            Network_BestEstimate_H30 = Network_BestEstimate_H30,
+            Network_Number_H39 = Network_Number_H39,
+            Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
+
             MetErrors_Total_L12 = MetErrors_Total_L12,
             MetErrors_Total_L13 = MetErrors_Total_L13,
             MetErrors_Total_L14 = MetErrors_Total_L14,
@@ -1886,6 +1900,94 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _metErrors_Total_L15 = value; RaisePropertyChanged(nameof(MetErrors_Total_L15)); }
         }
 
+
+
+        private double _network_Total_D28;
+        public double Network_Total_D28
+        {
+            get => _network_Total_D28;
+            set { _network_Total_D28 = value; RaisePropertyChanged(nameof(Network_Total_D28)); }
+        }
+        private double _network_Total_D32;
+        public double Network_Total_D32
+        {
+            get => _network_Total_D32;
+            set { _network_Total_D32 = value; RaisePropertyChanged(nameof(Network_Total_D32)); }
+        }
+        private double _network_Min_D39;
+        public double Network_Min_D39
+        {
+            get => _network_Min_D39;
+            set { _network_Min_D39 = value; RaisePropertyChanged(nameof(Network_Min_D39)); }
+        }
+        private double _network_Max_D41;
+        public double Network_Max_D41
+        {
+            get => _network_Max_D41;
+            set { _network_Max_D41 = value; RaisePropertyChanged(nameof(Network_Max_D41)); }
+        }
+        private double _network_BestEstimate_D43;
+        public double Network_BestEstimate_D43
+        {
+            get => _network_BestEstimate_D43;
+            set { _network_BestEstimate_D43 = value; RaisePropertyChanged(nameof(Network_BestEstimate_D43)); }
+        }
+        private double _network_Number_H21;
+        public double Network_Number_H21
+        {
+            get => _network_Number_H21;
+            set { _network_Number_H21 = value; RaisePropertyChanged(nameof(Network_Number_H21)); }
+        }
+        private double _network_ErrorMarg_J21;
+        public double Network_ErrorMarg_J21
+        {
+            get => _network_ErrorMarg_J21;
+            set { _network_ErrorMarg_J21 = value; RaisePropertyChanged(nameof(Network_ErrorMarg_J21)); }
+        }
+        private double _network_ErrorMarg_J24;
+        public double Network_ErrorMarg_J24
+        {
+            get => _network_ErrorMarg_J24;
+            set { _network_ErrorMarg_J24 = value; RaisePropertyChanged(nameof(Network_ErrorMarg_J24)); }
+        }
+        private double _network_Min_H26;
+        public double Network_Min_H26
+        {
+            get => _network_Min_H26;
+            set { _network_Min_H26 = value; RaisePropertyChanged(nameof(Network_Min_H26)); }
+        }
+        private double _network_Max_H28;
+        public double Network_Max_H28
+        {
+            get => _network_Max_H28;
+            set { _network_Max_H28 = value; RaisePropertyChanged(nameof(Network_Max_H28)); }
+        }
+
+        private double _network_BestEstimate_H30;
+        public double Network_BestEstimate_H30
+        {
+            get => _network_BestEstimate_H30;
+            set { _network_BestEstimate_H30 = value; RaisePropertyChanged(nameof(Network_BestEstimate_H30)); }
+        }
+        private double _network_Number_H39;
+        public double Network_Number_H39
+        {
+            get => _network_Number_H39;
+            set { _network_Number_H39 = value; RaisePropertyChanged(nameof(Network_Number_H39)); }
+        }
+        private double _network_ErrorMarg_J39;
+        public double Network_ErrorMarg_J39
+        {
+            get => _network_ErrorMarg_J39;
+            set { _network_ErrorMarg_J39 = value; RaisePropertyChanged(nameof(Network_ErrorMarg_J39)); }
+        }
+
+
+
+
+
+
+
         private double _unauthCons_Total_L18;
         public double UnauthCons_Total_L18
         {
@@ -2237,6 +2339,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Total_L14 = model.MetErrors_Total_L14;
             MetErrors_Total_L15 = model.MetErrors_Total_L15;
 
+            Network_Total_D28 = model.Network_Total_D28;
+            Network_Total_D32 = model.Network_Total_D32;
+            Network_Min_D39 = model.Network_Min_D39;
+            Network_Max_D41 = model.Network_Max_D41;
+            Network_BestEstimate_D43 = model.Network_BestEstimate_D43;
+            Network_Number_H21 = model.Network_Number_H21;
+            Network_ErrorMarg_J21 = model.Network_ErrorMarg_J21;
+            Network_ErrorMarg_J24 = model.Network_ErrorMarg_J24;
+            Network_Min_H26 = model.Network_Min_H26;
+            Network_Max_H28 = model.Network_Max_H28;
+            Network_BestEstimate_H30 = model.Network_BestEstimate_H30;
+            Network_Number_H39 = model.Network_Number_H39;
+            Network_ErrorMarg_J39 = model.Network_ErrorMarg_J39;
+
             UnauthCons_Total_L18 = model.UnauthCons_Total_L18;
             UnauthCons_Total_L19 = model.UnauthCons_Total_L19;
             UnauthCons_Total_L20 = model.UnauthCons_Total_L20;
@@ -2353,6 +2469,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             MetErrors_Total_L13 = easyCalcDataOutput.MetErrors_Total_L13;
             MetErrors_Total_L14 = easyCalcDataOutput.MetErrors_Total_L14;
             MetErrors_Total_L15 = easyCalcDataOutput.MetErrors_Total_L15;
+
+            Network_Total_D28 = easyCalcDataOutput.Network_Total_D28;
+            Network_Total_D32 = easyCalcDataOutput.Network_Total_D32;
+            Network_Min_D39 = easyCalcDataOutput.Network_Min_D39;
+            Network_Max_D41 = easyCalcDataOutput.Network_Max_D41;
+            Network_BestEstimate_D43 = easyCalcDataOutput.Network_BestEstimate_D43;
+            Network_Number_H21 = easyCalcDataOutput.Network_Number_H21;
+            Network_ErrorMarg_J21 = easyCalcDataOutput.Network_ErrorMarg_J21;
+            Network_ErrorMarg_J24 = easyCalcDataOutput.Network_ErrorMarg_J24;
+            Network_Min_H26 = easyCalcDataOutput.Network_Min_H26;
+            Network_Max_H28 = easyCalcDataOutput.Network_Max_H28;
+            Network_BestEstimate_H30 = easyCalcDataOutput.Network_BestEstimate_H30;
+            Network_Number_H39 = easyCalcDataOutput.Network_Number_H39;
+            Network_ErrorMarg_J39 = easyCalcDataOutput.Network_ErrorMarg_J39;
 
             UnauthCons_Total_L18 = easyCalcDataOutput.UnauthCons_Total_L18;
             UnauthCons_Total_L19 = easyCalcDataOutput.UnauthCons_Total_L19;

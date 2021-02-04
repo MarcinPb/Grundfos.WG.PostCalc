@@ -84,6 +84,22 @@ namespace WbEasyCalc
         public double MetErrors_Total_L14 { get; set; }
         public double MetErrors_Total_L15 { get; set; }
 
+        public double Network_Total_D28 { get; set; }
+        public double Network_Total_D32 { get; set; }
+        public double Network_Min_D39 { get; set; }
+        public double Network_Max_D41 { get; set; }
+        public double Network_BestEstimate_D43 { get; set; }
+        public double Network_Number_H21 { get; set; }
+        public double Network_ErrorMarg_J21 { get; set; }
+        public double Network_ErrorMarg_J24 { get; set; }
+        public double Network_Min_H26 { get; set; }
+        public double Network_Max_H28 { get; set; }
+        public double Network_BestEstimate_H30 { get; set; }
+        public double Network_Number_H39 { get; set; }
+        public double Network_ErrorMarg_J39 { get; set; }
+
+
+
         public double UnauthCons_Total_L18 { get; set; }
         public double UnauthCons_Total_L19 { get; set; }
         public double UnauthCons_Total_L20 { get; set; }
@@ -179,6 +195,20 @@ namespace WbEasyCalc
                 MetErrors_Total_L13 = MetErrors_Total_L13,
                 MetErrors_Total_L14 = MetErrors_Total_L14,
                 MetErrors_Total_L15 = MetErrors_Total_L15,
+
+                Network_Total_D28 = Network_Total_D28,
+                Network_Total_D32 = Network_Total_D32,
+                Network_Min_D39 = Network_Min_D39,
+                Network_Max_D41 = Network_Max_D41,
+                Network_BestEstimate_D43 = Network_BestEstimate_D43,
+                Network_Number_H21 = Network_Number_H21,
+                Network_ErrorMarg_J21 = Network_ErrorMarg_J21,
+                Network_ErrorMarg_J24 = Network_ErrorMarg_J24,
+                Network_Min_H26 = Network_Min_H26,
+                Network_Max_H28 = Network_Max_H28,
+                Network_BestEstimate_H30 = Network_BestEstimate_H30,
+                Network_Number_H39 = Network_Number_H39,
+                Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
 
                 UnauthCons_Total_L18 = UnauthCons_Total_L18,
                 UnauthCons_Total_L19 = UnauthCons_Total_L19,
