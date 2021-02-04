@@ -372,11 +372,13 @@ namespace WbEasyCalcRepository
 
             data.PiSheet = new PiSheet(data);
             data.WaterBalanceSheet = new WaterBalanceSheet();
+            data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
 
             return data;
         }
 
         // Only in test
+        /*
         public EasyCalcSheetData ReadSheetData(string zone, DateTime yearMonth)
         {
             var data = new EasyCalcSheetData();
@@ -439,5 +441,6 @@ namespace WbEasyCalcRepository
 
             return data;
         }
+        */
     }
 }

@@ -65,21 +65,29 @@ namespace WbEasyCalcRepository
             data.WaterBalanceSheet.BilledUnmeteredConsumption_AC9 = data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum();
             data.WaterBalanceSheet.UnbilledMeteredConsumption_AC14 = data.UnbilledConsumptionSheet.UnbilledMeteredConsumption_D32;
             data.WaterBalanceSheet.UnbilledUnmeteredConsumption_AC19 = data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionM3_H6_H23.Sum();
-            data.WaterBalanceSheet.BilledAuthorizedConsumption_T8 =
-                data.WaterBalanceSheet.BilledMeteredConsumption_AC4 +
-                data.WaterBalanceSheet.BilledUnmeteredConsumption_AC9;
-            data.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16 =
-                data.WaterBalanceSheet.UnbilledMeteredConsumption_AC14 +
-                data.WaterBalanceSheet.UnbilledUnmeteredConsumption_AC19;
-            data.WaterBalanceSheet.AuthorizedConsumption_K12 =
-                data.WaterBalanceSheet.BilledAuthorizedConsumption_T8 +
-                data.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16;
+            data.WaterBalanceSheet.BilledAuthorizedConsumption_T8 = data.WaterBalanceSheet.BilledMeteredConsumption_AC4 + data.WaterBalanceSheet.BilledUnmeteredConsumption_AC9;
+            data.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16 = data.WaterBalanceSheet.UnbilledMeteredConsumption_AC14 + data.WaterBalanceSheet.UnbilledUnmeteredConsumption_AC19;
+            data.WaterBalanceSheet.AuthorizedConsumption_K12 = data.WaterBalanceSheet.BilledAuthorizedConsumption_T8 + data.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16;
             data.WaterBalanceSheet.WaterLosses_K29 = data.WaterBalanceSheet.SystemInputVolume_B19 - data.WaterBalanceSheet.AuthorizedConsumption_K12;
-
             data.WaterBalanceSheet.UnauthorizedConsumption_AC24 = data.UnauthorizedConsumptionSheet.BestEstimateTotal_L31;
             data.WaterBalanceSheet.CustomerMeterInaccuraciesAndErrorsM3_AC29 = data.MeterErrorsSheet.BestEstimateTotalM3_L49;
             data.WaterBalanceSheet.CommercialLosses_T26 = data.WaterBalanceSheet.UnauthorizedConsumption_AC24 + data.WaterBalanceSheet.CustomerMeterInaccuraciesAndErrorsM3_AC29;
-            data.WaterBalanceSheet.PhysicalLossesM3_T34 = data.WaterBalanceSheet.WaterLosses_K29 - data.WaterBalanceSheet.CommercialLosses_T26; ;
+            data.WaterBalanceSheet.PhysicalLossesM3_T34 = data.WaterBalanceSheet.WaterLosses_K29 - data.WaterBalanceSheet.CommercialLosses_T26;
+
+            var startM21 = data.StartSheet.PeriodDays_M21;
+            data.WaterBalanceDaySheet.SystemInputVolume_B19 = startM21 > 0 ? data.SystemInputSheet.SystemInputVolume_D79 / startM21 : 0;
+            data.WaterBalanceDaySheet.BilledMeteredConsumption_AC4 = startM21 > 0 ? data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum() / startM21 : 0;
+            data.WaterBalanceDaySheet.BilledUnmeteredConsumption_AC9 = startM21 > 0 ? data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum() / startM21 : 0;
+            data.WaterBalanceDaySheet.UnbilledMeteredConsumption_AC14 = startM21 > 0 ? data.UnbilledConsumptionSheet.UnbilledMeteredConsumption_D32 / startM21 : 0;
+            data.WaterBalanceDaySheet.UnbilledUnmeteredConsumption_AC19 = startM21 > 0 ? data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionM3_H6_H23.Sum() / startM21 : 0;
+            data.WaterBalanceDaySheet.BilledAuthorizedConsumption_T8 = data.WaterBalanceSheet.BilledMeteredConsumption_AC4 + data.WaterBalanceSheet.BilledUnmeteredConsumption_AC9;
+            data.WaterBalanceDaySheet.UnbilledAuthorizedConsumption_T16 = data.WaterBalanceSheet.UnbilledMeteredConsumption_AC14 + data.WaterBalanceSheet.UnbilledUnmeteredConsumption_AC19;
+            data.WaterBalanceDaySheet.AuthorizedConsumption_K12 = data.WaterBalanceSheet.BilledAuthorizedConsumption_T8 + data.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16;
+            data.WaterBalanceDaySheet.WaterLosses_K29 = data.WaterBalanceSheet.SystemInputVolume_B19 - data.WaterBalanceSheet.AuthorizedConsumption_K12;
+            data.WaterBalanceDaySheet.UnauthorizedConsumption_AC24 = startM21 > 0 ? data.UnauthorizedConsumptionSheet.BestEstimateTotal_L31 / startM21 : 0;
+            data.WaterBalanceDaySheet.CustomerMeterInaccuraciesAndErrorsM3_AC29 = startM21 > 0 ? data.MeterErrorsSheet.BestEstimateTotalM3_L49 / startM21 : 0;
+            data.WaterBalanceDaySheet.CommercialLosses_T26 = data.WaterBalanceSheet.UnauthorizedConsumption_AC24 + data.WaterBalanceSheet.CustomerMeterInaccuraciesAndErrorsM3_AC29;
+            data.WaterBalanceDaySheet.PhysicalLossesM3_T34 = data.WaterBalanceSheet.WaterLosses_K29 - data.WaterBalanceSheet.CommercialLosses_T26;
         }
 
         public static void GetWaterLossesErrorMargin(EasyCalcSheetData data)

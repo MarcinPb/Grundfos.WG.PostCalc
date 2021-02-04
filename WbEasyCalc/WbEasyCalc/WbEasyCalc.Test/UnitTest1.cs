@@ -17,46 +17,45 @@ namespace WbEasyCalcRepository.Test
 
             SysInput_SystemInputVolumeM3_D6 = 6593339,
             SysInput_SystemInputVolumeError_F6 = 0.05,
-            SysInput_SystemInputVolumeM3_D7 = 10,
-            SysInput_SystemInputVolumeError_F7 = 0.10,
+            //SysInput_SystemInputVolumeM3_D7 = 10,
+            //SysInput_SystemInputVolumeError_F7 = 0.10,
 
             BilledCons_BilledMetConsBulkWatSupExpM3_D6 = 5332026,
             BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = 1000,
-            UnbilledCons_MetConsBulkWatSupExpM3_D6 = 309349,
 
+            UnbilledCons_MetConsBulkWatSupExpM3_D6 = 309349,
             UnbilledCons_UnbMetConsM3_D8 = 0,
             UnbilledCons_UnbUnmetConsM3_H6 = 0,
             UnbilledCons_UnbUnmetConsError_J6 = 0,
 
             UnauthCons_IllegalConnDomEstNo_D6 = 100,
+            UnauthCons_IllegalConnDomErrorMargin_F6 = 0.05,
             UnauthCons_IllegalConnDomPersPerHouse_H6 = 3,
             UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = 120,
-            UnauthCons_IllegalConnDomErrorMargin_F6 = 0.05,
             UnauthCons_IllegalConnOthersErrorMargin_F10 = 0.0,
+            IllegalConnectionsOthersEstimatedNumber_D10 = 0,
+            IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = 0,
             UnauthCons_MeterTampBypEtcEstNo_D14 = 1000,
             UnauthCons_MeterTampBypEtcErrorMargin_F14 = 0.10,
             UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = 160,
 
-            IllegalConnectionsOthersEstimatedNumber_D10 = 0,
-            IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = 0,
-
             MetErrors_DetailedManualSpec_J6 = false,
             MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = 0.03,
             MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = 0.02,
-
             MeteredBulkSupplyExportErrorMargin_N32 = 0.0,
             UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = 0.0,
             CorruptMeterReadingPracticessErrorMargin_N38 = 0.0,
             DataHandlingErrorsOffice_L40 = 0.0,
             DataHandlingErrorsOfficeErrorMargin_N40 = 0.0,
-
             MetErrors_MetBulkSupExpMetUnderreg_H32 = 0.03,
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = 0.03,
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = 0.03,
+
             Network_DistributionAndTransmissionMains_D7 = 260.0,
             Network_NoOfConnOfRegCustomers_H10 = 8000,
             Network_NoOfInactAccountsWSvcConns_H18 = 1500,
             Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = 7,
+
             Prs_ApproxNoOfConn_D7 = 9500,
             Prs_DailyAvgPrsM_F7 = 30
         };

@@ -12,6 +12,7 @@
         public FinancialDataSheet FinancialDataSheet { get; set; }
         public PressureSheet PressureSheet { get; set; }
         public IntermittentSupplySheet IntermittentSupply { get; set; }
+        public WaterBalanceDaySheet WaterBalanceDaySheet { get; set; }
         public WaterBalanceSheet WaterBalanceSheet { get; set; }
         public PiSheet PiSheet { get; set; }
     }
