@@ -268,6 +268,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Network_ErrorMargin_J32 = wbEasyCalcData.Network_ErrorMargin_J32;
                     Model.Network_ErrorMargin_D35 = wbEasyCalcData.Network_ErrorMargin_D35;
 
+                    Model.FinancData_G6 =  wbEasyCalcData.FinancData_G6;
+                    Model.FinancData_K6 =  wbEasyCalcData.FinancData_K6;
+                    Model.FinancData_G8 =  wbEasyCalcData.FinancData_G8;
+                    Model.FinancData_D26 = wbEasyCalcData.FinancData_D26;
+                    Model.FinancData_G35 = wbEasyCalcData.FinancData_G35;
+
                     Model.Prs_Area_B7 = wbEasyCalcData.Prs_Area_B7;
                     Model.Prs_Area_B8 = wbEasyCalcData.Prs_Area_B8;
                     Model.Prs_Area_B9 = wbEasyCalcData.Prs_Area_B9;
@@ -480,6 +486,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Model.Network_ErrorMargin_J18 = easyCalcDataInput.Network_ErrorMargin_J18;
             Model.Network_ErrorMargin_J32 = easyCalcDataInput.Network_ErrorMargin_J32;
             Model.Network_ErrorMargin_D35 = easyCalcDataInput.Network_ErrorMargin_D35;
+
+            Model.FinancData_G6 =  easyCalcDataInput.FinancData_G6;
+            Model.FinancData_K6 =  easyCalcDataInput.FinancData_K6;
+            Model.FinancData_G8 =  easyCalcDataInput.FinancData_G8;
+            Model.FinancData_D26 = easyCalcDataInput.FinancData_D26;
+            Model.FinancData_G35 = easyCalcDataInput.FinancData_G35;
 
             Model.Prs_Area_B7 = easyCalcDataInput.Prs_Area_B7;
             Model.Prs_Area_B8 = easyCalcDataInput.Prs_Area_B8;

@@ -202,6 +202,11 @@ namespace WbEasyCalc
         public double Network_ErrorMargin_J32 { get; set; }
         public double Network_ErrorMargin_D35 { get; set; }
 
+        public double FinancData_G6 { get; set; }
+        public double FinancData_K6 { get; set; }
+        public double FinancData_G8 { get; set; }
+        public double FinancData_D26 { get; set; }
+        public double FinancData_G35 { get; set; }
 
         public string Prs_Area_B7 { get; set; }
         public string Prs_Area_B8 { get; set; }
@@ -393,6 +398,12 @@ namespace WbEasyCalc
                 Network_ErrorMargin_J18 = Network_ErrorMargin_J18,
                 Network_ErrorMargin_J32 = Network_ErrorMargin_J32,
                 Network_ErrorMargin_D35 = Network_ErrorMargin_D35,
+
+                FinancData_G6 = FinancData_G6,
+                FinancData_K6 = FinancData_K6,
+                FinancData_G8 = FinancData_G8,
+                FinancData_D26 = FinancData_D26,
+                FinancData_G35 = FinancData_G35,
 
                 Prs_Area_B7 = Prs_Area_B7,
                 Prs_Area_B8 = Prs_Area_B8,

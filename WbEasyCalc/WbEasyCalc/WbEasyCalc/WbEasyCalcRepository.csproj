@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="EasyCalcRefactored.cs" />
+    <Compile Include="Model\FinancialDataSheet.cs" />
     <Compile Include="WbEasyCalc.cs" />
     <Compile Include="IWbEasyCalc.cs" />
     <Compile Include="WasteBin\IEasyCalcDataReader.cs" />

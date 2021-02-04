@@ -177,6 +177,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_ErrorMargin_J32 = Network_ErrorMargin_J32,
             Network_ErrorMargin_D35 = Network_ErrorMargin_D35,
 
+            FinancData_G6 = FinancData_G6,
+            FinancData_K6 = FinancData_K6,
+            FinancData_G8 = FinancData_G8,
+            FinancData_D26 = FinancData_D26,
+            FinancData_G35 = FinancData_G35,
+
             Prs_Area_B7 = Prs_Area_B7,
             Prs_Area_B8 = Prs_Area_B8,
             Prs_Area_B9 = Prs_Area_B9,
@@ -1307,6 +1313,38 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        private double _financData_G6;
+        public double FinancData_G6
+        {
+            get => _financData_G6;
+            set { _financData_G6 = value; RaisePropertyChanged(nameof(FinancData_G6)); CalculateExcel(); }
+        }
+        private double _financData_K6;
+        public double FinancData_K6
+        {
+            get => _financData_K6;
+            set { _financData_K6 = value; RaisePropertyChanged(nameof(FinancData_K6)); CalculateExcel(); }
+        }
+        private double _financData_G8;
+        public double FinancData_G8
+        {
+            get => _financData_G8;
+            set { _financData_G8 = value; RaisePropertyChanged(nameof(FinancData_G8)); CalculateExcel(); }
+        }
+        private double _financData_D26;
+        public double FinancData_D26
+        {
+            get => _financData_D26;
+            set { _financData_D26 = value; RaisePropertyChanged(nameof(FinancData_D26)); CalculateExcel(); }
+        }
+        private double _financData_G35;
+        public double FinancData_G35
+        {
+            get => _financData_G35;
+            set { _financData_G35 = value; RaisePropertyChanged(nameof(FinancData_G35)); CalculateExcel(); }
+        }
+
+
         private string _prs_Area_B7;
         public string Prs_Area_B7
         {
@@ -2236,6 +2274,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Network_ErrorMargin_J18 = model.Network_ErrorMargin_J18;
             Network_ErrorMargin_J32 = model.Network_ErrorMargin_J32;
             Network_ErrorMargin_D35 = model.Network_ErrorMargin_D35;
+
+            FinancData_G6 =  model.FinancData_G6;
+            FinancData_K6 =  model.FinancData_K6;
+            FinancData_G8 =  model.FinancData_G8;
+            FinancData_D26 = model.FinancData_D26;
+            FinancData_G35 = model.FinancData_G35;
 
             Prs_Area_B7 = model.Prs_Area_B7;
             Prs_Area_B8 = model.Prs_Area_B8;

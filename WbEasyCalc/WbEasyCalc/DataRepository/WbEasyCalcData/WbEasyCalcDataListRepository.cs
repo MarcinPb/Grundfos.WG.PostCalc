@@ -224,7 +224,15 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@Interm_Hour_H10", model.Interm_Hour_H10);
                 p.Add("@Interm_ErrorMarg_H26", model.Interm_ErrorMarg_H26);
 
-                p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);                
+                p.Add("@FinancData_G6", model.FinancData_G6);
+                p.Add("@FinancData_K6", model.FinancData_K6);
+                p.Add("@FinancData_G8", model.FinancData_G8);
+                p.Add("@FinancData_D26", model.FinancData_D26);
+                p.Add("@FinancData_G35", model.FinancData_G35);
+
+                p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);
+                
+
                 // output
                 p.Add("@SystemInputVolume_B19", model.SystemInputVolume_B19);
                 p.Add("@SystemInputVolumeErrorMargin_B21", model.SystemInputVolumeErrorMargin_B21);

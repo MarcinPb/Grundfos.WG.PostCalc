@@ -9,6 +9,7 @@
         public MeterErrorsSheet MeterErrorsSheet { get; set; }
         public SystemInputSheet SystemInputSheet { get; set; }
         public NetworkSheet NetworkSheet { get; set; }
+        public FinancialDataSheet FinancialDataSheet { get; set; }
         public PressureSheet PressureSheet { get; set; }
         public IntermittentSupplySheet IntermittentSupply { get; set; }
         public WaterBalanceSheet WaterBalanceSheet { get; set; }

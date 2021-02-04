@@ -156,6 +156,11 @@ namespace GlobalRepository
             excelReader.WriteToCell("Network", "J32", easyCalcDataInput.Network_ErrorMargin_J32);
             //excelReader.WriteToCell("Network", "D35", easyCalcDataInput.Network_ErrorMargin_D35);
 
+            excelReader.WriteToCell("Financial Data", "G6", easyCalcDataInput.FinancData_G6); 
+            excelReader.WriteToCell("Financial Data", "K6", easyCalcDataInput.FinancData_K6);
+            excelReader.WriteToCell("Financial Data", "G8", easyCalcDataInput.FinancData_G8);
+            excelReader.WriteToCell("Financial Data", "D26", easyCalcDataInput.FinancData_D26);
+            excelReader.WriteToCell("Financial Data", "G35", easyCalcDataInput.FinancData_G35);
 
             excelReader.WriteToCell("Pressure", "B7", easyCalcDataInput.Prs_Area_B7);
             excelReader.WriteToCell("Pressure", "B8", easyCalcDataInput.Prs_Area_B8);
@@ -333,6 +338,11 @@ namespace GlobalRepository
                 Network_ErrorMargin_J32 = excelReader.ReadCell<double>("Network", "J32"),
                 //Network_ErrorMargin_D35 = excelReader.ReadCell<double>("Network", "D35"),
 
+                FinancData_G6 = excelReader.ReadCell<double>("Financial Data", "G6"),
+                FinancData_K6 = excelReader.ReadCell<double>("Financial Data", "K6"),
+                FinancData_G8 = excelReader.ReadCell<double>("Financial Data", "G8"),
+                FinancData_D26 = excelReader.ReadCell<double>("Financial Data", "D26"),
+                FinancData_G35 = excelReader.ReadCell<double>("Financial Data", "G35"),
 
                 Prs_Area_B7 = excelReader.ReadCell<string>("Pressure", "B7"),
                 Prs_Area_B8 = excelReader.ReadCell<string>("Pressure", "B8"),
