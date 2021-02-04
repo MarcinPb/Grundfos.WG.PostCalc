@@ -339,7 +339,7 @@ namespace GlobalRepository
                 //Network_ErrorMargin_D35 = excelReader.ReadCell<double>("Network", "D35"),
 
                 FinancData_G6 = excelReader.ReadCell<double>("Financial Data", "G6"),
-                FinancData_K6 = excelReader.ReadCell<double>("Financial Data", "K6"),
+                FinancData_K6 = excelReader.ReadCell<string>("Financial Data", "K6"),
                 FinancData_G8 = excelReader.ReadCell<double>("Financial Data", "G8"),
                 FinancData_D26 = excelReader.ReadCell<double>("Financial Data", "D26"),
                 FinancData_G35 = excelReader.ReadCell<double>("Financial Data", "G35"),

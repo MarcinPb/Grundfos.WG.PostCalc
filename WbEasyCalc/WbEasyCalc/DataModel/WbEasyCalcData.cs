@@ -198,7 +198,7 @@ namespace DataModel
         public double Network_ErrorMarg_J39 { get; set; }
 
         public double FinancData_G6 { get; set; }
-        public double FinancData_K6 { get; set; }
+        public string FinancData_K6 { get; set; }
         public double FinancData_G8 { get; set; }
         public double FinancData_D26 { get; set; }
         public double FinancData_G35 { get; set; }
@@ -288,6 +288,23 @@ namespace DataModel
         public double Interm_Hour_H10 { get; set; }
 
 
+        public double FinancData_G13 { get; set; }
+        public double FinancData_G15 { get; set; }
+        public double FinancData_G17 { get; set; }
+        public double FinancData_G19 { get; set; }
+        public double FinancData_G20 { get; set; }
+        public double FinancData_G22 { get; set; }
+        public double FinancData_D24 { get; set; }
+        public double FinancData_G31 { get; set; }
+        public string FinancData_K8  { get; set; }
+        public string FinancData_K13 { get; set; }
+        public string FinancData_K15 { get; set; }
+        public string FinancData_K17 { get; set; }
+        public string FinancData_K19 { get; set; }
+        public string FinancData_K20 { get; set; }
+        public string FinancData_K22 { get; set; }
+        public string FinancData_K31 { get; set; }
+        public string FinancData_K35 { get; set; }
 
 
         public double PIs_IliBestEstimate_F25 { get; set; }
@@ -629,6 +646,24 @@ namespace DataModel
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,
                 Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
+
+                FinancData_G13 = FinancData_G13,
+                FinancData_G15 = FinancData_G15,
+                FinancData_G17 = FinancData_G17,
+                FinancData_G19 = FinancData_G19,
+                FinancData_G20 = FinancData_G20,
+                FinancData_G22 = FinancData_G22,
+                FinancData_D24 = FinancData_D24,
+                FinancData_G31 = FinancData_G31,
+                FinancData_K8  = FinancData_K8,
+                FinancData_K13 = FinancData_K13,
+                FinancData_K15 = FinancData_K15,
+                FinancData_K17 = FinancData_K17,
+                FinancData_K19 = FinancData_K19,
+                FinancData_K20 = FinancData_K20,
+                FinancData_K22 = FinancData_K22,
+                FinancData_K31 = FinancData_K31,
+                FinancData_K35 = FinancData_K35,
 
                 Pis_AverageSupplyTime_F9 = Pis_AverageSupplyTime_F9,
                 Pis_AverageSupplyTime_H9 = Pis_AverageSupplyTime_H9,

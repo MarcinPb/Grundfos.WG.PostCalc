@@ -120,6 +120,26 @@ namespace WbEasyCalcRepository
                 Interm_Min_H29 = easyCalcSheetData.IntermittentSupply.Interm_Min_F29,
                 Interm_Max_H31 = easyCalcSheetData.IntermittentSupply.Interm_Max_F31,
 
+
+                FinancData_G13 = easyCalcSheetData.FinancialDataSheet.FinancData_G13,
+                FinancData_G15 = easyCalcSheetData.FinancialDataSheet.FinancData_G15,
+                FinancData_G17 = easyCalcSheetData.FinancialDataSheet.FinancData_G17,
+                FinancData_G19 = easyCalcSheetData.FinancialDataSheet.FinancData_G19,
+                FinancData_G20 = easyCalcSheetData.FinancialDataSheet.FinancData_G20,
+                FinancData_G22 = easyCalcSheetData.FinancialDataSheet.FinancData_G22,
+                FinancData_D24 = easyCalcSheetData.FinancialDataSheet.FinancData_D24,
+                FinancData_G31 = easyCalcSheetData.FinancialDataSheet.FinancData_G31,
+                FinancData_K8  = easyCalcSheetData.FinancialDataSheet.FinancData_K8 ,
+                FinancData_K13 = easyCalcSheetData.FinancialDataSheet.FinancData_K13,
+                FinancData_K15 = easyCalcSheetData.FinancialDataSheet.FinancData_K15,
+                FinancData_K17 = easyCalcSheetData.FinancialDataSheet.FinancData_K17,
+                FinancData_K19 = easyCalcSheetData.FinancialDataSheet.FinancData_K19,
+                FinancData_K20 = easyCalcSheetData.FinancialDataSheet.FinancData_K20,
+                FinancData_K22 = easyCalcSheetData.FinancialDataSheet.FinancData_K22,
+                FinancData_K31 = easyCalcSheetData.FinancialDataSheet.FinancData_K31,
+                FinancData_K35 = easyCalcSheetData.FinancialDataSheet.FinancData_K35,
+
+
                 Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
                 Pis_AverageSupplyTime_J9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_J9,
