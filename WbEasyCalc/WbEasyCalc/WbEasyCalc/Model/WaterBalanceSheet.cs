@@ -5,7 +5,7 @@ namespace WbEasyCalcRepository.Model
 {
     public class WaterBalanceSheet
     {
-        private readonly EasyCalcSheetData _data;
+        protected readonly EasyCalcSheetData _data;
 
         public WaterBalanceSheet(EasyCalcSheetData data)
         {
@@ -29,26 +29,26 @@ namespace WbEasyCalcRepository.Model
         public double PhysicalLossesM3_T34 { get; internal set; }
         */
 
-        public double SystemInputVolume_B19 { get => _data.SystemInputSheet.SystemInputVolume_D79; }
-        public double BilledMeteredConsumption_AC4 { get => _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();}
-        public double BilledUnmeteredConsumption_AC9 { get => _data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum(); }
-        public double UnbilledMeteredConsumption_AC14 { get => _data.UnbilledConsumptionSheet.UnbilledMeteredConsumption_D32; }
-        public double UnbilledUnmeteredConsumption_AC19 { get => _data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionM3_H6_H23.Sum(); }
+        public virtual double SystemInputVolume_B19 { get => _data.StartSheet.PeriodDays_M21 > 0 ? _data.SystemInputSheet.SystemInputVolume_D79 : 0d; }
+        public virtual double BilledMeteredConsumption_AC4 { get => _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();}
+        public virtual double BilledUnmeteredConsumption_AC9 { get => _data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum(); }
+        public virtual double UnbilledMeteredConsumption_AC14 { get => _data.UnbilledConsumptionSheet.UnbilledMeteredConsumption_D32; }
+        public virtual double UnbilledUnmeteredConsumption_AC19 { get => _data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionM3_H6_H23.Sum(); }
         public double BilledAuthorizedConsumption_T8 { get => BilledMeteredConsumption_AC4 + BilledUnmeteredConsumption_AC9; }
         public double UnbilledAuthorizedConsumption_T16 { get => UnbilledMeteredConsumption_AC14 + UnbilledUnmeteredConsumption_AC19; }
         public double AuthorizedConsumption_K12 { get => BilledAuthorizedConsumption_T8 + UnbilledAuthorizedConsumption_T16; }
         public double WaterLosses_K29 { get => SystemInputVolume_B19 - AuthorizedConsumption_K12; }
-        public double UnauthorizedConsumption_AC24 { get => _data.UnauthorizedConsumptionSheet.BestEstimateTotal_L31; }
-        public double CustomerMeterInaccuraciesAndErrorsM3_AC29 { get => _data.MeterErrorsSheet.BestEstimateTotalM3_L49; }
+        public virtual double UnauthorizedConsumption_AC24 { get => _data.UnauthorizedConsumptionSheet.BestEstimateTotal_L31; }
+        public virtual double CustomerMeterInaccuraciesAndErrorsM3_AC29 { get => _data.MeterErrorsSheet.BestEstimateTotalM3_L49; }
         public double CommercialLosses_T26 { get => UnauthorizedConsumption_AC24 + CustomerMeterInaccuraciesAndErrorsM3_AC29; }
         public double PhysicalLossesM3_T34 { get => WaterLosses_K29 - CommercialLosses_T26; }
 
 
         public double UnauthorizedConsumptionErrorMargin_AO25 { get => _data.UnauthorizedConsumptionSheet.ErrorMargin_F24; }
         public double SystemInputVolumeErrorMargin_B21 { get => _data.SystemInputSheet.ErrorMargin_F72; }
-        public double AuthorizedConsumptionErrorMargin_K15 { get => AuthorizedConsumption_K12 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / AuthorizedConsumption_K12; }
+        public virtual double AuthorizedConsumptionErrorMargin_K15 { get => AuthorizedConsumption_K12 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / AuthorizedConsumption_K12; }
         public double CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 { get => _data.MeterErrorsSheet.ErrorMarginTotal_N42; }
-        public double UnbilledAuthorizedConsumptionErrorMargin_T20 { get => UnbilledAuthorizedConsumption_T16 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / UnbilledAuthorizedConsumption_T16; }
+        public virtual double UnbilledAuthorizedConsumptionErrorMargin_T20 { get => UnbilledAuthorizedConsumption_T16 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / UnbilledAuthorizedConsumption_T16; }
         public double UnbilledUnmeteredConsumptionErrorMargin_AO20 { get => _data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25; }
         public double CommercialLossesErrorMargin_T29 { get => GetCommercialLossesErrorMargin_T29(); }
         private double GetCommercialLossesErrorMargin_T29()

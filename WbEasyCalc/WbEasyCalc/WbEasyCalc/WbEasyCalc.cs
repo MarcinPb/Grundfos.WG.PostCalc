@@ -51,13 +51,11 @@ namespace WbEasyCalcRepository
                 NonRevenueWaterM3_AY24 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterErrorMargin_AY26,
 
-                AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
-                AveragePressureMBestEstimate_F11 = easyCalcSheetData.PiSheet.AveragePressureMBestEstimate_F11,
 
 
-                Prs_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
-                Prs_Min_F29 = easyCalcSheetData.PressureSheet.Prs_Min_F29,
-                Prs_Max_F31 = easyCalcSheetData.PressureSheet.Prs_Max_F31,
+                WbDay_SystemInputVolume_B19 = easyCalcSheetData.WaterBalanceDaySheet.SystemInputVolume_B19,
+
+
 
                 SysInput_ErrorMarg_F72 = easyCalcSheetData.SystemInputSheet.ErrorMargin_F72,
                 SysInput_Min_D75 = easyCalcSheetData.SystemInputSheet.Min_D75,
@@ -66,11 +64,13 @@ namespace WbEasyCalcRepository
 
                 BilledCons_Sum_D28 = easyCalcSheetData.BilledConsumptionSheet.BilledMeteredConsumption_D28,
                 BilledCons_Sum_H28 = easyCalcSheetData.BilledConsumptionSheet.BilledUnmeteredConsumption_H28,
+
                 UnbilledCons_Sum_D32 = easyCalcSheetData.UnbilledConsumptionSheet.UnbilledMeteredConsumption_D32,
                 UnbilledCons_ErrorMarg_J25 = easyCalcSheetData.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25,
                 UnbilledCons_Min_H28 = easyCalcSheetData.UnbilledConsumptionSheet.Min_H28,
                 UnbilledCons_Max_H30 = easyCalcSheetData.UnbilledConsumptionSheet.Max_H30,
                 UnbilledCons_BestEstimate_H32 = easyCalcSheetData.UnbilledConsumptionSheet.UnbilledUnmeteredConsumption_H32,
+
                 UnauthCons_Total_L6 = easyCalcSheetData.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticConsumptionTotalM3_L6,
                 UnauthCons_Total_L10 = easyCalcSheetData.UnauthorizedConsumptionSheet.IllegalConnectionsOthersConsumptionTotalM3_L10,
                 UnauthCons_Total_L14 = easyCalcSheetData.UnauthorizedConsumptionSheet.MeterTamperingBypassesEtcConsumptionTotalM3_L14,
@@ -78,6 +78,10 @@ namespace WbEasyCalcRepository
                 UnauthCons_Min_L27 = easyCalcSheetData.UnauthorizedConsumptionSheet.Min_L27,
                 UnauthCons_Max_L29 = easyCalcSheetData.UnauthorizedConsumptionSheet.Max_L29,
                 UnauthCons_BestEstimate_L31 = easyCalcSheetData.UnauthorizedConsumptionSheet.BestEstimateTotal_L31,
+                UnauthCons_Total_L18 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[0],
+                UnauthCons_Total_L19 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[1],
+                UnauthCons_Total_L20 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[2],
+                UnauthCons_Total_L21 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[3],
 
                 MetErrors_Total_F8 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8,
                 MetErrors_Total_F32 = easyCalcSheetData.MeterErrorsSheet.MeteredBulkSupplyExportTotalM3_F32,
@@ -91,7 +95,6 @@ namespace WbEasyCalcRepository
                 MetErrors_Min_L45 = easyCalcSheetData.MeterErrorsSheet.Min_L45,
                 MetErrors_Max_L47 = easyCalcSheetData.MeterErrorsSheet.Max_L47,
                 MetErrors_BestEstimate_L49 = easyCalcSheetData.MeterErrorsSheet.BestEstimateTotalM3_L49,
-
                 MetErrors_Total_L12 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[0],
                 MetErrors_Total_L13 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[1],
                 MetErrors_Total_L14 = easyCalcSheetData.MeterErrorsSheet.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28[2],
@@ -111,10 +114,9 @@ namespace WbEasyCalcRepository
                 Network_Number_H39 = easyCalcSheetData.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39,
                 Network_ErrorMarg_J39 = easyCalcSheetData.NetworkSheet.Network_ErrorMarg_J39,
 
-                UnauthCons_Total_L18 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[0],
-                UnauthCons_Total_L19 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[1],
-                UnauthCons_Total_L20 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[2],
-                UnauthCons_Total_L21 = easyCalcSheetData.UnauthorizedConsumptionSheet.Total_L18_L22[3],
+                Prs_Min_F29 = easyCalcSheetData.PressureSheet.Prs_Min_F29,
+                Prs_Max_F31 = easyCalcSheetData.PressureSheet.Prs_Max_F31,
+                Prs_BestEstimate_F33 = easyCalcSheetData.PressureSheet.AveragePressureBestEstimate_F33,
 
                 Interm_BestEstimate_H33 = easyCalcSheetData.IntermittentSupply.SupplyTimeBestEstimate_H33,
                 Interm_Min_H29 = easyCalcSheetData.IntermittentSupply.Interm_Min_F29,
@@ -140,6 +142,8 @@ namespace WbEasyCalcRepository
                 FinancData_K35 = easyCalcSheetData.FinancialDataSheet.FinancData_K35,
 
 
+                AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
+                AveragePressureMBestEstimate_F11 = easyCalcSheetData.PiSheet.AveragePressureMBestEstimate_F11,
                 Pis_AverageSupplyTime_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
                 Pis_AverageSupplyTime_H9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_H9,
                 Pis_AverageSupplyTime_J9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_J9,
@@ -153,10 +157,12 @@ namespace WbEasyCalcRepository
         public EasyCalcSheetData ReadSheetData(EasyCalcDataInput easyCalcDataInput)
         {
             var data = new EasyCalcSheetData();
+
             data.StartSheet = new StartSheet
             {
                 PeriodDays_M21 = easyCalcDataInput.Start_PeriodDays_M21,
             };
+
             data.SystemInputSheet = new SystemInputSheet
             {
                 SystemInputVolumeM3_D6_D70 = new List<double> 
@@ -174,6 +180,7 @@ namespace WbEasyCalcRepository
                     easyCalcDataInput.SysInput_SystemInputVolumeError_F9,
                 }
             };
+
             data.BilledConsumptionSheet = new BilledConsumptionSheet
             {
                 BilledMeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.BilledCons_BilledMetConsBulkWatSupExpM3_D6,
@@ -193,6 +200,7 @@ namespace WbEasyCalcRepository
                     easyCalcDataInput.BilledCons_UnbUnmetConsM3_H11, 
                 }, 
             };
+
             data.UnbilledConsumptionSheet = new UnbilledConsumptionSheet
             {
                 MeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.UnbilledCons_MetConsBulkWatSupExpM3_D6,
@@ -223,6 +231,7 @@ namespace WbEasyCalcRepository
                     easyCalcDataInput.UnbilledCons_UnbUnmetConsError_J11, 
                 },
             };
+
             data.UnauthorizedConsumptionSheet = new UnauthorizedConsumptionSheet(data)
             {
                 OthersErrorMargin_F18_F22 = new List<double>
@@ -252,10 +261,8 @@ namespace WbEasyCalcRepository
                 MeterTamperingBypassesEtcEstimatedNumber_D14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcEstNo_D14,
                 MeterTamperingBypassesEtcErrorMargin_F14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcErrorMargin_F14,
                 MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14 = easyCalcDataInput.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
-
-
-
             };
+
             data.MeterErrorsSheet = new MeterErrorsSheet(data)
             {
                 DetailedManualSpec_J6 = easyCalcDataInput.MetErrors_DetailedManualSpec_J6,
@@ -335,6 +342,7 @@ namespace WbEasyCalcRepository
                 },
                 Prs_ErrorMarg_F26 = easyCalcDataInput.Prs_ErrorMarg_F26,
             };
+
             data.IntermittentSupply = new IntermittentSupplySheet() 
             { 
                 Interm_Conn_D7_24_List = new List<double> 
@@ -361,8 +369,8 @@ namespace WbEasyCalcRepository
                 ErrorMargin_H26 = easyCalcDataInput.Interm_ErrorMarg_H26,
             };
 
-            //data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
             data.WaterBalanceSheet = new WaterBalanceSheet(data);
+            data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
 
             data.FinancialDataSheet = new FinancialDataSheet()
             {

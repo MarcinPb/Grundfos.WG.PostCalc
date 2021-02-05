@@ -36,6 +36,17 @@ namespace WbEasyCalc
         public double NonRevenueWaterErrorMargin_AY26{ get; set; } // 6593339 
 
 
+        public double WbDay_SystemInputVolume_B19 { get; set; } // 6593339 
+
+
+        //public WaterBalance WaterBalanceDay { get; set; } // 6593339 
+
+
+
+
+
+
+
         public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; } // 24.0 
         public double AveragePressureMBestEstimate_F11 { get; set; } // 30.0 
 
@@ -162,6 +173,12 @@ namespace WbEasyCalc
                 RevenueWaterM3_AY8  = RevenueWaterM3_AY8,
                 NonRevenueWaterM3_AY24  = NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26  = NonRevenueWaterErrorMargin_AY26,
+
+                WbDay_SystemInputVolume_B19  = WbDay_SystemInputVolume_B19,
+
+
+
+
 
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
