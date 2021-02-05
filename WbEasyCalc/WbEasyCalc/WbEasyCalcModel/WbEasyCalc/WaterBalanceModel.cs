@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WbEasyCalcModel.WbEasyCalc
 {
-    public class WaterBalance : ICloneable
+    public class WaterBalanceModel : ICloneable
     {
         public double SystemInputVolume_B19 { get; set; }
         public double SystemInputVolumeErrorMargin_B21 { get; set; }
@@ -41,7 +41,7 @@ namespace WbEasyCalcModel.WbEasyCalc
 
         public object Clone()
         {
-            return new WaterBalance()
+            return new WaterBalanceModel()
             {
                 SystemInputVolume_B19 = SystemInputVolume_B19,
                 SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,

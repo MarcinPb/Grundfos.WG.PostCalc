@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WbEasyCalc
+namespace WbEasyCalcModel
 {
     public class EasyCalcDataInput //: ICloneable
     {

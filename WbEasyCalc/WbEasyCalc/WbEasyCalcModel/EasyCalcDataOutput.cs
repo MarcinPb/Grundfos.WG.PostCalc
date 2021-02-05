@@ -1,6 +1,7 @@
 ﻿using System;
+using WbEasyCalcModel.WbEasyCalc;
 
-namespace WbEasyCalc
+namespace WbEasyCalcModel
 {
     public class EasyCalcDataOutput : ICloneable
     {
@@ -39,8 +40,8 @@ namespace WbEasyCalc
         public double WbDay_SystemInputVolume_B19 { get; set; } // 6593339 
 
 
-        //public WaterBalance WaterBalanceDay { get; set; } // 6593339 
-
+        public WaterBalanceModel WaterBalanceDay { get; set; } // 6593339 
+        public WaterBalanceModel WaterBalancePeriod { get; set; } // 6593339 
 
 
 
@@ -175,6 +176,9 @@ namespace WbEasyCalc
                 NonRevenueWaterErrorMargin_AY26  = NonRevenueWaterErrorMargin_AY26,
 
                 WbDay_SystemInputVolume_B19  = WbDay_SystemInputVolume_B19,
+
+                WaterBalanceDay = WaterBalanceDay,
+                WaterBalancePeriod = WaterBalancePeriod,
 
 
 

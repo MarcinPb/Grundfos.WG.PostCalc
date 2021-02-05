@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using ExcelNpoi;
-using WbEasyCalc;
+using WbEasyCalcModel;
 
 namespace GlobalRepository
 {

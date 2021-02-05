@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WbEasyCalc;
+using WbEasyCalcModel;
+using WbEasyCalcModel.WbEasyCalc;
 using WbEasyCalcRepository.Model;
 
 namespace WbEasyCalcRepository.Test
@@ -60,7 +61,41 @@ namespace WbEasyCalcRepository.Test
             Prs_DailyAvgPrsM_F7 = 30
         };
 
-        private Dictionary<string, double> _expectedDict_01 = new Dictionary<string, double>()
+        private Dictionary<string, double> _expectedDictDay = new Dictionary<string, double>()
+        {
+            {"SystemInputVolume_B19", 219778},
+            {"SystemInputVolumeErrorMargin_B21", 0.05},
+
+            {"AuthorizedConsumption_K12", 188413},                             // 5642375
+            {"AuthorizedConsumptionErrorMargin_K15", 0.0},
+            {"WaterLosses_K29", 31365},                                        // 950964
+            {"WaterLossesErrorMargin_K31", 0.35},
+
+            {"BilledAuthorizedConsumption_T8", 177934},
+            {"UnbilledAuthorizedConsumption_T16", 10478},                      // 309349
+            {"UnbilledAuthorizedConsumptionErrorMargin_T20", 0.0},
+            {"CommercialLosses_T26", 11624},
+            {"CommercialLossesErrorMargin_T29", 0.014},
+            {"PhysicalLossesM3_T34", 19741},                                    // 605669.536
+            {"PhyscialLossesErrorMargin_AH35", 0.557},                          // 0.544
+
+            {"BilledMeteredConsumption_AC4", 177834},
+            {"BilledUnmeteredConsumption_AC9", 100},
+            {"UnbilledMeteredConsumption_AC14", 10412},
+
+            {"UnbilledUnmeteredConsumption_AC19", 67},                           // 0
+            {"UnbilledUnmeteredConsumptionErrorMargin_AO20", 0.05},              // 0.0
+            {"UnauthorizedConsumption_AC24", 296},
+            {"UnauthorizedConsumptionErrorMargin_AO25", 0.057},
+            {"CustomerMeterInaccuraciesAndErrorsM3_AC29", 11328},
+            {"CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", 0.014},
+
+            {"RevenueWaterM3_AY8", 177934},
+            {"NonRevenueWaterM3_AY24", 41844},
+            {"NonRevenueWaterErrorMargin_AY26", 0.263},
+        };
+
+        private Dictionary<string, double> _expectedDictPeriod = new Dictionary<string, double>()
         {
             {"SystemInputVolume_B19", 6593339},
             {"SystemInputVolumeErrorMargin_B21", 0.05},
@@ -73,9 +108,9 @@ namespace WbEasyCalcRepository.Test
             {"BilledAuthorizedConsumption_T8", 5333026},
             {"UnbilledAuthorizedConsumption_T16", 309349},                      // 309349
             {"UnbilledAuthorizedConsumptionErrorMargin_T20", 0.0},
-            {"CommercialLosses_T26", 345294.464},
+            {"CommercialLosses_T26", 345294},
             {"CommercialLossesErrorMargin_T29", 0.001},
-            {"PhysicalLossesM3_T34", 605669.536},                               // 605669.536
+            {"PhysicalLossesM3_T34", 605670},                                   // 605669.536
             {"PhyscialLossesErrorMargin_AH35", 0.544},                          // 0.544
 
             {"BilledMeteredConsumption_AC4", 5332026},
@@ -86,15 +121,15 @@ namespace WbEasyCalcRepository.Test
             {"UnbilledUnmeteredConsumptionErrorMargin_AO20", 0.0},              // 0.0
             {"UnauthorizedConsumption_AC24", 5880},
             {"UnauthorizedConsumptionErrorMargin_AO25", 0.082},
-            {"CustomerMeterInaccuraciesAndErrorsM3_AC29", 339414.464},
+            {"CustomerMeterInaccuraciesAndErrorsM3_AC29", 339414},              // 339414.464
             {"CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", 0.0},
 
             {"RevenueWaterM3_AY8", 5333026},
             {"NonRevenueWaterM3_AY24", 1260313},
             {"NonRevenueWaterErrorMargin_AY26", 0.262},
 
-            {"AverageSupplyTimeHPerDayBestEstimate_F9", 24.0},
-            {"AveragePressureMBestEstimate_F11", 30.0},
+            //{"AverageSupplyTimeHPerDayBestEstimate_F9", 24.0},
+            //{"AveragePressureMBestEstimate_F11", 30.0},
         };
 
         #endregion
@@ -102,7 +137,7 @@ namespace WbEasyCalcRepository.Test
         [TestMethod]
         public void ReadSheetData_Test_01()
         {
-            ReadSheetData_Test(_easyCalcDataInput_01, _expectedDict_01);
+            ReadSheetData_Test(_easyCalcDataInput_01, _expectedDictPeriod);
         }
 
         [TestMethod]
@@ -116,7 +151,7 @@ namespace WbEasyCalcRepository.Test
             _easyCalcDataInputTemp.UnbilledCons_UnbUnmetConsM3_H6 = 2000;
             _easyCalcDataInputTemp.UnbilledCons_UnbUnmetConsError_J6 = 0.05;
 
-            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDict_01);
+            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDictPeriod);
 
 
             //dictTemp["SystemInputVolume_B19"] = 6593339;                         
@@ -130,9 +165,9 @@ namespace WbEasyCalcRepository.Test
             dictTemp["BilledAuthorizedConsumption_T8"] = 5338026;                  
             dictTemp["UnbilledAuthorizedConsumption_T16"] = 314349;                  
             //dictTemp["UnbilledAuthorizedConsumptionErrorMargin_T20"] = 0.0;            
-            dictTemp["CommercialLosses_T26"] = 345634.67;                              
+            dictTemp["CommercialLosses_T26"] = 345635;                              
             //dictTemp["CommercialLossesErrorMargin_T29"] = 0.001;                       
-            dictTemp["PhysicalLossesM3_T34"] = 595329.33;                           
+            dictTemp["PhysicalLossesM3_T34"] = 595329;                           
             dictTemp["PhyscialLossesErrorMargin_AH35"] = 0.554;
         
             dictTemp["BilledMeteredConsumption_AC4"] = 5335026;            
@@ -143,7 +178,7 @@ namespace WbEasyCalcRepository.Test
             dictTemp["UnbilledUnmeteredConsumptionErrorMargin_AO20"] = 0.05;
             //dictTemp["UnauthorizedConsumption_AC24"] = 5880;         
             //dictTemp["UnauthorizedConsumptionErrorMargin_AO25"] = 0.082;         
-            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339754.67;         
+            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339755;         
             dictTemp["CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30"] = 0.0;
 
             dictTemp["RevenueWaterM3_AY8"] = 5338026;         
@@ -170,7 +205,7 @@ namespace WbEasyCalcRepository.Test
             _easyCalcDataInputTemp.UnauthCons_IllegalConnOthersErrorMargin_F10 = 0.05;
             _easyCalcDataInputTemp.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = 200;
 
-            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDict_01);
+            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDictPeriod);
 
 
             //dictTemp["SystemInputVolume_B19"] = 6593339;                         
@@ -184,9 +219,9 @@ namespace WbEasyCalcRepository.Test
             dictTemp["BilledAuthorizedConsumption_T8"] = 5338026;                  
             dictTemp["UnbilledAuthorizedConsumption_T16"] = 314349;
             //dictTemp["UnbilledAuthorizedConsumptionErrorMargin_T20"] = 0.0;            
-            dictTemp["CommercialLosses_T26"] = 348634.67;
+            dictTemp["CommercialLosses_T26"] = 348635;
             //dictTemp["CommercialLossesErrorMargin_T29"] = 0.001;                       
-            dictTemp["PhysicalLossesM3_T34"] = 592329.33;
+            dictTemp["PhysicalLossesM3_T34"] = 592329;
             dictTemp["PhyscialLossesErrorMargin_AH35"] = 0.557;
 
             dictTemp["BilledMeteredConsumption_AC4"] = 5335026;            
@@ -197,7 +232,7 @@ namespace WbEasyCalcRepository.Test
             dictTemp["UnbilledUnmeteredConsumptionErrorMargin_AO20"] = 0.05;
             dictTemp["UnauthorizedConsumption_AC24"] = 8880;
             dictTemp["UnauthorizedConsumptionErrorMargin_AO25"] = 0.057;         
-            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339754.67;
+            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339755;
             dictTemp["CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30"] = 0.0;
 
             dictTemp["RevenueWaterM3_AY8"] = 5338026;         
@@ -228,8 +263,9 @@ namespace WbEasyCalcRepository.Test
             _easyCalcDataInputTemp.DataHandlingErrorsOffice_L40 = 100;
             _easyCalcDataInputTemp.DataHandlingErrorsOfficeErrorMargin_N40 = 0.02;
 
-            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDict_01);
+            var dictTemp0 = CloneDictionaryCloningValues<string, double>(_expectedDictDay);
 
+            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDictPeriod);
             //dictTemp["SystemInputVolume_B19"] = 6593339;                         
             //dictTemp["SystemInputVolumeErrorMargin_B21"] = 0.05;                                    
 
@@ -241,9 +277,9 @@ namespace WbEasyCalcRepository.Test
             dictTemp["BilledAuthorizedConsumption_T8"] = 5338026;                  
             dictTemp["UnbilledAuthorizedConsumption_T16"] = 314349;
             //dictTemp["UnbilledAuthorizedConsumptionErrorMargin_T20"] = 0.0;            
-            dictTemp["CommercialLosses_T26"] = 348734.67;
+            dictTemp["CommercialLosses_T26"] = 348735;
             dictTemp["CommercialLossesErrorMargin_T29"] = 0.014;                       
-            dictTemp["PhysicalLossesM3_T34"] = 592229.33;
+            dictTemp["PhysicalLossesM3_T34"] = 592229;
             dictTemp["PhyscialLossesErrorMargin_AH35"] = 0.557;
 
             dictTemp["BilledMeteredConsumption_AC4"] = 5335026;
@@ -254,14 +290,14 @@ namespace WbEasyCalcRepository.Test
             dictTemp["UnbilledUnmeteredConsumptionErrorMargin_AO20"] = 0.05;
             dictTemp["UnauthorizedConsumption_AC24"] = 8880;
             dictTemp["UnauthorizedConsumptionErrorMargin_AO25"] = 0.057;         
-            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339854.67;
+            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339855;
             dictTemp["CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30"] = 0.014;
 
             dictTemp["RevenueWaterM3_AY8"] = 5338026;         
             dictTemp["NonRevenueWaterM3_AY24"] = 1255313;         
             dictTemp["NonRevenueWaterErrorMargin_AY26"] = 0.263;         
 
-            ReadSheetData_Test(_easyCalcDataInputTemp, dictTemp);
+            ReadSheetData_Test(_easyCalcDataInputTemp, dictTemp0, dictTemp);
         }
 
         [TestMethod]
@@ -286,7 +322,7 @@ namespace WbEasyCalcRepository.Test
             _easyCalcDataInputTemp.DataHandlingErrorsOffice_L40 = 100;
             _easyCalcDataInputTemp.DataHandlingErrorsOfficeErrorMargin_N40 = 0.02;
 
-            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDict_01);
+            var dictTemp = CloneDictionaryCloningValues<string, double>(_expectedDictPeriod);
 
             //dictTemp["SystemInputVolume_B19"] = 6593339;                         
             //dictTemp["SystemInputVolumeErrorMargin_B21"] = 0.05;                                    
@@ -299,9 +335,9 @@ namespace WbEasyCalcRepository.Test
             dictTemp["BilledAuthorizedConsumption_T8"] = 5338026;                  
             dictTemp["UnbilledAuthorizedConsumption_T16"] = 314349;
             //dictTemp["UnbilledAuthorizedConsumptionErrorMargin_T20"] = 0.0;            
-            dictTemp["CommercialLosses_T26"] = 348641.887;
+            dictTemp["CommercialLosses_T26"] = 348642;
             dictTemp["CommercialLossesErrorMargin_T29"] = 0.014;                       
-            dictTemp["PhysicalLossesM3_T34"] = 592322.113;
+            dictTemp["PhysicalLossesM3_T34"] = 592322;
             dictTemp["PhyscialLossesErrorMargin_AH35"] = 0.557;
 
             dictTemp["BilledMeteredConsumption_AC4"] = 5335026;
@@ -312,7 +348,7 @@ namespace WbEasyCalcRepository.Test
             dictTemp["UnbilledUnmeteredConsumptionErrorMargin_AO20"] = 0.05;
             dictTemp["UnauthorizedConsumption_AC24"] = 8880;
             dictTemp["UnauthorizedConsumptionErrorMargin_AO25"] = 0.057;         
-            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339761.887;
+            dictTemp["CustomerMeterInaccuraciesAndErrorsM3_AC29"] = 339762;
             dictTemp["CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30"] = 0.014;
 
             dictTemp["RevenueWaterM3_AY8"] = 5338026;         
@@ -330,7 +366,33 @@ namespace WbEasyCalcRepository.Test
 
             foreach (var keyValuePair in expectedDict)
             {
-                var actual = Math.Round((double)readEasyCalcDataOutput.GetType().GetProperty(keyValuePair.Key).GetValue(readEasyCalcDataOutput, null), 3);
+                int roundFactor = keyValuePair.Key.Contains("ErrorMargin") ? 3 : 0;
+                var actual = Math.Round((double)readEasyCalcDataOutput.GetType().GetProperty(keyValuePair.Key).GetValue(readEasyCalcDataOutput, null), roundFactor, MidpointRounding.AwayFromZero);
+                var expected = keyValuePair.Value;
+                Assert.AreEqual(expected, actual, $"{keyValuePair.Key}: actual = {actual}, expected = {expected}");
+            }
+        }
+
+        private void ReadSheetData_Test(EasyCalcDataInput easyCalcDataInput, Dictionary<string, double> expectedWaterBalanceDayDict, Dictionary<string, double> expectedWaterBalancePeriodDict)
+        {
+            WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
+            EasyCalcDataOutput readEasyCalcDataOutput = easyCalcDataReaderMoq.Calculate(easyCalcDataInput);
+
+            WaterBalanceModel waterBalanceDay = readEasyCalcDataOutput.WaterBalanceDay;
+            WaterBalanceModel waterBalancePeriod = readEasyCalcDataOutput.WaterBalancePeriod;
+
+
+            foreach (var keyValuePair in expectedWaterBalanceDayDict)
+            {
+                int roundFactor = keyValuePair.Key.Contains("ErrorMargin") ? 3 : 0;
+                var actual = Math.Round((double)waterBalanceDay.GetType().GetProperty(keyValuePair.Key).GetValue(waterBalanceDay, null), roundFactor, MidpointRounding.AwayFromZero);
+                var expected = keyValuePair.Value;
+                Assert.AreEqual(expected, actual, $"{keyValuePair.Key}: actual = {actual}, expected = {expected}");
+            }
+            foreach (var keyValuePair in expectedWaterBalancePeriodDict)
+            {
+                int roundFactor = keyValuePair.Key.Contains("ErrorMargin") ? 3 : 0;
+                var actual = Math.Round((double)waterBalancePeriod.GetType().GetProperty(keyValuePair.Key).GetValue(waterBalancePeriod, null), roundFactor, MidpointRounding.AwayFromZero);
                 var expected = keyValuePair.Value;
                 Assert.AreEqual(expected, actual, $"{keyValuePair.Key}: actual = {actual}, expected = {expected}");
             }

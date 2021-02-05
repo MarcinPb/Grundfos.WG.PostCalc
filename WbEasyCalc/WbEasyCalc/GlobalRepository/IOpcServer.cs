@@ -1,4 +1,4 @@
-﻿using WbEasyCalc;
+﻿using WbEasyCalcModel;
 
 namespace GlobalRepository
 {

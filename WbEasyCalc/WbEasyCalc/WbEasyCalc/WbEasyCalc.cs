@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using WbEasyCalc;
+using WbEasyCalcModel;
+using WbEasyCalcModel.WbEasyCalc;
 using WbEasyCalcRepository.Model;
 
 namespace WbEasyCalcRepository
@@ -51,9 +52,12 @@ namespace WbEasyCalcRepository
                 NonRevenueWaterM3_AY24 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterErrorMargin_AY26,
 
-
-
                 WbDay_SystemInputVolume_B19 = easyCalcSheetData.WaterBalanceDaySheet.SystemInputVolume_B19,
+
+                WaterBalanceDay = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceDaySheet),
+                WaterBalancePeriod = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceSheet),
+
+
 
 
 
@@ -151,6 +155,45 @@ namespace WbEasyCalcRepository
             };
 
             return easyCalcDataOutput;
+        }
+
+        private WaterBalanceModel GetWaterBalanceSheet(WaterBalanceSheet sheet)
+        {
+            WaterBalanceModel model = new WaterBalanceModel
+            {
+                SystemInputVolume_B19 = sheet.SystemInputVolume_B19,
+                SystemInputVolumeErrorMargin_B21 = sheet.SystemInputVolumeErrorMargin_B21,
+
+                AuthorizedConsumption_K12 = sheet.AuthorizedConsumption_K12,
+                AuthorizedConsumptionErrorMargin_K15 = sheet.AuthorizedConsumptionErrorMargin_K15,
+                WaterLosses_K29 = sheet.WaterLosses_K29,
+                WaterLossesErrorMargin_K31 = sheet.WaterLossesErrorMargin_K31,
+
+                BilledAuthorizedConsumption_T8 = sheet.BilledAuthorizedConsumption_T8,
+                UnbilledAuthorizedConsumption_T16 = sheet.UnbilledAuthorizedConsumption_T16,
+                UnbilledAuthorizedConsumptionErrorMargin_T20 = sheet.UnbilledAuthorizedConsumptionErrorMargin_T20,
+                CommercialLosses_T26 = sheet.CommercialLosses_T26,
+                CommercialLossesErrorMargin_T29 = sheet.CommercialLossesErrorMargin_T29,
+                PhysicalLossesM3_T34 = sheet.PhysicalLossesM3_T34,
+                PhyscialLossesErrorMargin_AH35 = sheet.PhyscialLossesErrorMargin_AH35,
+
+                BilledMeteredConsumption_AC4 = sheet.BilledMeteredConsumption_AC4,
+                BilledUnmeteredConsumption_AC9 = sheet.BilledUnmeteredConsumption_AC9,
+                UnbilledMeteredConsumption_AC14 = sheet.UnbilledMeteredConsumption_AC14,
+
+                UnbilledUnmeteredConsumption_AC19 = sheet.UnbilledUnmeteredConsumption_AC19,
+                UnbilledUnmeteredConsumptionErrorMargin_AO20 = sheet.UnbilledUnmeteredConsumptionErrorMargin_AO20,
+                UnauthorizedConsumption_AC24 = sheet.UnauthorizedConsumption_AC24,
+                UnauthorizedConsumptionErrorMargin_AO25 = sheet.UnauthorizedConsumptionErrorMargin_AO25,
+                CustomerMeterInaccuraciesAndErrorsM3_AC29 = sheet.CustomerMeterInaccuraciesAndErrorsM3_AC29,
+                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = sheet.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
+
+                RevenueWaterM3_AY8 = sheet.RevenueWaterM3_AY8,
+                NonRevenueWaterM3_AY24 = sheet.NonRevenueWaterM3_AY24,
+                NonRevenueWaterErrorMargin_AY26 = sheet.NonRevenueWaterErrorMargin_AY26,
+
+            };
+            return model;
         }
 
         // Only in test

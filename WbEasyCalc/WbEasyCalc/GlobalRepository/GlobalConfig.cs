@@ -2,7 +2,7 @@
 using System.Configuration;
 using DataModel;
 using DataRepository;
-using WbEasyCalc;
+using WbEasyCalcModel;
 
 namespace GlobalRepository
 {

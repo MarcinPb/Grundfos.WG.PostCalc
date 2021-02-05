@@ -2,7 +2,7 @@
 using System.Configuration;
 using Opc;
 using Opc.Model;
-using WbEasyCalc;
+using WbEasyCalcModel;
 
 namespace GlobalRepository
 {

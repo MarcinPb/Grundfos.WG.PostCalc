@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using DataRepository;
 using GlobalRepository;
-using WbEasyCalc;
+using WbEasyCalcModel;
 using WbEasyCalcRepository;
 using WpfApplication1.Utility;
 

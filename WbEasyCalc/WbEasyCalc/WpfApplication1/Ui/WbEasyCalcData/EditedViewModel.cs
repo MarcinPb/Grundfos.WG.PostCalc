@@ -6,7 +6,7 @@ using DataModel;
 using DataRepository;
 using GlobalRepository;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using WbEasyCalc;
+using WbEasyCalcModel;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData

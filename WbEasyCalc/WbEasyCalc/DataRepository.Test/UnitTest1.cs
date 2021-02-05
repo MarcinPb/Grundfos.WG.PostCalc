@@ -2,7 +2,7 @@
 using System.Configuration;
 using DataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WbEasyCalc;
+using WbEasyCalcModel;
 
 namespace DataRepository.Test
 {
