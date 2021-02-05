@@ -40,8 +40,8 @@ namespace WbEasyCalcModel
         public double WbDay_SystemInputVolume_B19 { get; set; } // 6593339 
 
 
-        public WaterBalanceModel WaterBalanceDay { get; set; } // 6593339 
-        public WaterBalanceModel WaterBalancePeriod { get; set; } // 6593339 
+        public WaterBalanceModel WaterBalanceDay { get; set; }  
+        public WaterBalanceModel WaterBalancePeriod { get; set; } 
 
 
 
@@ -177,9 +177,8 @@ namespace WbEasyCalcModel
 
                 WbDay_SystemInputVolume_B19  = WbDay_SystemInputVolume_B19,
 
-                WaterBalanceDay = WaterBalanceDay,
-                WaterBalancePeriod = WaterBalancePeriod,
-
+                WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
+                WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),
 
 
 

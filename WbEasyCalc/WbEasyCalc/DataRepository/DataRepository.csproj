@@ -50,6 +50,7 @@
     <Compile Include="IDataRepository.cs" />
     <Compile Include="WaterConsumption\IListRepository.cs" />
     <Compile Include="WaterConsumption\ListRepository.cs" />
+    <Compile Include="WbEasyCalcData\WbEasyCalcDb.cs" />
     <Compile Include="WbEasyCalcData\WbEasyCalcDataListRepository.cs" />
     <Compile Include="WbEasyCalcData\IWbEasyCalcDataListRepository.cs" />
     <Compile Include="IBaseListRepository.cs" />

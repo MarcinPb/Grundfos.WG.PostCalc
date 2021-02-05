@@ -96,6 +96,9 @@
         </TabControl>
 
         <TabControl Grid.Column="1" Grid.Row="1" Margin="10 0 0 0" TabStripPlacement="Bottom">
+            <TabItem Header="Water Balance m3day" >
+                <tabView:WaterBalanceDayView/>
+            </TabItem>
             <TabItem Header="Water Balance m3" >
                 <tabView:WaterBalanceView/>
             </TabItem>

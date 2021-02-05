@@ -16,7 +16,8 @@ namespace DataRepository.WbEasyCalcData
             using (IDbConnection cnn = new SqlConnection(_cnnString))
             {
                 string sql = "dbo.spWbEasyCalcDataList";
-                _list = cnn.Query<DataModel.WbEasyCalcData>(sql, commandType: CommandType.StoredProcedure).ToList();
+                var list = cnn.Query<WbEasyCalcDb>(sql, commandType: CommandType.StoredProcedure).ToList();
+                _list = list.Select(x => x.GetWbEasyCalcData()).ToList();
                 return _list;
             }
         }

@@ -101,6 +101,10 @@
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\EditedViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
+      <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
@@ -230,6 +234,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,9 +315,7 @@
   <ItemGroup>
     <Resource Include="Controls\filter.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ui\WbEasyCalcData\TabView\Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

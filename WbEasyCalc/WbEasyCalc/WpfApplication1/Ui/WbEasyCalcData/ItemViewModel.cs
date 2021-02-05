@@ -6,6 +6,7 @@ using DataRepository;
 using GlobalRepository;
 using WbEasyCalcModel;
 using WbEasyCalcRepository;
+using WpfApplication1.Ui.WbEasyCalcData.ViewModel;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData
@@ -240,6 +241,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
             NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
             NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
+
+            WaterBalanceDay = WaterBalanceDayViewModel?.Model,
+            WaterBalancePeriod = WaterBalancePeriodViewModel?.Model,
+
+
 
             AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
             AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
@@ -1709,6 +1715,26 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _nonRevenueWaterErrorMarginAy26 = value; RaisePropertyChanged(nameof(NonRevenueWaterErrorMargin_AY26)); }
         }
 
+
+
+        private WaterBalanceViewModel _waterBalanceDayViewModel;
+        public WaterBalanceViewModel WaterBalanceDayViewModel
+        {
+            get => _waterBalanceDayViewModel;
+            set { _waterBalanceDayViewModel = value; RaisePropertyChanged(nameof(WaterBalanceDayViewModel)); }
+        }
+        private WaterBalanceViewModel _waterBalancePeriodViewModel;
+        public WaterBalanceViewModel WaterBalancePeriodViewModel
+        {
+            get => _waterBalancePeriodViewModel;
+            set { _waterBalancePeriodViewModel = value; RaisePropertyChanged(nameof(WaterBalancePeriodViewModel)); }
+        }
+
+
+
+
+
+
         public double AverageSupplyTimeHPerDayBestEstimate_F9 
         { 
             get => _averageSupplyTimeHPerDayBestEstimate_F9;
@@ -2463,6 +2489,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             NonRevenueWaterM3_AY24 = model.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
 
+            WaterBalanceDayViewModel = new WaterBalanceViewModel(model.WaterBalanceDay);
+            WaterBalancePeriodViewModel = new WaterBalanceViewModel(model.WaterBalancePeriod);
+            
             AverageSupplyTimeHPerDayBestEstimate_F9 = model.AverageSupplyTimeHPerDayBestEstimate_F9;
             AveragePressureMBestEstimate_F11 = model.AveragePressureMBestEstimate_F11;
 
@@ -2612,6 +2641,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
             NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
+
+            WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
+            WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
 
             AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcDataOutput.AverageSupplyTimeHPerDayBestEstimate_F9;
             AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
