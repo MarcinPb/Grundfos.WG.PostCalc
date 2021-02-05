@@ -15,8 +15,8 @@ namespace WbEasyCalcRepository
         {
             EasyCalcSheetData easyCalcSheetData = ReadSheetData(easyCalcDataInput);
 
-            EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
-            EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLosses(easyCalcSheetData);
+            //EasyCalcRefactored.GetWaterLossesErrorMargin(easyCalcSheetData);
 
             EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
             {
