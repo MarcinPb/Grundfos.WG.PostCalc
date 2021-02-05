@@ -6,61 +6,61 @@ using WbEasyCalcRepository.Model;
 namespace WbEasyCalcRepository
 {
     public static class EasyCalcRefactored
-    {
+    {   /*
         public static void GetWaterLosses(EasyCalcSheetData data)
         {
-            /*
-            double unauthorizedConsumption_IllegalConnectionsDomesticTotalM3_L6 =
-                data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticEstimatedNumber_D6
-                * data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticPersonsPerHouse_H6
-                * data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticConsumptionLitersPerPersonPerDay_J6
-                * data.StartSheet.PeriodDays_M21
-                / 1000;
-            double unauthorizedConsumption_IllegalConnectionsOthersTotalM3_L10 =
-                data.UnauthorizedConsumptionSheet.IllegalConnectionsOthersEstimatedNumber_D10
-                * data.UnauthorizedConsumptionSheet.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10
-                * data.StartSheet.PeriodDays_M21
-                / 1000;
-            double unauthorizedConsumption_MeterTamperingBypassesEtcTotalM3_L14 =
-                data.UnauthorizedConsumptionSheet.MeterTamperingBypassesEtcEstimatedNumber_D14
-                * data.UnauthorizedConsumptionSheet.MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14
-                * data.StartSheet.PeriodDays_M21
-                / 1000;
-            double unauthorizedConsumption_OthersM3PerDay_L18L22 =
-                data.UnauthorizedConsumptionSheet.OthersM3PerDay_J18_J22.Sum()
-                * data.StartSheet.PeriodDays_M21;
+            
+            //double unauthorizedConsumption_IllegalConnectionsDomesticTotalM3_L6 =
+            //    data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticEstimatedNumber_D6
+            //    * data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticPersonsPerHouse_H6
+            //    * data.UnauthorizedConsumptionSheet.IllegalConnectionsDomesticConsumptionLitersPerPersonPerDay_J6
+            //    * data.StartSheet.PeriodDays_M21
+            //    / 1000;
+            //double unauthorizedConsumption_IllegalConnectionsOthersTotalM3_L10 =
+            //    data.UnauthorizedConsumptionSheet.IllegalConnectionsOthersEstimatedNumber_D10
+            //    * data.UnauthorizedConsumptionSheet.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10
+            //    * data.StartSheet.PeriodDays_M21
+            //    / 1000;
+            //double unauthorizedConsumption_MeterTamperingBypassesEtcTotalM3_L14 =
+            //    data.UnauthorizedConsumptionSheet.MeterTamperingBypassesEtcEstimatedNumber_D14
+            //    * data.UnauthorizedConsumptionSheet.MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14
+            //    * data.StartSheet.PeriodDays_M21
+            //    / 1000;
+            //double unauthorizedConsumption_OthersM3PerDay_L18L22 =
+            //    data.UnauthorizedConsumptionSheet.OthersM3PerDay_J18_J22.Sum()
+            //    * data.StartSheet.PeriodDays_M21;
 
-            double unauthorizedConsumption_bestEstimate_L31 =
-                unauthorizedConsumption_IllegalConnectionsDomesticTotalM3_L6
-                + unauthorizedConsumption_IllegalConnectionsOthersTotalM3_L10
-                + unauthorizedConsumption_MeterTamperingBypassesEtcTotalM3_L14
-                + unauthorizedConsumption_OthersM3PerDay_L18L22;
+            //double unauthorizedConsumption_bestEstimate_L31 =
+            //    unauthorizedConsumption_IllegalConnectionsDomesticTotalM3_L6
+            //    + unauthorizedConsumption_IllegalConnectionsOthersTotalM3_L10
+            //    + unauthorizedConsumption_MeterTamperingBypassesEtcTotalM3_L14
+            //    + unauthorizedConsumption_OthersM3PerDay_L18L22;
 
-            double billedConsumption_bulkWaterSupplyExport_D6 = data.BilledConsumptionSheet.BilledMeteredConsumptionBulkWaterSupplyExportM3_D6;
-            double unbilledConsumption_bulkWaterSupplyExport_D6 = data.UnbilledConsumptionSheet.MeteredConsumptionBulkWaterSupplyExportM3_D6;
+            //double billedConsumption_bulkWaterSupplyExport_D6 = data.BilledConsumptionSheet.BilledMeteredConsumptionBulkWaterSupplyExportM3_D6;
+            //double unbilledConsumption_bulkWaterSupplyExport_D6 = data.UnbilledConsumptionSheet.MeteredConsumptionBulkWaterSupplyExportM3_D6;
 
-            double meterErrors_MeteredBulkSupplyExport_F32 = billedConsumption_bulkWaterSupplyExport_D6 + unbilledConsumption_bulkWaterSupplyExport_D6;
-            double meterErrors_MeteredBulkSupplyExportMetereUnderregistration_H32 = data.MeterErrorsSheet.MeteredBulkSupplyExportMetereUnderregistration_H32;
+            //double meterErrors_MeteredBulkSupplyExport_F32 = billedConsumption_bulkWaterSupplyExport_D6 + unbilledConsumption_bulkWaterSupplyExport_D6;
+            //double meterErrors_MeteredBulkSupplyExportMetereUnderregistration_H32 = data.MeterErrorsSheet.MeteredBulkSupplyExportMetereUnderregistration_H32;
 
-            double meterErrors_UnbilledMeteredConsumptionWithoutBulkSupply_F34 = 
-                data.UnbilledConsumptionSheet.UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23.Sum();
-            double meterErrors_UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34 =
-                data.MeterErrorsSheet.UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34;
+            //double meterErrors_UnbilledMeteredConsumptionWithoutBulkSupply_F34 = 
+            //    data.UnbilledConsumptionSheet.UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23.Sum();
+            //double meterErrors_UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34 =
+            //    data.MeterErrorsSheet.UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34;
 
-            double meterErrors_CorruptMeterReadingPracticesMeterUnderregistration_H38 =
-                data.MeterErrorsSheet.CorruptMeterReadingPracticesMeterUnderregistration_H38;
-            double billedConsumption_BilledMeteredConsumption_D28 = data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();
-            double billedConsumption_BilledUnmeteredConsumption_H28 =
-                data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum();
-            double meterErrors_CorruptMeterReadingPractices_F38 = billedConsumption_BilledMeteredConsumption_D28 + billedConsumption_BilledUnmeteredConsumption_H28;
+            //double meterErrors_CorruptMeterReadingPracticesMeterUnderregistration_H38 =
+            //    data.MeterErrorsSheet.CorruptMeterReadingPracticesMeterUnderregistration_H38;
+            //double billedConsumption_BilledMeteredConsumption_D28 = data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();
+            //double billedConsumption_BilledUnmeteredConsumption_H28 =
+            //    data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum();
+            //double meterErrors_CorruptMeterReadingPractices_F38 = billedConsumption_BilledMeteredConsumption_D28 + billedConsumption_BilledUnmeteredConsumption_H28;
 
-            double meterErrors_BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 =
-                data.MeterErrorsSheet.BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8;
-            double meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8 = data.BilledConsumptionSheet.BilledMeteredConsumptionWithoutBulkSupply_D8_D25.Sum();
-            double meterErrors_BilledMeteredConsumptionWithoutBulkSupply_L8 =
-                (meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8 / (1 - meterErrors_BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8))
-                - meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8;
-            */
+            //double meterErrors_BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 =
+            //    data.MeterErrorsSheet.BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8;
+            //double meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8 = data.BilledConsumptionSheet.BilledMeteredConsumptionWithoutBulkSupply_D8_D25.Sum();
+            //double meterErrors_BilledMeteredConsumptionWithoutBulkSupply_L8 =
+            //    (meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8 / (1 - meterErrors_BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8))
+            //    - meterErrors_BilledMeteredConsumptionWithoutBulkSupply_F8;
+            
 
             //data.WaterBalanceSheet.SystemInputVolume_B19 = data.SystemInputSheet.SystemInputVolume_D79;
             //data.WaterBalanceSheet.BilledMeteredConsumption_AC4 = data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();
@@ -141,6 +141,7 @@ namespace WbEasyCalcRepository
             data.WaterBalanceSheet.NonRevenueWaterErrorMargin_AY26 = data.WaterBalanceSheet.NonRevenueWaterM3_AY24 == 0 ?
                 0d : data.WaterBalanceSheet.NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / data.WaterBalanceSheet.NonRevenueWaterM3_AY24;
         }
+        */
 
         //public static void GetInfrastructureLeakageIndex(EasyCalcSheetData data)
         //{
