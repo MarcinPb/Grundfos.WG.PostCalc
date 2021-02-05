@@ -317,15 +317,6 @@ namespace WbEasyCalcRepository
                 //Network_ErrorMargin_D35 = easyCalcDataInput.Network_ErrorMargin_D35,
             };
 
-            data.FinancialDataSheet = new FinancialDataSheet()
-            {
-                FinancData_G6 = easyCalcDataInput.FinancData_G6,
-                FinancData_K6 = easyCalcDataInput.FinancData_K6,
-                FinancData_G8 = easyCalcDataInput.FinancData_G8,
-                FinancData_D26 = easyCalcDataInput.FinancData_D26,
-                FinancData_G35 = easyCalcDataInput.FinancData_G35,
-            };
-
             data.PressureSheet = new PressureSheet()
             {
                 ApproximateNumberOfConnections_D7_D24 = new List<double> 
@@ -370,9 +361,19 @@ namespace WbEasyCalcRepository
                 ErrorMargin_H26 = easyCalcDataInput.Interm_ErrorMarg_H26,
             };
 
+            //data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
+            data.WaterBalanceSheet = new WaterBalanceSheet(data);
+
+            data.FinancialDataSheet = new FinancialDataSheet()
+            {
+                FinancData_G6 = easyCalcDataInput.FinancData_G6,
+                FinancData_K6 = easyCalcDataInput.FinancData_K6,
+                FinancData_G8 = easyCalcDataInput.FinancData_G8,
+                FinancData_D26 = easyCalcDataInput.FinancData_D26,
+                FinancData_G35 = easyCalcDataInput.FinancData_G35,
+            };
+
             data.PiSheet = new PiSheet(data);
-            data.WaterBalanceSheet = new WaterBalanceSheet();
-            data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
 
             return data;
         }

@@ -36,30 +36,28 @@ namespace WbEasyCalcRepository.Model
         }
         public double DataHandlingErrorsOffice_L40 { get; set; }
         public bool DetailedManualSpec_J6 { get; set; }
-        public double BestEstimateTotalM3_L49 { get => this.GetBestEstimateTotalM3_L49(); }
         //public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 { get; private set; }
         public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8
         {
             get => this.DetailedManualSpec_J6==false ? this.data.BilledConsumptionSheet.BilledMeteredConsumptionWithoutBulkSupply_D8_D25.Sum() : 0;
         }
 
-        public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 { get; private set; }
+        //public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 { get; private set; }
+        public double BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 { get=> BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 / (1 - BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8) - BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8; }
         public double BilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N8 { get; set; }
         public double MeteredBulkSupplyExportErrorMargin_N32 { get; set; }
         public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 { get; set; }
         public double CorruptMeterReadingPracticessErrorMargin_N38 { get; set; }
         public double DataHandlingErrorsOfficeErrorMargin_N40 { get; set; }
+        public double MeteredBulkSupplyExportTotalM3_F32 { get => this.data.BilledConsumptionSheet.BilledMeteredConsumptionBulkWaterSupplyExportM3_D6 + this.data.UnbilledConsumptionSheet.MeteredConsumptionBulkWaterSupplyExportM3_D6; }
+        public double MeteredBulkSupplyExportTotalWithMeterUnderregistrationM3_L32 { get => (this.MeteredBulkSupplyExportTotalM3_F32 / (1 - this.MeteredBulkSupplyExportMetereUnderregistration_H32)) - this.MeteredBulkSupplyExportTotalM3_F32; }
+        public double UnbilledMeteredConsumptionWithoutBulkSupplyWithMeterUnderregistration_L34 { get => (this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34 / (1 - this.UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34)) - this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34; }
+        public double CorruptMeterReadingPracticesTotalM3_F38 { get => this.data.BilledConsumptionSheet.BilledMeteredConsumption_D28 + this.data.BilledConsumptionSheet.BilledUnmeteredConsumption_H28; }
+        public double CorruptMeterReadingPracticesWithMeterUnderregistrationM3_L38 { get => (this.CorruptMeterReadingPracticesTotalM3_F38 / (1 - this.CorruptMeterReadingPracticesMeterUnderregistration_H38)) - this.CorruptMeterReadingPracticesTotalM3_F38; }
+
+        public double BestEstimateTotalM3_L49 { get => this.GetBestEstimateTotalM3_L49(); }
+
         public double ErrorMarginTotal_N42 { get => this.GetErrorMarginTotal_N42(); }
-        public double MeteredBulkSupplyExportTotalM3_F32
-        {
-            get =>
-                this.data.BilledConsumptionSheet.BilledMeteredConsumptionBulkWaterSupplyExportM3_D6
-                + this.data.UnbilledConsumptionSheet.MeteredConsumptionBulkWaterSupplyExportM3_D6;
-        }
-        public double MeteredBulkSupplyExportTotalWithMeterUnderregistrationM3_L32 { get; private set; }
-        public double UnbilledMeteredConsumptionWithoutBulkSupplyWithMeterUnderregistration_L34 { get; private set; }
-        public double CorruptMeterReadingPracticesTotalM3_F38 { get; private set; }
-        public double CorruptMeterReadingPracticesWithMeterUnderregistrationM3_L38 { get; private set; }
 
         private double GetErrorMarginTotal_N42()
         {
@@ -116,20 +114,16 @@ namespace WbEasyCalcRepository.Model
 
         private double GetBestEstimateTotalM3_L49()
         {
-            this.BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 =
-                BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 / (1 - BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8) - BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8;
-            this.MeteredBulkSupplyExportTotalWithMeterUnderregistrationM3_L32 =
-                (this.MeteredBulkSupplyExportTotalM3_F32 / (1 - this.MeteredBulkSupplyExportMetereUnderregistration_H32))
-                - this.MeteredBulkSupplyExportTotalM3_F32;
-            this.CorruptMeterReadingPracticesTotalM3_F38 =
-                this.data.BilledConsumptionSheet.BilledMeteredConsumption_D28
-                + this.data.BilledConsumptionSheet.BilledUnmeteredConsumption_H28;
-            this.CorruptMeterReadingPracticesWithMeterUnderregistrationM3_L38 =
-                (this.CorruptMeterReadingPracticesTotalM3_F38 / (1 - this.CorruptMeterReadingPracticesMeterUnderregistration_H38))
-                - this.CorruptMeterReadingPracticesTotalM3_F38;
-            this.UnbilledMeteredConsumptionWithoutBulkSupplyWithMeterUnderregistration_L34 =
-                (this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34 / (1 - this.UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34))
-                - this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34;
+            //this.BilledMeteredConsumptionWithoutBulkSupplyTotalM3_L8 =
+            //    BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8 / (1 - BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8) - BilledMeteredConsumptionWithoutBulkSupplyTotalM3_F8;
+            //this.MeteredBulkSupplyExportTotalWithMeterUnderregistrationM3_L32 =
+            //    (this.MeteredBulkSupplyExportTotalM3_F32 / (1 - this.MeteredBulkSupplyExportMetereUnderregistration_H32)) - this.MeteredBulkSupplyExportTotalM3_F32;
+            //this.CorruptMeterReadingPracticesTotalM3_F38 =
+            //    this.data.BilledConsumptionSheet.BilledMeteredConsumption_D28 + this.data.BilledConsumptionSheet.BilledUnmeteredConsumption_H28;
+            //this.CorruptMeterReadingPracticesWithMeterUnderregistrationM3_L38 =
+            //    (this.CorruptMeterReadingPracticesTotalM3_F38 / (1 - this.CorruptMeterReadingPracticesMeterUnderregistration_H38)) - this.CorruptMeterReadingPracticesTotalM3_F38;
+            //this.UnbilledMeteredConsumptionWithoutBulkSupplyWithMeterUnderregistration_L34 =
+            //    (this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34 / (1 - this.UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34)) - this.UnbilledMeteredConsumptionWithoutBulkSupplyM3_F34;
             if (this.DetailedManualSpec_J6)
             {
                 double result = this.BilledMeteredConsumptionManuallyEnteredWithMeterUnderregistrationM3_L12_L28.Sum()
