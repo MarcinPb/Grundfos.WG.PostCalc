@@ -42,6 +42,7 @@ namespace WbEasyCalcModel
 
         public WaterBalanceModel WaterBalanceDay { get; set; }  
         public WaterBalanceModel WaterBalancePeriod { get; set; } 
+        public WaterBalanceModel WaterBalanceYear { get; set; }  
 
 
 
@@ -179,9 +180,7 @@ namespace WbEasyCalcModel
 
                 WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
                 WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),
-
-
-
+                WaterBalanceYear = (WaterBalanceModel)WaterBalanceYear.Clone(),
 
                 AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
                 AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,

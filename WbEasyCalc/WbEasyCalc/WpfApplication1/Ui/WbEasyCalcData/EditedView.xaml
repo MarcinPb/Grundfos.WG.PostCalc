@@ -102,6 +102,9 @@
             <TabItem Header="Water Balance m3" >
                 <tabView:WaterBalanceView/>
             </TabItem>
+            <TabItem Header="Water Balance m3year" >
+                <tabView:WaterBalanceYearView/>
+            </TabItem>
             <TabItem Header="PIs">
                 <tabView:PisView/>
             </TabItem>

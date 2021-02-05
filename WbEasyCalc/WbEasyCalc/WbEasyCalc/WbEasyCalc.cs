@@ -56,6 +56,7 @@ namespace WbEasyCalcRepository
 
                 WaterBalanceDay = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceDaySheet),
                 WaterBalancePeriod = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceSheet),
+                WaterBalanceYear = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceYearSheet),
 
 
 
@@ -414,6 +415,7 @@ namespace WbEasyCalcRepository
 
             data.WaterBalanceSheet = new WaterBalanceSheet(data);
             data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
+            data.WaterBalanceYearSheet = new WaterBalanceYearSheet(data);
 
             data.FinancialDataSheet = new FinancialDataSheet()
             {

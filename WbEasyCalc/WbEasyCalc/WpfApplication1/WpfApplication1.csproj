@@ -101,6 +101,9 @@
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\EditedViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceYearView.xaml.cs">
+      <DependentUpon>WaterBalanceYearView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
       <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
     <Page Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceYearView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml">
       <Generator>MSBuild:Compile</Generator>

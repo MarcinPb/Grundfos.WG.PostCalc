@@ -44,13 +44,13 @@ namespace WbEasyCalcRepository.Model
         public double PhysicalLossesM3_T34 { get => WaterLosses_K29 - CommercialLosses_T26; }
 
 
-        public double UnauthorizedConsumptionErrorMargin_AO25 { get => _data.UnauthorizedConsumptionSheet.ErrorMargin_F24; }
+        public virtual double UnauthorizedConsumptionErrorMargin_AO25 { get => _data.UnauthorizedConsumptionSheet.ErrorMargin_F24; }
         public double SystemInputVolumeErrorMargin_B21 { get => _data.SystemInputSheet.ErrorMargin_F72; }
         public virtual double AuthorizedConsumptionErrorMargin_K15 { get => AuthorizedConsumption_K12 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / AuthorizedConsumption_K12; }
-        public double CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 { get => _data.MeterErrorsSheet.ErrorMarginTotal_N42; }
+        public virtual double CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 { get => _data.MeterErrorsSheet.ErrorMarginTotal_N42; }
         public virtual double UnbilledAuthorizedConsumptionErrorMargin_T20 { get => UnbilledAuthorizedConsumption_T16 == 0 ? 0 : _data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / UnbilledAuthorizedConsumption_T16; }
-        public double UnbilledUnmeteredConsumptionErrorMargin_AO20 { get => _data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25; }
-        public double CommercialLossesErrorMargin_T29 { get => GetCommercialLossesErrorMargin_T29(); }
+        public virtual double UnbilledUnmeteredConsumptionErrorMargin_AO20 { get => _data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25; }
+        public virtual double CommercialLossesErrorMargin_T29 { get => GetCommercialLossesErrorMargin_T29(); }
         private double GetCommercialLossesErrorMargin_T29()
         {
             double bj25 = UnauthorizedConsumption_AC24 * UnauthorizedConsumptionErrorMargin_AO25 / Constants.StandardDistributionFactor;
@@ -73,8 +73,8 @@ namespace WbEasyCalcRepository.Model
 
             return bl35;
         }
-        public double PhyscialLossesErrorMargin_AH35 { get => PhysicalLossesM3_T34 == 0 ? 0d : PhyscialLossesErrorMarginFactor_BL35 * Constants.StandardDistributionFactor / PhysicalLossesM3_T34; }
-        public double WaterLossesErrorMargin_K31 { get => GetWaterLossesErrorMargin_K31(); }
+        public virtual double PhyscialLossesErrorMargin_AH35 { get => PhysicalLossesM3_T34 == 0 ? 0d : PhyscialLossesErrorMarginFactor_BL35 * Constants.StandardDistributionFactor / PhysicalLossesM3_T34; }
+        public virtual double WaterLossesErrorMargin_K31 { get => GetWaterLossesErrorMargin_K31(); }
         private double GetWaterLossesErrorMargin_K31()
         {
             double bl15 = AuthorizedConsumption_K12 * AuthorizedConsumptionErrorMargin_K15 / Constants.StandardDistributionFactor;
@@ -94,7 +94,7 @@ namespace WbEasyCalcRepository.Model
             double bl25 = this.SystemInputVolume_B19 * this.SystemInputVolumeErrorMargin_B21 / Constants.StandardDistributionFactor;
             return bl25;
         }
-        public double NonRevenueWaterErrorMargin_AY26 { get => NonRevenueWaterM3_AY24 == 0 ? 0d : NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / NonRevenueWaterM3_AY24; }
+        public virtual double NonRevenueWaterErrorMargin_AY26 { get => NonRevenueWaterM3_AY24 == 0 ? 0d : NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / NonRevenueWaterM3_AY24; }
 
 
         /*

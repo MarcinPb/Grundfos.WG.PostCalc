@@ -597,7 +597,8 @@ namespace DataRepository.WbEasyCalcData
                     RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
                     NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
                     NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
-                }
+                },
+                WaterBalanceYear = new WaterBalanceModel(),
             };
         }
     }

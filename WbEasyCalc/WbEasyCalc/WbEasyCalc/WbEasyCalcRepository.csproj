@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Model\FinancialDataSheet.cs" />
+    <Compile Include="Model\WaterBalanceYearSheet.cs" />
     <Compile Include="Model\WaterBalanceDaySheet.cs" />
     <Compile Include="WbEasyCalc.cs" />
     <Compile Include="IWbEasyCalc.cs" />

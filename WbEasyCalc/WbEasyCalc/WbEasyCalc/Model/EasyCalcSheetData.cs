@@ -14,6 +14,7 @@
         public IntermittentSupplySheet IntermittentSupply { get; set; }
         public WaterBalanceDaySheet WaterBalanceDaySheet { get; set; }
         public WaterBalanceSheet WaterBalanceSheet { get; set; }
+        public WaterBalanceYearSheet WaterBalanceYearSheet { get; set; }
         public PiSheet PiSheet { get; set; }
     }
 }
