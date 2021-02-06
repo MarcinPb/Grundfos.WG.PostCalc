@@ -14,9 +14,8 @@ namespace WbEasyCalcRepository.Model
         public double AverageSupplyTimeHPerDayBestEstimate_F9 { get => data.IntermittentSupply.SupplyTimeBestEstimate_H33; }
         public double AverageSupplyTimeHPerDayBestEstimate_H9 { get => data.IntermittentSupply.ErrorMargin_H26; }
         public double AverageSupplyTimeHPerDayBestEstimate_J9 { get => AverageSupplyTimeHPerDayBestEstimate_F9*(1 - AverageSupplyTimeHPerDayBestEstimate_H9); }
-        public double AverageSupplyTimeHPerDayBestEstimate_L9 { get => Calculate_L9(); }
-
-        private double Calculate_L9()
+        public double AverageSupplyTimeHPerDayBestEstimate_L9 { get => GetAverageSupplyTimeHPerDayBestEstimate_L9(); }
+        private double GetAverageSupplyTimeHPerDayBestEstimate_L9()
         {
             // =IF(H$33=24;24;IF(H$33*(1+H$26)>24;24;(H$33*(1+H$26))))
             if (data.IntermittentSupply.SupplyTimeBestEstimate_H33 == 24)
