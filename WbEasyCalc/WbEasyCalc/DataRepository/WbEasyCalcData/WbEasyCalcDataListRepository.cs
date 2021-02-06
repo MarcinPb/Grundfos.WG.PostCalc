@@ -231,9 +231,6 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@FinancData_D26", model.FinancData_D26);
                 p.Add("@FinancData_G35", model.FinancData_G35);
 
-                p.Add("@PIs_IliBestEstimate_F25", model.PIs_IliBestEstimate_F25);
-                
-
                 // output
                 p.Add("@SystemInputVolume_B19", model.SystemInputVolume_B19);
                 p.Add("@SystemInputVolumeErrorMargin_B21", model.SystemInputVolumeErrorMargin_B21);

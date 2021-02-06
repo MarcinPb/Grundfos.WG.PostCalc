@@ -301,7 +301,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                     Model.Interm_Hour_H9 =  wbEasyCalcData.Interm_Hour_H9;
                     Model.Interm_Hour_H10 = wbEasyCalcData.Interm_Hour_H10;
 
-                    //Model.PIs_IliBestEstimate_F25 = wbEasyCalcData.PIs_IliBestEstimate_F25;
                 }
 
                 Model.CalculateExcel();

@@ -189,7 +189,6 @@ namespace DataRepository
                 p.Add("@Prs_ApproxNoOfConn_D10", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@Prs_DailyAvgPrsM_F10", dbType: DbType.Double, direction: ParameterDirection.Output);
                 p.Add("@Prs_ErrorMarg_F26", dbType: DbType.Double, direction: ParameterDirection.Output);
-                p.Add("@PIs_IliBestEstimate_F25", dbType: DbType.Double, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spGisModelScadaData", p, commandType: CommandType.StoredProcedure);
 
@@ -197,10 +196,6 @@ namespace DataRepository
                 {
                     Start_PeriodDays_M21 = p.Get<int>("@Start_PeriodDays_M21"),                                                             // //
 
-                    //SysInput_Desc_B6 = p.Get<string>("@SysInput_Desc_B6"),                                   
-                    //SysInput_Desc_B7 = p.Get<string>("@SysInput_Desc_B7"),                                   
-                    //SysInput_Desc_B8 = p.Get<string>("@SysInput_Desc_B8"),                                   
-                    //SysInput_Desc_B9 = p.Get<string>("@SysInput_Desc_B9"),                                                       
                     SysInput_SystemInputVolumeM3_D6 = p.Get<double>("@SysInput_SystemInputVolumeM3_D6"),                                    // @SystemInputVolume
                     SysInput_SystemInputVolumeError_F6 = p.Get<double>("@SysInput_SystemInputVolumeError_F6"),                              // 
                     SysInput_SystemInputVolumeM3_D7 = p.Get<double>("@SysInput_SystemInputVolumeM3_D7"),                                    
@@ -260,7 +255,6 @@ namespace DataRepository
                     Prs_ApproxNoOfConn_D10 = p.Get<double>("@Prs_ApproxNoOfConn_D10"),                                                        // 
                     Prs_DailyAvgPrsM_F10 = p.Get<double>("@Prs_DailyAvgPrsM_F10"),                                                            // 
                     Prs_ErrorMarg_F26 = p.Get<double>("@Prs_ErrorMarg_F26"),                                                            // 
-                    PIs_IliBestEstimate_F25 = p.Get<double>("@PIs_IliBestEstimate_F25"),                                                    // 
                 };
             }
         }

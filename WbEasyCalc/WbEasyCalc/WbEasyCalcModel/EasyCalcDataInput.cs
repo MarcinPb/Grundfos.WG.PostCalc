@@ -248,8 +248,6 @@ namespace WbEasyCalcModel
         public double Interm_Hour_H10 { get; set; }
         public double Interm_ErrorMarg_H26 { get; set; }
 
-        public double PIs_IliBestEstimate_F25 { get; set; }
-
 
         public object Clone()
         {
@@ -431,7 +429,6 @@ namespace WbEasyCalcModel
                 Interm_Hour_H9 = Interm_Hour_H9,
                 Interm_Hour_H10 = Interm_Hour_H10,
 
-                PIs_IliBestEstimate_F25 = PIs_IliBestEstimate_F25,
             };
         }
 
