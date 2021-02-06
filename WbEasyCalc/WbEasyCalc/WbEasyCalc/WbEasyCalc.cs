@@ -417,7 +417,7 @@ namespace WbEasyCalcRepository
             data.WaterBalanceDaySheet = new WaterBalanceDaySheet(data);
             data.WaterBalanceYearSheet = new WaterBalanceYearSheet(data);
 
-            data.FinancialDataSheet = new FinancialDataSheet()
+            data.FinancialDataSheet = new FinancialDataSheet(data)
             {
                 FinancData_G6 = easyCalcDataInput.FinancData_G6,
                 FinancData_K6 = easyCalcDataInput.FinancData_K6,
