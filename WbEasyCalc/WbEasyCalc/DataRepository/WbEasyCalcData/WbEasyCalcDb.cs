@@ -394,10 +394,6 @@ namespace DataRepository.WbEasyCalcData
         public double NonRevenueWaterErrorMargin_AY26 { get; set; }
 
 
-        public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
-        public double AveragePressureMBestEstimate_F11 { get; set; }
-
-
         public DataModel.WbEasyCalcData GetWbEasyCalcData()
         {
             return new DataModel.WbEasyCalcData()

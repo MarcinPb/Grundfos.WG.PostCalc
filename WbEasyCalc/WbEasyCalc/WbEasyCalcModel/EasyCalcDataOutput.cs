@@ -47,12 +47,6 @@ namespace WbEasyCalcModel
 
 
 
-
-
-        public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; } // 24.0 
-        public double AveragePressureMBestEstimate_F11 { get; set; } // 30.0 
-
-
         public double Prs_Min_F29 { get; set; }  
         public double Prs_Max_F31 { get; set; }
         public double Prs_BestEstimate_F33 { get; set; } // 30.0 
@@ -233,9 +227,6 @@ namespace WbEasyCalcModel
                 WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
                 WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),
                 WaterBalanceYear = (WaterBalanceModel)WaterBalanceYear.Clone(),
-
-                AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
-                AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
 
                 Prs_BestEstimate_F33 = Prs_BestEstimate_F33,

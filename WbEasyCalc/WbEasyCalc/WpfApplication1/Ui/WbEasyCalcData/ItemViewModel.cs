@@ -247,10 +247,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
 
-            AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
-            AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
-
-
             Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
             Prs_Min_F29 = Prs_Min_F29,
             Prs_Max_F31 = Prs_Max_F31,
@@ -1605,8 +1601,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         private double _revenueWaterM3Ay8;
         private double _nonRevenueWaterM3Ay24;
         private double _nonRevenueWaterErrorMarginAy26;
-        private double _averageSupplyTimeHPerDayBestEstimate_F9;
-        private double _averagePressureMBestEstimate_F11;
         private double _prs_BestEstimate_F33;
         private double _prs_Min_F29;
         private double _prs_Max_F31;
@@ -1786,17 +1780,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
 
 
-
-        public double AverageSupplyTimeHPerDayBestEstimate_F9 
-        { 
-            get => _averageSupplyTimeHPerDayBestEstimate_F9;
-            set { _averageSupplyTimeHPerDayBestEstimate_F9 = value; RaisePropertyChanged(nameof(AverageSupplyTimeHPerDayBestEstimate_F9)); }
-        }
-        public double AveragePressureMBestEstimate_F11 
-        { 
-            get => _averagePressureMBestEstimate_F11;
-            set { _averagePressureMBestEstimate_F11 = value; RaisePropertyChanged(nameof(AveragePressureMBestEstimate_F11)); }
-        }
 
 
         public double Prs_BestEstimate_F33
@@ -2871,9 +2854,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             WaterBalancePeriodViewModel = new WaterBalanceViewModel(model.WaterBalancePeriod);
             WaterBalanceYearViewModel = new WaterBalanceViewModel(model.WaterBalanceYear);
             
-            AverageSupplyTimeHPerDayBestEstimate_F9 = model.AverageSupplyTimeHPerDayBestEstimate_F9;
-            AveragePressureMBestEstimate_F11 = model.AveragePressureMBestEstimate_F11;
-
 
             Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
             Prs_Min_F29 = model.Prs_Min_F29;
@@ -3078,9 +3058,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
             WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
             WaterBalanceYearViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceYear);
-
-            AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcDataOutput.AverageSupplyTimeHPerDayBestEstimate_F9;
-            AveragePressureMBestEstimate_F11 = easyCalcDataOutput.AveragePressureMBestEstimate_F11;
 
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;

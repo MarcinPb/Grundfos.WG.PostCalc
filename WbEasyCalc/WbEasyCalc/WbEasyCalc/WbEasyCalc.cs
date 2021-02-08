@@ -204,12 +204,6 @@ namespace WbEasyCalcRepository
                 Pis_J51 = easyCalcSheetData.PiSheet.Pis_J51,
                 Pis_L51 = easyCalcSheetData.PiSheet.Pis_L51,
 
-
-
-
-                AverageSupplyTimeHPerDayBestEstimate_F9 = easyCalcSheetData.PiSheet.AverageSupplyTimeHPerDayBestEstimate_F9,
-                AveragePressureMBestEstimate_F11 = easyCalcSheetData.PiSheet.AveragePressureMBestEstimate_F11,
-
             };
 
             return easyCalcDataOutput;

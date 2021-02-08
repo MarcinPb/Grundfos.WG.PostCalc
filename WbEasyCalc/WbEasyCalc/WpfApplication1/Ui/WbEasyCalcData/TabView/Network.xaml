@@ -131,10 +131,10 @@
 
             <Label Grid.Row="17" Grid.Column="4" Grid.RowSpan="3" Content="Estimate Number of Illegal  Connections"  Style="{StaticResource LabelBaseStyle2}" />
             <Label Grid.Row="17" Grid.Column="6" Grid.RowSpan="3" Content="{Binding Path=Model.Network_Number_H21}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
-            <Label Grid.Row="17" Grid.Column="8" Grid.RowSpan="3" Content="{Binding Path=Model.Network_ErrorMarg_J21}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="17" Grid.Column="8" Grid.RowSpan="3" Content="{Binding Path=Model.Network_ErrorMarg_J21}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
 
             <Label Grid.Row="21" Grid.Column="4" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}" />
-            <Label Grid.Row="21" Grid.Column="8" Content="{Binding Path=Model.Network_ErrorMarg_J24}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="21" Grid.Column="8" Content="{Binding Path=Model.Network_ErrorMarg_J24}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBlueStyle}"  />
 
 
             <Label Grid.Row="23" Grid.Column="4" Content="Number of connections" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
@@ -156,7 +156,7 @@
 
             <Label Grid.Row="33" Grid.Column="4"  Content="Total Length of Service Connection from&#xD;&#xA;  Property Boundary to Customer Meter&#xD;&#xA;                         [kilometer]"  Style="{StaticResource LabelBaseStyle2}" />
             <Label Grid.Row="33" Grid.Column="6"  Content="{Binding Path=Model.Network_Number_H39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
-            <Label Grid.Row="33" Grid.Column="8"  Content="{Binding Path=Model.Network_ErrorMarg_J39}" ContentStringFormat="{}{0:P1}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="33" Grid.Column="8"  Content="{Binding Path=Model.Network_ErrorMarg_J39}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
 
         </Grid>
     </ScrollViewer>

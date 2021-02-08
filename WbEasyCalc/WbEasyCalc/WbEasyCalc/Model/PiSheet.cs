@@ -4,100 +4,124 @@ namespace WbEasyCalcRepository.Model
 {
     public class PiSheet
     {
-        private readonly EasyCalcSheetData data;
+        private readonly EasyCalcSheetData _data;
 
         public PiSheet(EasyCalcSheetData data)
         {
-            this.data = data;
+            _data = data;
         }
 
-        /*
-        */
-        public double AverageSupplyTimeHPerDayBestEstimate_F9 { get => data.IntermittentSupply.SupplyTimeBestEstimate_H33; }
-        public double AverageSupplyTimeHPerDayBestEstimate_H9 { get => data.IntermittentSupply.ErrorMargin_H26; }
-        public double AverageSupplyTimeHPerDayBestEstimate_J9 { get => AverageSupplyTimeHPerDayBestEstimate_F9*(1 - AverageSupplyTimeHPerDayBestEstimate_H9); }
-        public double AverageSupplyTimeHPerDayBestEstimate_L9 { get => GetAverageSupplyTimeHPerDayBestEstimate_L9(); }
-        private double GetAverageSupplyTimeHPerDayBestEstimate_L9()
+        public double Pis_F9 { get => _data.IntermittentSupply.SupplyTimeBestEstimate_H33; }
+        public double Pis_H9 { get => _data.IntermittentSupply.ErrorMargin_H26; }
+        public double Pis_J9 { get => Pis_F9 * (1 - Pis_H9); }
+        public double Pis_L9 { get => Pis_F9 * (1 + Pis_H9); }
+
+
+        public double Pis_F11 { get => _data.PressureSheet.AveragePressureBestEstimate_F33; }
+        public double Pis_H11 { get => _data.PressureSheet.Prs_ErrorMarg_F26; }
+        public double Pis_J11 { get => Pis_F11 * (1 - Pis_H11); }
+        public double Pis_L11 { get => Pis_F11 * (1 + Pis_H11); }
+
+        public double Pis_F17 { get => _data.WaterBalanceDaySheet.PhysicalLossesM3_T34; }
+        public double Pis_H17 { get => _data.WaterBalanceDaySheet.PhyscialLossesErrorMargin_AH35; }
+        public double Pis_J17 { get => Pis_F17 * (1 - Pis_H17); }
+        public double Pis_L17 { get => Pis_F17 * (1 + Pis_H17); }
+
+        public double Pis_F19 { get => GetPis_F19(); }
+        private double GetPis_F19()
         {
-            // =IF(H$33=24;24;IF(H$33*(1+H$26)>24;24;(H$33*(1+H$26))))
-            if (data.IntermittentSupply.SupplyTimeBestEstimate_H33 == 24)
+            if ((((_data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37 * 18 + _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 0.8 + _data.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39 * 25) * Pis_F11) / 24 * Pis_F9) * 365/1000 > 0) 
             {
-                return 24;
+                return (((_data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37 * 18 + _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 0.8 + _data.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39 * 25) * Pis_F11) / 24 * Pis_F9) / 1000;
             }
             else
             {
-                if (data.IntermittentSupply.SupplyTimeBestEstimate_H33 * (1 + data.IntermittentSupply.ErrorMargin_H26) > 24)
-                {
-                    return 24;
-                }
-                else
-                {
-                    return data.IntermittentSupply.SupplyTimeBestEstimate_H33 * (1 + data.IntermittentSupply.ErrorMargin_H26);
-                }
+                return 0;
             }
         }
-        public double AveragePressureMBestEstimate_F11 { get => data.PressureSheet.AveragePressureBestEstimate_F33; }
-        public double CaplBestEstimate_F17 { get; internal set; }
-        public double MaplBestEstimate_F19 { get; internal set; }
-        public double IliBestEstimate_F25 { get; set; }
+        public double Pis_H19 { get => GetPis_H19(); }
+        private double GetPis_H19()
+        {
+            if (Pis_F19 == 0) 
+            {
+                return 0d;
+            }
+            else
+            {
+                var r17 = _data.NetworkSheet.ServiceConnectionsBestEstimate_H30;
+                var s17 = r17 * 0.8 * Pis_F11 / 24 * Pis_F9 / 1000;
+                var t17 = Math.Sqrt(Pis_H9 * Pis_H9 + Pis_H11 * Pis_H11 + Pis_H11 * Pis_H11 + _data.NetworkSheet.Network_ErrorMarg_J24 * _data.NetworkSheet.Network_ErrorMarg_J24);
+                var u17 = Math.Pow(((s17 * t17) / 1.96), 2);
+                var r19 = _data.NetworkSheet.LenOfServConnFromBoundToMeterKm_H39;
+                var s19 = r19 * 25 * 365 * Pis_F11 / 24 * Pis_F9 / 1000 / 1000;
+                var t19 = Math.Sqrt(Pis_H9 * Pis_H9 + Pis_H11 * Pis_H11 + Pis_H11 * Pis_H11 + _data.NetworkSheet.Network_ErrorMarg_J39 * _data.NetworkSheet.Network_ErrorMarg_J39);
+                var u19 = Math.Pow(((s19 * t19) / 1.96), 2);
+                var u20 = u17 + u19;
+                return Math.Sqrt(u20) * 1.96 / Pis_F19;
+            }
+        }
+        public double Pis_J19 { get => Pis_F19 * (1 - Pis_H19); }
+        public double Pis_L19 { get => Pis_F19 * (1 + Pis_H19); }
 
+        public double Pis_F25 { get => Pis_F19 == 0 ? 0 : Pis_F17 / Pis_F19; }
+        public double Pis_H25 { get => Math.Sqrt(Pis_H17 * Pis_H17 + Pis_H19 * Pis_H19); }
+        public double Pis_J25 { get => Pis_F25 * (1 - Pis_H25); }
+        public double Pis_L25 { get => Pis_F25 * (1 + Pis_H25); }
 
-        public double Pis_F9 { get; set; }
-        public double Pis_H9 { get; set; }
-        public double Pis_J9 { get; set; }
-        public double Pis_L9 { get; set; }
-        public double Pis_F11 { get; set; }
-        public double Pis_H11 { get; set; }
-        public double Pis_J11 { get; set; }
-        public double Pis_L11 { get; set; }
-        public double Pis_F17 { get; set; }
-        public double Pis_H17 { get; set; }
-        public double Pis_J17 { get; set; }
-        public double Pis_L17 { get; set; }
-        public double Pis_F19 { get; set; }
-        public double Pis_H19 { get; set; }
-        public double Pis_J19 { get; set; }
-        public double Pis_L19 { get; set; }
-        public double Pis_F25 { get; set; }
-        public double Pis_H25 { get; set; }
-        public double Pis_J25 { get; set; }
-        public double Pis_L25 { get; set; }
-        public double Pis_F27 { get; set; }
-        public double Pis_H27 { get; set; }
-        public double Pis_J27 { get; set; }
-        public double Pis_L27 { get; set; }
+        public double Pis_F27 { get => GetPis_F27(); }
+        private double GetPis_F27()
+        {
+            if ( _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 == 0 || Pis_F9 == 0)
+            {
+                return 0d;
+            }
+            else
+            {
+                return Pis_F17 / _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 1000 / Pis_F9 * 24;
+            }
+        }
+        public double Pis_H27 { get => Math.Sqrt(Pis_H9*Pis_H9 + _data.NetworkSheet.Network_ErrorMarg_J24*_data.NetworkSheet.Network_ErrorMarg_J24 + _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35*_data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35); }
+        public double Pis_J27 { get => Pis_F27 * (1 - Pis_H27); }
+        public double Pis_L27 { get => Pis_F27 * (1 + Pis_H27); }
+
         public double Pis_F29 { get; set; }
         public double Pis_H29 { get; set; }
-        public double Pis_J29 { get; set; }
-        public double Pis_L29 { get; set; }
+        public double Pis_J29 { get => Pis_F29 * (1 - Pis_H29); }
+        public double Pis_L29 { get => Pis_F29 * (1 + Pis_H29); }
+
         public double Pis_F31 { get; set; }
         public double Pis_H31 { get; set; }
-        public double Pis_J31 { get; set; }
-        public double Pis_L31 { get; set; }
+        public double Pis_J31 { get => Pis_F31 * (1 - Pis_H31); }
+        public double Pis_L31 { get => Pis_F31 * (1 + Pis_H31); }
+
         public double Pis_F37 { get; set; }
         public double Pis_H37 { get; set; }
-        public double Pis_J37 { get; set; }
-        public double Pis_L37 { get; set; }
+        public double Pis_J37 { get => Pis_F37 * (1 - Pis_H37); }
+        public double Pis_L37 { get => Pis_F37 * (1 + Pis_H37); }
+
         public double Pis_F39 { get; set; }
         public double Pis_H39 { get; set; }
-        public double Pis_J39 { get; set; }
-        public double Pis_L39 { get; set; }
+        public double Pis_J39 { get => Pis_F39 * (1 - Pis_H39); }
+        public double Pis_L39 { get => Pis_F39 * (1 + Pis_H39); }
+
         public double Pis_F41 { get; set; }
         public double Pis_H41 { get; set; }
-        public double Pis_J41 { get; set; }
-        public double Pis_L41 { get; set; }
+        public double Pis_J41 { get => Pis_F41 * (1 - Pis_H41); }
+        public double Pis_L41 { get => Pis_F41 * (1 + Pis_H41); }
+
         public double Pis_F47 { get; set; }
         public double Pis_H47 { get; set; }
-        public double Pis_J47 { get; set; }
-        public double Pis_L47 { get; set; }
+        public double Pis_J47 { get => Pis_F47 * (1 - Pis_H47); }
+        public double Pis_L47 { get => Pis_F47 * (1 + Pis_H47); }
+
         public double Pis_F49 { get; set; }
         public double Pis_H49 { get; set; }
-        public double Pis_J49 { get; set; }
-        public double Pis_L49 { get; set; }
+        public double Pis_J49 { get => Pis_F49 * (1 - Pis_H49); }
+        public double Pis_L49 { get => Pis_F49 * (1 + Pis_H49); }
+
         public double Pis_F51 { get; set; }
         public double Pis_H51 { get; set; }
-        public double Pis_J51 { get; set; }
-        public double Pis_L51 { get; set; }
-
+        public double Pis_J51 { get => Pis_F51 * (1 - Pis_H51); }
+        public double Pis_L51 { get => Pis_F51 * (1 + Pis_H51); }
     }
 }

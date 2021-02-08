@@ -405,9 +405,6 @@ namespace DataModel
         public WaterBalanceModel WaterBalanceYear { get; set; } 
 
 
-        public double AverageSupplyTimeHPerDayBestEstimate_F9 { get; set; }
-        public double AveragePressureMBestEstimate_F11 { get; set; }
-
         public object Clone()
         {
             return new WbEasyCalcData()
@@ -658,9 +655,6 @@ namespace DataModel
                 WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
                 WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),
                 WaterBalanceYear = (WaterBalanceModel)WaterBalanceYear.Clone(),
-
-                AverageSupplyTimeHPerDayBestEstimate_F9 = AverageSupplyTimeHPerDayBestEstimate_F9,
-                AveragePressureMBestEstimate_F11 = AveragePressureMBestEstimate_F11,
 
                 Prs_Min_F29 = Prs_Min_F29,
                 Prs_Max_F31 = Prs_Max_F31,

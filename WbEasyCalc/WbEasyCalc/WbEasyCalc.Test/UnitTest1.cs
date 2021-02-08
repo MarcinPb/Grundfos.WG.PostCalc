@@ -128,8 +128,6 @@ namespace WbEasyCalcRepository.Test
             {"NonRevenueWaterM3_AY24", 1260313},
             {"NonRevenueWaterErrorMargin_AY26", 0.262},
 
-            //{"AverageSupplyTimeHPerDayBestEstimate_F9", 24.0},
-            //{"AveragePressureMBestEstimate_F11", 30.0},
         };
 
         #endregion
