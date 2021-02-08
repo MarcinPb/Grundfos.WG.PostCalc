@@ -132,7 +132,7 @@
             <Label Grid.Row="19" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K22}" Style="{StaticResource LabelBlueLeftStyle}" />
 
             <Label Grid.Row="27" Grid.Column="0" Grid.ColumnSpan="3" Content="Total Value of NRW"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="27" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G31}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
+            <Label Grid.Row="27" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G31}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}" />
             <Label Grid.Row="27" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K31}" Style="{StaticResource LabelBlueLeftPaddingStyle}" />
 
             <Label Grid.Row="29" Grid.Column="0" Grid.ColumnSpan="3" Content="Annual Operating Cost (without Depreciation)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />

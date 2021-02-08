@@ -80,47 +80,67 @@ namespace WbEasyCalcRepository.Model
                 return Pis_F17 / _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 1000 / Pis_F9 * 24;
             }
         }
-        public double Pis_H27 { get => Math.Sqrt(Pis_H9*Pis_H9 + _data.NetworkSheet.Network_ErrorMarg_J24*_data.NetworkSheet.Network_ErrorMarg_J24 + _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35*_data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35); }
+        public double Pis_H27 { get => Math.Sqrt(Pis_H9 * Pis_H9 + _data.NetworkSheet.Network_ErrorMarg_J24 * _data.NetworkSheet.Network_ErrorMarg_J24 + _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35 * _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35); }
         public double Pis_J27 { get => Pis_F27 * (1 - Pis_H27); }
         public double Pis_L27 { get => Pis_F27 * (1 + Pis_H27); }
 
-        public double Pis_F29 { get; set; }
-        public double Pis_H29 { get; set; }
+        public double Pis_F29 { get => Pis_F11==0 ? 0 : Pis_F27 / Pis_F11; }
+        public double Pis_H29 { get => Math.Sqrt(Pis_H27 * Pis_H27 + Pis_H11 * Pis_H11); }
         public double Pis_J29 { get => Pis_F29 * (1 - Pis_H29); }
         public double Pis_L29 { get => Pis_F29 * (1 + Pis_H29); }
 
-        public double Pis_F31 { get; set; }
-        public double Pis_H31 { get; set; }
+        public double Pis_F31 { get => _data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37 == 0 || Pis_F9 == 0 ? 0d : Pis_F17 / Pis_F9 / _data.NetworkSheet.DistributionAndTransmissionMainsBestEstimate_D37; }
+        public double Pis_H31 { get => Math.Sqrt(Pis_H9 * Pis_H9 + _data.NetworkSheet.DistributionAndTransmissionMainsPossibleUnderestimation_D30 * _data.NetworkSheet.DistributionAndTransmissionMainsPossibleUnderestimation_D30 + _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35 * _data.WaterBalanceYearSheet.PhyscialLossesErrorMargin_AH35); }
         public double Pis_J31 { get => Pis_F31 * (1 - Pis_H31); }
         public double Pis_L31 { get => Pis_F31 * (1 + Pis_H31); }
 
-        public double Pis_F37 { get; set; }
-        public double Pis_H37 { get; set; }
+        public double Pis_F37 { get => _data.WaterBalanceYearSheet.AuthorizedConsumption_K12 == 0 ? 0d : _data.WaterBalanceYearSheet.CommercialLosses_T26 / _data.WaterBalanceYearSheet.AuthorizedConsumption_K12; }
+        public double Pis_H37 { get => GetPis_H37(); }
+        private double GetPis_H37()
+        {
+            var s30 = _data.WaterBalanceYearSheet.AuthorizedConsumption_K12;
+            var s34 = s30 * Pis_F37;
+            if (s34 == 0)
+            {
+                return 0d;
+            }
+            else
+            {
+                var t30 = _data.WaterBalanceYearSheet.AuthorizedConsumptionErrorMargin_K15;
+                var u30 = Math.Pow(((s30 * t30) / 1.96), 2);
+                var t32 = _data.WaterBalanceYearSheet.CommercialLossesErrorMargin_T29;
+                var s32 = _data.WaterBalanceYearSheet.CommercialLosses_T26;
+                var u32 = Math.Pow(((s32 * t32) / 1.96), 2);
+                var u34 = u30 + u32;
+                return Math.Sqrt(u34) * 1.96 / s34;
+            }
+        }
+
         public double Pis_J37 { get => Pis_F37 * (1 - Pis_H37); }
         public double Pis_L37 { get => Pis_F37 * (1 + Pis_H37); }
 
-        public double Pis_F39 { get; set; }
-        public double Pis_H39 { get; set; }
+        public double Pis_F39 { get => _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 == 0 ? 0d : _data.WaterBalanceDaySheet.CommercialLosses_T26 / _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 1000; }
+        public double Pis_H39 { get => Math.Sqrt(_data.NetworkSheet.Network_ErrorMarg_J24 * _data.NetworkSheet.Network_ErrorMarg_J24 + _data.WaterBalanceYearSheet.CommercialLossesErrorMargin_T29 * _data.WaterBalanceYearSheet.CommercialLossesErrorMargin_T29); }
         public double Pis_J39 { get => Pis_F39 * (1 - Pis_H39); }
         public double Pis_L39 { get => Pis_F39 * (1 + Pis_H39); }
 
-        public double Pis_F41 { get; set; }
-        public double Pis_H41 { get; set; }
+        public double Pis_F41 { get => _data.NetworkSheet.Network_NoCustomers_H7 == 0 ? 0d : _data.WaterBalanceDaySheet.CommercialLosses_T26 / _data.NetworkSheet.Network_NoCustomers_H7 * 1000; }
+        public double Pis_H41 { get => Math.Sqrt(_data.NetworkSheet.Network_ErrorMargin_J7 * _data.NetworkSheet.Network_ErrorMargin_J7 + _data.WaterBalanceYearSheet.CommercialLossesErrorMargin_T29 * _data.WaterBalanceYearSheet.CommercialLossesErrorMargin_T29); }
         public double Pis_J41 { get => Pis_F41 * (1 - Pis_H41); }
         public double Pis_L41 { get => Pis_F41 * (1 + Pis_H41); }
 
-        public double Pis_F47 { get; set; }
-        public double Pis_H47 { get; set; }
+        public double Pis_F47 { get => _data.WaterBalanceYearSheet.SystemInputVolume_B19 == 0 ? 0d : _data.WaterBalanceYearSheet.NonRevenueWaterM3_AY24 / _data.WaterBalanceYearSheet.SystemInputVolume_B19; }
+        public double Pis_H47 { get => _data.WaterBalanceYearSheet.NonRevenueWaterErrorMargin_AY26; }
         public double Pis_J47 { get => Pis_F47 * (1 - Pis_H47); }
         public double Pis_L47 { get => Pis_F47 * (1 + Pis_H47); }
 
-        public double Pis_F49 { get; set; }
-        public double Pis_H49 { get; set; }
+        public double Pis_F49 { get => _data.FinancialDataSheet.FinancData_G35 == 0 ? 0d : _data.FinancialDataSheet.FinancData_G31 / _data.FinancialDataSheet.FinancData_G35; }
+        public double Pis_H49 { get => Pis_H47; }
         public double Pis_J49 { get => Pis_F49 * (1 - Pis_H49); }
         public double Pis_L49 { get => Pis_F49 * (1 + Pis_H49); }
 
-        public double Pis_F51 { get; set; }
-        public double Pis_H51 { get; set; }
+        public double Pis_F51 { get => _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 == 0 ? 0d : _data.WaterBalanceDaySheet.NonRevenueWaterM3_AY24 / _data.NetworkSheet.ServiceConnectionsBestEstimate_H30 * 1000 / Pis_F9 * 24; }
+        public double Pis_H51 { get => Math.Sqrt(Pis_H9 * Pis_H9 + _data.NetworkSheet.Network_ErrorMargin_J10 * _data.NetworkSheet.Network_ErrorMargin_J10 + _data.WaterBalanceYearSheet.NonRevenueWaterErrorMargin_AY26 * _data.WaterBalanceYearSheet.NonRevenueWaterErrorMargin_AY26); }
         public double Pis_J51 { get => Pis_F51 * (1 - Pis_H51); }
         public double Pis_L51 { get => Pis_F51 * (1 + Pis_H51); }
     }
