@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using DataRepository;
 using GlobalRepository;
+using NLog;
 using WpfApplication1.Ui.WaterConsumption;
 using WpfApplication1.Utility;
 
@@ -17,6 +18,8 @@ namespace WpfApplication1.Ui.WaterConsumption
 {
     public class ListViewModel : ViewModelBase
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         #region Props: List, SelectedRow, RowsQty
 
         private ObservableCollection<RowViewModel> _list;
@@ -79,11 +82,20 @@ namespace WpfApplication1.Ui.WaterConsumption
         public RelayCommand AddRowCmd { get; }
         private void AddRowCmdExecute()
         {
-            if (SelectedRow != null)
+            try
             {
-                SelectedRow = null;
+                if (SelectedRow != null)
+                {
+                    SelectedRow = null;
+                }
+                WaterConsumptionEditedViewModel = new EditedViewModel(0);
+
             }
-            WaterConsumptionEditedViewModel = new EditedViewModel(0);
+            catch (Exception exception)
+            {
+                Logger.Error(exception.Message);
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         public bool AddRowCmdCanExecute()
         {
@@ -94,12 +106,22 @@ namespace WpfApplication1.Ui.WaterConsumption
 
         private void OpenRowCmdExecute()
         {
-            if (SelectedRow == null)
+            try
             {
-                return;
+                if (SelectedRow == null)
+                {
+                    return;
+                }
+
+                WaterConsumptionEditedViewModel = new EditedViewModel(SelectedRow.Model.WaterConsumptionId);
+
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e.Message);
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            WaterConsumptionEditedViewModel = new EditedViewModel(SelectedRow.Model.WaterConsumptionId);
         }
         public bool OpenRowCmdCanExecute()
         {
@@ -127,6 +149,7 @@ namespace WpfApplication1.Ui.WaterConsumption
             }
             catch (Exception e)
             {
+                Logger.Error(e.Message);
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -147,6 +170,7 @@ namespace WpfApplication1.Ui.WaterConsumption
             }
             catch (Exception e)
             {
+                Logger.Error(e.Message);
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -169,6 +193,7 @@ namespace WpfApplication1.Ui.WaterConsumption
             }
             catch (Exception e)
             {
+                Logger.Error(e.Message);
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -204,12 +229,15 @@ namespace WpfApplication1.Ui.WaterConsumption
             }
             catch (Exception e)
             {
+                Logger.Error(e.Message);
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void LoadData()
         {
+            Logger.Info("'Water Consumption' data loaded.");
+
             List = new ObservableCollection<RowViewModel>(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetList().Select(x => new RowViewModel(x)).ToList());
             RowsQty = List.Count;
         }

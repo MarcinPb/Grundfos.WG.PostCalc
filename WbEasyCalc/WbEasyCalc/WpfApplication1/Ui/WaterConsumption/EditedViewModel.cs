@@ -13,11 +13,14 @@ using System.Collections.ObjectModel;
 using WpfApplication1.Map;
 using System.Windows.Input;
 using System.Windows.Controls;
+using NLog;
 
 namespace WpfApplication1.Ui.WaterConsumption
 {
     public class EditedViewModel : ViewModelBase
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private ItemViewModel _model;
         public ItemViewModel Model
         {
@@ -61,32 +64,43 @@ namespace WpfApplication1.Ui.WaterConsumption
 
         public EditedViewModel(int id)
         {
-            Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
-
-            WaterConsumptionCategoryList = GlobalConfig.DataRepository.WaterConsumptionCategoryList;
-            WaterConsumptionStatusList = GlobalConfig.DataRepository.WaterConsumptionStatusList;
-            ZoneItemList = GlobalConfig.DataRepository.ZoneList;
-
-
-            MapOpacity = 1;
-            ZoomLevel = 15;
-            Location defaulLocation = id==0 ? new Location(51.20150, 16.17970) : new Location(Model.Model.Latitude, Model.Model.Lontitude);
-            Center = defaulLocation;        // new Location(51.20150, 16.17970);
-
-            MapItemList = new ObservableCollection<IMapItem>()
+            try
             {
-                new MapItem1()
-                {
-                    Id = 1,
-                    TypeId = 1,
-                    Location = defaulLocation,
-                    Name = GetPushPinName(defaulLocation)
-                }
-            };
-            Model.Latitude = defaulLocation.Latitude;
-            Model.Lontitude = defaulLocation.Longitude;
+                Logger.Info("New 'EditedViewModel' was created.");
 
-            MouseMoveCmd = new RelayCommand<object>(MouseMove);
+                Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
+
+                WaterConsumptionCategoryList = GlobalConfig.DataRepository.WaterConsumptionCategoryList;
+                WaterConsumptionStatusList = GlobalConfig.DataRepository.WaterConsumptionStatusList;
+                ZoneItemList = GlobalConfig.DataRepository.ZoneList;
+
+                MapOpacity = 1;
+                ZoomLevel = 15;
+                Location defaulLocation = id==0 ? new Location(51.20150, 16.17970) : new Location(Model.Model.Latitude, Model.Model.Lontitude);
+                Center = defaulLocation;        // new Location(51.20150, 16.17970);
+
+                MapItemList = new ObservableCollection<IMapItem>()
+                {
+                    new MapItem1()
+                    {
+                        Id = 1,
+                        TypeId = 1,
+                        Location = defaulLocation,
+                        Name = GetPushPinName(defaulLocation)
+                    }
+                };
+                Model.Latitude = defaulLocation.Latitude;
+                Model.Lontitude = defaulLocation.Longitude;
+
+
+                MouseMoveCmd = new RelayCommand<object>(MouseMove);
+            }
+            catch (Exception exception)
+            {
+                Logger.Error(exception.Message);
+                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void MouseMove(object obj)

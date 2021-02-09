@@ -11,11 +11,15 @@ using GlobalRepository;
 using WpfApplication1.Utility;
 using WpfApplication1.Ui.WbEasyCalcData;
 using WpfApplication1.Ui.WaterConsumption;
+using NLog;
 
 namespace WpfApplication1
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+
         private Ui.WbEasyCalcData.ListViewModel _customerViewModel;
         public Ui.WbEasyCalcData.ListViewModel WbEasyCalcDataViewModel
         {
@@ -32,6 +36,8 @@ namespace WpfApplication1
 
         public MainWindowViewModel()
         {
+            Logger.Info("'MainWindowViewModel' started.");
+
             GlobalConfig.InitializeConnection(DatabaseType.Sql);
             WbEasyCalcDataViewModel = new Ui.WbEasyCalcData.ListViewModel();
             WaterConsumptionViewModel = new Ui.WaterConsumption.ListViewModel();
