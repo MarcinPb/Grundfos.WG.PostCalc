@@ -14,37 +14,6 @@ namespace WbEasyCalcRepository
 
             EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
             {
-                SystemInputVolume_B19 = easyCalcSheetData.WaterBalanceSheet.SystemInputVolume_B19,
-                SystemInputVolumeErrorMargin_B21 = easyCalcSheetData.WaterBalanceSheet.SystemInputVolumeErrorMargin_B21,
-
-                AuthorizedConsumption_K12 = easyCalcSheetData.WaterBalanceSheet.AuthorizedConsumption_K12,
-                AuthorizedConsumptionErrorMargin_K15 = easyCalcSheetData.WaterBalanceSheet.AuthorizedConsumptionErrorMargin_K15,
-                WaterLosses_K29 = easyCalcSheetData.WaterBalanceSheet.WaterLosses_K29,
-                WaterLossesErrorMargin_K31 = easyCalcSheetData.WaterBalanceSheet.WaterLossesErrorMargin_K31,
-
-                BilledAuthorizedConsumption_T8 = easyCalcSheetData.WaterBalanceSheet.BilledAuthorizedConsumption_T8,
-                UnbilledAuthorizedConsumption_T16 = easyCalcSheetData.WaterBalanceSheet.UnbilledAuthorizedConsumption_T16,
-                UnbilledAuthorizedConsumptionErrorMargin_T20 = easyCalcSheetData.WaterBalanceSheet.UnbilledAuthorizedConsumptionErrorMargin_T20,
-                CommercialLosses_T26 = easyCalcSheetData.WaterBalanceSheet.CommercialLosses_T26,
-                CommercialLossesErrorMargin_T29 = easyCalcSheetData.WaterBalanceSheet.CommercialLossesErrorMargin_T29,
-                PhysicalLossesM3_T34 = easyCalcSheetData.WaterBalanceSheet.PhysicalLossesM3_T34,
-                PhyscialLossesErrorMargin_AH35 = easyCalcSheetData.WaterBalanceSheet.PhyscialLossesErrorMargin_AH35,
-
-                BilledMeteredConsumption_AC4 = easyCalcSheetData.WaterBalanceSheet.BilledMeteredConsumption_AC4,
-                BilledUnmeteredConsumption_AC9 = easyCalcSheetData.WaterBalanceSheet.BilledUnmeteredConsumption_AC9,
-                UnbilledMeteredConsumption_AC14 = easyCalcSheetData.WaterBalanceSheet.UnbilledMeteredConsumption_AC14,
-
-                UnbilledUnmeteredConsumption_AC19 = easyCalcSheetData.WaterBalanceSheet.UnbilledUnmeteredConsumption_AC19,
-                UnbilledUnmeteredConsumptionErrorMargin_AO20 = easyCalcSheetData.WaterBalanceSheet.UnbilledUnmeteredConsumptionErrorMargin_AO20,
-                UnauthorizedConsumption_AC24 = easyCalcSheetData.WaterBalanceSheet.UnauthorizedConsumption_AC24,
-                UnauthorizedConsumptionErrorMargin_AO25 = easyCalcSheetData.WaterBalanceSheet.UnauthorizedConsumptionErrorMargin_AO25,
-                CustomerMeterInaccuraciesAndErrorsM3_AC29 = easyCalcSheetData.WaterBalanceSheet.CustomerMeterInaccuraciesAndErrorsM3_AC29,
-                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = easyCalcSheetData.WaterBalanceSheet.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
-
-                RevenueWaterM3_AY8 = easyCalcSheetData.WaterBalanceSheet.RevenueWaterM3_AY8,
-                NonRevenueWaterM3_AY24 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterM3_AY24,
-                NonRevenueWaterErrorMargin_AY26 = easyCalcSheetData.WaterBalanceSheet.NonRevenueWaterErrorMargin_AY26,
-
                 WaterBalanceDay = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceDaySheet),
                 WaterBalancePeriod = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceSheet),
                 WaterBalanceYear = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceYearSheet),

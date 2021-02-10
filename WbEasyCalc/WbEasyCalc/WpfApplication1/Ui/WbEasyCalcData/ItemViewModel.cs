@@ -1491,36 +1491,36 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         #region Props output
 
-        private double _systemInputVolume_B19;
-        private double _systemInputVolumeErrorMargin_B21;
-        private double _authorizedConsumption_K12;
-        private double _authorizedConsumptionErrorMargin_K15;
-        private double _waterLosses_K29;
-        private double _waterLossesErrorMargin_K31;
-        private double _billedAuthorizedConsumption_T8;
-        private double _unbilledAuthorizedConsumption_T16;
-        private double _unbilledAuthorizedConsumptionErrorMargin_T20;
-        private double _commercialLosses_T26;
-        private double _commercialLossesErrorMargin_T29;
-        private double _physicalLossesM3T34;
-        private double _physcialLossesErrorMarginAh35;
-        private double _billedMeteredConsumptionAc4;
-        private double _billedUnmeteredConsumptionAc9;
-        private double _unbilledMeteredConsumptionAc14;
-        private double _unbilledUnmeteredConsumptionAc19;
-        private double _unbilledUnmeteredConsumptionErrorMarginAo20;
-        private double _unauthorizedConsumptionAc24;
-        private double _unauthorizedConsumptionErrorMarginAo25;
-        private double _customerMeterInaccuraciesAndErrorsM3Ac29;
-        private double _customerMeterInaccuraciesAndErrorsErrorMarginAo30;
-        private double _revenueWaterM3Ay8;
-        private double _nonRevenueWaterM3Ay24;
-        private double _nonRevenueWaterErrorMarginAy26;
+        //private double _systemInputVolume_B19;
+        //private double _systemInputVolumeErrorMargin_B21;
+        //private double _authorizedConsumption_K12;
+        //private double _authorizedConsumptionErrorMargin_K15;
+        //private double _waterLosses_K29;
+        //private double _waterLossesErrorMargin_K31;
+        //private double _billedAuthorizedConsumption_T8;
+        //private double _unbilledAuthorizedConsumption_T16;
+        //private double _unbilledAuthorizedConsumptionErrorMargin_T20;
+        //private double _commercialLosses_T26;
+        //private double _commercialLossesErrorMargin_T29;
+        //private double _physicalLossesM3T34;
+        //private double _physcialLossesErrorMarginAh35;
+        //private double _billedMeteredConsumptionAc4;
+        //private double _billedUnmeteredConsumptionAc9;
+        //private double _unbilledMeteredConsumptionAc14;
+        //private double _unbilledUnmeteredConsumptionAc19;
+        //private double _unbilledUnmeteredConsumptionErrorMarginAo20;
+        //private double _unauthorizedConsumptionAc24;
+        //private double _unauthorizedConsumptionErrorMarginAo25;
+        //private double _customerMeterInaccuraciesAndErrorsM3Ac29;
+        //private double _customerMeterInaccuraciesAndErrorsErrorMarginAo30;
+        //private double _revenueWaterM3Ay8;
+        //private double _nonRevenueWaterM3Ay24;
+        //private double _nonRevenueWaterErrorMarginAy26;
         private double _prs_BestEstimate_F33;
         private double _prs_Min_F29;
         private double _prs_Max_F31;
 
-
+        /*
         public double SystemInputVolume_B19
         {
             get { return _systemInputVolume_B19; }
@@ -1669,7 +1669,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             get => _nonRevenueWaterErrorMarginAy26;
             set { _nonRevenueWaterErrorMarginAy26 = value; RaisePropertyChanged(nameof(NonRevenueWaterErrorMargin_AY26)); }
         }
-
+        */
 
 
         private WaterBalanceViewModel _waterBalanceDayViewModel;
@@ -2509,37 +2509,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         private void MapEasyCalcDataOutput(EasyCalcDataOutput easyCalcDataOutput)
         {
-            SystemInputVolume_B19 = easyCalcDataOutput.SystemInputVolume_B19;
-            SystemInputVolumeErrorMargin_B21 = easyCalcDataOutput.SystemInputVolumeErrorMargin_B21;
-
-            AuthorizedConsumption_K12 = easyCalcDataOutput.AuthorizedConsumption_K12;
-            AuthorizedConsumptionErrorMargin_K15 = easyCalcDataOutput.AuthorizedConsumptionErrorMargin_K15;
-            WaterLosses_K29 = easyCalcDataOutput.WaterLosses_K29;
-            WaterLossesErrorMargin_K31 = easyCalcDataOutput.WaterLossesErrorMargin_K31;
-
-            BilledAuthorizedConsumption_T8 = easyCalcDataOutput.BilledAuthorizedConsumption_T8;
-            UnbilledAuthorizedConsumption_T16 = easyCalcDataOutput.UnbilledAuthorizedConsumption_T16;
-            UnbilledAuthorizedConsumptionErrorMargin_T20 = easyCalcDataOutput.UnbilledAuthorizedConsumptionErrorMargin_T20;
-            CommercialLosses_T26 = easyCalcDataOutput.CommercialLosses_T26;
-            CommercialLossesErrorMargin_T29 = easyCalcDataOutput.CommercialLossesErrorMargin_T29;
-            PhysicalLossesM3_T34 = easyCalcDataOutput.PhysicalLossesM3_T34;
-            PhyscialLossesErrorMargin_AH35 = easyCalcDataOutput.PhyscialLossesErrorMargin_AH35;
-
-            BilledMeteredConsumption_AC4 = easyCalcDataOutput.BilledMeteredConsumption_AC4;
-            BilledUnmeteredConsumption_AC9 = easyCalcDataOutput.BilledUnmeteredConsumption_AC9;
-            UnbilledMeteredConsumption_AC14 = easyCalcDataOutput.UnbilledMeteredConsumption_AC14;
-
-            UnbilledUnmeteredConsumption_AC19 = easyCalcDataOutput.UnbilledUnmeteredConsumption_AC19;
-            UnbilledUnmeteredConsumptionErrorMargin_AO20 = easyCalcDataOutput.UnbilledUnmeteredConsumptionErrorMargin_AO20;
-            UnauthorizedConsumption_AC24 = easyCalcDataOutput.UnauthorizedConsumption_AC24;
-            UnauthorizedConsumptionErrorMargin_AO25 = easyCalcDataOutput.UnauthorizedConsumptionErrorMargin_AO25;
-            CustomerMeterInaccuraciesAndErrorsM3_AC29 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsM3_AC29;
-            CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = easyCalcDataOutput.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
-
-            RevenueWaterM3_AY8 = easyCalcDataOutput.RevenueWaterM3_AY8;
-            NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
-            NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
-
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
             Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
