@@ -14,47 +14,11 @@ namespace WbEasyCalcModel
         public double SysInput_SystemInputVolumeM3_D7 { get; set; }
         public double SysInput_SystemInputVolumeM3_D8 { get; set; }
         public double SysInput_SystemInputVolumeM3_D9 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D10 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D11 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D12 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D13 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D14 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D15 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D16 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D17 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D18 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D19 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D20 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D21 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D22 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D23 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D24 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D25 { get; set; }
-        //public double SysInput_SystemInputVolumeM3_D26 { get; set; }
+
         public double SysInput_SystemInputVolumeError_F6 { get; set; }
         public double SysInput_SystemInputVolumeError_F7 { get; set; }
         public double SysInput_SystemInputVolumeError_F8 { get; set; }
         public double SysInput_SystemInputVolumeError_F9 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F8 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F9 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F10 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F11 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F12 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F13 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F14 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F15 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F16 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F17 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F18 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F19 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F20 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F21 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F22 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F23 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F24 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F25 { get; set; }
-        //public double SysInput_SystemInputVolumeError_F26 { get; set; }
-
 
         public string BilledCons_Desc_B8 { get; set; }
         public string BilledCons_Desc_B9 { get; set; }
@@ -184,12 +148,6 @@ namespace WbEasyCalcModel
         public double Network_DistributionAndTransmissionMains_D8 { get; set; }
         public double Network_DistributionAndTransmissionMains_D9 { get; set; }
         public double Network_DistributionAndTransmissionMains_D10 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D11 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D12 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D13 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D14 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D15 { get; set; }
-        //public double Network_DistributionAndTransmissionMains_D16 { get; set; }
         public double Network_NoOfConnOfRegCustomers_H10 { get; set; }
         public double Network_NoOfInactAccountsWSvcConns_H18 { get; set; }
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 { get; set; }
@@ -216,22 +174,12 @@ namespace WbEasyCalcModel
         public double Prs_ApproxNoOfConn_D8 { get; set; }
         public double Prs_ApproxNoOfConn_D9 { get; set; }
         public double Prs_ApproxNoOfConn_D10 { get; set; }
-        //public double Prs_ApproxNoOfConn_D11 { get; set; }
-        //public double Prs_ApproxNoOfConn_D12 { get; set; }
-        //public double Prs_ApproxNoOfConn_D13 { get; set; }
-        //public double Prs_ApproxNoOfConn_D14 { get; set; }
-        //public double Prs_ApproxNoOfConn_D15 { get; set; }
-        //public double Prs_ApproxNoOfConn_D16 { get; set; }
+
         public double Prs_DailyAvgPrsM_F7 { get; set; }
         public double Prs_DailyAvgPrsM_F8 { get; set; }
         public double Prs_DailyAvgPrsM_F9 { get; set; }
         public double Prs_DailyAvgPrsM_F10 { get; set; }
-        //public double Prs_DailyAvgPrsM_F11 { get; set; }
-        //public double Prs_DailyAvgPrsM_F12 { get; set; }
-        //public double Prs_DailyAvgPrsM_F13 { get; set; }
-        //public double Prs_DailyAvgPrsM_F14 { get; set; }
-        //public double Prs_DailyAvgPrsM_F15 { get; set; }
-        //public double Prs_DailyAvgPrsM_F16 { get; set; }
+
         public double Prs_ErrorMarg_F26 { get; set; }
 
         public double Interm_Conn_D7 { get; set; }

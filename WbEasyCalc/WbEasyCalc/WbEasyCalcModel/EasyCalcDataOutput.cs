@@ -37,9 +37,6 @@ namespace WbEasyCalcModel
         public double NonRevenueWaterErrorMargin_AY26{ get; set; } // 6593339 
 
 
-        public double WbDay_SystemInputVolume_B19 { get; set; } // 6593339 
-
-
         public WaterBalanceModel WaterBalanceDay { get; set; }  
         public WaterBalanceModel WaterBalancePeriod { get; set; } 
         public WaterBalanceModel WaterBalanceYear { get; set; }  
@@ -225,8 +222,6 @@ namespace WbEasyCalcModel
                 RevenueWaterM3_AY8  = RevenueWaterM3_AY8,
                 NonRevenueWaterM3_AY24  = NonRevenueWaterM3_AY24,
                 NonRevenueWaterErrorMargin_AY26  = NonRevenueWaterErrorMargin_AY26,
-
-                WbDay_SystemInputVolume_B19  = WbDay_SystemInputVolume_B19,
 
                 WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
                 WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),

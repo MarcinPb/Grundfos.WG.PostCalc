@@ -10,24 +10,7 @@ namespace WbEasyCalcRepository.Model
         public WaterBalanceSheet(EasyCalcSheetData data)
         {
             this._data = data;
-            //GetWaterLossesErrorMargin(_data);
         }
-
-        /*
-        public double SystemInputVolume_B19 { get; internal set; }
-        public double BilledMeteredConsumption_AC4 { get; internal set; }
-        public double BilledUnmeteredConsumption_AC9 { get; internal set; }
-        public double UnbilledMeteredConsumption_AC14 { get; internal set; }
-        public double UnbilledUnmeteredConsumption_AC19 { get; internal set; }
-        public double BilledAuthorizedConsumption_T8 { get; internal set; }
-        public double UnbilledAuthorizedConsumption_T16 { get; internal set; }
-        public double AuthorizedConsumption_K12 { get; internal set; }
-        public double WaterLosses_K29 { get; internal set; }
-        public double UnauthorizedConsumption_AC24 { get; internal set; }
-        public double CustomerMeterInaccuraciesAndErrorsM3_AC29 { get; internal set; }
-        public double CommercialLosses_T26 { get; internal set; }
-        public double PhysicalLossesM3_T34 { get; internal set; }
-        */
 
         public virtual double SystemInputVolume_B19 { get => _data.StartSheet.PeriodDays_M21 > 0 ? _data.SystemInputSheet.SystemInputVolume_D79 : 0d; }
         public virtual double BilledMeteredConsumption_AC4 { get => _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();}
@@ -95,57 +78,6 @@ namespace WbEasyCalcRepository.Model
             return bl25;
         }
         public virtual double NonRevenueWaterErrorMargin_AY26 { get => NonRevenueWaterM3_AY24 == 0 ? 0d : NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / NonRevenueWaterM3_AY24; }
-
-
-        /*
-        private void GetWaterLossesErrorMargin(EasyCalcSheetData data)
-        {
-            //if (WaterLosses_K29 == 0)
-            //{
-            //    CommercialLossesErrorMargin_T29 = 0;
-            //    return;
-            //}
-
-            //UnauthorizedConsumptionErrorMargin_AO25 = data.UnauthorizedConsumptionSheet.ErrorMargin_F24;
-
-            //SystemInputVolumeErrorMargin_B21 = data.SystemInputSheet.ErrorMargin_F72;
-
-            //AuthorizedConsumptionErrorMargin_K15 = AuthorizedConsumption_K12 == 0 ? 0 : data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / AuthorizedConsumption_K12;
-
-            double bl15 = AuthorizedConsumption_K12 * AuthorizedConsumptionErrorMargin_K15 / Constants.StandardDistributionFactor;
-            double bl25 = SystemInputVolumeErrorMargin_B21 * SystemInputVolume_B19 / Constants.StandardDistributionFactor;
-            double bm15 = Math.Pow(bl15, 2);
-            double bm25 = Math.Pow(bl25, 2);
-            double bm34 = bm15 + bm25;
-            double bl34 = Math.Sqrt(bm34);
-
-            double bj25 = UnauthorizedConsumption_AC24 * UnauthorizedConsumptionErrorMargin_AO25 / Constants.StandardDistributionFactor;
-            double bk25 = Math.Pow(bj25, 2);
-            //CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = data.MeterErrorsSheet.ErrorMarginTotal_N42;            
-            double bj30 = CustomerMeterInaccuraciesAndErrorsM3_AC29 * CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 / Constants.StandardDistributionFactor;
-            double bk30 = Math.Pow(bj30, 2);
-            double bk32 = bk25 + bk30;
-            double bj32 = Math.Sqrt(bk32);
-
-            //WaterLossesErrorMargin_K31 = 
-            //    bl34 * Constants.StandardDistributionFactor / WaterLosses_K29;
-            //UnbilledAuthorizedConsumptionErrorMargin_T20 = 
-            //    UnbilledAuthorizedConsumption_T16 == 0 ? 0 : data.UnbilledConsumptionSheet.ErrorFactor_O25 * Constants.StandardDistributionFactor / UnbilledAuthorizedConsumption_T16;
-            //CommercialLossesErrorMargin_T29 = 
-            //    CommercialLosses_T26 == 0d ? 0d : bj32 * Constants.StandardDistributionFactor / CommercialLosses_T26;
-
-            //UnbilledUnmeteredConsumptionErrorMargin_AO20 = data.UnbilledConsumptionSheet.UnbilledUnmeteredConsumptionErrorMargin_J25;
-
-            //PhyscialLossesErrorMargin_AH35 = 
-            //    PhysicalLossesM3_T34 == 0 ? 0d : PhyscialLossesErrorMarginFactor_BL35 * Constants.StandardDistributionFactor / PhysicalLossesM3_T34;
-
-            //RevenueWaterM3_AY8 = BilledAuthorizedConsumption_T8;
-            //NonRevenueWaterM3_AY24 = SystemInputVolume_B19 - RevenueWaterM3_AY8;
-
-            //NonRevenueWaterErrorMargin_AY26 = 
-            //    NonRevenueWaterM3_AY24 == 0 ? 0d : NonRevenueWaterErrorMarginFactor_BL25 * Constants.StandardDistributionFactor / NonRevenueWaterM3_AY24;
-        }
-        */
 
     }
 }

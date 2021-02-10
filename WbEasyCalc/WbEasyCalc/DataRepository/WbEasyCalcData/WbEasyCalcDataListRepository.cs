@@ -232,31 +232,31 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@FinancData_G35", model.FinancData_G35);
 
                 // output
-                p.Add("@SystemInputVolume_B19", model.SystemInputVolume_B19);
-                p.Add("@SystemInputVolumeErrorMargin_B21", model.SystemInputVolumeErrorMargin_B21);
-                p.Add("@AuthorizedConsumption_K12", model.AuthorizedConsumption_K12);
-                p.Add("@AuthorizedConsumptionErrorMargin_K15", model.AuthorizedConsumptionErrorMargin_K15);
-                p.Add("@WaterLosses_K29", model.WaterLosses_K29);
-                p.Add("@WaterLossesErrorMargin_K31", model.WaterLossesErrorMargin_K31);
-                p.Add("@BilledAuthorizedConsumption_T8", model.BilledAuthorizedConsumption_T8);
-                p.Add("@UnbilledAuthorizedConsumption_T16", model.UnbilledAuthorizedConsumption_T16);
-                p.Add("@UnbilledAuthorizedConsumptionErrorMargin_T20", model.UnbilledAuthorizedConsumptionErrorMargin_T20);
-                p.Add("@CommercialLosses_T26", model.CommercialLosses_T26);
-                p.Add("@CommercialLossesErrorMargin_T29", model.CommercialLossesErrorMargin_T29);
-                p.Add("@PhysicalLossesM3_T34", model.PhysicalLossesM3_T34);
-                p.Add("@PhyscialLossesErrorMargin_AH35", model.PhyscialLossesErrorMargin_AH35);
-                p.Add("@BilledMeteredConsumption_AC4", model.BilledMeteredConsumption_AC4);
-                p.Add("@BilledUnmeteredConsumption_AC9", model.BilledUnmeteredConsumption_AC9);
-                p.Add("@UnbilledMeteredConsumption_AC14", model.UnbilledMeteredConsumption_AC14);
-                p.Add("@UnbilledUnmeteredConsumption_AC19", model.UnbilledUnmeteredConsumption_AC19);
-                p.Add("@UnbilledUnmeteredConsumptionErrorMargin_AO20", model.UnbilledUnmeteredConsumptionErrorMargin_AO20);
-                p.Add("@UnauthorizedConsumption_AC24", model.UnauthorizedConsumption_AC24);
-                p.Add("@UnauthorizedConsumptionErrorMargin_AO25", model.UnauthorizedConsumptionErrorMargin_AO25);
-                p.Add("@CustomerMeterInaccuraciesAndErrorsM3_AC29", model.CustomerMeterInaccuraciesAndErrorsM3_AC29);
-                p.Add("@CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", model.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30);
-                p.Add("@RevenueWaterM3_AY8", model.RevenueWaterM3_AY8);
-                p.Add("@NonRevenueWaterM3_AY24", model.NonRevenueWaterM3_AY24);
-                p.Add("@NonRevenueWaterErrorMargin_AY26", model.NonRevenueWaterErrorMargin_AY26);
+                p.Add("@SystemInputVolume_B19", model.WaterBalancePeriod.SystemInputVolume_B19);
+                p.Add("@SystemInputVolumeErrorMargin_B21", model.WaterBalancePeriod.SystemInputVolumeErrorMargin_B21);
+                p.Add("@AuthorizedConsumption_K12", model.WaterBalancePeriod.AuthorizedConsumption_K12);
+                p.Add("@AuthorizedConsumptionErrorMargin_K15", model.WaterBalancePeriod.AuthorizedConsumptionErrorMargin_K15);
+                p.Add("@WaterLosses_K29", model.WaterBalancePeriod.WaterLosses_K29);
+                p.Add("@WaterLossesErrorMargin_K31", model.WaterBalancePeriod.WaterLossesErrorMargin_K31);
+                p.Add("@BilledAuthorizedConsumption_T8", model.WaterBalancePeriod.BilledAuthorizedConsumption_T8);
+                p.Add("@UnbilledAuthorizedConsumption_T16", model.WaterBalancePeriod.UnbilledAuthorizedConsumption_T16);
+                p.Add("@UnbilledAuthorizedConsumptionErrorMargin_T20", model.WaterBalancePeriod.UnbilledAuthorizedConsumptionErrorMargin_T20);
+                p.Add("@CommercialLosses_T26", model.WaterBalancePeriod.CommercialLosses_T26);
+                p.Add("@CommercialLossesErrorMargin_T29", model.WaterBalancePeriod.CommercialLossesErrorMargin_T29);
+                p.Add("@PhysicalLossesM3_T34", model.WaterBalancePeriod.PhysicalLossesM3_T34);
+                p.Add("@PhyscialLossesErrorMargin_AH35", model.WaterBalancePeriod.PhyscialLossesErrorMargin_AH35);
+                p.Add("@BilledMeteredConsumption_AC4", model.WaterBalancePeriod.BilledMeteredConsumption_AC4);
+                p.Add("@BilledUnmeteredConsumption_AC9", model.WaterBalancePeriod.BilledUnmeteredConsumption_AC9);
+                p.Add("@UnbilledMeteredConsumption_AC14", model.WaterBalancePeriod.UnbilledMeteredConsumption_AC14);
+                p.Add("@UnbilledUnmeteredConsumption_AC19", model.WaterBalancePeriod.UnbilledUnmeteredConsumption_AC19);
+                p.Add("@UnbilledUnmeteredConsumptionErrorMargin_AO20", model.WaterBalancePeriod.UnbilledUnmeteredConsumptionErrorMargin_AO20);
+                p.Add("@UnauthorizedConsumption_AC24", model.WaterBalancePeriod.UnauthorizedConsumption_AC24);
+                p.Add("@UnauthorizedConsumptionErrorMargin_AO25", model.WaterBalancePeriod.UnauthorizedConsumptionErrorMargin_AO25);
+                p.Add("@CustomerMeterInaccuraciesAndErrorsM3_AC29", model.WaterBalancePeriod.CustomerMeterInaccuraciesAndErrorsM3_AC29);
+                p.Add("@CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30", model.WaterBalancePeriod.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30);
+                p.Add("@RevenueWaterM3_AY8", model.WaterBalancePeriod.RevenueWaterM3_AY8);
+                p.Add("@NonRevenueWaterM3_AY24", model.WaterBalancePeriod.NonRevenueWaterM3_AY24);
+                p.Add("@NonRevenueWaterErrorMargin_AY26", model.WaterBalancePeriod.NonRevenueWaterErrorMargin_AY26);
 
                 connection.Execute("dbo.spWbEasyCalcDataSave", p, commandType: CommandType.StoredProcedure);
 

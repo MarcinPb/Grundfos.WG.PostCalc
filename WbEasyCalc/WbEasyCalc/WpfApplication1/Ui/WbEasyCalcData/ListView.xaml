@@ -67,10 +67,10 @@
                     <DataGridCheckBoxColumn Header="Archived" Width="90" IsReadOnly="True" Binding="{Binding Model.IsArchive}"/>
                     <DataGridCheckBoxColumn Header="Accepted" Width="90" IsReadOnly="True" Binding="{Binding Model.IsAccepted}"/>
                     <DataGridTextColumn Header="Start Period Days" Width="150" IsReadOnly="True" Binding="{Binding Model.Start_PeriodDays_M21}"/>
-                    <DataGridTextColumn Header="System Input Volume " Width="170" IsReadOnly="True" Binding="{Binding Model.SystemInputVolume_B19}" />
-                    <DataGridTextColumn Header="System Input Volume Error Margin " Width="220" IsReadOnly="True" Binding="{Binding Model.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
-                    <DataGridTextColumn Header="Water Losses " Width="130" IsReadOnly="True" Binding="{Binding Model.WaterLosses_K29}" />
-                    <DataGridTextColumn Header="Water Losses Error Margin " Width="200" IsReadOnly="True" Binding="{Binding Model.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
+                        <DataGridTextColumn Header="System Input Volume " Width="170" IsReadOnly="True" Binding="{Binding Model.WaterBalancePeriod.SystemInputVolume_B19}" />
+                        <DataGridTextColumn Header="System Input Volume Error Margin " Width="220" IsReadOnly="True" Binding="{Binding Model.WaterBalancePeriod.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
+                        <DataGridTextColumn Header="Water Losses " Width="130" IsReadOnly="True" Binding="{Binding Model.WaterBalancePeriod.WaterLosses_K29}" />
+                        <DataGridTextColumn Header="Water Losses Error Margin " Width="200" IsReadOnly="True" Binding="{Binding Model.WaterBalancePeriod.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
                 </DataGrid.Columns>
             </controls:FilteredDataGridCtrl>
             <StatusBar Grid.Row="2">

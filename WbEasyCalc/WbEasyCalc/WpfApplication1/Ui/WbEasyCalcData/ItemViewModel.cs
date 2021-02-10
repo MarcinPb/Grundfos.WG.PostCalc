@@ -213,40 +213,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Interm_ErrorMarg_H26 = Interm_ErrorMarg_H26,
 
 
-
-            // output
-            SystemInputVolume_B19 = SystemInputVolume_B19,
-            SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
-            AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
-            AuthorizedConsumptionErrorMargin_K15 = AuthorizedConsumptionErrorMargin_K15,
-            WaterLosses_K29 = WaterLosses_K29,
-            WaterLossesErrorMargin_K31 = WaterLossesErrorMargin_K31,
-            BilledAuthorizedConsumption_T8 = BilledAuthorizedConsumption_T8,
-            UnbilledAuthorizedConsumption_T16 = UnbilledAuthorizedConsumption_T16,
-            UnbilledAuthorizedConsumptionErrorMargin_T20 = UnbilledAuthorizedConsumptionErrorMargin_T20,
-            CommercialLosses_T26 = CommercialLosses_T26,
-            CommercialLossesErrorMargin_T29 = CommercialLossesErrorMargin_T29,
-            PhysicalLossesM3_T34 = PhysicalLossesM3_T34,
-            PhyscialLossesErrorMargin_AH35 = PhyscialLossesErrorMargin_AH35,
-            BilledMeteredConsumption_AC4 = BilledMeteredConsumption_AC4,
-            BilledUnmeteredConsumption_AC9 = BilledUnmeteredConsumption_AC9,
-            UnbilledMeteredConsumption_AC14 = UnbilledMeteredConsumption_AC14,
-            UnbilledUnmeteredConsumption_AC19 = UnbilledUnmeteredConsumption_AC19,
-            UnbilledUnmeteredConsumptionErrorMargin_AO20 = UnbilledUnmeteredConsumptionErrorMargin_AO20,
-            UnauthorizedConsumption_AC24 = UnauthorizedConsumption_AC24,
-            UnauthorizedConsumptionErrorMargin_AO25 = UnauthorizedConsumptionErrorMargin_AO25,
-            CustomerMeterInaccuraciesAndErrorsM3_AC29 = CustomerMeterInaccuraciesAndErrorsM3_AC29,
-            CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
-            RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
-            NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
-            NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
-
-            WaterBalanceDay = WaterBalanceDayViewModel?.Model,
-            WaterBalancePeriod = WaterBalancePeriodViewModel?.Model,
-            WaterBalanceYear = WaterBalanceYearViewModel?.Model,
-
-
-
             Prs_BestEstimate_F33 = Prs_BestEstimate_F33,
             Prs_Min_F29 = Prs_Min_F29,
             Prs_Max_F31 = Prs_Max_F31,
@@ -391,6 +357,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Pis_P27 = Pis_P27,
             Pis_N47 = Pis_N47,
             Pis_P47 = Pis_P47,
+
+            // output
+            WaterBalanceDay = WaterBalanceDayViewModel?.Model,
+            WaterBalancePeriod = WaterBalancePeriodViewModel?.Model,
+            WaterBalanceYear = WaterBalanceYearViewModel?.Model,
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -2856,31 +2827,31 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Interm_ErrorMarg_H26 = model.Interm_ErrorMarg_H26;
 
             // output
-            SystemInputVolume_B19 = model.SystemInputVolume_B19;
-            SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
-            AuthorizedConsumption_K12 = model.AuthorizedConsumption_K12;
-            AuthorizedConsumptionErrorMargin_K15 = model.AuthorizedConsumptionErrorMargin_K15;
-            WaterLosses_K29 = model.WaterLosses_K29;
-            WaterLossesErrorMargin_K31 = model.WaterLossesErrorMargin_K31;
-            BilledAuthorizedConsumption_T8 = model.BilledAuthorizedConsumption_T8;
-            UnbilledAuthorizedConsumption_T16 = model.UnbilledAuthorizedConsumption_T16;
-            UnbilledAuthorizedConsumptionErrorMargin_T20 = model.UnbilledAuthorizedConsumptionErrorMargin_T20;
-            CommercialLosses_T26 = model.CommercialLosses_T26;
-            CommercialLossesErrorMargin_T29 = model.CommercialLossesErrorMargin_T29;
-            PhysicalLossesM3_T34 = model.PhysicalLossesM3_T34;
-            PhyscialLossesErrorMargin_AH35 = model.PhyscialLossesErrorMargin_AH35;
-            BilledMeteredConsumption_AC4 = model.BilledMeteredConsumption_AC4;
-            BilledUnmeteredConsumption_AC9 = model.BilledUnmeteredConsumption_AC9;
-            UnbilledMeteredConsumption_AC14 = model.UnbilledMeteredConsumption_AC14;
-            UnbilledUnmeteredConsumption_AC19 = model.UnbilledUnmeteredConsumption_AC19;
-            UnbilledUnmeteredConsumptionErrorMargin_AO20 = model.UnbilledUnmeteredConsumptionErrorMargin_AO20;
-            UnauthorizedConsumption_AC24 = model.UnauthorizedConsumption_AC24;
-            UnauthorizedConsumptionErrorMargin_AO25 = model.UnauthorizedConsumptionErrorMargin_AO25;
-            CustomerMeterInaccuraciesAndErrorsM3_AC29 = model.CustomerMeterInaccuraciesAndErrorsM3_AC29;
-            CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = model.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
-            RevenueWaterM3_AY8 = model.RevenueWaterM3_AY8;
-            NonRevenueWaterM3_AY24 = model.NonRevenueWaterM3_AY24;
-            NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
+            //SystemInputVolume_B19 = model.SystemInputVolume_B19;
+            //SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
+            //AuthorizedConsumption_K12 = model.AuthorizedConsumption_K12;
+            //AuthorizedConsumptionErrorMargin_K15 = model.AuthorizedConsumptionErrorMargin_K15;
+            //WaterLosses_K29 = model.WaterLosses_K29;
+            //WaterLossesErrorMargin_K31 = model.WaterLossesErrorMargin_K31;
+            //BilledAuthorizedConsumption_T8 = model.BilledAuthorizedConsumption_T8;
+            //UnbilledAuthorizedConsumption_T16 = model.UnbilledAuthorizedConsumption_T16;
+            //UnbilledAuthorizedConsumptionErrorMargin_T20 = model.UnbilledAuthorizedConsumptionErrorMargin_T20;
+            //CommercialLosses_T26 = model.CommercialLosses_T26;
+            //CommercialLossesErrorMargin_T29 = model.CommercialLossesErrorMargin_T29;
+            //PhysicalLossesM3_T34 = model.PhysicalLossesM3_T34;
+            //PhyscialLossesErrorMargin_AH35 = model.PhyscialLossesErrorMargin_AH35;
+            //BilledMeteredConsumption_AC4 = model.BilledMeteredConsumption_AC4;
+            //BilledUnmeteredConsumption_AC9 = model.BilledUnmeteredConsumption_AC9;
+            //UnbilledMeteredConsumption_AC14 = model.UnbilledMeteredConsumption_AC14;
+            //UnbilledUnmeteredConsumption_AC19 = model.UnbilledUnmeteredConsumption_AC19;
+            //UnbilledUnmeteredConsumptionErrorMargin_AO20 = model.UnbilledUnmeteredConsumptionErrorMargin_AO20;
+            //UnauthorizedConsumption_AC24 = model.UnauthorizedConsumption_AC24;
+            //UnauthorizedConsumptionErrorMargin_AO25 = model.UnauthorizedConsumptionErrorMargin_AO25;
+            //CustomerMeterInaccuraciesAndErrorsM3_AC29 = model.CustomerMeterInaccuraciesAndErrorsM3_AC29;
+            //CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = model.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30;
+            //RevenueWaterM3_AY8 = model.RevenueWaterM3_AY8;
+            //NonRevenueWaterM3_AY24 = model.NonRevenueWaterM3_AY24;
+            //NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
 
             WaterBalanceDayViewModel = new WaterBalanceViewModel(model.WaterBalanceDay);
             WaterBalancePeriodViewModel = new WaterBalanceViewModel(model.WaterBalancePeriod);
@@ -3091,10 +3062,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             NonRevenueWaterM3_AY24 = easyCalcDataOutput.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = easyCalcDataOutput.NonRevenueWaterErrorMargin_AY26;
 
-            WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
-            WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
-            WaterBalanceYearViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceYear);
-
             Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
             Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
@@ -3239,88 +3206,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Pis_P27 = easyCalcDataOutput.Pis_P27;
             Pis_N47 = easyCalcDataOutput.Pis_N47;
             Pis_P47 = easyCalcDataOutput.Pis_P47;
+
+            WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
+            WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
+            WaterBalanceYearViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceYear);
         }
-
-
-        #region Waste
-
-
-        //public EasyCalcDataInput MapEasyCalcDataInput()
-        //{
-        //    EasyCalcDataInput easyCalcDataInput = new EasyCalcDataInput
-        //    {
-        //        Start_PeriodDays_M21 = Start_PeriodDays_M21,
-        //        SysInput_SystemInputVolumeM3_D6 = SysInput_SystemInputVolumeM3_D6,
-        //        SysInput_SystemInputVolumeError_F6 = SysInput_SystemInputVolumeError_F6,
-        //        BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6,
-        //        BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
-        //        UnbilledCons_MetConsBulkWatSupExpM3_D6 = UnbilledCons_MetConsBulkWatSupExpM3_D6,
-        //        UnauthCons_IllegalConnDomEstNo_D6 = UnauthCons_IllegalConnDomEstNo_D6,
-        //        UnauthCons_IllegalConnDomErrorMargin_F6 = UnauthCons_IllegalConnDomErrorMargin_F6,
-        //        UnauthCons_IllegalConnDomPersPerHouse_H6 = UnauthCons_IllegalConnDomPersPerHouse_H6,
-        //        UnauthCons_IllegalConnDomConsLitPerPersDay_J6 = UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
-        //        UnauthCons_IllegalConnOthersErrorMargin_F10 = UnauthCons_IllegalConnOthersErrorMargin_F10,
-        //        UnauthCons_MeterTampBypEtcEstNo_D14 = UnauthCons_MeterTampBypEtcEstNo_D14,
-        //        UnauthCons_MeterTampBypEtcErrorMargin_F14 = UnauthCons_MeterTampBypEtcErrorMargin_F14,
-        //        UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
-        //        MetErrors_DetailedManualSpec_J6 = Math.Abs(MetErrors_DetailedManualSpec_J6 - 2) < 0.1,
-        //        MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8 = MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
-        //        MetErrors_BilledMetConsWoBulkSupErrorMargin_N8 = MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
-        //        MetErrors_MetBulkSupExpMetUnderreg_H32 = MetErrors_MetBulkSupExpMetUnderreg_H32,
-        //        MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
-        //        MetErrors_CorruptMetReadPractMetUndrreg_H38 = MetErrors_CorruptMetReadPractMetUndrreg_H38,
-        //        Network_DistributionAndTransmissionMains_D7 = Network_DistributionAndTransmissionMains_D7,
-        //        Network_NoOfConnOfRegCustomers_H10 = Network_NoOfConnOfRegCustomers_H10,
-        //        Network_NoOfInactAccountsWSvcConns_H18 = Network_NoOfInactAccountsWSvcConns_H18,
-        //        Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
-        //        Prs_ApproxNoOfConn_D7 = Prs_ApproxNoOfConn_D7,
-        //        Prs_DailyAvgPrsM_F7 = Prs_DailyAvgPrsM_F7
-        //    };
-        //    return easyCalcDataInput;
-        //}
-
-
-        //private EasyCalcDataOutput MapEasyCalcDataOutput()
-        //{
-        //    EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
-        //    {
-        //        SystemInputVolume_B19 = SystemInputVolume_B19,
-        //        SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
-
-        //        AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
-        //        AuthorizedConsumptionErrorMargin_K15 = AuthorizedConsumptionErrorMargin_K15,
-        //        WaterLosses_K29 = WaterLosses_K29,
-        //        WaterLossesErrorMargin_K31 = WaterLossesErrorMargin_K31,
-
-        //        BilledAuthorizedConsumption_T8 = BilledAuthorizedConsumption_T8,
-        //        UnbilledAuthorizedConsumption_T16 = UnbilledAuthorizedConsumption_T16,
-        //        UnbilledAuthorizedConsumptionErrorMargin_T20 =
-        //        UnbilledAuthorizedConsumptionErrorMargin_T20,
-        //        CommercialLosses_T26 = CommercialLosses_T26,
-        //        CommercialLossesErrorMargin_T29 = CommercialLossesErrorMargin_T29,
-        //        PhysicalLossesM3_T34 = PhysicalLossesM3_T34,
-        //        PhyscialLossesErrorMargin_AH35 = PhyscialLossesErrorMargin_AH35,
-
-        //        BilledMeteredConsumption_AC4 = BilledMeteredConsumption_AC4,
-        //        BilledUnmeteredConsumption_AC9 = BilledUnmeteredConsumption_AC9,
-        //        UnbilledMeteredConsumption_AC14 = UnbilledMeteredConsumption_AC14,
-
-        //        UnbilledUnmeteredConsumption_AC19 = UnbilledUnmeteredConsumption_AC19,
-        //        UnbilledUnmeteredConsumptionErrorMargin_AO20 =
-        //        UnbilledUnmeteredConsumptionErrorMargin_AO20,
-        //        UnauthorizedConsumption_AC24 = UnauthorizedConsumption_AC24,
-        //        UnauthorizedConsumptionErrorMargin_AO25 = UnauthorizedConsumptionErrorMargin_AO25,
-        //        CustomerMeterInaccuraciesAndErrorsM3_AC29 =
-        //        CustomerMeterInaccuraciesAndErrorsM3_AC29,
-        //        CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 =
-        //        CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
-
-        //        RevenueWaterM3_AY8 = RevenueWaterM3_AY8,
-        //        NonRevenueWaterM3_AY24 = NonRevenueWaterM3_AY24,
-        //        NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
-        //    };
-        //    return easyCalcDataOutput;
-        //}
-        #endregion
     }
 }

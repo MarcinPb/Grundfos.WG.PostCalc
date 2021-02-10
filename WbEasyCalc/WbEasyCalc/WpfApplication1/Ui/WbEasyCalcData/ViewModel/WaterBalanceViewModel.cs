@@ -219,6 +219,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
 
         public WaterBalanceViewModel(WaterBalanceModel model)
         {
+            if (model == null) return;
+
             SystemInputVolume_B19 = model.SystemInputVolume_B19;
             SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
             AuthorizedConsumption_K12 = model.AuthorizedConsumption_K12;
