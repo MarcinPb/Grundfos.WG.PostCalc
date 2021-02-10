@@ -7,9 +7,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:utility="clr-namespace:WpfApplication1.Utility"
              xmlns:converters="clr-namespace:WpfApplication1.Converters"
-             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" 
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-             >
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
@@ -55,8 +53,12 @@
                 <ComboBox Grid.Row="1" Grid.Column="1" Margin="7 0 0 0" ItemsSource="{Binding Path=WaterConsumptionCategoryList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionCategoryId}" />
                 <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=WaterConsumptionStatusList}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding Path=Model.WaterConsumptionStatusId}" />
                 <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Path=ZoneItemList}" SelectedValuePath="ZoneId" DisplayMemberPath="ZoneName" SelectedValue="{Binding Path=Model.ZoneId}" />
-                <xctk:DateTimePicker Grid.Row="1" Grid.Column="4" Margin="7 0 0 0" Value="{Binding Path=Model.StartDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
-                <xctk:DateTimePicker Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Value="{Binding Path=Model.EndDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss"/>
+                <xctk:DateTimePicker Grid.Row="1" Grid.Column="4" Margin="7 0 0 0" Value="{Binding Path=Model.StartDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss" />
+                <xctk:DateTimePicker Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" Value="{Binding Path=Model.EndDate}" Format="Custom" FormatString="dd-MM-yyyy hh:mm:ss" />
+                <!--
+                <DatePicker Grid.Row="1" Grid.Column="4" Margin="7 0 0 0"  SelectedDate="{Binding Path=Model.StartDate}" SelectedDateFormat="Short" />
+                <DatePicker Grid.Row="1" Grid.Column="5" Margin="7 0 0 0" SelectedDate="{Binding Path=Model.EndDate}" SelectedDateFormat="Short"  />
+                -->
                 <TextBox Grid.Row="1" Grid.Column="6" Margin="7 0 0 0" Text="{Binding Path=Model.Value, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}"/>
                 <TextBox Grid.Row="1" Grid.Column="7" Margin="7 0 0 0" Text="{Binding Path=Model.Description, UpdateSourceTrigger=PropertyChanged}"/>
                 <CheckBox Grid.Row="1" Grid.Column="8" Margin="7 0 0 0" IsChecked="{Binding Path=Model.IsArchive}" IsEnabled="{Binding Path=Model.IsAccepted, Converter={StaticResource NegConverter}}"/>
