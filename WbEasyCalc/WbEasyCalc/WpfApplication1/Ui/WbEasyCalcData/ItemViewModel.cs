@@ -386,6 +386,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Pis_H51 = Pis_H51,
             Pis_J51 = Pis_J51,
             Pis_L51 = Pis_L51,
+
+            Pis_N27 = Pis_N27,
+            Pis_P27 = Pis_P27,
+            Pis_N47 = Pis_N47,
+            Pis_P47 = Pis_P47,
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -2609,6 +2614,33 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
 
+        private string _pis_N27;
+        public string Pis_N27
+        {
+            get => _pis_N27;
+            set { _pis_N27 = value; RaisePropertyChanged(nameof(Pis_N27)); }
+        }
+
+        private string _pis_P27;
+        public string Pis_P27
+        {
+            get => _pis_P27;
+            set { _pis_P27 = value; RaisePropertyChanged(nameof(Pis_P27)); }
+        }
+        private string _pis_N47;
+        public string Pis_N47
+        {
+            get => _pis_N47;
+            set { _pis_N47 = value; RaisePropertyChanged(nameof(Pis_N47)); }
+        }
+
+        private string _pis_P47;
+        public string Pis_P47
+        {
+            get => _pis_P47;
+            set { _pis_P47 = value; RaisePropertyChanged(nameof(Pis_P47)); }
+        }
+
         #endregion
 
         public ItemViewModel(DataModel.WbEasyCalcData model)
@@ -2996,6 +3028,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Pis_J51 = model.Pis_J51;
             Pis_L51 = model.Pis_L51;
 
+            Pis_N27 = model.Pis_N27;
+            Pis_P27 = model.Pis_P27;
+            Pis_N47 = model.Pis_N47;
+            Pis_P47 = model.Pis_P47;
         }
 
         public void CalculateExcel()
@@ -3198,6 +3234,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             Pis_H51 = easyCalcDataOutput.Pis_H51;
             Pis_J51 = easyCalcDataOutput.Pis_J51;
             Pis_L51 = easyCalcDataOutput.Pis_L51;
+
+            Pis_N27 = easyCalcDataOutput.Pis_N27;
+            Pis_P27 = easyCalcDataOutput.Pis_P27;
+            Pis_N47 = easyCalcDataOutput.Pis_N47;
+            Pis_P47 = easyCalcDataOutput.Pis_P47;
         }
 
 

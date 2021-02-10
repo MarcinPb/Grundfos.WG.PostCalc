@@ -191,6 +191,10 @@ namespace WbEasyCalcModel
         public double Pis_J51 { get; set; }
         public double Pis_L51 { get; set; }
 
+        public string Pis_N27 { get; set; }
+        public string Pis_P27 { get; set; }
+        public string Pis_N47 { get; set; }
+        public string Pis_P47 { get; set; }
 
         public object Clone()
         {
@@ -368,6 +372,11 @@ namespace WbEasyCalcModel
                 Pis_H51 = Pis_H51,
                 Pis_J51 = Pis_J51,
                 Pis_L51 = Pis_L51,
+
+                Pis_N27 = Pis_N27,
+                Pis_P27 = Pis_P27,
+                Pis_N47 = Pis_N47,
+                Pis_P47 = Pis_P47,
             };
         }
     }

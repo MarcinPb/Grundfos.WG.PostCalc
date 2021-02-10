@@ -143,5 +143,67 @@ namespace WbEasyCalcRepository.Model
         public double Pis_H51 { get => Math.Sqrt(Pis_H9 * Pis_H9 + _data.NetworkSheet.Network_ErrorMargin_J10 * _data.NetworkSheet.Network_ErrorMargin_J10 + _data.WaterBalanceYearSheet.NonRevenueWaterErrorMargin_AY26 * _data.WaterBalanceYearSheet.NonRevenueWaterErrorMargin_AY26); }
         public double Pis_J51 { get => Pis_F51 * (1 - Pis_H51); }
         public double Pis_L51 { get => Pis_F51 * (1 + Pis_H51); }
+
+
+        public string Pis_N27 => GetPis_N27();
+        private string GetPis_N27()
+        {
+            string result;
+
+            if (Pis_F25 == 0) { result = string.Empty; }
+            else if (Pis_F25 <= 1.5) { result = "A1"; }
+            else if (Pis_F25 <= 2) { result = "A2"; }
+            else if (Pis_F25 <= 4) { result = "B"; }
+            else if (Pis_F25 <= 8) { result = "C"; }
+            else { result = "D"; }
+
+            return result;
+        }
+
+        public string Pis_P27 => GetPis_P27();
+        private string GetPis_P27()
+        {
+            string result;
+
+            if (Pis_F25 == 0) { result = string.Empty; }
+            else if (Pis_F25 <= 2) { result = "A1"; }
+            else if (Pis_F25 <= 4) { result = "A2"; }
+            else if (Pis_F25 <= 8) { result = "B"; }
+            else if (Pis_F25 <= 16) { result = "C"; }
+            else { result = "D"; }
+
+            return result;
+        }
+
+        public string Pis_N47 => GetPis_N47();
+        private string GetPis_N47()
+        {
+            string result;
+
+            if (Pis_F51 == 0) { result = string.Empty; }
+            else if (Pis_F51 <= 75) { result = "A1"; }
+            else if (Pis_F51 <= 150) { result = "A2"; }
+            else if (Pis_F51 <= 300) { result = "B"; }
+            else if (Pis_F51 <= 550) { result = "C"; }
+            else { result = "D"; }
+
+            return result;
+        }
+
+        public string Pis_P47 => GetPis_P47();
+        private string GetPis_P47()
+        {
+            string result;
+
+            if (Pis_F51 == 0) { result = string.Empty; }
+            else if (Pis_F51 <= 130) { result = "A1"; }
+            else if (Pis_F51 <= 260) { result = "A2"; }
+            else if (Pis_F51 <= 520) { result = "B"; }
+            else if (Pis_F51 <= 1000) { result = "C"; }
+            else { result = "D"; }
+
+            return result;
+        }
+ 
     }
 }

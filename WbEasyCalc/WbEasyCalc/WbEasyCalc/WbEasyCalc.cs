@@ -204,6 +204,10 @@ namespace WbEasyCalcRepository
                 Pis_J51 = easyCalcSheetData.PiSheet.Pis_J51,
                 Pis_L51 = easyCalcSheetData.PiSheet.Pis_L51,
 
+                Pis_N27 = easyCalcSheetData.PiSheet.Pis_N27,
+                Pis_P27 = easyCalcSheetData.PiSheet.Pis_P27,
+                Pis_N47 = easyCalcSheetData.PiSheet.Pis_N47,
+                Pis_P47 = easyCalcSheetData.PiSheet.Pis_P47,
             };
 
             return easyCalcDataOutput;

@@ -365,6 +365,11 @@ namespace DataRepository.WbEasyCalcData
         public double Pis_J51 { get; set; }
         public double Pis_L51 { get; set; }
 
+        public string Pis_N27 { get; set; }
+        public string Pis_P27 { get; set; }
+        public string Pis_N47 { get; set; }
+        public string Pis_P47 { get; set; }
+
         // output
         //public EasyCalcDataOutput EasyCalcDataOutput { get; set; }
         public double SystemInputVolume_B19 { get; set; }

@@ -150,8 +150,8 @@
                     <Label Grid.Row="22" Grid.Column="4" Content="{Binding Path=Model.Pis_H25}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="22" Grid.Column="6" Content="{Binding Path=Model.Pis_J25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="22" Grid.Column="8" Content="{Binding Path=Model.Pis_L25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="21" Grid.Column="10" Grid.RowSpan="7" Content="A1" Style="{StaticResource LabelResult3Style}" Background="DarkOliveGreen"/>
-                    <Label Grid.Row="21" Grid.Column="12" Grid.RowSpan="7" Content="A1" Style="{StaticResource LabelResult3Style}" Background="DarkSeaGreen"/>
+                    <Label Grid.Row="21" Grid.Column="10" Grid.RowSpan="7" Content="{Binding Path=Model.Pis_N27}" Style="{StaticResource LabelResult3Style}" Background="DarkOliveGreen"/>
+                    <Label Grid.Row="21" Grid.Column="12" Grid.RowSpan="7" Content="{Binding Path=Model.Pis_P27}" Style="{StaticResource LabelResult3Style}" Background="DarkSeaGreen"/>
 
                     <Label Grid.Row="24" Grid.Column="0" Content="Liters per Connection per Day (w.s.p)&#xD;&#xA;&#xD;&#xA;w.s.p.: when the system is pressurized&#xD;&#xA;- this maens the value is already&#xD;&#xA;corrected in case of intermittent&#xD;&#xA;supply " Style="{StaticResource LabelRowTitleStyle}"  />
                     <Label Grid.Row="24" Grid.Column="2" Content="{Binding Path=Model.Pis_F27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
@@ -212,8 +212,8 @@
                     <Label Grid.Row="44" Grid.Column="4" Content="{Binding Path=Model.Pis_H47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="44" Grid.Column="6" Content="{Binding Path=Model.Pis_J47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="44" Grid.Column="8" Content="{Binding Path=Model.Pis_L47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="43" Grid.Column="10" Grid.RowSpan="5" Content="A2" Style="{StaticResource LabelResult3Style}" Background="SaddleBrown"/>
-                    <Label Grid.Row="43" Grid.Column="12" Grid.RowSpan="5" Content="A2" Style="{StaticResource LabelResult3Style}" Background="Wheat" Foreground="Black"/>
+                    <Label Grid.Row="43" Grid.Column="10" Grid.RowSpan="5" Content="{Binding Path=Model.Pis_N47}" Style="{StaticResource LabelResult3Style}" Background="SaddleBrown"/>
+                    <Label Grid.Row="43" Grid.Column="12" Grid.RowSpan="5" Content="{Binding Path=Model.Pis_P47}" Style="{StaticResource LabelResult3Style}" Background="Wheat" Foreground="Black"/>
 
                     <Label Grid.Row="46" Grid.Column="0" Content="Value of Non-Revenue Water&#xD;&#xA;expressed in % of Annual Operating&#xD;&#xA;Cost" Style="{StaticResource LabelRowTitleStyle}"  />
                     <Label Grid.Row="46" Grid.Column="2" Content="{Binding Path=Model.Pis_F49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
