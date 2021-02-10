@@ -620,6 +620,7 @@ namespace DataRepository.WbEasyCalcData
                     NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
                 },
                 WaterBalanceYear = new WaterBalanceModel(),
+                Pis = new PisModel(),
             };
         }
     }

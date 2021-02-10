@@ -127,6 +127,7 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
       <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\PisViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>

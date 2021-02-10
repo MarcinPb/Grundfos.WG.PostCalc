@@ -313,74 +313,11 @@ namespace DataModel
         public string FinancData_K35 { get; set; }
 
 
-        public double Pis_F9  { get; set; }
-        public double Pis_H9  { get; set; }
-        public double Pis_J9  { get; set; }
-        public double Pis_L9  { get; set; }
-        public double Pis_F11 { get; set; }
-        public double Pis_H11 { get; set; }
-        public double Pis_J11 { get; set; }
-        public double Pis_L11 { get; set; }
-        public double Pis_F17 { get; set; }
-        public double Pis_H17 { get; set; }
-        public double Pis_J17 { get; set; }
-        public double Pis_L17 { get; set; }
-        public double Pis_F19 { get; set; }
-        public double Pis_H19 { get; set; }
-        public double Pis_J19 { get; set; }
-        public double Pis_L19 { get; set; }
-        public double Pis_F25 { get; set; }
-        public double Pis_H25 { get; set; }
-        public double Pis_J25 { get; set; }
-        public double Pis_L25 { get; set; }
-        public double Pis_F27 { get; set; }
-        public double Pis_H27 { get; set; }
-        public double Pis_J27 { get; set; }
-        public double Pis_L27 { get; set; }
-        public double Pis_F29 { get; set; }
-        public double Pis_H29 { get; set; }
-        public double Pis_J29 { get; set; }
-        public double Pis_L29 { get; set; }
-        public double Pis_F31 { get; set; }
-        public double Pis_H31 { get; set; }
-        public double Pis_J31 { get; set; }
-        public double Pis_L31 { get; set; }
-        public double Pis_F37 { get; set; }
-        public double Pis_H37 { get; set; }
-        public double Pis_J37 { get; set; }
-        public double Pis_L37 { get; set; }
-        public double Pis_F39 { get; set; }
-        public double Pis_H39 { get; set; }
-        public double Pis_J39 { get; set; }
-        public double Pis_L39 { get; set; }
-        public double Pis_F41 { get; set; }
-        public double Pis_H41 { get; set; }
-        public double Pis_J41 { get; set; }
-        public double Pis_L41 { get; set; }
-        public double Pis_F47 { get; set; }
-        public double Pis_H47 { get; set; }
-        public double Pis_J47 { get; set; }
-        public double Pis_L47 { get; set; }
-        public double Pis_F49 { get; set; }
-        public double Pis_H49 { get; set; }
-        public double Pis_J49 { get; set; }
-        public double Pis_L49 { get; set; }
-        public double Pis_F51 { get; set; }
-        public double Pis_H51 { get; set; }
-        public double Pis_J51 { get; set; }
-        public double Pis_L51 { get; set; }
-
-        public string Pis_N27 { get; set; }
-        public string Pis_P27 { get; set; }
-        public string Pis_N47 { get; set; }
-        public string Pis_P47 { get; set; }
-
-        // output
-
         public WaterBalanceModel WaterBalanceDay { get; set; } 
         public WaterBalanceModel WaterBalancePeriod { get; set; } 
         public WaterBalanceModel WaterBalanceYear { get; set; } 
 
+        public PisModel Pis { get; set; } 
 
         public object Clone()
         {
@@ -417,40 +354,40 @@ namespace DataModel
                 SysInput_SystemInputVolumeM3_D9 = SysInput_SystemInputVolumeM3_D9,
                 SysInput_SystemInputVolumeError_F9 = SysInput_SystemInputVolumeError_F9,
 
-                BilledCons_Desc_B8      = BilledCons_Desc_B8     ,
-                BilledCons_Desc_B9      = BilledCons_Desc_B9     ,
-                BilledCons_Desc_B10     = BilledCons_Desc_B10    ,
-                BilledCons_Desc_B11     = BilledCons_Desc_B11    ,
-                BilledCons_Desc_F8      = BilledCons_Desc_F8     ,
-                BilledCons_Desc_F9      = BilledCons_Desc_F9     ,
-                BilledCons_Desc_F10     = BilledCons_Desc_F10    ,
-                BilledCons_Desc_F11     = BilledCons_Desc_F11    ,
-                UnbilledCons_Desc_D8    = UnbilledCons_Desc_D8   ,
-                UnbilledCons_Desc_D9    = UnbilledCons_Desc_D9   ,
-                UnbilledCons_Desc_D10   = UnbilledCons_Desc_D10  ,
-                UnbilledCons_Desc_D11   = UnbilledCons_Desc_D11  ,
-                UnbilledCons_Desc_F6    = UnbilledCons_Desc_F6   ,
-                UnbilledCons_Desc_F7    = UnbilledCons_Desc_F7   ,
-                UnbilledCons_Desc_F8    = UnbilledCons_Desc_F8   ,
-                UnbilledCons_Desc_F9    = UnbilledCons_Desc_F9   ,
-                UnbilledCons_Desc_F10   = UnbilledCons_Desc_F10  ,
-                UnbilledCons_Desc_F11   = UnbilledCons_Desc_F11  ,
-                UnauthCons_Desc_B18     = UnauthCons_Desc_B18    ,
-                UnauthCons_Desc_B19     = UnauthCons_Desc_B19    ,
-                UnauthCons_Desc_B20     = UnauthCons_Desc_B20    ,
-                UnauthCons_Desc_B21     = UnauthCons_Desc_B21    ,
-                MetErrors_Desc_D12      = MetErrors_Desc_D12     ,
-                MetErrors_Desc_D13      = MetErrors_Desc_D13     ,
-                MetErrors_Desc_D14      = MetErrors_Desc_D14     ,
-                MetErrors_Desc_D15      = MetErrors_Desc_D15     ,
-                Network_Desc_B7         = Network_Desc_B7        ,
-                Network_Desc_B8         = Network_Desc_B8        ,
-                Network_Desc_B9         = Network_Desc_B9        ,
-                Network_Desc_B10        = Network_Desc_B10       ,
-                Interm_Area_B7          = Interm_Area_B7         ,
-                Interm_Area_B8          = Interm_Area_B8         ,
-                Interm_Area_B9          = Interm_Area_B9         ,
-                Interm_Area_B10         = Interm_Area_B10        ,
+                BilledCons_Desc_B8 = BilledCons_Desc_B8,
+                BilledCons_Desc_B9 = BilledCons_Desc_B9,
+                BilledCons_Desc_B10 = BilledCons_Desc_B10,
+                BilledCons_Desc_B11 = BilledCons_Desc_B11,
+                BilledCons_Desc_F8 = BilledCons_Desc_F8,
+                BilledCons_Desc_F9 = BilledCons_Desc_F9,
+                BilledCons_Desc_F10 = BilledCons_Desc_F10,
+                BilledCons_Desc_F11 = BilledCons_Desc_F11,
+                UnbilledCons_Desc_D8 = UnbilledCons_Desc_D8,
+                UnbilledCons_Desc_D9 = UnbilledCons_Desc_D9,
+                UnbilledCons_Desc_D10 = UnbilledCons_Desc_D10,
+                UnbilledCons_Desc_D11 = UnbilledCons_Desc_D11,
+                UnbilledCons_Desc_F6 = UnbilledCons_Desc_F6,
+                UnbilledCons_Desc_F7 = UnbilledCons_Desc_F7,
+                UnbilledCons_Desc_F8 = UnbilledCons_Desc_F8,
+                UnbilledCons_Desc_F9 = UnbilledCons_Desc_F9,
+                UnbilledCons_Desc_F10 = UnbilledCons_Desc_F10,
+                UnbilledCons_Desc_F11 = UnbilledCons_Desc_F11,
+                UnauthCons_Desc_B18 = UnauthCons_Desc_B18,
+                UnauthCons_Desc_B19 = UnauthCons_Desc_B19,
+                UnauthCons_Desc_B20 = UnauthCons_Desc_B20,
+                UnauthCons_Desc_B21 = UnauthCons_Desc_B21,
+                MetErrors_Desc_D12 = MetErrors_Desc_D12,
+                MetErrors_Desc_D13 = MetErrors_Desc_D13,
+                MetErrors_Desc_D14 = MetErrors_Desc_D14,
+                MetErrors_Desc_D15 = MetErrors_Desc_D15,
+                Network_Desc_B7 = Network_Desc_B7,
+                Network_Desc_B8 = Network_Desc_B8,
+                Network_Desc_B9 = Network_Desc_B9,
+                Network_Desc_B10 = Network_Desc_B10,
+                Interm_Area_B7 = Interm_Area_B7,
+                Interm_Area_B8 = Interm_Area_B8,
+                Interm_Area_B9 = Interm_Area_B9,
+                Interm_Area_B10 = Interm_Area_B10,
 
 
 
@@ -545,8 +482,8 @@ namespace DataModel
                 Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32 = Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
 
                 Network_PossibleUnd_D30 = Network_PossibleUnd_D30,
-                Network_NoCustomers_H7  = Network_NoCustomers_H7 ,
-                Network_ErrorMargin_J7  = Network_ErrorMargin_J7 ,
+                Network_NoCustomers_H7 = Network_NoCustomers_H7,
+                Network_ErrorMargin_J7 = Network_ErrorMargin_J7,
                 Network_ErrorMargin_J10 = Network_ErrorMargin_J10,
                 Network_ErrorMargin_J18 = Network_ErrorMargin_J18,
                 Network_ErrorMargin_J32 = Network_ErrorMargin_J32,
@@ -566,9 +503,9 @@ namespace DataModel
                 Network_Number_H39 = Network_Number_H39,
                 Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
 
-                FinancData_G6 =  FinancData_G6 ,
-                FinancData_K6 =  FinancData_K6 ,
-                FinancData_G8 =  FinancData_G8 ,
+                FinancData_G6 = FinancData_G6,
+                FinancData_K6 = FinancData_K6,
+                FinancData_G8 = FinancData_G8,
                 FinancData_D26 = FinancData_D26,
                 FinancData_G35 = FinancData_G35,
 
@@ -586,17 +523,17 @@ namespace DataModel
                 Prs_DailyAvgPrsM_F10 = Prs_DailyAvgPrsM_F10,
                 Prs_ErrorMarg_F26 = Prs_ErrorMarg_F26,
 
-                Interm_Conn_D7  = Interm_Conn_D7,
-                Interm_Conn_D8  = Interm_Conn_D8,
-                Interm_Conn_D9  = Interm_Conn_D9,
+                Interm_Conn_D7 = Interm_Conn_D7,
+                Interm_Conn_D8 = Interm_Conn_D8,
+                Interm_Conn_D9 = Interm_Conn_D9,
                 Interm_Conn_D10 = Interm_Conn_D10,
-                Interm_Days_F7  = Interm_Days_F7,
-                Interm_Days_F8  = Interm_Days_F8,
-                Interm_Days_F9  = Interm_Days_F9,
+                Interm_Days_F7 = Interm_Days_F7,
+                Interm_Days_F8 = Interm_Days_F8,
+                Interm_Days_F9 = Interm_Days_F9,
                 Interm_Days_F10 = Interm_Days_F10,
-                Interm_Hour_H7  = Interm_Hour_H7,
-                Interm_Hour_H8  = Interm_Hour_H8,
-                Interm_Hour_H9  = Interm_Hour_H9,
+                Interm_Hour_H7 = Interm_Hour_H7,
+                Interm_Hour_H8 = Interm_Hour_H8,
+                Interm_Hour_H9 = Interm_Hour_H9,
                 Interm_Hour_H10 = Interm_Hour_H10,
                 Interm_ErrorMarg_H26 = Interm_ErrorMarg_H26,
 
@@ -610,33 +547,33 @@ namespace DataModel
                 SysInput_Max_D77 = SysInput_Max_D77,
                 SysInput_BestEstimate_D79 = SysInput_BestEstimate_D79,
 
-                BilledCons_Sum_D28               = BilledCons_Sum_D28           ,
-                BilledCons_Sum_H28               = BilledCons_Sum_H28           ,
-                UnbilledCons_Sum_D32             = UnbilledCons_Sum_D32         ,
-                UnbilledCons_ErrorMarg_J25       = UnbilledCons_ErrorMarg_J25   ,
-                UnbilledCons_Min_H28             = UnbilledCons_Min_H28         ,
-                UnbilledCons_Max_H30             = UnbilledCons_Max_H30         ,
-                UnbilledCons_BestEstimate_H32    = UnbilledCons_BestEstimate_H32,
-                UnauthCons_Total_L6              = UnauthCons_Total_L6          ,
-                UnauthCons_Total_L10             = UnauthCons_Total_L10         ,
-                UnauthCons_Total_L14             = UnauthCons_Total_L14         ,
-                UnauthCons_ErrorMarg_F24         = UnauthCons_ErrorMarg_F24     ,
-                UnauthCons_Min_L27               = UnauthCons_Min_L27           ,
-                UnauthCons_Max_L29               = UnauthCons_Max_L29           ,
-                UnauthCons_BestEstimate_L31      = UnauthCons_BestEstimate_L31  ,
+                BilledCons_Sum_D28 = BilledCons_Sum_D28,
+                BilledCons_Sum_H28 = BilledCons_Sum_H28,
+                UnbilledCons_Sum_D32 = UnbilledCons_Sum_D32,
+                UnbilledCons_ErrorMarg_J25 = UnbilledCons_ErrorMarg_J25,
+                UnbilledCons_Min_H28 = UnbilledCons_Min_H28,
+                UnbilledCons_Max_H30 = UnbilledCons_Max_H30,
+                UnbilledCons_BestEstimate_H32 = UnbilledCons_BestEstimate_H32,
+                UnauthCons_Total_L6 = UnauthCons_Total_L6,
+                UnauthCons_Total_L10 = UnauthCons_Total_L10,
+                UnauthCons_Total_L14 = UnauthCons_Total_L14,
+                UnauthCons_ErrorMarg_F24 = UnauthCons_ErrorMarg_F24,
+                UnauthCons_Min_L27 = UnauthCons_Min_L27,
+                UnauthCons_Max_L29 = UnauthCons_Max_L29,
+                UnauthCons_BestEstimate_L31 = UnauthCons_BestEstimate_L31,
 
-                MetErrors_Total_F8          = MetErrors_Total_F8        ,
-                MetErrors_Total_F32         = MetErrors_Total_F32       ,
-                MetErrors_Total_F34         = MetErrors_Total_F34       ,
-                MetErrors_Total_F38         = MetErrors_Total_F38       ,
-                MetErrors_Total_L8          = MetErrors_Total_L8        ,
-                MetErrors_Total_L32         = MetErrors_Total_L32       ,
-                MetErrors_Total_L34         = MetErrors_Total_L34       ,
-                MetErrors_Total_L38         = MetErrors_Total_L38       ,
-                MetErrors_ErrorMarg_N42     = MetErrors_ErrorMarg_N42   ,
-                MetErrors_Min_L45           = MetErrors_Min_L45         ,
-                MetErrors_Max_L47           = MetErrors_Max_L47         ,
-                MetErrors_BestEstimate_L49  = MetErrors_BestEstimate_L49,
+                MetErrors_Total_F8 = MetErrors_Total_F8,
+                MetErrors_Total_F32 = MetErrors_Total_F32,
+                MetErrors_Total_F34 = MetErrors_Total_F34,
+                MetErrors_Total_F38 = MetErrors_Total_F38,
+                MetErrors_Total_L8 = MetErrors_Total_L8,
+                MetErrors_Total_L32 = MetErrors_Total_L32,
+                MetErrors_Total_L34 = MetErrors_Total_L34,
+                MetErrors_Total_L38 = MetErrors_Total_L38,
+                MetErrors_ErrorMarg_N42 = MetErrors_ErrorMarg_N42,
+                MetErrors_Min_L45 = MetErrors_Min_L45,
+                MetErrors_Max_L47 = MetErrors_Max_L47,
+                MetErrors_BestEstimate_L49 = MetErrors_BestEstimate_L49,
 
                 MetErrors_Total_L12 = MetErrors_Total_L12,
                 MetErrors_Total_L13 = MetErrors_Total_L13,
@@ -647,7 +584,7 @@ namespace DataModel
                 UnauthCons_Total_L19 = UnauthCons_Total_L19,
                 UnauthCons_Total_L20 = UnauthCons_Total_L20,
                 UnauthCons_Total_L21 = UnauthCons_Total_L21,
-                
+
                 Interm_Min_H29 = Interm_Min_H29,
                 Interm_Max_H31 = Interm_Max_H31,
                 Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
@@ -660,7 +597,7 @@ namespace DataModel
                 FinancData_G22 = FinancData_G22,
                 FinancData_D24 = FinancData_D24,
                 FinancData_G31 = FinancData_G31,
-                FinancData_K8  = FinancData_K8,
+                FinancData_K8 = FinancData_K8,
                 FinancData_K13 = FinancData_K13,
                 FinancData_K15 = FinancData_K15,
                 FinancData_K17 = FinancData_K17,
@@ -670,72 +607,11 @@ namespace DataModel
                 FinancData_K31 = FinancData_K31,
                 FinancData_K35 = FinancData_K35,
 
-                Pis_F9 = Pis_F9,
-                Pis_H9 = Pis_H9,
-                Pis_J9 = Pis_J9,
-                Pis_L9 = Pis_L9,
-                Pis_F11 = Pis_F11,
-                Pis_H11 = Pis_H11,
-                Pis_J11 = Pis_J11,
-                Pis_L11 = Pis_L11,
-                Pis_F17 = Pis_F17,
-                Pis_H17 = Pis_H17,
-                Pis_J17 = Pis_J17,
-                Pis_L17 = Pis_L17,
-                Pis_F19 = Pis_F19,
-                Pis_H19 = Pis_H19,
-                Pis_J19 = Pis_J19,
-                Pis_L19 = Pis_L19,
-                Pis_F25 = Pis_F25,
-                Pis_H25 = Pis_H25,
-                Pis_J25 = Pis_J25,
-                Pis_L25 = Pis_L25,
-                Pis_F27 = Pis_F27,
-                Pis_H27 = Pis_H27,
-                Pis_J27 = Pis_J27,
-                Pis_L27 = Pis_L27,
-                Pis_F29 = Pis_F29,
-                Pis_H29 = Pis_H29,
-                Pis_J29 = Pis_J29,
-                Pis_L29 = Pis_L29,
-                Pis_F31 = Pis_F31,
-                Pis_H31 = Pis_H31,
-                Pis_J31 = Pis_J31,
-                Pis_L31 = Pis_L31,
-                Pis_F37 = Pis_F37,
-                Pis_H37 = Pis_H37,
-                Pis_J37 = Pis_J37,
-                Pis_L37 = Pis_L37,
-                Pis_F39 = Pis_F39,
-                Pis_H39 = Pis_H39,
-                Pis_J39 = Pis_J39,
-                Pis_L39 = Pis_L39,
-                Pis_F41 = Pis_F41,
-                Pis_H41 = Pis_H41,
-                Pis_J41 = Pis_J41,
-                Pis_L41 = Pis_L41,
-                Pis_F47 = Pis_F47,
-                Pis_H47 = Pis_H47,
-                Pis_J47 = Pis_J47,
-                Pis_L47 = Pis_L47,
-                Pis_F49 = Pis_F49,
-                Pis_H49 = Pis_H49,
-                Pis_J49 = Pis_J49,
-                Pis_L49 = Pis_L49,
-                Pis_F51 = Pis_F51,
-                Pis_H51 = Pis_H51,
-                Pis_J51 = Pis_J51,
-                Pis_L51 = Pis_L51,
-
-                Pis_N27 = Pis_N27,
-                Pis_P27 = Pis_P27,
-                Pis_N47 = Pis_N47,
-                Pis_P47 = Pis_P47,
-
                 WaterBalanceDay = (WaterBalanceModel)WaterBalanceDay.Clone(),
                 WaterBalancePeriod = (WaterBalanceModel)WaterBalancePeriod.Clone(),
                 WaterBalanceYear = (WaterBalanceModel)WaterBalanceYear.Clone(),
 
+                Pis = (PisModel)Pis.Clone(),
             };
         }
 
