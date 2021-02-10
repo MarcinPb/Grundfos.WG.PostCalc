@@ -285,10 +285,14 @@ namespace DataRepository.WbEasyCalcData
 
         public int Clone(int id)
         {
+
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+
             using (IDbConnection connection = new SqlConnection(_cnnString))
             {
                 var p = new DynamicParameters();
                 p.Add("@id", id, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+                p.Add("@UserName", userName);
 
                 connection.Execute("dbo.spWbEasyCalcDataClone", p, commandType: CommandType.StoredProcedure);
 
