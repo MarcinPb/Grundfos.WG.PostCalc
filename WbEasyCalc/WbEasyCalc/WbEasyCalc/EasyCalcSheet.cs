@@ -1,6 +1,8 @@
-﻿namespace WbEasyCalcRepository.Model
+﻿using WbEasyCalcRepository.Model;
+
+namespace WbEasyCalcRepository
 {
-    public class EasyCalcSheetData
+    public class EasyCalcSheet
     {
         public StartSheet StartSheet { get; set; }
         public UnauthorizedConsumptionSheet UnauthorizedConsumptionSheet { get; set; }

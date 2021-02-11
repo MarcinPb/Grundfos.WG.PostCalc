@@ -8,7 +8,7 @@ namespace WbEasyCalcRepository.Model
 {
     public class WaterBalanceDaySheet : WaterBalanceSheet
     {
-        public WaterBalanceDaySheet(EasyCalcSheetData data) : base(data) { }
+        public WaterBalanceDaySheet(EasyCalcSheet data) : base(data) { }
 
         public override double SystemInputVolume_B19 { get => _data.StartSheet.PeriodDays_M21 > 0 ? _data.SystemInputSheet.SystemInputVolume_D79 / _data.StartSheet.PeriodDays_M21 : 0d; }
         public override double BilledMeteredConsumption_AC4 { get => _data.StartSheet.PeriodDays_M21 > 0 ? _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum() / _data.StartSheet.PeriodDays_M21 : 0d; }

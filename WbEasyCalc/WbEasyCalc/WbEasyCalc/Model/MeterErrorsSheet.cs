@@ -6,9 +6,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class MeterErrorsSheet
     {
-        private readonly EasyCalcSheetData data;
+        private readonly EasyCalcSheet data;
 
-        public MeterErrorsSheet(EasyCalcSheetData data)
+        public MeterErrorsSheet(EasyCalcSheet data)
         {
             this.data = data;
             this.BilledMeteredConsumptionManuallyEnteredM3_F12_F28 = new List<double>();

@@ -2,7 +2,7 @@
 
 namespace WbEasyCalcModel
 {
-    public class EasyCalcDataInput //: ICloneable
+    public class EasyCalcDataInput : ICloneable
     {
         public int Start_PeriodDays_M21 { get; set; }
 

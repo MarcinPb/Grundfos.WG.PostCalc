@@ -8,9 +8,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class FinancialDataSheet
     {
-        private readonly EasyCalcSheetData _data;
+        private readonly EasyCalcSheet _data;
 
-        public FinancialDataSheet(EasyCalcSheetData data)
+        public FinancialDataSheet(EasyCalcSheet data)
         {
             _data = data;
         }

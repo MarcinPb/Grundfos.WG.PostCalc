@@ -6,9 +6,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class NetworkSheet
     {
-        private readonly EasyCalcSheetData _data;
+        private readonly EasyCalcSheet _data;
 
-        public NetworkSheet(EasyCalcSheetData data)
+        public NetworkSheet(EasyCalcSheet data)
         {
             this._data = data;
             this.DistributionAndTransmissionMainsEntries_D7_D26 = new List<double>();

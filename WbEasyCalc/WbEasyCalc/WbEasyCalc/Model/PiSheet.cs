@@ -4,9 +4,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class PiSheet
     {
-        private readonly EasyCalcSheetData _data;
+        private readonly EasyCalcSheet _data;
 
-        public PiSheet(EasyCalcSheetData data)
+        public PiSheet(EasyCalcSheet data)
         {
             _data = data;
         }

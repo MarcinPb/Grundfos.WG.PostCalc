@@ -5,9 +5,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class WaterBalanceSheet
     {
-        protected readonly EasyCalcSheetData _data;
+        protected readonly EasyCalcSheet _data;
 
-        public WaterBalanceSheet(EasyCalcSheetData data)
+        public WaterBalanceSheet(EasyCalcSheet data)
         {
             this._data = data;
         }

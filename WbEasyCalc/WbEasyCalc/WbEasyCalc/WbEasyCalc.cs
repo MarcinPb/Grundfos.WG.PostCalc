@@ -10,7 +10,7 @@ namespace WbEasyCalcRepository
     {
         public EasyCalcDataOutput Calculate(EasyCalcDataInput easyCalcDataInput)
         {
-            EasyCalcSheetData easyCalcSheetData = ReadSheetData(easyCalcDataInput);
+            EasyCalcSheet easyCalcSheetData = ReadSheetData(easyCalcDataInput);
 
             EasyCalcDataOutput easyCalcDataOutput = new EasyCalcDataOutput()
             {
@@ -19,9 +19,6 @@ namespace WbEasyCalcRepository
                 WaterBalanceYear = GetWaterBalanceSheet(easyCalcSheetData.WaterBalanceYearSheet),
 
                 Pis = GetPisSheet(easyCalcSheetData.PiSheet),
-
-
-
 
                 SysInput_ErrorMarg_F72 = easyCalcSheetData.SystemInputSheet.ErrorMargin_F72,
                 SysInput_Min_D75 = easyCalcSheetData.SystemInputSheet.Min_D75,
@@ -113,119 +110,9 @@ namespace WbEasyCalcRepository
             return easyCalcDataOutput;
         }
 
-        private PisModel GetPisSheet(PiSheet pisSheet)
+        private EasyCalcSheet ReadSheetData(EasyCalcDataInput easyCalcDataInput)
         {
-            PisModel model = new PisModel
-            {
-                Pis_F9 =  pisSheet.Pis_F9,
-                Pis_H9 =  pisSheet.Pis_H9,
-                Pis_J9 =  pisSheet.Pis_J9,
-                Pis_L9 =  pisSheet.Pis_L9,
-                Pis_F11 = pisSheet.Pis_F11,
-                Pis_H11 = pisSheet.Pis_H11,
-                Pis_J11 = pisSheet.Pis_J11,
-                Pis_L11 = pisSheet.Pis_L11,
-                Pis_F17 = pisSheet.Pis_F17,
-                Pis_H17 = pisSheet.Pis_H17,
-                Pis_J17 = pisSheet.Pis_J17,
-                Pis_L17 = pisSheet.Pis_L17,
-                Pis_F19 = pisSheet.Pis_F19,
-                Pis_H19 = pisSheet.Pis_H19,
-                Pis_J19 = pisSheet.Pis_J19,
-                Pis_L19 = pisSheet.Pis_L19,
-                Pis_F25 = pisSheet.Pis_F25,
-                Pis_H25 = pisSheet.Pis_H25,
-                Pis_J25 = pisSheet.Pis_J25,
-                Pis_L25 = pisSheet.Pis_L25,
-                Pis_F27 = pisSheet.Pis_F27,
-                Pis_H27 = pisSheet.Pis_H27,
-                Pis_J27 = pisSheet.Pis_J27,
-                Pis_L27 = pisSheet.Pis_L27,
-                Pis_F29 = pisSheet.Pis_F29,
-                Pis_H29 = pisSheet.Pis_H29,
-                Pis_J29 = pisSheet.Pis_J29,
-                Pis_L29 = pisSheet.Pis_L29,
-                Pis_F31 = pisSheet.Pis_F31,
-                Pis_H31 = pisSheet.Pis_H31,
-                Pis_J31 = pisSheet.Pis_J31,
-                Pis_L31 = pisSheet.Pis_L31,
-                Pis_F37 = pisSheet.Pis_F37,
-                Pis_H37 = pisSheet.Pis_H37,
-                Pis_J37 = pisSheet.Pis_J37,
-                Pis_L37 = pisSheet.Pis_L37,
-                Pis_F39 = pisSheet.Pis_F39,
-                Pis_H39 = pisSheet.Pis_H39,
-                Pis_J39 = pisSheet.Pis_J39,
-                Pis_L39 = pisSheet.Pis_L39,
-                Pis_F41 = pisSheet.Pis_F41,
-                Pis_H41 = pisSheet.Pis_H41,
-                Pis_J41 = pisSheet.Pis_J41,
-                Pis_L41 = pisSheet.Pis_L41,
-                Pis_F47 = pisSheet.Pis_F47,
-                Pis_H47 = pisSheet.Pis_H47,
-                Pis_J47 = pisSheet.Pis_J47,
-                Pis_L47 = pisSheet.Pis_L47,
-                Pis_F49 = pisSheet.Pis_F49,
-                Pis_H49 = pisSheet.Pis_H49,
-                Pis_J49 = pisSheet.Pis_J49,
-                Pis_L49 = pisSheet.Pis_L49,
-                Pis_F51 = pisSheet.Pis_F51,
-                Pis_H51 = pisSheet.Pis_H51,
-                Pis_J51 = pisSheet.Pis_J51,
-                Pis_L51 = pisSheet.Pis_L51,
-
-                Pis_N27 = pisSheet.Pis_N27,
-                Pis_P27 = pisSheet.Pis_P27,
-                Pis_N47 = pisSheet.Pis_N47,
-                Pis_P47 = pisSheet.Pis_P47,
-
-            };
-            return model;
-        }
-
-        private WaterBalanceModel GetWaterBalanceSheet(WaterBalanceSheet sheet)
-        {
-            WaterBalanceModel model = new WaterBalanceModel
-            {
-                SystemInputVolume_B19 = sheet.SystemInputVolume_B19,
-                SystemInputVolumeErrorMargin_B21 = sheet.SystemInputVolumeErrorMargin_B21,
-
-                AuthorizedConsumption_K12 = sheet.AuthorizedConsumption_K12,
-                AuthorizedConsumptionErrorMargin_K15 = sheet.AuthorizedConsumptionErrorMargin_K15,
-                WaterLosses_K29 = sheet.WaterLosses_K29,
-                WaterLossesErrorMargin_K31 = sheet.WaterLossesErrorMargin_K31,
-
-                BilledAuthorizedConsumption_T8 = sheet.BilledAuthorizedConsumption_T8,
-                UnbilledAuthorizedConsumption_T16 = sheet.UnbilledAuthorizedConsumption_T16,
-                UnbilledAuthorizedConsumptionErrorMargin_T20 = sheet.UnbilledAuthorizedConsumptionErrorMargin_T20,
-                CommercialLosses_T26 = sheet.CommercialLosses_T26,
-                CommercialLossesErrorMargin_T29 = sheet.CommercialLossesErrorMargin_T29,
-                PhysicalLossesM3_T34 = sheet.PhysicalLossesM3_T34,
-                PhyscialLossesErrorMargin_AH35 = sheet.PhyscialLossesErrorMargin_AH35,
-
-                BilledMeteredConsumption_AC4 = sheet.BilledMeteredConsumption_AC4,
-                BilledUnmeteredConsumption_AC9 = sheet.BilledUnmeteredConsumption_AC9,
-                UnbilledMeteredConsumption_AC14 = sheet.UnbilledMeteredConsumption_AC14,
-
-                UnbilledUnmeteredConsumption_AC19 = sheet.UnbilledUnmeteredConsumption_AC19,
-                UnbilledUnmeteredConsumptionErrorMargin_AO20 = sheet.UnbilledUnmeteredConsumptionErrorMargin_AO20,
-                UnauthorizedConsumption_AC24 = sheet.UnauthorizedConsumption_AC24,
-                UnauthorizedConsumptionErrorMargin_AO25 = sheet.UnauthorizedConsumptionErrorMargin_AO25,
-                CustomerMeterInaccuraciesAndErrorsM3_AC29 = sheet.CustomerMeterInaccuraciesAndErrorsM3_AC29,
-                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = sheet.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
-
-                RevenueWaterM3_AY8 = sheet.RevenueWaterM3_AY8,
-                NonRevenueWaterM3_AY24 = sheet.NonRevenueWaterM3_AY24,
-                NonRevenueWaterErrorMargin_AY26 = sheet.NonRevenueWaterErrorMargin_AY26,
-
-            };
-            return model;
-        }
-
-        // Only in test
-        public EasyCalcSheetData ReadSheetData(EasyCalcDataInput easyCalcDataInput)
-        {
-            var data = new EasyCalcSheetData();
+            var data = new EasyCalcSheet();
 
             data.StartSheet = new StartSheet
             {
@@ -455,5 +342,115 @@ namespace WbEasyCalcRepository
 
             return data;
         }
+
+
+        private WaterBalanceModel GetWaterBalanceSheet(WaterBalanceSheet sheet)
+        {
+            WaterBalanceModel model = new WaterBalanceModel
+            {
+                SystemInputVolume_B19 = sheet.SystemInputVolume_B19,
+                SystemInputVolumeErrorMargin_B21 = sheet.SystemInputVolumeErrorMargin_B21,
+
+                AuthorizedConsumption_K12 = sheet.AuthorizedConsumption_K12,
+                AuthorizedConsumptionErrorMargin_K15 = sheet.AuthorizedConsumptionErrorMargin_K15,
+                WaterLosses_K29 = sheet.WaterLosses_K29,
+                WaterLossesErrorMargin_K31 = sheet.WaterLossesErrorMargin_K31,
+
+                BilledAuthorizedConsumption_T8 = sheet.BilledAuthorizedConsumption_T8,
+                UnbilledAuthorizedConsumption_T16 = sheet.UnbilledAuthorizedConsumption_T16,
+                UnbilledAuthorizedConsumptionErrorMargin_T20 = sheet.UnbilledAuthorizedConsumptionErrorMargin_T20,
+                CommercialLosses_T26 = sheet.CommercialLosses_T26,
+                CommercialLossesErrorMargin_T29 = sheet.CommercialLossesErrorMargin_T29,
+                PhysicalLossesM3_T34 = sheet.PhysicalLossesM3_T34,
+                PhyscialLossesErrorMargin_AH35 = sheet.PhyscialLossesErrorMargin_AH35,
+
+                BilledMeteredConsumption_AC4 = sheet.BilledMeteredConsumption_AC4,
+                BilledUnmeteredConsumption_AC9 = sheet.BilledUnmeteredConsumption_AC9,
+                UnbilledMeteredConsumption_AC14 = sheet.UnbilledMeteredConsumption_AC14,
+
+                UnbilledUnmeteredConsumption_AC19 = sheet.UnbilledUnmeteredConsumption_AC19,
+                UnbilledUnmeteredConsumptionErrorMargin_AO20 = sheet.UnbilledUnmeteredConsumptionErrorMargin_AO20,
+                UnauthorizedConsumption_AC24 = sheet.UnauthorizedConsumption_AC24,
+                UnauthorizedConsumptionErrorMargin_AO25 = sheet.UnauthorizedConsumptionErrorMargin_AO25,
+                CustomerMeterInaccuraciesAndErrorsM3_AC29 = sheet.CustomerMeterInaccuraciesAndErrorsM3_AC29,
+                CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30 = sheet.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30,
+
+                RevenueWaterM3_AY8 = sheet.RevenueWaterM3_AY8,
+                NonRevenueWaterM3_AY24 = sheet.NonRevenueWaterM3_AY24,
+                NonRevenueWaterErrorMargin_AY26 = sheet.NonRevenueWaterErrorMargin_AY26,
+
+            };
+            return model;
+        }
+        private PisModel GetPisSheet(PiSheet pisSheet)
+        {
+            PisModel model = new PisModel
+            {
+                Pis_F9 =  pisSheet.Pis_F9,
+                Pis_H9 =  pisSheet.Pis_H9,
+                Pis_J9 =  pisSheet.Pis_J9,
+                Pis_L9 =  pisSheet.Pis_L9,
+                Pis_F11 = pisSheet.Pis_F11,
+                Pis_H11 = pisSheet.Pis_H11,
+                Pis_J11 = pisSheet.Pis_J11,
+                Pis_L11 = pisSheet.Pis_L11,
+                Pis_F17 = pisSheet.Pis_F17,
+                Pis_H17 = pisSheet.Pis_H17,
+                Pis_J17 = pisSheet.Pis_J17,
+                Pis_L17 = pisSheet.Pis_L17,
+                Pis_F19 = pisSheet.Pis_F19,
+                Pis_H19 = pisSheet.Pis_H19,
+                Pis_J19 = pisSheet.Pis_J19,
+                Pis_L19 = pisSheet.Pis_L19,
+                Pis_F25 = pisSheet.Pis_F25,
+                Pis_H25 = pisSheet.Pis_H25,
+                Pis_J25 = pisSheet.Pis_J25,
+                Pis_L25 = pisSheet.Pis_L25,
+                Pis_F27 = pisSheet.Pis_F27,
+                Pis_H27 = pisSheet.Pis_H27,
+                Pis_J27 = pisSheet.Pis_J27,
+                Pis_L27 = pisSheet.Pis_L27,
+                Pis_F29 = pisSheet.Pis_F29,
+                Pis_H29 = pisSheet.Pis_H29,
+                Pis_J29 = pisSheet.Pis_J29,
+                Pis_L29 = pisSheet.Pis_L29,
+                Pis_F31 = pisSheet.Pis_F31,
+                Pis_H31 = pisSheet.Pis_H31,
+                Pis_J31 = pisSheet.Pis_J31,
+                Pis_L31 = pisSheet.Pis_L31,
+                Pis_F37 = pisSheet.Pis_F37,
+                Pis_H37 = pisSheet.Pis_H37,
+                Pis_J37 = pisSheet.Pis_J37,
+                Pis_L37 = pisSheet.Pis_L37,
+                Pis_F39 = pisSheet.Pis_F39,
+                Pis_H39 = pisSheet.Pis_H39,
+                Pis_J39 = pisSheet.Pis_J39,
+                Pis_L39 = pisSheet.Pis_L39,
+                Pis_F41 = pisSheet.Pis_F41,
+                Pis_H41 = pisSheet.Pis_H41,
+                Pis_J41 = pisSheet.Pis_J41,
+                Pis_L41 = pisSheet.Pis_L41,
+                Pis_F47 = pisSheet.Pis_F47,
+                Pis_H47 = pisSheet.Pis_H47,
+                Pis_J47 = pisSheet.Pis_J47,
+                Pis_L47 = pisSheet.Pis_L47,
+                Pis_F49 = pisSheet.Pis_F49,
+                Pis_H49 = pisSheet.Pis_H49,
+                Pis_J49 = pisSheet.Pis_J49,
+                Pis_L49 = pisSheet.Pis_L49,
+                Pis_F51 = pisSheet.Pis_F51,
+                Pis_H51 = pisSheet.Pis_H51,
+                Pis_J51 = pisSheet.Pis_J51,
+                Pis_L51 = pisSheet.Pis_L51,
+
+                Pis_N27 = pisSheet.Pis_N27,
+                Pis_P27 = pisSheet.Pis_P27,
+                Pis_N47 = pisSheet.Pis_N47,
+                Pis_P47 = pisSheet.Pis_P47,
+
+            };
+            return model;
+        }
+
     }
 }

@@ -10,7 +10,7 @@ namespace WbEasyCalcRepository.Model
     {
         const int days364 = 364; 
         const int days365 = 365; 
-        public WaterBalanceYearSheet(EasyCalcSheetData data) : base(data) { }
+        public WaterBalanceYearSheet(EasyCalcSheet data) : base(data) { }
 
         public override double SystemInputVolume_B19 { get => _data.StartSheet.PeriodDays_M21 > days364 ? _data.SystemInputSheet.SystemInputVolume_D79 : _data.WaterBalanceDaySheet.SystemInputVolume_B19 * days365; }
         public override double BilledMeteredConsumption_AC4 { get => _data.StartSheet.PeriodDays_M21 > days364 ? _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum() : _data.WaterBalanceDaySheet.BilledMeteredConsumption_AC4 * days365; }

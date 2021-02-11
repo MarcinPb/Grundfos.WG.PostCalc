@@ -6,9 +6,9 @@ namespace WbEasyCalcRepository.Model
 {
     public class UnauthorizedConsumptionSheet
     {
-        private readonly EasyCalcSheetData data;
+        private readonly EasyCalcSheet data;
 
-        public UnauthorizedConsumptionSheet(EasyCalcSheetData data)
+        public UnauthorizedConsumptionSheet(EasyCalcSheet data)
         {
             this.OthersM3PerDay_J18_J22 = new List<double>();
             this.OthersErrorMargin_F18_F22 = new List<double>();

@@ -56,7 +56,7 @@
     <Compile Include="WbEasyCalc.cs" />
     <Compile Include="IWbEasyCalc.cs" />
     <Compile Include="Model\BilledConsumptionSheet.cs" />
-    <Compile Include="Model\EasyCalcSheetData.cs" />
+    <Compile Include="EasyCalcSheet.cs" />
     <Compile Include="Model\IntermittentSupplySheet.cs" />
     <Compile Include="Model\MeterErrorsSheet.cs" />
     <Compile Include="Model\NetworkSheet.cs" />
