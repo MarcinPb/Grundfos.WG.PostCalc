@@ -13,7 +13,7 @@ namespace WbEasyCalcRepository
         public NetworkSheet NetworkSheet { get; set; }
         public FinancialDataSheet FinancialDataSheet { get; set; }
         public PressureSheet PressureSheet { get; set; }
-        public IntermittentSupplySheet IntermittentSupply { get; set; }
+        public IntermittentSupplySheet IntermittentSupplySheet { get; set; }
         public WaterBalanceDaySheet WaterBalanceDaySheet { get; set; }
         public WaterBalanceSheet WaterBalanceSheet { get; set; }
         public WaterBalanceYearSheet WaterBalanceYearSheet { get; set; }

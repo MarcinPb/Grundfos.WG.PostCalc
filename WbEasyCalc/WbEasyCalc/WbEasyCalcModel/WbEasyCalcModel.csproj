@@ -44,7 +44,20 @@
     <Compile Include="EasyCalcDataInput.cs" />
     <Compile Include="EasyCalcDataOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EasyCalcModel.cs" />
+    <Compile Include="WbEasyCalc\BilledConsModel.cs" />
     <Compile Include="WbEasyCalc\PisModel.cs" />
+    <Compile Include="WbEasyCalc\StartModel.cs" />
+    <Compile Include="WbEasyCalc\SysInputModel.cs" />
+    <Compile Include="WbEasyCalc\UnauthConsModel.cs" />
+    <Compile Include="WbEasyCalc\MetErrorsModel.cs" />
+    <Compile Include="WbEasyCalc\NetworkModel.cs" />
+    <Compile Include="WbEasyCalc\PressureModel.cs" />
+    <Compile Include="WbEasyCalc\IntermModel.cs" />
+    <Compile Include="WbEasyCalc\FinancDataModel.cs" />
+    <Compile Include="WbEasyCalc\MatrixLossModel.cs" />
+    <Compile Include="WbEasyCalc\MatrixNrwModel.cs" />
+    <Compile Include="WbEasyCalc\UnbilledConsModel.cs" />
     <Compile Include="WbEasyCalc\WaterBalanceModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,8 +11,8 @@ namespace WbEasyCalcRepository.Model
             _data = data;
         }
 
-        public double Pis_F9 { get => _data.IntermittentSupply.SupplyTimeBestEstimate_H33; }
-        public double Pis_H9 { get => _data.IntermittentSupply.ErrorMargin_H26; }
+        public double Pis_F9 { get => _data.IntermittentSupplySheet.SupplyTimeBestEstimate_H33; }
+        public double Pis_H9 { get => _data.IntermittentSupplySheet.ErrorMargin_H26; }
         public double Pis_J9 { get => Pis_F9 * (1 - Pis_H9); }
         public double Pis_L9 { get => Pis_F9 * (1 + Pis_H9); }
 
