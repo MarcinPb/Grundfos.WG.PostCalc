@@ -20,8 +20,12 @@ namespace DataModel
         public bool IsArchive { get; set; }
         public bool IsAccepted { get; set; }
 
+
+        public EasyCalcModel EasyCalcModel { get; set; }
+
+
+
         // input
-        //public EasyCalcDataInput EasyCalcDataInput { get; set; }
         public int Start_PeriodDays_M21 { get; set; } 
 
         // SysInput
@@ -313,6 +317,7 @@ namespace DataModel
         public string FinancData_K35 { get; set; }
 
 
+
         public WaterBalanceModel WaterBalanceDay { get; set; } 
         public WaterBalanceModel WaterBalancePeriod { get; set; } 
         public WaterBalanceModel WaterBalanceYear { get; set; } 
@@ -336,6 +341,8 @@ namespace DataModel
                 ZoneId = ZoneId,
                 YearNo = YearNo,
                 MonthNo = MonthNo,
+
+                EasyCalcModel = (EasyCalcModel)EasyCalcModel.Clone(),
 
                 // input
                 //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),

@@ -26,8 +26,8 @@ namespace DataRepository.WbEasyCalcData
         {
             if (id != 0)
             {
-                var customer = _list.Single(f => f.WbEasyCalcDataId == id);
-                return (DataModel.WbEasyCalcData)customer?.Clone();
+                var item = _list.Single(f => f.WbEasyCalcDataId == id);
+                return (DataModel.WbEasyCalcData)item?.Clone();
             }
             else
             {
