@@ -53,7 +53,7 @@ namespace DataRepository.WbEasyCalcData
                 p.Add("@IsAccepted", model.IsAccepted);
 
                 // input
-                p.Add("@Start_PeriodDays_M21", model.Start_PeriodDays_M21);
+                p.Add("@Start_PeriodDays_M21", model.EasyCalcModel.StartModel.Start_PeriodDays_M21);
 
                 p.Add("@SysInput_Desc_B6", model.SysInput_Desc_B6);
                 p.Add("@SysInput_Desc_B7", model.SysInput_Desc_B7);

@@ -388,7 +388,7 @@ namespace WbEasyCalcRepository.Test
         private void ReadSheetData_Test(EasyCalcModel easyCalcModel, Dictionary<string, double> expectedDict)
         {
             WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
-            easyCalcDataReaderMoq.Calculate(easyCalcModel);
+            easyCalcDataReaderMoq.CalculateNew(easyCalcModel);
 
             foreach (var keyValuePair in expectedDict)
             {
@@ -402,7 +402,7 @@ namespace WbEasyCalcRepository.Test
         private void ReadSheetData_Test(EasyCalcModel easyCalcModel, Dictionary<string, double> expectedWaterBalanceDayDict, Dictionary<string, double> expectedWaterBalancePeriodDict)
         {
             WbEasyCalcRepository.WbEasyCalc easyCalcDataReaderMoq = new WbEasyCalcRepository.WbEasyCalc();
-            easyCalcDataReaderMoq.Calculate(easyCalcModel);
+            easyCalcDataReaderMoq.CalculateNew(easyCalcModel);
 
             WaterBalanceModel waterBalanceDay = easyCalcModel.WaterBalanceDay;
             WaterBalanceModel waterBalancePeriod = easyCalcModel.WaterBalancePeriod;

@@ -26,7 +26,7 @@ namespace DataModel
 
 
         // input
-        public int Start_PeriodDays_M21 { get; set; } 
+        //public int Start_PeriodDays_M21 { get; set; } 
 
         // SysInput
         public string SysInput_Desc_B6 { get; set; }
@@ -345,8 +345,7 @@ namespace DataModel
                 EasyCalcModel = (EasyCalcModel)EasyCalcModel.Clone(),
 
                 // input
-                //EasyCalcDataInput = (EasyCalcDataInput)EasyCalcDataInput.Clone(),
-                Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                //Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
                 SysInput_Desc_B6 = SysInput_Desc_B6,
                 SysInput_Desc_B7 = SysInput_Desc_B7,
@@ -629,7 +628,7 @@ namespace DataModel
             {
                 _easyCalcDataInput = new EasyCalcDataInput()
                 {
-                    Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                    //Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
                     SysInput_Desc_B6 = SysInput_Desc_B6,
                     SysInput_Desc_B7 = SysInput_Desc_B7,

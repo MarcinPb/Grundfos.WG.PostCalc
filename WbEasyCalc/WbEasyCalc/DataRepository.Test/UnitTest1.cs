@@ -24,11 +24,15 @@ namespace DataRepository.Test
                 YearNo = 1,
                 MonthNo = 1,
                 Description = "Desc 1",
-                //EasyCalcDataInput = new EasyCalcDataInput()
-                //{
-                    Start_PeriodDays_M21 = 30,
-                    SysInput_SystemInputVolumeM3_D6 = 111111
-                //}, 
+                EasyCalcModel = new EasyCalcModel
+                { 
+                    StartModel = new WbEasyCalcModel.WbEasyCalc.StartModel
+                    {
+                        Start_PeriodDays_M21 = 30,
+                    }, 
+                },
+                    
+                SysInput_SystemInputVolumeM3_D6 = 111111
             };
             dataRepository.WbEasyCalcDataListRepository.SaveItem(model);
             var id = model.WbEasyCalcDataId;

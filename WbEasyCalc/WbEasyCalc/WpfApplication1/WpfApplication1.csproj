@@ -127,8 +127,19 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
       <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\PisViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\WaterBalanceViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\EasyCalcViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\PressureViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\NetworkViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\MeterErrorsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\IntermittentSupplyViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\FinancialDataViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\UnauthConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\PisViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\UnbConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\SysInputViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\BilledConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\StartViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
@@ -167,8 +178,8 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml.cs">
       <DependentUpon>UnbConsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceView.xaml.cs">
-      <DependentUpon>WaterBalanceView.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalancePeriodView.xaml.cs">
+      <DependentUpon>WaterBalancePeriodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\EventCommandExecuter.cs" />
     <Compile Include="Utility\SelectingItemAttachedProperty.cs" />
@@ -266,7 +277,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceView.xaml">
+    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalancePeriodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel 
+namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs 
 {
     public class PisViewModel : ViewModelBase
     {
@@ -198,6 +199,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             set { _pis_H31 = value; RaisePropertyChanged(nameof(Pis_H31)); }
         }
         private double _pis_J31;
+
         public double Pis_J31
         {
             get => _pis_J31;
@@ -453,9 +455,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             Pis_P47 = Pis_P47,
         };
 
-        public PisViewModel(PisModel model)
+        internal void Refreash(PisModel model)
         {
-            if (model == null) return;
             Pis_F9 = model.Pis_F9;
             Pis_H9 = model.Pis_H9;
             Pis_J9 = model.Pis_J9;
@@ -517,6 +518,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             Pis_P27 = model.Pis_P27;
             Pis_N47 = model.Pis_N47;
             Pis_P47 = model.Pis_P47;
+        }
+
+
+
+        public PisViewModel(PisModel model)
+        {
+            if (model == null) return;
+            Refreash(model);
         }
     }
 }

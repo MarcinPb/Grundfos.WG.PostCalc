@@ -418,7 +418,7 @@ namespace DataRepository.WbEasyCalcData
 
 
 
-                Start_PeriodDays_M21 = Start_PeriodDays_M21,
+                //Start_PeriodDays_M21 = Start_PeriodDays_M21,
 
                 SysInput_Desc_B6 = SysInput_Desc_B6,
                 SysInput_Desc_B7 = SysInput_Desc_B7,

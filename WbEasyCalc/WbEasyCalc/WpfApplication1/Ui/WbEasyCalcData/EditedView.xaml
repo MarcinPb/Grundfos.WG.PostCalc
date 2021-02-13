@@ -6,11 +6,17 @@
              mc:Ignorable="d"              
              xmlns:converters="clr-namespace:WpfApplication1.Converters" 
              xmlns:tabView="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView"
+             xmlns:tabViewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
+
+        <DataTemplate DataType="{x:Type tabViewModel:StartViewModel}">
+            <tabView:StartView />
+        </DataTemplate>
+
     </UserControl.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -64,9 +70,10 @@
 
         <TabControl Grid.Column="0" Grid.Row="1" Margin="0 0 0 0" TabStripPlacement="Bottom">
             <TabItem Header="Start" >
-                <tabView:StartView/>
+                <tabView:StartView />
+                <!--<ContentControl Content="{Binding Model.EasyCalcViewModel.StartViewModel}" />-->
             </TabItem>
-            <TabItem Header="Sys.Input" >
+            <TabItem Header="Sys.Input" Height="22" VerticalAlignment="Top" >
                 <tabView:SysInputView/>
             </TabItem>
             <TabItem Header="Billed Cons" >
@@ -100,7 +107,7 @@
                 <tabView:WaterBalanceDayView/>
             </TabItem>
             <TabItem Header="Water Balance m3" >
-                <tabView:WaterBalanceView/>
+                <tabView:WaterBalancePeriodView/>
             </TabItem>
             <TabItem Header="Water Balance m3year" >
                 <tabView:WaterBalanceYearView/>

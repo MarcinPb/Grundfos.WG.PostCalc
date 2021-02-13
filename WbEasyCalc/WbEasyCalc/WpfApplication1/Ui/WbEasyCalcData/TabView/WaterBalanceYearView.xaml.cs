@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.TabView
 {
-    /// <summary>
-    /// Interaction logic for WaterBalanceView.xaml
-    /// </summary>
     public partial class WaterBalanceYearView : UserControl
     {
         public WaterBalanceYearView()

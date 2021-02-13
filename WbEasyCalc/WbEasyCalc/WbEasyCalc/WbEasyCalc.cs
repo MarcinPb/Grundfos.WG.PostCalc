@@ -456,19 +456,16 @@ namespace WbEasyCalcRepository
 
 
 
-
-
-
-
-
-
-
-        public void Calculate(EasyCalcModel easyCalcModel)
+        public void CalculateNew(EasyCalcModel easyCalcModel)
         {
             EasyCalcSheet easyCalcSheetData = CalcSheetData(easyCalcModel);
 
+            SysInputModel sysInputModel = GetSysInputModel(easyCalcSheetData.SystemInputSheet);
+            easyCalcModel.SysInputModel.SysInput_ErrorMarg_F72 = sysInputModel.SysInput_ErrorMarg_F72;
+            easyCalcModel.SysInputModel.SysInput_Min_D75 = sysInputModel.SysInput_Min_D75;
+            easyCalcModel.SysInputModel.SysInput_Max_D77 = sysInputModel.SysInput_Max_D77;
+            easyCalcModel.SysInputModel.SysInput_BestEstimate_D79 = sysInputModel.SysInput_BestEstimate_D79;
 
-            easyCalcModel.SysInputModel = GetSysInputModel(easyCalcSheetData.SystemInputSheet);
             BilledConsumptionCalc.Calculate(easyCalcModel);
             UnbilledConsumptionCalc.Calculate(easyCalcModel);
             easyCalcModel.UnauthConsModel = GetUnauthConsModel(easyCalcSheetData.UnauthorizedConsumptionSheet);
@@ -486,81 +483,81 @@ namespace WbEasyCalcRepository
             easyCalcModel.Pis = GetPisModel(easyCalcSheetData.PiSheet);
         }
 
-        private EasyCalcSheet CalcSheetData(EasyCalcModel easyCalcDataInput)
+        private EasyCalcSheet CalcSheetData(EasyCalcModel easyCalcModel)
         {
             var data = new EasyCalcSheet();
 
             data.StartSheet = new StartSheet
             {
-                PeriodDays_M21 = easyCalcDataInput.StartModel.Start_PeriodDays_M21,
+                PeriodDays_M21 = easyCalcModel.StartModel.Start_PeriodDays_M21,
             };
 
             data.SystemInputSheet = new SystemInputSheet
             {
                 SystemInputVolumeM3_D6_D70 = new List<double>
                 {
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeM3_D6,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeM3_D7,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeM3_D8,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeM3_D9,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeM3_D6,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeM3_D7,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeM3_D8,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeM3_D9,
                 },
                 SystemInputVolumeError_F6_F70 = new List<double>
                 {
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeError_F6,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeError_F7,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeError_F8,
-                    easyCalcDataInput.SysInputModel.SysInput_SystemInputVolumeError_F9,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeError_F6,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeError_F7,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeError_F8,
+                    easyCalcModel.SysInputModel.SysInput_SystemInputVolumeError_F9,
                 }
             };
 
             data.BilledConsumptionSheet = new BilledConsumptionSheet
             {
-                BilledMeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.BilledConsModel.BilledCons_BilledMetConsBulkWatSupExpM3_D6,
-                BulledUnmeteredConsumptionBulkWaterSupplyExportM3_H6 = easyCalcDataInput.BilledConsModel.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
+                BilledMeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcModel.BilledConsModel.BilledCons_BilledMetConsBulkWatSupExpM3_D6,
+                BulledUnmeteredConsumptionBulkWaterSupplyExportM3_H6 = easyCalcModel.BilledConsModel.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6,
                 BilledMeteredConsumptionWithoutBulkSupply_D8_D25 = new List<double>
                 {
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbMetConsM3_D8,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbMetConsM3_D9,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbMetConsM3_D10,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbMetConsM3_D11,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbMetConsM3_D8,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbMetConsM3_D9,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbMetConsM3_D10,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbMetConsM3_D11,
                 },
                 BilledUnmeteredConsumptionWithoutBulkSupply_H8_H25 = new List<double>
                 {
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbUnmetConsM3_H8,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbUnmetConsM3_H9,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbUnmetConsM3_H10,
-                    easyCalcDataInput.BilledConsModel.BilledCons_UnbUnmetConsM3_H11,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbUnmetConsM3_H8,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbUnmetConsM3_H9,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbUnmetConsM3_H10,
+                    easyCalcModel.BilledConsModel.BilledCons_UnbUnmetConsM3_H11,
                 },
             };
 
             data.UnbilledConsumptionSheet = new UnbilledConsumptionSheet
             {
-                MeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcDataInput.UnbilledConsModel.UnbilledCons_MetConsBulkWatSupExpM3_D6,
+                MeteredConsumptionBulkWaterSupplyExportM3_D6 = easyCalcModel.UnbilledConsModel.UnbilledCons_MetConsBulkWatSupExpM3_D6,
 
                 UnbilledMeteredConsumptionWithoutBulkSupply_D8_D23 = new List<double>
                 {
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D8,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D9,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D10,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D11,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D8,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D9,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D10,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbMetConsM3_D11,
                 },
                 UnbilledUnmeteredConsumptionM3_H6_H23 = new List<double>
                 {
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H6,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H7,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H8,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H9,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H10,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H11,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H6,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H7,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H8,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H9,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H10,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsM3_H11,
                 },
                 UnbilledUnmeteredConsumptionError_J6_J23 = new List<double>
                 {
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J6,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J7,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J8,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J9,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J10,
-                    easyCalcDataInput.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J11,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J6,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J7,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J8,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J9,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J10,
+                    easyCalcModel.UnbilledConsModel.UnbilledCons_UnbUnmetConsError_J11,
                 },
             };
 
@@ -568,89 +565,89 @@ namespace WbEasyCalcRepository
             {
                 OthersErrorMargin_F18_F22 = new List<double>
                 {
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersErrorMargin_F18,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersErrorMargin_F19,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersErrorMargin_F20,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersErrorMargin_F21,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersErrorMargin_F18,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersErrorMargin_F19,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersErrorMargin_F20,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersErrorMargin_F21,
                 },
                 OthersM3PerDay_J18_J22 = new List<double>
                 {
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersM3PerDay_J18,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersM3PerDay_J19,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersM3PerDay_J20,
-                    easyCalcDataInput.UnauthConsModel.UnauthCons_OthersM3PerDay_J21,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersM3PerDay_J18,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersM3PerDay_J19,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersM3PerDay_J20,
+                    easyCalcModel.UnauthConsModel.UnauthCons_OthersM3PerDay_J21,
                 },
-                IllegalConnectionsDomesticEstimatedNumber_D6 = easyCalcDataInput.UnauthConsModel.UnauthCons_IllegalConnDomEstNo_D6,
-                IllegalConnectionsDomesticPersonsPerHouse_H6 = easyCalcDataInput.UnauthConsModel.UnauthCons_IllegalConnDomPersPerHouse_H6,
-                IllegalConnectionsDomesticConsumptionLitersPerPersonPerDay_J6 = easyCalcDataInput.UnauthConsModel.UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
-                IllegalConnectionsDomesticErrorMargin_F6 = easyCalcDataInput.UnauthConsModel.UnauthCons_IllegalConnDomErrorMargin_F6,
+                IllegalConnectionsDomesticEstimatedNumber_D6 = easyCalcModel.UnauthConsModel.UnauthCons_IllegalConnDomEstNo_D6,
+                IllegalConnectionsDomesticPersonsPerHouse_H6 = easyCalcModel.UnauthConsModel.UnauthCons_IllegalConnDomPersPerHouse_H6,
+                IllegalConnectionsDomesticConsumptionLitersPerPersonPerDay_J6 = easyCalcModel.UnauthConsModel.UnauthCons_IllegalConnDomConsLitPerPersDay_J6,
+                IllegalConnectionsDomesticErrorMargin_F6 = easyCalcModel.UnauthConsModel.UnauthCons_IllegalConnDomErrorMargin_F6,
 
-                IllegalConnectionsOthersErrorMargin_F10 = easyCalcDataInput.UnauthConsModel.UnauthCons_IllegalConnOthersErrorMargin_F10,
+                IllegalConnectionsOthersErrorMargin_F10 = easyCalcModel.UnauthConsModel.UnauthCons_IllegalConnOthersErrorMargin_F10,
 
-                IllegalConnectionsOthersEstimatedNumber_D10 = easyCalcDataInput.UnauthConsModel.IllegalConnectionsOthersEstimatedNumber_D10,
-                IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = easyCalcDataInput.UnauthConsModel.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10,
+                IllegalConnectionsOthersEstimatedNumber_D10 = easyCalcModel.UnauthConsModel.IllegalConnectionsOthersEstimatedNumber_D10,
+                IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = easyCalcModel.UnauthConsModel.IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10,
 
-                MeterTamperingBypassesEtcEstimatedNumber_D14 = easyCalcDataInput.UnauthConsModel.UnauthCons_MeterTampBypEtcEstNo_D14,
-                MeterTamperingBypassesEtcErrorMargin_F14 = easyCalcDataInput.UnauthConsModel.UnauthCons_MeterTampBypEtcErrorMargin_F14,
-                MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14 = easyCalcDataInput.UnauthConsModel.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
+                MeterTamperingBypassesEtcEstimatedNumber_D14 = easyCalcModel.UnauthConsModel.UnauthCons_MeterTampBypEtcEstNo_D14,
+                MeterTamperingBypassesEtcErrorMargin_F14 = easyCalcModel.UnauthConsModel.UnauthCons_MeterTampBypEtcErrorMargin_F14,
+                MeterTamperingBypassesEtcConsumptionLitersPerCustomerPerDay_J14 = easyCalcModel.UnauthConsModel.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14,
             };
             data.MeterErrorsSheet = new MeterErrorsSheet(data)
             {
-                DetailedManualSpec_J6 = easyCalcDataInput.MetErrorsModel.MetErrors_DetailedManualSpec_J6==2,
-                BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 = easyCalcDataInput.MetErrorsModel.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
-                BilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N8 = easyCalcDataInput.MetErrorsModel.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
+                DetailedManualSpec_J6 = easyCalcModel.MetErrorsModel.MetErrors_DetailedManualSpec_J6==2,
+                BilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H8 = easyCalcModel.MetErrorsModel.MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8,
+                BilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N8 = easyCalcModel.MetErrorsModel.MetErrors_BilledMetConsWoBulkSupErrorMargin_N8,
 
                 BilledMeteredConsumptionManuallyEnteredM3_F12_F28 = new List<double>
                 {
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Total_F12,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Total_F13,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Total_F14,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Total_F15,
+                    easyCalcModel.MetErrorsModel.MetErrors_Total_F12,
+                    easyCalcModel.MetErrorsModel.MetErrors_Total_F13,
+                    easyCalcModel.MetErrorsModel.MetErrors_Total_F14,
+                    easyCalcModel.MetErrorsModel.MetErrors_Total_F15,
                 },
                 BilledMeteredConsumptionManuallyEnteredMeterUnderregistration_H12_H28 = new List<double>
                 {
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Meter_H12,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Meter_H13,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Meter_H14,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Meter_H15,
+                    easyCalcModel.MetErrorsModel.MetErrors_Meter_H12,
+                    easyCalcModel.MetErrorsModel.MetErrors_Meter_H13,
+                    easyCalcModel.MetErrorsModel.MetErrors_Meter_H14,
+                    easyCalcModel.MetErrorsModel.MetErrors_Meter_H15,
                 },
                 BilledMeteredConsumptionManuallyEnteredErrorMargin_N12_N28 = new List<double>
                 {
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Error_N12,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Error_N13,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Error_N14,
-                    easyCalcDataInput.MetErrorsModel.MetErrors_Error_N15,
+                    easyCalcModel.MetErrorsModel.MetErrors_Error_N12,
+                    easyCalcModel.MetErrorsModel.MetErrors_Error_N13,
+                    easyCalcModel.MetErrorsModel.MetErrors_Error_N14,
+                    easyCalcModel.MetErrorsModel.MetErrors_Error_N15,
                 },
 
-                MeteredBulkSupplyExportErrorMargin_N32 = easyCalcDataInput.MetErrorsModel.MeteredBulkSupplyExportErrorMargin_N32,
-                UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = easyCalcDataInput.MetErrorsModel.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
-                CorruptMeterReadingPracticessErrorMargin_N38 = easyCalcDataInput.MetErrorsModel.CorruptMeterReadingPracticessErrorMargin_N38,
-                DataHandlingErrorsOffice_L40 = easyCalcDataInput.MetErrorsModel.DataHandlingErrorsOffice_L40,
-                DataHandlingErrorsOfficeErrorMargin_N40 = easyCalcDataInput.MetErrorsModel.DataHandlingErrorsOfficeErrorMargin_N40,
+                MeteredBulkSupplyExportErrorMargin_N32 = easyCalcModel.MetErrorsModel.MeteredBulkSupplyExportErrorMargin_N32,
+                UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = easyCalcModel.MetErrorsModel.UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34,
+                CorruptMeterReadingPracticessErrorMargin_N38 = easyCalcModel.MetErrorsModel.CorruptMeterReadingPracticessErrorMargin_N38,
+                DataHandlingErrorsOffice_L40 = easyCalcModel.MetErrorsModel.DataHandlingErrorsOffice_L40,
+                DataHandlingErrorsOfficeErrorMargin_N40 = easyCalcModel.MetErrorsModel.DataHandlingErrorsOfficeErrorMargin_N40,
 
-                MeteredBulkSupplyExportMetereUnderregistration_H32 = easyCalcDataInput.MetErrorsModel.MetErrors_MetBulkSupExpMetUnderreg_H32,
-                UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34 = easyCalcDataInput.MetErrorsModel.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
-                CorruptMeterReadingPracticesMeterUnderregistration_H38 = easyCalcDataInput.MetErrorsModel.MetErrors_CorruptMetReadPractMetUndrreg_H38,
+                MeteredBulkSupplyExportMetereUnderregistration_H32 = easyCalcModel.MetErrorsModel.MetErrors_MetBulkSupExpMetUnderreg_H32,
+                UnbilledMeteredConsumptionWithoutBulkSupplyMeterUnderregistration_H34 = easyCalcModel.MetErrorsModel.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34,
+                CorruptMeterReadingPracticesMeterUnderregistration_H38 = easyCalcModel.MetErrorsModel.MetErrors_CorruptMetReadPractMetUndrreg_H38,
             };
             data.NetworkSheet = new NetworkSheet(data)
             {
                 DistributionAndTransmissionMainsEntries_D7_D26 = new List<double> 
                 { 
-                    easyCalcDataInput.NetworkModel.Network_DistributionAndTransmissionMains_D7, 
-                    easyCalcDataInput.NetworkModel.Network_DistributionAndTransmissionMains_D8, 
-                    easyCalcDataInput.NetworkModel.Network_DistributionAndTransmissionMains_D9,
-                    easyCalcDataInput.NetworkModel.Network_DistributionAndTransmissionMains_D10, 
+                    easyCalcModel.NetworkModel.Network_DistributionAndTransmissionMains_D7, 
+                    easyCalcModel.NetworkModel.Network_DistributionAndTransmissionMains_D8, 
+                    easyCalcModel.NetworkModel.Network_DistributionAndTransmissionMains_D9,
+                    easyCalcModel.NetworkModel.Network_DistributionAndTransmissionMains_D10, 
                 },
-                NumberOfConnectionsOfRegsteredCustomers_H10 = easyCalcDataInput.NetworkModel.Network_NoOfConnOfRegCustomers_H10,
-                NumberOfInactiveAccountsWServiceConnections_H18 = easyCalcDataInput.NetworkModel.Network_NoOfInactAccountsWSvcConns_H18,
-                AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 = easyCalcDataInput.NetworkModel.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
+                NumberOfConnectionsOfRegsteredCustomers_H10 = easyCalcModel.NetworkModel.Network_NoOfConnOfRegCustomers_H10,
+                NumberOfInactiveAccountsWServiceConnections_H18 = easyCalcModel.NetworkModel.Network_NoOfInactAccountsWSvcConns_H18,
+                AvgLenOfServiceConnectionFromBoundaryToMeterM_H32 = easyCalcModel.NetworkModel.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32,
 
-                DistributionAndTransmissionMainsPossibleUnderestimation_D30 = easyCalcDataInput.NetworkModel.Network_PossibleUnd_D30,
-                Network_NoCustomers_H7 =  easyCalcDataInput.NetworkModel.Network_NoCustomers_H7,
-                Network_ErrorMargin_J7 =  easyCalcDataInput.NetworkModel.Network_ErrorMargin_J7,
-                Network_ErrorMargin_J10 = easyCalcDataInput.NetworkModel.Network_ErrorMargin_J10,
-                Network_ErrorMargin_J18 = easyCalcDataInput.NetworkModel.Network_ErrorMargin_J18,
-                Network_ErrorMargin_J32 = easyCalcDataInput.NetworkModel.Network_ErrorMargin_J32,
+                DistributionAndTransmissionMainsPossibleUnderestimation_D30 = easyCalcModel.NetworkModel.Network_PossibleUnd_D30,
+                Network_NoCustomers_H7 =  easyCalcModel.NetworkModel.Network_NoCustomers_H7,
+                Network_ErrorMargin_J7 =  easyCalcModel.NetworkModel.Network_ErrorMargin_J7,
+                Network_ErrorMargin_J10 = easyCalcModel.NetworkModel.Network_ErrorMargin_J10,
+                Network_ErrorMargin_J18 = easyCalcModel.NetworkModel.Network_ErrorMargin_J18,
+                Network_ErrorMargin_J32 = easyCalcModel.NetworkModel.Network_ErrorMargin_J32,
                 //Network_ErrorMargin_D35 = easyCalcDataInput.NetworkModel.Network_ErrorMargin_D35,
             };
 
@@ -658,54 +655,54 @@ namespace WbEasyCalcRepository
             {
                 ApproximateNumberOfConnections_D7_D24 = new List<double> 
                 { 
-                    easyCalcDataInput.PressureModel.Prs_ApproxNoOfConn_D7, 
-                    easyCalcDataInput.PressureModel.Prs_ApproxNoOfConn_D8, 
-                    easyCalcDataInput.PressureModel.Prs_ApproxNoOfConn_D9,
-                    easyCalcDataInput.PressureModel.Prs_ApproxNoOfConn_D10, 
+                    easyCalcModel.PressureModel.Prs_ApproxNoOfConn_D7, 
+                    easyCalcModel.PressureModel.Prs_ApproxNoOfConn_D8, 
+                    easyCalcModel.PressureModel.Prs_ApproxNoOfConn_D9,
+                    easyCalcModel.PressureModel.Prs_ApproxNoOfConn_D10, 
                 },
                 DailyAveragePressureM_F7_F24 = new List<double> 
                 { 
-                    easyCalcDataInput.PressureModel.Prs_DailyAvgPrsM_F7, 
-                    easyCalcDataInput.PressureModel.Prs_DailyAvgPrsM_F8, 
-                    easyCalcDataInput.PressureModel.Prs_DailyAvgPrsM_F9,
-                    easyCalcDataInput.PressureModel.Prs_DailyAvgPrsM_F10, 
+                    easyCalcModel.PressureModel.Prs_DailyAvgPrsM_F7, 
+                    easyCalcModel.PressureModel.Prs_DailyAvgPrsM_F8, 
+                    easyCalcModel.PressureModel.Prs_DailyAvgPrsM_F9,
+                    easyCalcModel.PressureModel.Prs_DailyAvgPrsM_F10, 
                 },
-                Prs_ErrorMarg_F26 = easyCalcDataInput.PressureModel.Prs_ErrorMarg_F26,
+                Prs_ErrorMarg_F26 = easyCalcModel.PressureModel.Prs_ErrorMarg_F26,
             };
 
             data.IntermittentSupplySheet = new IntermittentSupplySheet() 
             { 
                 Interm_Conn_D7_24_List = new List<double> 
                 {
-                    easyCalcDataInput.IntermModel.Interm_Conn_D7,
-                    easyCalcDataInput.IntermModel.Interm_Conn_D8,
-                    easyCalcDataInput.IntermModel.Interm_Conn_D9,
-                    easyCalcDataInput.IntermModel.Interm_Conn_D10,
+                    easyCalcModel.IntermModel.Interm_Conn_D7,
+                    easyCalcModel.IntermModel.Interm_Conn_D8,
+                    easyCalcModel.IntermModel.Interm_Conn_D9,
+                    easyCalcModel.IntermModel.Interm_Conn_D10,
                 },
                 Interm_Days_F7_24_List = new List<double> 
                 { 
-                    easyCalcDataInput.IntermModel.Interm_Days_F7,
-                    easyCalcDataInput.IntermModel.Interm_Days_F8,
-                    easyCalcDataInput.IntermModel.Interm_Days_F9,
-                    easyCalcDataInput.IntermModel.Interm_Days_F10,
+                    easyCalcModel.IntermModel.Interm_Days_F7,
+                    easyCalcModel.IntermModel.Interm_Days_F8,
+                    easyCalcModel.IntermModel.Interm_Days_F9,
+                    easyCalcModel.IntermModel.Interm_Days_F10,
                 },
                 Interm_Hour_H7_24_List = new List<double> 
                 { 
-                    easyCalcDataInput.IntermModel.Interm_Hour_H7,
-                    easyCalcDataInput.IntermModel.Interm_Hour_H8,
-                    easyCalcDataInput.IntermModel.Interm_Hour_H9,
-                    easyCalcDataInput.IntermModel.Interm_Hour_H10,
+                    easyCalcModel.IntermModel.Interm_Hour_H7,
+                    easyCalcModel.IntermModel.Interm_Hour_H8,
+                    easyCalcModel.IntermModel.Interm_Hour_H9,
+                    easyCalcModel.IntermModel.Interm_Hour_H10,
                 },
-                ErrorMargin_H26 = easyCalcDataInput.IntermModel.Interm_ErrorMarg_H26,
+                ErrorMargin_H26 = easyCalcModel.IntermModel.Interm_ErrorMarg_H26,
             };
 
             data.FinancialDataSheet = new FinancialDataSheet(data)
             {
-                FinancData_G6 = easyCalcDataInput.FinancDataModel.FinancData_G6,
-                FinancData_K6 = easyCalcDataInput.FinancDataModel.FinancData_K6,
-                FinancData_G8 = easyCalcDataInput.FinancDataModel.FinancData_G8,
-                FinancData_D26 = easyCalcDataInput.FinancDataModel.FinancData_D26,
-                FinancData_G35 = easyCalcDataInput.FinancDataModel.FinancData_G35,
+                FinancData_G6 = easyCalcModel.FinancDataModel.FinancData_G6,
+                FinancData_K6 = easyCalcModel.FinancDataModel.FinancData_K6,
+                FinancData_G8 = easyCalcModel.FinancDataModel.FinancData_G8,
+                FinancData_D26 = easyCalcModel.FinancDataModel.FinancData_D26,
+                FinancData_G35 = easyCalcModel.FinancDataModel.FinancData_G35,
             };
 
             data.WaterBalanceSheet = new WaterBalanceSheet(data);

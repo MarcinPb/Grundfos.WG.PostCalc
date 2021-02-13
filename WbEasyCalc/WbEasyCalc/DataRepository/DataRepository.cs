@@ -194,7 +194,13 @@ namespace DataRepository
 
                 return new DataModel.WbEasyCalcData()
                 {
-                    Start_PeriodDays_M21 = p.Get<int>("@Start_PeriodDays_M21"),                                                             // //
+                    EasyCalcModel= new WbEasyCalcModel.EasyCalcModel
+                    { 
+                        StartModel = new WbEasyCalcModel.WbEasyCalc.StartModel
+                        {
+                            Start_PeriodDays_M21 = p.Get<int>("@Start_PeriodDays_M21"),                                                             // //
+                        },
+                    },
 
                     SysInput_SystemInputVolumeM3_D6 = p.Get<double>("@SysInput_SystemInputVolumeM3_D6"),                                    // @SystemInputVolume
                     SysInput_SystemInputVolumeError_F6 = p.Get<double>("@SysInput_SystemInputVolumeError_F6"),                              // 

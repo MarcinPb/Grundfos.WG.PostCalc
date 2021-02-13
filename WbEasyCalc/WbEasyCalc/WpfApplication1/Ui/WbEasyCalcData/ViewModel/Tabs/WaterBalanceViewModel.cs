@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
+namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class WaterBalanceViewModel : ViewModelBase
     {
@@ -217,10 +218,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             NonRevenueWaterErrorMargin_AY26 = NonRevenueWaterErrorMargin_AY26,
         };
 
-        public WaterBalanceViewModel(WaterBalanceModel model)
+        internal void Refreash(WaterBalanceModel model)
         {
-            if (model == null) return;
-
             SystemInputVolume_B19 = model.SystemInputVolume_B19;
             SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
             AuthorizedConsumption_K12 = model.AuthorizedConsumption_K12;
@@ -246,6 +245,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             RevenueWaterM3_AY8 = model.RevenueWaterM3_AY8;
             NonRevenueWaterM3_AY24 = model.NonRevenueWaterM3_AY24;
             NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
+        }
+
+        public WaterBalanceViewModel(WaterBalanceModel model)
+        {
+            if (model == null) return;
+            Refreash(model);
         }
     }
 }
