@@ -33,14 +33,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             EasyCalcModel = EasyCalcViewModel?.Model,
 
-
-
-            // output
-            WaterBalanceDay = WaterBalanceDayViewModel?.Model,
-            WaterBalancePeriod = WaterBalancePeriodViewModel?.Model,
-            WaterBalanceYear = WaterBalanceYearViewModel?.Model,
-            Pis = PisViewModel?.Model,
-
         };
 
         #region Props ViewModel: Id, ZoneId,...
@@ -181,44 +173,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _easyCalcViewModel = value; RaisePropertyChanged(nameof(EasyCalcViewModel)); }
         }
 
-        #region Props input 
-
-        #endregion Props input
-
-        #region Props output
-
-        private WaterBalanceViewModel _waterBalanceDayViewModel;
-        public WaterBalanceViewModel WaterBalanceDayViewModel
-        {
-            get => _waterBalanceDayViewModel;
-            set { _waterBalanceDayViewModel = value; RaisePropertyChanged(nameof(WaterBalanceDayViewModel)); }
-        }
-        private WaterBalanceViewModel _waterBalancePeriodViewModel;
-        public WaterBalanceViewModel WaterBalancePeriodViewModel
-        {
-            get => _waterBalancePeriodViewModel;
-            set { _waterBalancePeriodViewModel = value; RaisePropertyChanged(nameof(WaterBalancePeriodViewModel)); }
-        }
-        private WaterBalanceViewModel _waterBalanceYearViewModel;
-        public WaterBalanceViewModel WaterBalanceYearViewModel
-        {
-            get => _waterBalanceYearViewModel;
-            set { _waterBalanceYearViewModel = value; RaisePropertyChanged(nameof(WaterBalanceYearViewModel)); }
-        }
-
-        private PisViewModel _pisViewModel;
-        public PisViewModel PisViewModel
-        {
-            get => _pisViewModel;
-            set { _pisViewModel = value; RaisePropertyChanged(nameof(PisViewModel)); }
-        }
-
-
-
-
-
-        #endregion
-
 
         public ItemViewModel(DataModel.WbEasyCalcData model)
         {
@@ -255,43 +209,22 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             EasyCalcViewModel = new EasyCalcViewModel(easyCalcModel, this);
 
-
-
-
-
-
-
-            // output
-            WaterBalanceDayViewModel = new WaterBalanceViewModel(model.WaterBalanceDay);
-            WaterBalancePeriodViewModel = new WaterBalanceViewModel(model.WaterBalancePeriod);
-            WaterBalanceYearViewModel = new WaterBalanceViewModel(model.WaterBalanceYear);
-            PisViewModel = new PisViewModel(model.Pis);
-
-
-
-
-
-
-
-
-
-
         }
 
-        public void CalculateExcel()
-        {
-            try
-            {
-                EasyCalcDataInput easyCalcDataInput = Model.EasyCalcDataInput;
-                IWbEasyCalc wbEasyCalc = new WbEasyCalcRepository.WbEasyCalc();
-                EasyCalcDataOutput easyCalcDataOutput = wbEasyCalc.Calculate(easyCalcDataInput);
-                MapEasyCalcDataOutput(easyCalcDataOutput);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+        //public void CalculateExcel()
+        //{
+        //    try
+        //    {
+        //        EasyCalcDataInput easyCalcDataInput = Model.EasyCalcDataInput;
+        //        IWbEasyCalc wbEasyCalc = new WbEasyCalcRepository.WbEasyCalc();
+        //        EasyCalcDataOutput easyCalcDataOutput = wbEasyCalc.Calculate(easyCalcDataInput);
+        //        MapEasyCalcDataOutput(easyCalcDataOutput);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
 
         public void CalculateExcelNew()
         {
@@ -301,7 +234,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
                 var easyCalcModel = Model.EasyCalcModel;
                 new WbEasyCalcRepository.WbEasyCalc().CalculateNew(easyCalcModel);
-                //wbEasyCalcRepository.CalculateNew(easyCalcModel);
                 Model.EasyCalcModel = easyCalcModel;
 
                 EasyCalcViewModel.Refreash(easyCalcModel);
@@ -322,8 +254,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             //Start_PeriodDays_M21 = MonthNo == 13 ? new DateTime(YearNo, 12, 31).DayOfYear : DateTime.DaysInMonth(YearNo, MonthNo);
         }
 
-        private void MapEasyCalcDataOutput(EasyCalcDataOutput easyCalcDataOutput)
-        {
+        //private void MapEasyCalcDataOutput(EasyCalcDataOutput easyCalcDataOutput)
+        //{
             //Prs_BestEstimate_F33 = easyCalcDataOutput.Prs_BestEstimate_F33;
             //Prs_Min_F29 = easyCalcDataOutput.Prs_Min_F29;
             //Prs_Max_F31 = easyCalcDataOutput.Prs_Max_F31;
@@ -410,10 +342,10 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             //FinancData_K35 = easyCalcDataOutput.FinancData_K35;
 
 
-            WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
-            WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
-            WaterBalanceYearViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceYear);
-            PisViewModel = new PisViewModel(easyCalcDataOutput.Pis);
-        }
+            //WaterBalanceDayViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceDay);
+            //WaterBalancePeriodViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalancePeriod);
+            //WaterBalanceYearViewModel = new WaterBalanceViewModel(easyCalcDataOutput.WaterBalanceYear);
+            //PisViewModel = new PisViewModel(easyCalcDataOutput.Pis);
+        //}
     }
 }

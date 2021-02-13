@@ -28,7 +28,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Water Balance in m3 for a period of " FontWeight="Bold" FontSize="14"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Model.WaterBalancePeriodViewModel.Start_PeriodDays_M21}" FontWeight="Bold" FontSize="14" Foreground="Red"/>
+                <!--<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Model.EasyCalcViewModel.StartViewModel.Start_PeriodDays_M21}" FontWeight="Bold" FontSize="14" Foreground="Red"/>-->
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Model.EasyCalcViewModel.WaterBalancePeriodViewModel.PeriodDays_AF1}" FontWeight="Bold" FontSize="14" Foreground="Red"/>
                 <TextBlock Grid.Row="0" Grid.Column="2" Text=" days" FontWeight="Bold" FontSize="14" />
             </Grid>
             <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left">

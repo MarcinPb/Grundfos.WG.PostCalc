@@ -348,6 +348,7 @@ namespace WbEasyCalcRepository
         {
             WaterBalanceModel model = new WaterBalanceModel
             {
+                PeriodDays_AF1 = sheet.PeriodDays_AF1,
                 SystemInputVolume_B19 = sheet.SystemInputVolume_B19,
                 SystemInputVolumeErrorMargin_B21 = sheet.SystemInputVolumeErrorMargin_B21,
 

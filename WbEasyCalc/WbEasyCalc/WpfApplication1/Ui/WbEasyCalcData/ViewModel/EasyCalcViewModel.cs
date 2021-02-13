@@ -125,14 +125,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             //StartViewModel.Refreash(easyCalcModel);
             SysInputViewModel.Refreash(easyCalcModel.SysInputModel);
             BilledConsViewModel.Refreash(easyCalcModel.BilledConsModel);
-
             UnbConsViewModel.Refreash(easyCalcModel.UnbilledConsModel);
             UnauthConsViewModel.Refreash(easyCalcModel.UnauthConsModel);
             MeterErrorsViewModel.Refreash(easyCalcModel.MetErrorsModel);
-            //NetworkViewModel.Refreash(easyCalcModel);
-            //PressureViewModel.Refreash(easyCalcModel);
-            //IntermittentSupplyViewModel.Refreash(easyCalcModel);
-            //FinancialDataViewModel.Refreash(easyCalcModel);
+            NetworkViewModel.Refreash(easyCalcModel.NetworkModel);
+            PressureViewModel.Refreash(easyCalcModel.PressureModel);
+            IntermittentSupplyViewModel.Refreash(easyCalcModel.IntermModel);
+            FinancialDataViewModel.Refreash(easyCalcModel.FinancDataModel);
 
             WaterBalanceDayViewModel.Refreash(easyCalcModel.WaterBalanceDay);
             WaterBalancePeriodViewModel.Refreash(easyCalcModel.WaterBalancePeriod);

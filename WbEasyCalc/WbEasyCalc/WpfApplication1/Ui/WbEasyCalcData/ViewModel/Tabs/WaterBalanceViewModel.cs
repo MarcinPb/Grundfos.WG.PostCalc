@@ -39,6 +39,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         private double _nonRevenueWaterM3Ay24;
         private double _nonRevenueWaterErrorMarginAy26;
 
+        private double _periodDays_AF1;
+        public double PeriodDays_AF1
+        {
+            get { return _periodDays_AF1; }
+            set { _periodDays_AF1 = value; RaisePropertyChanged(nameof(PeriodDays_AF1)); }
+        }
         public double SystemInputVolume_B19
         {
             get { return _systemInputVolume_B19; }
@@ -191,6 +197,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
         public WaterBalanceModel Model => new WaterBalanceModel()
         {
+            PeriodDays_AF1 = PeriodDays_AF1,
             SystemInputVolume_B19 = SystemInputVolume_B19,
             SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
             AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
@@ -220,6 +227,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
         internal void Refreash(WaterBalanceModel model)
         {
+            PeriodDays_AF1 = model.PeriodDays_AF1;
             SystemInputVolume_B19 = model.SystemInputVolume_B19;
             SystemInputVolumeErrorMargin_B21 = model.SystemInputVolumeErrorMargin_B21;
             AuthorizedConsumption_K12 = model.AuthorizedConsumption_K12;

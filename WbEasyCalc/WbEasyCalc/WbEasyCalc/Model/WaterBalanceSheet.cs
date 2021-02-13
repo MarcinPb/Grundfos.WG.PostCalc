@@ -12,6 +12,8 @@ namespace WbEasyCalcRepository.Model
             this._data = data;
         }
 
+        public virtual double PeriodDays_AF1 { get => _data.StartSheet.PeriodDays_M21; }
+
         public virtual double SystemInputVolume_B19 { get => _data.StartSheet.PeriodDays_M21 > 0 ? _data.SystemInputSheet.SystemInputVolume_D79 : 0d; }
         public virtual double BilledMeteredConsumption_AC4 { get => _data.BilledConsumptionSheet.BilledMeteredConsumption_D6_D25.Sum();}
         public virtual double BilledUnmeteredConsumption_AC9 { get => _data.BilledConsumptionSheet.BilledUnmeteredConsumption_H6_H25.Sum(); }

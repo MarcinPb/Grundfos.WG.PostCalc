@@ -8,6 +8,7 @@ namespace WbEasyCalcModel.WbEasyCalc
 {
     public class WaterBalanceModel : ICloneable
     {
+        public double PeriodDays_AF1 { get; set; }
         public double SystemInputVolume_B19 { get; set; }
         public double SystemInputVolumeErrorMargin_B21 { get; set; }
 
@@ -43,6 +44,7 @@ namespace WbEasyCalcModel.WbEasyCalc
         {
             return new WaterBalanceModel()
             {
+                PeriodDays_AF1 = PeriodDays_AF1,
                 SystemInputVolume_B19 = SystemInputVolume_B19,
                 SystemInputVolumeErrorMargin_B21 = SystemInputVolumeErrorMargin_B21,
                 AuthorizedConsumption_K12 = AuthorizedConsumption_K12,
