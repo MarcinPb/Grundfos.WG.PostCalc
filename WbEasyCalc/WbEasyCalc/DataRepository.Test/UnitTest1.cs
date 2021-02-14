@@ -32,7 +32,7 @@ namespace DataRepository.Test
                     }, 
                 },
                     
-                SysInput_SystemInputVolumeM3_D6 = 111111
+                //SysInput_SystemInputVolumeM3_D6 = 111111
             };
             dataRepository.WbEasyCalcDataListRepository.SaveItem(model);
             var id = model.WbEasyCalcDataId;

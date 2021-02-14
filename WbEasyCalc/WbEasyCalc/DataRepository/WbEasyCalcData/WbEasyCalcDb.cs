@@ -415,11 +415,17 @@ namespace DataRepository.WbEasyCalcData
                 IsArchive = IsArchive,
                 IsAccepted = IsAccepted,
 
-
+                //EasyCalcModel = new EasyCalcModel
+                //{
+                //    StartModel = new StartModel 
+                //    { 
+                //        Start_PeriodDays_M21 = Start_PeriodDays_M21,                 
+                //    }
+                //},
 
 
                 //Start_PeriodDays_M21 = Start_PeriodDays_M21,
-
+                /*
                 SysInput_Desc_B6 = SysInput_Desc_B6,
                 SysInput_Desc_B7 = SysInput_Desc_B7,
                 SysInput_Desc_B8 = SysInput_Desc_B8,
@@ -624,6 +630,7 @@ namespace DataRepository.WbEasyCalcData
                 },
                 WaterBalanceYear = new WaterBalanceModel(),
                 Pis = new PisModel(),
+                */
 
                 EasyCalcModel = new EasyCalcModel()
                 {
@@ -670,8 +677,6 @@ namespace DataRepository.WbEasyCalcData
                         BilledCons_UnbUnmetConsM3_H9 = BilledCons_UnbUnmetConsM3_H9,
                         BilledCons_UnbUnmetConsM3_H10 = BilledCons_UnbUnmetConsM3_H10,
                         BilledCons_UnbUnmetConsM3_H11 = BilledCons_UnbUnmetConsM3_H11,
-
-
                     },
 
                     UnbilledConsModel = new UnbilledConsModel

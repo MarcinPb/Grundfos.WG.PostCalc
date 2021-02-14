@@ -316,8 +316,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
-                EasyCalcDataInput easyCalcDataInput = Model.Model.EasyCalcDataInput;
-                GlobalConfig.WbEasyCalcExcel.SaveToExcelFile(excelFileName, easyCalcDataInput);
+                EasyCalcModel easyCalcModel = Model.Model.EasyCalcModel;
+                GlobalConfig.WbEasyCalcExcel.SaveToExcelFile(excelFileName, easyCalcModel);
             }
             catch (Exception e)
             {
@@ -330,16 +330,18 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
-                EasyCalcDataInput easyCalcDataInput = GlobalConfig.WbEasyCalcExcel.LoadFromExcelFile(excelFileName);
-                MapEasyCalcDataInput(easyCalcDataInput);
-                //Model.Model.EasyCalcDataInput = easyCalcDataInput;
-                //Model.CalculateExcelNew();
+                EasyCalcModel easyCalcModel = GlobalConfig.WbEasyCalcExcel.LoadFromExcelFile(excelFileName);
+                //MapEasyCalcDataInput(easyCalcDataInput);
+                Model.Model.EasyCalcModel = null;
+                Model.Model.EasyCalcModel = easyCalcModel;
+                Model.CalculateExcelNew();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void MapEasyCalcDataInput(EasyCalcDataInput easyCalcDataInput)
         {
