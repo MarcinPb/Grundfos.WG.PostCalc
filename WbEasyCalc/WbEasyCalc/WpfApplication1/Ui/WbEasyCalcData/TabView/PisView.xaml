@@ -8,8 +8,8 @@
              >
     
     <!--
-    Text="{Binding Path=Model.UnauthCons_IllegalConnDomEstNo_D6}"
-    Text="{Binding Path=Model.IllegalConnectionsOthersEstimatedNumber_D10}"    
+    Text="{Binding Path=UnauthCons_IllegalConnDomEstNo_D6}"
+    Text="{Binding Path=IllegalConnectionsOthersEstimatedNumber_D10}"    
     -->
     
     <UserControl.Resources>
@@ -101,16 +101,16 @@
 
                     <Label Grid.Row="6" Grid.Column="0" Content="Average Supply Time [h/day]" Style="{StaticResource LabelRowTitleStyle}"  />
 
-                    <Label Grid.Row="6" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="6" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H9}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="6" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="6" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="6" Grid.Column="2" Content="{Binding Path=Pis_F9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="6" Grid.Column="4" Content="{Binding Path=Pis_H9}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="6" Grid.Column="6" Content="{Binding Path=Pis_J9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="6" Grid.Column="8" Content="{Binding Path=Pis_L9}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="8" Grid.Column="0" Content="Average Pressure [m]" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H11}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="2" Content="{Binding Path=Pis_F11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="4" Content="{Binding Path=Pis_H11}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="6" Content="{Binding Path=Pis_J11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="8" Grid.Column="8" Content="{Binding Path=Pis_L11}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="10" Grid.ColumnSpan="9" Content="Volume of Phisical Losses" Style="{StaticResource LabelSpanTitleLightStyle}" />
                                 
@@ -120,16 +120,16 @@
                     <Label Grid.Row="12" Grid.Column="8"  Style="{StaticResource LabelTitle4Style}" />
 
                     <Label Grid.Row="14" Grid.Column="0" Content="CAPL - Current Annual Volume of&#10;Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="14" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="14" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H17}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="14" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="14" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="2" Content="{Binding Path=Pis_F17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="4" Content="{Binding Path=Pis_H17}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="6" Content="{Binding Path=Pis_J17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="14" Grid.Column="8" Content="{Binding Path=Pis_L17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="16" Grid.Column="0" Content="MAPL - Minimum Achievable Volume&#10;of Phisical Losses [m3/day]" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="16" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="16" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H19}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="16" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="16" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="16" Grid.Column="2" Content="{Binding Path=Pis_F19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="16" Grid.Column="4" Content="{Binding Path=Pis_H19}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="16" Grid.Column="6" Content="{Binding Path=Pis_J19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="16" Grid.Column="8" Content="{Binding Path=Pis_L19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                                 
                 
                 
@@ -146,30 +146,30 @@
                     <Label Grid.Row="20" Grid.Column="12"  Content=" Low and Middle&#10;Income Countries" Style="{StaticResource LabelResult1Style}" Background="DarkSeaGreen" />
 
                     <Label Grid.Row="22" Grid.Column="0" Content="Infrastructure Leakage Index (ILI)" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="22" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="22" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H25}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="22" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="22" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="21" Grid.Column="10" Grid.RowSpan="7" Content="{Binding Path=Model.PisViewModel.Pis_N27}" Style="{StaticResource LabelResult3Style}" Background="DarkOliveGreen"/>
-                    <Label Grid.Row="21" Grid.Column="12" Grid.RowSpan="7" Content="{Binding Path=Model.PisViewModel.Pis_P27}" Style="{StaticResource LabelResult3Style}" Background="DarkSeaGreen"/>
+                    <Label Grid.Row="22" Grid.Column="2" Content="{Binding Path=Pis_F25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="4" Content="{Binding Path=Pis_H25}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="6" Content="{Binding Path=Pis_J25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="22" Grid.Column="8" Content="{Binding Path=Pis_L25}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="21" Grid.Column="10" Grid.RowSpan="7" Content="{Binding Path=Pis_N27}" Style="{StaticResource LabelResult3Style}" Background="DarkOliveGreen"/>
+                    <Label Grid.Row="21" Grid.Column="12" Grid.RowSpan="7" Content="{Binding Path=Pis_P27}" Style="{StaticResource LabelResult3Style}" Background="DarkSeaGreen"/>
 
                     <Label Grid.Row="24" Grid.Column="0" Content="Liters per Connection per Day (w.s.p)&#xD;&#xA;&#xD;&#xA;w.s.p.: when the system is pressurized&#xD;&#xA;- this maens the value is already&#xD;&#xA;corrected in case of intermittent&#xD;&#xA;supply " Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="24" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="24" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H27}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="24" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="24" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="2" Content="{Binding Path=Pis_F27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="4" Content="{Binding Path=Pis_H27}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="6" Content="{Binding Path=Pis_J27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="24" Grid.Column="8" Content="{Binding Path=Pis_L27}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                                 
                     <Label Grid.Row="26" Grid.Column="0" Content="Liters per Connection per Day per&#xD;&#xA;meter Pressure (w.s.p.)" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="26" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="26" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H29}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="26" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="26" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="26" Grid.Column="2" Content="{Binding Path=Pis_F29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="26" Grid.Column="4" Content="{Binding Path=Pis_H29}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="26" Grid.Column="6" Content="{Binding Path=Pis_J29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="26" Grid.Column="8" Content="{Binding Path=Pis_L29}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="28" Grid.Column="0" Content="m3/km mains per hour (w.s.p.)" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="28" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="28" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H31}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="28" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="28" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="28" Grid.Column="2" Content="{Binding Path=Pis_F31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="28" Grid.Column="4" Content="{Binding Path=Pis_H31}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="28" Grid.Column="6" Content="{Binding Path=Pis_J31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="28" Grid.Column="8" Content="{Binding Path=Pis_L31}" ContentStringFormat="{}{0:### ### ##0.00}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="28" Grid.Column="10"  Content="Explanations" Style="{StaticResource LabelResult1Style}" Background="DarkOliveGreen"  />
                     <Label Grid.Row="28" Grid.Column="12"  Content="Explanations" Style="{StaticResource LabelResult1Style}" Background="DarkSeaGreen" />
 
@@ -181,22 +181,22 @@
                     <Label Grid.Row="32" Grid.Column="8"  Style="{StaticResource LabelTitle4Style}" />
 
                     <Label Grid.Row="34" Grid.Column="0" Content="Commercial Losses expressed in % of&#xD;&#xA;Authorized Consumption" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="34" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="34" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="34" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="34" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="34" Grid.Column="2" Content="{Binding Path=Pis_F37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="34" Grid.Column="4" Content="{Binding Path=Pis_H37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="34" Grid.Column="6" Content="{Binding Path=Pis_J37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="34" Grid.Column="8" Content="{Binding Path=Pis_L37}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="36" Grid.Column="0" Content="litters/connection/day" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="36" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="36" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H39}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="36" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="36" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="36" Grid.Column="2" Content="{Binding Path=Pis_F39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="36" Grid.Column="4" Content="{Binding Path=Pis_H39}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="36" Grid.Column="6" Content="{Binding Path=Pis_J39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="36" Grid.Column="8" Content="{Binding Path=Pis_L39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="38" Grid.Column="0" Content="litters/customer/day" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="38" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="38" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H41}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="38" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="38" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="38" Grid.Column="2" Content="{Binding Path=Pis_F41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="38" Grid.Column="4" Content="{Binding Path=Pis_H41}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="38" Grid.Column="6" Content="{Binding Path=Pis_J41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="38" Grid.Column="8" Content="{Binding Path=Pis_L41}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="40" Grid.ColumnSpan="9" Content="NRW Performance Indicators" Style="{StaticResource LabelSpanTitleLightStyle}" />
                     <Label Grid.Row="40" Grid.Column="10"  Grid.ColumnSpan="3" Content="Performance Group" Style="{StaticResource LabelSpanTitleWhiteStyle}" />
 
@@ -208,24 +208,24 @@
                     <Label Grid.Row="42" Grid.Column="12"  Content=" Low and Middle&#10;Income Countries" Style="{StaticResource LabelResult1Style}" Background="Wheat" Foreground="Black"/>
 
                     <Label Grid.Row="44" Grid.Column="0" Content="Value of Non-Revenue Water&#xD;&#xA;expressed in % of System Input&#xD;&#xA;Volume" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="44" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="44" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="44" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="44" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="43" Grid.Column="10" Grid.RowSpan="5" Content="{Binding Path=Model.PisViewModel.Pis_N47}" Style="{StaticResource LabelResult3Style}" Background="SaddleBrown"/>
-                    <Label Grid.Row="43" Grid.Column="12" Grid.RowSpan="5" Content="{Binding Path=Model.PisViewModel.Pis_P47}" Style="{StaticResource LabelResult3Style}" Background="Wheat" Foreground="Black"/>
+                    <Label Grid.Row="44" Grid.Column="2" Content="{Binding Path=Pis_F47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="44" Grid.Column="4" Content="{Binding Path=Pis_H47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="44" Grid.Column="6" Content="{Binding Path=Pis_J47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="44" Grid.Column="8" Content="{Binding Path=Pis_L47}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="43" Grid.Column="10" Grid.RowSpan="5" Content="{Binding Path=Pis_N47}" Style="{StaticResource LabelResult3Style}" Background="SaddleBrown"/>
+                    <Label Grid.Row="43" Grid.Column="12" Grid.RowSpan="5" Content="{Binding Path=Pis_P47}" Style="{StaticResource LabelResult3Style}" Background="Wheat" Foreground="Black"/>
 
                     <Label Grid.Row="46" Grid.Column="0" Content="Value of Non-Revenue Water&#xD;&#xA;expressed in % of Annual Operating&#xD;&#xA;Cost" Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="46" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="46" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="46" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="46" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="46" Grid.Column="2" Content="{Binding Path=Pis_F49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="46" Grid.Column="4" Content="{Binding Path=Pis_H49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="46" Grid.Column="6" Content="{Binding Path=Pis_J49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="46" Grid.Column="8" Content="{Binding Path=Pis_L49}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
 
                     <Label Grid.Row="48" Grid.Column="0" Content="Liters per Connection per Day (w.s.p)&#xA;&#xA;w.s.p.: when the system is pressurized&#xA;- this maens the value is already&#xA;corrected in case of intermittent&#xA;supply " Style="{StaticResource LabelRowTitleStyle}"  />
-                    <Label Grid.Row="48" Grid.Column="2" Content="{Binding Path=Model.PisViewModel.Pis_F51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="48" Grid.Column="4" Content="{Binding Path=Model.PisViewModel.Pis_H51}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="48" Grid.Column="6" Content="{Binding Path=Model.PisViewModel.Pis_J51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
-                    <Label Grid.Row="48" Grid.Column="8" Content="{Binding Path=Model.PisViewModel.Pis_L51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="48" Grid.Column="2" Content="{Binding Path=Pis_F51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="48" Grid.Column="4" Content="{Binding Path=Pis_H51}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="48" Grid.Column="6" Content="{Binding Path=Pis_J51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
+                    <Label Grid.Row="48" Grid.Column="8" Content="{Binding Path=Pis_L51}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}"  />
                     <Label Grid.Row="48" Grid.Column="10"  Content="Explanations" Style="{StaticResource LabelResult1Style}" Background="SaddleBrown"/>
                     <Label Grid.Row="48" Grid.Column="12"  Content="Explanations" Style="{StaticResource LabelResult1Style}" Background="Wheat" Foreground="Black" />
 

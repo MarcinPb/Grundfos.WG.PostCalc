@@ -108,6 +108,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             get => _unbilledCons_UnbMetConsM3_D11;
             set { _unbilledCons_UnbMetConsM3_D11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D11)); CalculateExcel(); }
         }
+
+
+
+
+
         private double _unbilledCons_UnbUnmetConsM3_H6;
         public double UnbilledCons_UnbUnmetConsM3_H6
         {

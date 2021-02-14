@@ -416,7 +416,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             MetErrors_Min_L45 = model.MetErrors_Min_L45;
             MetErrors_Max_L47 = model.MetErrors_Max_L47;
             MetErrors_BestEstimate_L49 = model.MetErrors_BestEstimate_L49;
-
             MetErrors_Total_L12 = model.MetErrors_Total_L12;
             MetErrors_Total_L13 = model.MetErrors_Total_L13;
             MetErrors_Total_L14 = model.MetErrors_Total_L14;

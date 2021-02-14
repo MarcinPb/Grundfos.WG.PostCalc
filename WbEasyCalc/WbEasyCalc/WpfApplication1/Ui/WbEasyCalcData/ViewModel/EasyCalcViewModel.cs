@@ -28,15 +28,23 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             get => _sysInputViewModel;
             set { _sysInputViewModel = value; RaisePropertyChanged(nameof(SysInputViewModel)); }
         }
-        private BilledConsViewModel _billedConsViewModel;
-        public BilledConsViewModel BilledConsViewModel
+
+        //private BilledConsViewModel _billedConsViewModel;
+        //public BilledConsViewModel BilledConsViewModel
+        //{
+        //    get => _billedConsViewModel;
+        //    set { _billedConsViewModel = value; RaisePropertyChanged(nameof(BilledConsViewModel)); }
+        //}
+        public BilledConsViewModel BilledConsViewModel { get; set; }
+
+
+        private UnbConsViewModel _unbConsViewModel;
+        public UnbConsViewModel UnbConsViewModel
         {
-            get => _billedConsViewModel;
-            set { _billedConsViewModel = value; RaisePropertyChanged(nameof(BilledConsViewModel)); }
+            get => _unbConsViewModel;
+            set { _unbConsViewModel = value; RaisePropertyChanged(nameof(UnbConsViewModel)); }
         }
 
-
-        public UnbConsViewModel UnbConsViewModel { get; set; }
         public UnauthConsViewModel UnauthConsViewModel { get; set; }
         public MeterErrorsViewModel MeterErrorsViewModel { get; set; }
         public NetworkViewModel NetworkViewModel { get; set; }
@@ -77,13 +85,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
             SysInputModel = SysInputViewModel.Model,
             BilledConsModel = BilledConsViewModel.Model,
 
-            UnbilledConsModel = new UnbilledConsModel(),
-            UnauthConsModel = new UnauthConsModel(),
-            MetErrorsModel = new MetErrorsModel(),
-            NetworkModel = new NetworkModel(),
-            PressureModel = new PressureModel(),
-            IntermModel = new IntermModel(),
-            FinancDataModel = new FinancDataModel(),
+            UnbilledConsModel = UnbConsViewModel.Model,
+            UnauthConsModel = UnauthConsViewModel.Model,
+            MetErrorsModel = MeterErrorsViewModel.Model,
+            NetworkModel = NetworkViewModel.Model,
+            PressureModel = PressureViewModel.Model,
+            IntermModel = IntermittentSupplyViewModel.Model,
+            FinancDataModel = FinancialDataViewModel.Model,
 
             WaterBalanceDay = WaterBalanceDayViewModel.Model,
             WaterBalancePeriod = WaterBalancePeriodViewModel.Model,

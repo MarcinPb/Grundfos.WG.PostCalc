@@ -76,27 +76,27 @@
 
 
             <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="Average Tariff"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=Model.FinancData_G6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <TextBox Grid.Row="4" Grid.Column="7" Text="{Binding Path=Model.FinancData_K6, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextLeftPaddingStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=FinancData_G6, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="7" Text="{Binding Path=FinancData_K6, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextLeftPaddingStyle}" />
 
             <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Content="Variable Production and Distribution Cost&#xD;&#xA;(Mrginal Cost of Water)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <TextBox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=Model.FinancData_G8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" Height="54" VerticalAlignment="Top" />
-            <Label Grid.Row="6" Grid.Column="7" Content="{Binding Path=Model.FinancData_K8}" Style="{StaticResource LabelBlueLeftPaddingStyle}"  />
+            <TextBox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=FinancData_G8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" Height="54" VerticalAlignment="Top" />
+            <Label Grid.Row="6" Grid.Column="7" Content="{Binding Path=FinancData_K8}" Style="{StaticResource LabelBlueLeftPaddingStyle}"  />
 
             <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Content="NRW Component"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
             <Label Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Content="Annual Value" Style="{StaticResource LabelBlueColTitleStyle}" />
 
             <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3" Content="Unbilled Metered Consumption"  Style="{StaticResource LabelBlueLeftStyle}" />
-            <Label Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G13}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" Height="20" VerticalAlignment="Top" />
-            <Label Grid.Row="10" Grid.Column="7" Content="{Binding Path=Model.FinancData_K13}" Style="{StaticResource LabelBlueLeftStyle}" Height="20" VerticalAlignment="Top" />
+            <Label Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_G13}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" Height="20" VerticalAlignment="Top" />
+            <Label Grid.Row="10" Grid.Column="7" Content="{Binding Path=FinancData_K13}" Style="{StaticResource LabelBlueLeftStyle}" Height="20" VerticalAlignment="Top" />
 
             <Label Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" Content="Unbilled Unmetered Consumption"  Style="{StaticResource LabelBlueLeftStyle}" />
-            <Label Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G15}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
-            <Label Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K15}" Style="{StaticResource LabelBlueLeftStyle}" />
+            <Label Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_G15}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
+            <Label Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_K15}" Style="{StaticResource LabelBlueLeftStyle}" />
 
             <Label Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="3" Content="Commercial Losses"  Style="{StaticResource LabelBlueLeftStyle}" />
-            <Label Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
-            <Label Grid.Row="14" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K17}" Style="{StaticResource LabelBlueLeftStyle}" />
+            <Label Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_G17}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
+            <Label Grid.Row="14" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_K17}" Style="{StaticResource LabelBlueLeftStyle}" />
 
 
 
@@ -110,13 +110,13 @@
             <Border Grid.Row="16" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="1"/>
 
             <Border Grid.Row="16" Grid.Column="4" Grid.RowSpan="2"  Background="SteelBlue" />
-            <Label Grid.Row="16" Grid.Column="4" Content="{Binding Path=Model.FinancData_G19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLocalRightStyle}"/>
-            <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=Model.FinancData_G20}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLocalRightStyle}"/>
+            <Label Grid.Row="16" Grid.Column="4" Content="{Binding Path=FinancData_G19}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLocalRightStyle}"/>
+            <Label Grid.Row="17" Grid.Column="4" Content="{Binding Path=FinancData_G20}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLocalRightStyle}"/>
             <Border Grid.Row="16" Grid.Column="4" Grid.RowSpan="2"  BorderBrush="White" BorderThickness="1"/>
 
             <Border Grid.Row="16" Grid.Column="7" Grid.RowSpan="2" Background="SteelBlue" />
-            <Label Grid.Row="16" Grid.Column="7"  Content="{Binding Path=Model.FinancData_K19}" Style="{StaticResource LabelLocal1Style}"/>
-            <Label Grid.Row="17" Grid.Column="7"  Content="{Binding Path=Model.FinancData_K20}" Style="{StaticResource LabelLocal1Style}"/>
+            <Label Grid.Row="16" Grid.Column="7"  Content="{Binding Path=FinancData_K19}" Style="{StaticResource LabelLocal1Style}"/>
+            <Label Grid.Row="17" Grid.Column="7"  Content="{Binding Path=FinancData_K20}" Style="{StaticResource LabelLocal1Style}"/>
             <Border Grid.Row="16" Grid.Column="7" Grid.RowSpan="2"  BorderBrush="White" BorderThickness="1"/>
 
             <Border Grid.Row="19" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" Background="SteelBlue" />
@@ -124,20 +124,20 @@
             <Label Grid.Row="21" Grid.Column="0" Grid.ColumnSpan="3" Content="Total Volume (m3/d)" Style="{StaticResource LabelLocal1Style}"  />
             <Label Grid.Row="23" Grid.Column="0" Grid.ColumnSpan="3" Content="Volume which could be sold to existing or new" Style="{StaticResource LabelLocal1Style}"  />
             <Label Grid.Row="24" Grid.Column="0" Grid.ColumnSpan="3" Content="customer (m3/d)" Style="{StaticResource LabelLocal1Style}" />
-            <Label Grid.Row="21" Grid.Column="1" Content="{Binding Path=Model.FinancData_D24}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
-            <TextBox Grid.Row="23" Grid.Column="1" Grid.RowSpan="2" Text="{Binding Path=Model.FinancData_D26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="21" Grid.Column="1" Content="{Binding Path=FinancData_D24}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
+            <TextBox Grid.Row="23" Grid.Column="1" Grid.RowSpan="2" Text="{Binding Path=FinancData_D26, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
             <Border Grid.Row="19" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" BorderBrush="White" BorderThickness="1" />
 
-            <Label Grid.Row="19" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G22}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
-            <Label Grid.Row="19" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K22}" Style="{StaticResource LabelBlueLeftStyle}" />
+            <Label Grid.Row="19" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_G22}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}" />
+            <Label Grid.Row="19" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_K22}" Style="{StaticResource LabelBlueLeftStyle}" />
 
             <Label Grid.Row="27" Grid.Column="0" Grid.ColumnSpan="3" Content="Total Value of NRW"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <Label Grid.Row="27" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_G31}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}" />
-            <Label Grid.Row="27" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K31}" Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <Label Grid.Row="27" Grid.Column="4" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_G31}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelSteelBlueStyle}" />
+            <Label Grid.Row="27" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_K31}" Style="{StaticResource LabelBlueLeftPaddingStyle}" />
 
             <Label Grid.Row="29" Grid.Column="0" Grid.ColumnSpan="3" Content="Annual Operating Cost (without Depreciation)"  Style="{StaticResource LabelBlueLeftPaddingStyle}" />
-            <TextBox Grid.Row="29" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=Model.FinancData_G35, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <Label Grid.Row="29" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=Model.FinancData_K35}" Style="{StaticResource LabelBlueLeftPaddingStyle}" />
+            <TextBox Grid.Row="29" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding Path=FinancData_G35, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <Label Grid.Row="29" Grid.Column="7" Grid.ColumnSpan="2" Content="{Binding Path=FinancData_K35}" Style="{StaticResource LabelBlueLeftPaddingStyle}" />
 
         </Grid>
     </ScrollViewer>

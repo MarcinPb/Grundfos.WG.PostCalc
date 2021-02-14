@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="WpfApplication1.Ui.WbEasyCalcData.View.EasyCalcView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.View"
+             mc:Ignorable="d" 
+             xmlns:converters="clr-namespace:WpfApplication1.Converters" 
+             xmlns:view="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView"
+             xmlns:viewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs"        
+             >
+    <UserControl.Resources>
+        <converters:FloatConverter x:Key="FloatConverter" />
+        <converters:PercentageConverter  x:Key="PercentageConverter" />
+        <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
+
+        <DataTemplate DataType="{x:Type viewModel:StartViewModel}">
+            <view:StartView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SysInputViewModel}">
+            <view:SysInputView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:BilledConsViewModel}">
+            <view:BilledConsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:UnbConsViewModel}">
+            <view:UnbConsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:UnauthConsViewModel}">
+            <view:UnauthConsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:MeterErrorsViewModel}">
+            <view:MeterErrorsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:NetworkViewModel}">
+            <view:NetworkView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PressureViewModel}">
+            <view:PressureView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:IntermittentSupplyViewModel}">
+            <view:IntermittentSupplyView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:FinancialDataViewModel}">
+            <view:FinancialDataView />
+        </DataTemplate>
+        <!--
+        <DataTemplate DataType="{x:Type viewModel:WaterBalanceViewModel}">
+            <view:WaterBalanceView />
+        </DataTemplate>
+        -->
+        <DataTemplate DataType="{x:Type viewModel:PisViewModel}">
+            <view:PisView />
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="520"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="860"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl Grid.Column="0"  Margin="0 0 0 0" TabStripPlacement="Bottom">
+            <TabItem Header="Start" >
+                <!-- <view:StartView /> -->
+                <ContentControl Content="{Binding StartViewModel}" />
+            </TabItem>
+            <TabItem Header="Sys.Input" >
+                <ContentControl Content="{Binding SysInputViewModel}" />
+            </TabItem>
+            <TabItem Header="Billed Cons" >
+                <ContentControl Content="{Binding BilledConsViewModel}" />
+            </TabItem>
+            <TabItem Header="Unb. Cons." >
+                <ContentControl Content="{Binding UnbConsViewModel}" />
+            </TabItem>
+            <TabItem Header="Unauth. Cons." >
+                <ContentControl Content="{Binding UnauthConsViewModel}" />
+            </TabItem>
+            <TabItem Header="Meter Errors" >
+                <ContentControl Content="{Binding MeterErrorsViewModel}" />
+            </TabItem>
+            <TabItem Header="Network" >
+                <ContentControl Content="{Binding NetworkViewModel}" />
+            </TabItem>
+            <TabItem Header="Pressure" >
+                <ContentControl Content="{Binding PressureViewModel}" />
+            </TabItem>
+            <TabItem Header="Intermittent Supply" >
+                <ContentControl Content="{Binding IntermittentSupplyViewModel}" />
+            </TabItem>
+            <TabItem Header="Financial Data" >
+                <ContentControl Content="{Binding FinancialDataViewModel}" />
+            </TabItem>
+        </TabControl>
+
+        <TabControl Grid.Column="1" Margin="10 0 0 0" TabStripPlacement="Bottom">
+            <TabItem Header="Water Balance m3day" >
+                <view:WaterBalanceDayView/>
+            </TabItem>
+            <TabItem Header="Water Balance m3" >
+                <view:WaterBalancePeriodView/>
+            </TabItem>
+            <TabItem Header="Water Balance m3year" >
+                <view:WaterBalanceYearView/>
+            </TabItem>
+            <TabItem Header="PIs">
+                <ContentControl Content="{Binding PisViewModel}" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

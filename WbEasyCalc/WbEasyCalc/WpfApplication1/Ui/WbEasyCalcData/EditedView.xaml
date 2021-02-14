@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              mc:Ignorable="d"              
              xmlns:converters="clr-namespace:WpfApplication1.Converters" 
-             xmlns:tabView="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView"
-             xmlns:tabViewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs"
+             xmlns:view="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.View"
+             xmlns:viewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
 
-        <DataTemplate DataType="{x:Type tabViewModel:StartViewModel}">
-            <tabView:StartView />
+        <DataTemplate DataType="{x:Type viewModel:EasyCalcViewModel}">
+            <view:EasyCalcView />
         </DataTemplate>
 
     </UserControl.Resources>
@@ -23,12 +23,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="520"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="860"/>
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0 0 0 10">
+        <Grid Grid.Row="0"  Margin="0 0 0 10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -68,53 +64,7 @@
 
         </Grid>
 
-        <TabControl Grid.Column="0" Grid.Row="1" Margin="0 0 0 0" TabStripPlacement="Bottom">
-            <TabItem Header="Start" >
-                <tabView:StartView />
-                <!--<ContentControl Content="{Binding Model.EasyCalcViewModel.StartViewModel}" />-->
-            </TabItem>
-            <TabItem Header="Sys.Input" Height="22" VerticalAlignment="Top" >
-                <tabView:SysInputView/>
-            </TabItem>
-            <TabItem Header="Billed Cons" >
-                <tabView:BilledConsView/>
-            </TabItem>
-            <TabItem Header="Unb. Cons." >
-                <tabView:UnbConsView/>
-            </TabItem>
-            <TabItem Header="Unauth. Cons." >
-                <tabView:UnauthConsView/>
-            </TabItem>
-            <TabItem Header="Meter Errors" >
-                <tabView:MeterErrorsView/>
-            </TabItem>
-            <TabItem Header="Network" >
-                <tabView:NetworkView/>
-            </TabItem>
-            <TabItem Header="Pressure" >
-                <tabView:PressureView/>
-            </TabItem>
-            <TabItem Header="Intermittent Supply" >
-                <tabView:IntermittentSupplyView/>
-            </TabItem>
-            <TabItem Header="Financial Data" >
-                <tabView:FinancialDataView/>
-            </TabItem>
-        </TabControl>
-
-        <TabControl Grid.Column="1" Grid.Row="1" Margin="10 0 0 0" TabStripPlacement="Bottom">
-            <TabItem Header="Water Balance m3day" >
-                <tabView:WaterBalanceDayView/>
-            </TabItem>
-            <TabItem Header="Water Balance m3" >
-                <tabView:WaterBalancePeriodView/>
-            </TabItem>
-            <TabItem Header="Water Balance m3year" >
-                <tabView:WaterBalanceYearView/>
-            </TabItem>
-            <TabItem Header="PIs">
-                <tabView:PisView/>
-            </TabItem>
-        </TabControl>
+        <ContentControl Content="{Binding Model.EasyCalcViewModel}" Grid.Row="1" />
+        
     </Grid>
 </UserControl>

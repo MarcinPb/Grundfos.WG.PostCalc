@@ -461,6 +461,7 @@ namespace WbEasyCalcRepository
         {
             EasyCalcSheet easyCalcSheetData = CalcSheetData(easyCalcModel);
 
+
             SysInputModel sysInputModel = GetSysInputModel(easyCalcSheetData.SystemInputSheet);
             easyCalcModel.SysInputModel.SysInput_ErrorMarg_F72 = sysInputModel.SysInput_ErrorMarg_F72;
             easyCalcModel.SysInputModel.SysInput_Min_D75 = sysInputModel.SysInput_Min_D75;
@@ -469,17 +470,85 @@ namespace WbEasyCalcRepository
 
             BilledConsumptionCalc.Calculate(easyCalcModel);
             UnbilledConsumptionCalc.Calculate(easyCalcModel);
-            easyCalcModel.UnauthConsModel = GetUnauthConsModel(easyCalcSheetData.UnauthorizedConsumptionSheet);
-            easyCalcModel.MetErrorsModel = GetMetErrorsModel(easyCalcSheetData.MeterErrorsSheet);
-            easyCalcModel.NetworkModel = GetNetworkModel(easyCalcSheetData.NetworkSheet);
-            easyCalcModel.PressureModel = GetPressureModel(easyCalcSheetData.PressureSheet);
-            easyCalcModel.IntermModel = GetIntermModel(easyCalcSheetData.IntermittentSupplySheet);
+
+            var unauthConsModel = GetUnauthConsModel(easyCalcSheetData.UnauthorizedConsumptionSheet);
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L6 = unauthConsModel.UnauthCons_Total_L6;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L10 = unauthConsModel.UnauthCons_Total_L10;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L14 = unauthConsModel.UnauthCons_Total_L14;
+            easyCalcModel.UnauthConsModel.UnauthCons_ErrorMarg_F24 = unauthConsModel.UnauthCons_ErrorMarg_F24;
+            easyCalcModel.UnauthConsModel.UnauthCons_Min_L27 = unauthConsModel.UnauthCons_Min_L27;
+            easyCalcModel.UnauthConsModel.UnauthCons_Max_L29 = unauthConsModel.UnauthCons_Max_L29;
+            easyCalcModel.UnauthConsModel.UnauthCons_BestEstimate_L31 = unauthConsModel.UnauthCons_BestEstimate_L31;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L18 = unauthConsModel.UnauthCons_Total_L18;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L19 = unauthConsModel.UnauthCons_Total_L19;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L20 = unauthConsModel.UnauthCons_Total_L20;
+            easyCalcModel.UnauthConsModel.UnauthCons_Total_L21 = unauthConsModel.UnauthCons_Total_L21;
+
+            var metErrorsModel = GetMetErrorsModel(easyCalcSheetData.MeterErrorsSheet);
+            easyCalcModel.MetErrorsModel.MetErrors_Total_F8 = metErrorsModel.MetErrors_Total_F8;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_F32 = metErrorsModel.MetErrors_Total_F32;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_F34 = metErrorsModel.MetErrors_Total_F34;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_F38 = metErrorsModel.MetErrors_Total_F38;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L8 = metErrorsModel.MetErrors_Total_L8;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L32 = metErrorsModel.MetErrors_Total_L32;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L34 = metErrorsModel.MetErrors_Total_L34;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L38 = metErrorsModel.MetErrors_Total_L38;
+            easyCalcModel.MetErrorsModel.MetErrors_ErrorMarg_N42 = metErrorsModel.MetErrors_ErrorMarg_N42;
+            easyCalcModel.MetErrorsModel.MetErrors_Min_L45 = metErrorsModel.MetErrors_Min_L45;
+            easyCalcModel.MetErrorsModel.MetErrors_Max_L47 = metErrorsModel.MetErrors_Max_L47;
+            easyCalcModel.MetErrorsModel.MetErrors_BestEstimate_L49 = metErrorsModel.MetErrors_BestEstimate_L49;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L12 = metErrorsModel.MetErrors_Total_L12;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L13 = metErrorsModel.MetErrors_Total_L13;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L14 = metErrorsModel.MetErrors_Total_L14;
+            easyCalcModel.MetErrorsModel.MetErrors_Total_L15 = metErrorsModel.MetErrors_Total_L15;
+
+            var networkModel = GetNetworkModel(easyCalcSheetData.NetworkSheet);
+            easyCalcModel.NetworkModel.Network_Total_D28 = networkModel.Network_Total_D28;
+            easyCalcModel.NetworkModel.Network_Total_D32 = networkModel.Network_Total_D32;
+            easyCalcModel.NetworkModel.Network_Min_D39 = networkModel.Network_Min_D39;
+            easyCalcModel.NetworkModel.Network_Max_D41 = networkModel.Network_Max_D41;
+            easyCalcModel.NetworkModel.Network_BestEstimate_D43 = networkModel.Network_BestEstimate_D43;
+            easyCalcModel.NetworkModel.Network_Number_H21 = networkModel.Network_Number_H21;
+            easyCalcModel.NetworkModel.Network_ErrorMarg_J21 = networkModel.Network_ErrorMarg_J21;
+            easyCalcModel.NetworkModel.Network_ErrorMarg_J24 = networkModel.Network_ErrorMarg_J24;
+            easyCalcModel.NetworkModel.Network_Min_H26 = networkModel.Network_Min_H26;
+            easyCalcModel.NetworkModel.Network_Max_H28 = networkModel.Network_Max_H28;
+            easyCalcModel.NetworkModel.Network_BestEstimate_H30 = networkModel.Network_BestEstimate_H30;
+            easyCalcModel.NetworkModel.Network_Number_H39 = networkModel.Network_Number_H39;
+            easyCalcModel.NetworkModel.Network_ErrorMarg_J39 = networkModel.Network_ErrorMarg_J39;
+
+            var pressureModel = GetPressureModel(easyCalcSheetData.PressureSheet);
+            easyCalcModel.PressureModel.Prs_BestEstimate_F33 = pressureModel.Prs_BestEstimate_F33;
+            easyCalcModel.PressureModel.Prs_Min_F29 = pressureModel.Prs_Min_F29;
+            easyCalcModel.PressureModel.Prs_Max_F31 = pressureModel.Prs_Max_F31;
+
+            var intermModel = GetIntermModel(easyCalcSheetData.IntermittentSupplySheet);
+            easyCalcModel.IntermModel.Interm_BestEstimate_H33 = intermModel.Interm_BestEstimate_H33;
+            easyCalcModel.IntermModel.Interm_Min_H29 = intermModel.Interm_Min_H29;
+            easyCalcModel.IntermModel.Interm_Max_H31 = intermModel.Interm_Max_H31;
 
             easyCalcModel.WaterBalanceDay = GetWaterBalanceModel(easyCalcSheetData.WaterBalanceDaySheet);
             easyCalcModel.WaterBalancePeriod = GetWaterBalanceModel(easyCalcSheetData.WaterBalanceSheet);
             easyCalcModel.WaterBalanceYear = GetWaterBalanceModel(easyCalcSheetData.WaterBalanceYearSheet);
 
-            easyCalcModel.FinancDataModel = GetFinancDataModel(easyCalcSheetData.FinancialDataSheet);
+            var model = GetFinancDataModel(easyCalcSheetData.FinancialDataSheet);
+            easyCalcModel.FinancDataModel.FinancData_G13 = model.FinancData_G13;
+            easyCalcModel.FinancDataModel.FinancData_G15 = model.FinancData_G15;
+            easyCalcModel.FinancDataModel.FinancData_G17 = model.FinancData_G17;
+            easyCalcModel.FinancDataModel.FinancData_G19 = model.FinancData_G19;
+            easyCalcModel.FinancDataModel.FinancData_G20 = model.FinancData_G20;
+            easyCalcModel.FinancDataModel.FinancData_G22 = model.FinancData_G22;
+            easyCalcModel.FinancDataModel.FinancData_D24 = model.FinancData_D24;
+            easyCalcModel.FinancDataModel.FinancData_G31 = model.FinancData_G31;
+            easyCalcModel.FinancDataModel.FinancData_K8 = model.FinancData_K8;
+            easyCalcModel.FinancDataModel.FinancData_K13 = model.FinancData_K13;
+            easyCalcModel.FinancDataModel.FinancData_K15 = model.FinancData_K15;
+            easyCalcModel.FinancDataModel.FinancData_K17 = model.FinancData_K17;
+            easyCalcModel.FinancDataModel.FinancData_K19 = model.FinancData_K19;
+            easyCalcModel.FinancDataModel.FinancData_K20 = model.FinancData_K20;
+            easyCalcModel.FinancDataModel.FinancData_K22 = model.FinancData_K22;
+            easyCalcModel.FinancDataModel.FinancData_K31 = model.FinancData_K31;
+            easyCalcModel.FinancDataModel.FinancData_K35 = model.FinancData_K35;
 
             easyCalcModel.Pis = GetPisModel(easyCalcSheetData.PiSheet);
         }

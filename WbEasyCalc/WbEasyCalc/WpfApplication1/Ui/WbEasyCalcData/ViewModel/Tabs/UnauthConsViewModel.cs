@@ -335,7 +335,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             UnauthCons_Min_L27 = model.UnauthCons_Min_L27;
             UnauthCons_Max_L29 = model.UnauthCons_Max_L29;
             UnauthCons_BestEstimate_L31 = model.UnauthCons_BestEstimate_L31;
-
             UnauthCons_Total_L18 = model.UnauthCons_Total_L18;
             UnauthCons_Total_L19 = model.UnauthCons_Total_L19;
             UnauthCons_Total_L20 = model.UnauthCons_Total_L20;

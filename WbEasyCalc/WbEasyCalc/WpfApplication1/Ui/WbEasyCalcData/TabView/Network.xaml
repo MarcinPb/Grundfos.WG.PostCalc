@@ -68,43 +68,43 @@
             <Label Grid.Row="2" Grid.Column="0" Content="Description"  Style="{StaticResource LabelBlueColTitleStyle}" />
             <Label Grid.Row="2" Grid.Column="2" Content="Length&#xD;&#xA;  [km]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
-            <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Path=Model.Network_Desc_B7}" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="5" Grid.Column="0" Text="{Binding Path=Model.Network_Desc_B8}" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Model.Network_Desc_B9}" Style="{StaticResource TextListLeftStyle}"/>
-            <TextBox Grid.Row="7" Grid.Column="0" Text="{Binding Path=Model.Network_Desc_B10}" Style="{StaticResource TextListLeftStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="0" Text="{Binding Path=Network_Desc_B7}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="5" Grid.Column="0" Text="{Binding Path=Network_Desc_B8}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="6" Grid.Column="0" Text="{Binding Path=Network_Desc_B9}" Style="{StaticResource TextListLeftStyle}"/>
+            <TextBox Grid.Row="7" Grid.Column="0" Text="{Binding Path=Network_Desc_B10}" Style="{StaticResource TextListLeftStyle}" />
             <Border Grid.Row="4" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
-            <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D9, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
-            <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding Path=Model.Network_DistributionAndTransmissionMains_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=Network_DistributionAndTransmissionMains_D7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=Network_DistributionAndTransmissionMains_D8, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding Path=Network_DistributionAndTransmissionMains_D9, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
+            <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding Path=Network_DistributionAndTransmissionMains_D10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextListRightStyle}" />
             <Border Grid.Row="4" Grid.Column="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1"/>
 
             <Label Grid.Row="9" Grid.Column="0" Content="Total [km]" Style="{StaticResource LabelTransparentStyle}"  />
-            <Label Grid.Row="9" Grid.Column="2" Content="{Binding Path=Model.Network_Total_D28}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="9" Grid.Column="2" Content="{Binding Path=Network_Total_D28}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="11" Grid.Column="0" Content="Possible underestimation" Style="{StaticResource LabelTransparentStyle}"  />
-            <TextBox Grid.Row="11" Grid.Column="2" Text="{Binding Path=Model.Network_PossibleUnd_D30, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
+            <TextBox Grid.Row="11" Grid.Column="2" Text="{Binding Path=Network_PossibleUnd_D30, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
 
             <!--
             <Label Grid.Row="13" Grid.Column="0" Content="Total [km]" Style="{StaticResource LabelTransparentStyle}"  />
             <Label Grid.Row="13" Grid.Column="2" Content="234" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="15" Grid.Column="0" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}"  />
-            <TextBox Grid.Row="15" Grid.Column="2" Text="{Binding Path=Model.Network_ErrorMargin_D35, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
+            <TextBox Grid.Row="15" Grid.Column="2" Text="{Binding Path=Network_ErrorMargin_D35, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightStyle}"  />
             -->
 
             <Label Grid.Row="17" Grid.Column="0" Content="Pipe Lenght [km]" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
 
             <Label Grid.Row="19" Grid.Column="0" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="19" Grid.Column="2" Content="{Binding Path=Model.Network_Min_D39}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="19" Grid.Column="2" Content="{Binding Path=Network_Min_D39}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="21" Grid.Column="0" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="21" Grid.Column="2" Content="{Binding Path=Model.Network_Max_D41}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
+            <Label Grid.Row="21" Grid.Column="2" Content="{Binding Path=Network_Max_D41}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
 
 
             <Label Grid.Row="23" Grid.Column="0" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
-            <Label Grid.Row="22" Grid.Column="2" Content="{Binding Path=Model.Network_BestEstimate_D43}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelBlueStyle}" Height="18" Margin="0,9.5,0,0" Grid.RowSpan="2" VerticalAlignment="Top"  />
+            <Label Grid.Row="22" Grid.Column="2" Content="{Binding Path=Network_BestEstimate_D43}" ContentStringFormat="{}{0:### ### ##0.0}" Style="{StaticResource LabelBlueStyle}" Height="18" Margin="0,9.5,0,0" Grid.RowSpan="2" VerticalAlignment="Top"  />
 
 
 
@@ -118,45 +118,45 @@
             <Label Grid.Row="2" Grid.Column="8" Content="Error Margin&#xD;&#xA;     [+/- %]"   Style="{StaticResource LabelBlueColTitleStyle}" />
 
             <Label Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Content="Number of Customers (active)"  Style="{StaticResource LabelBaseStyle2}" />
-            <TextBox Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Text="{Binding Path=Model.Network_NoCustomers_H7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <TextBox Grid.Row="4" Grid.Column="8" Grid.RowSpan="2" Text="{Binding Path=Model.Network_ErrorMargin_J7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Text="{Binding Path=Network_NoCustomers_H7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="8" Grid.RowSpan="2" Text="{Binding Path=Network_ErrorMargin_J7, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="7" Grid.Column="4" Grid.RowSpan="5" Content="   Number of Connections of Registered&#xD;&#xA;                        Customers&#xD;&#xA;&#xD;&#xA;Note: this figure is most likely (a little bit)&#xD;&#xA;      less than the number of customers"  Style="{StaticResource LabelBaseStyle2}" />
-            <TextBox Grid.Row="7" Grid.Column="6" Grid.RowSpan="5" Text="{Binding Path=Model.Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <TextBox Grid.Row="7" Grid.Column="8" Grid.RowSpan="5" Text="{Binding Path=Model.Network_ErrorMargin_J10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="7" Grid.Column="6" Grid.RowSpan="5" Text="{Binding Path=Network_NoOfConnOfRegCustomers_H10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="7" Grid.Column="8" Grid.RowSpan="5" Text="{Binding Path=Network_ErrorMargin_J10, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="13" Grid.Column="4" Grid.RowSpan="3" Content="Number of inactive accounts with existing&#xD;&#xA;                     service connection"  Style="{StaticResource LabelBaseStyle2}" />
-            <TextBox Grid.Row="13" Grid.Column="6" Grid.RowSpan="3" Text="{Binding Path=Model.Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <TextBox Grid.Row="13" Grid.Column="8" Grid.RowSpan="3" Text="{Binding Path=Model.Network_ErrorMargin_J18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="6" Grid.RowSpan="3" Text="{Binding Path=Network_NoOfInactAccountsWSvcConns_H18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="13" Grid.Column="8" Grid.RowSpan="3" Text="{Binding Path=Network_ErrorMargin_J18, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="17" Grid.Column="4" Grid.RowSpan="3" Content="Estimate Number of Illegal  Connections"  Style="{StaticResource LabelBaseStyle2}" />
-            <Label Grid.Row="17" Grid.Column="6" Grid.RowSpan="3" Content="{Binding Path=Model.Network_Number_H21}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
-            <Label Grid.Row="17" Grid.Column="8" Grid.RowSpan="3" Content="{Binding Path=Model.Network_ErrorMarg_J21}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="17" Grid.Column="6" Grid.RowSpan="3" Content="{Binding Path=Network_Number_H21}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="17" Grid.Column="8" Grid.RowSpan="3" Content="{Binding Path=Network_ErrorMarg_J21}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
 
             <Label Grid.Row="21" Grid.Column="4" Content="Error Margin [+/-]" Style="{StaticResource LabelTransparentStyle}" />
-            <Label Grid.Row="21" Grid.Column="8" Content="{Binding Path=Model.Network_ErrorMarg_J24}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="21" Grid.Column="8" Content="{Binding Path=Network_ErrorMarg_J24}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBlueStyle}"  />
 
 
             <Label Grid.Row="23" Grid.Column="4" Content="Number of connections" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
 
             <Label Grid.Row="25" Grid.Column="4" Content="Minimum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="25" Grid.Column="6" Content="{Binding Path=Model.Network_Min_H26}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
+            <Label Grid.Row="25" Grid.Column="6" Content="{Binding Path=Network_Min_H26}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}"  />
 
             <Label Grid.Row="27" Grid.Column="4" Content="Maximum" Style="{StaticResource LabelTransparentStyle}"   />
-            <Label Grid.Row="27" Grid.Column="6" Content="{Binding Path=Model.Network_Max_H28}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
+            <Label Grid.Row="27" Grid.Column="6" Content="{Binding Path=Network_Max_H28}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelLightBlueStyle}" Height="20" VerticalAlignment="Top"  />
 
 
             <Label Grid.Row="29" Grid.Column="4" Content="Best Estimate" Style="{StaticResource LabelTransparentStyle}" FontWeight="Bold" />
-            <Label Grid.Row="29" Grid.Column="6" Content="{Binding Path=Model.Network_BestEstimate_H30}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
+            <Label Grid.Row="29" Grid.Column="6" Content="{Binding Path=Network_BestEstimate_H30}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBlueStyle}"  />
 
 
             <Label Grid.Row="31" Grid.Column="4"  Content="Average Length of Service Connection&#xD;&#xA;from Property Boundary to Customer&#xD;&#xA;                   Meter [meter]"  Style="{StaticResource LabelBaseStyle2}" Height="60" VerticalAlignment="Top" />
-            <TextBox Grid.Row="31" Grid.Column="6"  Text="{Binding Path=Model.Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
-            <TextBox Grid.Row="31" Grid.Column="8"  Text="{Binding Path=Model.Network_ErrorMargin_J32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="31" Grid.Column="6"  Text="{Binding Path=Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FloatConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
+            <TextBox Grid.Row="31" Grid.Column="8"  Text="{Binding Path=Network_ErrorMargin_J32, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource PercentageConverter}}" Style="{StaticResource TextRightPaddingStyle}" />
 
             <Label Grid.Row="33" Grid.Column="4"  Content="Total Length of Service Connection from&#xD;&#xA;  Property Boundary to Customer Meter&#xD;&#xA;                         [kilometer]"  Style="{StaticResource LabelBaseStyle2}" />
-            <Label Grid.Row="33" Grid.Column="6"  Content="{Binding Path=Model.Network_Number_H39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
-            <Label Grid.Row="33" Grid.Column="8"  Content="{Binding Path=Model.Network_ErrorMarg_J39}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="33" Grid.Column="6"  Content="{Binding Path=Network_Number_H39}" ContentStringFormat="{}{0:### ### ##0}" Style="{StaticResource LabelBaseStyle3}"  />
+            <Label Grid.Row="33" Grid.Column="8"  Content="{Binding Path=Network_ErrorMarg_J39}" ContentStringFormat="{}{0:P0}" Style="{StaticResource LabelBaseStyle3}"  />
 
         </Grid>
     </ScrollViewer>
