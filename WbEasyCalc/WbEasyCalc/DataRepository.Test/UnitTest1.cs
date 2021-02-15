@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using DataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WbEasyCalcModel;
@@ -10,6 +11,8 @@ namespace DataRepository.Test
     public class UnitTest1
     {
         string _cnnString = ConfigurationManager.ConnectionStrings["TWDB"].ConnectionString;
+
+
 
         [TestMethod]
         public void TestMethod1()
@@ -30,12 +33,33 @@ namespace DataRepository.Test
                     {
                         Start_PeriodDays_M21 = 30,
                     }, 
+                    SysInputModel = new WbEasyCalcModel.WbEasyCalc.SysInputModel
+                    { 
+                        SysInput_SystemInputVolumeM3_D6 = 111111,                    
+                    },
+                    BilledConsModel = new WbEasyCalcModel.WbEasyCalc.BilledConsModel(),
+                    UnbilledConsModel = new WbEasyCalcModel.WbEasyCalc.UnbilledConsModel(),
+                    UnauthConsModel = new WbEasyCalcModel.WbEasyCalc.UnauthConsModel(),
+                    MetErrorsModel = new WbEasyCalcModel.WbEasyCalc.MetErrorsModel(),
+                    NetworkModel = new WbEasyCalcModel.WbEasyCalc.NetworkModel(),
+                    PressureModel = new WbEasyCalcModel.WbEasyCalc.PressureModel(),
+                    IntermModel = new WbEasyCalcModel.WbEasyCalc.IntermModel(),
+                    FinancDataModel = new WbEasyCalcModel.WbEasyCalc.FinancDataModel
+                    {
+                        FinancData_K6 = "PLN",
+                    },
                 },
                     
-                //SysInput_SystemInputVolumeM3_D6 = 111111
             };
-            dataRepository.WbEasyCalcDataListRepository.SaveItem(model);
-            var id = model.WbEasyCalcDataId;
+            dataRepository.WbEasyCalcDataListRepository.SaveItem(model);          
+            var wbEasyCalcDataId = model.WbEasyCalcDataId;
+
+            var list = dataRepository.WbEasyCalcDataListRepository.GetList();
+            var wbEasyCalcData = list.FirstOrDefault(x => x.WbEasyCalcDataId == wbEasyCalcDataId);
+
+            var actual = wbEasyCalcData;
+            var expected = model;
+            Assert.AreEqual(wbEasyCalcData, actual, $"actual = {actual}, expected = {expected}");
         }
 
         [TestMethod]

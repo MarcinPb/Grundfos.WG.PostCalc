@@ -101,7 +101,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
 
             WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.Model.WbEasyCalcDataId);
-            WbEasyCalcDataEditedViewModel.Model.CalculateExcelNew();
+            //WbEasyCalcDataEditedViewModel.ItemViewModel.CalculateExcelNew();
         }
         public bool OpenRowCmdCanExecute()
         {
@@ -142,7 +142,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
-                DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.Model.Model);
+                DataModel.WbEasyCalcData row = GlobalConfig.DataRepository.WbEasyCalcDataListRepository.SaveItem(WbEasyCalcDataEditedViewModel.ItemViewModel.Model);
                 LoadData();
                 SelectedRow = List.FirstOrDefault(x => x.Model.WbEasyCalcDataId == row.WbEasyCalcDataId);
             }

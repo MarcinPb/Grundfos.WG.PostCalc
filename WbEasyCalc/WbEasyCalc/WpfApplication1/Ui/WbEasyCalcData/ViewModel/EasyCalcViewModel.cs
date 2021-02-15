@@ -78,35 +78,37 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
         }
 
 
+        public EasyCalcModel Model { get; set; }
 
-        public EasyCalcModel Model => new EasyCalcModel()
-        {
-            StartModel = StartViewModel.Model,
-            SysInputModel = SysInputViewModel.Model,
-            BilledConsModel = BilledConsViewModel.Model,
+        //public EasyCalcModel Model => new EasyCalcModel()
+        //{
+        //    StartModel = StartViewModel.Model,
+        //    SysInputModel = SysInputViewModel.Model,
+        //    BilledConsModel = BilledConsViewModel.Model,
 
-            UnbilledConsModel = UnbConsViewModel.Model,
-            UnauthConsModel = UnauthConsViewModel.Model,
-            MetErrorsModel = MeterErrorsViewModel.Model,
-            NetworkModel = NetworkViewModel.Model,
-            PressureModel = PressureViewModel.Model,
-            IntermModel = IntermittentSupplyViewModel.Model,
-            FinancDataModel = FinancialDataViewModel.Model,
+        //    UnbilledConsModel = UnbConsViewModel.Model,
+        //    UnauthConsModel = UnauthConsViewModel.Model,
+        //    MetErrorsModel = MeterErrorsViewModel.Model,
+        //    NetworkModel = NetworkViewModel.Model,
+        //    PressureModel = PressureViewModel.Model,
+        //    IntermModel = IntermittentSupplyViewModel.Model,
+        //    FinancDataModel = FinancialDataViewModel.Model,
 
-            WaterBalanceDay = WaterBalanceDayViewModel.Model,
-            WaterBalancePeriod = WaterBalancePeriodViewModel.Model,
-            WaterBalanceYear = WaterBalanceYearViewModel.Model,
-            Pis = PisViewModel.Model,
-        };
+        //    WaterBalanceDay = WaterBalanceDayViewModel.Model,
+        //    WaterBalancePeriod = WaterBalancePeriodViewModel.Model,
+        //    WaterBalanceYear = WaterBalanceYearViewModel.Model,
+        //    Pis = PisViewModel.Model,
+        //};
 
         public EasyCalcViewModel(EasyCalcModel model, ItemViewModel parentViewModel)
         {
+            if (model == null) return;
+            Model = model;
+
             _parentViewModel = parentViewModel;
 
-            if (model == null) return;
-
             StartViewModel = new StartViewModel(model.StartModel, this);
-            SysInputViewModel = new SysInputViewModel(model.SysInputModel, this);
+            SysInputViewModel = new SysInputViewModel(Model.SysInputModel, this);
             BilledConsViewModel = new BilledConsViewModel(model.BilledConsModel, this);
 
             UnbConsViewModel = new UnbConsViewModel(model.UnbilledConsModel, this);
@@ -125,26 +127,29 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
 
         public void Calculate()
         {
-            _parentViewModel.CalculateExcelNew();
+            //_parentViewModel.CalculateExcelNew();
+
+            new WbEasyCalcRepository.WbEasyCalc().CalculateNew(Model);
+            RefreashViewModel(Model);
         }
 
-        internal void Refreash(EasyCalcModel easyCalcModel)
+        internal void RefreashViewModel(EasyCalcModel easyCalcModel)
         {
             //StartViewModel.Refreash(easyCalcModel);
-            SysInputViewModel.Refreash(easyCalcModel.SysInputModel);
-            BilledConsViewModel.Refreash(easyCalcModel.BilledConsModel);
-            UnbConsViewModel.Refreash(easyCalcModel.UnbilledConsModel);
-            UnauthConsViewModel.Refreash(easyCalcModel.UnauthConsModel);
-            MeterErrorsViewModel.Refreash(easyCalcModel.MetErrorsModel);
-            NetworkViewModel.Refreash(easyCalcModel.NetworkModel);
-            PressureViewModel.Refreash(easyCalcModel.PressureModel);
-            IntermittentSupplyViewModel.Refreash(easyCalcModel.IntermModel);
-            FinancialDataViewModel.Refreash(easyCalcModel.FinancDataModel);
+            SysInputViewModel?.Refreash(easyCalcModel.SysInputModel);
+            BilledConsViewModel?.Refreash(easyCalcModel.BilledConsModel);
+            UnbConsViewModel?.Refreash(easyCalcModel.UnbilledConsModel);
+            UnauthConsViewModel?.Refreash(easyCalcModel.UnauthConsModel);
+            MeterErrorsViewModel?.Refreash(easyCalcModel.MetErrorsModel);
+            NetworkViewModel?.Refreash(easyCalcModel.NetworkModel);
+            PressureViewModel?.Refreash(easyCalcModel.PressureModel);
+            IntermittentSupplyViewModel?.Refreash(easyCalcModel.IntermModel);
+            FinancialDataViewModel?.Refreash(easyCalcModel.FinancDataModel);
 
-            WaterBalanceDayViewModel.Refreash(easyCalcModel.WaterBalanceDay);
-            WaterBalancePeriodViewModel.Refreash(easyCalcModel.WaterBalancePeriod);
-            WaterBalanceYearViewModel.Refreash(easyCalcModel.WaterBalanceYear);
-            PisViewModel.Refreash(easyCalcModel.Pis);
+            WaterBalanceDayViewModel?.Refreash(easyCalcModel.WaterBalanceDay);
+            WaterBalancePeriodViewModel?.Refreash(easyCalcModel.WaterBalancePeriod);
+            WaterBalanceYearViewModel?.Refreash(easyCalcModel.WaterBalanceYear);
+            PisViewModel?.Refreash(easyCalcModel.Pis);
         }
     }
 }

@@ -208,11 +208,12 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsArchive = model.IsArchive;
             IsAccepted = model.IsAccepted;
 
-            WbEasyCalc wbEasyCalcRepository = new WbEasyCalcRepository.WbEasyCalc();
-            var easyCalcModel = model.EasyCalcModel;
-            wbEasyCalcRepository.CalculateNew(easyCalcModel);
+            //WbEasyCalc wbEasyCalcRepository = new WbEasyCalcRepository.WbEasyCalc();
+            //var easyCalcModel = model.EasyCalcModel;
+            //wbEasyCalcRepository.CalculateNew(easyCalcModel);
 
-            EasyCalcViewModel = new EasyCalcViewModel(easyCalcModel, this);
+            //EasyCalcViewModel = new EasyCalcViewModel(easyCalcModel, this);
+            EasyCalcViewModel = new EasyCalcViewModel(model.EasyCalcModel, this);
 
         }
 
@@ -220,6 +221,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         {
             try
             {
+                /*
                 if (Model.EasyCalcModel == null) return;
 
                 var easyCalcModel = Model.EasyCalcModel;
@@ -227,6 +229,11 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 Model.EasyCalcModel = easyCalcModel;
 
                 EasyCalcViewModel.Refreash(easyCalcModel);
+                */
+
+                new WbEasyCalcRepository.WbEasyCalc().CalculateNew(EasyCalcViewModel.Model);
+                EasyCalcViewModel.RefreashViewModel(EasyCalcViewModel.Model);
+
             }
             catch (Exception e)
             {
