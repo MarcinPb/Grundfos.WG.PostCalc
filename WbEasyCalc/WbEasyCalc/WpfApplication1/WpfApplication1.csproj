@@ -121,7 +121,7 @@
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\EditedViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\View\ExcelView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\ExcelView.xaml.cs">
       <DependentUpon>ExcelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceYearView.xaml.cs">
@@ -130,7 +130,7 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
       <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\ExcelViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\ExcelViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\PressureViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\NetworkViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\MeterErrorsViewModel.cs" />
@@ -228,7 +228,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Ui\WbEasyCalcData\View\ExcelView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\ExcelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,7 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ui\Configuration\" />
-    <Folder Include="Ui\WbEasyCalcData\Excel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,7 +8,7 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 {
     public class ExcelViewModel : ViewModelBase
     {

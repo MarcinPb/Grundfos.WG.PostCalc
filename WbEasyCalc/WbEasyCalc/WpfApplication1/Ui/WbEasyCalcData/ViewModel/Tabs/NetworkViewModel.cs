@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
+using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs 
+namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class NetworkViewModel : ViewModelBase
     {

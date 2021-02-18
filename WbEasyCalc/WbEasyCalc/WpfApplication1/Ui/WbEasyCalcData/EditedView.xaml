@@ -5,16 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
              mc:Ignorable="d"              
              xmlns:converters="clr-namespace:WpfApplication1.Converters" 
-             xmlns:view="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.View"
-             xmlns:viewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel"
+             xmlns:excel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
 
-        <DataTemplate DataType="{x:Type viewModel:ExcelViewModel}">
-            <view:ExcelView />
+        <DataTemplate DataType="{x:Type excel:ExcelViewModel}">
+            <excel:ExcelView />
         </DataTemplate>
 
     </UserControl.Resources>

@@ -7,6 +7,7 @@ using DataRepository;
 using GlobalRepository;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using WbEasyCalcModel;
+using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData
@@ -339,7 +340,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 //ItemViewModel.Model.EasyCalcModel = easyCalcModel;
                 //easyCalcModelCalculateExcelNew();
 
-                ItemViewModel.EasyCalcViewModel = new ViewModel.ExcelViewModel(easyCalcModel, ItemViewModel);
+                ItemViewModel.EasyCalcViewModel = new ExcelViewModel(easyCalcModel, ItemViewModel);
             }
             catch (Exception e)
             {
