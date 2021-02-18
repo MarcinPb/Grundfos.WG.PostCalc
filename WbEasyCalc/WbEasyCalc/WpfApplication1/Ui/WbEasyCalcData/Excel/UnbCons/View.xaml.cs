@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
 {
     /// <summary>
-    /// Interaction logic for SysInputView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class SysInputView : UserControl
+    public partial class View : UserControl
     {
-        public SysInputView()
+        public View()
         {
             InitializeComponent();
         }

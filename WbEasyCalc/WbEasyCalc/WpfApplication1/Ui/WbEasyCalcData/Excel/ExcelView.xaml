@@ -34,16 +34,16 @@
             <excelStart:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelSysInput:ViewModel}">
-            <view:SysInputView />
+            <excelSysInput:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelBilledCons:ViewModel}">
             <excelBilledCons:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelUnbCons:ViewModel}">
-            <view:UnbConsView />
+            <excelUnbCons:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelUnauthCons:ViewModel}">
-            <view:UnauthConsView />
+            <excelUnauthCons:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelMeterErrors:ViewModel}">
             <excelMeterErrors:View />
@@ -52,7 +52,7 @@
             <excelNetwork:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelPressure:ViewModel}">
-            <view:PressureView />
+            <excelPressure:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelIntermittentSupply:ViewModel}">
             <excelIntermittentSupply:View />
@@ -66,7 +66,7 @@
         </DataTemplate>
         -->
         <DataTemplate DataType="{x:Type excelPis:ViewModel}">
-            <view:PisView />
+            <excelPis:View />
         </DataTemplate>
 
     </UserControl.Resources>

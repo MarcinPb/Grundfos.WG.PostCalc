@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pis
 {
     /// <summary>
-    /// Interaction logic for PisView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class PisView : UserControl
+    public partial class View : UserControl
     {
-        public PisView()
+        public View()
         {
             InitializeComponent();
         }

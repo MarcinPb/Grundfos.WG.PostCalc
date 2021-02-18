@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
 {
     /// <summary>
-    /// Interaction logic for UnbConsView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class UnbConsView : UserControl
+    public partial class View : UserControl
     {
-        public UnbConsView()
+        public View()
         {
             InitializeComponent();
         }

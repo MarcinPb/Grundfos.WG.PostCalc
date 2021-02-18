@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.SysInput
 {
     /// <summary>
-    /// Interaction logic for UnauthConsView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class UnauthConsView : UserControl
+    public partial class View : UserControl
     {
-        public UnauthConsView()
+        public View()
         {
             InitializeComponent();
         }
