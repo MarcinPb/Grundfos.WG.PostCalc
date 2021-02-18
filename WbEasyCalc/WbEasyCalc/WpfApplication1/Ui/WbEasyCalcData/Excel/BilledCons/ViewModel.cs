@@ -7,9 +7,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.BilledCons
 {
-    public class BilledConsViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -70,14 +70,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         public double BilledCons_BilledMetConsBulkWatSupExpM3_D6
         {
             get => _billedConsBilledMetConsBulkWatSupExpM3D6;
-            set { _billedConsBilledMetConsBulkWatSupExpM3D6 = value; RaisePropertyChanged(nameof(BilledCons_BilledMetConsBulkWatSupExpM3_D6)); Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6;  CalculateExcel(); }
+            set { _billedConsBilledMetConsBulkWatSupExpM3D6 = value; RaisePropertyChanged(nameof(BilledCons_BilledMetConsBulkWatSupExpM3_D6)); Model.BilledCons_BilledMetConsBulkWatSupExpM3_D6 = BilledCons_BilledMetConsBulkWatSupExpM3_D6; CalculateExcel(); }
         }
 
         private double _billedConsBilledUnmetConsBulkWatSupExpM3H6;
         public double BilledCons_BilledUnmetConsBulkWatSupExpM3_H6
         {
             get => _billedConsBilledUnmetConsBulkWatSupExpM3H6;
-            set { _billedConsBilledUnmetConsBulkWatSupExpM3H6 = value; RaisePropertyChanged(nameof(BilledCons_BilledUnmetConsBulkWatSupExpM3_H6)); Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6;  CalculateExcel(); }
+            set { _billedConsBilledUnmetConsBulkWatSupExpM3H6 = value; RaisePropertyChanged(nameof(BilledCons_BilledUnmetConsBulkWatSupExpM3_H6)); Model.BilledCons_BilledUnmetConsBulkWatSupExpM3_H6 = BilledCons_BilledUnmetConsBulkWatSupExpM3_H6; CalculateExcel(); }
         }
 
         private double _billedCons_UnbMetConsM3_D8;
@@ -96,7 +96,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         public double BilledCons_UnbMetConsM3_D10
         {
             get => _billedCons_UnbMetConsM3_D10;
-            set { _billedCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D10)); Model.BilledCons_UnbMetConsM3_D10 =BilledCons_UnbMetConsM3_D10;  CalculateExcel(); }
+            set { _billedCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(BilledCons_UnbMetConsM3_D10)); Model.BilledCons_UnbMetConsM3_D10 = BilledCons_UnbMetConsM3_D10; CalculateExcel(); }
         }
         private double _billedCons_UnbMetConsM3_D11;
         public double BilledCons_UnbMetConsM3_D11
@@ -108,7 +108,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         public double BilledCons_UnbUnmetConsM3_H8
         {
             get => _billedCons_UnbUnmetConsM3_H8;
-            set { _billedCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H8)); Model.BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8;  CalculateExcel(); }
+            set { _billedCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H8)); Model.BilledCons_UnbUnmetConsM3_H8 = BilledCons_UnbUnmetConsM3_H8; CalculateExcel(); }
         }
         private double _billedCons_UnbUnmetConsM3_H9;
         public double BilledCons_UnbUnmetConsM3_H9
@@ -126,7 +126,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         public double BilledCons_UnbUnmetConsM3_H11
         {
             get => _billedCons_UnbUnmetConsM3_H11;
-            set { _billedCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H11)); Model.BilledCons_UnbUnmetConsM3_H11 = BilledCons_UnbUnmetConsM3_H11;  CalculateExcel(); }
+            set { _billedCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(BilledCons_UnbUnmetConsM3_H11)); Model.BilledCons_UnbUnmetConsM3_H11 = BilledCons_UnbUnmetConsM3_H11; CalculateExcel(); }
         }
 
         #endregion
@@ -180,7 +180,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             BilledCons_Sum_H28 = model.BilledCons_Sum_H28;
         }
 
-        public BilledConsViewModel(BilledConsModel model, ExcelViewModel parentViewModel)
+        public ViewModel(BilledConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
             Model = model;

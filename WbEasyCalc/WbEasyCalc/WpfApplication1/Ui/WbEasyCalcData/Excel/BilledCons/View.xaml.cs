@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.BilledCons
 {
     /// <summary>
     /// Interaction logic for BilledCons.xaml
     /// </summary>
-    public partial class BilledConsView : UserControl
+    public partial class View : UserControl
     {
-        public BilledConsView()
+        public View()
         {
             InitializeComponent();
         }

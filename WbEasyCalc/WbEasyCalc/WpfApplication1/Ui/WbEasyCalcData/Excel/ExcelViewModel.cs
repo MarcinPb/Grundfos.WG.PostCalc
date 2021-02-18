@@ -29,13 +29,13 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
             set { _sysInputViewModel = value; RaisePropertyChanged(nameof(SysInputViewModel)); }
         }
 
-        //private BilledConsViewModel _billedConsViewModel;
-        //public BilledConsViewModel BilledConsViewModel
+        //private ViewModel _billedConsViewModel;
+        //public ViewModel ViewModel
         //{
         //    get => _billedConsViewModel;
-        //    set { _billedConsViewModel = value; RaisePropertyChanged(nameof(BilledConsViewModel)); }
+        //    set { _billedConsViewModel = value; RaisePropertyChanged(nameof(ViewModel)); }
         //}
-        public BilledConsViewModel BilledConsViewModel { get; set; }
+        public BilledCons.ViewModel BilledConsViewModel { get; set; }
 
 
         private UnbConsViewModel _unbConsViewModel;
@@ -84,7 +84,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
         //{
         //    StartModel = ViewModel.Model,
         //    SysInputModel = SysInputViewModel.Model,
-        //    BilledConsModel = BilledConsViewModel.Model,
+        //    BilledConsModel = ViewModel.Model,
 
         //    UnbilledConsModel = UnbConsViewModel.Model,
         //    UnauthConsModel = UnauthConsViewModel.Model,
@@ -109,7 +109,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 
             StartViewModel = new Start.ViewModel(model.StartModel, this);
             SysInputViewModel = new SysInputViewModel(Model.SysInputModel, this);
-            BilledConsViewModel = new BilledConsViewModel(model.BilledConsModel, this);
+            BilledConsViewModel = new BilledCons.ViewModel(model.BilledConsModel, this);
 
             UnbConsViewModel = new UnbConsViewModel(model.UnbilledConsModel, this);
             UnauthConsViewModel = new UnauthConsViewModel(model.UnauthConsModel, this);

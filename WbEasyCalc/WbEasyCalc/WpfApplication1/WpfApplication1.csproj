@@ -141,7 +141,7 @@
     <Compile Include="Ui\WbEasyCalcData\Excel\Pis\PisViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\UnbCons\UnbConsViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\SysInput\SysInputViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\ViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\Start\ViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
@@ -149,8 +149,8 @@
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\ListViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\RowViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsView.xaml.cs">
-      <DependentUpon>BilledConsView.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialData.xaml.cs">
       <DependentUpon>FinancialData.xaml</DependentUpon>
@@ -234,7 +234,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\BilledCons\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

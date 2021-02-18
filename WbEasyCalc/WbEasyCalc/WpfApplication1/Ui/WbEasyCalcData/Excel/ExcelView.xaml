@@ -10,6 +10,7 @@
              xmlns:viewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs" 
              
              xmlns:excelStart="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Start"        
+             xmlns:excelBilledCons="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.BilledCons"        
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
@@ -22,8 +23,8 @@
         <DataTemplate DataType="{x:Type viewModel:SysInputViewModel}">
             <view:SysInputView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:BilledConsViewModel}">
-            <view:BilledConsView />
+        <DataTemplate DataType="{x:Type excelBilledCons:ViewModel}">
+            <excelBilledCons:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:UnbConsViewModel}">
             <view:UnbConsView />
