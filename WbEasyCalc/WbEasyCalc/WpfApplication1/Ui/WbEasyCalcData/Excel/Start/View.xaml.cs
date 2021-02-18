@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Start
 {
     /// <summary>
-    /// Interaction logic for StartView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class StartView : UserControl
+    public partial class View : UserControl
     {
-        public StartView()
+        public View()
         {
             InitializeComponent();
         }

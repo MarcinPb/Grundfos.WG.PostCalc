@@ -15,8 +15,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 
         public readonly ItemViewModel _parentViewModel;
 
-        private StartViewModel _startViewModel;
-        public StartViewModel StartViewModel
+        private Start.ViewModel _startViewModel;
+        public Start.ViewModel StartViewModel
         {
             get => _startViewModel;
             set { _startViewModel = value; RaisePropertyChanged(nameof(StartViewModel)); }
@@ -82,7 +82,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 
         //public EasyCalcModel Model => new EasyCalcModel()
         //{
-        //    StartModel = StartViewModel.Model,
+        //    StartModel = ViewModel.Model,
         //    SysInputModel = SysInputViewModel.Model,
         //    BilledConsModel = BilledConsViewModel.Model,
 
@@ -107,7 +107,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 
             _parentViewModel = parentViewModel;
 
-            StartViewModel = new StartViewModel(model.StartModel, this);
+            StartViewModel = new Start.ViewModel(model.StartModel, this);
             SysInputViewModel = new SysInputViewModel(Model.SysInputModel, this);
             BilledConsViewModel = new BilledConsViewModel(model.BilledConsModel, this);
 
@@ -135,7 +135,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
 
         internal void RefreashViewModel(EasyCalcModel easyCalcModel)
         {
-            //StartViewModel.Refreash(easyCalcModel);
+            //ViewModel.Refreash(easyCalcModel);
             SysInputViewModel?.Refreash(easyCalcModel.SysInputModel);
             BilledConsViewModel?.Refreash(easyCalcModel.BilledConsModel);
             UnbConsViewModel?.Refreash(easyCalcModel.UnbilledConsModel);

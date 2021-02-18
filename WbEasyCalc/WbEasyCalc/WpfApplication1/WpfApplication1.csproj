@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Ui\WaterConsumption\ListViewModel.cs" />
     <Compile Include="Ui\WaterConsumption\RowViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\BaseSheetViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ItemViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
@@ -141,7 +142,7 @@
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\UnbConsViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\SysInputViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\BilledConsViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\StartViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\Start\ViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -169,8 +170,8 @@
     <Compile Include="Ui\WbEasyCalcData\TabView\PressureView.xaml.cs">
       <DependentUpon>PressureView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\StartView.xaml.cs">
-      <DependentUpon>StartView.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\Start\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\TabView\SysInputView.xaml.cs">
       <DependentUpon>SysInputView.xaml</DependentUpon>
@@ -185,6 +186,7 @@
       <DependentUpon>WaterBalancePeriodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\EventCommandExecuter.cs" />
+    <Compile Include="Utility\Messenger.cs" />
     <Compile Include="Utility\SelectingItemAttachedProperty.cs" />
     <Compile Include="Utility\RelayCommand.cs" />
     <Compile Include="Utility\ViewModelBase.cs" />
@@ -260,7 +262,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\StartView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\Start\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
