@@ -78,17 +78,18 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="140"/>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.ColumnSpan="9" Content="Performance Indicator" Style="{StaticResource LabelSpanTitleDarkStyle}" />

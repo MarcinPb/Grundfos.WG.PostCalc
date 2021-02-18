@@ -12,243 +12,245 @@
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
     </UserControl.Resources>
     <Grid Background="AliceBlue">
-        <Grid Margin="10 0 10 10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Margin="0 0 0 2" Width="Auto" HorizontalAlignment="Center">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid Margin="10 0 10 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Water Balance in m3/year" FontWeight="Bold" FontSize="14"/>
-                <!--<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Start_PeriodDays_M21}" FontWeight="Bold" FontSize="14" Foreground="Red"/>
-                <TextBlock Grid.Row="0" Grid.Column="2" Text=" days" FontWeight="Bold" FontSize="14" />-->
-            </Grid>
-            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <Grid >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0 0 0 2" Width="Auto" HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
-                    <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="7" Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="System Input Volume" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.SystemInputVolume_B19, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="4" Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Authorized Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.AuthorizedConsumption_K12, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.AuthorizedConsumptionErrorMargin_K15, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" Margin="34,0" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.WaterLosses_K29, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Authorized" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledAuthorizedConsumption_T8, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Authorized" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledAuthorizedConsumption_T16, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledAuthorizedConsumptionErrorMargin_T20, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Commercial Loses" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CommercialLosses_T26, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CommercialLossesErrorMargin_T29, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Physical Loses" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.PhysicalLossesM3_T34, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.PhyscialLossesErrorMargin_AH35, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Metered Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledMeteredConsumption_AC4, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Unmetered Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledUnmeteredConsumption_AC9, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Metered Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledMeteredConsumption_AC14, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Unmetered Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledUnmeteredConsumption_AC19, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledUnmeteredConsumptionErrorMargin_AO20, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unauthorized Consumption" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnauthorizedConsumption_AC24, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnauthorizedConsumptionErrorMargin_AO25, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Customer Meter Inaccuracies and Data" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Handling Errors" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CustomerMeterInaccuraciesAndErrorsM3_AC29, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30, StringFormat=Error Margin [+/-]: {0:P1}}" />
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Revenue Water" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.RevenueWaterM3_AY8, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                        </Grid>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="5" Background="Plum" Padding="10">
-                        <Grid VerticalAlignment="Center">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Non-Revenue Water" FontWeight="Bold" />
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.NonRevenueWaterM3_AY24, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
-                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
-                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.NonRevenueWaterErrorMargin_AY26, StringFormat={}{0:P1}}" />
-                        </Grid>
-                    </Border>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Water Balance in m3/year" FontWeight="Bold" FontSize="14"/>
+                    <!--<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Start_PeriodDays_M21}" FontWeight="Bold" FontSize="14" Foreground="Red"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text=" days" FontWeight="Bold" FontSize="14" />-->
                 </Grid>
-            </Border>
-        </Grid>
+                <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="7" Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="System Input Volume" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.SystemInputVolume_B19, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.SystemInputVolumeErrorMargin_B21, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="4" Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Authorized Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.AuthorizedConsumption_K12, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.AuthorizedConsumptionErrorMargin_K15, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Water Losses" FontWeight="Bold" Margin="34,0" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.WaterLosses_K29, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.WaterLossesErrorMargin_K31, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Authorized" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledAuthorizedConsumption_T8, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Authorized" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledAuthorizedConsumption_T16, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledAuthorizedConsumptionErrorMargin_T20, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Commercial Loses" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CommercialLosses_T26, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CommercialLossesErrorMargin_T29, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="2" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Physical Loses" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.PhysicalLossesM3_T34, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.PhyscialLossesErrorMargin_AH35, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Metered Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledMeteredConsumption_AC4, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Billed Unmetered Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.BilledUnmeteredConsumption_AC9, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="1"  Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Metered Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledMeteredConsumption_AC14, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="3" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unbilled Unmetered Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledUnmeteredConsumption_AC19, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnbilledUnmeteredConsumptionErrorMargin_AO20, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="4" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Unauthorized Consumption" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnauthorizedConsumption_AC24, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.UnauthorizedConsumptionErrorMargin_AO25, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="5" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Customer Meter Inaccuracies and Data" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Handling Errors" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CustomerMeterInaccuraciesAndErrorsM3_AC29, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.CustomerMeterInaccuraciesAndErrorsErrorMargin_AO30, StringFormat=Error Margin [+/-]: {0:P1}}" />
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="LightBlue" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Revenue Water" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.RevenueWaterM3_AY8, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2" Grid.Column="4" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="5" Background="Plum" Padding="10">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Non-Revenue Water" FontWeight="Bold" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.NonRevenueWaterM3_AY24, StringFormat={}{0:### ### ##0} m3/year}" FontWeight="Bold" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Error Margin [+/-]:" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=WaterBalanceYearViewModel.NonRevenueWaterErrorMargin_AY26, StringFormat={}{0:P1}}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
