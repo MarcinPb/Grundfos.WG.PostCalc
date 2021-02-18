@@ -125,64 +125,64 @@
     <Compile Include="Ui\WbEasyCalcData\Excel\ExcelView.xaml.cs">
       <DependentUpon>ExcelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceYearView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceYearView.xaml.cs">
       <DependentUpon>WaterBalanceYearView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceDayView.xaml.cs">
       <DependentUpon>WaterBalanceDayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\Excel\ExcelViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\PressureViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\NetworkViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\MeterErrorsViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\IntermittentSupplyViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\FinancialDataViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\UnauthConsViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\PisViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\UnbConsViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\SysInputViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\BilledConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\Pressure\PressureViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\Network\NetworkViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\MeterErrors\MeterErrorsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\IntermittentSupplyViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialDataViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\UnauthCons\UnauthConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\Pis\PisViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\UnbCons\UnbConsViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\SysInput\SysInputViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\Start\ViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\ViewModel\Tabs\WaterBalanceViewModel.cs" />
+    <Compile Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\ListViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\RowViewModel.cs" />
-    <Compile Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsView.xaml.cs">
       <DependentUpon>BilledConsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialData.xaml.cs">
       <DependentUpon>FinancialData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\IntermittentSupplyView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\IntermittentSupplyView.xaml.cs">
       <DependentUpon>IntermittentSupplyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\MeterErrors\MeterErrorsView.xaml.cs">
       <DependentUpon>MeterErrorsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\Network.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\Network\Network.xaml.cs">
       <DependentUpon>Network.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\PisView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\Pis\PisView.xaml.cs">
       <DependentUpon>PisView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\PressureView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\Pressure\PressureView.xaml.cs">
       <DependentUpon>PressureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\Excel\Start\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\SysInputView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\SysInput\SysInputView.xaml.cs">
       <DependentUpon>SysInputView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\UnauthConsView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\UnauthCons\UnauthConsView.xaml.cs">
       <DependentUpon>UnauthConsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\UnbCons\UnbConsView.xaml.cs">
       <DependentUpon>UnbConsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\TabView\WaterBalancePeriodView.xaml.cs">
+    <Compile Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalancePeriodView.xaml.cs">
       <DependentUpon>WaterBalancePeriodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\EventCommandExecuter.cs" />
@@ -234,31 +234,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\BilledConsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\BilledCons\BilledConsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\FinancialData.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\IntermittentSupplyView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\IntermittentSupplyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\MeterErrorsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\MeterErrors\MeterErrorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\Network.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\Network\Network.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\PisView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\Pis\PisView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\PressureView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\Pressure\PressureView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -266,27 +266,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\SysInputView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\SysInput\SysInputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\UnauthConsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\UnauthCons\UnauthConsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\UnbConsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\UnbCons\UnbConsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceYearView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceYearView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalanceDayView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalanceDayView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\TabView\WaterBalancePeriodView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\WaterBalanceDay\WaterBalancePeriodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
