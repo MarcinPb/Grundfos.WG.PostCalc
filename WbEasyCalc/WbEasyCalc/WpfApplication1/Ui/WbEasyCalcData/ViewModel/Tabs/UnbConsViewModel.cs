@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class UnbConsViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -271,7 +271,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             UnbilledCons_BestEstimate_H32 = model.UnbilledCons_BestEstimate_H32;
         }
 
-        public UnbConsViewModel(UnbilledConsModel model, EasyCalcViewModel parentViewModel)
+        public UnbConsViewModel(UnbilledConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

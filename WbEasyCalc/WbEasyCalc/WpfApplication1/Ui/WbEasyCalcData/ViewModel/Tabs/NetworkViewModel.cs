@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class NetworkViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -254,7 +254,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
         };
 
-        public NetworkViewModel(NetworkModel model, EasyCalcViewModel parentViewModel)
+        public NetworkViewModel(NetworkModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

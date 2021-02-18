@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApplication1.Ui.WbEasyCalcData.View
 {
     /// <summary>
-    /// Interaction logic for EasyCalcView.xaml
+    /// Interaction logic for ExcelView.xaml
     /// </summary>
-    public partial class EasyCalcView : UserControl
+    public partial class ExcelView : UserControl
     {
-        public EasyCalcView()
+        public ExcelView()
         {
             InitializeComponent();
         }

@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class PressureViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -145,7 +145,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Prs_Max_F31 = Prs_Max_F31,
         };
 
-        public PressureViewModel(PressureModel model, EasyCalcViewModel parentViewModel)
+        public PressureViewModel(PressureModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

@@ -10,7 +10,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class SysInputViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -154,7 +154,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             SysInput_BestEstimate_D79 = model.SysInput_BestEstimate_D79;
         }
 
-        public SysInputViewModel(SysInputModel model, EasyCalcViewModel parentViewModel)
+        public SysInputViewModel(SysInputModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

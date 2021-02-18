@@ -339,7 +339,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 //ItemViewModel.Model.EasyCalcModel = easyCalcModel;
                 //easyCalcModelCalculateExcelNew();
 
-                ItemViewModel.EasyCalcViewModel = new ViewModel.EasyCalcViewModel(easyCalcModel, ItemViewModel);
+                ItemViewModel.EasyCalcViewModel = new ViewModel.ExcelViewModel(easyCalcModel, ItemViewModel);
             }
             catch (Exception e)
             {

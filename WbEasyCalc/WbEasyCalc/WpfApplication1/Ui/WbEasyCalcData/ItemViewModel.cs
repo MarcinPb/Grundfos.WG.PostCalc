@@ -171,8 +171,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
         #endregion
 
-        private EasyCalcViewModel _easyCalcViewModel;
-        public EasyCalcViewModel EasyCalcViewModel
+        private ExcelViewModel _easyCalcViewModel;
+        public ExcelViewModel EasyCalcViewModel
         {
             get => _easyCalcViewModel;
             set { _easyCalcViewModel = value; RaisePropertyChanged(nameof(EasyCalcViewModel)); }
@@ -213,7 +213,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             //wbEasyCalcRepository.CalculateNew(easyCalcModel);
 
             //EasyCalcViewModel = new EasyCalcViewModel(easyCalcModel, this);
-            EasyCalcViewModel = new EasyCalcViewModel(model.EasyCalcModel, this);
+            EasyCalcViewModel = new ExcelViewModel(model.EasyCalcModel, this);
 
         }
 

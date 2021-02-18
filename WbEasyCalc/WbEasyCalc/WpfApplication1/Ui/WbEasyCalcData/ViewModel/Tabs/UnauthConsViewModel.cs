@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class UnauthConsViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -285,7 +285,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
         };
 
-        public UnauthConsViewModel(UnauthConsModel model, EasyCalcViewModel parentViewModel)
+        public UnauthConsViewModel(UnauthConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

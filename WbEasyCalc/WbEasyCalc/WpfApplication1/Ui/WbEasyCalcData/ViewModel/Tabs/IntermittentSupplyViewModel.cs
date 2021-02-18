@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class IntermittentSupplyViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -172,7 +172,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
         };
 
-        public IntermittentSupplyViewModel(IntermModel model, EasyCalcViewModel parentViewModel)
+        public IntermittentSupplyViewModel(IntermModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

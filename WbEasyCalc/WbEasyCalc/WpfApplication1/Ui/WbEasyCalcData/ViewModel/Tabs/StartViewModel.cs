@@ -10,7 +10,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class StartViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -32,7 +32,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
         //    Start_PeriodDays_M21 = Start_PeriodDays_M21,
         //};
 
-        public StartViewModel(StartModel model, EasyCalcViewModel parentViewModel)
+        public StartViewModel(StartModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class MeterErrorsViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -355,7 +355,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
         };
 
-        public MeterErrorsViewModel(MetErrorsModel model, EasyCalcViewModel parentViewModel)
+        public MeterErrorsViewModel(MetErrorsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

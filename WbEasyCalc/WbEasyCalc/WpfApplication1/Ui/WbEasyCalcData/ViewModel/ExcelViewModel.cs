@@ -10,7 +10,7 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
 {
-    public class EasyCalcViewModel : ViewModelBase
+    public class ExcelViewModel : ViewModelBase
     {
 
         public readonly ItemViewModel _parentViewModel;
@@ -100,7 +100,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel
         //    Pis = PisViewModel.Model,
         //};
 
-        public EasyCalcViewModel(EasyCalcModel model, ItemViewModel parentViewModel)
+        public ExcelViewModel(EasyCalcModel model, ItemViewModel parentViewModel)
         {
             if (model == null) return;
             Model = model;

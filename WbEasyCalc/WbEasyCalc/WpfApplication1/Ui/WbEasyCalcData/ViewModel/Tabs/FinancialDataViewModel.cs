@@ -11,7 +11,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class FinancialDataViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -185,7 +185,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             FinancData_K35 = FinancData_K35,
         };
 
-        public FinancialDataViewModel(FinancDataModel model, EasyCalcViewModel parentViewModel)
+        public FinancialDataViewModel(FinancDataModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

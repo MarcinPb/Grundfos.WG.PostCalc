@@ -13,8 +13,8 @@
         <converters:PercentageConverter  x:Key="PercentageConverter" />
         <converters:BooleanFlagSwitchConverter  x:Key="NegConverter" />
 
-        <DataTemplate DataType="{x:Type viewModel:EasyCalcViewModel}">
-            <view:EasyCalcView />
+        <DataTemplate DataType="{x:Type viewModel:ExcelViewModel}">
+            <view:ExcelView />
         </DataTemplate>
 
     </UserControl.Resources>

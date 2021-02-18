@@ -10,7 +10,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 {
     public class BilledConsViewModel : ViewModelBase
     {
-        private readonly EasyCalcViewModel _parentViewModel;
+        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -179,7 +179,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             BilledCons_Sum_H28 = model.BilledCons_Sum_H28;
         }
 
-        public BilledConsViewModel(BilledConsModel model, EasyCalcViewModel parentViewModel)
+        public BilledConsViewModel(BilledConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
             Model = model;
