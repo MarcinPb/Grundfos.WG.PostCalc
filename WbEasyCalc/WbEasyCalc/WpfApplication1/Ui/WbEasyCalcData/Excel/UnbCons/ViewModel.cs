@@ -8,9 +8,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
 {
-    public class UnbConsViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -272,7 +272,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             UnbilledCons_BestEstimate_H32 = model.UnbilledCons_BestEstimate_H32;
         }
 
-        public UnbConsViewModel(UnbilledConsModel model, ExcelViewModel parentViewModel)
+        public ViewModel(UnbilledConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

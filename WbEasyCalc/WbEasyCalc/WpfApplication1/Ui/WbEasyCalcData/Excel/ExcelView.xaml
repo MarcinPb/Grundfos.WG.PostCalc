@@ -9,9 +9,22 @@
              xmlns:view="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.TabView"
              xmlns:viewModel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs" 
              
-             xmlns:excelStart="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Start"        
              xmlns:excelBilledCons="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.BilledCons"        
+             xmlns:excelFinancialData="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.FinancialData"        
+             xmlns:excelIntermittentSupply="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply"        
+             xmlns:excelMeterErrors="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors"        
+             xmlns:excelNetwork="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Network"        
+             xmlns:excelPis="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Pis"        
+             xmlns:excelPressure="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure"        
+             xmlns:excelStart="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.Start"        
+             xmlns:excelSysInput="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.SysInput"        
+             xmlns:excelUnauthCons="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons"        
+             xmlns:excelUnbCons="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons"        
              >
+    <!--   
+             xmlns:excelWaterBalance="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel.WaterBalance"        
+    -->
+    
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
         <converters:PercentageConverter  x:Key="PercentageConverter" />
@@ -20,31 +33,31 @@
         <DataTemplate DataType="{x:Type excelStart:ViewModel}">
             <excelStart:View />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:SysInputViewModel}">
+        <DataTemplate DataType="{x:Type excelSysInput:ViewModel}">
             <view:SysInputView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelBilledCons:ViewModel}">
             <excelBilledCons:View />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:UnbConsViewModel}">
+        <DataTemplate DataType="{x:Type excelUnbCons:ViewModel}">
             <view:UnbConsView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:UnauthConsViewModel}">
+        <DataTemplate DataType="{x:Type excelUnauthCons:ViewModel}">
             <view:UnauthConsView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:MeterErrorsViewModel}">
+        <DataTemplate DataType="{x:Type excelMeterErrors:ViewModel}">
             <view:MeterErrorsView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:NetworkViewModel}">
+        <DataTemplate DataType="{x:Type excelNetwork:ViewModel}">
             <view:NetworkView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:PressureViewModel}">
+        <DataTemplate DataType="{x:Type excelPressure:ViewModel}">
             <view:PressureView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:IntermittentSupplyViewModel}">
+        <DataTemplate DataType="{x:Type excelIntermittentSupply:ViewModel}">
             <view:IntermittentSupplyView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:FinancialDataViewModel}">
+        <DataTemplate DataType="{x:Type excelFinancialData:ViewModel}">
             <view:FinancialDataView />
         </DataTemplate>
         <!--
@@ -52,7 +65,7 @@
             <view:WaterBalanceView />
         </DataTemplate>
         -->
-        <DataTemplate DataType="{x:Type viewModel:PisViewModel}">
+        <DataTemplate DataType="{x:Type excelPis:ViewModel}">
             <view:PisView />
         </DataTemplate>
 

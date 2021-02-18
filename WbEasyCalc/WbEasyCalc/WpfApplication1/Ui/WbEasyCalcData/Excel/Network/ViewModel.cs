@@ -8,9 +8,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
 {
-    public class NetworkViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -255,7 +255,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
         };
 
-        public NetworkViewModel(NetworkModel model, ExcelViewModel parentViewModel)
+        public ViewModel(NetworkModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

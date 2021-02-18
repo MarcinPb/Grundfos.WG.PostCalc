@@ -8,9 +8,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
 {
-    public class IntermittentSupplyViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -173,7 +173,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
         };
 
-        public IntermittentSupplyViewModel(IntermModel model, ExcelViewModel parentViewModel)
+        public ViewModel(IntermModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

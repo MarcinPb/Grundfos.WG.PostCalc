@@ -8,9 +8,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
 {
-    public class PressureViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -146,7 +146,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             Prs_Max_F31 = Prs_Max_F31,
         };
 
-        public PressureViewModel(PressureModel model, ExcelViewModel parentViewModel)
+        public ViewModel(PressureModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 

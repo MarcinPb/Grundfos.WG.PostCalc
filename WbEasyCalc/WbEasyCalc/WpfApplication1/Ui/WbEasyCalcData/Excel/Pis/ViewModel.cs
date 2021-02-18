@@ -7,9 +7,9 @@ using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs 
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pis 
 {
-    public class PisViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private double _pis_F9;
         public double Pis_F9
@@ -522,7 +522,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
 
 
-        public PisViewModel(PisModel model)
+        public ViewModel(PisModel model)
         {
             if (model == null) return;
             Refreash(model);

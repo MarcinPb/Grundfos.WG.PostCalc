@@ -8,9 +8,9 @@ using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
 {
-    public class UnauthConsViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         private readonly ExcelViewModel _parentViewModel;
 
@@ -286,7 +286,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
 
         };
 
-        public UnauthConsViewModel(UnauthConsModel model, ExcelViewModel parentViewModel)
+        public ViewModel(UnauthConsModel model, ExcelViewModel parentViewModel)
         {
             if (model == null) return;
 
