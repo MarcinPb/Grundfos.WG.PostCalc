@@ -9,7 +9,7 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.WaterBalance
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
         #region Props output
 
@@ -258,7 +258,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.WaterBalance
         public ViewModel(WaterBalanceModel model)
         {
             if (model == null) return;
-            Refreash(model);
         }
     }
 }

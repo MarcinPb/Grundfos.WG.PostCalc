@@ -310,7 +310,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
                 }
 
-                ItemViewModel.CalculateExcelNew();
+                //ItemViewModel.CalculateExcelNew();
             }
             catch (Exception e)
             {
@@ -340,7 +340,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
                 //ItemViewModel.Model.EasyCalcModel = easyCalcModel;
                 //easyCalcModelCalculateExcelNew();
 
-                ItemViewModel.EasyCalcViewModel = new ExcelViewModel(easyCalcModel, ItemViewModel);
+                ItemViewModel.EasyCalcViewModel = new ExcelViewModel(easyCalcModel);
             }
             catch (Exception e)
             {

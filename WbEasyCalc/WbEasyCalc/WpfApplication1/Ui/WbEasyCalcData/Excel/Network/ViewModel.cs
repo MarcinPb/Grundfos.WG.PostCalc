@@ -10,9 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
 
         #region Input props
 
@@ -45,25 +44,25 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
         public double Network_DistributionAndTransmissionMains_D7
         {
             get => _networkDistributionAndTransmissionMainsD7;
-            set { _networkDistributionAndTransmissionMainsD7 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D7)); CalculateExcel(); }
+            set { _networkDistributionAndTransmissionMainsD7 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D7)); Calculate(); }
         }
         private double _networkDistributionAndTransmissionMainsD8;
         public double Network_DistributionAndTransmissionMains_D8
         {
             get => _networkDistributionAndTransmissionMainsD8;
-            set { _networkDistributionAndTransmissionMainsD8 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D8)); CalculateExcel(); }
+            set { _networkDistributionAndTransmissionMainsD8 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D8)); Calculate(); }
         }
         private double _networkDistributionAndTransmissionMainsD9;
         public double Network_DistributionAndTransmissionMains_D9
         {
             get => _networkDistributionAndTransmissionMainsD9;
-            set { _networkDistributionAndTransmissionMainsD9 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D9)); CalculateExcel(); }
+            set { _networkDistributionAndTransmissionMainsD9 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D9)); Calculate(); }
         }
         private double _networkDistributionAndTransmissionMainsD10;
         public double Network_DistributionAndTransmissionMains_D10
         {
             get => _networkDistributionAndTransmissionMainsD10;
-            set { _networkDistributionAndTransmissionMainsD10 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D10)); CalculateExcel(); }
+            set { _networkDistributionAndTransmissionMainsD10 = value; RaisePropertyChanged(nameof(Network_DistributionAndTransmissionMains_D10)); Calculate(); }
         }
 
         private double _networkNoOfConnOfRegCustomersH10;
@@ -72,64 +71,64 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
         public double Network_NoOfConnOfRegCustomers_H10
         {
             get => _networkNoOfConnOfRegCustomersH10;
-            set { _networkNoOfConnOfRegCustomersH10 = value; RaisePropertyChanged(nameof(Network_NoOfConnOfRegCustomers_H10)); CalculateExcel(); }
+            set { _networkNoOfConnOfRegCustomersH10 = value; RaisePropertyChanged(nameof(Network_NoOfConnOfRegCustomers_H10)); Calculate(); }
         }
 
         public double Network_NoOfInactAccountsWSvcConns_H18
         {
             get => _networkNoOfInactAccountsWSvcConnsH18;
-            set { _networkNoOfInactAccountsWSvcConnsH18 = value; RaisePropertyChanged(nameof(Network_NoOfInactAccountsWSvcConns_H18)); CalculateExcel(); }
+            set { _networkNoOfInactAccountsWSvcConnsH18 = value; RaisePropertyChanged(nameof(Network_NoOfInactAccountsWSvcConns_H18)); Calculate(); }
         }
 
         public double Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32
         {
             get => _networkAvgLenOfSvcConnFromBoundaryToMeterMH32;
-            set { _networkAvgLenOfSvcConnFromBoundaryToMeterMH32 = value; RaisePropertyChanged(nameof(Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32)); CalculateExcel(); }
+            set { _networkAvgLenOfSvcConnFromBoundaryToMeterMH32 = value; RaisePropertyChanged(nameof(Network_AvgLenOfSvcConnFromBoundaryToMeterM_H32)); Calculate(); }
         }
 
         private double _network_PossibleUnd_D30;
         public double Network_PossibleUnd_D30
         {
             get => _network_PossibleUnd_D30;
-            set { _network_PossibleUnd_D30 = value; RaisePropertyChanged(nameof(Network_PossibleUnd_D30)); CalculateExcel(); }
+            set { _network_PossibleUnd_D30 = value; RaisePropertyChanged(nameof(Network_PossibleUnd_D30)); Calculate(); }
         }
         private double _network_NoCustomers_H7;
         public double Network_NoCustomers_H7
         {
             get => _network_NoCustomers_H7;
-            set { _network_NoCustomers_H7 = value; RaisePropertyChanged(nameof(Network_NoCustomers_H7)); CalculateExcel(); }
+            set { _network_NoCustomers_H7 = value; RaisePropertyChanged(nameof(Network_NoCustomers_H7)); Calculate(); }
         }
 
         private double _network_ErrorMargin_J7;
         public double Network_ErrorMargin_J7
         {
             get => _network_ErrorMargin_J7;
-            set { _network_ErrorMargin_J7 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J7)); CalculateExcel(); }
+            set { _network_ErrorMargin_J7 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J7)); Calculate(); }
         }
 
         private double _network_ErrorMargin_J10;
         public double Network_ErrorMargin_J10
         {
             get => _network_ErrorMargin_J10;
-            set { _network_ErrorMargin_J10 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J10)); CalculateExcel(); }
+            set { _network_ErrorMargin_J10 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J10)); Calculate(); }
         }
         private double _network_ErrorMargin_J18;
         public double Network_ErrorMargin_J18
         {
             get => _network_ErrorMargin_J18;
-            set { _network_ErrorMargin_J18 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J18)); CalculateExcel(); }
+            set { _network_ErrorMargin_J18 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J18)); Calculate(); }
         }
         private double _network_ErrorMargin_J32;
         public double Network_ErrorMargin_J32
         {
             get => _network_ErrorMargin_J32;
-            set { _network_ErrorMargin_J32 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J32)); CalculateExcel(); }
+            set { _network_ErrorMargin_J32 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_J32)); Calculate(); }
         }
         private double _network_ErrorMargin_D35;
         public double Network_ErrorMargin_D35
         {
             get => _network_ErrorMargin_D35;
-            set { _network_ErrorMargin_D35 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_D35)); CalculateExcel(); }
+            set { _network_ErrorMargin_D35 = value; RaisePropertyChanged(nameof(Network_ErrorMargin_D35)); Calculate(); }
         }
 
         #endregion
@@ -255,11 +254,26 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
             Network_ErrorMarg_J39 = Network_ErrorMarg_J39,
         };
 
-        public ViewModel(NetworkModel model, ExcelViewModel parentViewModel)
+        internal void Refreash(NetworkModel model)
+        {
+            Network_Total_D28 = model.Network_Total_D28;
+            Network_Total_D32 = model.Network_Total_D32;
+            Network_Min_D39 = model.Network_Min_D39;
+            Network_Max_D41 = model.Network_Max_D41;
+            Network_BestEstimate_D43 = model.Network_BestEstimate_D43;
+            Network_Number_H21 = model.Network_Number_H21;
+            Network_ErrorMarg_J21 = model.Network_ErrorMarg_J21;
+            Network_ErrorMarg_J24 = model.Network_ErrorMarg_J24;
+            Network_Min_H26 = model.Network_Min_H26;
+            Network_Max_H28 = model.Network_Max_H28;
+            Network_BestEstimate_H30 = model.Network_BestEstimate_H30;
+            Network_Number_H39 = model.Network_Number_H39;
+            Network_ErrorMarg_J39 = model.Network_ErrorMarg_J39;
+        }
+
+        public ViewModel(NetworkModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             Network_Desc_B7 = model.Network_Desc_B7;
             Network_Desc_B8 = model.Network_Desc_B8;
@@ -279,30 +293,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
             Network_ErrorMargin_J18 = model.Network_ErrorMargin_J18;
             Network_ErrorMargin_J32 = model.Network_ErrorMargin_J32;
             Network_ErrorMargin_D35 = model.Network_ErrorMargin_D35;
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-
-        }
-
-        internal void Refreash(NetworkModel model)
-        {
-            Network_Total_D28 = model.Network_Total_D28;
-            Network_Total_D32 = model.Network_Total_D32;
-            Network_Min_D39 = model.Network_Min_D39;
-            Network_Max_D41 = model.Network_Max_D41;
-            Network_BestEstimate_D43 = model.Network_BestEstimate_D43;
-            Network_Number_H21 = model.Network_Number_H21;
-            Network_ErrorMarg_J21 = model.Network_ErrorMarg_J21;
-            Network_ErrorMarg_J24 = model.Network_ErrorMarg_J24;
-            Network_Min_H26 = model.Network_Min_H26;
-            Network_Max_H28 = model.Network_Max_H28;
-            Network_BestEstimate_H30 = model.Network_BestEstimate_H30;
-            Network_Number_H39 = model.Network_Number_H39;
-            Network_ErrorMarg_J39 = model.Network_ErrorMarg_J39;
         }
     }
 }

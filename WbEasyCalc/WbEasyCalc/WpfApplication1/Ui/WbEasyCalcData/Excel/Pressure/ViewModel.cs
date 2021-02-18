@@ -10,10 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private string _prs_Area_B7;
@@ -54,49 +52,49 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
         public double Prs_ApproxNoOfConn_D7
         {
             get => _prsApproxNoOfConnD7;
-            set { _prsApproxNoOfConnD7 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D7)); CalculateExcel(); }
+            set { _prsApproxNoOfConnD7 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D7)); Calculate(); }
         }
         public double Prs_DailyAvgPrsM_F7
         {
             get => _prsDailyAvgPrsMF7;
-            set { _prsDailyAvgPrsMF7 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F7)); CalculateExcel(); }
+            set { _prsDailyAvgPrsMF7 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F7)); Calculate(); }
         }
         public double Prs_ApproxNoOfConn_D8
         {
             get => _prsApproxNoOfConnD8;
-            set { _prsApproxNoOfConnD8 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D8)); CalculateExcel(); }
+            set { _prsApproxNoOfConnD8 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D8)); Calculate(); }
         }
         public double Prs_DailyAvgPrsM_F8
         {
             get => _prsDailyAvgPrsMF8;
-            set { _prsDailyAvgPrsMF8 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F8)); CalculateExcel(); }
+            set { _prsDailyAvgPrsMF8 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F8)); Calculate(); }
         }
         public double Prs_ApproxNoOfConn_D9
         {
             get => _prsApproxNoOfConnD9;
-            set { _prsApproxNoOfConnD9 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D9)); CalculateExcel(); }
+            set { _prsApproxNoOfConnD9 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D9)); Calculate(); }
         }
         public double Prs_DailyAvgPrsM_F9
         {
             get => _prsDailyAvgPrsMF9;
-            set { _prsDailyAvgPrsMF9 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F9)); CalculateExcel(); }
+            set { _prsDailyAvgPrsMF9 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F9)); Calculate(); }
         }
         public double Prs_ApproxNoOfConn_D10
         {
             get => _prsApproxNoOfConnD10;
-            set { _prsApproxNoOfConnD10 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D10)); CalculateExcel(); }
+            set { _prsApproxNoOfConnD10 = value; RaisePropertyChanged(nameof(Prs_ApproxNoOfConn_D10)); Calculate(); }
         }
         public double Prs_DailyAvgPrsM_F10
         {
             get => _prsDailyAvgPrsMF10;
-            set { _prsDailyAvgPrsMF10 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F10)); CalculateExcel(); }
+            set { _prsDailyAvgPrsMF10 = value; RaisePropertyChanged(nameof(Prs_DailyAvgPrsM_F10)); Calculate(); }
         }
 
 
         public double Prs_ErrorMarg_F26
         {
             get => _prs_ErrorMarg_F26;
-            set { _prs_ErrorMarg_F26 = value; RaisePropertyChanged(nameof(Prs_ErrorMarg_F26)); CalculateExcel(); }
+            set { _prs_ErrorMarg_F26 = value; RaisePropertyChanged(nameof(Prs_ErrorMarg_F26)); Calculate(); }
         }
 
         #endregion
@@ -146,11 +144,16 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
             Prs_Max_F31 = Prs_Max_F31,
         };
 
-        public ViewModel(PressureModel model, ExcelViewModel parentViewModel)
+        internal void Refreash(PressureModel model)
+        {
+            Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
+            Prs_Min_F29 = model.Prs_Min_F29;
+            Prs_Max_F31 = model.Prs_Max_F31;
+        }
+
+        public ViewModel(PressureModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             // Input
             Prs_Area_B7 = model.Prs_Area_B7;
@@ -166,20 +169,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pressure
             Prs_ApproxNoOfConn_D10 = model.Prs_ApproxNoOfConn_D10;
             Prs_DailyAvgPrsM_F10 = model.Prs_DailyAvgPrsM_F10;
             Prs_ErrorMarg_F26 = model.Prs_ErrorMarg_F26;
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-
-        }
-
-        internal void Refreash(PressureModel model)
-        {
-            Prs_BestEstimate_F33 = model.Prs_BestEstimate_F33;
-            Prs_Min_F29 = model.Prs_Min_F29;
-            Prs_Max_F31 = model.Prs_Max_F31;
         }
     }
 }

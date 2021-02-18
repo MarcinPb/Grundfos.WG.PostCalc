@@ -9,7 +9,7 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pis 
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
         private double _pis_F9;
         public double Pis_F9
@@ -525,7 +525,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Pis
         public ViewModel(PisModel model)
         {
             if (model == null) return;
-            Refreash(model);
         }
     }
 }

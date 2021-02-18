@@ -344,7 +344,7 @@ namespace WbEasyCalcRepository
             return data;
         }
 
-        private WaterBalanceModel GetWaterBalanceModel(WaterBalanceSheet sheet)
+        private static WaterBalanceModel GetWaterBalanceModel(WaterBalanceSheet sheet)
         {
             WaterBalanceModel model = new WaterBalanceModel
             {
@@ -383,7 +383,7 @@ namespace WbEasyCalcRepository
             };
             return model;
         }
-        private PisModel GetPisModel(PiSheet pisSheet)
+        private static PisModel GetPisModel(PiSheet pisSheet)
         {
             PisModel model = new PisModel
             {
@@ -457,7 +457,7 @@ namespace WbEasyCalcRepository
 
 
 
-        public void CalculateNew(EasyCalcModel easyCalcModel)
+        public static void CalculateNew(EasyCalcModel easyCalcModel)
         {
             EasyCalcSheet easyCalcSheetData = CalcSheetData(easyCalcModel);
 
@@ -553,7 +553,7 @@ namespace WbEasyCalcRepository
             easyCalcModel.Pis = GetPisModel(easyCalcSheetData.PiSheet);
         }
 
-        private EasyCalcSheet CalcSheetData(EasyCalcModel easyCalcModel)
+        private static EasyCalcSheet CalcSheetData(EasyCalcModel easyCalcModel)
         {
             var data = new EasyCalcSheet();
 
@@ -785,7 +785,7 @@ namespace WbEasyCalcRepository
         }
 
 
-        private SysInputModel GetSysInputModel(SystemInputSheet sheet)
+        private static SysInputModel GetSysInputModel(SystemInputSheet sheet)
         {
             SysInputModel model = new SysInputModel
             {
@@ -797,7 +797,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private UnauthConsModel GetUnauthConsModel(UnauthorizedConsumptionSheet sheet)
+        private static UnauthConsModel GetUnauthConsModel(UnauthorizedConsumptionSheet sheet)
         {
             UnauthConsModel model = new UnauthConsModel
             {
@@ -816,7 +816,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private MetErrorsModel GetMetErrorsModel(MeterErrorsSheet sheet)
+        private static MetErrorsModel GetMetErrorsModel(MeterErrorsSheet sheet)
         {
             MetErrorsModel model = new MetErrorsModel
             {
@@ -840,7 +840,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private NetworkModel GetNetworkModel(NetworkSheet sheet)
+        private static NetworkModel GetNetworkModel(NetworkSheet sheet)
         {
             NetworkModel model = new NetworkModel
             {
@@ -861,7 +861,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private PressureModel GetPressureModel(PressureSheet sheet)
+        private static PressureModel GetPressureModel(PressureSheet sheet)
         {
             PressureModel model = new PressureModel
             {
@@ -872,7 +872,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private IntermModel GetIntermModel(IntermittentSupplySheet sheet)
+        private static IntermModel GetIntermModel(IntermittentSupplySheet sheet)
         {
             IntermModel model = new IntermModel
             {
@@ -883,7 +883,7 @@ namespace WbEasyCalcRepository
 
             return model;
         }
-        private FinancDataModel GetFinancDataModel(FinancialDataSheet sheet)
+        private static FinancDataModel GetFinancDataModel(FinancialDataSheet sheet)
         {
             FinancDataModel model = new FinancDataModel
             {

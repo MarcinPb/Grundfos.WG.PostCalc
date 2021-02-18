@@ -10,10 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private string _unbilledCons_Desc_D8;
@@ -82,32 +80,32 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
         public double UnbilledCons_MetConsBulkWatSupExpM3_D6
         {
             get => _unbilledConsMetConsBulkWatSupExpM3D6;
-            set { _unbilledConsMetConsBulkWatSupExpM3D6 = value; RaisePropertyChanged(nameof(UnbilledCons_MetConsBulkWatSupExpM3_D6)); CalculateExcel(); }
+            set { _unbilledConsMetConsBulkWatSupExpM3D6 = value; RaisePropertyChanged(nameof(UnbilledCons_MetConsBulkWatSupExpM3_D6)); Calculate(); }
         }
 
         private double _unbilledCons_UnbMetConsM3_D8;
         public double UnbilledCons_UnbMetConsM3_D8
         {
             get => _unbilledCons_UnbMetConsM3_D8;
-            set { _unbilledCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D8)); CalculateExcel(); }
+            set { _unbilledCons_UnbMetConsM3_D8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D8)); Calculate(); }
         }
         private double _unbilledCons_UnbMetConsM3_D9;
         public double UnbilledCons_UnbMetConsM3_D9
         {
             get => _unbilledCons_UnbMetConsM3_D9;
-            set { _unbilledCons_UnbMetConsM3_D9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D9)); CalculateExcel(); }
+            set { _unbilledCons_UnbMetConsM3_D9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D9)); Calculate(); }
         }
         private double _unbilledCons_UnbMetConsM3_D10;
         public double UnbilledCons_UnbMetConsM3_D10
         {
             get => _unbilledCons_UnbMetConsM3_D10;
-            set { _unbilledCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D10)); CalculateExcel(); }
+            set { _unbilledCons_UnbMetConsM3_D10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D10)); Calculate(); }
         }
         private double _unbilledCons_UnbMetConsM3_D11;
         public double UnbilledCons_UnbMetConsM3_D11
         {
             get => _unbilledCons_UnbMetConsM3_D11;
-            set { _unbilledCons_UnbMetConsM3_D11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D11)); CalculateExcel(); }
+            set { _unbilledCons_UnbMetConsM3_D11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbMetConsM3_D11)); Calculate(); }
         }
 
 
@@ -118,73 +116,73 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
         public double UnbilledCons_UnbUnmetConsM3_H6
         {
             get => _unbilledCons_UnbUnmetConsM3_H6;
-            set { _unbilledCons_UnbUnmetConsM3_H6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H6)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H6)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsM3_H7;
         public double UnbilledCons_UnbUnmetConsM3_H7
         {
             get => _unbilledCons_UnbUnmetConsM3_H7;
-            set { _unbilledCons_UnbUnmetConsM3_H7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H7)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H7)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsM3_H8;
         public double UnbilledCons_UnbUnmetConsM3_H8
         {
             get => _unbilledCons_UnbUnmetConsM3_H8;
-            set { _unbilledCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H8)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H8)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsM3_H9;
         public double UnbilledCons_UnbUnmetConsM3_H9
         {
             get => _unbilledCons_UnbUnmetConsM3_H9;
-            set { _unbilledCons_UnbUnmetConsM3_H9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H9)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H9)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsM3_H10;
         public double UnbilledCons_UnbUnmetConsM3_H10
         {
             get => _unbilledCons_UnbUnmetConsM3_H10;
-            set { _unbilledCons_UnbUnmetConsM3_H10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H10)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H10)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsM3_H11;
         public double UnbilledCons_UnbUnmetConsM3_H11
         {
             get => _unbilledCons_UnbUnmetConsM3_H11;
-            set { _unbilledCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H11)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsM3_H11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsM3_H11)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J6;
         public double UnbilledCons_UnbUnmetConsError_J6
         {
             get => _unbilledCons_UnbUnmetConsError_J6;
-            set { _unbilledCons_UnbUnmetConsError_J6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J6)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J6 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J6)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J7;
         public double UnbilledCons_UnbUnmetConsError_J7
         {
             get => _unbilledCons_UnbUnmetConsError_J7;
-            set { _unbilledCons_UnbUnmetConsError_J7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J7)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J7 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J7)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J8;
         public double UnbilledCons_UnbUnmetConsError_J8
         {
             get => _unbilledCons_UnbUnmetConsError_J8;
-            set { _unbilledCons_UnbUnmetConsError_J8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J8)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J8 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J8)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J9;
         public double UnbilledCons_UnbUnmetConsError_J9
         {
             get => _unbilledCons_UnbUnmetConsError_J9;
-            set { _unbilledCons_UnbUnmetConsError_J9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J9)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J9 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J9)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J10;
         public double UnbilledCons_UnbUnmetConsError_J10
         {
             get => _unbilledCons_UnbUnmetConsError_J10;
-            set { _unbilledCons_UnbUnmetConsError_J10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J10)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J10 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J10)); Calculate(); }
         }
         private double _unbilledCons_UnbUnmetConsError_J11;
         public double UnbilledCons_UnbUnmetConsError_J11
         {
             get => _unbilledCons_UnbUnmetConsError_J11;
-            set { _unbilledCons_UnbUnmetConsError_J11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J11)); CalculateExcel(); }
+            set { _unbilledCons_UnbUnmetConsError_J11 = value; RaisePropertyChanged(nameof(UnbilledCons_UnbUnmetConsError_J11)); Calculate(); }
         }
 
         #endregion
@@ -272,11 +270,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
             UnbilledCons_BestEstimate_H32 = model.UnbilledCons_BestEstimate_H32;
         }
 
-        public ViewModel(UnbilledConsModel model, ExcelViewModel parentViewModel)
+        public ViewModel(UnbilledConsModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             // Input
             UnbilledCons_Desc_D8 = model.UnbilledCons_Desc_D8;
@@ -307,13 +303,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnbCons
             UnbilledCons_UnbUnmetConsError_J9 = model.UnbilledCons_UnbUnmetConsError_J9;
             UnbilledCons_UnbUnmetConsError_J10 = model.UnbilledCons_UnbUnmetConsError_J10;
             UnbilledCons_UnbUnmetConsError_J11 = model.UnbilledCons_UnbUnmetConsError_J11;
-
-            Refreash(model);
         }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-        }
-
     }
 }

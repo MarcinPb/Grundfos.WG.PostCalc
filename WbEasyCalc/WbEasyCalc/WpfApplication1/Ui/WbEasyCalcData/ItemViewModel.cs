@@ -15,30 +15,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
     public class ItemViewModel : ViewModelBase
     {
-        private DataModel.WbEasyCalcData _model;
-        public DataModel.WbEasyCalcData Model
-        {
-            get => new DataModel.WbEasyCalcData()
-            {
-                WbEasyCalcDataId = this.Id,
-
-                CreateLogin = CreateLogin,
-                CreateDate = CreateDate,
-                ModifyLogin = ModifyLogin,
-                ModifyDate = ModifyDate,
-
-                YearNo = YearNo,
-                MonthNo = MonthNo,
-                ZoneId = ZoneId,
-                Description = Description,
-                IsArchive = IsArchive,
-                IsAccepted = IsAccepted,
-
-                EasyCalcModel = EasyCalcViewModel?.Model,
-
-            };
-            set { _model = value; RaisePropertyChanged(nameof(Model)); }
-        }
 
         #region Props ViewModel: Id, ZoneId,...
 
@@ -178,6 +154,24 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _easyCalcViewModel = value; RaisePropertyChanged(nameof(EasyCalcViewModel)); }
         }
 
+        public DataModel.WbEasyCalcData Model => new DataModel.WbEasyCalcData()
+        {
+            WbEasyCalcDataId = this.Id,
+
+            CreateLogin = CreateLogin,
+            CreateDate = CreateDate,
+            ModifyLogin = ModifyLogin,
+            ModifyDate = ModifyDate,
+
+            YearNo = YearNo,
+            MonthNo = MonthNo,
+            ZoneId = ZoneId,
+            Description = Description,
+            IsArchive = IsArchive,
+            IsAccepted = IsAccepted,
+
+            EasyCalcModel = EasyCalcViewModel?.Model,
+        };
 
         public ItemViewModel(DataModel.WbEasyCalcData model)
         {
@@ -208,38 +202,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsArchive = model.IsArchive;
             IsAccepted = model.IsAccepted;
 
-            //WbEasyCalc wbEasyCalcRepository = new WbEasyCalcRepository.WbEasyCalc();
-            //var easyCalcModel = model.EasyCalcModel;
-            //wbEasyCalcRepository.CalculateNew(easyCalcModel);
+            EasyCalcViewModel = new ExcelViewModel(model.EasyCalcModel);
 
-            //EasyCalcViewModel = new EasyCalcViewModel(easyCalcModel, this);
-            EasyCalcViewModel = new ExcelViewModel(model.EasyCalcModel, this);
-
-        }
-
-        public void CalculateExcelNew()
-        {
-            try
-            {
-                /*
-                if (Model.EasyCalcModel == null) return;
-
-                var easyCalcModel = Model.EasyCalcModel;
-                new WbEasyCalcRepository.WbEasyCalc().CalculateNew(easyCalcModel);
-                Model.EasyCalcModel = easyCalcModel;
-
-                EasyCalcViewModel.Refreash(easyCalcModel);
-                */
-
-                new WbEasyCalcRepository.WbEasyCalc().CalculateNew(EasyCalcViewModel.Model);
-                EasyCalcViewModel.RefreashViewModel(EasyCalcViewModel.Model);
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
         }
 
         private void CalculateDaysNumber()

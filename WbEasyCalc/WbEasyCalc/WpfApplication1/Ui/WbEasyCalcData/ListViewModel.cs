@@ -101,7 +101,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             }
 
             WbEasyCalcDataEditedViewModel = new EditedViewModel(SelectedRow.Model.WbEasyCalcDataId);
-            //WbEasyCalcDataEditedViewModel.ItemViewModel.CalculateExcelNew();
         }
         public bool OpenRowCmdCanExecute()
         {

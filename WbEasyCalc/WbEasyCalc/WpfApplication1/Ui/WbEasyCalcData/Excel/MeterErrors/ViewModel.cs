@@ -10,10 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private string _metErrors_Desc_D12;
@@ -52,36 +50,36 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
         public int MetErrors_DetailedManualSpec_J6
         {
             get => _metErrorsDetailedManualSpecJ6;
-            set { _metErrorsDetailedManualSpecJ6 = value; RaisePropertyChanged(nameof(MetErrors_DetailedManualSpec_J6)); CalculateExcel(); }
+            set { _metErrorsDetailedManualSpecJ6 = value; RaisePropertyChanged(nameof(MetErrors_DetailedManualSpec_J6)); Calculate(); }
         }
 
         public double MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8
         {
             get => _metErrorsBilledMetConsWoBulkSupMetUndrregH8;
-            set { _metErrorsBilledMetConsWoBulkSupMetUndrregH8 = value; RaisePropertyChanged(nameof(MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8)); CalculateExcel(); }
+            set { _metErrorsBilledMetConsWoBulkSupMetUndrregH8 = value; RaisePropertyChanged(nameof(MetErrors_BilledMetConsWoBulkSupMetUndrreg_H8)); Calculate(); }
         }
 
         public double MetErrors_BilledMetConsWoBulkSupErrorMargin_N8
         {
             get => _metErrorsBilledMetConsWoBulkSupErrorMarginN8;
-            set { _metErrorsBilledMetConsWoBulkSupErrorMarginN8 = value; RaisePropertyChanged(nameof(MetErrors_BilledMetConsWoBulkSupErrorMargin_N8)); CalculateExcel(); }
+            set { _metErrorsBilledMetConsWoBulkSupErrorMarginN8 = value; RaisePropertyChanged(nameof(MetErrors_BilledMetConsWoBulkSupErrorMargin_N8)); Calculate(); }
         }
         public double MetErrors_MetBulkSupExpMetUnderreg_H32
         {
             get => _metErrorsMetBulkSupExpMetUnderregH32;
-            set { _metErrorsMetBulkSupExpMetUnderregH32 = value; RaisePropertyChanged(nameof(MetErrors_MetBulkSupExpMetUnderreg_H32)); CalculateExcel(); }
+            set { _metErrorsMetBulkSupExpMetUnderregH32 = value; RaisePropertyChanged(nameof(MetErrors_MetBulkSupExpMetUnderreg_H32)); Calculate(); }
         }
 
         public double MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34
         {
             get => _metErrorsUnbillMetConsWoBulkSupplMetUndrregH34;
-            set { _metErrorsUnbillMetConsWoBulkSupplMetUndrregH34 = value; RaisePropertyChanged(nameof(MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34)); CalculateExcel(); }
+            set { _metErrorsUnbillMetConsWoBulkSupplMetUndrregH34 = value; RaisePropertyChanged(nameof(MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34)); Calculate(); }
         }
 
         public double MetErrors_CorruptMetReadPractMetUndrreg_H38
         {
             get => _metErrorsCorruptMetReadPractMetUndrregH38;
-            set { _metErrorsCorruptMetReadPractMetUndrregH38 = value; RaisePropertyChanged(nameof(MetErrors_CorruptMetReadPractMetUndrreg_H38)); CalculateExcel(); }
+            set { _metErrorsCorruptMetReadPractMetUndrregH38 = value; RaisePropertyChanged(nameof(MetErrors_CorruptMetReadPractMetUndrreg_H38)); Calculate(); }
         }
 
 
@@ -90,107 +88,107 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
         public double MetErrors_Total_F12
         {
             get => _metErrors_Total_F12;
-            set { _metErrors_Total_F12 = value; RaisePropertyChanged(nameof(MetErrors_Total_F12)); CalculateExcel(); }
+            set { _metErrors_Total_F12 = value; RaisePropertyChanged(nameof(MetErrors_Total_F12)); Calculate(); }
         }
         private double _metErrors_Total_F13;
         public double MetErrors_Total_F13
         {
             get => _metErrors_Total_F13;
-            set { _metErrors_Total_F13 = value; RaisePropertyChanged(nameof(MetErrors_Total_F13)); CalculateExcel(); }
+            set { _metErrors_Total_F13 = value; RaisePropertyChanged(nameof(MetErrors_Total_F13)); Calculate(); }
         }
         private double _metErrors_Total_F14;
         public double MetErrors_Total_F14
         {
             get => _metErrors_Total_F14;
-            set { _metErrors_Total_F14 = value; RaisePropertyChanged(nameof(MetErrors_Total_F14)); CalculateExcel(); }
+            set { _metErrors_Total_F14 = value; RaisePropertyChanged(nameof(MetErrors_Total_F14)); Calculate(); }
         }
         private double _metErrors_Total_F15;
         public double MetErrors_Total_F15
         {
             get => _metErrors_Total_F15;
-            set { _metErrors_Total_F15 = value; RaisePropertyChanged(nameof(MetErrors_Total_F15)); CalculateExcel(); }
+            set { _metErrors_Total_F15 = value; RaisePropertyChanged(nameof(MetErrors_Total_F15)); Calculate(); }
         }
 
         private double _metErrors_Meter_H12;
         public double MetErrors_Meter_H12
         {
             get => _metErrors_Meter_H12;
-            set { _metErrors_Meter_H12 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H12)); CalculateExcel(); }
+            set { _metErrors_Meter_H12 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H12)); Calculate(); }
         }
         private double _metErrors_Meter_H13;
         public double MetErrors_Meter_H13
         {
             get => _metErrors_Meter_H13;
-            set { _metErrors_Meter_H13 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H13)); CalculateExcel(); }
+            set { _metErrors_Meter_H13 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H13)); Calculate(); }
         }
         private double _metErrors_Meter_H14;
         public double MetErrors_Meter_H14
         {
             get => _metErrors_Meter_H14;
-            set { _metErrors_Meter_H14 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H14)); CalculateExcel(); }
+            set { _metErrors_Meter_H14 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H14)); Calculate(); }
         }
         private double _metErrors_Meter_H15;
         public double MetErrors_Meter_H15
         {
             get => _metErrors_Meter_H15;
-            set { _metErrors_Meter_H15 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H15)); CalculateExcel(); }
+            set { _metErrors_Meter_H15 = value; RaisePropertyChanged(nameof(MetErrors_Meter_H15)); Calculate(); }
         }
 
         private double _metErrors_Error_N12;
         public double MetErrors_Error_N12
         {
             get => _metErrors_Error_N12;
-            set { _metErrors_Error_N12 = value; RaisePropertyChanged(nameof(MetErrors_Error_N12)); CalculateExcel(); }
+            set { _metErrors_Error_N12 = value; RaisePropertyChanged(nameof(MetErrors_Error_N12)); Calculate(); }
         }
         private double _metErrors_Error_N13;
         public double MetErrors_Error_N13
         {
             get => _metErrors_Error_N13;
-            set { _metErrors_Error_N13 = value; RaisePropertyChanged(nameof(MetErrors_Error_N13)); CalculateExcel(); }
+            set { _metErrors_Error_N13 = value; RaisePropertyChanged(nameof(MetErrors_Error_N13)); Calculate(); }
         }
         private double _metErrors_Error_N14;
         public double MetErrors_Error_N14
         {
             get => _metErrors_Error_N14;
-            set { _metErrors_Error_N14 = value; RaisePropertyChanged(nameof(MetErrors_Error_N14)); CalculateExcel(); }
+            set { _metErrors_Error_N14 = value; RaisePropertyChanged(nameof(MetErrors_Error_N14)); Calculate(); }
         }
         private double _metErrors_Error_N15;
         public double MetErrors_Error_N15
         {
             get => _metErrors_Error_N15;
-            set { _metErrors_Error_N15 = value; RaisePropertyChanged(nameof(MetErrors_Error_N15)); CalculateExcel(); }
+            set { _metErrors_Error_N15 = value; RaisePropertyChanged(nameof(MetErrors_Error_N15)); Calculate(); }
         }
 
         private double _meteredBulkSupplyExportErrorMargin_N32;
         public double MeteredBulkSupplyExportErrorMargin_N32
         {
             get => _meteredBulkSupplyExportErrorMargin_N32;
-            set { _meteredBulkSupplyExportErrorMargin_N32 = value; RaisePropertyChanged(nameof(MeteredBulkSupplyExportErrorMargin_N32)); CalculateExcel(); }
+            set { _meteredBulkSupplyExportErrorMargin_N32 = value; RaisePropertyChanged(nameof(MeteredBulkSupplyExportErrorMargin_N32)); Calculate(); }
         }
 
         private double _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
         public double UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34
         {
             get => _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34;
-            set { _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = value; RaisePropertyChanged(nameof(UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34)); CalculateExcel(); }
+            set { _unbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34 = value; RaisePropertyChanged(nameof(UnbilledMeteredConsumptionWithoutBulkSupplyErrorMargin_N34)); Calculate(); }
         }
         private double _corruptMeterReadingPracticessErrorMargin_N38;
         public double CorruptMeterReadingPracticessErrorMargin_N38
         {
             get => _corruptMeterReadingPracticessErrorMargin_N38;
-            set { _corruptMeterReadingPracticessErrorMargin_N38 = value; RaisePropertyChanged(nameof(CorruptMeterReadingPracticessErrorMargin_N38)); CalculateExcel(); }
+            set { _corruptMeterReadingPracticessErrorMargin_N38 = value; RaisePropertyChanged(nameof(CorruptMeterReadingPracticessErrorMargin_N38)); Calculate(); }
         }
         private double _dataHandlingErrorsOffice_L40;
         public double DataHandlingErrorsOffice_L40
         {
             get => _dataHandlingErrorsOffice_L40;
-            set { _dataHandlingErrorsOffice_L40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOffice_L40)); CalculateExcel(); }
+            set { _dataHandlingErrorsOffice_L40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOffice_L40)); Calculate(); }
         }
         private double _dataHandlingErrorsOfficeErrorMargin_N40;
         public double DataHandlingErrorsOfficeErrorMargin_N40
         {
             get => _dataHandlingErrorsOfficeErrorMargin_N40;
-            set { _dataHandlingErrorsOfficeErrorMargin_N40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOfficeErrorMargin_N40)); CalculateExcel(); }
+            set { _dataHandlingErrorsOfficeErrorMargin_N40 = value; RaisePropertyChanged(nameof(DataHandlingErrorsOfficeErrorMargin_N40)); Calculate(); }
         }
 
 
@@ -356,11 +354,29 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
 
         };
 
-        public ViewModel(MetErrorsModel model, ExcelViewModel parentViewModel)
+        internal void Refreash(MetErrorsModel model)
+        {
+            MetErrors_Total_F8 = model.MetErrors_Total_F8;
+            MetErrors_Total_F32 = model.MetErrors_Total_F32;
+            MetErrors_Total_F34 = model.MetErrors_Total_F34;
+            MetErrors_Total_F38 = model.MetErrors_Total_F38;
+            MetErrors_Total_L8 = model.MetErrors_Total_L8;
+            MetErrors_Total_L32 = model.MetErrors_Total_L32;
+            MetErrors_Total_L34 = model.MetErrors_Total_L34;
+            MetErrors_Total_L38 = model.MetErrors_Total_L38;
+            MetErrors_ErrorMarg_N42 = model.MetErrors_ErrorMarg_N42;
+            MetErrors_Min_L45 = model.MetErrors_Min_L45;
+            MetErrors_Max_L47 = model.MetErrors_Max_L47;
+            MetErrors_BestEstimate_L49 = model.MetErrors_BestEstimate_L49;
+            MetErrors_Total_L12 = model.MetErrors_Total_L12;
+            MetErrors_Total_L13 = model.MetErrors_Total_L13;
+            MetErrors_Total_L14 = model.MetErrors_Total_L14;
+            MetErrors_Total_L15 = model.MetErrors_Total_L15;
+        }
+
+        public ViewModel(MetErrorsModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             // Input
             MetErrors_Desc_D12 = model.MetErrors_Desc_D12;
@@ -393,34 +409,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
             MetErrors_MetBulkSupExpMetUnderreg_H32 = model.MetErrors_MetBulkSupExpMetUnderreg_H32;
             MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34 = model.MetErrors_UnbillMetConsWoBulkSupplMetUndrreg_H34;
             MetErrors_CorruptMetReadPractMetUndrreg_H38 = model.MetErrors_CorruptMetReadPractMetUndrreg_H38;
-
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-
-        }
-
-        internal void Refreash(MetErrorsModel model)
-        {
-            MetErrors_Total_F8 = model.MetErrors_Total_F8;
-            MetErrors_Total_F32 = model.MetErrors_Total_F32;
-            MetErrors_Total_F34 = model.MetErrors_Total_F34;
-            MetErrors_Total_F38 = model.MetErrors_Total_F38;
-            MetErrors_Total_L8 = model.MetErrors_Total_L8;
-            MetErrors_Total_L32 = model.MetErrors_Total_L32;
-            MetErrors_Total_L34 = model.MetErrors_Total_L34;
-            MetErrors_Total_L38 = model.MetErrors_Total_L38;
-            MetErrors_ErrorMarg_N42 = model.MetErrors_ErrorMarg_N42;
-            MetErrors_Min_L45 = model.MetErrors_Min_L45;
-            MetErrors_Max_L47 = model.MetErrors_Max_L47;
-            MetErrors_BestEstimate_L49 = model.MetErrors_BestEstimate_L49;
-            MetErrors_Total_L12 = model.MetErrors_Total_L12;
-            MetErrors_Total_L13 = model.MetErrors_Total_L13;
-            MetErrors_Total_L14 = model.MetErrors_Total_L14;
-            MetErrors_Total_L15 = model.MetErrors_Total_L15;
         }
     }
 }

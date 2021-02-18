@@ -10,41 +10,39 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.FinancialData
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private double _financData_G6;
         public double FinancData_G6
         {
             get => _financData_G6;
-            set { _financData_G6 = value; RaisePropertyChanged(nameof(FinancData_G6)); CalculateExcel(); }
+            set { _financData_G6 = value; RaisePropertyChanged(nameof(FinancData_G6)); Calculate(); }
         }
         private string _financData_K6;
         public string FinancData_K6
         {
             get => _financData_K6;
-            set { _financData_K6 = value; RaisePropertyChanged(nameof(FinancData_K6)); CalculateExcel(); }
+            set { _financData_K6 = value; RaisePropertyChanged(nameof(FinancData_K6)); Calculate(); }
         }
         private double _financData_G8;
         public double FinancData_G8
         {
             get => _financData_G8;
-            set { _financData_G8 = value; RaisePropertyChanged(nameof(FinancData_G8)); CalculateExcel(); }
+            set { _financData_G8 = value; RaisePropertyChanged(nameof(FinancData_G8)); Calculate(); }
         }
         private double _financData_D26;
         public double FinancData_D26
         {
             get => _financData_D26;
-            set { _financData_D26 = value; RaisePropertyChanged(nameof(FinancData_D26)); CalculateExcel(); }
+            set { _financData_D26 = value; RaisePropertyChanged(nameof(FinancData_D26)); Calculate(); }
         }
         private double _financData_G35;
         public double FinancData_G35
         {
             get => _financData_G35;
-            set { _financData_G35 = value; RaisePropertyChanged(nameof(FinancData_G35)); CalculateExcel(); }
+            set { _financData_G35 = value; RaisePropertyChanged(nameof(FinancData_G35)); Calculate(); }
         }
 
         #endregion
@@ -186,27 +184,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.FinancialData
             FinancData_K35 = FinancData_K35,
         };
 
-        public ViewModel(FinancDataModel model, ExcelViewModel parentViewModel)
-        {
-            if (model == null) return;
-
-            _parentViewModel = parentViewModel;
-
-            // Input
-            FinancData_G6 = model.FinancData_G6;
-            FinancData_K6 = model.FinancData_K6;
-            FinancData_G8 = model.FinancData_G8;
-            FinancData_D26 = model.FinancData_D26;
-            FinancData_G35 = model.FinancData_G35;
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-
-        }
-
         internal void Refreash(FinancDataModel model)
         {
             FinancData_G13 = model.FinancData_G13;
@@ -226,6 +203,17 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.FinancialData
             FinancData_K22 = model.FinancData_K22;
             FinancData_K31 = model.FinancData_K31;
             FinancData_K35 = model.FinancData_K35;
+        }
+        public ViewModel(FinancDataModel model)
+        {
+            if (model == null) return;
+
+            // Input
+            FinancData_G6 = model.FinancData_G6;
+            FinancData_K6 = model.FinancData_K6;
+            FinancData_G8 = model.FinancData_G8;
+            FinancData_D26 = model.FinancData_D26;
+            FinancData_G35 = model.FinancData_G35;
         }
     }
 }

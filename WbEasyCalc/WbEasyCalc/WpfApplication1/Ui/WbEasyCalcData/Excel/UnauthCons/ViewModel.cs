@@ -10,10 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private string _unauthCons_Desc_B18;
@@ -45,50 +43,50 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
         public double UnauthCons_OthersErrorMargin_F18
         {
             get => _unauthCons_OthersErrorMargin_F18;
-            set { _unauthCons_OthersErrorMargin_F18 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F18)); CalculateExcel(); }
+            set { _unauthCons_OthersErrorMargin_F18 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F18)); Calculate(); }
         }
         private double _unauthCons_OthersErrorMargin_F19;
         public double UnauthCons_OthersErrorMargin_F19
         {
             get => _unauthCons_OthersErrorMargin_F19;
-            set { _unauthCons_OthersErrorMargin_F19 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F19)); CalculateExcel(); }
+            set { _unauthCons_OthersErrorMargin_F19 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F19)); Calculate(); }
         }
         private double _unauthCons_OthersErrorMargin_F20;
         public double UnauthCons_OthersErrorMargin_F20
         {
             get => _unauthCons_OthersErrorMargin_F20;
-            set { _unauthCons_OthersErrorMargin_F20 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F20)); CalculateExcel(); }
+            set { _unauthCons_OthersErrorMargin_F20 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F20)); Calculate(); }
         }
         private double _unauthCons_OthersErrorMargin_F21;
         public double UnauthCons_OthersErrorMargin_F21
         {
             get => _unauthCons_OthersErrorMargin_F21;
-            set { _unauthCons_OthersErrorMargin_F21 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F21)); CalculateExcel(); }
+            set { _unauthCons_OthersErrorMargin_F21 = value; RaisePropertyChanged(nameof(UnauthCons_OthersErrorMargin_F21)); Calculate(); }
         }
 
         private double _unauthCons_OthersM3PerDay_J18;
         public double UnauthCons_OthersM3PerDay_J18
         {
             get => _unauthCons_OthersM3PerDay_J18;
-            set { _unauthCons_OthersM3PerDay_J18 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J18)); CalculateExcel(); }
+            set { _unauthCons_OthersM3PerDay_J18 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J18)); Calculate(); }
         }
         private double _unauthCons_OthersM3PerDay_J19;
         public double UnauthCons_OthersM3PerDay_J19
         {
             get => _unauthCons_OthersM3PerDay_J19;
-            set { _unauthCons_OthersM3PerDay_J19 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J19)); CalculateExcel(); }
+            set { _unauthCons_OthersM3PerDay_J19 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J19)); Calculate(); }
         }
         private double _unauthCons_OthersM3PerDay_J20;
         public double UnauthCons_OthersM3PerDay_J20
         {
             get => _unauthCons_OthersM3PerDay_J20;
-            set { _unauthCons_OthersM3PerDay_J20 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J20)); CalculateExcel(); }
+            set { _unauthCons_OthersM3PerDay_J20 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J20)); Calculate(); }
         }
         private double _unauthCons_OthersM3PerDay_J21;
         public double UnauthCons_OthersM3PerDay_J21
         {
             get => _unauthCons_OthersM3PerDay_J21;
-            set { _unauthCons_OthersM3PerDay_J21 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J21)); CalculateExcel(); }
+            set { _unauthCons_OthersM3PerDay_J21 = value; RaisePropertyChanged(nameof(UnauthCons_OthersM3PerDay_J21)); Calculate(); }
         }
 
 
@@ -105,31 +103,31 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
         public int UnauthCons_IllegalConnDomEstNo_D6
         {
             get => _unauthConsIllegalConnDomEstNoD6;
-            set { _unauthConsIllegalConnDomEstNoD6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomEstNo_D6)); CalculateExcel(); }
+            set { _unauthConsIllegalConnDomEstNoD6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomEstNo_D6)); Calculate(); }
         }
 
         public double UnauthCons_IllegalConnDomPersPerHouse_H6
         {
             get => _unauthConsIllegalConnDomPersPerHouseH6;
-            set { _unauthConsIllegalConnDomPersPerHouseH6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomPersPerHouse_H6)); CalculateExcel(); }
+            set { _unauthConsIllegalConnDomPersPerHouseH6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomPersPerHouse_H6)); Calculate(); }
         }
 
         public double UnauthCons_IllegalConnDomConsLitPerPersDay_J6
         {
             get => _unauthConsIllegalConnDomConsLitPerPersDayJ6;
-            set { _unauthConsIllegalConnDomConsLitPerPersDayJ6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomConsLitPerPersDay_J6)); CalculateExcel(); }
+            set { _unauthConsIllegalConnDomConsLitPerPersDayJ6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomConsLitPerPersDay_J6)); Calculate(); }
         }
 
         public double UnauthCons_IllegalConnDomErrorMargin_F6
         {
             get => _unauthConsIllegalConnDomErrorMarginF6;
-            set { _unauthConsIllegalConnDomErrorMarginF6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomErrorMargin_F6)); CalculateExcel(); }
+            set { _unauthConsIllegalConnDomErrorMarginF6 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnDomErrorMargin_F6)); Calculate(); }
         }
 
         public double UnauthCons_IllegalConnOthersErrorMargin_F10
         {
             get => _unauthConsIllegalConnOthersErrorMarginF10;
-            set { _unauthConsIllegalConnOthersErrorMarginF10 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnOthersErrorMargin_F10)); CalculateExcel(); }
+            set { _unauthConsIllegalConnOthersErrorMarginF10 = value; RaisePropertyChanged(nameof(UnauthCons_IllegalConnOthersErrorMargin_F10)); Calculate(); }
         }
 
 
@@ -137,14 +135,14 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
         public double IllegalConnectionsOthersEstimatedNumber_D10
         {
             get => _illegalConnectionsOthersEstimatedNumber_D10;
-            set { _illegalConnectionsOthersEstimatedNumber_D10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersEstimatedNumber_D10)); CalculateExcel(); }
+            set { _illegalConnectionsOthersEstimatedNumber_D10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersEstimatedNumber_D10)); Calculate(); }
         }
 
         private double _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10;
         public double IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10
         {
             get => _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10;
-            set { _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10)); CalculateExcel(); }
+            set { _illegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10 = value; RaisePropertyChanged(nameof(IllegalConnectionsOthersConsumptionLitersPerConnectionPerDay_J10)); Calculate(); }
         }
 
 
@@ -153,19 +151,19 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
         public double UnauthCons_MeterTampBypEtcEstNo_D14
         {
             get => _unauthConsMeterTampBypEtcEstNoD14;
-            set { _unauthConsMeterTampBypEtcEstNoD14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcEstNo_D14)); CalculateExcel(); }
+            set { _unauthConsMeterTampBypEtcEstNoD14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcEstNo_D14)); Calculate(); }
         }
 
         public double UnauthCons_MeterTampBypEtcErrorMargin_F14
         {
             get => _unauthConsMeterTampBypEtcErrorMarginF14;
-            set { _unauthConsMeterTampBypEtcErrorMarginF14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcErrorMargin_F14)); CalculateExcel(); }
+            set { _unauthConsMeterTampBypEtcErrorMarginF14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcErrorMargin_F14)); Calculate(); }
         }
 
         public double UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14
         {
             get => _unauthConsMeterTampBypEtcConsLitPerCustDayJ14;
-            set { _unauthConsMeterTampBypEtcConsLitPerCustDayJ14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14)); CalculateExcel(); }
+            set { _unauthConsMeterTampBypEtcConsLitPerCustDayJ14 = value; RaisePropertyChanged(nameof(UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14)); Calculate(); }
         }
 
 
@@ -286,11 +284,24 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
 
         };
 
-        public ViewModel(UnauthConsModel model, ExcelViewModel parentViewModel)
+        internal void Refreash(UnauthConsModel model)
+        {
+            UnauthCons_Total_L6 = model.UnauthCons_Total_L6;
+            UnauthCons_Total_L10 = model.UnauthCons_Total_L10;
+            UnauthCons_Total_L14 = model.UnauthCons_Total_L14;
+            UnauthCons_ErrorMarg_F24 = model.UnauthCons_ErrorMarg_F24;
+            UnauthCons_Min_L27 = model.UnauthCons_Min_L27;
+            UnauthCons_Max_L29 = model.UnauthCons_Max_L29;
+            UnauthCons_BestEstimate_L31 = model.UnauthCons_BestEstimate_L31;
+            UnauthCons_Total_L18 = model.UnauthCons_Total_L18;
+            UnauthCons_Total_L19 = model.UnauthCons_Total_L19;
+            UnauthCons_Total_L20 = model.UnauthCons_Total_L20;
+            UnauthCons_Total_L21 = model.UnauthCons_Total_L21;
+        }
+
+        public ViewModel(UnauthConsModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             // Input
             UnauthCons_Desc_B18 = model.UnauthCons_Desc_B18;
@@ -318,28 +329,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.UnauthCons
             UnauthCons_MeterTampBypEtcEstNo_D14 = model.UnauthCons_MeterTampBypEtcEstNo_D14;
             UnauthCons_MeterTampBypEtcErrorMargin_F14 = model.UnauthCons_MeterTampBypEtcErrorMargin_F14;
             UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14 = model.UnauthCons_MeterTampBypEtcConsLitPerCustDay_J14;
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-
-        }
-
-        internal void Refreash(UnauthConsModel model)
-        {
-            UnauthCons_Total_L6 = model.UnauthCons_Total_L6;
-            UnauthCons_Total_L10 = model.UnauthCons_Total_L10;
-            UnauthCons_Total_L14 = model.UnauthCons_Total_L14;
-            UnauthCons_ErrorMarg_F24 = model.UnauthCons_ErrorMarg_F24;
-            UnauthCons_Min_L27 = model.UnauthCons_Min_L27;
-            UnauthCons_Max_L29 = model.UnauthCons_Max_L29;
-            UnauthCons_BestEstimate_L31 = model.UnauthCons_BestEstimate_L31;
-            UnauthCons_Total_L18 = model.UnauthCons_Total_L18;
-            UnauthCons_Total_L19 = model.UnauthCons_Total_L19;
-            UnauthCons_Total_L20 = model.UnauthCons_Total_L20;
-            UnauthCons_Total_L21 = model.UnauthCons_Total_L21;
         }
     }
 }

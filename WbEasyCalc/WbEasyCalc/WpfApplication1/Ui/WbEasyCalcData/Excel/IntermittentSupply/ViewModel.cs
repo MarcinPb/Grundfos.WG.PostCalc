@@ -10,10 +10,8 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
 {
-    public class ViewModel : ViewModelBase
+    public class ViewModel : BaseSheetViewModel
     {
-        private readonly ExcelViewModel _parentViewModel;
-
         #region Input props
 
         private string _interm_Area_B7;
@@ -45,81 +43,81 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
         public double Interm_Conn_D7
         {
             get => _interm_Conn_D7;
-            set { _interm_Conn_D7 = value; RaisePropertyChanged(nameof(Interm_Conn_D7)); CalculateExcel(); }
+            set { _interm_Conn_D7 = value; RaisePropertyChanged(nameof(Interm_Conn_D7)); Calculate(); }
         }
         private double _interm_Conn_D8;
         public double Interm_Conn_D8
         {
             get => _interm_Conn_D8;
-            set { _interm_Conn_D8 = value; RaisePropertyChanged(nameof(Interm_Conn_D8)); CalculateExcel(); }
+            set { _interm_Conn_D8 = value; RaisePropertyChanged(nameof(Interm_Conn_D8)); Calculate(); }
         }
         private double _interm_Conn_D9;
         public double Interm_Conn_D9
         {
             get => _interm_Conn_D9;
-            set { _interm_Conn_D9 = value; RaisePropertyChanged(nameof(Interm_Conn_D9)); CalculateExcel(); }
+            set { _interm_Conn_D9 = value; RaisePropertyChanged(nameof(Interm_Conn_D9)); Calculate(); }
         }
         private double _interm_Conn_D10;
         public double Interm_Conn_D10
         {
             get => _interm_Conn_D10;
-            set { _interm_Conn_D10 = value; RaisePropertyChanged(nameof(Interm_Conn_D10)); CalculateExcel(); }
+            set { _interm_Conn_D10 = value; RaisePropertyChanged(nameof(Interm_Conn_D10)); Calculate(); }
         }
 
         private double _interm_Days_F7;
         public double Interm_Days_F7
         {
             get => _interm_Days_F7;
-            set { _interm_Days_F7 = value; RaisePropertyChanged(nameof(Interm_Days_F7)); CalculateExcel(); }
+            set { _interm_Days_F7 = value; RaisePropertyChanged(nameof(Interm_Days_F7)); Calculate(); }
         }
         private double _interm_Days_F8;
         public double Interm_Days_F8
         {
             get => _interm_Days_F8;
-            set { _interm_Days_F8 = value; RaisePropertyChanged(nameof(Interm_Days_F8)); CalculateExcel(); }
+            set { _interm_Days_F8 = value; RaisePropertyChanged(nameof(Interm_Days_F8)); Calculate(); }
         }
         private double _interm_Days_F9;
         public double Interm_Days_F9
         {
             get => _interm_Days_F9;
-            set { _interm_Days_F9 = value; RaisePropertyChanged(nameof(Interm_Days_F9)); CalculateExcel(); }
+            set { _interm_Days_F9 = value; RaisePropertyChanged(nameof(Interm_Days_F9)); Calculate(); }
         }
         private double _interm_Days_F10;
         public double Interm_Days_F10
         {
             get => _interm_Days_F10;
-            set { _interm_Days_F10 = value; RaisePropertyChanged(nameof(Interm_Days_F10)); CalculateExcel(); }
+            set { _interm_Days_F10 = value; RaisePropertyChanged(nameof(Interm_Days_F10)); Calculate(); }
         }
 
         private double _interm_Hour_H7;
         public double Interm_Hour_H7
         {
             get => _interm_Hour_H7;
-            set { _interm_Hour_H7 = value; RaisePropertyChanged(nameof(Interm_Hour_H7)); CalculateExcel(); }
+            set { _interm_Hour_H7 = value; RaisePropertyChanged(nameof(Interm_Hour_H7)); Calculate(); }
         }
         private double _interm_Hour_H8;
         public double Interm_Hour_H8
         {
             get => _interm_Hour_H8;
-            set { _interm_Hour_H8 = value; RaisePropertyChanged(nameof(Interm_Hour_H8)); CalculateExcel(); }
+            set { _interm_Hour_H8 = value; RaisePropertyChanged(nameof(Interm_Hour_H8)); Calculate(); }
         }
         private double _interm_Hour_H9;
         public double Interm_Hour_H9
         {
             get => _interm_Hour_H9;
-            set { _interm_Hour_H9 = value; RaisePropertyChanged(nameof(Interm_Hour_H9)); CalculateExcel(); }
+            set { _interm_Hour_H9 = value; RaisePropertyChanged(nameof(Interm_Hour_H9)); Calculate(); }
         }
         private double _interm_Hour_H10;
         public double Interm_Hour_H10
         {
             get => _interm_Hour_H10;
-            set { _interm_Hour_H10 = value; RaisePropertyChanged(nameof(Interm_Hour_H10)); CalculateExcel(); }
+            set { _interm_Hour_H10 = value; RaisePropertyChanged(nameof(Interm_Hour_H10)); Calculate(); }
         }
         private double _interm_ErrorMarg_H26;
         public double Interm_ErrorMarg_H26
         {
             get => _interm_ErrorMarg_H26;
-            set { _interm_ErrorMarg_H26 = value; RaisePropertyChanged(nameof(Interm_ErrorMarg_H26)); CalculateExcel(); }
+            set { _interm_ErrorMarg_H26 = value; RaisePropertyChanged(nameof(Interm_ErrorMarg_H26)); Calculate(); }
         }
 
         #endregion
@@ -173,11 +171,16 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
             Interm_BestEstimate_H33 = Interm_BestEstimate_H33,
         };
 
-        public ViewModel(IntermModel model, ExcelViewModel parentViewModel)
+        internal void Refreash(IntermModel model)
+        {
+            Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
+            Interm_Min_H29 = model.Interm_Min_H29;
+            Interm_Max_H31 = model.Interm_Max_H31;
+        }
+
+        public ViewModel(IntermModel model)
         {
             if (model == null) return;
-
-            _parentViewModel = parentViewModel;
 
             // Input
             Interm_Area_B7 = model.Interm_Area_B7;
@@ -197,19 +200,6 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
             Interm_Hour_H9 = model.Interm_Hour_H9;
             Interm_Hour_H10 = model.Interm_Hour_H10;
             Interm_ErrorMarg_H26 = model.Interm_ErrorMarg_H26;
-            // Output
-            Refreash(model);
-        }
-        private void CalculateExcel()
-        {
-            _parentViewModel.Calculate();
-        }
-
-        internal void Refreash(IntermModel model)
-        {
-            Interm_BestEstimate_H33 = model.Interm_BestEstimate_H33;
-            Interm_Min_H29 = model.Interm_Min_H29;
-            Interm_Max_H31 = model.Interm_Max_H31;
         }
     }
 }
