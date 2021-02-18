@@ -46,19 +46,19 @@
             <view:UnauthConsView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelMeterErrors:ViewModel}">
-            <view:MeterErrorsView />
+            <excelMeterErrors:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelNetwork:ViewModel}">
-            <view:NetworkView />
+            <excelNetwork:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelPressure:ViewModel}">
             <view:PressureView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelIntermittentSupply:ViewModel}">
-            <view:IntermittentSupplyView />
+            <excelIntermittentSupply:View />
         </DataTemplate>
         <DataTemplate DataType="{x:Type excelFinancialData:ViewModel}">
-            <view:FinancialDataView />
+            <excelFinancialData:View />
         </DataTemplate>
         <!--
         <DataTemplate DataType="{x:Type viewModel:WaterBalanceViewModel}">

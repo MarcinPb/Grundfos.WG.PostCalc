@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.Network
 {
     /// <summary>
-    /// Interaction logic for MeterErrorsView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class MeterErrorsView : UserControl
+    public partial class View : UserControl
     {
-        public MeterErrorsView()
+        public View()
         {
             InitializeComponent();
         }

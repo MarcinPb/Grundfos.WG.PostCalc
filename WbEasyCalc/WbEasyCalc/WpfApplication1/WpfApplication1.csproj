@@ -152,17 +152,17 @@
     <Compile Include="Ui\WbEasyCalcData\Excel\BilledCons\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialData.xaml.cs">
-      <DependentUpon>FinancialData.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\FinancialData\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\IntermittentSupplyView.xaml.cs">
-      <DependentUpon>IntermittentSupplyView.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\Excel\MeterErrors\MeterErrorsView.xaml.cs">
-      <DependentUpon>MeterErrorsView.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\MeterErrors\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WbEasyCalcData\Excel\Network\Network.xaml.cs">
-      <DependentUpon>Network.xaml</DependentUpon>
+    <Compile Include="Ui\WbEasyCalcData\Excel\Network\View.xaml.cs">
+      <DependentUpon>View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ui\WbEasyCalcData\Excel\Pis\PisView.xaml.cs">
       <DependentUpon>PisView.xaml</DependentUpon>
@@ -238,19 +238,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\Excel\FinancialData\FinancialData.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\FinancialData\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\IntermittentSupplyView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\IntermittentSupply\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\Excel\MeterErrors\MeterErrorsView.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\MeterErrors\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WbEasyCalcData\Excel\Network\Network.xaml">
+    <Page Include="Ui\WbEasyCalcData\Excel\Network\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.IntermittentSupply
 {
     /// <summary>
-    /// Interaction logic for IntermittentSupplyView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class IntermittentSupplyView : UserControl
+    public partial class View : UserControl
     {
-        public IntermittentSupplyView()
+        public View()
         {
             InitializeComponent();
         }

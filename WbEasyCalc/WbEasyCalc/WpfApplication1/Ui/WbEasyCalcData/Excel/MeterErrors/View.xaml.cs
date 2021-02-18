@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.TabView
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.MeterErrors
 {
     /// <summary>
-    /// Interaction logic for NetworkView.xaml
+    /// Interaction logic for View.xaml
     /// </summary>
-    public partial class NetworkView : UserControl
+    public partial class View : UserControl
     {
-        public NetworkView()
+        public View()
         {
             InitializeComponent();
         }
