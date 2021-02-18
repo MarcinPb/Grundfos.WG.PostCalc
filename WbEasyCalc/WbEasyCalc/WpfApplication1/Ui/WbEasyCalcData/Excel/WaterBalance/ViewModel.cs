@@ -7,9 +7,9 @@ using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
+namespace WpfApplication1.Ui.WbEasyCalcData.Excel.WaterBalance
 {
-    public class WaterBalanceViewModel : ViewModelBase
+    public class ViewModel : ViewModelBase
     {
         #region Props output
 
@@ -255,7 +255,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs
             NonRevenueWaterErrorMargin_AY26 = model.NonRevenueWaterErrorMargin_AY26;
         }
 
-        public WaterBalanceViewModel(WaterBalanceModel model)
+        public ViewModel(WaterBalanceModel model)
         {
             if (model == null) return;
             Refreash(model);

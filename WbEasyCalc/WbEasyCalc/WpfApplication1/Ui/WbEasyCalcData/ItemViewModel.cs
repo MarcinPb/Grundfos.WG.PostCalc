@@ -7,7 +7,7 @@ using GlobalRepository;
 using WbEasyCalcModel;
 using WbEasyCalcRepository;
 using WpfApplication1.Ui.WbEasyCalcData.Excel;
-using WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs;
+//using WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData

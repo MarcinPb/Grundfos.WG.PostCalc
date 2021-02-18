@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WbEasyCalcModel;
 using WbEasyCalcModel.WbEasyCalc;
-using WpfApplication1.Ui.WbEasyCalcData.ViewModel.Tabs;
+using WpfApplication1.Ui.WbEasyCalcData.Excel.WaterBalance;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.WbEasyCalcData.Excel
@@ -52,20 +52,20 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
         public IntermittentSupply.ViewModel IntermittentSupplyViewModel { get; set; }
         public FinancialData.ViewModel FinancialDataViewModel { get; set; }
 
-        private WaterBalanceViewModel _waterBalanceDayViewModel;
-        public WaterBalanceViewModel WaterBalanceDayViewModel
+        private ViewModel _waterBalanceDayViewModel;
+        public ViewModel WaterBalanceDayViewModel
         {
             get => _waterBalanceDayViewModel;
             set { _waterBalanceDayViewModel = value; RaisePropertyChanged(nameof(WaterBalanceDayViewModel)); }
         }
-        private WaterBalanceViewModel _waterBalancePeriodViewModel;
-        public WaterBalanceViewModel WaterBalancePeriodViewModel
+        private ViewModel _waterBalancePeriodViewModel;
+        public ViewModel WaterBalancePeriodViewModel
         {
             get => _waterBalancePeriodViewModel;
             set { _waterBalancePeriodViewModel = value; RaisePropertyChanged(nameof(WaterBalancePeriodViewModel)); }
         }
-        private WaterBalanceViewModel _waterBalanceYearViewModel;
-        public WaterBalanceViewModel WaterBalanceYearViewModel
+        private ViewModel _waterBalanceYearViewModel;
+        public ViewModel WaterBalanceYearViewModel
         {
             get => _waterBalanceYearViewModel;
             set { _waterBalanceYearViewModel = value; RaisePropertyChanged(nameof(WaterBalanceYearViewModel)); }
@@ -119,9 +119,9 @@ namespace WpfApplication1.Ui.WbEasyCalcData.Excel
             IntermittentSupplyViewModel = new IntermittentSupply.ViewModel(model.IntermModel, this);
             FinancialDataViewModel = new FinancialData.ViewModel(model.FinancDataModel, this);
 
-            WaterBalanceDayViewModel = new WaterBalanceViewModel(model.WaterBalanceDay);
-            WaterBalancePeriodViewModel = new WaterBalanceViewModel(model.WaterBalancePeriod);
-            WaterBalanceYearViewModel = new WaterBalanceViewModel(model.WaterBalanceYear);
+            WaterBalanceDayViewModel = new ViewModel(model.WaterBalanceDay);
+            WaterBalancePeriodViewModel = new ViewModel(model.WaterBalancePeriod);
+            WaterBalanceYearViewModel = new ViewModel(model.WaterBalanceYear);
             PisViewModel = new Pis.ViewModel(model.Pis);
         }
 
