@@ -20,19 +20,10 @@ namespace WpfApplication1
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 
-        private Ui.WbEasyCalcData.ListViewModel _customerViewModel;
-        public Ui.WbEasyCalcData.ListViewModel WbEasyCalcDataViewModel
-        {
-            get => _customerViewModel;
-            set { _customerViewModel = value; RaisePropertyChanged(); }
-        }
-
-        private Ui.WaterConsumption.ListViewModel _waterConsumptionViewModel;
-        public Ui.WaterConsumption.ListViewModel WaterConsumptionViewModel
-        {
-            get => _waterConsumptionViewModel;
-            set { _waterConsumptionViewModel = value; RaisePropertyChanged(); }
-        }
+        public Ui.WbEasyCalcData.ListViewModel WbEasyCalcDataViewModel { get; set; }
+        public Ui.WaterConsumption.ListViewModel WaterConsumptionViewModel { get; set; }
+        public Ui.WaterConsumptionReport.EditedViewModel WaterConsumptionReportViewModel { get; set; }
+        public Ui.Configuration.EditedViewModel ConfigurationViewModel { get; set; }
 
         public MainWindowViewModel()
         {
@@ -41,6 +32,8 @@ namespace WpfApplication1
             GlobalConfig.InitializeConnection(DatabaseType.Sql);
             WbEasyCalcDataViewModel = new Ui.WbEasyCalcData.ListViewModel();
             WaterConsumptionViewModel = new Ui.WaterConsumption.ListViewModel();
+            WaterConsumptionReportViewModel = new Ui.WaterConsumptionReport.EditedViewModel();
+            ConfigurationViewModel = new Ui.Configuration.EditedViewModel();
         }
 
     }

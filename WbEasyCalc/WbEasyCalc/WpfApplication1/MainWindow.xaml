@@ -14,7 +14,7 @@
     <Window.Resources>
         
     </Window.Resources>
-    <TabControl Margin="10">
+    <TabControl Margin="10" Width="1740" Height="950">
         <TabItem Header="WB-EasyCalc List"  >
             <ContentControl  Content="{Binding WbEasyCalcDataViewModel}" Margin="10" />
         </TabItem>
@@ -22,9 +22,10 @@
             <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" />
         </TabItem>
         <TabItem Header="Water Consumption Report" >
-            <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" />
+            <ContentControl Content="{Binding WaterConsumptionReportViewModel}" Margin="10" />
         </TabItem>
-        <TabItem Header="Configuration" >
+        <TabItem Header="Configuration">
+            <ContentControl Content="{Binding ConfigurationViewModel}" Margin="10"  />
         </TabItem>
     </TabControl>
 </Window>

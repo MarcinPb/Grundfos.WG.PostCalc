@@ -106,16 +106,26 @@
     <Compile Include="Converters\PercentageConverter.cs" />
     <Compile Include="Map\IMapItem.cs" />
     <Compile Include="Map\MapItem1.cs" />
-    <Compile Include="Ui\WaterConsumption\EditedView.xaml.cs">
+    <Compile Include="Ui\Configuration\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WaterConsumption\EditedViewModel.cs" />
-    <Compile Include="Ui\WaterConsumption\ItemViewModel.cs" />
-    <Compile Include="Ui\WaterConsumption\ListView.xaml.cs">
+    <Compile Include="Ui\Configuration\EditedViewModel.cs" />
+    <Compile Include="Ui\Configuration\ItemViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionList\EditedView.xaml.cs">
+      <DependentUpon>EditedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WaterConsumptionList\EditedViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionList\ItemViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionList\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\WaterConsumption\ListViewModel.cs" />
-    <Compile Include="Ui\WaterConsumption\RowViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionList\ListViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionList\RowViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionReport\EditedView.xaml.cs">
+      <DependentUpon>EditedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WaterConsumptionReport\EditedViewModel.cs" />
+    <Compile Include="Ui\WaterConsumptionReport\ItemViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\Excel\BaseSheetViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\ItemViewModel.cs" />
     <Compile Include="Ui\WbEasyCalcData\EditedView.xaml.cs">
@@ -212,11 +222,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\WaterConsumption\EditedView.xaml">
+    <Page Include="Ui\Configuration\EditedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ui\WaterConsumption\ListView.xaml">
+    <Page Include="Ui\WaterConsumptionList\EditedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ui\WaterConsumptionList\ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ui\WaterConsumptionReport\EditedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -384,9 +402,7 @@
   <ItemGroup>
     <Resource Include="Controls\filter.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ui\Configuration\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

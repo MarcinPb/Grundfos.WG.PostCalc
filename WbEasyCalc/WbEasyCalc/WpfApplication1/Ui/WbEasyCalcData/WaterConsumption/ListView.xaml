@@ -36,7 +36,7 @@
                     <Separator/>
                     <Button Command="{Binding RemoveRowCmd}" Content="Delete" ToolTipService.ShowOnDisabled="True" ToolTip="Disabled for rows with a switched on 'Archived' option."/>
                     <Separator/>
-                    <Button Command="{Binding CloneCmd}" Content="Cloneeeeeeee"/>
+                    <Button Command="{Binding CloneCmd}" Content="Clone"/>
                     <Separator/>
                 </ToolBar>
                 <controls:FilteredDataGridCtrl  x:Name="DataGrid1" 
@@ -53,13 +53,13 @@
                     </DataGrid.InputBindings>
                     <DataGrid.Columns >
                         <DataGridTextColumn Header="Id" Width="50" IsReadOnly="True" Binding="{Binding Model.WaterConsumptionId}"/>
-                        <DataGridTextColumn Header="Created User" Width="120" IsReadOnly="True" Binding="{Binding Model.CreateLogin, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
+                        <!--<DataGridTextColumn Header="Created User" Width="120" IsReadOnly="True" Binding="{Binding Model.CreateLogin, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                         <DataGridTextColumn Header="Created Date" Width="120" IsReadOnly="True" Binding="{Binding Model.CreateDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                         <DataGridTextColumn Header="Modified User" Width="120" IsReadOnly="True" Binding="{Binding Model.ModifyLogin, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
-                        <DataGridTextColumn Header="Modified Date" Width="120" IsReadOnly="True" Binding="{Binding Model.ModifyDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
+                        <DataGridTextColumn Header="Modified Date" Width="120" IsReadOnly="True" Binding="{Binding Model.ModifyDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>-->
                         <DataGridTextColumn Header="Category" Width="100" IsReadOnly="True" Binding="{Binding WaterConsumptionCategoryName}"/>
                         <DataGridTextColumn Header="Status" Width="150" IsReadOnly="True" Binding="{Binding WaterConsumptionStatusName}" />
-                        <DataGridTextColumn Header="Zone" Width="150" IsReadOnly="True" Binding="{Binding ZoneName}"/>
+                        <!--<DataGridTextColumn Header="Zone" Width="150" IsReadOnly="True" Binding="{Binding ZoneName}"/>-->
                         <DataGridTextColumn Header="Start Date" Width="100" IsReadOnly="True" Binding="{Binding Model.StartDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                         <DataGridTextColumn Header="End Date" Width="100" IsReadOnly="True" Binding="{Binding Model.EndDate, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}"/>
                         <DataGridTextColumn Header="Value" Width="100" IsReadOnly="True" Binding="{Binding Model.Value}"/>

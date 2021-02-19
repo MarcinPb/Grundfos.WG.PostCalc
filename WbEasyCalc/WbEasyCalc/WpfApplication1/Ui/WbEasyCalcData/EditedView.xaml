@@ -69,12 +69,13 @@
 
         <TabControl Grid.Row="1">
             <TabItem Header="Excel" >
-                <ContentControl Content="{Binding ItemViewModel.EasyCalcViewModel}" Grid.Row="1" />
+                <ContentControl Content="{Binding ItemViewModel.EasyCalcViewModel}" />
             </TabItem>
-            <TabItem Header="Water Consumption" >
-                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionViewModel}" Grid.Row="1" />
+            <TabItem Header="Water Consumption List" >
+                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionViewModel}" />
             </TabItem>
-            <TabItem Header="Report" >
+            <TabItem Header="Water Consumption Report" >
+                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionReportViewModel}" Margin="10" />
             </TabItem>
         </TabControl>
         

@@ -1,18 +1,23 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:WpfApplication1.Resources"
+    xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
     
     xmlns:themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
-    xmlns:customer="clr-namespace:WpfApplication1.Ui.WbEasyCalcData"
     xmlns:controls="clr-namespace:WpfApplication1.Controls"
-    xmlns:waterConsumption="clr-namespace:WpfApplication1.Ui.WaterConsumption"
-    xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
     xmlns:map="clr-namespace:WpfApplication1.Map"
+    xmlns:customer="clr-namespace:WpfApplication1.Ui.WbEasyCalcData"
+    xmlns:waterConsumption="clr-namespace:WpfApplication1.Ui.WaterConsumption"
+    xmlns:waterConsumptionReport="clr-namespace:WpfApplication1.Ui.WaterConsumptionReport"
+    xmlns:configuration="clr-namespace:WpfApplication1.Ui.Configuration"
     >
     <!--<controls:TextHeaderToBooleanConverter x:Key="YesNoToBooleanConverter" />-->
     <wpf:ApplicationIdCredentialsProvider x:Key="MyCredentials" ApplicationId="SB1meHUME1wfK2U9s64I~BDIKAFlkZRHGfBWlfDVtjA~AoMBUdvmsIyrtgNmavFb3WmcBIoDg01WZ-Z2zIB-eC6Z2pL3MGM8RDT8I4D3e9bR" />
 
+    <DataTemplate DataType="{x:Type map:MapItem1}">
+        <wpf:Pushpin Location="{Binding Location}"  ToolTip="{Binding Name}"/>
+    </DataTemplate>
+    
     <DataTemplate DataType="{x:Type customer:ListViewModel}">
         <customer:ListView />
     </DataTemplate>
@@ -26,9 +31,13 @@
         <waterConsumption:EditedView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type map:MapItem1}">
-        <wpf:Pushpin Location="{Binding Location}"  ToolTip="{Binding Name}"/>
+    <DataTemplate DataType="{x:Type waterConsumptionReport:EditedViewModel}">
+        <waterConsumptionReport:EditedView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type configuration:EditedViewModel}">
+        <configuration:EditedView />
+    </DataTemplate>
+
 
     <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
         <Setter Property="Width" Value="8"/>

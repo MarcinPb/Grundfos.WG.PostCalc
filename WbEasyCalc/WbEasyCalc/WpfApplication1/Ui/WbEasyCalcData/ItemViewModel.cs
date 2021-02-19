@@ -161,6 +161,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             set { _waterConsumptionViewModel = value; RaisePropertyChanged(); }
         }
 
+        public Ui.WaterConsumptionReport.EditedViewModel WaterConsumptionReportViewModel { get; set; }
 
 
         public DataModel.WbEasyCalcData Model => new DataModel.WbEasyCalcData()
@@ -213,6 +214,8 @@ namespace WpfApplication1.Ui.WbEasyCalcData
 
             EasyCalcViewModel = new ExcelViewModel(model.EasyCalcModel);
             WaterConsumptionViewModel = new Ui.WbEasyCalcData.WaterConsumption.ListViewModel();
+
+            WaterConsumptionReportViewModel = new Ui.WaterConsumptionReport.EditedViewModel();
         }
 
         private void CalculateDaysNumber()
