@@ -70,12 +70,12 @@
         </DataTemplate>
 
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="520"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="790*"/>
+            <ColumnDefinition Width="800*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="860*"/>
         </Grid.ColumnDefinitions>

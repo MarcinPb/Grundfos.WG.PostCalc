@@ -13,7 +13,7 @@ using GlobalRepository;
 using NLog;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.WaterConsumption
+namespace WpfApplication1.Ui.WbEasyCalcData.WaterConsumption
 {
     public class ListViewModel : ViewModelBase
     {

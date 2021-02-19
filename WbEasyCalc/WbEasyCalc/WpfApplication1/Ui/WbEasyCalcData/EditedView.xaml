@@ -6,6 +6,7 @@
              mc:Ignorable="d"              
              xmlns:converters="clr-namespace:WpfApplication1.Converters" 
              xmlns:excel="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.Excel"
+             xmlns:waterConsumption="clr-namespace:WpfApplication1.Ui.WbEasyCalcData.WaterConsumption"
              >
     <UserControl.Resources>
         <converters:FloatConverter x:Key="FloatConverter" />
@@ -15,12 +16,15 @@
         <DataTemplate DataType="{x:Type excel:ExcelViewModel}">
             <excel:ExcelView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type waterConsumption:ListViewModel}">
+            <waterConsumption:ListView />
+        </DataTemplate>
 
     </UserControl.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="520"/>
+            <RowDefinition Height="570"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"  Margin="0 0 0 10">
@@ -63,7 +67,16 @@
 
         </Grid>
 
-        <ContentControl Content="{Binding ItemViewModel.EasyCalcViewModel}" Grid.Row="1" />
+        <TabControl Grid.Row="1">
+            <TabItem Header="Excel" >
+                <ContentControl Content="{Binding ItemViewModel.EasyCalcViewModel}" Grid.Row="1" />
+            </TabItem>
+            <TabItem Header="Water Consumption" >
+                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionViewModel}" Grid.Row="1" />
+            </TabItem>
+            <TabItem Header="Report" >
+            </TabItem>
+        </TabControl>
         
     </Grid>
 </UserControl>

@@ -11,12 +11,20 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        
+    </Window.Resources>
     <TabControl Margin="10">
         <TabItem Header="WB-EasyCalc List"  >
-            <ContentControl  Content="{Binding WbEasyCalcDataViewModel}" Margin="10" HorizontalAlignment="Left"/>
+            <ContentControl  Content="{Binding WbEasyCalcDataViewModel}" Margin="10" />
         </TabItem>
-        <TabItem Header="Water Consumption" >
-            <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" HorizontalAlignment="Left" Width="1690" Height="900"/>
+        <TabItem Header="Water Consumption List" >
+            <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" />
+        </TabItem>
+        <TabItem Header="Water Consumption Report" >
+            <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" />
+        </TabItem>
+        <TabItem Header="Configuration" >
         </TabItem>
     </TabControl>
 </Window>
