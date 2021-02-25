@@ -1,5 +1,5 @@
 ﻿using Database.DataRepository;
-using Grundfos.GeometryModel;
+using GeometryModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;

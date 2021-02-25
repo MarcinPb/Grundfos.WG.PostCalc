@@ -26,7 +26,7 @@ namespace DataRepository.Test
             var list = MainRepo.GetJunctionRecalcList(2000, 1000);
         }
 
-        [TestMethod]
+        //[TestMethod]
         //public void TestMethod4()
         //{
         //    var list = MainRepo.GetPipeRecalcList(2000, 1000);

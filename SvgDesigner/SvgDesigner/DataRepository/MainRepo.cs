@@ -1,4 +1,4 @@
-﻿using Grundfos.GeometryModel;
+﻿using GeometryModel;
 using System;
 using System.Collections.Generic;
 using System.IO;

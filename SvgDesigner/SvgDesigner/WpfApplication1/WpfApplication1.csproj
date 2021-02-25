@@ -127,9 +127,9 @@
       <Project>{ba9d1b4b-4f94-466a-b5e9-2b8d21d6e941}</Project>
       <Name>DataRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grundfos.GeometryModel\Grundfos.GeometryModel.csproj">
+    <ProjectReference Include="..\Geometry\GeometryModel\GeometryModel.csproj">
       <Project>{4f166da1-aa06-4b20-9173-67f6c307e275}</Project>
-      <Name>Grundfos.GeometryModel</Name>
+      <Name>GeometryModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

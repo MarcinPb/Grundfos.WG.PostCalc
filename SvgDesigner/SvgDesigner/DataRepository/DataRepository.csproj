@@ -49,9 +49,9 @@
       <Project>{4aae4024-22d4-4917-879f-587c9da6a387}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grundfos.GeometryModel\Grundfos.GeometryModel.csproj">
+    <ProjectReference Include="..\Geometry\GeometryModel\GeometryModel.csproj">
       <Project>{4f166da1-aa06-4b20-9173-67f6c307e275}</Project>
-      <Name>Grundfos.GeometryModel</Name>
+      <Name>GeometryModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
