@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using Database.DataRepository;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DataRepository.Test
+namespace Database.DataRepository.Test
 {
     [TestClass]
     public class UnitTest1

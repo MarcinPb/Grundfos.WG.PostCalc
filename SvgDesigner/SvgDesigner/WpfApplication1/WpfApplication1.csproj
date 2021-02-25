@@ -119,12 +119,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataModel\DataModel.csproj">
-      <Project>{84e205eb-b5e5-4e14-8f6b-bd3284d48e73}</Project>
+    <ProjectReference Include="..\Database\DataModel\DataModel.csproj">
+      <Project>{4aae4024-22d4-4917-879f-587c9da6a387}</Project>
       <Name>DataModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataRepository\DataRepository.csproj">
-      <Project>{ba9d1b4b-4f94-466a-b5e9-2b8d21d6e941}</Project>
+    <ProjectReference Include="..\Database\DataRepository\DataRepository.csproj">
+      <Project>{46f523d5-6c02-448a-9037-d4e1d133f978}</Project>
       <Name>DataRepository</Name>
     </ProjectReference>
     <ProjectReference Include="..\Geometry\GeometryModel\GeometryModel.csproj">
