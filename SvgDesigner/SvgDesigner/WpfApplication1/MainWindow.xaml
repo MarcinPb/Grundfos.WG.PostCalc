@@ -72,45 +72,59 @@
         <ToolBarTray Grid.Row="0">
             <ToolBar>
                 <Button Name="CmdSelect" ToolTip="Select" Command="{Binding AddCommand}"  >
-                    <Image Source="..\Resources\PointerHS.png"  />
+                    <Image Source="Resources\PointerHS.png"  />
                 </Button>
                 <Button Name="CmdMoveHorizontally" ToolTip="Move Horizontally" Command="{Binding MoveCommand}">
-                    <Image Source="..\Resources\DeleteHS.png"  />
+                    <Image Source="Resources\DeleteHS.png"  />
                 </Button>
             </ToolBar>
         </ToolBarTray>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding ObjList}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                        <Canvas Name="Canvas1" Background="AliceBlue" Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
-                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <!--
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" />
-                    
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-            -->
-            <ItemsControl.Resources>
-                <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
-                    <!--<Rectangle Stroke="Black" Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" />-->
-                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
-                    <!--<Line Stroke="Red" Fill="Transparent" StrokeThickness="2" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" />-->
-                    <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" />
-                </DataTemplate>
-            </ItemsControl.Resources>
-        </ItemsControl>
-        </ScrollViewer>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Slider Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1" x:Name="slider"/>
+            <ScrollViewer Name="scrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                <Grid Name="grid" Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" RenderTransformOrigin="0.5, 0.5">
+                    <Grid.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="scaleTransform"/>
+                        </TransformGroup>
+                    </Grid.LayoutTransform>
+                    <Viewbox Grid.Column="0" Grid.Row="0">
+
+                        <ItemsControl ItemsSource="{Binding ObjList}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" Name="Layer" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                            <!--
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            -->
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
+                                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
+                                    <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" />
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+                    </Viewbox>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>

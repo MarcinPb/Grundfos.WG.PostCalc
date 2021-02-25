@@ -63,8 +63,8 @@ namespace WpfApplication1
 
         public DataRepo()
         {
-            double svgWidth = 2000;
-            double svgHeight = 2000;
+            double svgWidth = 800;
+            double svgHeight = 800;
             double margin = 20;
 
             CanvasWidth = svgWidth + 2 * margin;
@@ -75,15 +75,16 @@ namespace WpfApplication1
 
 
             //var junctionList = MainRepo.GetJunctionRecalcList(2000, 1000)
-            //    //.Take(1000)
+            //    .Take(1000)
             //    ;
-            //var objMyList = junctionList.Select(j => new ObjMy { 
-            //    ObjId = (uint)j.ID, 
-            //    X = j.Center.X, 
-            //    Y = j.Center.Y, 
-            //    Width = 4, 
-            //    Height = 4, 
-            //    TypeId = 2 
+            //var objMyList = junctionList.Select(j => new ObjMy
+            //{
+            //    ObjId = (uint)j.ID,
+            //    X = j.Center.X,
+            //    Y = j.Center.Y,
+            //    Width = 4,
+            //    Height = 4,
+            //    TypeId = 2
             //});
 
             //ObjList = new ObservableCollection<Shp>(objMyList);
