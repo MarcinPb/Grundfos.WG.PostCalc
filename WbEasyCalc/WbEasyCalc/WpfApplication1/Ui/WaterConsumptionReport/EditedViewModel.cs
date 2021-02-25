@@ -32,8 +32,21 @@ namespace WpfApplication1.Ui.WaterConsumptionReport
         public List<IdNamePair> WaterConsumptionStatusList { get; set; }
         public List<ZoneItem> ZoneItemList { get; set; }
 
+        private DateTime _filterStartDate;
+        public DateTime FilterStartDate
+        {
+            get => _filterStartDate;
+            set { _filterStartDate = value; RaisePropertyChanged(nameof(FilterStartDate)); LoadData(); }
+        }
 
-        public ObservableCollection<IMapItem> MapItemList { get; set; }
+        public DateTime FilterEndDate { get; set; }
+
+        private ObservableCollection<IMapItem> _mapItemList;
+        public ObservableCollection<IMapItem> MapItemList
+        {
+            get => _mapItemList;
+            set { _mapItemList = value; RaisePropertyChanged(nameof(MapItemList)); }
+        }
 
         #region Map
 
@@ -68,30 +81,18 @@ namespace WpfApplication1.Ui.WaterConsumptionReport
             {
                 Logger.Info("New 'EditedViewModel' was created.");
 
-                //Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
+                MapOpacity = 1;
+                ZoomLevel = 15;
+                Center = new Location(51.20150, 16.17970);        
+
 
                 WaterConsumptionCategoryList = GlobalConfig.DataRepository.WaterConsumptionCategoryList;
                 WaterConsumptionStatusList = GlobalConfig.DataRepository.WaterConsumptionStatusList;
                 ZoneItemList = GlobalConfig.DataRepository.ZoneList;
+                FilterStartDate = new DateTime(2019, 1, 1, 0, 0, 0);
+                FilterEndDate = new DateTime(2022, 1, 1, 0, 0, 0);
 
-                MapOpacity = 1;
-                ZoomLevel = 15;
-                Location defaulLocation = new Location(51.20150, 16.17970);
-                Center = defaulLocation;        
-
-                MapItemList = new ObservableCollection<IMapItem>()
-                {
-                    new MapItem1()
-                    {
-                        Id = 1,
-                        TypeId = 1,
-                        Location = defaulLocation,
-                        Name = GetPushPinName(defaulLocation)
-                    }
-                };
-                //Model.Latitude = defaulLocation.Latitude;
-                //Model.Lontitude = defaulLocation.Longitude;
-
+                LoadData();
 
                 MouseMoveCmd = new RelayCommand<object>(MouseMove);
             }
@@ -102,6 +103,20 @@ namespace WpfApplication1.Ui.WaterConsumptionReport
             }
 
         }
+
+        private void LoadData()
+        {
+            var rowModelList = GlobalConfig.DataRepository.WaterConsumptionListRepository.GetList().Where(x => x.StartDate >= FilterStartDate && x.EndDate <= FilterEndDate).Select(x => new WaterConsumption.RowViewModel(x));
+            var mapItemList = rowModelList.Select(x => new MapItem1()
+            {
+                Id = 1,
+                TypeId = 1,
+                Location = new Location(x.Model.Latitude, x.Model.Lontitude),
+                Name = GetPushPinName(new Location(x.Model.Latitude, x.Model.Lontitude)),
+            });
+            MapItemList = new ObservableCollection<IMapItem>(mapItemList);
+        }
+
 
         private void MouseMove(object obj)
         {

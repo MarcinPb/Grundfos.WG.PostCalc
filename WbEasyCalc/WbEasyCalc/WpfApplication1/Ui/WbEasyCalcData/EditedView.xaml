@@ -72,7 +72,7 @@
                 <ContentControl Content="{Binding ItemViewModel.EasyCalcViewModel}" />
             </TabItem>
             <TabItem Header="Water Consumption List" >
-                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionViewModel}" />
+                <ContentControl Content="{Binding ItemViewModel.WaterConsumptionListViewModel}" />
             </TabItem>
             <TabItem Header="Water Consumption Report" >
                 <ContentControl Content="{Binding ItemViewModel.WaterConsumptionReportViewModel}" Margin="10" />

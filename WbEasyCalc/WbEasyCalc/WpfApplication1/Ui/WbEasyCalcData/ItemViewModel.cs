@@ -155,7 +155,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
         }
 
         private Ui.WbEasyCalcData.WaterConsumption.ListViewModel _waterConsumptionViewModel;
-        public Ui.WbEasyCalcData.WaterConsumption.ListViewModel WaterConsumptionViewModel
+        public Ui.WbEasyCalcData.WaterConsumption.ListViewModel WaterConsumptionListViewModel
         {
             get => _waterConsumptionViewModel;
             set { _waterConsumptionViewModel = value; RaisePropertyChanged(); }
@@ -213,7 +213,7 @@ namespace WpfApplication1.Ui.WbEasyCalcData
             IsAccepted = model.IsAccepted;
 
             EasyCalcViewModel = new ExcelViewModel(model.EasyCalcModel);
-            WaterConsumptionViewModel = new Ui.WbEasyCalcData.WaterConsumption.ListViewModel();
+            WaterConsumptionListViewModel = new Ui.WbEasyCalcData.WaterConsumption.ListViewModel();
 
             WaterConsumptionReportViewModel = new Ui.WaterConsumptionReport.EditedViewModel();
         }

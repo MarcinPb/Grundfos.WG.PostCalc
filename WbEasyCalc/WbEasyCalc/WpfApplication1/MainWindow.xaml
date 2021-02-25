@@ -19,7 +19,7 @@
             <ContentControl  Content="{Binding WbEasyCalcDataViewModel}" Margin="10" />
         </TabItem>
         <TabItem Header="Water Consumption List" >
-            <ContentControl Content="{Binding WaterConsumptionViewModel}" Margin="10" />
+            <ContentControl Content="{Binding WaterConsumptionListViewModel}" Margin="10" />
         </TabItem>
         <TabItem Header="Water Consumption Report" >
             <ContentControl Content="{Binding WaterConsumptionReportViewModel}" Margin="10" />
