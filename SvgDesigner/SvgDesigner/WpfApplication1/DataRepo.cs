@@ -1,16 +1,18 @@
 ﻿using Database.DataRepository;
 using GeometryModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Shapes;
 using WpfApplication1.ShapeModel;
 using WpfApplication1.Utility;
 
 namespace WpfApplication1
 {
-    public class DataRepo
+    public class DataRepo : ViewModelBase
     {
         private readonly ObservableCollection<Shp> _objTempList = new ObservableCollection<Shp>()
         {
@@ -35,7 +37,12 @@ namespace WpfApplication1
         public double CanvasHeight { get; set; }
 
 
-
+        private int _selectedItem;
+        public int SelectedItem
+        {
+            get => _selectedItem;
+            set { _selectedItem = value; RaisePropertyChanged(nameof(SelectedItem)); }
+        }
 
 
         public ObservableCollection<Shp> ObjList { get; set; }
@@ -61,8 +68,25 @@ namespace WpfApplication1
             if (obj != null) obj.X += 20;
         }
 
+        public RelayCommand<object> OnMouseDoubleClickCmd { get; }
+        private void OnMouseDoubleClickCmdExecute(object obj)
+        {
+            MouseEventArgs e = (MouseEventArgs)obj;
+            var position = e.GetPosition(e.Device.Target);
+            if (e.Device.Target is Line)
+            {
+                var id = Convert.ToInt32(((Line)e.Device.Target).Tag);
+
+                SelectedItem = id;
+                var LinkId = ObjList.FirstOrDefault(x => ((LinkMy)x).LinkId==id);
+
+            }
+        }
+
         public DataRepo()
         {
+            OnMouseDoubleClickCmd = new RelayCommand<object>(OnMouseDoubleClickCmdExecute);
+
             double svgWidth = 800;
             double svgHeight = 800;
             double margin = 20;

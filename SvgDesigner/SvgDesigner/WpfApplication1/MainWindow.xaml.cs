@@ -57,12 +57,14 @@ namespace WpfApplication1
 
         void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var source = e.Source;
+
             var mousePos = e.GetPosition(scrollViewer);
             if (mousePos.X <= scrollViewer.ViewportWidth && mousePos.Y < scrollViewer.ViewportHeight) //make sure we still can use the scrollbars
             {
                 scrollViewer.Cursor = Cursors.SizeAll;
                 lastDragPoint = mousePos;
-                Mouse.Capture(scrollViewer);
+                //Mouse.Capture(scrollViewer);
             }
         }
 

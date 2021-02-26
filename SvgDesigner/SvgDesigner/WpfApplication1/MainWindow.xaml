@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:WpfApplication1"
-        xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:utility="clr-namespace:WpfApplication1.Utility"
+        xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" 
         Width="1200" Height="700"        
@@ -13,6 +14,26 @@
         <local:DataRepo/>
     </Window.DataContext>
     <Window.Resources>
+        <Style TargetType="Shape" x:Key="MouseIsOverShapeData">
+            <Setter Property="Stroke" Value="Blue"/>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding TypeId}" Value="2" />
+                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Stroke" Value="Red"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding TypeId}" Value="6" />
+                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Stroke" Value="Green"/>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+        <!--
         <Style x:Key="MouseEnterRect">
             <Style.Triggers>
                 <EventTrigger RoutedEvent="Mouse.MouseEnter">
@@ -43,26 +64,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <Style TargetType="Shape" x:Key="MouseIsOverShapeData">
-            <Setter Property="Stroke" Value="Blue"/>
-            <Style.Triggers>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding TypeId}" Value="2" />
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
-                    </MultiDataTrigger.Conditions>
-                    <Setter Property="Stroke" Value="Red"/>
-                </MultiDataTrigger>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding TypeId}" Value="6" />
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
-                    </MultiDataTrigger.Conditions>
-                    <Setter Property="Stroke" Value="Green"/>
-                </MultiDataTrigger>
-            </Style.Triggers>
-        </Style>
+        -->
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -125,7 +127,13 @@
                                             <ItemsControl ItemsSource="{Binding ObjList}" >
                                                 <ItemsControl.ItemsPanel>
                                                     <ItemsPanelTemplate>
-                                                        <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" Name="Layer" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"/>
+                                                        <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" Name="Layer" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Background="AliceBlue">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <utility:EventCommandExecuter  Command="{Binding Path=OnMouseDoubleClickCmd, Mode=OneTime}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Canvas>
                                                     </ItemsPanelTemplate>
                                                 </ItemsControl.ItemsPanel>
                                                 <ItemsControl.ItemContainerStyle>
@@ -139,7 +147,13 @@
                                                         <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
                                                     </DataTemplate>
                                                     <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
-                                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" />
+                                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" Tag="{Binding LinkId}" >
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="PreviewMouseDown">
+                                                                    <utility:EventCommandExecuter  Command="{Binding Path=OnMouseDoubleClickCmd, Mode=OneTime}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Line>
                                                     </DataTemplate>
                                                 </ItemsControl.Resources>
                                             </ItemsControl>
@@ -154,7 +168,7 @@
                     <xctk:PropertyGrid Grid.Column="2"
                            x:Name="_propertyGrid"
                            ShowSummary="True"
-                           Filter=""
+                           Filter="{Binding SelectedItem}"
                            IsCategorized="True"
                            ShowAdvancedOptions="True"
                            IsReadOnly="False"
@@ -165,7 +179,7 @@
                            HideInheritedProperties="False"
                            ShowHorizontalScrollBar="False"
                            PropertyNameLeftPadding="15"
-                           SelectedObject="{Binding ElementName=_button}"/>
+                           />
                 </Grid>
             </TabItem>
         </TabControl>
