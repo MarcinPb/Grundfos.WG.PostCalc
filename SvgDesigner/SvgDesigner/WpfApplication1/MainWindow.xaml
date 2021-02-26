@@ -75,13 +75,13 @@
         <Menu Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="New" IsEnabled="False"/>
-                <MenuItem Header="Open" Command="{Binding OpenCommand}"/>
-                <MenuItem Header="Close" Command="{Binding CloseCommand}"/>
+                <MenuItem Header="Open" />
+                <MenuItem Header="Close" />
                 <Separator/>
                 <MenuItem Header="Exit"/>
             </MenuItem>
             <MenuItem Header="Data">
-                <MenuItem Header="Global Params" Command="{Binding GlobalCommand}"/>
+                <MenuItem Header="Data" />
             </MenuItem>
         </Menu>
 
@@ -148,11 +148,13 @@
                                                     </DataTemplate>
                                                     <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
                                                         <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" Tag="{Binding LinkId}" >
+                                                            <!--
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="PreviewMouseDown">
                                                                     <utility:EventCommandExecuter  Command="{Binding Path=OnMouseDoubleClickCmd, Mode=OneTime}" />
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
+                                                            -->
                                                         </Line>
                                                     </DataTemplate>
                                                 </ItemsControl.Resources>
