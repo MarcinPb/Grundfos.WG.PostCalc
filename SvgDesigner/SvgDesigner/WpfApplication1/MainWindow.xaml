@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:WpfApplication1"
-        xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel"
+        xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" 
         Width="1200" Height="700"        
@@ -68,63 +68,111 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ToolBarTray Grid.Row="0">
-            <ToolBar>
-                <Button Name="CmdSelect" ToolTip="Select" Command="{Binding AddCommand}"  >
-                    <Image Source="Resources\PointerHS.png"  />
-                </Button>
-                <Button Name="CmdMoveHorizontally" ToolTip="Move Horizontally" Command="{Binding MoveCommand}">
-                    <Image Source="Resources\DeleteHS.png"  />
-                </Button>
-            </ToolBar>
-        </ToolBarTray>
-        <Grid Grid.Row="1" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Slider Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1" x:Name="slider"/>
-            <ScrollViewer Name="scrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
-                <Grid Name="grid" Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" RenderTransformOrigin="0.5, 0.5">
-                    <Grid.LayoutTransform>
-                        <TransformGroup>
-                            <ScaleTransform x:Name="scaleTransform"/>
-                        </TransformGroup>
-                    </Grid.LayoutTransform>
-                    <Viewbox Grid.Column="0" Grid.Row="0">
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" IsEnabled="False"/>
+                <MenuItem Header="Open" Command="{Binding OpenCommand}"/>
+                <MenuItem Header="Close" Command="{Binding CloseCommand}"/>
+                <Separator/>
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Data">
+                <MenuItem Header="Global Params" Command="{Binding GlobalCommand}"/>
+            </MenuItem>
+        </Menu>
 
-                        <ItemsControl ItemsSource="{Binding ObjList}" >
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" Name="Layer" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemContainerStyle>
-                                <Style>
-                                    <Setter Property="Canvas.Left" Value="{Binding X}"/>
-                                    <Setter Property="Canvas.Top" Value="{Binding Y}"/>
-                                </Style>
-                            </ItemsControl.ItemContainerStyle>
-                            <!--
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            -->
-                            <ItemsControl.Resources>
-                                <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
-                                    <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
-                                </DataTemplate>
-                                <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
-                                    <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" />
-                                </DataTemplate>
-                            </ItemsControl.Resources>
-                        </ItemsControl>
-                    </Viewbox>
+        <TabControl Grid.Row="1" Margin="10">
+            <TabItem Header="Desiner">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="1*" MinWidth="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" BorderBrush="LightGray" BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <ToolBarTray Grid.Row="0">
+                                <ToolBar>
+                                    <Button Name="CmdSelect" ToolTip="Select" Command="{Binding AddCommand}"  >
+                                        <Image Source="Resources\PointerHS.png"  />
+                                    </Button>
+                                    <Button Name="CmdMoveHorizontally" ToolTip="Move Horizontally" Command="{Binding MoveCommand}">
+                                        <Image Source="Resources\DeleteHS.png"  />
+                                    </Button>
+                                </ToolBar>
+                            </ToolBarTray>
+                            <Grid Grid.Row="1" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Slider Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1" x:Name="slider"/>
+                                <ScrollViewer Name="scrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                                    <Grid Name="grid" Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" RenderTransformOrigin="0.5, 0.5">
+                                        <Grid.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform x:Name="scaleTransform"/>
+                                            </TransformGroup>
+                                        </Grid.LayoutTransform>
+                                        <Viewbox Grid.Column="0" Grid.Row="0">
+
+                                            <ItemsControl ItemsSource="{Binding ObjList}" >
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <Canvas Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" Name="Layer" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemContainerStyle>
+                                                    <Style>
+                                                        <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                                                        <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                                                    </Style>
+                                                </ItemsControl.ItemContainerStyle>
+                                                <ItemsControl.Resources>
+                                                    <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
+                                                        <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
+                                                    </DataTemplate>
+                                                    <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
+                                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" />
+                                                    </DataTemplate>
+                                                </ItemsControl.Resources>
+                                            </ItemsControl>
+                                        </Viewbox>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" Background="Gainsboro"/>
+
+                    <xctk:PropertyGrid Grid.Column="2"
+                           x:Name="_propertyGrid"
+                           ShowSummary="True"
+                           Filter=""
+                           IsCategorized="True"
+                           ShowAdvancedOptions="True"
+                           IsReadOnly="False"
+                           IsVirtualizing="False"
+                           UpdateTextBoxSourceOnEnterKey="True"
+                           IsMiscCategoryLabelHidden="False"
+                           ShowPreview="True"
+                           HideInheritedProperties="False"
+                           ShowHorizontalScrollBar="False"
+                           PropertyNameLeftPadding="15"
+                           SelectedObject="{Binding ElementName=_button}"/>
                 </Grid>
-            </ScrollViewer>
-        </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Content="Rows"/>
+            <StatusBarItem Content="rows"/>
+        </StatusBar>
     </Grid>
 </Window>
