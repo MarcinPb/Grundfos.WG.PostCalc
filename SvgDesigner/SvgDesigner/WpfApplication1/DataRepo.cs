@@ -78,8 +78,8 @@ namespace WpfApplication1
                 var id = Convert.ToInt32(((Line)e.Device.Target).Tag);
 
                 SelectedItem = id;
-                var LinkId = ObjList.FirstOrDefault(x => ((LinkMy)x).LinkId==id);
-
+                var shp = ObjList.FirstOrDefault(x => ((LinkMy)x).LinkId==id);
+                Messenger.Default.Send<Shp>(shp);
             }
         }
 
