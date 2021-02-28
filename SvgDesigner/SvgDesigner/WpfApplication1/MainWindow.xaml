@@ -8,7 +8,7 @@
         xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" 
         xmlns:uiDesigner="clr-namespace:WpfApplication1.Ui.Designer" 
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" 
         Width="1200" Height="700"        
@@ -43,6 +43,7 @@
             </MenuItem>
         </Menu>
 
+        <!--
         <TabControl Grid.Row="1" Margin="10">
             <TabItem Header="Desiner">
                 <Grid>
@@ -54,25 +55,52 @@
                     <ContentControl Content="{Binding DataRepo}" />
                     <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" Background="Gainsboro"/>
                     <ContentControl Grid.Column="2" Content="{Binding PropertyGridViewModel}" />
-
-                    <!--<xctk:PropertyGrid Grid.Column="2"
-                           x:Name="_propertyGrid"
-                           ShowSummary="True"
-                           Filter="{Binding SelectedItem}"
-                           IsCategorized="True"
-                           ShowAdvancedOptions="True"
-                           IsReadOnly="False"
-                           IsVirtualizing="False"
-                           UpdateTextBoxSourceOnEnterKey="True"
-                           IsMiscCategoryLabelHidden="False"
-                           ShowPreview="True"
-                           HideInheritedProperties="False"
-                           ShowHorizontalScrollBar="False"
-                           PropertyNameLeftPadding="15"
-                           />-->
                 </Grid>
             </TabItem>
         </TabControl>
+        -->
+        <Grid Grid.Row="1" Margin="10">
+
+            <xcad:DockingManager x:Name="_dockingManager"                          
+                           AllowMixedOrientation="True"
+                           BorderBrush="Black"
+                           BorderThickness="1"
+                           >
+                <xcad:DockingManager.DocumentHeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding IconSource}" Margin="0,0,4,0" />
+                            <TextBlock Text="{Binding Title}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </xcad:DockingManager.DocumentHeaderTemplate>
+                
+                <xcad:LayoutRoot x:Name="_layoutRoot">
+                    <xcad:LayoutPanel Orientation="Horizontal">
+
+                        <xcad:LayoutDocumentPaneGroup>
+                            <xcad:LayoutDocumentPane>
+                                <xcad:LayoutDocument ContentId="document1" Title="Document 1" >
+                                    <ContentControl Content="{Binding DataRepo}" />
+                                </xcad:LayoutDocument>
+                            </xcad:LayoutDocumentPane>
+                        </xcad:LayoutDocumentPaneGroup >
+                        
+                        <xcad:LayoutAnchorablePaneGroup DockWidth="125">
+                            <xcad:LayoutAnchorablePane>
+                                <xcad:LayoutAnchorable ContentId="alarms" Title="Alarms" CanClose="True">
+                                    <ContentControl Grid.Column="2" Content="{Binding PropertyGridViewModel}" />
+                                </xcad:LayoutAnchorable>
+                            </xcad:LayoutAnchorablePane>
+                        </xcad:LayoutAnchorablePaneGroup>
+                    </xcad:LayoutPanel>
+
+                </xcad:LayoutRoot>
+            </xcad:DockingManager>
+
+        </Grid>
+
+
 
         <StatusBar Grid.Row="2">
             <StatusBarItem Content="Rows"/>
