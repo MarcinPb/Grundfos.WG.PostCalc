@@ -10,9 +10,9 @@ using System.Windows.Shapes;
 using WpfApplication1.ShapeModel;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1
+namespace WpfApplication1.Ui.Designer
 {
-    public class DataRepo : ViewModelBase
+    public class DesignerViewModel : ViewModelBase
     {
         private readonly ObservableCollection<Shp> _objTempList = new ObservableCollection<Shp>()
         {
@@ -33,7 +33,7 @@ namespace WpfApplication1
         };
 
 
-        public double CanvasWidth { get; set; }  
+        public double CanvasWidth { get; set; }
         public double CanvasHeight { get; set; }
 
 
@@ -50,7 +50,7 @@ namespace WpfApplication1
         private ICommand _addCommand;
         public ICommand AddCommand
         {
-            get { return _addCommand ?? (_addCommand = new RelayCommand(OnAddExecute, ()=>true)); }
+            get { return _addCommand ?? (_addCommand = new RelayCommand(OnAddExecute, () => true)); }
         }
         private void OnAddExecute()
         {
@@ -78,12 +78,12 @@ namespace WpfApplication1
                 var id = Convert.ToInt32(((Line)e.Device.Target).Tag);
 
                 SelectedItem = id;
-                var shp = ObjList.FirstOrDefault(x => ((LinkMy)x).LinkId==id);
-                Messenger.Default.Send<Shp>(shp);
+                var shp = ObjList.FirstOrDefault(x => ((LinkMy)x).LinkId == id);
+                Messenger.Default.Send(shp);
             }
         }
 
-        public DataRepo()
+        public DesignerViewModel()
         {
             OnMouseDoubleClickCmd = new RelayCommand<object>(OnMouseDoubleClickCmdExecute);
 

@@ -79,7 +79,7 @@ namespace Database.DataRepository
             //Point2D bottomRight = new Point2D() { X = 5590485, Y = 5670339 };
 
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            Stream stream = new FileStream(".\\Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
             stream.Close();
 

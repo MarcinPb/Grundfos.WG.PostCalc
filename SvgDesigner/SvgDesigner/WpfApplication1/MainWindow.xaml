@@ -8,7 +8,9 @@
         xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" 
         xmlns:uiDesigner="clr-namespace:WpfApplication1.Ui.Designer" 
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" 
         Width="1200" Height="700"        
@@ -17,7 +19,7 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type local:DataRepo}">
+        <DataTemplate DataType="{x:Type uiDesigner:DesignerViewModel}">
             <uiDesigner:DesignerView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type uiDesigner:EditedViewModel}">
@@ -65,7 +67,7 @@
                         <xcad:LayoutDocumentPaneGroup >
                             <xcad:LayoutDocumentPane >
                                 <xcad:LayoutDocument ContentId="document1" Title="Map" >
-                                    <ContentControl Content="{Binding DataRepo}" />
+                                    <ContentControl Content="{Binding DesignerViewModel}" />
                                 </xcad:LayoutDocument>
                             </xcad:LayoutDocumentPane>
                         </xcad:LayoutDocumentPaneGroup >
