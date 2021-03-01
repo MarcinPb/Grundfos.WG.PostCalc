@@ -2,18 +2,17 @@
 
 namespace WpfApplication1.ShapeModel
 {
-    public class Shp : ViewModelBase
+    public class Shp
     {
-        private double _x;
-        public double X
-        {
-            get { return _x; }
-            set
-            {
-                _x = value;
-                RaisePropertyChanged("X");
-            }
-        }
+        public int? Id { get; set; }
+        public string Name { get; set; }
+
+        public double X { get; set; }
         public double Y { get; set; }
+ 
+        public override string ToString()
+        {
+            return $"{Id} - '{Name}'";
+        }
     }
 }

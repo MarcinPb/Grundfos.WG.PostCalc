@@ -21,6 +21,7 @@ namespace GeometryReader.Test
         {
             List<DomainObjectData> domainObjects;
             using (var dataSetProvider = new DomainDataSetProxy(@"K:\temp\sandbox\Nowy model testowy\testOPC.wtg.sqlite"))
+            //using (var dataSetProvider = new DomainDataSetProxy(@"K:\temp\sandbox\Nowy model testowy\_archiw\2019-11-19\testOPC.wtg.sqlite"))
             {
                 domainObjects = GetWgObjects(dataSetProvider);
             }

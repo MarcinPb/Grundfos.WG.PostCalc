@@ -41,8 +41,11 @@ namespace WpfApplication1.Ui.Designer
         }
         private void OnShpReceived(Shp shp)
         {
-            ItemViewModel.Id = (int)((LinkMy)shp).LinkId;
-            ItemViewModel.Name = $"{shp.X},{shp.Y}";
+            ItemViewModel.Id = shp.Id;
+            ItemViewModel.Name = shp.Name;
+            ItemViewModel.Path = ((LinkMy)shp).Path;
+            ItemViewModel.X = shp.X;
+            ItemViewModel.Y = shp.Y;
         }
     }
 }

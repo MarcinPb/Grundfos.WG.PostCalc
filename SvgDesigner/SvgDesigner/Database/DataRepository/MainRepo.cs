@@ -117,7 +117,6 @@ namespace Database.DataRepository
             return junctionList;
         }
 
-
         //public static List<Pipe> GetPipeRecalcList(double width, double height, double margin)
         //{
         //    var pointTopLeft = GetPointTopLeft();
@@ -129,11 +128,6 @@ namespace Database.DataRepository
         //    list.ForEach(t => t.Path.ToList().ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor; p.Y = (pointBottomRight.Y - p.Y) * yFactor; }));
         //    return list;
         //}
-
-
-
-
-
 
         //private static Point2D XyToLonLat(Point2D point2D)
         //{
@@ -150,4 +144,4 @@ namespace Database.DataRepository
         //}
 
     }
-    }
+}

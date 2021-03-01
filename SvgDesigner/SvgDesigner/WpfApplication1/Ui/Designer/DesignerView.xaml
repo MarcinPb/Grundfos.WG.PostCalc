@@ -117,7 +117,7 @@
                                         <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
                                     </DataTemplate>
                                     <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
-                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" Tag="{Binding LinkId}" />
+                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" Tag="{Binding Id}" />
                                     </DataTemplate>
                                 </ItemsControl.Resources>
                             </ItemsControl>
