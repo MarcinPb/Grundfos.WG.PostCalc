@@ -43,33 +43,17 @@
             </MenuItem>
         </Menu>
 
-        <!--
-        <TabControl Grid.Row="1" Margin="10">
-            <TabItem Header="Desiner">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="1*" MinWidth="150"/>
-                    </Grid.ColumnDefinitions>
-                    <ContentControl Content="{Binding DataRepo}" />
-                    <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" Background="Gainsboro"/>
-                    <ContentControl Grid.Column="2" Content="{Binding PropertyGridViewModel}" />
-                </Grid>
-            </TabItem>
-        </TabControl>
-        -->
         <Grid Grid.Row="1" Margin="10">
 
             <xcad:DockingManager x:Name="_dockingManager"                          
                            AllowMixedOrientation="True"
                            BorderBrush="Black"
-                           BorderThickness="1"
+                           BorderThickness="0"
                            >
                 <xcad:DockingManager.DocumentHeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding IconSource}" Margin="0,0,4,0" />
+                            <!--<Image Source="{Binding IconSource}" Margin="0,0,4,0" />-->
                             <TextBlock Text="{Binding Title}" />
                         </StackPanel>
                     </DataTemplate>
@@ -78,18 +62,18 @@
                 <xcad:LayoutRoot x:Name="_layoutRoot">
                     <xcad:LayoutPanel Orientation="Horizontal">
 
-                        <xcad:LayoutDocumentPaneGroup>
-                            <xcad:LayoutDocumentPane>
-                                <xcad:LayoutDocument ContentId="document1" Title="Document 1" >
+                        <xcad:LayoutDocumentPaneGroup >
+                            <xcad:LayoutDocumentPane >
+                                <xcad:LayoutDocument ContentId="document1" Title="Map" >
                                     <ContentControl Content="{Binding DataRepo}" />
                                 </xcad:LayoutDocument>
                             </xcad:LayoutDocumentPane>
                         </xcad:LayoutDocumentPaneGroup >
                         
-                        <xcad:LayoutAnchorablePaneGroup DockWidth="125">
+                        <xcad:LayoutAnchorablePaneGroup DockWidth="200">
                             <xcad:LayoutAnchorablePane>
-                                <xcad:LayoutAnchorable ContentId="alarms" Title="Alarms" CanClose="True">
-                                    <ContentControl Grid.Column="2" Content="{Binding PropertyGridViewModel}" />
+                                <xcad:LayoutAnchorable ContentId="alarms" Title="Properties" CanClose="False">
+                                    <ContentControl Content="{Binding PropertyGridViewModel}" />
                                 </xcad:LayoutAnchorable>
                             </xcad:LayoutAnchorablePane>
                         </xcad:LayoutAnchorablePaneGroup>

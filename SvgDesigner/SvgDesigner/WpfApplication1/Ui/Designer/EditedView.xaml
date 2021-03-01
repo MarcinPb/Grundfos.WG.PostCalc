@@ -12,6 +12,7 @@
 
         <xctk:PropertyGrid NameColumnWidth="110"
                            SelectedObject="{Binding ItemViewModel}"                                   
+                           ShowTitle="False"
                            >
             <!--
                            Filter="{Binding ItemViewModel.Id}"
