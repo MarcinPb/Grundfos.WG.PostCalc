@@ -26,7 +26,7 @@
                         <Condition Binding="{Binding TypeId}" Value="6" />
                         <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
                     </MultiDataTrigger.Conditions>
-                    <Setter Property="Stroke" Value="Green"/>
+                    <Setter Property="Stroke" Value="Red"/>
                 </MultiDataTrigger>
             </Style.Triggers>
         </Style>
@@ -84,7 +84,7 @@
                     <ColumnDefinition Width="0"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Slider Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1" x:Name="slider"/>
+                <Slider Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1"  Maximum="50"  x:Name="slider"/>
                 <ScrollViewer Name="scrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <Grid Name="grid" Width="{Binding CanvasWidth}" Height="{Binding CanvasHeight}" RenderTransformOrigin="0.5, 0.5">
                         <Grid.LayoutTransform>
@@ -113,11 +113,12 @@
                                     </Style>
                                 </ItemsControl.ItemContainerStyle>
                                 <ItemsControl.Resources>
-                                    <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
-                                        <Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding ObjId}" />
-                                    </DataTemplate>
                                     <DataTemplate DataType="{x:Type shapeModel:LinkMy}">
-                                        <Line Fill="Transparent" StrokeThickness="0.5" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" Tag="{Binding Id}" />
+                                        <Line Fill="Transparent" StrokeThickness="0.25" X1="0" Y1="0" X2="{Binding X2}" Y2="{Binding Y2}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" Tag="{Binding Id}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
+                                        <!--<Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" />-->
+                                        <Ellipse Fill="Transparent" StrokeThickness="0.25" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" />
                                     </DataTemplate>
                                 </ItemsControl.Resources>
                             </ItemsControl>
