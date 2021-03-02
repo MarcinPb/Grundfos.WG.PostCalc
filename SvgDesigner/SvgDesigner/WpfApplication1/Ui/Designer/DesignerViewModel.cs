@@ -14,25 +14,6 @@ namespace WpfApplication1.Ui.Designer
 {
     public class DesignerViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<Shp> _objTempList = new ObservableCollection<Shp>()
-        {
-            //new ObjMy() {Id=1, X=10,  Y=30,  Width=15,  Height=15, TypeId=6 },
-            //new ObjMy() {Id=2, X=70,  Y=40,  Width=15,  Height=15, TypeId=6 },
-            //new ObjMy() {Id=3, X=20,  Y=80,  Width=15,  Height=15, TypeId=6 },
-            //new ObjMy() {Id=4, X=80,  Y=100, Width=15,  Height=15, TypeId=6 },
-            //new ObjMy() {Id=5, X=110, Y=30,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=6, X=170, Y=40,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=7, X=120, Y=80,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=8, X=180, Y=100, Width=15,  Height=15, TypeId=2 },
-
-            new ObjMy() {Id=1, X=150,  Y=50,  Width=15,  Height=15, TypeId=6 },
-            new ObjMy() {Id=2, X=100,  Y=150,  Width=15,  Height=15, TypeId=2 },
-
-            //new LinkMy() {Id=11, X=210,  Y=30,  X2=10,  Y2=50, TypeId=6 },
-            new LinkMy() {Id=12, X=150,  Y=50,  X2=-50,  Y2=100, TypeId=6 },
-        };
-
-
         public double CanvasWidth { get; set; }
         public double CanvasHeight { get; set; }
 
@@ -142,23 +123,43 @@ namespace WpfApplication1.Ui.Designer
                 TypeId = 2
             });
 
-            ObjList = new ObservableCollection<Shp>(linkMyList.Select(l => (Shp)l).Union(objMyList.Select(o => (Shp)o)));
+            var customerNodeList = MainRepo.GetCustomerNodeList();
+            customerNodeList.ForEach(p => { p.Center.X = (p.Center.X - pointTopLeft.X) * xFactor + margin; p.Center.Y = (pointBottomRight.Y - p.Center.Y) * yFactor + margin; });
+            var cnShpList = customerNodeList.Select(j => new CnShp
+            {
+                Id = j.ID,
+                X = j.Center.X - dotR,
+                Y = j.Center.Y - dotR,
+                Width = 2 * dotR,
+                Height = 2 * dotR,
+                TypeId = 7
+            });
+
+            ObjList = new ObservableCollection<Shp>(
+                linkMyList.Select(l => (Shp)l)
+                    .Union(objMyList.Select(o => (Shp)o))
+                    .Union(cnShpList.Select(c => (Shp)c))
+                );
         }
 
+        #region Waste
+        private readonly ObservableCollection<Shp> _objTempList = new ObservableCollection<Shp>()
+        {
+            //new ObjMy() {Id=1, X=10,  Y=30,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=2, X=70,  Y=40,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=3, X=20,  Y=80,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=4, X=80,  Y=100, Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=5, X=110, Y=30,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=6, X=170, Y=40,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=7, X=120, Y=80,  Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=8, X=180, Y=100, Width=15,  Height=15, TypeId=2 },
 
+            new ObjMy() {Id=1, TypeId=2, X=150,  Y=50,   Width=15,  Height=15 },
+            new ObjMy() {Id=2, TypeId=2, X=100,  Y=150,  Width=15,  Height=15 },
 
-        //private static List<Pipe> GetPipeRecalcList(double width, double height, double margin)
-        //{
-        //    var pointTopLeft = MainRepo.GetPointTopLeft();
-        //    var pointBottomRight = MainRepo.GetPointBottomRight();
-        //    var xFactor = width / (pointBottomRight.X - pointTopLeft.X);
-        //    var yFactor = height / (pointBottomRight.Y - pointTopLeft.Y);
-
-        //    var list = MainRepo.GetPipeList();
-        //    //list.ForEach(t => t.Path.ToList().ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor; p.Y = (pointBottomRight.Y - p.Y) * yFactor; }));
-        //    list.ForEach(t => t.Path.ToList().ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
-        //    return list;
-        //}
-
+            new LinkMy() {Id=11, TypeId=6, X=210,  Y=30,  X2=10,   Y2=50  },
+            new LinkMy() {Id=12, TypeId=6, X=150,  Y=50,  X2=-50,  Y2=100 },
+        };
+        #endregion
     }
 }

@@ -28,6 +28,13 @@
                     </MultiDataTrigger.Conditions>
                     <Setter Property="Stroke" Value="Red"/>
                 </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding TypeId}" Value="7" />
+                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=IsMouseOver}" Value="true" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Stroke" Value="Red"/>
+                </MultiDataTrigger>
             </Style.Triggers>
         </Style>
         <!--
@@ -119,6 +126,10 @@
                                     <DataTemplate DataType="{x:Type shapeModel:ObjMy}">
                                         <!--<Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" />-->
                                         <Ellipse Fill="Transparent" StrokeThickness="0.25" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" Tag="{Binding Id}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type shapeModel:CnShp}">
+                                        <!--<Rectangle Fill="Transparent" StrokeThickness="2" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" />-->
+                                        <Rectangle Fill="Transparent" StrokeThickness="0.15" Width="{Binding Width}" Height="{Binding Height}" Style="{StaticResource MouseIsOverShapeData}" ToolTip="{Binding Id}" Tag="{Binding Id}" />
                                     </DataTemplate>
                                 </ItemsControl.Resources>
                             </ItemsControl>

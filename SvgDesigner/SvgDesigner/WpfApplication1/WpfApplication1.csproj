@@ -81,6 +81,7 @@
     <Compile Include="Controls\FilteredDataGridCtrl.cs" />
     <Compile Include="Controls\UiHelper.cs" />
     <Compile Include="Controls\TextHeaderToBooleanConverter.cs" />
+    <Compile Include="ShapeModel\CnShp.cs" />
     <Compile Include="Ui\Designer\DesignerViewModel.cs" />
     <Compile Include="ShapeModel\LinkMy.cs" />
     <Compile Include="ShapeModel\ObjMy.cs" />
