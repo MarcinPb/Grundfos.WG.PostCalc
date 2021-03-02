@@ -49,8 +49,6 @@ namespace WpfApplication1.Ui.Designer
         {
             Id = model?.ID;
             Name = model?.Label;
-
-
         }
     }
 }

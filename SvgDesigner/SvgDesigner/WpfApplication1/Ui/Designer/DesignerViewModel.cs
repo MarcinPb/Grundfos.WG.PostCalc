@@ -81,6 +81,14 @@ namespace WpfApplication1.Ui.Designer
                 var shp = ObjList.FirstOrDefault(x => x.Id == id);
                 Messenger.Default.Send(shp);
             }
+            if (e.Device.Target is Ellipse)
+            {
+                var id = Convert.ToInt32(((Ellipse)e.Device.Target).Tag);
+
+                SelectedItem = id;
+                var shp = ObjList.FirstOrDefault(x => x.Id == id);
+                Messenger.Default.Send(shp);
+            }
         }
 
         public DesignerViewModel()

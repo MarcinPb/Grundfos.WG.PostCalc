@@ -25,12 +25,6 @@ namespace WpfApplication1.Ui.Designer
             try
             {
                 Messenger.Default.Register<Shp>(this, OnShpReceived);
-
-                //Model = new ItemViewModel(GlobalConfig.DataRepository.WaterConsumptionListRepository.GetItem(id));
-                //Pipe model = new Pipe() { 
-                //    ID=8768,
-                //    Label="p-9879-uy",
-                //};
                 ItemViewModel = new ItemViewModel(null);
             }
             catch (Exception exception)
@@ -43,7 +37,7 @@ namespace WpfApplication1.Ui.Designer
         {
             ItemViewModel.Id = shp.Id;
             ItemViewModel.Name = shp.Name;
-            ItemViewModel.Path = ((LinkMy)shp).Path;
+            ItemViewModel.Path = shp is LinkMy ? ((LinkMy)shp).Path : null;
             ItemViewModel.X = shp.X;
             ItemViewModel.Y = shp.Y;
         }
