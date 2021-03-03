@@ -9,43 +9,26 @@ using WpfApplication1.Utility;
 
 namespace WpfApplication1.Ui.Designer.CustomerNode
 {
-    public class ItemViewModel : ViewModelBase
+    public class ItemViewModel : Ui.Designer.ItemXyViewModel
     {
-        private int? _id;
-        public int? Id
-        {
-            get { return _id; }
-            set { _id = value; RaisePropertyChanged("Id"); }
-        }
+        //private double _x;
+        //public double X
+        //{
+        //    get { return _x; }
+        //    set { _x = value; RaisePropertyChanged("X"); }
+        //}
 
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; RaisePropertyChanged("Name"); }
-        }
+        //private double _y;
+        //public double Y
+        //{
+        //    get { return _y; }
+        //    set { _y = value; RaisePropertyChanged("Y"); }
+        //}
 
-        private double _x;
-        public double X
+        public ItemViewModel(int id) : base(id)
         {
-            get { return _x; }
-            set { _x = value; RaisePropertyChanged("X"); }
-        }
-
-        private double _y;
-        public double Y
-        {
-            get { return _y; }
-            set { _y = value; RaisePropertyChanged("Y"); }
-        }
-
-        public ItemViewModel(int id)
-        {
-            var model = MainRepo.GetCustomerNodeList().FirstOrDefault(x => x.ID == id);
-            Id = model.ID;
-            Name = model.Label;
-            X = (double)model?.Geometry[0].X;
-            Y = (double)model?.Geometry[0].Y;
+            //X = (double)_model.Geometry[0].X;
+            //Y = (double)_model.Geometry[0].Y;
         }
     }
 }

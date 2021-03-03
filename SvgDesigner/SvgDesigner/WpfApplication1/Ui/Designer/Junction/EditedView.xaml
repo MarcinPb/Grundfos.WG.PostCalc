@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBox Margin="8 10 5 10" Text="{Binding ItemViewModel.Id}" />
-                <Button Grid.Column="1" Content="Search jjjj"  Margin="0 10 5 10" Padding="5 0" />
+                <Button Grid.Column="1" Content="Search"  Margin="0 10 5 10" Padding="5 0" />
             </Grid>
         </Border>
         <xctk:PropertyGrid Grid.Row="1" 

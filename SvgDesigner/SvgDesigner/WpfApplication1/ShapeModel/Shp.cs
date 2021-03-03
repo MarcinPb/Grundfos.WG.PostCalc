@@ -27,10 +27,10 @@ namespace WpfApplication1.ShapeModel
 
         public double X { get; set; }
         public double Y { get; set; }
- 
-        //public override string ToString()
-        //{
-        //    return $"{Id} - '{Name}'";
-        //}
+
+        public override string ToString()
+        {
+            return $"{Id} - '{Name}'";
+        }
     }
 }

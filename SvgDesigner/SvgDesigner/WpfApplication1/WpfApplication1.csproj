@@ -99,6 +99,7 @@
     <Compile Include="Ui\Designer\CustomerNode\EditedViewModel.cs" />
     <Compile Include="Ui\Designer\CustomerNode\ItemViewModel.cs" />
     <Compile Include="Ui\Designer\ItemViewModel.cs" />
+    <Compile Include="Ui\Designer\ItemXyViewModel.cs" />
     <Compile Include="Ui\Designer\Pipe\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
