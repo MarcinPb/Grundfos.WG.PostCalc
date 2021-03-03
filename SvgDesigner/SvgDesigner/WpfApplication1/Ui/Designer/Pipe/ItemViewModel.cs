@@ -14,7 +14,7 @@ namespace WpfApplication1.Ui.Designer.Pipe
     public class ItemViewModel : Ui.Designer.ItemViewModel
     {
         private List<Point2D> _path;
-        [Category("Geometry")]
+        [Category("<Geometry>")]
         [DisplayName("Geometry")]
         public List<Point2D> Path
         {
@@ -24,13 +24,13 @@ namespace WpfApplication1.Ui.Designer.Pipe
 
         //public double HMITopologyStartNodeID { get; set; }
 
-        [Category("Topology")]
+        [Category("Active Topology")]
         [DisplayName("Start Node")]
         public string HMITopologyStartNodeLabel { get; set; }
 
         //public double HMITopologyStopNodeID { get; set; }
 
-        [Category("Topology")]
+        [Category("Active Topology")]
         [DisplayName("Stop Node")]
         public string HMITopologyStopNodeLabel { get; set; }
 

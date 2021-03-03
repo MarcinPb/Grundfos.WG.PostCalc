@@ -28,7 +28,24 @@
             SelectedObject="{Binding ItemViewModel}"                                   
             ShowTitle="False"
             >
+
+            <xctk:PropertyGrid.EditorDefinitions>
+                <xctk:EditorTemplateDefinition TargetProperties="Zone">
+                    <xctk:EditorTemplateDefinition.EditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Instance.FontSizeItemsSource}" SelectedValue="{Binding Instance.Zone}" />
+                        </DataTemplate>
+                    </xctk:EditorTemplateDefinition.EditingTemplate>
+                </xctk:EditorTemplateDefinition>
+            </xctk:PropertyGrid.EditorDefinitions>
+
+
             <!--
+            <xctk:PropertyGrid.PropertyDefinitions>
+                <xctk:PropertyDefinition TargetProperties="Zone" />
+            </xctk:PropertyGrid.PropertyDefinitions>
+
+
                            Filter="{Binding ItemViewModel.Id}"
             
             AutoGenerateProperties="False"
