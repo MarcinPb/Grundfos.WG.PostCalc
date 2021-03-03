@@ -21,7 +21,7 @@ namespace WpfApplication1
         public MainWindowViewModel()
         {
             DesignerViewModel = new DesignerViewModel();
-            //PropertyGridViewModel = new Ui.Designer.Pipe.EditedViewModel();
+            PropertyGridViewModel = new Ui.Designer.EditedViewModel();
 
             Messenger.Default.Register<Shp>(this, OnShpReceived);
         }

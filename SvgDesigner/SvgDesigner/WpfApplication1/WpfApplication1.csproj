@@ -89,6 +89,9 @@
     <Compile Include="Ui\Designer\DesignerView.xaml.cs">
       <DependentUpon>DesignerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Designer\EditedView.xaml.cs">
+      <DependentUpon>EditedView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Designer\EditedViewModel.cs" />
     <Compile Include="Ui\Designer\CustomerNode\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ui\Designer\CustomerNode\EditedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ui\Designer\EditedView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -25,6 +25,9 @@
         <DataTemplate DataType="{x:Type uiDesigner:DesignerViewModel}">
             <uiDesigner:DesignerView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type uiDesigner:EditedViewModel}">
+            <uiDesigner:EditedView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type uiDesignerPipe:EditedViewModel}">
             <uiDesignerPipe:EditedView />
         </DataTemplate>
@@ -81,7 +84,7 @@
                             </xcad:LayoutDocumentPane>
                         </xcad:LayoutDocumentPaneGroup >
                         
-                        <xcad:LayoutAnchorablePaneGroup DockWidth="200">
+                        <xcad:LayoutAnchorablePaneGroup DockWidth="300">
                             <xcad:LayoutAnchorablePane>
                                 <xcad:LayoutAnchorable ContentId="alarms" Title="Properties" CanClose="False">
                                     <ContentControl Content="{Binding PropertyGridViewModel}" />
@@ -94,8 +97,6 @@
             </xcad:DockingManager>
 
         </Grid>
-
-
 
         <StatusBar Grid.Row="2">
             <StatusBarItem Content="Rows"/>
