@@ -11,27 +11,8 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace WpfApplication1.Ui.Designer.Pipe
 {
-    public class ItemViewModel : ViewModelBase
+    public class ItemViewModel : Ui.Designer.ItemViewModel
     {
-
-        private int _id;
-        [Category("General")]
-        [DisplayName("ID")]
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; RaisePropertyChanged("Id"); }
-        }
-
-        private string _name;
-        [Category("General")]
-        [DisplayName("Label")]
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; RaisePropertyChanged("Name"); }
-        }
-
         private List<Point2D> _path;
         [Category("Geometry")]
         [DisplayName("Geometry")]
@@ -40,9 +21,6 @@ namespace WpfApplication1.Ui.Designer.Pipe
             get { return _path; }
             set { _path = value; RaisePropertyChanged("Path"); }
         }
-
-
-
 
         //public double HMITopologyStartNodeID { get; set; }
 
@@ -81,48 +59,18 @@ namespace WpfApplication1.Ui.Designer.Pipe
         public double Physical_PipeDiameter { get; set; }
 
 
-
-        public ItemViewModel(int id)
+        public ItemViewModel(int id) : base(id)
         {
-            var model = MainRepo.GetPipeList().FirstOrDefault(x => x.ID == id);
+            Path = _model.Geometry.ToList();
 
-            Id = model.ID;
-            Name = model.Label;
-            //General = new GeneralProps()
-            //{
-            //    Id = model.ID,
-            //    Name = model.Label,
-            //};
-            Path = model.Geometry.ToList();
-
-            HMITopologyStartNodeLabel = (string)model.Fields["HMITopologyStartNodeLabel"];
-            HMITopologyStopNodeLabel = (string)model.Fields["HMITopologyStopNodeLabel"];
-            Physical_IsUserDefinedLength = (bool)model.Fields["Physical_IsUserDefinedLength"];
-            PipeStatus = (int)model.Fields["PipeStatus"];
-            Physical_PipeMaterial = (string)model.Fields["Physical_PipeMaterial"];
-            Physical_InstallationYear = (int)model.Fields["Physical_InstallationYear"];
-            HMIGeometryScaledLength = (double)model.Fields["HMIGeometryScaledLength"];
-            Physical_PipeDiameter = (double)model.Fields["Physical_PipeDiameter"];
+            HMITopologyStartNodeLabel = (string)_model.Fields["HMITopologyStartNodeLabel"];
+            HMITopologyStopNodeLabel = (string)_model.Fields["HMITopologyStopNodeLabel"];
+            Physical_IsUserDefinedLength = (bool)_model.Fields["Physical_IsUserDefinedLength"];
+            PipeStatus = (int)_model.Fields["PipeStatus"];
+            Physical_PipeMaterial = (string)_model.Fields["Physical_PipeMaterial"];
+            Physical_InstallationYear = (int)_model.Fields["Physical_InstallationYear"];
+            HMIGeometryScaledLength = (double)_model.Fields["HMIGeometryScaledLength"];
+            Physical_PipeDiameter = (double)_model.Fields["Physical_PipeDiameter"];
         }
     }
-
-    //public class GeneralProps : ViewModelBase
-    //{
-    //    private int _id;
-    //    //[Category("General")]
-    //    [DisplayName("ID")]
-    //    public int Id
-    //    {
-    //        get { return _id; }
-    //        set { _id = value; RaisePropertyChanged("Id"); }
-    //    }
-    //    private string _name;
-    //    //[Category("General")]
-    //    [DisplayName("Label")]
-    //    public string Name
-    //    {
-    //        get { return _name; }
-    //        set { _name = value; RaisePropertyChanged("Name"); }
-    //    }
-    //}
 }

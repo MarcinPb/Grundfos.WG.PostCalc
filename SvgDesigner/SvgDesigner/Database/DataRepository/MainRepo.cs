@@ -12,20 +12,30 @@ namespace Database.DataRepository
 {
     public class MainRepo
     {
+        private static List<DomainObjectData> domainObjectDataList = GetDomainObjectDataList();
         private static Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = GetWgObjectTypeList();
 
-        public static Dictionary<ObjectTypes, List<DomainObjectData>> GetWgObjectTypeList()
+        public static List<DomainObjectData> GetDomainObjectDataList()
         {
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
             stream.Close();
 
-            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+            return domainObjects;
+        }
+        public static Dictionary<ObjectTypes, List<DomainObjectData>> GetWgObjectTypeList()
+        {
+            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjectDataList
                 .GroupBy(x => x.ObjectType)
                 .ToDictionary(x => x.Key, x => x.ToList());
 
             return domainGrouppedObjects;
+        }
+
+        public static DomainObjectData GetItem(int id)
+        {
+            return domainObjectDataList.FirstOrDefault(x => x.ID==id);
         }
 
         public static List<DomainObjectData> GetJunctionList()
