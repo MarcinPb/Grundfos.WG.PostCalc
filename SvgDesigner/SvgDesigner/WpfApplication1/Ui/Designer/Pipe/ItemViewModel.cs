@@ -1,4 +1,5 @@
-﻿using GeometryModel;
+﻿using Database.DataRepository;
+using GeometryModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApplication1.Utility;
 
-namespace WpfApplication1.Ui.Designer
+namespace WpfApplication1.Ui.Designer.Pipe
 {
     public class ItemViewModel : ViewModelBase
     {
-        private int? _id;
-        public int? Id
+        private int _id;
+        public int Id
         {
             get { return _id; }
             set { _id = value; RaisePropertyChanged("Id"); }
@@ -24,19 +25,19 @@ namespace WpfApplication1.Ui.Designer
             set { _name = value; RaisePropertyChanged("Name"); }
         }
 
-        private double _x;
-        public double X
-        {
-            get { return _x; }
-            set { _x = value; RaisePropertyChanged("X"); }
-        }
+        //private double _x;
+        //public double X
+        //{
+        //    get { return _x; }
+        //    set { _x = value; RaisePropertyChanged("X"); }
+        //}
 
-        private double _y;
-        public double Y
-        {
-            get { return _y; }
-            set { _y = value; RaisePropertyChanged("Y"); }
-        }
+        //private double _y;
+        //public double Y
+        //{
+        //    get { return _y; }
+        //    set { _y = value; RaisePropertyChanged("Y"); }
+        //}
 
         private List<Point2D> _path;
         public List<Point2D> Path
@@ -45,10 +46,12 @@ namespace WpfApplication1.Ui.Designer
             set { _path = value; RaisePropertyChanged("Path"); }
         }
 
-        public ItemViewModel(Pipe model)
+        public ItemViewModel(int id)
         {
-            Id = model?.ID;
-            Name = model?.Label;
+            var model = MainRepo.GetPipeList2().FirstOrDefault(x => x.ID==id);
+            Id = model.ID;
+            Name = model.Label;
+            Path = model.Geometry.ToList();
         }
     }
 }

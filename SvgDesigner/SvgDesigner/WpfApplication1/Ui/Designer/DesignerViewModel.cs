@@ -17,6 +17,7 @@ namespace WpfApplication1.Ui.Designer
         public double CanvasWidth { get; set; }
         public double CanvasHeight { get; set; }
 
+        public ObservableCollection<Shp> ObjList { get; set; }
 
         private int _selectedItem;
         public int SelectedItem
@@ -24,9 +25,6 @@ namespace WpfApplication1.Ui.Designer
             get => _selectedItem;
             set { _selectedItem = value; RaisePropertyChanged(nameof(SelectedItem)); }
         }
-
-
-        public ObservableCollection<Shp> ObjList { get; set; }
 
         private ICommand _addCommand;
         public ICommand AddCommand
@@ -52,24 +50,25 @@ namespace WpfApplication1.Ui.Designer
         public RelayCommand<object> OnMouseDoubleClickCmd { get; }
         private void OnMouseDoubleClickCmdExecute(object obj)
         {
+            int id = 0;
             MouseEventArgs e = (MouseEventArgs)obj;
             var position = e.GetPosition(e.Device.Target);
             if (e.Device.Target is Line)
             {
-                var id = Convert.ToInt32(((Line)e.Device.Target).Tag);
-
-                SelectedItem = id;
-                var shp = ObjList.FirstOrDefault(x => x.Id == id);
-                Messenger.Default.Send(shp);
+                id = Convert.ToInt32(((Line)e.Device.Target).Tag);
             }
             if (e.Device.Target is Ellipse)
             {
-                var id = Convert.ToInt32(((Ellipse)e.Device.Target).Tag);
-
-                SelectedItem = id;
-                var shp = ObjList.FirstOrDefault(x => x.Id == id);
-                Messenger.Default.Send(shp);
+                id = Convert.ToInt32(((Ellipse)e.Device.Target).Tag);
             }
+            if (e.Device.Target is Rectangle)
+            {
+                id = Convert.ToInt32(((Rectangle)e.Device.Target).Tag);
+
+            }
+            SelectedItem = id;
+            var shp = ObjList.FirstOrDefault(x => x.Id == id);
+            Messenger.Default.Send(shp);
         }
 
         public DesignerViewModel()
@@ -93,20 +92,19 @@ namespace WpfApplication1.Ui.Designer
             var yFactor = svgHeight / (pointBottomRight.Y - pointTopLeft.Y);
 
 
-            //var pipeList = GetPipeRecalcList(svgWidth, svgHeight, margin).Take(1000);
-            var pipeList = MainRepo.GetPipeList();
-            pipeList.ForEach(t => t.Path.ToList().ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
+            var pipeList = MainRepo.GetPipeList2();
+            pipeList.ForEach(t => t.Geometry.ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
             var linkMyList = pipeList.Select(o => new LinkMy
             {
                 Id = o.ID,
                 Name = o.Label,
-                X = o.Path[0].X,
-                Y = o.Path[0].Y,
+                X = o.Geometry[0].X,
+                Y = o.Geometry[0].Y,
 
-                X2 = o.Path.Last().X - o.Path[0].X,
-                Y2 = o.Path.Last().Y - o.Path[0].Y,
+                X2 = o.Geometry.Last().X - o.Geometry[0].X,
+                Y2 = o.Geometry.Last().Y - o.Geometry[0].Y,
 
-                Path = o.Path.ToList(),
+                Path = o.Geometry,
                 TypeId = 6,
             });
 

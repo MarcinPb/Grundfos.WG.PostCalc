@@ -89,11 +89,22 @@
     <Compile Include="Ui\Designer\DesignerView.xaml.cs">
       <DependentUpon>DesignerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\Designer\EditedView.xaml.cs">
+    <Compile Include="Ui\Designer\EditedViewModel.cs" />
+    <Compile Include="Ui\Designer\CustomerNode\EditedView.xaml.cs">
       <DependentUpon>EditedView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ui\Designer\EditedViewModel.cs" />
-    <Compile Include="Ui\Designer\ItemViewModel.cs" />
+    <Compile Include="Ui\Designer\CustomerNode\EditedViewModel.cs" />
+    <Compile Include="Ui\Designer\CustomerNode\ItemViewModel.cs" />
+    <Compile Include="Ui\Designer\Pipe\EditedView.xaml.cs">
+      <DependentUpon>EditedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Designer\Pipe\EditedViewModel.cs" />
+    <Compile Include="Ui\Designer\Pipe\ItemViewModel.cs" />
+    <Compile Include="Ui\Designer\Junction\EditedView.xaml.cs">
+      <DependentUpon>EditedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Designer\Junction\EditedViewModel.cs" />
+    <Compile Include="Ui\Designer\Junction\ItemViewModel.cs" />
     <Compile Include="Utility\EventCommandExecuter.cs" />
     <Compile Include="Utility\Messenger.cs" />
     <Compile Include="Utility\SelectingItemAttachedProperty.cs" />
@@ -119,9 +130,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ui\Designer\EditedView.xaml">
+    <Page Include="Ui\Designer\CustomerNode\EditedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ui\Designer\Pipe\EditedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ui\Designer\Junction\EditedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,9 @@
         xmlns:utility="clr-namespace:WpfApplication1.Utility"
         xmlns:shapeModel="clr-namespace:WpfApplication1.ShapeModel" 
         xmlns:uiDesigner="clr-namespace:WpfApplication1.Ui.Designer" 
+        xmlns:uiDesignerPipe="clr-namespace:WpfApplication1.Ui.Designer.Pipe" 
+        xmlns:uiDesignerJunction="clr-namespace:WpfApplication1.Ui.Designer.Junction" 
+        xmlns:uiDesignerCustNode="clr-namespace:WpfApplication1.Ui.Designer.CustomerNode" 
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
         xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" 
@@ -22,8 +25,14 @@
         <DataTemplate DataType="{x:Type uiDesigner:DesignerViewModel}">
             <uiDesigner:DesignerView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type uiDesigner:EditedViewModel}">
-            <uiDesigner:EditedView />
+        <DataTemplate DataType="{x:Type uiDesignerPipe:EditedViewModel}">
+            <uiDesignerPipe:EditedView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type uiDesignerJunction:EditedViewModel}">
+            <uiDesignerJunction:EditedView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type uiDesignerCustNode:EditedViewModel}">
+            <uiDesignerCustNode:EditedView />
         </DataTemplate>
     </Window.Resources>
     <Grid>

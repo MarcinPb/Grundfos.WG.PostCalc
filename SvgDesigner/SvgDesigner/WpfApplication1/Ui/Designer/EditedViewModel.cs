@@ -13,33 +13,25 @@ namespace WpfApplication1.Ui.Designer
 {
     public class EditedViewModel : ViewModelBase
     {
-        private ItemViewModel _model;
-        public ItemViewModel ItemViewModel
-        {
-            get => _model;
-            set { _model = value; RaisePropertyChanged(nameof(ItemViewModel)); }
-        }
+        //private ItemViewModel _model;
+        //public ItemViewModel ItemViewModel
+        //{
+        //    get => _model;
+        //    set { _model = value; RaisePropertyChanged(nameof(ItemViewModel)); }
+        //}
 
         public EditedViewModel()
         {
-            try
-            {
-                Messenger.Default.Register<Shp>(this, OnShpReceived);
-                ItemViewModel = new ItemViewModel(null);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
+            // Messenger.Default.Register<Shp>(this, OnShpReceived);
         }
-        private void OnShpReceived(Shp shp)
+        public virtual  void OnShpReceived(Shp shp)
         {
-            ItemViewModel.Id = shp.Id;
-            ItemViewModel.Name = shp.Name;
-            ItemViewModel.Path = shp is LinkMy ? ((LinkMy)shp).Path : null;
-            ItemViewModel.X = shp.X;
-            ItemViewModel.Y = shp.Y;
+            var i = 8;
+            //ItemViewModel.Id = shp.Id;
+            //ItemViewModel.Name = shp.Name;
+            //ItemViewModel.Path = shp is LinkMy ? ((LinkMy)shp).Path : null;
+            //ItemViewModel.X = shp.X;
+            //ItemViewModel.Y = shp.Y;
         }
     }
 }

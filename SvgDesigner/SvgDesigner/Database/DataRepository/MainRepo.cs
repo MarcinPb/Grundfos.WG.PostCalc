@@ -50,6 +50,12 @@ namespace Database.DataRepository
                 .ToList();
             return dotList;
         }
+        public static List<DomainObjectData> GetCustomerNodeList2()
+        {
+            return domainGrouppedObjects[ObjectTypes.CustomerNode];
+        }
+
+
         public static List<Dot> GetJunctionList()
         {
             //IFormatter formatter = new BinaryFormatter();
@@ -71,6 +77,10 @@ namespace Database.DataRepository
                 .ToList();
             return dotList;
         }
+        public static List<DomainObjectData> GetJunctionList2()
+        {
+            return domainGrouppedObjects[ObjectTypes.Junction];
+        }
 
         public static Point2D GetPointTopLeft()
         {
@@ -87,27 +97,30 @@ namespace Database.DataRepository
             return new Point2D(xMax, yMax);
         }
 
-        public static List<Pipe> GetPipeList()
+        //public static List<Pipe> GetPipeList()
+        //{
+        //    //IFormatter formatter = new BinaryFormatter();
+        //    //Stream stream = new FileStream(".\\Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+        //    //List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
+        //    //stream.Close();
+
+        //    //Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+        //    //    .GroupBy(x => x.ObjectType)
+        //    //    .ToDictionary(x => x.Key, x => x.ToList());
+
+        //    var dotList = domainGrouppedObjects[ObjectTypes.Pipe]
+        //        .Select(x => new Pipe()
+        //        {
+        //            ID = x.ID,
+        //            Label = x.Label,
+        //            Path = x.Geometry,
+        //        })
+        //        .ToList();
+        //    return dotList;
+        //}
+        public static List<DomainObjectData> GetPipeList2()
         {
-            //IFormatter formatter = new BinaryFormatter();
-            //Stream stream = new FileStream(".\\Files\\Wg\\MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            //List<DomainObjectData> domainObjects = (List<DomainObjectData>)formatter.Deserialize(stream);
-            //stream.Close();
-
-            //Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
-            //    .GroupBy(x => x.ObjectType)
-            //    .ToDictionary(x => x.Key, x => x.ToList());
-
-            var dotList = domainGrouppedObjects[ObjectTypes.Pipe]
-                .Select(x => new Pipe()
-                {
-                    ID = x.ID,
-                    Label = x.Label,
-                    Path = x.Geometry,
-                })
-                .ToList();
-            return dotList;
+            return domainGrouppedObjects[ObjectTypes.Pipe];
         }
-
     }
 }
