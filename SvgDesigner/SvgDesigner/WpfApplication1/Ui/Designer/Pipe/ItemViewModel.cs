@@ -48,7 +48,7 @@ namespace WpfApplication1.Ui.Designer.Pipe
 
         public ItemViewModel(int id)
         {
-            var model = MainRepo.GetPipeList2().FirstOrDefault(x => x.ID==id);
+            var model = MainRepo.GetPipeList().FirstOrDefault(x => x.ID==id);
             Id = model.ID;
             Name = model.Label;
             Path = model.Geometry.ToList();

@@ -10,7 +10,7 @@ namespace Database.DataRepository.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var pipeList = MainRepo.GetPipeList2();
+            var pipeList = MainRepo.GetPipeList();
         }
 
         [TestMethod]

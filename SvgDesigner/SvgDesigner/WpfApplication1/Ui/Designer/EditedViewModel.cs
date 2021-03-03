@@ -17,9 +17,9 @@ namespace WpfApplication1.Ui.Designer
         {
             //Messenger.Default.Register<Shp>(this, OnShpReceived);
         }
-        public virtual void OnShpReceived(Shp shp)
-        {
-            var i = shp.Id;
-        }
+        //public virtual void OnShpReceived(Shp shp)
+        //{
+        //    var i = shp.Id;
+        //}
     }
 }

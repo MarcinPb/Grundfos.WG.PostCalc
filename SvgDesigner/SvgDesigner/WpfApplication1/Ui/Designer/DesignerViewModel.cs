@@ -92,7 +92,7 @@ namespace WpfApplication1.Ui.Designer
             var yFactor = svgHeight / (pointBottomRight.Y - pointTopLeft.Y);
 
 
-            var pipeList = MainRepo.GetPipeList2();
+            var pipeList = MainRepo.GetPipeList();
             pipeList.ForEach(t => t.Geometry.ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
             var linkMyList = pipeList.Select(o => new LinkMy
             {
@@ -110,24 +110,24 @@ namespace WpfApplication1.Ui.Designer
 
             //var junctionList = MainRepo.GetJunctionRecalcList(2000, 1000);
             var junctionList = MainRepo.GetJunctionList();
-            junctionList.ForEach(p => { p.Center.X = (p.Center.X - pointTopLeft.X) * xFactor + margin; p.Center.Y = (pointBottomRight.Y - p.Center.Y) * yFactor + margin; });
+            junctionList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
             var objMyList = junctionList.Select(j => new ObjMy
             {
                 Id = j.ID,
-                X = j.Center.X - dotR,
-                Y = j.Center.Y - dotR,
+                X = j.Geometry[0].X - dotR,
+                Y = j.Geometry[0].Y - dotR,
                 Width = 2 * dotR,
                 Height = 2 * dotR,
                 TypeId = 2
             });
 
             var customerNodeList = MainRepo.GetCustomerNodeList();
-            customerNodeList.ForEach(p => { p.Center.X = (p.Center.X - pointTopLeft.X) * xFactor + margin; p.Center.Y = (pointBottomRight.Y - p.Center.Y) * yFactor + margin; });
+            customerNodeList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
             var cnShpList = customerNodeList.Select(j => new CnShp
             {
                 Id = j.ID,
-                X = j.Center.X - dotR,
-                Y = j.Center.Y - dotR,
+                X = j.Geometry[0].X - dotR,
+                Y = j.Geometry[0].Y - dotR,
                 Width = 2 * dotR,
                 Height = 2 * dotR,
                 TypeId = 7

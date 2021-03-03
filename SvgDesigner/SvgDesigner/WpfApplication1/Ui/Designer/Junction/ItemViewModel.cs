@@ -41,7 +41,7 @@ namespace WpfApplication1.Ui.Designer.Junction
 
         public ItemViewModel(int id)
         {
-            var model = MainRepo.GetJunctionList2().FirstOrDefault(x => x.ID == id);
+            var model = MainRepo.GetJunctionList().FirstOrDefault(x => x.ID == id);
             Id = model.ID;
             Name = model.Label;
             X = (double)model?.Geometry[0].X;

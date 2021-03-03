@@ -41,7 +41,7 @@ namespace WpfApplication1.Ui.Designer.CustomerNode
 
         public ItemViewModel(int id)
         {
-            var model = MainRepo.GetCustomerNodeList2().FirstOrDefault(x => x.ID == id);
+            var model = MainRepo.GetCustomerNodeList().FirstOrDefault(x => x.ID == id);
             Id = model.ID;
             Name = model.Label;
             X = (double)model?.Geometry[0].X;
