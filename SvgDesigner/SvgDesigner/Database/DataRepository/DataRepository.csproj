@@ -61,7 +61,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlScript\2021-03-05_14-38.sql" />
+    <Content Include="SqlScript\WaterInfra_2.sql" />
+    <Content Include="SqlScript\WaterInfra_3.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
