@@ -18,6 +18,8 @@
         IsolationValve = 71,
         VariableSpeedPumpBattery = 72,
         CustomerNode = 73,
+        
+        
         GenericDomainElement = 303,
     }
 }

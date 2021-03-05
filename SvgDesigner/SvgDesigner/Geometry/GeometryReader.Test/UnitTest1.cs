@@ -28,7 +28,7 @@ namespace GeometryReader.Test
 
 
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream(@"K:\temp\sandbox\Nowy model testowy\MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, domainObjects);
             stream.Close();
 
@@ -69,6 +69,7 @@ namespace GeometryReader.Test
         private static List<DomainObjectData> GetWgObjects(DomainDataSetProxy dataSetProvider)
         {
             //log.Info("Reading WaterGEMS objects.");
+
             var pipeReader = new PipeReader(dataSetProvider);
             var pipes = pipeReader.ReadObjects(new List<string>());
 
@@ -111,7 +112,8 @@ namespace GeometryReader.Test
             var custReader = new CustomerMeterReader(dataSetProvider);
             var cust = custReader.ReadObjects(new List<string>());
 
-            var allObjects = pipes
+            var allObjects = 
+                 pipes
                 .Union(junctions)
                 .Union(hydrants)
                 .Union(reservoirs)
@@ -125,6 +127,7 @@ namespace GeometryReader.Test
                 .Union(fcvs)
                 .Union(gpvs)
                 .Union(cust)
+
                 .ToList();
             //log.Info("{0} WaterGEMS objects were read.", allObjects.Count);
             return allObjects;

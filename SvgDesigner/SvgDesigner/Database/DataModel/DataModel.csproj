@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InfraConnection.cs" />
+    <Compile Include="InfraNodeFieldValue.cs" />
+    <Compile Include="InfraNodeField2.cs" />
+    <Compile Include="InfraNodeField.cs" />
+    <Compile Include="InfraNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
