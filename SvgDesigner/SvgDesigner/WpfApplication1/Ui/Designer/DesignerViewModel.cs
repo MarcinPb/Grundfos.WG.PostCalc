@@ -143,14 +143,14 @@ namespace WpfApplication1.Ui.Designer
         #region Waste
         private readonly ObservableCollection<Shp> _objTempList = new ObservableCollection<Shp>()
         {
-            //new ObjMy() {Id=1, X=10,  Y=30,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=2, X=70,  Y=40,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=3, X=20,  Y=80,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=4, X=80,  Y=100, Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=5, X=110, Y=30,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=6, X=170, Y=40,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=7, X=120, Y=80,  Width=15,  Height=15, TypeId=2 },
-            //new ObjMy() {Id=8, X=180, Y=100, Width=15,  Height=15, TypeId=2 },
+            //new ObjMy() {Id=1, X=10,  Y=30,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=2, X=70,  Y=40,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=3, X=20,  Y=80,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=4, X=80,  Y=100, Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=5, X=110, Y=30,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=6, X=170, Y=40,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=7, X=120, Y=80,  Width=15,  Height=15, ConnTypeId=2 },
+            //new ObjMy() {Id=8, X=180, Y=100, Width=15,  Height=15, ConnTypeId=2 },
 
             new ObjMy() {Id=1, TypeId=2, X=150,  Y=50,   Width=15,  Height=15 },
             new ObjMy() {Id=2, TypeId=2, X=100,  Y=150,  Width=15,  Height=15 },

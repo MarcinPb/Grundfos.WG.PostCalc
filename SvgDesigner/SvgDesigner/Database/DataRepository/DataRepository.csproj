@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="SqlScript\WaterInfra_2.sql" />
     <Content Include="SqlScript\WaterInfra_3.sql" />
+    <Content Include="SqlScript\WaterInfra_4.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Database.DataModel
 {
-    public class InfraConnection
+    public class InfraConn
     {
-        public int ParentNodeId { get; set; }
-        public int ChildNodeId { get; set; }
-        public int? TypeId { get; set; }
+        public int ParentObjId { get; set; }
+        public int ChildObjId { get; set; }
+        public int? ConnTypeId { get; set; }
 
     }
 }

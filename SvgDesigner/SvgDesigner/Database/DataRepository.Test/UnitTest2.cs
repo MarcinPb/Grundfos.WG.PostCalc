@@ -18,7 +18,7 @@ namespace Database.DataRepository.Test
         [TestMethod]
         public void TestMethod2()
         {
-            List<InfraNodeField2> list = MainRepo.GetInfraFieldList();
+            List<InfraField> list = MainRepo.GetInfraFieldList();
         }
     }
 }

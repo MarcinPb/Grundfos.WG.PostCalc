@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Database.DataModel
 {
-    public class InfraNodeField2
+    public class InfraObj
     {
-        public int NodeFieldId { get; set; }
-        public int NodeTypeId { get; set; }
+        public int ObjId { get; set; }
+        public int ObjTypeId { get; set; }
         public string Name { get; set; }
-        public int DataTypeId { get; set; }
         public string Description { get; set; }
+        public bool IsActive { get; set; }
+        public double Xx { get; set; }
+        public double Yy { get; set; }
 
     }
 }

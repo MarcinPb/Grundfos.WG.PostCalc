@@ -78,11 +78,11 @@ namespace Database.DataRepository
         {
             var list = GetPipeList().Where(x => (int)x.Fields["HMITopologyStartNodeID"] == (int)x.Fields["HMITopologyStopNodeID"]).ToList();
 
-            //var list = GetCustomerNodeList().Select(x => new InfraNode() 
-            var infraObjectList = GetDomainObjectDataList().Select(x => new InfraNode() 
+            //var list = GetCustomerNodeList().Select(x => new InfraObj() 
+            var infraObjectList = GetDomainObjectDataList().Select(x => new InfraObj() 
             { 
-                NodeId = x.ID,
-                NodeTypeId = (int)x.ObjectType,
+                ObjId = x.ID,
+                ObjTypeId = (int)x.ObjectType,
                 Name = x.Label,
                 Description = "",
                 IsActive = x.IsActive,
@@ -95,14 +95,14 @@ namespace Database.DataRepository
             var infraConnectionCustomerNodeList = GetCustomerNodeList()
                 .Select(x => new  
                     {
-                        ParentNodeId = GetJunctionList().FirstOrDefault(j => j.Label==(string)x.Fields["Demand_AssociatedElement"])?.ID,
-                        ChildNodeId = x.ID,
+                        ParentObjId = GetJunctionList().FirstOrDefault(j => j.Label==(string)x.Fields["Demand_AssociatedElement"])?.ID,
+                        ChildObjId = x.ID,
                     })
-                .Where(y => y.ParentNodeId!=null)
-                .Select(z => new InfraConnection 
+                .Where(y => y.ParentObjId!=null)
+                .Select(z => new InfraConn 
                     {
-                        ParentNodeId = (int)z.ParentNodeId,
-                        ChildNodeId = z.ChildNodeId
+                        ParentObjId = (int)z.ParentObjId,
+                        ChildObjId = z.ChildObjId
                     })
                 //.ToList()
                 ;
@@ -110,15 +110,15 @@ namespace Database.DataRepository
             var infraConnectionPipeStartList = GetPipeList()
                 .Select(x => new  
                     {
-                        ParentNodeId = (int?)x.Fields["HMITopologyStartNodeID"],
-                        ChildNodeId = x.ID,
+                        ParentObjId = (int?)x.Fields["HMITopologyStartNodeID"],
+                        ChildObjId = x.ID,
                     })
-                .Where(y => y.ParentNodeId!=null)
-                .Select(z => new InfraConnection 
+                .Where(y => y.ParentObjId!=null)
+                .Select(z => new InfraConn 
                     {
-                        ParentNodeId = (int)z.ParentNodeId,
-                        ChildNodeId = z.ChildNodeId,
-                        TypeId = 1,
+                        ParentObjId = (int)z.ParentObjId,
+                        ChildObjId = z.ChildObjId,
+                        ConnTypeId = 1,
                     })
                 //.ToList()
                 ;
@@ -126,61 +126,54 @@ namespace Database.DataRepository
             var infraConnectionPipeStopList = GetPipeList()
                 .Select(x => new  
                     {
-                        ParentNodeId = (int?)x.Fields["HMITopologyStopNodeID"],
-                        ChildNodeId = x.ID,
+                        ParentObjId = (int?)x.Fields["HMITopologyStopNodeID"],
+                        ChildObjId = x.ID,
                     })
-                .Where(y => y.ParentNodeId!=null)
-                .Select(z => new InfraConnection 
+                .Where(y => y.ParentObjId!=null)
+                .Select(z => new InfraConn 
                     {
-                        ParentNodeId = (int)z.ParentNodeId,
-                        ChildNodeId = z.ChildNodeId,
-                        TypeId = 2,
+                        ParentObjId = (int)z.ParentObjId,
+                        ChildObjId = z.ChildObjId,
+                        ConnTypeId = 2,
                     })
-                .ToList()
+                //.ToList()
                 ;
 
             var infraConnectionList = infraConnectionCustomerNodeList                
                 .Union(infraConnectionPipeStartList)
                 .Union(infraConnectionPipeStopList)
-                .Where(x => domainObjectDataList.Any(y => x.ChildNodeId==y.ID) && domainObjectDataList.Any(y => x.ParentNodeId==y.ID))
+                .Where(x => domainObjectDataList.Any(y => x.ChildObjId==y.ID) && domainObjectDataList.Any(y => x.ParentObjId==y.ID))
                 .ToList();
 
-            List<InfraNodeField2> infraFieldList = MainRepo.GetInfraFieldList();
+            List<InfraField> infraFieldList = MainRepo.GetInfraFieldList();
 
             var infraObjectFieldList = infraObjectList
                 .Join(
                     domainObjectDataList,
-                    l => l.NodeId,
+                    l => l.ObjId,
                     r => r.ID,
-                    (l, r) => new { l.NodeId, l.NodeTypeId, r.Fields }
+                    (l, r) => new { l.ObjId, l.ObjTypeId, r.Fields }
                 )
-                .SelectMany(x => x.Fields, (x, lst) => new InfraNodeField { 
-                    NodeId = x.NodeId, 
-                    NodeTypeId = x.NodeTypeId, 
+                .SelectMany(x => x.Fields, (x, lst) => new { 
+                    ObjId = x.ObjId, 
+                    ObjTypeId = x.ObjTypeId, 
                     FieldName = lst.Key, 
                     FieldValue = lst.Value 
                 })
                 .Join(
                     infraFieldList,
-                    l => l.NodeTypeId.ToString() + l.FieldName,
-                    r => r.NodeTypeId.ToString() + r.Name,
-                    (l, r) => new InfraNodeFieldValue { 
-                        NodeFieldId = r.NodeFieldId, 
-                        NodeId = l.NodeId, 
+                    l => l.ObjTypeId.ToString() + l.FieldName,
+                    r => r.ObjTypeId.ToString() + r.Name,
+                    (l, r) => new InfraValue { 
+                        FieldId = r.FieldId, 
+                        ObjId = l.ObjId, 
                         FloatValue = r.DataTypeId==1 ? (double?)Convert.ToDouble(l.FieldValue) : null,
                         StringValue = r.DataTypeId==2 ? (string)l.FieldValue : null,
                     }
                 )
                 .ToList();
 
-            //var infraObjectFieldValueList = new List<InfraNodeFieldValue>();
-
             WriteSet(infraObjectList, infraConnectionList, infraObjectFieldList);
-
-            /*
-            int resourceId;
-            */
-
         }
 
 
@@ -188,49 +181,49 @@ namespace Database.DataRepository
 
 
 
-        private static void WriteSet(List<InfraNode> infraObjectList, List<InfraConnection> infraConnectionList, List<InfraNodeFieldValue> infraObjectFieldValueList)
+        private static void WriteSet(List<InfraObj> infraObjectList, List<InfraConn> infraConnectionList, List<InfraValue> infraObjectFieldValueList)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
                 string sql;
 
                 sql = $@"
-                    INSERT INTO dbo.tbInfraNode (
-                        NodeId,  NodeTypeId,  Name,  Description,  IsActive,  Xx,  Yy
+                    INSERT INTO dbo.tbInfraObj (
+                        ObjId,  ObjTypeId,  Name,  Description,  IsActive,  Xx,  Yy
                     ) VALUES (
-                        @NodeId, @NodeTypeId, @Name, @Description, @IsActive, @Xx, @Yy
+                        @ObjId, @ObjTypeId, @Name, @Description, @IsActive, @Xx, @Yy
                     )
                 ";
                 cnn.Execute(sql, infraObjectList);
 
                 sql = $@"
-                    INSERT INTO dbo.tbInfraConnection (
-                        ParentNodeId,  ChildNodeId, TypeId
+                    INSERT INTO dbo.tbInfraConn (
+                        ParentObjId,  ChildObjId, ConnTypeId
                     ) VALUES (
-                        @ParentNodeId, @ChildNodeId, @TypeId
+                        @ParentObjId, @ChildObjId, @ConnTypeId
                     )
                 ";
                 cnn.Execute(sql, infraConnectionList);
 
                 sql = $@"
-                    INSERT INTO dbo.tbInfraNodeFielddValue (
-                        NodeFieldId,  NodeId, FloatValue, StringValue
+                    INSERT INTO dbo.tbInfraValue (
+                        FieldId,  ObjId, FloatValue, StringValue
                     ) VALUES (
-                        @NodeFieldId, @NodeId, @FloatValue, @StringValue
+                        @FieldId, @ObjId, @FloatValue, @StringValue
                     )
                 ";
                 cnn.Execute(sql, infraObjectFieldValueList);
 
             }
         }
-        public static List<InfraNodeField2> GetInfraFieldList()
+        public static List<InfraField> GetInfraFieldList()
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
                 string sql;
 
-                sql = $@"SELECT * FROM dbo.tbInfraNodeField;";
-                var list = cnn.Query<InfraNodeField2>(sql);
+                sql = $@"SELECT * FROM dbo.tbInfraField;";
+                var list = cnn.Query<InfraField>(sql);
                 return list.ToList();
             }
         }

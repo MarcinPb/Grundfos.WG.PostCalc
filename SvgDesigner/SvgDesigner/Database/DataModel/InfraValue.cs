@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Database.DataModel
 {
-    public class InfraNodeFieldValue
+    public class InfraValue
     {
-        public int NodeFieldId { get; set; }
-        public int NodeId { get; set; }
+        public int FieldId { get; set; }
+        public int ObjId { get; set; }
         public double? FloatValue { get; set; }
         public string StringValue { get; set; }
 
