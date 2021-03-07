@@ -177,10 +177,6 @@ namespace Database.DataRepository
         }
 
 
-
-
-
-
         private static void WriteSet(List<InfraObj> infraObjectList, List<InfraConn> infraConnectionList, List<InfraValue> infraObjectFieldValueList)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))

@@ -81,7 +81,7 @@ namespace WpfApplication1.Ui.Designer
             double svgHeight = 800;
             double margin = 20;
 
-            double dotR = 0.5;
+            double dotR = 0.2;
 
             CanvasWidth = svgWidth + 2 * margin;
             CanvasHeight = svgHeight + 2 * margin;
@@ -90,6 +90,8 @@ namespace WpfApplication1.Ui.Designer
             var pointBottomRight = MainRepo.GetPointBottomRight();
             var xFactor = svgWidth / (pointBottomRight.X - pointTopLeft.X);
             var yFactor = svgHeight / (pointBottomRight.Y - pointTopLeft.Y);
+
+
 
 
             var pipeList = MainRepo.GetPipeList();
@@ -108,12 +110,13 @@ namespace WpfApplication1.Ui.Designer
                 TypeId = 6,
             });
 
-            //var junctionList = MainRepo.GetJunctionRecalcList(2000, 1000);
             var junctionList = MainRepo.GetJunctionList();
-            junctionList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
+            //junctionList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
+            junctionList.ForEach(t => t.Geometry.ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
             var objMyList = junctionList.Select(j => new ObjMy
             {
                 Id = j.ID,
+                Name = j.Label,
                 X = j.Geometry[0].X - dotR,
                 Y = j.Geometry[0].Y - dotR,
                 Width = 2 * dotR,
@@ -122,22 +125,57 @@ namespace WpfApplication1.Ui.Designer
             });
 
             var customerNodeList = MainRepo.GetCustomerNodeList();
-            customerNodeList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
-            var cnShpList = customerNodeList.Select(j => new CnShp
+            //customerNodeList.ForEach(p => { p.Geometry[0].X = (p.Geometry[0].X - pointTopLeft.X) * xFactor + margin; p.Geometry[0].Y = (pointBottomRight.Y - p.Geometry[0].Y) * yFactor + margin; });
+            customerNodeList.ForEach(t => t.Geometry.ForEach(p => { p.X = (p.X - pointTopLeft.X) * xFactor + margin; p.Y = (pointBottomRight.Y - p.Y) * yFactor + margin; }));
+            var cnShpList = customerNodeList.Select(p => new CnShp
             {
-                Id = j.ID,
-                X = j.Geometry[0].X - dotR,
-                Y = j.Geometry[0].Y - dotR,
+                Id = p.ID,
+                X = p.Geometry[0].X - dotR,
+                Y = p.Geometry[0].Y - dotR,
                 Width = 2 * dotR,
                 Height = 2 * dotR,
+
+                //X1 = 0,
+                //Y1 = 0,
+                //X2 = objMyList.FirstOrDefault(x => x.Name == (string)p.Fields["Demand_AssociatedElement"]).X - (p.Geometry[0].X - 2*dotR),
+                //Y2 = objMyList.FirstOrDefault(x => x.Name == (string)p.Fields["Demand_AssociatedElement"]).Y - (p.Geometry[0].Y - 2*dotR),
+
                 TypeId = 7
+            }); ;
+
+
+            var custNodeLineList = customerNodeList.Select(p => new CnLineShp
+            {
+                //Id = o.ID,
+                //Name = o.Label,
+                X = p.Geometry[0].X,
+                Y = p.Geometry[0].Y,
+
+                //X2 = o.Geometry.Last().X - o.Geometry[0].X,
+                //Y2 = o.Geometry.Last().Y - o.Geometry[0].Y,
+                X2 = junctionList.FirstOrDefault(x => x.Label == (string)p.Fields["Demand_AssociatedElement"]).Geometry[0].X - p.Geometry[0].X,
+                Y2 = junctionList.FirstOrDefault(x => x.Label == (string)p.Fields["Demand_AssociatedElement"]).Geometry[0].Y - p.Geometry[0].Y,
+
+                Path = new List<Point2D>(),
+                TypeId = 0,
             });
 
+
+
+
             ObjList = new ObservableCollection<Shp>(
-                linkMyList.Select(l => (Shp)l)
+                custNodeLineList.Select(cl => (Shp)cl)
+                    .Union(linkMyList.Select(l => (Shp)l))
                     .Union(objMyList.Select(o => (Shp)o))
                     .Union(cnShpList.Select(c => (Shp)c))
                 );
+        }
+
+        private int GetIdBasedOnField(DomainObjectData obj) 
+        {
+            var junctionName = (string)obj.Fields["Demand_AssociatedElement"];
+
+            return 1;
         }
 
         #region Waste
