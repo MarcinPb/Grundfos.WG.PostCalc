@@ -26,27 +26,64 @@ namespace GeometryReader.Test
                 domainObjects = GetWgObjects(dataSetProvider);
             }
 
+            //var idahoDomainDataSet = (IdahoDomainDataSet)this.DomainDataSet;
+            //var zones = idahoDomainDataSet.ZoneElementManager.Elements().Cast<Haestad.Domain.ModelingObjects.ModelingElementBase>().ToDictionary(x => x.Id, x => x);
 
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(@"K:\temp\sandbox\Nowy model testowy\MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, domainObjects);
             stream.Close();
 
-            //string serialized = Serialize(domainObjects[0]);
-
-            //var domainObjectDataSerialized = MapToserialized(domainObjects[0]);
-
-            //StringBuilder output = new StringBuilder();
-            //var writer = new StringWriter(output);
-            //XmlSerializer serializer = new XmlSerializer(typeof(DomainObjectDataSerialized));
-            //serializer.Serialize(writer, domainObjectDataSerialized);
-            //var str = output.ToString();
-
-
-            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
-                .GroupBy(x => x.ObjectType)
-                .ToDictionary(x => x.Key, x => x.ToList());
+            //Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+            //    .GroupBy(x => x.ObjectType)
+            //    .ToDictionary(x => x.Key, x => x.ToList());
         }
+
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Dictionary<int, string> zoneDict;
+            Dictionary<int, string> objTypeDict;
+            List<DomainObjectData> domainObjects;
+            using (var dataSetProvider = new DomainDataSetProxy(@"K:\temp\sandbox\Nowy model testowy\testOPC.wtg.sqlite"))
+            //using (var dataSetProvider = new DomainDataSetProxy(@"K:\temp\sandbox\Nowy model testowy\_archiw\2019-11-19\testOPC.wtg.sqlite"))
+            {
+                var reader = new GenericObjectReader(dataSetProvider);
+
+                zoneDict = reader.ReadZoneList();
+                objTypeDict = reader.ReadOjectTypeList();
+                domainObjects = GetWgObjects(dataSetProvider);
+            }
+            WaterGemsData waterGemsData = new WaterGemsData()
+            {
+                ObjTypeDict = objTypeDict,
+                ZoneDict = zoneDict,
+                DomainObjectDataList = domainObjects,
+            };
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"K:\temp\sandbox\Nowy model testowy\WgData.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, waterGemsData);
+            stream.Close();
+
+            //Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects
+            //    .GroupBy(x => x.ObjectType)
+            //    .ToDictionary(x => x.Key, x => x.ToList());
+        }
+        private static Dictionary<int, string> GetWgZoneDict(DomainDataSetProxy dataSetProvider)
+        {
+            var reader = new GenericObjectReader(dataSetProvider);
+            return reader.ReadZoneList();
+        }
+
+        private static Dictionary<int, string> GetWgObjTypeDict(DomainDataSetProxy dataSetProvider)
+        {
+            var reader = new GenericObjectReader(dataSetProvider);
+            return reader.ReadOjectTypeList();
+        }
+
+
 
         [TestMethod]
         public void TestMethod2()
@@ -61,7 +98,18 @@ namespace GeometryReader.Test
                 .ToDictionary(x => x.Key, x => x.ToList());
         }
 
+        [TestMethod]
+        public void TestMethod4()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(@"K:\temp\sandbox\Nowy model testowy\WgData.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            WaterGemsData domainObjects = (WaterGemsData)formatter.Deserialize(stream);
+            stream.Close();
 
+            Dictionary<ObjectTypes, List<DomainObjectData>> domainGrouppedObjects = domainObjects.DomainObjectDataList
+                .GroupBy(x => x.ObjectType)
+                .ToDictionary(x => x.Key, x => x.ToList());
+        }
 
 
 

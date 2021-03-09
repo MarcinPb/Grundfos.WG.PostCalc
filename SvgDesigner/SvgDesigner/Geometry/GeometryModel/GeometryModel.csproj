@@ -73,6 +73,7 @@
     <Compile Include="Tank.cs" />
     <Compile Include="Tcv.cs" />
     <Compile Include="UnitVector2D.cs" />
+    <Compile Include="WaterGemsData.cs" />
     <Compile Include="WgAttributes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

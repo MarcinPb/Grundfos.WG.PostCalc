@@ -20,6 +20,10 @@ namespace GeometryReader.ObjectReaders
             this.provider = provider;
             this.ObjectType = objectType;
         }
+        public GenericObjectReader(DomainDataSetProxy provider)
+        {
+            this.provider = provider;
+        }
 
         public event EventHandler<ProgressEventArgs> ProgressChanged;
 
@@ -33,8 +37,27 @@ namespace GeometryReader.ObjectReaders
             }
         }
 
+
+        public Dictionary<int, string> ReadZoneList()
+        {
+            var idahoDomainDataSet = (IdahoDomainDataSet)this.DomainDataSet;
+            var zones = idahoDomainDataSet.ZoneElementManager.Elements().Cast<Haestad.Domain.ModelingObjects.ModelingElementBase>().ToDictionary(x => x.Id, x => x.Label);
+
+            return zones;
+        }
+
+        public Dictionary<int, string> ReadOjectTypeList()
+        {
+            return this.DomainDataSet.DomainDataSetType().DomainElementTypes().Cast<IDomainElementType>().ToDictionary(x => x.Id, x => x.Label); 
+        }
+
         public virtual IList<DomainObjectData> ReadObjects(IList<string> fields)
         {
+            //var list1 = this.DomainDataSet.DomainElementTypeIDs();
+            //var list2 = this.DomainDataSet.DomainDataSetType().DomainElementTypes().Cast<IDomainElementType>().ToDictionary(x => x.Id, x => x.Label);
+            //var list3 = this.DomainDataSet.DomainDataSetType().SupportElementTypes().SyncRoot;
+
+
             var manager = this.DomainDataSet.DomainElementManager((int)this.ObjectType);
             var supportedFields = manager.SupportedFields().Cast<IField>().ToDictionary(x => x.Name, x => x);
             var labelField = supportedFields[FieldNames.Label];
