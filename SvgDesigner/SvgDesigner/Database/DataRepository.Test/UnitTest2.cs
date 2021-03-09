@@ -12,7 +12,7 @@ namespace Database.DataRepository.Test
         [TestMethod]
         public void TestMethod1()
         {
-            MainRepo.SaveInfra();
+            MainRepo.ImportInfraToDatabase();
         }
 
         [TestMethod]

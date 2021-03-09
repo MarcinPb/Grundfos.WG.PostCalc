@@ -74,7 +74,7 @@ namespace Database.DataRepository
         }
 
 
-        public static void SaveInfra()
+        public static void ImportInfraToDatabase()
         {
             var list = GetPipeList().Where(x => (int)x.Fields["HMITopologyStartNodeID"] == (int)x.Fields["HMITopologyStopNodeID"]).ToList();
 
@@ -184,11 +184,16 @@ namespace Database.DataRepository
                 string sql;
 
                 sql = $@"
+                    DELETE FROM dbo.tbInfraObj;
+                ";
+                cnn.Execute(sql, infraObjectList);
+
+                sql = $@"
                     INSERT INTO dbo.tbInfraObj (
                         ObjId,  ObjTypeId,  Name,  Description,  IsActive,  Xx,  Yy
                     ) VALUES (
                         @ObjId, @ObjTypeId, @Name, @Description, @IsActive, @Xx, @Yy
-                    )
+                    );
                 ";
                 cnn.Execute(sql, infraObjectList);
 
